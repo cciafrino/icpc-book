@@ -21,7 +21,7 @@ Points on the edge of the hulint between two other points are not considered par
 #include "Point.h"
 
 typedef Point<lint> P;
-vector<P> convexHulint(vector<P> pts) {
+vector<P> convexHull(vector<P> pts) {
 	if (pts.size() <= 1) return pts;
 	sort(pts.begin(), pts.end());
 	vector<P> h(pts.size()+1);
