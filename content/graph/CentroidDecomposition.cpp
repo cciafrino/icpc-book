@@ -8,7 +8,7 @@ struct centroid_t {
     vector<bool> mark;
     vector<int> subtree, level, par_tree, closest;
     vector<vector<int>> edges, dist, parent;
-    CD(vector<vector<int>> &e, int n) : mark(n, 0), subtree(n), level(n), par_tree(n), closest(n, INT_MAX/2), dist(n, vector<int>(20)), parent(n, vector<int>(20)) { edges = e; build(0, -1); update(0); }
+    centroid_t(vector<vector<int>> &e, int n) : mark(n, 0), subtree(n), level(n), par_tree(n), closest(n, INT_MAX/2), dist(n, vector<int>(20)), parent(n, vector<int>(20)) { edges = e; build(0, -1); update(0); }
     void dfs(int v, int par, int parc, int lvl) {
         subtree[v] = 1;
         parent[v][lvl] = parc;
