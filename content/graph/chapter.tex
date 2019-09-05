@@ -1,0 +1,162 @@
+\chapter{Graph}
+
+\section{Fundamentals}
+	\kactlimport{BellmanFord.h}
+	\kactlimport{FloydWarshall.h}
+	\kactlimport{TopoSort.h}
+    \kactlimport{CutVertices.h}
+    \kactlimport{Bridges.h}
+    \kactlimport{Dijkstra.cpp}
+    \kactlimport{Prim.h}
+    \kactlimport{Kruskal.h}
+    \newline
+    \newline
+    
+    \subsection{Landau}
+            Existe um torneio com graus de saída~$d_1 \leq d_2 \leq \ldots \leq d_n$ sse:
+            \begin{itemize}
+            \item $d_1 + d_2 + \ldots + d_n = {n \choose 2}$
+            \item $d_1 + d_2 + \ldots + d_k \geq {k \choose 2} \quad \forall 1 \leq k \leq n.$
+            \end{itemize}
+            Para construir, fazemos~1 apontar para~$2, 3, \ldots, d_1 + 1$ e seguimos recursivamente.
+ 
+    \subsection{Matroid Intersection Theorem}
+        Sejam~$M_1 = (E, I_1)$ e~$M_2 = (E, I_2)$ matróides. Então
+        $ \max\limits_{S \in I_1 \cap I_2}{|S|} = \min\limits_{U \subseteq E}{r_1(U) + r_2(E \setminus U)}. $
+
+    \subsection{Vizing's Thereom}
+        Dado um grafo~$G$, seja~$\delta$ o maior grau de um vértice. Então~$G$ tem número cromático de aresta~$\delta$ ou~$\delta + 1$.
+        \begin{itemize}
+        \item $\chi(G) = \delta $ ou $\chi(G) = \delta + 1$.
+        \end{itemize}	
+       
+    \subsection{Euler's Theorem}
+    Sendo~$V$,~$A$ e~$F$ as quantidades de vértices, arestas e faces de um grafo planar conexo,
+    $ V - A + F = 2 $.
+
+    \subsection{Menger's Theorem}
+    \item Para vértices:
+    Um grafo é k-conexo sse todo par de vértices é conectado por pelo menos k caminhos sem vértices intermediários em comum.
+    \item Para arestas:
+    Um grafo é dito~$k$ -aresta-conexo se a retirada de menos de~$k$ arestas do grafo o mantém conexo. Então um grafo é~$k$ -aresta-conexo sse para todo par de vértices~$u$ e~$v$, existem~$k$ caminhos que ligam~$u$ a~$v$ sem arestas em comum.
+
+
+
+    \subsection{Dilworth's Thereom}
+    Em todo conjunto parcialmente ordenado, a quantidade máxima de elementos de uma anticadeia é igual à  quatidade mínima de cadeias disjuntas que cobrem o conjunto.	
+   
+    \subsection{Erdös-Gallai Theorem}
+            Existe um grafo simples com graus~$d_1 \geq d_2 \geq \ldots \geq d_n$ sse:
+            \begin{itemize}
+            \item $d_1 + d_2 + \ldots + d_n$ é par
+            \item $\sum\limits_{i = 1}^k{d_i} \leq k(k-1) + \sum\limits_{i=k+1}^n{\min(d_i, k)} \quad \forall 1 \leq k \leq n$.
+            \end{itemize}
+            Para construir, ligamos~1 com~$2, 3, \ldots, d_1 + 1$ e seguimos recursivamente.
+       
+        \subsection{Hall's Marriage Theorem}
+        Dado um grafo bipartido com classes~$V_1$ e~$V_2$, para~$S$~$\subset$~$V_1$ seja~$N(S)$ o conjunto de todos os vértices vizinhos a algum elemento de~$S$. Um           emparelhamento de~$V_1$ em~$V_2$ é um conjunto de arestas disjuntas cujas extremidades estão em classes diferentes. Então existe um emparelhamento completo de~$V_1$ em~$V_2$   sse $|N(S)| \geq |S|$ \forall $ S \subset V_1 $.
+    
+    \subsection{Maximum Density Subgraph}
+Given (weighted) undirected graph $G$. Binary search density. If $g$ is
+current density, construct flow network: $(S, u, m)$, $(u, T,
+m+2g-d_u)$, $(u,v,1)$, where $m$ is a large constant (larger than sum
+of edge weights). Run floating-point max-flow. If minimum cut has empty
+$S$-component, then maximum density is smaller than $g$, otherwise it's
+larger. Distance between valid densities is at least $1/(n(n-1))$. Edge
+case when density is $0$. This also works for weighted graphs by
+replacing $d_u$ by the weighted degree, and doing more iterations (if
+weights are not integers).\newline
+
+\subsection{Maximum-Weight Closure}
+Given a vertex-weighted directed graph $G$. Turn the graph into a flow
+network, adding weight $\infty$ to each edge. Add vertices $S,T$. For
+each vertex $v$ of weight $w$, add edge $(S,v,w)$ if $w\geq 0$, or edge
+$(v,T,-w)$ if $w<0$. Sum of positive weights minus minimum $S-T$ cut is
+the answer. Vertices reachable from $S$ are in the closure. The
+maximum-weight closure is the same as the complement of the
+minimum-weight closure on the graph with edges reversed.\newline
+\subsection{Maximum Weighted Independent Set in a Bipartite Graph}
+This is the same as the minimum weighted vertex cover. Solve this by
+constructing a flow network with edges $(S,u,w(u))$ for $u\in L$,
+$(v,T,w(v))$ for $v\in R$ and $(u,v,\infty)$ for $(u,v)\in E$. The
+minimum $S,T$-cut is the answer. Vertices adjacent to a cut edge are
+in the vertex cover.\newline
+\subsection{Synchronizing word problem}
+A DFA has a synchronizing word (an input sequence that moves all states
+to the same state) iff.\ each pair of states has a synchronizing word.
+That can be checked using reverse DFS over pairs of states. Finding the
+shortest synchronizing word is NP-complete.\newline
+
+\subsection{Eulerian Cycles}
+The number of Eulerian cycles in a \emph{directed} graph $G$ is:
+		\begin{equation*}
+			t_w(G) \prod_{v \in G} (\deg v - 1)!,
+		\end{equation*}\\
+		where $t_w(G)$ is the number of arborescences (``directed spanning'' tree) rooted at $w$: $t_w(G) = \det\left( q_{ij} \right)_{i,j \neq w}$, with $q_{ij} = [i=j] \mathrm{indeg}(i) - \# \set{(i,j) \in E}$.\newline
+	
+\subsection{Useful facts}
+The number of vertices of a graph is equal to its minimum vertex cover number plus the size of a maximum independent set.\\
+
+\section{Euler walk}
+	\kactlimport{EulerWalk.h}
+
+\section{Network flow}
+	\kactlimport{PushRelabel.h}
+	\kactlimport{MaxFlow.h}
+	\kactlimport{MinCostMaxFlow.h}
+	\kactlimport{Dinic.h}
+	\kactlimport{EdmondsKarp.h}
+	\kactlimport{MinCut.h}
+	\kactlimport{StoerWagner.h}
+    \newline    
+    \subsection{König-Egervary Theorem}
+    Em todo grafo bipartido~$G$, a quantidade de arestas no emparelhamento máximo é maior ou igual à quantidade de vértices na cobertura mínima. Ou seja, para todo~$G$,~$\alpha(G) \geq \beta(G)$. Note que isso prova que~$\alpha(G) = \beta(G)$ para grafos bipartidos. 
+    
+  
+\section{Matching}
+	\kactlimport{HopcroftKarp.h}
+	\kactlimport{DFSMatching.h}
+    \kactlimport{WeightedMatching.h}
+	\kactlimport{GeneralMatching.h}
+	\kactlimport{MinimumVertexCover.h}
+	\kactlimport{Koenig.cpp}
+	\kactlimport{Hungarian.h}
+	
+
+\section{DFS algorithms}
+    \kactlimport{CentroidDecomposition.cpp}
+	\kactlimport{Tarjan.h}
+	\kactlimport{Kosaraju.h}
+	\kactlimport{BiconnectedComponents.h}
+	\kactlimport{2sat.h}
+	\kactlimport{Cycles.h}
+
+\section{Heuristics}
+	\kactlimport{MaximalCliques.h}
+	\kactlimport{Graph-Clique.cpp}
+	\kactlimport{Cycle-Counting.cpp}
+
+\section{Trees}
+    \kactlimport{Tree.h}
+	\kactlimport{TreePower.h}
+	\kactlimport{LCA.cpp}
+	\kactlimport{CompressTree.h}
+    \kactlimport{HLD.h}
+    \kactlimport{TreeIsomorphism.h}
+	%\kactlimport{LinkCutTree.h}
+	\kactlimport{MatrixTree.h}
+    %\columnbreak
+    
+\section{Functional Graphs}
+    \kactlimport{Lumberjack.h}
+    \kactlimport{Lumberjack2.h}
+
+
+\section{Other}
+    \kactlimport{SteinerTree.h}
+    \kactlimport{Pruefer.cpp}    
+    \kactlimport{ErdosGallai.h}
+    \kactlimport{MisraGries.h}
+	\kactlimport{Directed-MST.cpp}
+	\kactlimport{Graph-Dominator-Tree.cpp}
+	\kactlimport{Graph-Negative-Cycle.cpp}

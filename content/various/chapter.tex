@@ -1,0 +1,82 @@
+\chapter{Various}
+
+\section{Intervals}
+	\kactlimport{IntervalContainer.h}
+	\kactlimport{IntervalCover.h}
+	\kactlimport{ConstantIntervals.h}
+
+\section{Misc. algorithms}
+	\kactlimport{TernarySearch.h}
+	\kactlimport{LowerBound.h}
+	\kactlimport{UpperBound.h}	
+	\kactlimport{MergeSort.h}
+	\kactlimport{CoordCompression.h}
+	\kactlimport{CountTriangles.h}	
+	\kactlimport{sqrt.h}
+	\kactlimport{Karatsuba.h}
+
+	%\newpage
+
+\section{Dynamic programming}
+	\kactlimport{DivideAndConquerDP.h}
+	\kactlimport{KnuthDP.h}
+	\kactlimport{Coin.h}
+	\kactlimport{MinCoin.h}		
+	\kactlimport{EditDistance.h}
+	\kactlimport{LIS.h}
+	\kactlimport{LCS.h}
+	\kactlimport{Knapsack.h}
+	\kactlimport{LargeKnapsack.h}
+	\kactlimport{KnapsackUnbounded.h}		
+	\kactlimport{TSP.h}
+
+\section{Debugging tricks}
+	\begin{itemize}
+		\item \texttt{signal(SIGSEGV, [](int) \{ \_Exit(0); \});} converts segfaults into Wrong Answers.
+			Similarly one can catch SIGABRT (assertion failures) and SIGFPE (zero divisions).
+			\texttt{\_GLIBCXX\_DEBUG} violations generate SIGABRT (or SIGSEGV on gcc 5.4.0 apparently).
+		\item \texttt{feenableexcept(29);} kills the program on NaNs (\texttt 1), 0-divs (\texttt 4), infinities (\texttt 8) and denormals (\texttt{16}).
+	\end{itemize}
+
+\section{Optimization tricks}
+	\subsection{Bit hacks}
+		\begin{itemize}
+			\item \texttt{x \& -x} is the least bit in \texttt{x}.
+			\item \texttt{for (int x = m; x; ) \{ --x \&= m; ... \}} loops over all subset masks of \texttt{m} (except \texttt{m} itself).
+			\item \texttt{c = x\&-x, r = x+c; (((r\^{}x) >> 2)/c) | r} is the next number after \texttt{x} with the same number of bits set.
+			\item \texttt{ rep(b,0,K) rep(i,0,(1 << K)) if (i \& 1 << b) D[i] += D[i\^{}(1 << b)]; } computes all sums of subsets.
+		\end{itemize}
+	\subsection{Pragmas}
+		\begin{itemize}
+			\item \lstinline{#pragma GCC optimize ("Ofast")} will make GCC auto-vectorize for loops and optimizes floating points better (assumes associativity and turns off denormals).
+			\item \lstinline{#pragma GCC target ("avx,avx2")} can double performance of vectorized code, but causes crashes on old machines.
+			\item \lstinline{#pragma GCC optimize ("trapv")} kills the program on integer overflows (but is really slow).
+		\end{itemize}
+	\kactlimport{BumpAllocator.h}
+	\kactlimport{SmallPtr.h}
+	\kactlimport{BumpAllocatorSTL.h}
+	\kactlimport{Unrolling.h}
+	\kactlimport{SIMD.h}
+	\kactlimport{Hashmap.h}
+\section {Bit Twiddling Hack}
+    \kactlimport{Hacks.h}
+\section {Random Numbers}
+    \kactlimport{RandomNumbers.h}
+\section{Other languages}
+	\kactlimport{Main.java}
+	\kactlimport{MiscJava.java}
+	\subsection{BigInteger}
+	\paragraph{BigInteger}
+To convert to a \texttt{BigInteger}, use \texttt{BigInteger.valueOf (int)} or \texttt{BigInteger (String, radix)}.
+
+To convert from a \texttt{BigInteger}, use \texttt{.intValue ()}, \texttt{.longValue ()}, \texttt{.toString (radix)}.
+
+Common unary operations include \texttt{.abs ()}, \texttt{.negate ()}, \texttt{.not ()}.
+
+Common binary operations include \texttt{.max}, \texttt{.min}, \texttt{.add}, \texttt{.subtract}, \texttt{.multiply}, \texttt{.divide}, \texttt{.remainder}, \texttt{.gcd}, \texttt{.modInverse}, \texttt{.and}, \texttt{.or}, \texttt{.xor}, \texttt{.shiftLeft (int)}, \texttt{.shiftRight (int)}, \texttt{.pow (int)}, \texttt{.compareTo}.
+
+Divide and remainder: \texttt{Biginteger[] .divideAndRemainder (Biginteger val)}.
+
+Power module: \texttt{.modPow (BigInteger exponent, module)}.
+
+Primality check: \texttt{.isProbablePrime (int certainty)}.

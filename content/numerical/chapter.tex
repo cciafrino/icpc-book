@@ -1,0 +1,56 @@
+\chapter{Numerical}
+\kactlimport{GoldenSectionSearch.h}
+\kactlimport{Polynomial.h}
+\kactlimport{PolyRoots.h}
+\kactlimport{PolyInterpolate.h}
+\kactlimport{BerlekampMassey.h}
+\kactlimport{LinearRecurrence.h}
+\kactlimport{HillClimbing.h}
+\kactlimport{Integrate.h}
+\kactlimport{IntegrateAdaptive.h}
+\kactlimport{Determinant.h}
+\kactlimport{IntDeterminant.h}
+\kactlimport{Simplex.h}
+\kactlimport{Math-Simplex.cpp}
+\kactlimport{SolveLinear.h}
+\kactlimport{SolveLinear2.h}
+\kactlimport{SolveLinearBinary.h}
+\kactlimport{MatrixInverse.h}
+\kactlimport{Tridiagonal.h}
+\section{Fourier transforms}
+	%\kactlimport{fft.cpp}
+	%\kactlimport{poly-exp-log.cpp}
+	\kactlimport{FastFourierTransform.h}
+	\kactlimport{FastFourierTransformMod.h}	
+	\kactlimport{NumberTheoreticTransform.h}
+	\kactlimport{FastSubsetTransform.h}
+\newpage
+
+	\subsection{Generating functions}
+	Ordinary (ogf): $A(x) := \sum_{n=0}^{\infty} a_i x^i$.
+
+	Calculate product $c_n = \sum_{k=0}^{n} a_k b_{n-k}$ with FFT.
+
+	Exponential (e.g.f.): $A(x) := \sum_{n=0}^{\infty} a_i x^i/i!$,
+
+	$c_n = \sum_{k=0}^{n} \binom{n}{k} a_k b_{n-k} = n! \sum_{k=0}^{n} \frac{a_k}{k!} \frac{b_{n-k}}{(n-k)!}$ (use FFT).
+
+\subsection{General linear recurrences}
+	If $a_n = \sum_{k=0}^{n-1} a_k b_{n-k}$, then $A(x) = \frac{a_0}{1-B(x)}$.
+
+\subsection{Inverse polynomial modulo $x^l$}
+	Given $A(x)$, find $B(x)$ such that $A(x)B(x) = 1 + x^l Q(x)$ for some $Q(x)$.
+
+	Step 1: Start with $B_0(x) = 1/a_0$
+
+	Step 2: $B_{k+1}(x) = (-B_k(x)^2 A(x) + 2 B_k(x)) \mod x^{2^{k+1}}$.
+
+\subsection{Fast subset convolution}
+	Given array $a_i$ of size $2^k$ calculate $b_i = \sum_{j \BitAnd i = i} a_j$.
+	
+
+\subsection{Primitive Roots}
+	It only exists when $n$ is $2, 4, p^k, 2p^k$, where $p$ odd prime.
+	If $g$ is a primitive root, all primitive roots are of the form $g^k$
+	where $k,\phi(p)$ are coprime (hence there are $\phi(\phi(p))$ primitive roots).
+
