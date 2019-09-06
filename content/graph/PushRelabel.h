@@ -8,9 +8,8 @@
  * Time: $O(V^2\sqrt E)$ Better for dense graphs
  * Status: Tested on kattis and SPOJ
  */
-#pragma once
-
 typedef lint Flow;
+
 struct Edge {
 	int dest, back;
 	Flow f, c;
@@ -24,8 +23,8 @@ struct PushRelabel {
 	PushRelabel(int n) : g(n), ec(n), cur(n), hs(2*n), H(n) {}
 	void add_edge(int s, int t, Flow cap, Flow rcap=0) {
 		if (s == t) return;
-		Edge a = {t, sz(g[t]), 0, cap};
-		Edge b = {s, sz(g[s]), 0, rcap};
+		Edge a = {t, g[t].size(), 0, cap};
+		Edge b = {s, g[s].size(), 0, rcap};
 		g[s].push_back(a);
 		g[t].push_back(b);
 	}
