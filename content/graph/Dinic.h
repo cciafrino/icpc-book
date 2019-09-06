@@ -1,5 +1,5 @@
 /**
- * Author: chilinti
+ * Author: chilli
  * Date: 2019-04-26
  * License: CC0
  * Source: https://cp-algorithms.com/graph/dinic.html
