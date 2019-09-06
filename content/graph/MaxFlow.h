@@ -1,6 +1,7 @@
 /**
  * Author: 
  * Description: 
+ * Time: Slower than Dinic (in practice)
  */
 
 struct Flow {
