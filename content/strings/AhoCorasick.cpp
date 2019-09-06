@@ -1,9 +1,9 @@
+
 /**
- * Author: Maurício Collares
- * Description: 
+ * Author: Maurício Collares (Adapted)
+ * Description: String searching algorithm that matches all strings simultaneously. To use with stl string: (char *)string_name.c_str()
  */
- 
-struct No {
+ struct No {
     int fail;
     vector< pair<int,int> > out; // num e tamanho do padrao
     //bool marc;  // p/ decisao
@@ -14,8 +14,12 @@ No arvore[1000003]; // quantida maxima de nos
 //bool encontrado[1005]; // quantidade maxima de padroes, p/ decisao
 int qtdNos, qtdPadroes;
 
+vector<vector<int>> result;
+
+
 // Funcao para inicializar
 void inic() {
+	result.resize(0);
     arvore[0].fail = -1;
     arvore[0].lista.clear();
     arvore[0].out.clear();
@@ -28,6 +32,8 @@ void inic() {
 
 // Funcao para adicionar um padrao
 void adicionar(char *padrao) {
+	vector<int> v;
+	result.push_back(v);
     int no = 0, len = 0;
     for (int i = 0 ; padrao[i] ; i++, len++) {
         if (arvore[no].lista.find(padrao[i]) == arvore[no].lista.end()) {
@@ -44,7 +50,7 @@ void adicionar(char *padrao) {
 void ativar() {
     int no,v,f,w;
     queue<int> fila;
-    for (map<char,int>::iterator it = arvore[0].lista.begin();
+    for (map<char,int>::iterator  it = arvore[0].lista.begin();
          it != arvore[0].lista.end() ; it++) {
         arvore[no = it->second].fail = 0;
         arvore[no].next = arvore[0].out.size() ? 0 : -1;
@@ -68,7 +74,6 @@ void ativar() {
         }
     }
 }
-vector<vector<int>> result;
 // Buscar padroes no aho-corasik
 void buscar(char *input) {
     int v, no = 0;
@@ -84,13 +89,11 @@ void buscar(char *input) {
             for (int k = 0 ; k < arvore[v].out.size() ; k++) {
                 //encontrado[arvore[v].out[k].first] = true; // p/ decisao
                 result[arvore[v].out[k].first].push_back(i-arvore[v].out[k].second+1);
-                printf("Padrao %d na posicao %d\n", arvore[v].out[k].first,
-                       i-arvore[v].out[k].second+1);
+               // printf("Padrao %d na posicao %d\n", arvore[v].out[k].first,
+                     //  i-arvore[v].out[k].second+1);
             }
             v = arvore[v].next;
         }
     }
-    // for (int i = 0 ; i < qtdPadroes ; i++)
-    //printf("%s\n", encontrado[i]?"y":"n"); // p/ decisao
-}
 
+}
