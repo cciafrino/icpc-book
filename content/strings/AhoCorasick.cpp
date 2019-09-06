@@ -68,7 +68,7 @@ void ativar() {
         }
     }
 }
-vector<vector<int>> result;
+
 // Buscar padroes no aho-corasik
 void buscar(char *input) {
     int v, no = 0;
@@ -83,7 +83,6 @@ void buscar(char *input) {
             //arvore[v].marc = true; // p/ decisao: nao continua a lista
             for (int k = 0 ; k < arvore[v].out.size() ; k++) {
                 //encontrado[arvore[v].out[k].first] = true; // p/ decisao
-                result[arvore[v].out[k].first].push_back(i-arvore[v].out[k].second+1);
                 printf("Padrao %d na posicao %d\n", arvore[v].out[k].first,
                        i-arvore[v].out[k].second+1);
             }
