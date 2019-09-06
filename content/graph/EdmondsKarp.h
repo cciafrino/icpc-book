@@ -5,22 +5,22 @@
  * Source: N/A
  * Description: Flow algorithm with guaranteed complexity $O(VE^2)$. To get edge flow values, compare
  * capacities before and after, and take the positive values only.
- * Status: Not Working
+ * Usage: unordered_map<int, T> graph; 
+ *        graph[a][b] += c; //adds edge from a to b with capacity c, use "+=" NOT "="
+ * Status: Working
  */
-#pragma once
-
 template<class T> T edmondsKarp(vector<unordered_map<int, T>> &graph, int source, int sink) {
 	assert(source != sink);
 	T flow = 0;
 	vector<int> par(graph.size()), q = par;
 	for (;;) {
-		fill(all(par), -1);
+		fill(par.begin(),par.end(), -1);
 		par[source] = 0;
 		int ptr = 1;
 		q[0] = source;
 		for (int i = 0; i < ptr; ++i) {
 			int x = q[i];
-			for (int e : graph[x]) {
+			for (pair<int,int> e : graph[x]) {
 				if (par[e.first] == -1 && e.second > 0) {
 					par[e.first] = x;
 					q[ptr++] = e.first;
@@ -40,4 +40,5 @@ out:
 			graph[y][p] += inc;
 		}
 	}
-}
+};
+
