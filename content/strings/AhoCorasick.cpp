@@ -1,81 +1,96 @@
 /**
- * Author: Tiago Montalvão
+ * Author: Maurício Collares
  * Description: 
  */
  
-struct Node {
-    map<char, int> adj;
-    int fail, next; 
-    pair<int,int> match;
-    void init() {
-        adj.clear(); fail = -1; match = {-1,-1}; next = -1;
-    }
-    int getChild(const char &c) {
-        auto it = adj.find(c);
-        if (it != adj.end()) return it->second;
-        return -1;
-    }
+struct No {
+    int fail;
+    vector< pair<int,int> > out; // num e tamanho do padrao
+    //bool marc;  // p/ decisao
+    map<char, int> lista;
+    int next; // aponta para o proximo sufixo que tenha out.size > 0
 };
+No arvore[1000003]; // quantida maxima de nos
+//bool encontrado[1005]; // quantidade maxima de padroes, p/ decisao
+int qtdNos, qtdPadroes;
 
-int nNodes, nPatt;
-Node trie[MAX];
-void init() {
-    trie[0].init();
-    nNodes = 1; nPatt = 0;
-} 
-void add(const string &word) {
-    int node = 0, aux = -1;
-    for (char c : word) {
-        aux = trie[node].getChild(c);
-        if (aux == -1) {
-            trie[nNodes].init();
-            aux = nNodes +=1;
-            trie[node].adj[c] = aux;
-        }
-        node = aux;
-    }
-    trie[node].match = {nPatt++, (int)word.size()};
+// Funcao para inicializar
+void inic() {
+    arvore[0].fail = -1;
+    arvore[0].lista.clear();
+    arvore[0].out.clear();
+    arvore[0].next = -1;
+    qtdNos = 1;
+    qtdPadroes = 0;
+    //arvore[0].marc = false; // p/ decisao
+    //memset(encontrado, false, sizeof(encontrado)); // p/ decisao
 }
-void build() {
-    queue<int> q;
-    trie[0].fail = -1;
-    q.push(0);
-    while(!q.empty()) {
-        int u = q.front();
-        q.pop();
-        for (auto it = trie[u].adj.begin(); it != trie[u].adj.end(); ++it) {
-            int v = it->second;
+
+// Funcao para adicionar um padrao
+void adicionar(char *padrao) {
+    int no = 0, len = 0;
+    for (int i = 0 ; padrao[i] ; i++, len++) {
+        if (arvore[no].lista.find(padrao[i]) == arvore[no].lista.end()) {
+            arvore[qtdNos].lista.clear(); arvore[qtdNos].out.clear();
+            //arvore[qtdNos].marc = false; // p/ decisao
+            arvore[no].lista[padrao[i]] = qtdNos;
+            no = qtdNos++;
+        } else no = arvore[no].lista[padrao[i]];
+    }
+    arvore[no].out.push_back(pair<int,int>(qtdPadroes++,len));
+}
+
+// Ativar Aho-corasick, ajustando funcoes de falha
+void ativar() {
+    int no,v,f,w;
+    queue<int> fila;
+    for (map<char,int>::iterator it = arvore[0].lista.begin();
+         it != arvore[0].lista.end() ; it++) {
+        arvore[no = it->second].fail = 0;
+        arvore[no].next = arvore[0].out.size() ? 0 : -1;
+        fila.push(no);
+    }
+    while (!fila.empty()) {
+        no = fila.front(); fila.pop();
+        for (map<char,int>::iterator it=arvore[no].lista.begin();
+             it!=arvore[no].lista.end(); it++) {
             char c = it->first;
-            q.push(v);
-            int f = trie[u].fail;
-            while(f >= 0 && trie[f].getChild(c) == -1) f = trie[f].fail;
-            f = f >= 0 ? trie[f].getChild(c) : 0;
-            trie[v].fail = f;
-            trie[v].next = trie[f].match.first >= 0 ? f : trie[f].next;
-        }
-    }
-}
-
-void search(const string &text) {
-    int node = 0;
-    for (int i = 0; i < text.size(); ++i) {
-        while(node >= 0 && trie[node].getChild(text[i]) == -1) node = trie[node].fail;
-        node = node >= 0 ? trie[node].getChild(text[i]) : 0;
-        int aux = node;
-        while(aux >= 0) {
-            if (trie[aux].match.first >= 0) {
-                //do something with the match
-                cout << "Pattern: " << trie[aux].match.first << ", pos: ";
-                cout << i - trie[aux].match.second + 1 << '\n';
+            v = it->second;
+            fila.push(v);
+            f = arvore[no].fail;
+            while (arvore[f].lista.find(c) == arvore[f].lista.end()) {
+                if (f == 0) { arvore[0].lista[c] = 0; break; }
+                f = arvore[f].fail;
             }
-            aux = trie[aux].next;
+            w = arvore[f].lista[c];
+            arvore[v].fail = w;
+            arvore[v].next = arvore[w].out.size() ? w : arvore[w].next;
         }
     }
 }
-int newNode(int node, char c) {
-    while(node >= 0 && trie[node].getChild(c) == -1) 
-        node = trie[node].fail;
-    return node >= 0 ? trie[node].getChild(c) : 0;
+vector<vector<int>> result;
+// Buscar padroes no aho-corasik
+void buscar(char *input) {
+    int v, no = 0;
+    for (int i = 0 ; input[i] ; i++) {
+        while (arvore[no].lista.find(input[i]) == arvore[no].lista.end()) {
+            if (no == 0) { arvore[0].lista[input[i]] = 0; break; }
+            no = arvore[no].fail;
+        }
+        v = no = arvore[no].lista[input[i]];
+        // marcar os encontrados
+        while (v != -1 /* && !arvore[v].marc */ ) { // p/ decisao
+            //arvore[v].marc = true; // p/ decisao: nao continua a lista
+            for (int k = 0 ; k < arvore[v].out.size() ; k++) {
+                //encontrado[arvore[v].out[k].first] = true; // p/ decisao
+                result[arvore[v].out[k].first].push_back(i-arvore[v].out[k].second+1);
+                printf("Padrao %d na posicao %d\n", arvore[v].out[k].first,
+                       i-arvore[v].out[k].second+1);
+            }
+            v = arvore[v].next;
+        }
+    }
+    // for (int i = 0 ; i < qtdPadroes ; i++)
+    //printf("%s\n", encontrado[i]?"y":"n"); // p/ decisao
 }
-
 
