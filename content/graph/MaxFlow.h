@@ -1,7 +1,7 @@
 /**
  * Author: 
  * Description: 
- * Time: Slower than Dinic (in practice)
+ * Status: Not Working on UVA 820
  */
 
 struct Flow {
