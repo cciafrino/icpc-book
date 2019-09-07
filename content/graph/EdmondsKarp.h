@@ -7,7 +7,7 @@
  * capacities before and after, and take the positive values only.
  * Usage: unordered_map<int, T> graph; 
  *        graph[a][b] += c; //adds edge from a to b with capacity c, use "+=" NOT "="
- * Status: Not Working
+ * Status: Working
  */
 template<class T> T edmondsKarp(vector<unordered_map<int, T>> &graph, int source, int sink) {
 	assert(source != sink);
