@@ -3,7 +3,7 @@
  * Description: Check if a two rooted or unrooted Tree are isomorphic.
  * Source: https://github.com/TimonKnigge/TCR/blob/master/snippets/graphs/rooted_tree_isomorphism.cpp
  * Time: $O(n log(n))$ 
- * Status: tested
+ * Status: Working, tested on URI 1229
  */
 
 bool eqvec(const vector<int> &l, const vector<int> &r) {
