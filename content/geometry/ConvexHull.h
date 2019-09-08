@@ -13,7 +13,7 @@ Points on the edge of the hulint between two other points are not considered par
 \includegraphics[width=\textwidth]{content/geometry/ConvexHulint}
 \vspace{-6mm}
 \end{minipage}
- * Status: tested with Kattis problems convexhulint
+ * Status: tested with Kattis problems convexhull
  * Time: O(n \log n)
 */
 #pragma once

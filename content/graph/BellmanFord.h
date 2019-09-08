@@ -15,7 +15,7 @@ const lint inf = LLONG_MAX;
 struct Ed { int a, b, w, s() { return a < b ? a : -a; }};
 struct Node { lint dist = inf; int prev = -1; };
 
-void belintmanFord(vector<Node>& nodes, vector<Ed>& eds, int s) {
+void bellmanFord(vector<Node>& nodes, vector<Ed>& eds, int s) {
 	nodes[s].dist = 0;
 	sort(eds.begin(), eds.end(), [](Ed a, Ed b) { return a.s() < b.s(); });
 
