@@ -102,22 +102,22 @@
 \contentsline {chapter}{\numberline {8}Geometry}{40}% 
 \contentsline {section}{\numberline {8.1}Geometric primitives}{40}% 
 \contentsline {section}{\numberline {8.2}Circles}{41}% 
-\contentsline {section}{\numberline {8.3}Polygons}{41}% 
+\contentsline {section}{\numberline {8.3}Polygons}{42}% 
 \contentsline {section}{\numberline {8.4}Misc. Point Set Problems}{43}% 
 \contentsline {section}{\numberline {8.5}3D}{45}% 
-\contentsline {section}{\numberline {8.6}xyz 2D Geometry Library}{46}% 
-\contentsline {chapter}{\numberline {9}Strings}{49}% 
-\contentsline {chapter}{\numberline {10}Various}{53}% 
-\contentsline {section}{\numberline {10.1}Intervals}{53}% 
-\contentsline {section}{\numberline {10.2}Misc. algorithms}{53}% 
-\contentsline {section}{\numberline {10.3}Dynamic programming}{54}% 
-\contentsline {section}{\numberline {10.4}Debugging tricks}{55}% 
-\contentsline {section}{\numberline {10.5}Optimization tricks}{55}% 
-\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{55}% 
-\contentsline {subsection}{\numberline {10.5.2}Pragmas}{55}% 
-\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{56}% 
-\contentsline {section}{\numberline {10.7}Random Numbers}{56}% 
-\contentsline {section}{\numberline {10.8}Other languages}{56}% 
-\contentsline {subsection}{\numberline {10.8.1}BigInteger}{56}% 
-\contentsline {paragraph}{BigInteger}{56}% 
+\contentsline {section}{\numberline {8.6}xyz 2D Geometry Library}{47}% 
+\contentsline {chapter}{\numberline {9}Strings}{50}% 
+\contentsline {chapter}{\numberline {10}Various}{54}% 
+\contentsline {section}{\numberline {10.1}Intervals}{54}% 
+\contentsline {section}{\numberline {10.2}Misc. algorithms}{54}% 
+\contentsline {section}{\numberline {10.3}Dynamic programming}{55}% 
+\contentsline {section}{\numberline {10.4}Debugging tricks}{56}% 
+\contentsline {section}{\numberline {10.5}Optimization tricks}{56}% 
+\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{56}% 
+\contentsline {subsection}{\numberline {10.5.2}Pragmas}{56}% 
+\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{57}% 
+\contentsline {section}{\numberline {10.7}Random Numbers}{57}% 
+\contentsline {section}{\numberline {10.8}Other languages}{57}% 
+\contentsline {subsection}{\numberline {10.8.1}BigInteger}{57}% 
+\contentsline {paragraph}{BigInteger}{57}% 
 \contentsfinish 

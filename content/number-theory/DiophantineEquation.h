@@ -2,6 +2,7 @@
  * Author: Chris
  * Description: Check if a the Diophantine Equation $ax + by = c$ has
  * solution.
+ * Status: Tested
  */
 
 template<typename T>
@@ -32,7 +33,7 @@ bool diophantine(T a, T b, T c, T &x, T &y, T &g) { /// start-hash
         return false;
     }/// end-hash
     /// start-hash
-    g = egcd(a, b, x, y);
+    g = egcd<lint>(a, b, x, y);
     if (c % g != 0) return false;
     T dx = c / a;
     c -= dx * a;

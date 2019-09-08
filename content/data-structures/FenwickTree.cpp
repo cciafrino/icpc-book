@@ -4,7 +4,7 @@ struct bit_t {
         tree.assign(n, 0);
     }
     void update(int idx){
-        while (idx < T.size()){
+        while (idx < tree.size()){
             tree[idx]++;
             idx += idx & -idx;
         }
