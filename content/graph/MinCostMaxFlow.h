@@ -2,9 +2,9 @@
  * Author: Andrew He
  * Date: Unknown
  * Source: Codeforces
- * Description: 
- * Status: 
- * Time: Approximately O(E^2)
+ * Description: Min-cost max-flow. cap[i][j] != cap[j][i] is allowed; double edges are not.
+ * Status: Working on kattis Minimum Cost Maximum Flow
+ * Time: Approximately O(E^2) faster than Kactl's on practice
  */
  
  #include<bits/extc++.h> // don't forget!
