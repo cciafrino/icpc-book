@@ -1,5 +1,5 @@
 /**
- * Author: Letícia Freire
+ * Author: LeticiaFCS
  * Description: Calculates the shortest path between start node and every other node in the graph
  */
 void dijkstra(vector<vector<pii>> &graph, vector<int> &dist, int start){
