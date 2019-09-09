@@ -1,6 +1,7 @@
 /**
  * Author:
  * Description: Counts 3 and 4 cycles
+ * Status: working
  */
 #include <bits/stdc++.h>
 using namespace std;
