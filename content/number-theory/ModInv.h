@@ -4,7 +4,7 @@
  * only exist if $a$ and $m$ are coprimes.
  */
  
-int modinv(int a, int m) {
+lint modinv(lint a, int m) {
 	assert(m > 0);
 	if (m == 1) return 0;
 	a %= m;
@@ -15,6 +15,6 @@ int modinv(int a, int m) {
 }
 
 // Iff mod is prime
-int modinv(int a) {
+lint modinv(lint a) {
     return modpow(a % Mod, Mod-2);
 }
