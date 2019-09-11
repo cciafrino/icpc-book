@@ -10,7 +10,7 @@ template<int SZ, bool directed>
 struct EulerWalk {
     int N, M;
     vector<pair<int,int>> edges[SZ], circuit;
-    vector<int> out{SZ}, in{SZ}, deg{SZ};
+    int out[SZ], in[SZ], deg[SZ];
     vector<bool> used;
     bool bad;
     void clear() {
