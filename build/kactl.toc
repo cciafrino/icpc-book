@@ -94,7 +94,7 @@
 \contentsline {section}{\numberline {7.3}Network flow}{28}% 
 \contentsline {subsection}{\numberline {7.3.1}K\IeC {\"o}nig-Egervary Theorem}{30}% 
 \contentsline {section}{\numberline {7.4}Matching}{30}% 
-\contentsline {section}{\numberline {7.5}DFS algorithms}{32}% 
+\contentsline {section}{\numberline {7.5}DFS algorithms}{31}% 
 \contentsline {section}{\numberline {7.6}Heuristics}{33}% 
 \contentsline {section}{\numberline {7.7}Trees}{34}% 
 \contentsline {section}{\numberline {7.8}Functional Graphs}{36}% 
@@ -111,13 +111,13 @@
 \contentsline {section}{\numberline {10.1}Intervals}{54}% 
 \contentsline {section}{\numberline {10.2}Misc. algorithms}{54}% 
 \contentsline {section}{\numberline {10.3}Dynamic programming}{55}% 
-\contentsline {section}{\numberline {10.4}Debugging tricks}{56}% 
-\contentsline {section}{\numberline {10.5}Optimization tricks}{56}% 
-\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{56}% 
-\contentsline {subsection}{\numberline {10.5.2}Pragmas}{56}% 
-\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{57}% 
-\contentsline {section}{\numberline {10.7}Random Numbers}{57}% 
-\contentsline {section}{\numberline {10.8}Other languages}{57}% 
-\contentsline {subsection}{\numberline {10.8.1}BigInteger}{57}% 
-\contentsline {paragraph}{BigInteger}{57}% 
+\contentsline {section}{\numberline {10.4}Debugging tricks}{57}% 
+\contentsline {section}{\numberline {10.5}Optimization tricks}{57}% 
+\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{57}% 
+\contentsline {subsection}{\numberline {10.5.2}Pragmas}{57}% 
+\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{58}% 
+\contentsline {section}{\numberline {10.7}Random Numbers}{58}% 
+\contentsline {section}{\numberline {10.8}Other languages}{58}% 
+\contentsline {subsection}{\numberline {10.8.1}BigInteger}{58}% 
+\contentsline {paragraph}{BigInteger}{58}% 
 \contentsfinish 

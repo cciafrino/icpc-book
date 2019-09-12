@@ -6,59 +6,33 @@
  * Status: tested
  */
 
-template<int SZ, bool directed> 
-struct EulerWalk {
-    int N, M;
-    vector<pair<int,int>> edges[SZ], circuit;
-    vector<int> out{SZ}, in{SZ}, deg{SZ};
+template<int SZ, bool directed> struct Euler {
+    int N, M = 0;
+    vector<pair<int,int>> adj[SZ];
+    vector<pair<int,int>>::iterator its[SZ];
     vector<bool> used;
-    bool bad;
-    void clear() {
-        for(int i = 1; i <= N; ++i) edges[i].clear();
-        circuit.clear(); used.clear();
-        for(int i = 1; i <= N; ++i) out[i] = in[i] = deg[i] = 0;
-        N = M = bad = 0;
-    }
-    void dfs(int pre, int cur) {
-        while (edges[cur].size()) {
-            pair<int,int> x = edges[cur].back(); 
-            edges[cur].pop_back();
-            if (used[x.second]) continue; // edge is already part of path
-            used[x.second] = 1; dfs(cur,x.first);
-        }
-        if (circuit.size() && circuit.back().first != cur) bad = 1;
-        circuit.push_back({pre,cur}); // generate circuit in reverse order
-    }
-
     void addEdge(int a, int b) {
-        if (directed) {
-            edges[a].push_back({b,M});
-            out[a] += 1, in[b] += 1;
-        } 
-        else {
-            edges[a].push_back({b, M});
-            edges[b].push_back({a, M});
-            deg[a] += 1, deg[b] += 1;
-        }
+        if (directed) adj[a].push_back({b,M});
+        else adj[a].push_back({b,M}), adj[b].push_back({a,M});
         used.push_back(0); M += 1;
     }
-    vector<int> walk(int _N) { // vertices are 1-indexed
-        N = _N;
-        int start = 1; 
-        for(int i = 1; i <= N; ++i) 
-            if (deg[i] || in[i] || out[i]) start = i;
-        for(int i = 1; i <= N; ++i)  {
-            if (directed) {
-                if (out[i]-in[i] == 1) start = i;
-            } else {
-                if (deg[i]&1) start = i;
-            }
+    vector<pair<int,int>> solve(int _N, int src = 1) {
+        N = _N; 
+        for(int i = 1; i <= N; ++i) its[i] = begin(adj[i]);
+        vector<pair<pair<int,int>, int>> ret, s = {{{src,-1},-1}};
+        while (!s.empty()) {
+            int x = s.back().first.first;
+            auto &it = its[x], end = adj[x].end();
+            while (it != end && used[it->s]) it ++;
+            if (it == end) { 
+                if (ret.size() && ret.back().first.second != s.back().first.first) return {}; // path isn't valid
+                ret.push_back(s.back()), s.pop_back(); 
+            } else { s.push_back({{it->first,x},it->second}); used[it->second] = 1; }
         }
-        dfs(-1,start);
-        if (circuit.size() != M+1 || bad) return {}; // no sol
-        vector<int> ret; 
-        for(int i = circuit.size()-1; i >= 0; i--) 
-            ret.push_back(circuit[i].second);
-        return ret;
+        if (ret.size() != M+1) return {}; // No eulerian cycles/paths.
+        // else, non-cycle if ret.front() != ret.back()
+        vector<pair<int,int>> ans; 
+        for(auto &t : ret) ans.push_back({t.first.first,t.second});
+        reverse(ans.begin(), ans.end()); return ans;
     }
 };

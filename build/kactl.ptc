@@ -49,7 +49,7 @@
 \contentsline {section}{\texttt {FenwickTree2d.h}\hspace {0.2em}}{7}% 
 \contentsline {section}{\texttt {MisofTree.h}\hspace {0.2em}}{7}% 
 \contentsline {section}{\texttt {LineContainer.h}\hspace {0.2em}}{7}% 
-\contentsline {section}{\texttt {Matrix.h}\hspace {0.2em}}{7}% 
+\contentsline {section}{\texttt {Matrix.h}\hspace {0.2em}}{8}% 
 \contentsline {section}{\texttt {Treap3.h}\hspace {0.2em}}{8}% 
 \contentsline {section}{\texttt {LCT.cpp}\hspace {0.2em}}{8}% 
 \contentsline {section}{\texttt {PalindromicTree.h}\hspace {0.2em}}{9}% 
@@ -227,12 +227,12 @@
 \contentsline {subsection}{\texttt {HopcroftKarp.h}\hspace {0.2em}}{30}% 
 \contentsline {subsection}{\texttt {DFSMatching.h}\hspace {0.2em}}{30}% 
 \contentsline {subsection}{\texttt {WeightedMatching.h}\hspace {0.2em}}{30}% 
-\contentsline {subsection}{\texttt {GeneralMatching.h}\hspace {0.2em}}{31}% 
+\contentsline {subsection}{\texttt {GeneralMatching.h}\hspace {0.2em}}{30}% 
 \contentsline {subsection}{\texttt {MinimumVertexCover.h}\hspace {0.2em}}{31}% 
 \contentsline {subsection}{\texttt {Koenig.cpp}\hspace {0.2em}}{31}% 
 \contentsline {subsection}{\texttt {Hungarian.h}\hspace {0.2em}}{31}% 
-\contentsline {section}{\numberline {7.5}DFS algorithms}{32}% 
-\contentsline {subsection}{\texttt {CentroidDecomposition.cpp}\hspace {0.2em}}{32}% 
+\contentsline {section}{\numberline {7.5}DFS algorithms}{31}% 
+\contentsline {subsection}{\texttt {CentroidDecomposition.cpp}\hspace {0.2em}}{31}% 
 \contentsline {subsection}{\texttt {Tarjan.h}\hspace {0.2em}}{32}% 
 \contentsline {subsection}{\texttt {Kosaraju.h}\hspace {0.2em}}{32}% 
 \contentsline {subsection}{\texttt {BiconnectedComponents.h}\hspace {0.2em}}{32}% 
@@ -241,7 +241,7 @@
 \contentsline {section}{\numberline {7.6}Heuristics}{33}% 
 \contentsline {subsection}{\texttt {MaximalCliques.h}\hspace {0.2em}}{33}% 
 \contentsline {subsection}{\texttt {Graph-Clique.cpp}\hspace {0.2em}}{33}% 
-\contentsline {subsection}{\texttt {Cycle-Counting.cpp}\hspace {0.2em}}{34}% 
+\contentsline {subsection}{\texttt {Cycle-Counting.cpp}\hspace {0.2em}}{33}% 
 \contentsline {section}{\numberline {7.7}Trees}{34}% 
 \contentsline {subsection}{\texttt {Tree.h}\hspace {0.2em}}{34}% 
 \contentsline {subsection}{\texttt {TreePower.h}\hspace {0.2em}}{34}% 
@@ -249,6 +249,7 @@
 \contentsline {subsection}{\texttt {CompressTree.h}\hspace {0.2em}}{35}% 
 \contentsline {subsection}{\texttt {HLD.h}\hspace {0.2em}}{35}% 
 \contentsline {subsection}{\texttt {Heavylight.cpp}\hspace {0.2em}}{35}% 
+\contentsline {subsection}{\texttt {HeavylightLCA.h}\hspace {0.2em}}{35}% 
 \contentsline {subsection}{\texttt {TreeIsomorphism.h}\hspace {0.2em}}{36}% 
 \contentsline {subsection}{\texttt {MatrixTree.h}\hspace {0.2em}}{36}% 
 \contentsline {section}{\numberline {7.8}Functional Graphs}{36}% 
@@ -257,11 +258,11 @@
 \contentsline {section}{\numberline {7.9}Other}{37}% 
 \contentsline {subsection}{\texttt {ManhattanMST.h}\hspace {0.2em}}{37}% 
 \contentsline {subsection}{\texttt {SteinerTree.h}\hspace {0.2em}}{37}% 
-\contentsline {subsection}{\texttt {Pruefer.cpp}\hspace {0.2em}}{37}% 
+\contentsline {subsection}{\texttt {Pruefer.cpp}\hspace {0.2em}}{38}% 
 \contentsline {subsection}{\texttt {ErdosGallai.h}\hspace {0.2em}}{38}% 
 \contentsline {subsection}{\texttt {MisraGries.h}\hspace {0.2em}}{38}% 
 \contentsline {subsection}{\texttt {Directed-MST.cpp}\hspace {0.2em}}{38}% 
-\contentsline {subsection}{\texttt {Graph-Dominator-Tree.cpp}\hspace {0.2em}}{38}% 
+\contentsline {subsection}{\texttt {Graph-Dominator-Tree.cpp}\hspace {0.2em}}{39}% 
 \contentsline {subsection}{\texttt {Graph-Negative-Cycle.cpp}\hspace {0.2em}}{39}% 
 \contentsline {chapter}{\numberline {8}Geometry}{40}% 
 \ttl@stoptoc {chapters@7}
@@ -346,33 +347,34 @@
 \contentsline {section}{\numberline {10.3}Dynamic programming}{55}% 
 \contentsline {subsection}{\texttt {DivideAndConquerDP.h}\hspace {0.2em}}{55}% 
 \contentsline {subsection}{\texttt {KnuthDP.h}\hspace {0.2em}}{55}% 
-\contentsline {subsection}{\texttt {Coin.h}\hspace {0.2em}}{55}% 
-\contentsline {subsection}{\texttt {MinCoin.h}\hspace {0.2em}}{55}% 
-\contentsline {subsection}{\texttt {EditDistance.h}\hspace {0.2em}}{55}% 
-\contentsline {subsection}{\texttt {LIS.h}\hspace {0.2em}}{55}% 
-\contentsline {subsection}{\texttt {LCS.h}\hspace {0.2em}}{55}% 
-\contentsline {subsection}{\texttt {Knapsack.h}\hspace {0.2em}}{55}% 
+\contentsline {subsection}{\texttt {ConvexHullTrick.h}\hspace {0.2em}}{56}% 
+\contentsline {subsection}{\texttt {Coin.h}\hspace {0.2em}}{56}% 
+\contentsline {subsection}{\texttt {MinCoin.h}\hspace {0.2em}}{56}% 
+\contentsline {subsection}{\texttt {EditDistance.h}\hspace {0.2em}}{56}% 
+\contentsline {subsection}{\texttt {LIS.h}\hspace {0.2em}}{56}% 
+\contentsline {subsection}{\texttt {LCS.h}\hspace {0.2em}}{56}% 
+\contentsline {subsection}{\texttt {Knapsack.h}\hspace {0.2em}}{56}% 
 \contentsline {subsection}{\texttt {LargeKnapsack.h}\hspace {0.2em}}{56}% 
 \contentsline {subsection}{\texttt {KnapsackUnbounded.h}\hspace {0.2em}}{56}% 
 \contentsline {subsection}{\texttt {TSP.h}\hspace {0.2em}}{56}% 
 \contentsline {subsection}{\texttt {DistinctSubsequences.h}\hspace {0.2em}}{56}% 
-\contentsline {section}{\numberline {10.4}Debugging tricks}{56}% 
-\contentsline {section}{\numberline {10.5}Optimization tricks}{56}% 
-\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{56}% 
-\contentsline {subsection}{\numberline {10.5.2}Pragmas}{56}% 
-\contentsline {subsection}{\texttt {BumpAllocator.h}\hspace {0.2em}}{56}% 
-\contentsline {subsection}{\texttt {SmallPtr.h}\hspace {0.2em}}{56}% 
-\contentsline {subsection}{\texttt {BumpAllocatorSTL.h}\hspace {0.2em}}{56}% 
-\contentsline {subsection}{\texttt {Unrolling.h}\hspace {0.2em}}{56}% 
-\contentsline {subsection}{\texttt {SIMD.h}\hspace {0.2em}}{56}% 
+\contentsline {section}{\numberline {10.4}Debugging tricks}{57}% 
+\contentsline {section}{\numberline {10.5}Optimization tricks}{57}% 
+\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{57}% 
+\contentsline {subsection}{\numberline {10.5.2}Pragmas}{57}% 
+\contentsline {subsection}{\texttt {BumpAllocator.h}\hspace {0.2em}}{57}% 
+\contentsline {subsection}{\texttt {SmallPtr.h}\hspace {0.2em}}{57}% 
+\contentsline {subsection}{\texttt {BumpAllocatorSTL.h}\hspace {0.2em}}{57}% 
+\contentsline {subsection}{\texttt {Unrolling.h}\hspace {0.2em}}{57}% 
+\contentsline {subsection}{\texttt {SIMD.h}\hspace {0.2em}}{57}% 
 \contentsline {subsection}{\texttt {Hashmap.h}\hspace {0.2em}}{57}% 
-\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{57}% 
-\contentsline {subsection}{\texttt {Hacks.h}\hspace {0.2em}}{57}% 
-\contentsline {section}{\numberline {10.7}Random Numbers}{57}% 
-\contentsline {subsection}{\texttt {RandomNumbers.h}\hspace {0.2em}}{57}% 
-\contentsline {section}{\numberline {10.8}Other languages}{57}% 
-\contentsline {subsection}{\texttt {Main.java}\hspace {0.2em}}{57}% 
-\contentsline {subsection}{\texttt {MiscJava.java}\hspace {0.2em}}{57}% 
-\contentsline {subsection}{\numberline {10.8.1}BigInteger}{57}% 
-\contentsline {paragraph}{BigInteger}{57}% 
+\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{58}% 
+\contentsline {subsection}{\texttt {Hacks.h}\hspace {0.2em}}{58}% 
+\contentsline {section}{\numberline {10.7}Random Numbers}{58}% 
+\contentsline {subsection}{\texttt {RandomNumbers.h}\hspace {0.2em}}{58}% 
+\contentsline {section}{\numberline {10.8}Other languages}{58}% 
+\contentsline {subsection}{\texttt {Main.java}\hspace {0.2em}}{58}% 
+\contentsline {subsection}{\texttt {MiscJava.java}\hspace {0.2em}}{58}% 
+\contentsline {subsection}{\numberline {10.8.1}BigInteger}{58}% 
+\contentsline {paragraph}{BigInteger}{58}% 
 \contentsfinish 
