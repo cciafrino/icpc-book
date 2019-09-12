@@ -1,5 +1,5 @@
 /**
- * Author: chilli
+ * Author: chilli (adapted)
  * Date: 2019-04-26
  * License: CC0
  * Source: https://cp-algorithms.com/graph/dinic.html
@@ -7,6 +7,7 @@
  * $O(\min(E^{1/2}, V^{2/3})E)$ if $U = 1$; $O(\sqrt{V}E)$ for bipartite matching.
  * To obtain the actual flow, look at positive values only.
  * Status: Tested on SPOJ FASTFLOW and SPOJ MATCHING
+ * 		   Working on hackerearth Min-Cut and Kattis Minimum Cut
  */
 struct Dinic {
 	struct Edge {
@@ -14,8 +15,10 @@ struct Dinic {
 		lint c, f;
 	};
 	vector<int> lvl, ptr, q;
+	vector<int> partition; //call findMinCut before use it
+	vector<pair<pair<int,int>,int>> cut;//u,v,c
 	vector<vector<Edge>> adj;
-	Dinic(int n) : lvl(n), ptr(n), q(n), adj(n) {}
+	Dinic(int n) : lvl(n), ptr(n), q(n), adj(n),partition(n),cut(0) {}
 	void addEdge(int a, int b, lint c, int rcap = 0) {
 		adj[a].push_back({b, adj[b].size(), c, 0});
 		adj[b].push_back({a, adj[a].size() - 1, rcap, 0});
@@ -46,5 +49,22 @@ struct Dinic {
 			while (lint p = dfs(s, t, LLONG_MAX)) flow += p;
 		} while (lvl[t]);
 		return flow;
+	}
+
+	//only if you want the edges of the cut
+	void dfsMC(int u){
+		partition[u]=1;
+		for(Edge &e:adj[u])
+			if(!partition[e.to])
+				if(e.c-e.f==0)
+					cut.push_back({{u,e.to},e.c});
+				else if(e.c-e.f>0)
+					dfsMC(e.to);
+	}
+	//only if you want the edges of the cut
+	vector<pair<pair<int,int>,int>> findMinCut(int u,int t){
+		calc(u,t); //DONT call again if you already called it
+		dfsMC(u);
+		return cut;
 	}
 };
