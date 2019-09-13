@@ -1,7 +1,7 @@
 \contentsline {chapter}{\numberline {1}Contest}{1}% 
 \contentsline {chapter}{\numberline {2}Mathematics}{1}% 
-\contentsline {section}{\numberline {2.1}Recurrences}{1}% 
-\contentsline {section}{\numberline {2.2}Trigonometry}{1}% 
+\contentsline {section}{\numberline {2.1}Recurrences}{2}% 
+\contentsline {section}{\numberline {2.2}Trigonometry}{2}% 
 \contentsline {section}{\numberline {2.3}Geometry}{2}% 
 \contentsline {subsection}{\numberline {2.3.1}Triangles}{2}% 
 \contentsline {subsection}{\numberline {2.3.2}Quadrilaterals}{2}% 
@@ -9,7 +9,7 @@
 \contentsline {section}{\numberline {2.4}Derivatives/Integrals}{2}% 
 \contentsline {section}{\numberline {2.5}Sums}{2}% 
 \contentsline {section}{\numberline {2.6}Series}{2}% 
-\contentsline {section}{\numberline {2.7}Probability theory}{2}% 
+\contentsline {section}{\numberline {2.7}Probability theory}{3}% 
 \contentsline {subsection}{\numberline {2.7.1}Discrete distributions}{3}% 
 \contentsline {subsubsection}{Binomial distribution}{3}% 
 \contentsline {subsubsection}{First success distribution}{3}% 

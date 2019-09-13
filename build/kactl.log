@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.8.16)  13 SEP 2019 16:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.8.16)  13 SEP 2019 18:00
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -511,26 +511,26 @@ Package pdftex.def Info: projeto.png  used on input line 10.
 (pdftex.def)             Requested size: 323.96815pt x 153.26184pt.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./projeto.png>] (./kactl.toc)
-\tf@toc=\write3
-\openout3 = `kactl.toc'.
-
- (../content/contest/chapter.tex
-Chapter 1.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./projeto.png>] (./kactl.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 1.
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 1.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
+))
+\tf@toc=\write3
+\openout3 = `kactl.toc'.
+
+ (../content/contest/chapter.tex
+Chapter 1.
 \c@ttl@toc@chapters=\count136
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/contest/template.cpp" -o kactl.tmp -l rawcpp)...executed.
 
- (./kactl.tmp
+(./kactl.tmp
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 3.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
@@ -568,33 +568,295 @@ runsystem(python2 kactlprocessor.py -i "../content/contest/troubleshoot.txt" -o 
 
  (./kactl.tmp)) (../content/math/chapter.tex
 Chapter 2.
-runsystem(python2 kactlprocessor.py --print-header "|troubleshoot.txt" -o header2.tmp)...executed.
+runsystem(python2 kactlprocessor.py --print-header "troubleshoot.txt|troubleshoot.txt" -o header2.tmp)...executed.
 
 (./header2.tmp) [1
 
 ]
-<../content/math/sphericalCoordinates.pdf, id=25, 42.67899pt x 42.67899pt>
+<../content/math/sphericalCoordinates.pdf, id=22, 42.67899pt x 42.67899pt>
 File: ../content/math/sphericalCoordinates.pdf Graphic file (type pdf)
 <use ../content/math/sphericalCoordinates.pdf>
 Package pdftex.def Info: ../content/math/sphericalCoordinates.pdf  used on input line 67.
 (pdftex.def)             Requested size: 71.13188pt x 71.14337pt.
 
-Overfull \hbox (4.01588pt too wide) detected at line 80
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.67 ...ontent/math/sphericalCoordinates}}\newline
+                                                  
+? return
+OK, entering \nonstopmode...
+Runaway argument?
+ \dfrac {d}{dx}\arcsin x = \dfrac {1}{\sqrt {1-x^2}} &&& \dfrac {d}{d\ETC.
+! Paragraph ended before \align* was complete.
+<to be read again> 
+                   \par 
+l.77 	
+      
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.77 	
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.77 	
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Display math should end with $$.
+<to be read again> 
+                   \par 
+l.77 	
+      
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.78 	\dfrac{d}{dx}
+                   \tan x = 1+\tan^2 x &&& \dfrac{d}{dx}\arctan x = \dfrac{1...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Extra }, or forgotten $.
+\@genfrac ...egingroup #4\endgroup #2#3\relax #5}}
+                                                  
+l.78 	\dfrac{d}{dx}
+                   \tan x = 1+\tan^2 x &&& \dfrac{d}{dx}\arctan x = \dfrac{1...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Misplaced alignment tab character &.
+l.78 	\dfrac{d}{dx}\tan x = 1+\tan^2 x &
+                                        && \dfrac{d}{dx}\arctan x = \dfrac{1...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.78 	\dfrac{d}{dx}\tan x = 1+\tan^2 x &&
+                                         & \dfrac{d}{dx}\arctan x = \dfrac{1...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.78 	\dfrac{d}{dx}\tan x = 1+\tan^2 x &&&
+                                           \dfrac{d}{dx}\arctan x = \dfrac{1...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.79 	
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.80 	\int
+          \tan ax = -\dfrac{\ln|\cos ax|}{a} &&& \int x\sin ax = \dfrac{\sin...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Misplaced alignment tab character &.
+l.80 	\int\tan ax = -\dfrac{\ln|\cos ax|}{a} &
+                                              && \int x\sin ax = \dfrac{\sin...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.80 	\int\tan ax = -\dfrac{\ln|\cos ax|}{a} &&
+                                               & \int x\sin ax = \dfrac{\sin...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.80 	\int\tan ax = -\dfrac{\ln|\cos ax|}{a} &&&
+                                                 \int x\sin ax = \dfrac{\sin...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.81 	
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.82 	\int
+           e^{-x^2} = \frac{\sqrt \pi}{2} \text{erf}(x) &&& \int xe^{ax}dx =...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Misplaced alignment tab character &.
+l.82 ...x^2} = \frac{\sqrt \pi}{2} \text{erf}(x) &
+                                                  && \int xe^{ax}dx = \frac{...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.82 ...^2} = \frac{\sqrt \pi}{2} \text{erf}(x) &&
+                                                  & \int xe^{ax}dx = \frac{e...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.82 ...2} = \frac{\sqrt \pi}{2} \text{erf}(x) &&&
+                                                   \int xe^{ax}dx = \frac{e^...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced \cr.
+\math@cr@@@ ->\cr 
+                  
+l.83 \end{align*}
+                 
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced \noalign.
+\math@cr@@ ... \iffalse }\fi \math@cr@@@ \noalign 
+                                                  {\vskip #1\relax }
+l.83 \end{align*}
+                 
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.83 \end{align*}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.83 \end{align*}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Misplaced \noalign.
+\black@ #1->\noalign 
+                     {\ifdim #1>\displaywidth \dimen@ \prevdepth \nointerlin...
+l.83 \end{align*}
+                 
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+
+Overfull \hbox (130.4151pt too wide) detected at line 83
+[]
+ []
+
+! Extra }, or forgotten \endgroup.
+\endalign ->\math@cr \black@ \totwidth@ \egroup 
+                                                \ifingather@ \restorealignst...
+l.83 \end{align*}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.83 \end{align*}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Display math should end with $$.
+<to be read again> 
+                   \endgroup 
+l.83 \end{align*}
+                 
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+
+Overfull \hbox (3.11613pt too wide) detected at line 95
 []
  []
 
 
-Overfull \hbox (30.0pt too wide) in paragraph at lines 80--80
-[]  
- []
-
-
-Overfull \hbox (3.11613pt too wide) detected at line 92
-[]
- []
-
-
-Overfull \hbox (30.0pt too wide) in paragraph at lines 92--92
+Overfull \hbox (30.0pt too wide) in paragraph at lines 95--95
 []  
  []
 
@@ -612,14 +874,14 @@ runsystem(rm -f kactl.tmp)...executed.
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/OrderStatisticTree.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
+runsystem(python2 kactlprocessor.py --print-header "OrderStatisticTree.h|OrderStatisticTree.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [3]
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/DSU.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
-runsystem(python2 kactlprocessor.py --print-header "DSU.h|DSU.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [3]
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/DSURoll.h" -o kactl.tmp )...executed.
@@ -639,10 +901,10 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/LazySegmentTree.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
 runsystem(python2 kactlprocessor.py --print-header "LazySegmentTree.h|LazySegmentTree.h" -o header2.tmp)...executed.
 
- (./header2.tmp) [4]
+ (./header2.tmp) [4])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/LazySegTree.h" -o kactl.tmp )...executed.
@@ -698,15 +960,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/MisofTree.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "MisofTree.h|MisofTree.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [7])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/LineContainer.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "LineContainer.h|LineContainer.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [7])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/Matrix.h" -o kactl.tmp )...executed.
@@ -741,15 +1003,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/SplayTree.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "|SplayTree.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [9])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/DynamicTree.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "|DynamicTree.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [9]
 runsystem(python2 kactlprocessor.py --print-header "|DynamicTree.h" -o header2.tmp)...executed.
 
  (./header2.tmp) [10])
@@ -767,8 +1029,12 @@ Type  H <return>  for immediate help.
                                                   
 l.29 ... = esq[p][i], ej = esq[p][j]; // posiçao 
                                                   k-1 de v[i, j), se ele
-? return
-OK, entering \nonstopmode...
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
 
 ! Package inputenc Error: Invalid UTF-8 byte "A7.
 
@@ -2577,7 +2843,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  44i,15n,60p,852b,2018s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on kactl.pdf (64 pages, 2018277 bytes).
+Output written on kactl.pdf (64 pages, 2018286 bytes).
 PDF statistics:
  700 PDF objects out of 1000 (max. 8388607)
  463 compressed objects within 5 object streams
