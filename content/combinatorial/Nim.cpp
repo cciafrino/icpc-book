@@ -1,25 +1,48 @@
 /**
- * Author: xyz111
+ * Author: Chris
  * Date: 2018-07-06
  * License: CC0
- * Description: 
+ * Description: Sprague-grundy theorem. Example.
  */
 
-int _nim(int x, int y) {
-  if (!x || !y)  return 1 << (x + y);
-  if (f[x][y] != -1)  return f[x][y];
-  int ret = 1, e = 1;
-  for (int i = 0; i <= 4; i++)
-    if ((x ^ y) & (1 << i))  e *= (1 << (1 << i));
-    else  if (x & (1 << i))  ret = nim(ret, 3 * (1 << (1 << i)) / 2);
-  f[x][y] = nim(ret, e);
-  return f[x][y];
+const int MAXN = 1010;
+int version;
+int used[MAXN];
+
+int mex() {
+	for(int i=0; ; ++i)
+		if(used[i] != version)
+			return i;
 }
-int nim(int x, int y) {
-  int ret = 0;
-  for (int i = 0; i <= 20; i++)
-    if (x & (1 << i))
-      for (int j = 0; j <= 20; j++)
-        if (y & (1 << j))  ret ^= _nim(i, j);
-  return ret;
+
+int g[MAXN];
+//remover 1, 2, 3
+void grundy(){
+	//Base case depends on the problem
+	g[0] = 0; 
+	g[1] = 1;
+	g[2] = 2;
+	g[3] = 3;
+	//Inductive case
+	for(int i = 3; i < MAXN; ++i) {
+		version++;
+		used[g[i-1]] = version;
+		used[g[i-2]] = version;
+		used[g[i-3]] = version;
+		g[i] = mex();
+	}
+}
+
+int main() {	
+	grundy();		
+	int n;
+	cin >> n;
+	int ans = 0;
+	for(int i=0; i<n; i++){
+		int x;
+		cin >> x;
+		ans ^= g[x];
+	}
+	cout << ((ans != 0) ? "First" : "Second") << endl;
+	return 0;
 }

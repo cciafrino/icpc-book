@@ -10,6 +10,7 @@ template<typename T> struct minQueue {
 	T lx, rx, sum;
 	deque<pair<T, T>> q;
 	minQueue() { lx = 1; rx = 0; sum = 0; }
+	void clear() { lx = 1, rx = 0, sum = 0; q.clear(); }
 	void push(T delta) {
 		while(!q.empty() && q.back().first + sum >= delta)
 			q.pop_back();
@@ -25,4 +26,5 @@ template<typename T> struct minQueue {
 	T getMin() {
 		return q.front().first + sum;
 	}
+	int size() { return rx-lx; }
 };

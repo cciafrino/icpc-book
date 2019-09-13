@@ -24,7 +24,7 @@ struct H { /// start-hash
 	bool operator==(H o) const { return get() == o.get(); }
 	bool operator<(H o) const { return get() < o.get(); }
 }; /// end-hash
-static const H C = (ll)1e11+3; // (order ~ 3e9; random also ok)
+static const H C = (lint)1e11+3; // (order ~ 3e9; random also ok)
 
 struct HashInterval { /// start-hash
 	vector<H> ha, pw;
@@ -40,7 +40,7 @@ struct HashInterval { /// start-hash
 }; /// end-hash
 
 vector<H> getHashes(string& str, int length) { /// start-hash
-	if (sz(str) < length) return {};
+	if (str.size() < length) return {};
 	H h = 0, pw = 1;
 	for(int i = 0; i < length; ++i)
 		h = h * C + str[i], pw = pw * C;

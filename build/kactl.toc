@@ -111,13 +111,13 @@
 \contentsline {section}{\numberline {10.1}Intervals}{57}% 
 \contentsline {section}{\numberline {10.2}Misc. algorithms}{57}% 
 \contentsline {section}{\numberline {10.3}Dynamic programming}{58}% 
-\contentsline {section}{\numberline {10.4}Debugging tricks}{60}% 
-\contentsline {section}{\numberline {10.5}Optimization tricks}{60}% 
-\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{60}% 
-\contentsline {subsection}{\numberline {10.5.2}Pragmas}{60}% 
-\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{61}% 
-\contentsline {section}{\numberline {10.7}Random Numbers}{61}% 
-\contentsline {section}{\numberline {10.8}Other languages}{61}% 
-\contentsline {subsection}{\numberline {10.8.1}BigInteger}{61}% 
-\contentsline {paragraph}{BigInteger}{61}% 
+\contentsline {section}{\numberline {10.4}Debugging tricks}{61}% 
+\contentsline {section}{\numberline {10.5}Optimization tricks}{61}% 
+\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{61}% 
+\contentsline {subsection}{\numberline {10.5.2}Pragmas}{61}% 
+\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{62}% 
+\contentsline {section}{\numberline {10.7}Random Numbers}{62}% 
+\contentsline {section}{\numberline {10.8}Other languages}{62}% 
+\contentsline {subsection}{\numberline {10.8.1}BigInteger}{62}% 
+\contentsline {paragraph}{BigInteger}{62}% 
 \contentsfinish 

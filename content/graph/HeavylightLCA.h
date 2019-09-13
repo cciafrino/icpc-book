@@ -8,7 +8,7 @@
  * Usage:
  *  unique_ptr<heavylight> HLD;
  *  HLD.reset(new heavylight(n));
- * Time: Build = $O(N)$, Query = $O(\log(N))$
+ * Time: dfs = $O(N)$, query = $O(\log(N))$
  */
 
 struct heavylight {

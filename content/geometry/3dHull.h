@@ -40,7 +40,7 @@ vector<F> hull3d(const vector<P3>& A) {///start-hash
 		mf(i, j, k, 6 - i - j - k);
     ///end-hash
 	for(int i=4; i<A.size();++i) { ///start-hash
-		rep(int j=0;j<FS.size();++j) {
+		for(int j=0;j<FS.size();++j) {
 			F f = FS[j];
 			if(f.q.dot(A[i]) > f.q.dot(A[f.a])) {
 				E(a,b).rem(f.c);
