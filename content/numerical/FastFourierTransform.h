@@ -1,5 +1,5 @@
 /**
- * Author: Ludo Pulles, chilli, Simon Lindholm
+ * Author: Felipe Abella
  * Date: 2019-01-09
  * License: CC0
  * Source: http://neerc.ifmo.ru/trains/toulouse/2017/fft2.pdf (do read, it's excellent)
@@ -14,42 +14,39 @@
  * Time: O(N \log N) with $N = |A|+|B|$ ($\tilde 1s$ for $N=2^{22}$)
  * Status: somewhat tested
  */
-#pragma once
 
-typedef complex<double> C;
-typedef vector<double> vd;
-void fft(vector<C> &a) {
-	int n = a.size(), L = 31 - __builtin_clz(n);
-	static vector<complex<long double>> R(2, 1);
-	static vector<C> rt(2, 1);  // (^ 10% faster if double)
-	for (static int k = 2; k < n; k *= 2) {
-		R.resize(n); rt.resize(n);
-		auto x = polar(1.0L, M_PIl / k); // M_PI, lower-case L
-		for(int i = k; i < 2*k; ++i) rt[i] = R[i] = i&1 ? R[i/2] * x : R[i/2];
-	}
-	vector<int> rev(n);
-	for(int i = 0; i < n; ++i) rev[i] = (rev[i / 2] | (i & 1) << L) / 2;
-	for(int i = 0; i < n; ++i) if (i < rev[i]) swap(a[i], a[rev[i]]);
-	for (int k = 1; k < n; k *= 2)
-		for (int i = 0; i < n; i += 2 * k) 	for(int j = 0; j < k; ++j) {
-			// C z = rt[j+k] * a[i+j+k]; // (25% faster if hand-rolled)  /// include-line
-			auto x = (double *)&rt[j+k], y = (double *)&a[i+j+k];        /// exclude-line
-			C z(x[0]*y[0] - x[1]*y[1], x[0]*y[1] + x[1]*y[0]);           /// exclude-line
-			a[i + j + k] = a[i + j] - z;
-			a[i + j] += z;
-		}
-}
-vd conv(const vd& a, const vd& b) {
-	if (a.empty() || b.empty()) return {};
-	vd res(a.size() + b.size() - 1);
-	int L = 32 - __builtin_clz(res.size()), n = 1 << L;
-	vector<C> in(n), out(n);
-	copy(a.begin(), a.end(), begin(in));
-	for(int i = 0; i < (int)b.size(); ++i) in[i].imag(b[i]);
-	fft(in);
-	for(C &x : in) x *= x;
-	for(int i = 0; i < n; ++i) out[i] = in[-i & (n - 1)] - conj(in[i]);
-	fft(out);
-	for(int i = 0; i < (int)res.size(); ++i) res[i] = imag(out[i]) / (4 * n);
-	return res;
-}
+typedef complex<long double> doublex;
+struct FFT {
+    vector<doublex> fft(vector<doublex> y, bool invert = false) {
+        const int N = y.size(); assert(N == (N&-N));
+        vector<lint> rev(N);
+        for (int i = 1; i < N; ++i) {
+            rev[i] = (rev[i>>1]>>1) | (i&1 ? N>>1 : 0);
+            if (rev[i] < i) swap(y[i], y[rev[i]]);
+        }
+        vector<doublex> rootni(N/2);
+        for (lint n = 2; n <= N; n *= 2) {
+            const doublex rootn = polar(1.0, (invert ? +1.0 : -1.0) * 2.0*acos(-1.0)/n);
+            rootni[0] = 1.0;
+            for (lint i = 1; i < n/2; ++i) rootni[i] = rootni[i-1] * rootn;
+            for (lint left = 0; left != N; left += n) {
+                const lint mid = left + n/2;
+                for (lint i = 0; i < n/2; ++i) {
+                    const doublex temp = rootni[i] * y[mid + i];
+                    y[mid + i] = y[left + i] - temp; y[left + i] += temp;
+                }
+            }
+        } if (invert) for (auto &v : y) v /= (doublex)N;
+        return move(y);
+    }
+    uint nextpow2(uint v) { return v ? 1 << __lg(2*v-1) : 1; }
+    vector<doublex> convolution(vector<doublex> a, vector<doublex> b) {
+        const lint n = max((int)a.size()+(int)b.size()-1, 0), n2 = nextpow2(n);
+        a.resize(n2); b.resize(n2);
+        vector<doublex> fa = fft(move(a)), fb = fft(move(b)), &fc = fa;
+        for (lint i = 0; i < n2; ++i) fc[i] = fc[i] * fb[i];
+        vector<doublex> c = fft(move(fc), true);
+        c.resize(n);
+        return move(c);
+    }
+} fft;

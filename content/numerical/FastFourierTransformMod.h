@@ -9,29 +9,66 @@
  * Time: O(N \log N), where $N = |A|+|B|$ (twice as slow as NTT or FFT)
  * Status: somewhat tested
  */
-#pragma once
+typedef unsigned int uint;
+typedef long double ldouble;
 
-#include "FastFourierTransform.h"
+template<typename T, typename U, typename B> struct ModularFFT {
+    inline T ifmod(U v, T mod) { return v >= (U)mod ? v - mod : v; }
+    T pow(T x, U y, T p) {
+        T ret = 1, x2p = x;
+        while (y) {
+            if (y % 2) ret = (B)ret * x2p % p;
+            y /= 2; x2p = (B)x2p * x2p % p;
+        }
+        return ret;
+    }
+    vector<T> fft(vector<T> y, T mod, T gen, bool invert = false) {
+        int N = y.size(); assert(N == (N&-N));
+        if (N == 0) return move(y);
+        vector<int> rev(N);
+        for (int i = 1; i < N; ++i) {
+            rev[i] = (rev[i>>1]>>1) | (i&1 ? N>>1 : 0);
+            if (rev[i] < i) swap(y[i], y[rev[i]]);
+        }
+        assert((mod-1)%N == 0);
+        T rootN = pow(gen, (mod-1)/N, mod);
+        if (invert) rootN = pow(rootN, mod-2, mod);
+        vector<T> rootni(N/2);
+        for (int n = 2; n <= N; n *= 2) {
+            T rootn = pow(rootN, N/n, mod);
+            rootni[0] = 1;
+            for (int i = 1; i < n/2; ++i) rootni[i] = (B)rootni[i-1] * rootn % mod;
+            for (int left = 0; left != N; left += n) {
+                int mid = left + n/2;
+                for (int i = 0; i < n/2; ++i) {
+                    T temp = (B)rootni[i] * y[mid+i] % mod;
+                    y[mid+i] = ifmod((U)y[left+i] + mod - temp, mod);
+                    y[left+i] = ifmod((U)y[left+i] + temp, mod);
+                }
+            }
+        }
+        if (invert) {
+            T invN = pow(N, mod-2, mod);
+            for (T &v : y) v = (B)v * invN % mod;
+        }
+        return move(y);
+    }
+    vector<T> convolution(vector<T> a, vector<T> b, T mod, T gen) {
+        int N = a.size()+b.size()-1, N2 = nextpow2(N);
+        a.resize(N2); b.resize(N2);
+        vector<T> fa = fft(move(a), mod, gen), fb = fft(move(b), mod, gen), &fc = fa;
+        for (int i = 0; i < N2; ++i) fc[i] = (B)fc[i] * fb[i] % mod;
+        vector<T> c = fft(move(fc), mod, gen, true);
+        c.resize(N); return move(c);
+    }
+    vector<T> self_convolution(vector<T> a, T mod, T gen) {
+        int N = 2*a.size()-1, N2 = nextpow2(N);
+        a.resize(N2);
+        vector<T> fc = fft(move(a), mod, gen);
+        for (int i = 0; i < N2; ++i) fc[i] = (B)fc[i] * fc[i] % mod;
+        vector<T> c = fft(move(fc), mod, gen, true);
+        c.resize(N); return move(c);
+    }
+    uint nextpow2(uint v) { return v ? 1 << __lg(2*v-1) : 1; }
+};
 
-typedef vector<lint> vl;
-template<int M> vl convMod(const vl &a, const vl &b) {
-	if (a.empty() || b.empty()) return {};
-	vl res(a.size() + b.size() - 1);
-	int B=32-__builtin_clz(res.size()), n=1<<B, cut=int(sqrt(M));
-	vector<C> L(n), R(n), outs(n), outl(n);
-	for(int i = 0; i < (int)a.size(); ++i) L[i] = C((int)a[i] / cut, (int)a[i] % cut);
-	for(int i = 0; i < (int)b.size(); ++i) R[i] = C((int)b[i] / cut, (int)b[i] % cut);
-	fft(L), fft(R);
-	for(int i = 0; i < n; ++i) {
-		int j = -i & (n - 1);
-		outl[j] = (L[i] + conj(L[j])) * R[i] / (2.0 * n);
-		outs[j] = (L[i] - conj(L[j])) * R[i] / (2.0 * n) / 1i;
-	}
-	fft(outl), fft(outs);
-	for(int i = 0; i < res.size(); ++i) {
-		lint av = lint(real(outl[i])+.5), cv = lint(imag(outs[i])+.5);
-		lint bv = lint(imag(outl[i])+.5) + lint(real(outs[i])+.5);
-		res[i] = ((av % M * cut + bv) % M * cut + cv) % M;
-	}
-	return res;
-}

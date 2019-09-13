@@ -31,7 +31,7 @@ void ntt(vl& a, vl& rt, vl& rev, int n) {
 vl conv(const vl& a, const vl& b) {
 	if (a.empty() || b.empty())
 		return {};
-	int s = sz(a)+sz(b)-1, B = 32 - __builtin_clz(s), n = 1 << B;
+	int s = a.size()+b.size()-1, B = 32 - __builtin_clz(s), n = 1 << B;
 	vl L(a), R(b), out(n), rt(n, 1), rev(n);
 	L.resize(n), R.resize(n);
 	for(int i = 0; i < n; ++i) rev[i] = (rev[i / 2] | (i & 1) << B) / 2;
