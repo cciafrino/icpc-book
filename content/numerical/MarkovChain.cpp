@@ -36,7 +36,7 @@ int aplica(int n){
 			aux[i]+=prob[j]*trans[j][i];
 	int dif=0;
 	for(int i=1;i<=n;i++){
-		dif+=abs(cmp_double(prob[i]*prob[i],aux[i]*aux[i],1e-15));
+		dif+=abs(cmp_double(prob[i],aux[i]));
 		prob[i]=aux[i];
 	}
 	return dif;
