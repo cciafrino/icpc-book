@@ -12,30 +12,29 @@
  * matched.
  * Time: O(EV) where $E$ is the number of edges and V is the number of vertices.
  * Status: works
+ * 	   Working on Kattis Bilateral Projects
  */
-#pragma once
-
 vector<int> match;
 vector<bool> seen;
 bool find(int j, const vector<vector<int>>& g) {
-	if (match[j] == -1) return 1;
-	seen[j] = 1; int di = match[j];
-	for (int e : g[di])
-		if (!seen[e] && find(e, g)) {
-			match[e] = di;
-			return 1;
-		}
-	return 0;
+    if (match[j] == -1) return 1;
+    seen[j] = 1; int di = match[j];
+    for (int e : g[di])
+        if (!seen[e] && find(e, g)) {
+            match[e] = di;
+            return 1;
+        }
+    return 0;
 }
 int dfs_matching(const vector<vector<int>>& g, int n, int m) {
-	match.assign(m, -1);
-	for (int i = 0; i < n; ++i) {
-		seen.assign(m, 0);
-		for (int j : g[i])
-			if (find(j, g)) {
-				match[j] = i;
-				break;
-			}
-	}
-	return m - (int)count(match.begin(), match.end(), -1);
+    match.assign(m, -1);
+    for (int i = 0; i < n; ++i) {
+        seen.assign(m, 0);
+        for (int j : g[i])
+            if (find(j, g)) {
+                match[j] = i;
+                break;
+            }
+    }
+    return m - (int)count(match.begin(), match.end(), -1);
 }
