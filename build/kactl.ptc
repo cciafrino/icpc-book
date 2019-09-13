@@ -9,8 +9,8 @@
 \contentsline {chapter}{\numberline {2}Mathematics}{1}% 
 \ttl@stoptoc {chapters@1}
 \ttl@starttoc {chapters@2}
-\contentsline {section}{\numberline {2.1}Recurrences}{2}% 
-\contentsline {section}{\numberline {2.2}Trigonometry}{2}% 
+\contentsline {section}{\numberline {2.1}Recurrences}{1}% 
+\contentsline {section}{\numberline {2.2}Trigonometry}{1}% 
 \contentsline {section}{\numberline {2.3}Geometry}{2}% 
 \contentsline {subsection}{\numberline {2.3.1}Triangles}{2}% 
 \contentsline {subsection}{\numberline {2.3.2}Quadrilaterals}{2}% 
@@ -54,7 +54,7 @@
 \contentsline {section}{\texttt {LCT.cpp}\hspace {0.2em}}{8}% 
 \contentsline {section}{\texttt {PalindromicTree.h}\hspace {0.2em}}{9}% 
 \contentsline {section}{\texttt {SplayTree.h}\hspace {0.2em}}{9}% 
-\contentsline {section}{\texttt {DynamicTree.h}\hspace {0.2em}}{9}% 
+\contentsline {section}{\texttt {DynamicTree.h}\hspace {0.2em}}{10}% 
 \contentsline {section}{\texttt {Wavelet.h}\hspace {0.2em}}{11}% 
 \contentsline {chapter}{\numberline {4}Numerical}{12}% 
 \ttl@stoptoc {chapters@3}
@@ -355,42 +355,46 @@
 \contentsline {subsection}{\texttt {DateManipulation.h}\hspace {0.2em}}{58}% 
 \contentsline {subsection}{\texttt {MagicSquare.h}\hspace {0.2em}}{58}% 
 \contentsline {subsection}{\texttt {FindPattern.h}\hspace {0.2em}}{58}% 
-\contentsline {section}{\numberline {10.3}Dynamic programming}{58}% 
-\contentsline {subsection}{\texttt {DivideAndConquerDP.h}\hspace {0.2em}}{58}% 
-\contentsline {subsection}{\texttt {KnuthDP.h}\hspace {0.2em}}{59}% 
-\contentsline {subsection}{\texttt {ConvexHullTrick.h}\hspace {0.2em}}{59}% 
-\contentsline {subsection}{\texttt {Coin.h}\hspace {0.2em}}{59}% 
-\contentsline {subsection}{\texttt {MinCoin.h}\hspace {0.2em}}{59}% 
-\contentsline {subsection}{\texttt {EditDistance.h}\hspace {0.2em}}{59}% 
-\contentsline {subsection}{\texttt {LIS.h}\hspace {0.2em}}{59}% 
+\contentsline {subsection}{\texttt {NQueens.cpp}\hspace {0.2em}}{58}% 
+\contentsline {subsection}{\texttt {SudokuSolver.h}\hspace {0.2em}}{59}% 
+\contentsline {subsection}{\texttt {FloydCycle.h}\hspace {0.2em}}{59}% 
+\contentsline {subsection}{\texttt {SlidingWindow.h}\hspace {0.2em}}{59}% 
+\contentsline {section}{\numberline {10.3}Dynamic programming}{59}% 
+\contentsline {subsection}{\texttt {DivideAndConquerDP.h}\hspace {0.2em}}{59}% 
+\contentsline {subsection}{\texttt {KnuthDP.h}\hspace {0.2em}}{60}% 
+\contentsline {subsection}{\texttt {ConvexHullTrick.h}\hspace {0.2em}}{60}% 
+\contentsline {subsection}{\texttt {Coin.h}\hspace {0.2em}}{60}% 
+\contentsline {subsection}{\texttt {MinCoin.h}\hspace {0.2em}}{60}% 
+\contentsline {subsection}{\texttt {EditDistance.h}\hspace {0.2em}}{60}% 
+\contentsline {subsection}{\texttt {LIS.h}\hspace {0.2em}}{60}% 
 \contentsline {subsection}{\texttt {LIS2.h}\hspace {0.2em}}{60}% 
 \contentsline {subsection}{\texttt {LCS.h}\hspace {0.2em}}{60}% 
-\contentsline {subsection}{\texttt {Knapsack.h}\hspace {0.2em}}{60}% 
-\contentsline {subsection}{\texttt {01Knapsack.h}\hspace {0.2em}}{60}% 
-\contentsline {subsection}{\texttt {LargeKnapsack.h}\hspace {0.2em}}{60}% 
-\contentsline {subsection}{\texttt {KnapsackUnbounded.h}\hspace {0.2em}}{60}% 
-\contentsline {subsection}{\texttt {KnapsackBounded.h}\hspace {0.2em}}{60}% 
-\contentsline {subsection}{\texttt {KnapsackBitset.h}\hspace {0.2em}}{60}% 
+\contentsline {subsection}{\texttt {Knapsack.h}\hspace {0.2em}}{61}% 
+\contentsline {subsection}{\texttt {01Knapsack.h}\hspace {0.2em}}{61}% 
+\contentsline {subsection}{\texttt {LargeKnapsack.h}\hspace {0.2em}}{61}% 
+\contentsline {subsection}{\texttt {KnapsackUnbounded.h}\hspace {0.2em}}{61}% 
+\contentsline {subsection}{\texttt {KnapsackBounded.h}\hspace {0.2em}}{61}% 
+\contentsline {subsection}{\texttt {KnapsackBitset.h}\hspace {0.2em}}{61}% 
 \contentsline {subsection}{\texttt {TSP.h}\hspace {0.2em}}{61}% 
 \contentsline {subsection}{\texttt {DistinctSubsequences.h}\hspace {0.2em}}{61}% 
-\contentsline {section}{\numberline {10.4}Debugging tricks}{61}% 
-\contentsline {section}{\numberline {10.5}Optimization tricks}{61}% 
-\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{61}% 
-\contentsline {subsection}{\numberline {10.5.2}Pragmas}{61}% 
-\contentsline {subsection}{\texttt {BumpAllocator.h}\hspace {0.2em}}{61}% 
-\contentsline {subsection}{\texttt {SmallPtr.h}\hspace {0.2em}}{61}% 
-\contentsline {subsection}{\texttt {BumpAllocatorSTL.h}\hspace {0.2em}}{61}% 
-\contentsline {subsection}{\texttt {Unrolling.h}\hspace {0.2em}}{61}% 
-\contentsline {subsection}{\texttt {SIMD.h}\hspace {0.2em}}{61}% 
+\contentsline {section}{\numberline {10.4}Debugging tricks}{62}% 
+\contentsline {section}{\numberline {10.5}Optimization tricks}{62}% 
+\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{62}% 
+\contentsline {subsection}{\numberline {10.5.2}Pragmas}{62}% 
+\contentsline {subsection}{\texttt {BumpAllocator.h}\hspace {0.2em}}{62}% 
+\contentsline {subsection}{\texttt {SmallPtr.h}\hspace {0.2em}}{62}% 
+\contentsline {subsection}{\texttt {BumpAllocatorSTL.h}\hspace {0.2em}}{62}% 
+\contentsline {subsection}{\texttt {Unrolling.h}\hspace {0.2em}}{62}% 
+\contentsline {subsection}{\texttt {SIMD.h}\hspace {0.2em}}{62}% 
 \contentsline {subsection}{\texttt {Hashmap.h}\hspace {0.2em}}{62}% 
-\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{62}% 
-\contentsline {subsection}{\texttt {Hacks.h}\hspace {0.2em}}{62}% 
-\contentsline {subsection}{\texttt {Bitset.h}\hspace {0.2em}}{62}% 
-\contentsline {section}{\numberline {10.7}Random Numbers}{62}% 
-\contentsline {subsection}{\texttt {RandomNumbers.h}\hspace {0.2em}}{62}% 
-\contentsline {section}{\numberline {10.8}Other languages}{62}% 
-\contentsline {subsection}{\texttt {Main.java}\hspace {0.2em}}{62}% 
-\contentsline {subsection}{\texttt {MiscJava.java}\hspace {0.2em}}{62}% 
-\contentsline {subsection}{\numberline {10.8.1}BigInteger}{62}% 
-\contentsline {paragraph}{BigInteger}{62}% 
+\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{63}% 
+\contentsline {subsection}{\texttt {Hacks.h}\hspace {0.2em}}{63}% 
+\contentsline {subsection}{\texttt {Bitset.h}\hspace {0.2em}}{63}% 
+\contentsline {section}{\numberline {10.7}Random Numbers}{63}% 
+\contentsline {subsection}{\texttt {RandomNumbers.h}\hspace {0.2em}}{63}% 
+\contentsline {section}{\numberline {10.8}Other languages}{63}% 
+\contentsline {subsection}{\texttt {Main.java}\hspace {0.2em}}{63}% 
+\contentsline {subsection}{\texttt {MiscJava.java}\hspace {0.2em}}{63}% 
+\contentsline {subsection}{\numberline {10.8.1}BigInteger}{63}% 
+\contentsline {paragraph}{BigInteger}{63}% 
 \contentsfinish 

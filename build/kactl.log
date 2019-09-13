@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.8.16)  13 SEP 2019 13:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.8.16)  13 SEP 2019 16:54
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -511,32 +511,32 @@ Package pdftex.def Info: projeto.png  used on input line 10.
 (pdftex.def)             Requested size: 323.96815pt x 153.26184pt.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./projeto.png>] (./kactl.toc
-LaTeX Font Info:    Try loading font information for U+msa on input line 1.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 1.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./projeto.png>] (./kactl.toc)
 \tf@toc=\write3
 \openout3 = `kactl.toc'.
 
  (../content/contest/chapter.tex
 Chapter 1.
+LaTeX Font Info:    Try loading font information for U+msa on input line 1.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 1.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 \c@ttl@toc@chapters=\count136
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/contest/template.cpp" -o kactl.tmp -l rawcpp)...executed.
 
-(./kactl.tmp
+ (./kactl.tmp
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 3.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <7> not available
-(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 20.
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 12.
 )
 runsystem(rm -f kactl.tmp)...executed.
 
@@ -568,12 +568,12 @@ runsystem(python2 kactlprocessor.py -i "../content/contest/troubleshoot.txt" -o 
 
  (./kactl.tmp)) (../content/math/chapter.tex
 Chapter 2.
-runsystem(python2 kactlprocessor.py --print-header "troubleshoot.txt|troubleshoot.txt" -o header2.tmp)...executed.
+runsystem(python2 kactlprocessor.py --print-header "|troubleshoot.txt" -o header2.tmp)...executed.
 
 (./header2.tmp) [1
 
 ]
-<../content/math/sphericalCoordinates.pdf, id=22, 42.67899pt x 42.67899pt>
+<../content/math/sphericalCoordinates.pdf, id=25, 42.67899pt x 42.67899pt>
 File: ../content/math/sphericalCoordinates.pdf Graphic file (type pdf)
 <use ../content/math/sphericalCoordinates.pdf>
 Package pdftex.def Info: ../content/math/sphericalCoordinates.pdf  used on input line 67.
@@ -640,14 +640,14 @@ runsystem(rm -f kactl.tmp)...executed.
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/LazySegmentTree.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
+runsystem(python2 kactlprocessor.py --print-header "LazySegmentTree.h|LazySegmentTree.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [4]
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/LazySegTree.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "LazySegmentTree.h|LazySegTree.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [4])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/LazySegTreeRSQ.h" -o kactl.tmp )...executed.
@@ -747,7 +747,7 @@ runsystem(rm -f kactl.tmp)...executed.
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/DynamicTree.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "DynamicTree.h|DynamicTree.h" -o header2.tmp)...executed.
+runsystem(python2 kactlprocessor.py --print-header "|DynamicTree.h" -o header2.tmp)...executed.
 
  (./header2.tmp) [9]
 runsystem(python2 kactlprocessor.py --print-header "|DynamicTree.h" -o header2.tmp)...executed.
@@ -2380,12 +2380,35 @@ runsystem(python2 kactlprocessor.py -i "../content/various/FindPattern.h" -o kac
  (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
+runsystem(python2 kactlprocessor.py -i "../content/various/NQueens.cpp" -o kactl.tmp )...executed.
+
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "NQueens.cpp|NQueens.cpp" -o header2.tmp)...executed.
+
+ (./header2.tmp) [58])
+runsystem(rm -f kactl.tmp)...executed.
+
+runsystem(python2 kactlprocessor.py -i "../content/various/SudokuSolver.h" -o kactl.tmp )...executed.
+
+ (./kactl.tmp)
+runsystem(rm -f kactl.tmp)...executed.
+
+runsystem(python2 kactlprocessor.py -i "../content/various/FloydCycle.h" -o kactl.tmp )...executed.
+
+ (./kactl.tmp)
+runsystem(rm -f kactl.tmp)...executed.
+
+runsystem(python2 kactlprocessor.py -i "../content/various/SlidingWindow.h" -o kactl.tmp )...executed.
+
+ (./kactl.tmp)
+runsystem(rm -f kactl.tmp)...executed.
+
 runsystem(python2 kactlprocessor.py -i "../content/various/DivideAndConquerDP.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp
 runsystem(python2 kactlprocessor.py --print-header "DivideAndConquerDP.h|DivideAndConquerDP.h" -o header2.tmp)...executed.
 
- (./header2.tmp) [58])
+ (./header2.tmp) [59])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/KnuthDP.h" -o kactl.tmp )...executed.
@@ -2415,10 +2438,7 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/LIS.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "LIS.h|LIS.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [59])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/LIS2.h" -o kactl.tmp )...executed.
@@ -2428,7 +2448,10 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/LCS.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "LCS.h|LCS.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [60])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/Knapsack.h" -o kactl.tmp )...executed.
@@ -2459,9 +2482,6 @@ runsystem(rm -f kactl.tmp)...executed.
 runsystem(python2 kactlprocessor.py -i "../content/various/KnapsackBitset.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
-runsystem(python2 kactlprocessor.py --print-header "KnapsackBitset.h|KnapsackBitset.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [60]
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/TSP.h" -o kactl.tmp )...executed.
@@ -2471,9 +2491,12 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/DistinctSubsequences.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "DistinctSubsequences.h|DistinctSubsequences.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [61])
 LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 45.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 49.
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/BumpAllocator.h" -o kactl.tmp )...executed.
@@ -2498,15 +2521,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/SIMD.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "SIMD.h|SIMD.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [61])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/Hashmap.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
+runsystem(python2 kactlprocessor.py --print-header "Hashmap.h|Hashmap.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [62]
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/Hacks.h" -o kactl.tmp )...executed.
@@ -2531,10 +2554,7 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/MiscJava.java" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
-runsystem(python2 kactlprocessor.py --print-header "|MiscJava.java" -o header2.tmp)...executed.
-
- (./header2.tmp) [62])
+ (./kactl.tmp))
 runsystem(python2 kactlprocessor.py --print-header "|MiscJava.java" -o header2.tmp)...executed.
 
  (./header2.tmp) [63]
@@ -2549,15 +2569,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
  (./kactl.aux) ) 
 Here is how much of TeX's memory you used:
- 11519 strings out of 494561
- 147927 string characters out of 6177454
+ 11577 strings out of 494561
+ 148625 string characters out of 6177454
  1273050 words of memory out of 5000000
- 14319 multiletter control sequences out of 15000+600000
+ 14369 multiletter control sequences out of 15000+600000
  16553 words of font info for 64 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  44i,15n,60p,852b,2018s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on kactl.pdf (64 pages, 2014113 bytes).
+Output written on kactl.pdf (64 pages, 2018277 bytes).
 PDF statistics:
  700 PDF objects out of 1000 (max. 8388607)
  463 compressed objects within 5 object streams

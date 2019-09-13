@@ -1,7 +1,7 @@
 \contentsline {chapter}{\numberline {1}Contest}{1}% 
 \contentsline {chapter}{\numberline {2}Mathematics}{1}% 
-\contentsline {section}{\numberline {2.1}Recurrences}{2}% 
-\contentsline {section}{\numberline {2.2}Trigonometry}{2}% 
+\contentsline {section}{\numberline {2.1}Recurrences}{1}% 
+\contentsline {section}{\numberline {2.2}Trigonometry}{1}% 
 \contentsline {section}{\numberline {2.3}Geometry}{2}% 
 \contentsline {subsection}{\numberline {2.3.1}Triangles}{2}% 
 \contentsline {subsection}{\numberline {2.3.2}Quadrilaterals}{2}% 
@@ -110,14 +110,14 @@
 \contentsline {chapter}{\numberline {10}Various}{57}% 
 \contentsline {section}{\numberline {10.1}Intervals}{57}% 
 \contentsline {section}{\numberline {10.2}Misc. algorithms}{57}% 
-\contentsline {section}{\numberline {10.3}Dynamic programming}{58}% 
-\contentsline {section}{\numberline {10.4}Debugging tricks}{61}% 
-\contentsline {section}{\numberline {10.5}Optimization tricks}{61}% 
-\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{61}% 
-\contentsline {subsection}{\numberline {10.5.2}Pragmas}{61}% 
-\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{62}% 
-\contentsline {section}{\numberline {10.7}Random Numbers}{62}% 
-\contentsline {section}{\numberline {10.8}Other languages}{62}% 
-\contentsline {subsection}{\numberline {10.8.1}BigInteger}{62}% 
-\contentsline {paragraph}{BigInteger}{62}% 
+\contentsline {section}{\numberline {10.3}Dynamic programming}{59}% 
+\contentsline {section}{\numberline {10.4}Debugging tricks}{62}% 
+\contentsline {section}{\numberline {10.5}Optimization tricks}{62}% 
+\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{62}% 
+\contentsline {subsection}{\numberline {10.5.2}Pragmas}{62}% 
+\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{63}% 
+\contentsline {section}{\numberline {10.7}Random Numbers}{63}% 
+\contentsline {section}{\numberline {10.8}Other languages}{63}% 
+\contentsline {subsection}{\numberline {10.8.1}BigInteger}{63}% 
+\contentsline {paragraph}{BigInteger}{63}% 
 \contentsfinish 
