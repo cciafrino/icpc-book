@@ -18,31 +18,26 @@ void create_chain(int n){
 	for(int i=1;i<=n;i++){
 		if(out[i])
 			for(int j=1;j<=n;j++){
-				if(adj[i][j])
-					trans[i][j]=((double)adj[i][j])/out[i];
-				else
-					trans[i][j]=0;
+				if(adj[i][j]) trans[i][j]=((double)adj[i][j])/out[i];
+				else trans[i][j]=0;
 			}
 		else
 			for(int j=1;j<=n;j++) trans[i][j]=1.0/n;
 	}
 }
-
-double aux[N];
+double proxprob[N];
 int aplica(int n){
-	for(int i=1;i<=n;i++) aux[i]=0;
+	for(int i=1;i<=n;i++) proxprob[i]=0;
 	for(int i=1;i<=n;i++)
 		for(int j=1;j<=n;j++)
-			aux[i]+=prob[j]*trans[j][i];
+			proxprob[i]+=prob[j]*trans[j][i];
 	int dif=0;
 	for(int i=1;i<=n;i++){
-		dif+=abs(cmp_double(prob[i],aux[i]));
-		prob[i]=aux[i];
+		dif+=abs(cmp_double(prob[i],proxprob[i]));
+		prob[i]=proxprob[i];
 	}
 	return dif;
 }
-
-
 void solve(int n){
 	while(aplica(n));
 }
