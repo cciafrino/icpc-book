@@ -36,6 +36,22 @@ $\mathrm{p}_k(n) = \sum_{i=0}^k \mathrm{p}(n,k)$.
 	\bottomrule
 \end{tabular}
 
+
+    \subsection{The twelvefold way (from Stanley)} How many functions $f \colon N \rightarrow X$ are there?
+
+	\resizebox{\columnwidth}{!}{%
+      \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        $N$ & $X$ & Any $f$ & Injective & Surjective \\ \hline
+        dist. & dist. & $x^n$ & $(x)_n$ & $x! \stirlingsecond{n}{x}$ \\ \hline
+        indist. & dist. & $\binom{x+n-1}{n}$ & $\binom{x}{n}$ & $\binom{n-1}{n-x}$ \\ \hline
+        dist. & indist. & $\stirlingsecond{n}{1} + \ldots + \stirlingsecond{n}{x}$ & $[n \leq x]$ & $\stirlingsecond{n}{k}$ \\ \hline
+        indist. & indist. & $p_1(n) + \ldots p_x(n)$ & $[n \leq x]$ & $p_x(n)$ \\ \hline
+      \end{tabular}
+	}
+
+      Where $\binom{a}{b} = \frac{1}{b!}(a)_b $ and $p_x(n)$ is the number of ways to partition the integer $n$ using $x$ summands.
+
     \subsection{Involutions}
     Uma involução é uma permutação com ciclo de tamanho máximo 2, e é a sua própria inversa.
     $$a(n) = a(n-1) + (n-1)a(n-2)$$
@@ -141,7 +157,7 @@ Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\lim
     $$S(n) = \frac{3(2n-3)S(n-1)-(n-3)S(n-2)}{n}$$
     $$S(1) = S(2) = 1$$
     1, 1, 3, 11, 45, 197, 903, 4279, 20793, 103049, 518859\\
-    
+
     \subsection{Motzkin numbers}
     Number of ways of drawing any number of nonintersecting chords among $n$ points on a circle. Number of lattice paths from (0, 0) to ($n$, 0) never going below the $x$-axis, using only steps NE, E, SE.\\
     
@@ -173,11 +189,15 @@ Super Catalan number, except for the first term.\\
         \end{array}
     \right.
     }$$\\
-    is the number of distinct triangles (positive are) that can be constructed, i.e., the # of 3-subsets of $[n]$ s.t. $x \leq y \leq z$ and $z \neq x + y.$
-        
+    is the number of distinct triangles (positive are) that can be constructed, i.e., the $#$ of $3$-subsets of $[n]$ s.t. $x \leq y \leq z$ and $z \neq x + y.
+       
+    \text{
     \subsection{Gambler's Ruin}
         Em um jogo no qual ganhamos cada aposta com probabilidade~$p$ e perdemos com probabilidade~$q \coloneqq 1 - p$, paramos quando ganhamos~$B$ ou perdemos~$A$. Então~$\mathit{Prob}(\textnormal{ganhar B}) = \frac{1 - (p/q)^B}{1 - (p/q)^{A+B}}$.\newline
     
+    \subsection{Bertrand's ballot theorem} 
+    In an election where candidate A receives $p$ votes and candidate B receives $q$ votes with $p > q$, the probability that A will be strictly ahead of B throughout the count is $\frac{p - q}{p + q}$. If draw is a possible outcome, the probability will be equal to $\frac{p + 1- q}{p + 1}$, to find how many possible outcomes for both cases just multiply by $\binom{p + q}{q}$ \\ \hfill
+
     \section{Game Theory}
     A game can be reduced to Nim if it is a finite impartial game.
 	Nim and its variants include:
@@ -200,9 +220,11 @@ Super Catalan number, except for the first term.\\
     Players may alternatively split a pile into two new non-empty piles. $g(4k+1) = 4k+1$, $g(4k+2) = 4k+2$, $g(4k+3) = 4k+4$, $g(4k+4) = 4k+3$ ($k\geq 0$).\newline
     \subsection{Hackenbush on Trees}
     A tree with stalks $(x_i)_{i=1}^n$ may be replaced with a single stalk with length $\bigoplus_{i=1}^n x_i$.\newline
+
     \kactlimport{Grundy.h}
     \kactlimport{Nim.cpp}
 	\kactlimport{Nim-Product.cpp}
 	\kactlimport{Schreier-Sims.cpp}
 	\kactlimport{RandomWalk.h}
 	\kactlimport{Partitions.cpp}
+	}

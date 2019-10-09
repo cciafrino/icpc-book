@@ -87,11 +87,13 @@ to the same state) iff.\ each pair of states has a synchronizing word.
 That can be checked using reverse DFS over pairs of states. Finding the
 shortest synchronizing word is NP-complete.\newline
 
+\subsection{Turán's theorem} No graph with $n$ vertices that is $K_{r+1}$-free can have more edges than the Turán graph: A $k$-partite complete graph with sets of size as equal as possible.
+
 \subsection{Eulerian Cycles}
-The number of Eulerian cycles in a \emph{directed} graph $G$ is:
+The number of Eulerian cycles in a \emph{directed} graph $G$ is:\newline
 		\begin{equation*}
 			t_w(G) \prod_{v \in G} (\deg v - 1)!,
-		\end{equation*}\\
+		\end{equation*}\newline
 		where $t_w(G)$ is the number of arborescences (``directed spanning'' tree) rooted at $w$: $t_w(G) = \det\left( q_{ij} \right)_{i,j \neq w}$, with $q_{ij} = [i=j] \mathrm{indeg}(i) - \# \set{(i,j) \in E}$.\newline
 	
 \subsection{Useful facts}
@@ -155,6 +157,7 @@ The number of vertices of a graph is equal to its minimum vertex cover number pl
 
 
 \section{Other}
+    \kactlimport{Boruvka.h}
     \kactlimport{ManhattanMST.h}
     \kactlimport{SteinerTree.h}
     \kactlimport{Pruefer.cpp}    

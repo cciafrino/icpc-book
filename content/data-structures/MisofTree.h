@@ -10,6 +10,8 @@ struct misof_tree{
     misof_tree() {memset(cnt, 0, sizeof cnt);}
     void add(int x, int dv) {
         for (int i = 0; i < BITS; cnt[i++][x] += dv, x >>= 1); }
+    void del(int x, int dv) {
+        for (int i = 0; i < BITS; cnt[i++][x] -= dv, x >>= 1); }
     int nth(int n) {
         int r = 0, i = BITS;
         while(i--) if (cnt[i][r <<= 1] <= n)

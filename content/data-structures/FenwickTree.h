@@ -7,6 +7,7 @@
  * taking the difference between the old and new value.
  * Time: Both operations are $O(\log N)$.
  */
+//https://codeforces.com/contest/992/submission/39424729
 #pragma once
 
 template<typename T> struct FT {

@@ -59,6 +59,14 @@
 	Primitive roots exist modulo any prime power $p^a$, except for $p = 2, a > 2$, and there are $\phi(\phi(p^a))$ many.
 	For $p = 2, a > 2$, the group $\mathbb Z_{2^a}^\times$ is instead isomorphic to $\mathbb Z_2 \times \mathbb Z_{2^{a-2}}$.
 
+\subsection{Primitive Roots}
+	It only exists when $n$ is $2, 4, p^k, 2p^k$, where $p$ odd prime.
+	If $g$ is a primitive root, all primitive roots are of the form $g^k$
+	where $k,\phi(p)$ are coprime (hence there are $\phi(\phi(p))$ primitive roots).
+	
+\subsection{Chicken McNugget Theorem}
+	Sejam $x$ e $y$ dois inteiros coprimos, o maior inteiro que não pode ser escrito como $ax + by$ é $\frac{(x-1)(y-1)}{2}$
+
     \subsection{Wilson's Theorem}
 Seja~$n > 1$. Então~$n|(n-1)!+1$ sse~$n$ é primo. \newline
 \subsection{Wolstenholme's Theorem}
@@ -74,7 +82,18 @@ $$\left(x+\frac{kb}{\gcd(a,b)}, y-\frac{ka}{\gcd(a,b)}\right), \quad k\in\mathbb
         Se~$F(n) = \sum\limits_{d | n}{f(d)}$, então
         $f(n) = \sum\limits_{d | n}{\mu(d) F(n / d)}.$\newline
         
-\section{Estimates}
+\subsection{Estimates}
 	$\sum_{d|n} d = O(n \log \log n)$.
 
 	The number of divisors of $n$ is at most around 100 for $n < 5e4$, 500 for $n < 1e7$, 2000 for $n < 1e10$, 200\,000 for $n < 1e19$.
+	
+ \subsection{Prime counting function ($\pi(x)$)} The prime counting function is asymptotic to $\frac{x}{\log x}$, by the prime number theorem.
+
+      \ 
+
+      \begin{tabular}{|c|c|c|c|c|c|c|c|}
+        \hline
+          x&10&$10^2$&$10^3$&$10^4$&$10^5$&$10^6$&$10^7$\\ \hline
+          $\pi(x)$&4&25&168&1.229&9.592&78.498&664.579\\ \hline
+      \end{tabular}
+

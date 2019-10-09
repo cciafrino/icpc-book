@@ -15,7 +15,7 @@ struct MergeSortTree {
     void build(int idx, int lx, int rx) {
         if (lx == rx) tree[idx].push_back(a[lx]);
         else {
-            int mid = l + (r-l)/2;
+            int mid = lx + (rx-lx)/2;
             build(2*idx, lx, mid);
             build(2*idx+1, mid+1, rx);
             merge(tree[2*idx].begin(), tree[2*idx].end(), tree[2*idx+1].begin(), tree[2*idx+1].end(), back_inserter(tree[idx]));
