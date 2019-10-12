@@ -64,6 +64,11 @@
 	If $g$ is a primitive root, all primitive roots are of the form $g^k$
 	where $k,\phi(p)$ are coprime (hence there are $\phi(\phi(p))$ primitive roots).
 	
+\subsubsection{Sum of primes} For any multiplicative $f$:
+                \[
+                    S(n,p) = S(n, p-1) - f(p) \cdot (S(n/p,p-1) - S(p-1,p-1))
+                \]
+
 \subsection{Chicken McNugget Theorem}
 	Sejam $x$ e $y$ dois inteiros coprimos, o maior inteiro que não pode ser escrito como $ax + by$ é $\frac{(x-1)(y-1)}{2}$
 
@@ -97,3 +102,9 @@ $$\left(x+\frac{kb}{\gcd(a,b)}, y-\frac{ka}{\gcd(a,b)}\right), \quad k\in\mathbb
           $\pi(x)$&4&25&168&1.229&9.592&78.498&664.579\\ \hline
       \end{tabular}
 
+
+  \subsubsection{Floor}
+                \begin{align*}
+                    &\left\lfloor \left\lfloor x/y \right\rfloor / z \right\rfloor = \left\lfloor x / (yz) \right\rfloor \\
+                    &x \% y = x - y \left\lfloor x / y \right\rfloor
+                \end{align*}

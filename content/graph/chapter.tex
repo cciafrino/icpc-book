@@ -89,6 +89,11 @@ shortest synchronizing word is NP-complete.\newline
 
 \subsection{Turán's theorem} No graph with $n$ vertices that is $K_{r+1}$-free can have more edges than the Turán graph: A $k$-partite complete graph with sets of size as equal as possible.
 
+\subsection{Dirac's theorem} Seja $G$ um grafo com $n$ vértices, cada um com grau pelo menos $n/2$. Então $G$ é hamiltoniano.
+
+\subsection{Ore's theorem} Seja $G$ um grafo simples de ordem $n \geq 3$ tal que 
+\[g(u) + g(v) \geq n \] para todo par $u$,$v$ de vértices não adjacentes, então $G$ é hamiltoniano.
+
 \subsection{Eulerian Cycles}
 The number of Eulerian cycles in a \emph{directed} graph $G$ is:\newline
 		\begin{equation*}
@@ -157,6 +162,8 @@ The number of vertices of a graph is equal to its minimum vertex cover number pl
 
 
 \section{Other}
+    \kactlimport{kthShortestPath.h}
+    \kactlimport{Hamiltonian.h}
     \kactlimport{Boruvka.h}
     \kactlimport{ManhattanMST.h}
     \kactlimport{SteinerTree.h}

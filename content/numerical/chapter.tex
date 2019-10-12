@@ -137,3 +137,10 @@
         $\int F(\ln x) dx$ & $u = \ln x$ & $\int F(u) e^u du$ \\ \hline
       \end{tabular}%
       }
+
+      \subsubsection{Determinants and PM}
+                \begin{align*}
+                    det(A) &= \sum_{\sigma \in S_n}\text{sgn}(\sigma)\prod_{i = 1}^n a_{i,\sigma(i)}\\
+                    perm(A) &= \sum_{\sigma \in S_n} \prod_{i = 1}^n a_{i,\sigma(i)}\\
+                    pf(A) &= \frac{1}{2^nn!}\sum_{\sigma \in S_{2n}} \text{sgn}(\sigma)\prod_{i = 1}^n a_{\sigma(2i-1),\sigma(2i)}\\ &= \sum_{M \in \text{PM}(n)} \text{sgn}(M) \prod_{(i,j) \in M} a_{i,j}
+                \end{align*}
