@@ -1,7 +1,7 @@
 
 /**
  * Author: Maurício Collares (Adapted)
- * Description: String searching algorithm that matches all strings simultaneously. To use with stl string: (char *)string_name.c_str()
+ * Description: String searching algorithm that matches all strings simultaneously. To use with stl string: (char *)stringname.c\_str()
  */
  struct No {
     int fail;
@@ -18,7 +18,7 @@ vector<vector<int>> result;
 
 
 // Funcao para inicializar
-void inic() {
+void build() {
 	result.resize(0);
     arvore[0].fail = -1;
     arvore[0].lista.clear();
@@ -31,7 +31,7 @@ void inic() {
 }
 
 // Funcao para adicionar um padrao
-void adicionar(char *padrao) {
+void add(char *padrao) {
 	vector<int> v;
 	result.push_back(v);
     int no = 0, len = 0;
@@ -47,7 +47,7 @@ void adicionar(char *padrao) {
 }
 
 // Ativar Aho-corasick, ajustando funcoes de falha
-void ativar() {
+void activate() {
     int no,v,f,w;
     queue<int> fila;
     for (map<char,int>::iterator  it = arvore[0].lista.begin();
@@ -75,7 +75,7 @@ void ativar() {
     }
 }
 // Buscar padroes no aho-corasik
-void buscar(char *input) {
+void search_all(char *input) {
     int v, no = 0;
     for (int i = 0 ; input[i] ; i++) {
         while (arvore[no].lista.find(input[i]) == arvore[no].lista.end()) {

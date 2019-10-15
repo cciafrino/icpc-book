@@ -12,9 +12,9 @@
 %\Rightarrow
 %\begin{aligned}x=\dfrac{ed-bf}{ad-bc}\\y=\dfrac{af-ec}{ad-bc}\end{aligned}\]
 
-%In general, given an equation $Ax = b$, the solution to a variable $x_i$ is given by
-%\[x_i = \frac{\det A_i'}{\det A} \]
-%where $A_i'$ is $A$ with the $i$'th column replaced by $b$.
+In general, given an equation $Ax = b$, the solution to a variable $x_i$ is given by
+\[x_i = \frac{\det A_i'}{\det A} \]
+where $A_i'$ is $A$ with the $i$'th column replaced by $b$.
 
 \section{Recurrences}
 If $a_n = c_1 a_{n-1} + \dots + c_k a_{n-k}$, and $r_1, \dots, r_k$ are distinct roots of $x^k + c_1 x^{k-1} + \dots + c_k$, there are $d_1, \dots, d_k$ s.t.
@@ -24,9 +24,9 @@ Non-distinct roots $r$ become polynomial factors, e.g. $a_n = (d_1n + d_2)r^n$.
 \section{Master theorem}
 Given a recurrence of the form $T(n) = aT(\frac{n}{b}) + f(n)$ where $a \geq 1$, $b > 1$.
 
-1) If $f(n) = \mathcal{O}(n^{\log_{b} a - \varepsilon})$ for some $\varepsilon > 0$, then $T(n) = \Theta(n^{\log_{b} a})$\\
-2) If $f(n) = \Theta(n^{\log_{b} a})$, then $T(n) = \Theta(n^{\log_{b} a} \log n)$\\
-3) If $f(n) = \Omega(n^{\log_{b} a + \varepsilon})$ for some $\varepsilon > 0$ (and $af(\frac{n}{b}) \leq cf(n)$ for some $c < 1$ for all $n$ sufficiently large), then $T(n) = \Theta(f(n))$\\
+1) If $f(n) = \mathcal{O}(n^{\log_{b} a - \varepsilon})$ for some $\varepsilon > 0$, then \[T(n) = \Theta(n^{\log_{b} a})\]
+2) If $f(n) = \Theta(n^{\log_{b} a})$, then \[T(n) = \Theta(n^{\log_{b} a} \log n)\]
+3) If $f(n) = \Omega(n^{\log_{b} a + \varepsilon})$ for some $\varepsilon > 0$ (and $af(\frac{n}{b}) \leq cf(n)$ for some $c < 1$ for all $n$ sufficiently large), then \[T(n) = \Theta(f(n))\]
 
 
 \section{Trigonometry}
@@ -78,6 +78,10 @@ x = r\sin\theta\cos\phi & r = \sqrt{x^2+y^2+z^2}\\
 y = r\sin\theta\sin\phi & \theta = \textrm{acos}(z/\sqrt{x^2+y^2+z^2})\\
 z = r\cos\theta & \phi = \textrm{atan2}(y,x)\\
 \end{array}\]
+
+\subsection{Centroid of a polygon} The x coordinate of the centroid of a polygon is given by $\frac{1}{3A} \sum_{i = 0}^{n-1}(x_i+x_{i+1})(x_iy_{i+1} - x_{i+1}y_i)$, where $A$ is twice the signed area of the polygon.
+
+
 
 \section{Derivatives/Integrals}
 \begin{align*}

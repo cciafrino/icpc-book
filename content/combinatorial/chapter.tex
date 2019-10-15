@@ -138,7 +138,14 @@ Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\lim
 
 	\subsection{Bell numbers}
 		Número total de partições de $n$ elementos distintos. $B(n) =$
-		$1, 1, 2, 5, 15, 52, 203, 877, 4140, 21147, \dots$. Para $p$ primo,
+		$1, 1, 2, 5, 15, 52, 203, 877, 4140, 21147, \dots$. 
+		\begin{equation*}
+        \mathcal{B}_{n+1} = \sum_{k=0}^n \binom{n}{k} \mathcal{B}_k
+      \end{equation*}
+      Também é possível calcular usando Stirling numbers of the second kind,
+      \[B_n = \sum_{k = 0}^{n} S(n, k)\]
+
+      Já para $p$ primo,
 		\[ B(p^m+n)\equiv mB(n)+B(n+1) \pmod{p} \]
 
 	\subsection{Labeled unrooted trees}

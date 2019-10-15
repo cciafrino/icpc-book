@@ -16,9 +16,10 @@
 \contentsline {subsection}{\numberline {2.4.1}Triangles}{2}% 
 \contentsline {subsection}{\numberline {2.4.2}Quadrilaterals}{2}% 
 \contentsline {subsection}{\numberline {2.4.3}Spherical coordinates}{2}% 
+\contentsline {subsection}{\numberline {2.4.4}Centroid of a polygon}{2}% 
 \contentsline {section}{\numberline {2.5}Derivatives/Integrals}{2}% 
 \contentsline {section}{\numberline {2.6}Sums}{2}% 
-\contentsline {section}{\numberline {2.7}Series}{2}% 
+\contentsline {section}{\numberline {2.7}Series}{3}% 
 \contentsline {section}{\numberline {2.8}Probability theory}{3}% 
 \contentsline {subsection}{\numberline {2.8.1}Gambler's Ruin}{3}% 
 \contentsline {subsection}{\numberline {2.8.2}Bertrand's ballot theorem}{3}% 
@@ -31,7 +32,7 @@
 \contentsline {subsubsection}{Exponential distribution}{3}% 
 \contentsline {subsubsection}{Normal distribution}{3}% 
 \contentsline {section}{\numberline {2.9}Markov chains}{3}% 
-\contentsline {chapter}{\numberline {3}Data Structures}{3}% 
+\contentsline {chapter}{\numberline {3}Data Structures}{4}% 
 \ttl@stoptoc {chapters@2}
 \ttl@starttoc {chapters@3}
 \contentsline {section}{\texttt {HashMap.h}\hspace {0.2em}}{4}% 
@@ -40,26 +41,26 @@
 \contentsline {section}{\texttt {DSURoll.h}\hspace {0.2em}}{4}% 
 \contentsline {section}{\texttt {MinQueue.h}\hspace {0.2em}}{4}% 
 \contentsline {section}{\texttt {SegTree.h}\hspace {0.2em}}{4}% 
-\contentsline {section}{\texttt {LazySegmentTree.h}\hspace {0.2em}}{4}% 
+\contentsline {section}{\texttt {LazySegmentTree.h}\hspace {0.2em}}{5}% 
 \contentsline {section}{\texttt {LazySegTree.h}\hspace {0.2em}}{5}% 
-\contentsline {section}{\texttt {LazySegTreeRSQ.h}\hspace {0.2em}}{5}% 
+\contentsline {section}{\texttt {LazySegTreeRSQ.h}\hspace {0.2em}}{6}% 
 \contentsline {section}{\texttt {LazySegmentTree.h}\hspace {0.2em}}{6}% 
-\contentsline {section}{\texttt {MergeSortTree.h}\hspace {0.2em}}{6}% 
+\contentsline {section}{\texttt {MergeSortTree.h}\hspace {0.2em}}{7}% 
 \contentsline {section}{\texttt {DynamicSegTree.h}\hspace {0.2em}}{7}% 
 \contentsline {section}{\texttt {RMQ.h}\hspace {0.2em}}{7}% 
 \contentsline {section}{\texttt {FenwickTree.h}\hspace {0.2em}}{7}% 
 \contentsline {section}{\texttt {LazyFenwickTree.h}\hspace {0.2em}}{7}% 
-\contentsline {section}{\texttt {FenwickTree2d.h}\hspace {0.2em}}{7}% 
+\contentsline {section}{\texttt {FenwickTree2d.h}\hspace {0.2em}}{8}% 
 \contentsline {section}{\texttt {MisofTree.h}\hspace {0.2em}}{8}% 
 \contentsline {section}{\texttt {LineContainer.h}\hspace {0.2em}}{8}% 
 \contentsline {section}{\texttt {Matrix.h}\hspace {0.2em}}{8}% 
 \contentsline {section}{\texttt {Treap3.h}\hspace {0.2em}}{8}% 
-\contentsline {section}{\texttt {LCT.cpp}\hspace {0.2em}}{8}% 
+\contentsline {section}{\texttt {LCT.cpp}\hspace {0.2em}}{9}% 
 \contentsline {section}{\texttt {PalindromicTree.h}\hspace {0.2em}}{9}% 
 \contentsline {section}{\texttt {SplayTree.h}\hspace {0.2em}}{9}% 
 \contentsline {section}{\texttt {DynamicTree.h}\hspace {0.2em}}{10}% 
 \contentsline {section}{\texttt {Wavelet.h}\hspace {0.2em}}{11}% 
-\contentsline {section}{\texttt {ColorUpdate.h}\hspace {0.2em}}{11}% 
+\contentsline {section}{\texttt {ColorUpdate.h}\hspace {0.2em}}{12}% 
 \contentsline {chapter}{\numberline {4}Numerical}{13}% 
 \ttl@stoptoc {chapters@3}
 \ttl@starttoc {chapters@4}
@@ -98,7 +99,7 @@
 \contentsline {subsection}{\numberline {4.1.7}Table of non-trigonometric integrals}{18}% 
 \contentsline {subsection}{\numberline {4.1.8}Table of trigonometric integrals}{18}% 
 \contentsline {subsection}{\numberline {4.1.9}Common integral substitutions}{18}% 
-\contentsline {subsubsection}{Determinants and PM}{18}% 
+\contentsline {subsection}{\numberline {4.1.10}Determinants and PM}{18}% 
 \contentsline {chapter}{\numberline {5}Number theory}{19}% 
 \ttl@stoptoc {chapters@4}
 \ttl@starttoc {chapters@5}
@@ -190,7 +191,7 @@
 \contentsline {subsection}{\numberline {6.3.9}Narayana numbers}{26}% 
 \contentsline {subsection}{\numberline {6.3.10}Schroder numbers}{26}% 
 \contentsline {subsection}{\numberline {6.3.11}Triangles}{26}% 
-\contentsline {section}{\numberline {6.4}Game Theory}{26}% 
+\contentsline {section}{\numberline {6.4}Game Theory}{27}% 
 \contentsline {subsection}{\numberline {6.4.1}Nim}{27}% 
 \contentsline {subsection}{\numberline {6.4.2}Mis\`{e}re Nim}{27}% 
 \contentsline {subsection}{\numberline {6.4.3}Staircase Nim}{27}% 
@@ -349,7 +350,7 @@
 \contentsline {section}{\texttt {MinRotation.h}\hspace {0.2em}}{54}% 
 \contentsline {section}{\texttt {Trie.h}\hspace {0.2em}}{54}% 
 \contentsline {section}{\texttt {TrieXOR.h}\hspace {0.2em}}{55}% 
-\contentsline {section}{\texttt {Hashing.h}\hspace {0.2em}}{55}% 
+\contentsline {section}{\texttt {Hashing-codeforces.h}\hspace {0.2em}}{55}% 
 \contentsline {section}{\texttt {SuffixTree.h}\hspace {0.2em}}{55}% 
 \contentsline {section}{\texttt {SuffixArray.cpp}\hspace {0.2em}}{56}% 
 \contentsline {section}{\texttt {AhoCorasick.cpp}\hspace {0.2em}}{56}% 
