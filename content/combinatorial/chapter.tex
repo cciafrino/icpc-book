@@ -1,4 +1,6 @@
 \newcommand*{\Comb}[2]{{}^{#1}C_{#2}}%
+\newcommand{\stirlingfirst}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}}
+\newcommand{\stirlingsecond}[2]{\genfrac{\{}{\}}{0pt}{}{#1}{#2}}
 
 \chapter{Combinatorial}
 
@@ -21,20 +23,25 @@
 		\small
 		\[ \mkern-2mu D(n) = (n-1)(D(n-1)+D(n-2)) = n D(n-1)+(-1)^n = \left\lfloor\frac{n!}{e}\right\rceil \]
 		\normalsize
-\subsection{The Twelvefold Way}
-Putting $n$ balls into $k$ boxes.
-$\mathrm{p}(n,k)$ is \# partitions of $n$ in $k$ parts, each $>0$.
-$\mathrm{p}_k(n) = \sum_{i=0}^k \mathrm{p}(n,k)$.
+%\subsection{The Twelvefold Way}
+%Putting $n$ balls into $k$ boxes.
+%$\mathrm{p}(n,k)$ is \# partitions of $n$ in $k$ parts, each $>0$.
+%$\mathrm{p}_k(n) = \sum_{i=0}^k \mathrm{p}(n,k)$.
 
-\begin{tabular}{@{}c|c|c|c|c|l@{}}
-	Balls & same & distinct & same & distinct\\
-	Boxes & same & same & distinct & distinct\\
-	\hline
-	- & $\mathrm{p}_k(n)$ & $\sum_{i=0}^k \stirling{n}{i}$ & $\binom{n+k-1}{k-1}$ & $k^n$ \\ 
-	$\mathrm{size}\ge 1$ & $\mathrm{p}(n,k)$ & $\stirling{n}{k}$ & $\binom{n-1}{k-1}$ & $k!\stirling{n}{k}$ \\
-	$\mathrm{size}\le 1$ & $[n \le k]$ & $[n \le k]$ & $\binom{k}{n}$ & $n!\binom{k}{n}$ \\
-	\bottomrule
-\end{tabular}\\ \hfill
+%\begin{tabular}{@{}c|c|c|c|c|l@{}}
+	%Balls & same & distinct & same & distinct\\
+	%Boxes & same & same & distinct & distinct\\
+	%\hline
+	%- & $\mathrm{p}_k(n)$ & $\sum_{i=0}^k \stirling{n}{i}$ & $\binom{n+k-1}{k-1}$ & $k^n$ \\ 
+	%$\mathrm{size}\ge 1$ & $\mathrm{p}(n,k)$ & $\stirling{n}{k}$ & $\binom{n-1}{k-1}$ & $k!\stirling{n}{k}$ \\
+	%$\mathrm{size}\le 1$ & $[n \le k]$ & $[n \le k]$ & $\binom{k}{n}$ & $n!\binom{k}{n}$ \\
+%	\bottomrule
+%\end{tabular}\\ \hfill
+	
+\subsection{Inclusion-Exclusion Principle}
+	Sejam $A_1, A_2, ..., A_n$ conjuntos. Então o número de elementos da união $A_1 \cup A_2 \cup ... \cup A_n$ é
+	\[ \left| \bigcup^n_{i = 1} A_i \right|  = \sum_{\substack{I \subseteq \{1, 2, ..., n\}\\ I \neq \emptyset}}^{} (-1)^{\left| I \right| +1} \left| \bigcap\limits_{i\in I} A_i} \right| \]
+
 
 
     \subsection{The twelvefold way (from Stanley)} How many functions $f \colon N \rightarrow X$ are there?
@@ -43,21 +50,23 @@ $\mathrm{p}_k(n) = \sum_{i=0}^k \mathrm{p}(n,k)$.
       \begin{tabular}{|c|c|c|c|c|}
         \hline
         $N$ & $X$ & Any $f$ & Injective & Surjective \\ \hline
-        dist. & dist. & $x^n$ & $(x)_n$ & $x! \stirlingsecond{n}{x}$ \\ \hline
+        dist. & dist. & $x^n$ & $\frac{x!}{(x-n)!}$ & $x! \stirlingsecond{n}{x}$ \\ \hline
         indist. & dist. & $\binom{x+n-1}{n}$ & $\binom{x}{n}$ & $\binom{n-1}{n-x}$ \\ \hline
         dist. & indist. & $\stirlingsecond{n}{1} + \ldots + \stirlingsecond{n}{x}$ & $[n \leq x]$ & $\stirlingsecond{n}{k}$ \\ \hline
         indist. & indist. & $p_1(n) + \ldots p_x(n)$ & $[n \leq x]$ & $p_x(n)$ \\ \hline
       \end{tabular}
 	}
 
-      Where $\binom{a}{b} = \frac{1}{b!}(a)_b $ and $p_x(n)$ is the number of ways to partition the integer $n$ using $x$ summands.
+      Where $\binom{a}{b} = \frac{1}{b!}(a)_b $, $p_x(n)$ is the number of ways to partition the integer $n$ using $x$ summand and $\stirlingsecond{n}{x}$ is the number of ways to partition a set of $n$ elements into $x$ subsets (aka Stirling number of the second kind). 
 
     \subsection{Involutions}
     Uma involução é uma permutação com ciclo de tamanho máximo 2, e é a sua própria inversa.
     $$a(n) = a(n-1) + (n-1)a(n-2)$$
     $$a(0) = a(1) = 1$$
-    1, 1, 2, 4, 10, 26, 76, 232, 764, 2620, 9496, 35696, 140152
-    
+    1, 1, 2, 4, 10, 26, 76, 232, 764, 2620, 9496, 35696, 140152\\ \hfill
+
+   
+
 	
 \subsection{Burnside}
 Seja~$A \colon GX \rightarrow X$ uma ação. Defina:
@@ -192,11 +201,7 @@ Super Catalan number, except for the first term.\\
     is the number of distinct triangles (positive are) that can be constructed, i.e., the $#$ of $3$-subsets of $[n]$ s.t. $x \leq y \leq z$ and $z \neq x + y.
        
     \text{
-    \subsection{Gambler's Ruin}
-        Em um jogo no qual ganhamos cada aposta com probabilidade~$p$ e perdemos com probabilidade~$q \coloneqq 1 - p$, paramos quando ganhamos~$B$ ou perdemos~$A$. Então~$\mathit{Prob}(\textnormal{ganhar B}) = \frac{1 - (p/q)^B}{1 - (p/q)^{A+B}}$.\newline
     
-    \subsection{Bertrand's ballot theorem} 
-    In an election where candidate A receives $p$ votes and candidate B receives $q$ votes with $p > q$, the probability that A will be strictly ahead of B throughout the count is $\frac{p - q}{p + q}$. If draw is a possible outcome, the probability will be equal to $\frac{p + 1- q}{p + 1}$, to find how many possible outcomes for both cases just multiply by $\binom{p + q}{q}$ \\ \hfill
 
     \section{Game Theory}
     A game can be reduced to Nim if it is a finite impartial game.

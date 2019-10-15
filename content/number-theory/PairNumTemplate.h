@@ -1,6 +1,7 @@
 /**
  * Author: Chris
- * Description: Support pairs operations using modnum template.
+ * Description: Support pairs operations using modnum template. Pretty good for string hashing.
+ * Source: https://codeforces.com/contest/1056/submission/46216123
  */
 template <typename T, typename U> struct pairnum {
 	T t;

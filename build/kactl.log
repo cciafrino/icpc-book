@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.8.16)  11 OCT 2019 22:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.8.16)  13 OCT 2019 13:36
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -648,15 +648,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/HashMap.h" -o kactl.tmp )...executed.
 
-(./kactl.tmp)
+(./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "|troubleshoot.txt" -o header2.tmp)...executed.
+
+ (./header2.tmp) [3])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/OrderStatisticTree.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
-runsystem(python2 kactlprocessor.py --print-header "OrderStatisticTree.h|OrderStatisticTree.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [3]
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/DSU.h" -o kactl.tmp )...executed.
@@ -708,14 +708,14 @@ runsystem(rm -f kactl.tmp)...executed.
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/MergeSortTree.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
+runsystem(python2 kactlprocessor.py --print-header "MergeSortTree.h|MergeSortTree.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [6]
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/DynamicSegTree.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "DynamicSegTree.h|DynamicSegTree.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [6])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/RMQ.h" -o kactl.tmp )...executed.
@@ -735,15 +735,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/FenwickTree2d.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "FenwickTree2d.h|FenwickTree2d.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [7])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/MisofTree.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "MisofTree.h|MisofTree.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [7])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/LineContainer.h" -o kactl.tmp )...executed.
@@ -784,7 +784,7 @@ runsystem(rm -f kactl.tmp)...executed.
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/SplayTree.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "|SplayTree.h" -o header2.tmp)...executed.
+runsystem(python2 kactlprocessor.py --print-header "SplayTree.h|SplayTree.h" -o header2.tmp)...executed.
 
  (./header2.tmp) [9])
 runsystem(rm -f kactl.tmp)...executed.
@@ -1001,17 +1001,17 @@ and I'll forget about whatever was undefined.
 runsystem(python2 kactlprocessor.py --print-header "|FastSubsetTransform.h" -o header2.tmp)...executed.
 
 (./header2.tmp) [17]
-Overfull \hbox (18.32796pt too wide) in paragraph at lines 81--88
+Overfull \hbox (30.00963pt too wide) in paragraph at lines 81--90
 [][]  
  []
 
 
-Overfull \hbox (3.12712pt too wide) in paragraph at lines 112--126
+Overfull \hbox (3.12712pt too wide) in paragraph at lines 113--127
 [][]  
  []
 
 
-Overfull \hbox (30.01227pt too wide) in paragraph at lines 128--140
+Overfull \hbox (30.01227pt too wide) in paragraph at lines 129--141
 []  
  []
 
@@ -1130,14 +1130,14 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <7> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 4.
 )
+runsystem(python2 kactlprocessor.py --print-header "Euclid.java|Euclid.java" -o header2.tmp)...executed.
+
+ (./header2.tmp) [21]
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/number-theory/DiophantineEquation.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "Euclid.java|DiophantineEquation.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [21])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/number-theory/Divisors.h" -o kactl.tmp )...executed.
@@ -1234,7 +1234,7 @@ runsystem(rm -f kactl.tmp)...executed.
 runsystem(python2 kactlprocessor.py -i "../content/number-theory/ChineseRemainder.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
-Overfull \hbox (42.31071pt too wide) in paragraph at lines 99--104
+Overfull \hbox (30.00366pt too wide) in paragraph at lines 98--105
 [][]  
  []
 
@@ -1264,106 +1264,26 @@ runsystem(rm -f kactl.tmp)...executed.
 runsystem(python2 kactlprocessor.py -i "../content/combinatorial/numPerm.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
-Overfull \hbox (2.45528pt too wide) detected at line 22
+Overfull \hbox (2.45528pt too wide) detected at line 24
 \OML/cmm/m/it/9 D\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 n\OT1/cmr/m/n/9 ) = (\OML/cmm/m/it/9 n \OMS/cmsy/m/n/9 ^^@ \OT1/cmr/m/n/9 1)(\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 n \OMS/cmsy/m/n/9 ^^@ \OT1/cmr/m/n/9 1) + \OML/cmm/m/it/9 D\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 n \OMS/cmsy/m/n/9 ^^@ \OT1/cmr/m/n/9 2)) = \OML/cmm/m/it/9 nD\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 n \OMS/cmsy/m/n/9 ^^@ \OT1/cmr/m/n/9 1) + (\OMS/cmsy/m/n/9 ^^@\OT1/cmr/m/n/9 1)[] = []
  []
 
-! Undefined control sequence.
-l.33 ...\mathrm{p}_k(n)$ & $\sum_{i=0}^k \stirling
-                                                  {n}{i}$ & $\binom{n+k-1}{k...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \stirling 
-                          
-l.34 ...ze}\ge 1$ & $\mathrm{p}(n,k)$ & $\stirling
-                                                  {n}{k}$ & $\binom{n-1}{k-1...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.34 ...n}{k}$ & $\binom{n-1}{k-1}$ & $k!\stirling
-                                                  {n}{k}$ \\
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \bottomrule 
-                            
-l.36 	\bottomrule
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+! Extra }, or forgotten \right.
+l.43 ...t| +1} \left| \bigcap\limits_{i\in I} A_i}
+                                                   \right| \]
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
 
 
-Overfull \hbox (2.37996pt too wide) in paragraph at lines 29--37
-[][]  
- []
-
-! Undefined control sequence.
-<argument> ...^n$ & $(x)_n$ & $x! \stirlingsecond 
-                                                  {n}{x}$ \\ \hline indist. ...
-l.51 	}
-       
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \stirlingsecond 
-                                
-l.51 	}
-       
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> ...d {n}{1} + \ldots + \stirlingsecond 
-                                                  {n}{x}$ & $[n \leq x]$ & $...
-l.51 	}
-       
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \stirlingsecond 
-                                
-l.51 	}
-       
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Overfull \hbox (30.0024pt too wide) in paragraph at lines 42--52
+Overfull \hbox (30.0024pt too wide) in paragraph at lines 49--59
 [][]  
  []
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 65.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/combinatorial/nCr.h" -o kactl.tmp )...executed.
@@ -1398,7 +1318,7 @@ runsystem(python2 kactlprocessor.py -i "../content/combinatorial/Catalan.h" -o k
 runsystem(python2 kactlprocessor.py --print-header "Catalan.h|Catalan.h" -o header2.tmp)...executed.
 
  (./header2.tmp) [25]
-Overfull \hbox (32.08473pt too wide) in paragraph at lines 144--146
+Overfull \hbox (32.08473pt too wide) in paragraph at lines 153--155
 $[]$  
  []
 
@@ -1409,14 +1329,14 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.154 		\newline
+l.163 		\newline
                 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 ! Extra }, or forgotten $.
-l.191     }
+l.200     }
            $$\\
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1427,7 +1347,7 @@ deleted material, e.g., by typing `I$}'.
 ! You can't use `macro parameter character #' in math mode.
 <recently read> ##
                   
-l.192 ...re) that can be constructed, i.e., the $#
+l.201 ...re) that can be constructed, i.e., the $#
                                                   $ of $3$-subsets of $[n]$ ...
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -1437,7 +1357,7 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.193 
+l.202 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1449,7 +1369,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.231 	}
+l.236 	}
         
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1461,7 +1381,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.231 	}
+l.236 	}
         
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1469,7 +1389,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.231 	}
+l.236 	}
         
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1521,7 +1441,7 @@ runsystem(python2 kactlprocessor.py -i "../content/combinatorial/Lucas.h" -o kac
 ! Extra }, or forgotten \endgroup.
 \mbox #1->\leavevmode \hbox {#1}
                                 
-l.231 	}
+l.236 	}
         
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2744,15 +2664,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
  (./kactl.aux) ) 
 Here is how much of TeX's memory you used:
- 12159 strings out of 494561
- 158673 string characters out of 6177454
- 1285033 words of memory out of 5000000
- 14923 multiletter control sequences out of 15000+600000
- 16553 words of font info for 64 fonts, out of 8000000 for 9000
+ 12161 strings out of 494561
+ 158701 string characters out of 6177454
+ 1285920 words of memory out of 5000000
+ 14924 multiletter control sequences out of 15000+600000
+ 17247 words of font info for 66 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 44i,15n,60p,846b,2028s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,15n,60p,846b,2030s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on kactl.pdf (66 pages, 2036161 bytes).
+Output written on kactl.pdf (66 pages, 2036939 bytes).
 PDF statistics:
  706 PDF objects out of 1000 (max. 8388607)
  467 compressed objects within 5 object streams

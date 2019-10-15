@@ -6,7 +6,7 @@
  * Description:
  * Status: not tested
  */
- //https://www.codechef.com/viewsolution/18660185
+ 
 const int maxn = 400001;
 const int mod = 1004669333, base = 33, inv_base = 121778101;
 
@@ -35,12 +35,14 @@ struct hashes_t {
         }
     }
     int get_hash(int a, int b) {
+        assert(a <= b);
         int hash = acc_hash[b + 1] - acc_hash[a];
         if (hash < 0) hash += mod;
         hash = (lint)hash * inv_base_pow[a] % mod;
         return hash;
     }
     int get_inv_hash(int a, int b) {
+        assert(a <= b);
         int hash = acc_inv_hash[b + 1] - acc_inv_hash[a];
         if (hash < 0) hash += mod;
         hash = (lint)hash * base_pow[b] % mod;

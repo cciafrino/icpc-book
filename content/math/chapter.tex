@@ -113,6 +113,14 @@ Expectation is linear:
 \[\mathbb{E}(aX+bY) = a\mathbb{E}(X)+b\mathbb{E}(Y)\]
 For independent $X$ and $Y$, \[V(aX+bY) = a^2V(X)+b^2V(Y).\]
 
+
+\subsection{Gambler's Ruin}
+        Em um jogo no qual ganhamos cada aposta com probabilidade~$p$ e perdemos com probabilidade~$q \coloneqq 1 - p$, paramos quando ganhamos~$B$ ou perdemos~$A$. Então~$\mathit{Prob}(\textnormal{ganhar B}) = \frac{1 - (p/q)^B}{1 - (p/q)^{A+B}}$.\newline
+
+    \subsection{Bertrand's ballot theorem} 
+    In an election where candidate A receives $p$ votes and candidate B receives $q$ votes with $p > q$, the probability that A will be strictly ahead of B throughout the count is $\frac{p - q}{p + q}$. If draw is a possible outcome, the probability will be equal to $\frac{p + 1- q}{p + 1}$, to find how many possible outcomes for both cases just multiply by $\binom{p + q}{q}$\newline
+
+
 \subsection{Discrete distributions}
 
 \subsubsection{Binomial distribution}
@@ -184,4 +192,5 @@ A Markov chain is an absorbing chain if\newline
 \textbf{2}. it is possible to go from any state to at least one absorbing state in a finite number of steps.\newline
 A Markov chain is an A-chain if the states can be partitioned into two sets $\mathbf{A}$ and $\mathbf{G}$, such that all states in $\mathbf{A}$ are absorbing ($p_{ii}=1$), and all states in $\mathbf{G}$ leads to an absorbing state in $\mathbf{A}$.
 The probability for absorption in state $i\in\mathbf{A}$, when the initial state is $j$, is $a_{ij} = p_{ij}+\sum_{k\in\mathbf{G}} a_{ik}p_{kj}$.
-The expected time until absorption, when the initial state is $i$, is $t_i = 1+\sum_{k\in\mathbf{G}}p_{ki}t_k$.
+The expected time until absorption, when the initial state is $i$, is $t_i = 1+\sum_{k\in\mathbf{G}}p_{ki}t_k$.\\ \hfill
+
