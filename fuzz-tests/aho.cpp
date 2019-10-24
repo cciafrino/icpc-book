@@ -1,8 +1,7 @@
+#include<bits/stdc++.h>
+using namespace std;
 
-/**
- * Author: Maurício Collares (Adapted)
- * Description: String searching algorithm that matches all strings simultaneously. To use with stl string: (char *)stringname.c\_str()
- */
+using lint = long long;
 
 struct Node {
     int fail;
@@ -95,4 +94,19 @@ struct AhoCorasick {
 	    }
 	}
 };
- 
+int main() {
+    ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+    int n;
+    cin >> n;
+    AhoCorasick ac;
+    for (int i = 0; i < n; ++i) {
+    	string s;
+    	cin >> s;
+    	ac.add(s);
+    }
+    ac.activate();
+    string t;
+    cin >> t;
+    ac.search_all(t);
+      
+}

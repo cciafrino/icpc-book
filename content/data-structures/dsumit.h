@@ -1,4 +1,4 @@
-struct UF{
+struct UF {
     int n;
     vector<int> par;
     UF(int n) : n(n) {

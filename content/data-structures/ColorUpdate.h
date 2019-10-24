@@ -2,6 +2,7 @@
  * Author: tfg50
  * Description: 
  */
+ 
 template<typename T>
 struct Color {
 	struct Range {

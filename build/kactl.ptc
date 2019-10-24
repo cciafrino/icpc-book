@@ -37,7 +37,7 @@
 \ttl@starttoc {chapters@3}
 \contentsline {section}{\texttt {HashMap.h}\hspace {0.2em}}{4}% 
 \contentsline {section}{\texttt {OrderStatisticTree.h}\hspace {0.2em}}{4}% 
-\contentsline {section}{\texttt {DSU.h}\hspace {0.2em}}{4}% 
+\contentsline {section}{\texttt {UnionFind.h}\hspace {0.2em}}{4}% 
 \contentsline {section}{\texttt {DSURoll.h}\hspace {0.2em}}{4}% 
 \contentsline {section}{\texttt {MinQueue.h}\hspace {0.2em}}{4}% 
 \contentsline {section}{\texttt {SegTree.h}\hspace {0.2em}}{4}% 
@@ -45,7 +45,7 @@
 \contentsline {section}{\texttt {LazySegTree.h}\hspace {0.2em}}{5}% 
 \contentsline {section}{\texttt {LazySegTreeRSQ.h}\hspace {0.2em}}{6}% 
 \contentsline {section}{\texttt {LazySegmentTree.h}\hspace {0.2em}}{6}% 
-\contentsline {section}{\texttt {MergeSortTree.h}\hspace {0.2em}}{7}% 
+\contentsline {section}{\texttt {MergeSortTree.h}\hspace {0.2em}}{6}% 
 \contentsline {section}{\texttt {DynamicSegTree.h}\hspace {0.2em}}{7}% 
 \contentsline {section}{\texttt {RMQ.h}\hspace {0.2em}}{7}% 
 \contentsline {section}{\texttt {FenwickTree.h}\hspace {0.2em}}{7}% 
@@ -108,7 +108,7 @@
 \contentsline {subsection}{\texttt {PairNumTemplate.h}\hspace {0.2em}}{19}% 
 \contentsline {subsection}{\texttt {ModInv.h}\hspace {0.2em}}{19}% 
 \contentsline {subsection}{\texttt {Modpow.h}\hspace {0.2em}}{19}% 
-\contentsline {subsection}{\texttt {ModSum.h}\hspace {0.2em}}{20}% 
+\contentsline {subsection}{\texttt {ModSum.h}\hspace {0.2em}}{19}% 
 \contentsline {subsection}{\texttt {ModMul.cpp}\hspace {0.2em}}{20}% 
 \contentsline {subsection}{\texttt {ModMulLL.h}\hspace {0.2em}}{20}% 
 \contentsline {subsection}{\texttt {ModSqrt.h}\hspace {0.2em}}{20}% 
@@ -117,7 +117,7 @@
 \contentsline {section}{\numberline {5.2}Primality}{20}% 
 \contentsline {subsection}{\texttt {Sieve.h}\hspace {0.2em}}{20}% 
 \contentsline {subsection}{\texttt {LinearSieve.h}\hspace {0.2em}}{20}% 
-\contentsline {subsection}{\texttt {MobiusSieve.h}\hspace {0.2em}}{21}% 
+\contentsline {subsection}{\texttt {MobiusSieve.h}\hspace {0.2em}}{20}% 
 \contentsline {subsection}{\texttt {Mobius.h}\hspace {0.2em}}{21}% 
 \contentsline {subsection}{\texttt {MillerRabin.h}\hspace {0.2em}}{21}% 
 \contentsline {subsection}{\texttt {Factorize.h}\hspace {0.2em}}{21}% 
@@ -125,7 +125,7 @@
 \contentsline {section}{\numberline {5.3}Divisibility}{21}% 
 \contentsline {subsection}{\texttt {ExtendedEuclidean.h}\hspace {0.2em}}{21}% 
 \contentsline {subsection}{\texttt {Euclid.java}\hspace {0.2em}}{21}% 
-\contentsline {subsection}{\texttt {DiophantineEquation.h}\hspace {0.2em}}{22}% 
+\contentsline {subsection}{\texttt {DiophantineEquation.h}\hspace {0.2em}}{21}% 
 \contentsline {subsection}{\texttt {Divisors.h}\hspace {0.2em}}{22}% 
 \contentsline {subsection}{\texttt {Pell.h}\hspace {0.2em}}{22}% 
 \contentsline {subsection}{\texttt {PrimeFactors.h}\hspace {0.2em}}{22}% 
@@ -136,13 +136,13 @@
 \contentsline {subsection}{\texttt {Bezout.h}\hspace {0.2em}}{22}% 
 \contentsline {subsection}{\texttt {EulerPhi.h}\hspace {0.2em}}{22}% 
 \contentsline {subsection}{\texttt {phiFunction.h}\hspace {0.2em}}{22}% 
-\contentsline {subsection}{\texttt {DiscreteLogarithm.cpp}\hspace {0.2em}}{23}% 
+\contentsline {subsection}{\texttt {DiscreteLogarithm.cpp}\hspace {0.2em}}{22}% 
 \contentsline {subsection}{\texttt {Legendre.h}\hspace {0.2em}}{23}% 
 \contentsline {subsection}{\texttt {GroupOrder.h}\hspace {0.2em}}{23}% 
 \contentsline {section}{\numberline {5.4}Fractions}{23}% 
 \contentsline {subsection}{\texttt {Fractions.h}\hspace {0.2em}}{23}% 
 \contentsline {subsection}{\texttt {ContinuedFractions.h}\hspace {0.2em}}{23}% 
-\contentsline {subsection}{\texttt {FracBinarySearch.h}\hspace {0.2em}}{24}% 
+\contentsline {subsection}{\texttt {FracBinarySearch.h}\hspace {0.2em}}{23}% 
 \contentsline {section}{\numberline {5.5}Chinese remainder theorem}{24}% 
 \contentsline {subsection}{\texttt {ChineseRemainder.h}\hspace {0.2em}}{24}% 
 \contentsline {section}{\numberline {5.6}Pythagorean Triples}{24}% 
@@ -421,4 +421,6 @@
 \contentsline {subsection}{\texttt {MiscJava.java}\hspace {0.2em}}{64}% 
 \contentsline {subsection}{\numberline {10.8.1}BigInteger}{65}% 
 \contentsline {paragraph}{BigInteger}{65}% 
+\ttl@stoptoc {chapters@10}
+\ttl@starttoc {chapters@11}
 \contentsfinish 
