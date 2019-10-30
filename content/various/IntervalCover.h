@@ -10,16 +10,16 @@
 #pragma once
 
 template<class T>
-vi cover(pair<T, T> G, vector<pair<T, T>> I) {
-	vi S(sz(I)), R;
-	iota(all(S), 0);
-	sort(all(S), [&](int a, int b) { return I[a] < I[b]; });
+vector<int> cover(pair<T, T> G, vector<pair<T, T>> I) {
+	vi S(I.size()), R;
+	iota(S.begin(), S.end(), 0);
+	sort(S.begin(), S.end(), [&](int a, int b) { return I[a] < I[b]; });
 	T cur = G.first;
 	int at = 0;
 	while (cur < G.second) { // (A)
-		pair<T, int> mx = make_pair(cur, -1);
+		pair<T, int> mx = {cur, -1};
 		while (at < I.size() && I[S[at]].first <= cur) {
-			mx = max(mx, make_pair(I[S[at]].second, S[at]));
+			mx = max(mx, {I[S[at]].second, S[at]});
 			at++;
 		}
 		if (mx.second == -1) return {};

@@ -28,7 +28,7 @@ static const H C = (lint)1e11+3; // (order ~ 3e9; random also ok)
 
 struct HashInterval { /// start-hash
 	vector<H> ha, pw;
-	HashInterval(string &str) : ha(str.size()+1), pw(ha) {
+	HashInterval(string& str) : ha(str.size()+1), pw(ha) {
 		pw[0] = 1;
 		for(int i = 0; i < str.size(); ++i)
 			ha[i+1] = ha[i] * C + str[i],

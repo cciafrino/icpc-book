@@ -17,10 +17,10 @@
  */
 
 struct SuffixArray { 
-	tor<int> sa, lcp;
-	SuffixArray(tor<int> &s, int lim = 256) { 
+	vector<int> sa, lcp;
+	SuffixArray(vector<int> &s, int lim = 256) { 
 		int n = s.size(), k = 0;
-		tor<int> x(2 * n), y(2 * n), wv(n), ws(max(n, lim)), rank(n);
+		vector<int> x(2 * n), y(2 * n), wv(n), ws(max(n, lim)), rank(n);
 		sa = lcp = rank;
 		for(int i=0;i<n;++i) ws[x[i] = s[i]]++;
 		for(int i=1;i<lim;++i) ws[i] += ws[i - 1];
