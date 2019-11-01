@@ -75,7 +75,7 @@ struct AhoCorasick {
 	// Buscar padroes no aho-corasik
 	void search_all(string &text) {
 	    int v, no = 0;
-	    for (int i = 0; i < text[i]; i++) {
+	    for (int i = 0; i < text.size(); i++) {
 	        while (tree[no].trie.find(text[i]) == tree[no].trie.end()) {
 	            if (no == 0) { tree[0].trie[text[i]] = 0; break; }
 	            no = tree[no].fail;
