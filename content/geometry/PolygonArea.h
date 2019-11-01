@@ -18,3 +18,13 @@ T polygonArea(vector<Point<T>> &v) {
 	    a += v[i].cross(v[i+1]);
 	return abs(a)/2.0;
 }
+
+Point<T> polygonCentroid(vector<Point<T>> &v) { // not tested
+	Point<T> cent(0,0); T area = 0;
+	for(int i = 0; i < v.size(); ++i) {
+		int j = (i+1) % (v.size()); T a = cross(v[i], v[j]);
+		cent += a * (v[i] + v[j]);
+		area += a;
+	}
+	return cent/area/(T)3;
+}

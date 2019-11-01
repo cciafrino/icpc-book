@@ -26,115 +26,116 @@
 \contentsline {chapter}{\numberline {3}Data Structures}{4}% 
 \contentsline {chapter}{\numberline {4}Numerical}{13}% 
 \contentsline {section}{\numberline {4.1}Fourier transforms}{16}% 
-\contentsline {subsection}{\numberline {4.1.1}Generating functions}{17}% 
-\contentsline {subsection}{\numberline {4.1.2}Generating functions}{17}% 
-\contentsline {subsection}{\numberline {4.1.3}General linear recurrences}{17}% 
-\contentsline {subsection}{\numberline {4.1.4}Inverse polynomial modulo $x^l$}{17}% 
-\contentsline {subsection}{\numberline {4.1.5}Fast subset convolution}{17}% 
-\contentsline {subsection}{\numberline {4.1.6}Polyominoes}{18}% 
-\contentsline {subsection}{\numberline {4.1.7}Table of non-trigonometric integrals}{18}% 
-\contentsline {subsection}{\numberline {4.1.8}Table of trigonometric integrals}{18}% 
-\contentsline {subsection}{\numberline {4.1.9}Common integral substitutions}{18}% 
-\contentsline {subsection}{\numberline {4.1.10}Determinants and PM}{18}% 
-\contentsline {chapter}{\numberline {5}Number theory}{19}% 
-\contentsline {section}{\numberline {5.1}Modular arithmetic}{19}% 
-\contentsline {section}{\numberline {5.2}Primality}{20}% 
-\contentsline {section}{\numberline {5.3}Divisibility}{21}% 
-\contentsline {section}{\numberline {5.4}Fractions}{23}% 
-\contentsline {section}{\numberline {5.5}Chinese remainder theorem}{24}% 
-\contentsline {section}{\numberline {5.6}Pythagorean Triples}{24}% 
-\contentsline {section}{\numberline {5.7}Primes}{24}% 
-\contentsline {subsection}{\numberline {5.7.1}Primitive Roots}{24}% 
-\contentsline {subsubsection}{Sum of primes}{24}% 
-\contentsline {subsection}{\numberline {5.7.2}Chicken McNugget Theorem}{24}% 
-\contentsline {subsection}{\numberline {5.7.3}Wilson's Theorem}{24}% 
-\contentsline {subsection}{\numberline {5.7.4}Wolstenholme's Theorem}{24}% 
-\contentsline {subsection}{\numberline {5.7.5}B\IeC {\'e}zout's identity}{24}% 
-\contentsline {subsection}{\numberline {5.7.6}M\IeC {\"o}bius Inversion Formula}{24}% 
-\contentsline {subsection}{\numberline {5.7.7}Estimates}{24}% 
-\contentsline {subsection}{\numberline {5.7.8}Prime counting function ($\pi (x)$)}{24}% 
-\contentsline {subsection}{\numberline {5.7.9}Floor}{24}% 
-\contentsline {chapter}{\numberline {6}Combinatorial}{25}% 
-\contentsline {section}{\numberline {6.1}Permutations}{25}% 
-\contentsline {subsection}{\numberline {6.1.1}Factorial}{25}% 
-\contentsline {subsection}{\numberline {6.1.2}Cycles}{25}% 
-\contentsline {subsection}{\numberline {6.1.3}Derangements}{25}% 
-\contentsline {subsection}{\numberline {6.1.4}Inclusion-Exclusion Principle}{25}% 
-\contentsline {subsection}{\numberline {6.1.5}The twelvefold way (from Stanley)}{25}% 
-\contentsline {subsection}{\numberline {6.1.6}Involutions}{25}% 
-\contentsline {subsection}{\numberline {6.1.7}Burnside}{25}% 
-\contentsline {section}{\numberline {6.2}Partitions and subsets}{25}% 
-\contentsline {subsection}{\numberline {6.2.1}Partition function}{25}% 
-\contentsline {subsection}{\numberline {6.2.2}Binomials}{25}% 
-\contentsline {section}{\numberline {6.3}General purpose numbers}{26}% 
-\contentsline {subsection}{\numberline {6.3.1}Stirling numbers of the first kind}{26}% 
-\contentsline {subsection}{\numberline {6.3.2}Eulerian numbers}{26}% 
-\contentsline {subsection}{\numberline {6.3.3}Stirling numbers of the second kind}{26}% 
-\contentsline {subsection}{\numberline {6.3.4}Bell numbers}{26}% 
-\contentsline {subsection}{\numberline {6.3.5}Labeled unrooted trees}{26}% 
-\contentsline {subsection}{\numberline {6.3.6}Catalan numbers}{26}% 
-\contentsline {subsection}{\numberline {6.3.7}Super Catalan numbers}{26}% 
-\contentsline {subsection}{\numberline {6.3.8}Motzkin numbers}{26}% 
-\contentsline {subsection}{\numberline {6.3.9}Narayana numbers}{26}% 
-\contentsline {subsection}{\numberline {6.3.10}Schroder numbers}{26}% 
-\contentsline {subsection}{\numberline {6.3.11}Triangles}{26}% 
-\contentsline {section}{\numberline {6.4}Game Theory}{27}% 
-\contentsline {subsection}{\numberline {6.4.1}Nim}{27}% 
-\contentsline {subsection}{\numberline {6.4.2}Mis\`{e}re Nim}{27}% 
-\contentsline {subsection}{\numberline {6.4.3}Staircase Nim}{27}% 
-\contentsline {subsection}{\numberline {6.4.4}Moore's Nim$_k$}{27}% 
-\contentsline {subsection}{\numberline {6.4.5}Dim$^+$}{27}% 
-\contentsline {subsection}{\numberline {6.4.6}Aliquot Game}{27}% 
-\contentsline {subsection}{\numberline {6.4.7}Nim (at most half)}{27}% 
-\contentsline {subsection}{\numberline {6.4.8}Lasker's Nim}{27}% 
-\contentsline {subsection}{\numberline {6.4.9}Hackenbush on Trees}{27}% 
-\contentsline {chapter}{\numberline {7}Graph}{29}% 
-\contentsline {section}{\numberline {7.1}Fundamentals}{29}% 
-\contentsline {subsection}{\numberline {7.1.1}Landau}{30}% 
-\contentsline {subsection}{\numberline {7.1.2}Matroid Intersection Theorem}{30}% 
-\contentsline {subsection}{\numberline {7.1.3}Vizing's Thereom}{30}% 
-\contentsline {subsection}{\numberline {7.1.4}Euler's Theorem}{30}% 
-\contentsline {subsection}{\numberline {7.1.5}Menger's Theorem}{30}% 
-\contentsline {subsection}{\numberline {7.1.6}Dilworth's Thereom}{30}% 
-\contentsline {subsection}{\numberline {7.1.7}Erd\IeC {\"o}s-Gallai Theorem}{30}% 
-\contentsline {subsection}{\numberline {7.1.8}Hall's Marriage Theorem}{30}% 
-\contentsline {subsection}{\numberline {7.1.9}Maximum Density Subgraph}{30}% 
-\contentsline {subsection}{\numberline {7.1.10}Maximum-Weight Closure}{30}% 
-\contentsline {subsection}{\numberline {7.1.11}Maximum Weighted Independent Set in a Bipartite Graph}{30}% 
-\contentsline {subsection}{\numberline {7.1.12}Synchronizing word problem}{30}% 
-\contentsline {subsection}{\numberline {7.1.13}Tur\IeC {\'a}n's theorem}{30}% 
-\contentsline {subsection}{\numberline {7.1.14}Dirac's theorem}{30}% 
-\contentsline {subsection}{\numberline {7.1.15}Ore's theorem}{30}% 
-\contentsline {subsection}{\numberline {7.1.16}Eulerian Cycles}{31}% 
-\contentsline {subsection}{\numberline {7.1.17}Useful facts}{31}% 
-\contentsline {section}{\numberline {7.2}Euler walk}{31}% 
-\contentsline {section}{\numberline {7.3}Network flow}{31}% 
-\contentsline {subsection}{\numberline {7.3.1}K\IeC {\"o}nig-Egervary Theorem}{33}% 
-\contentsline {section}{\numberline {7.4}Matching}{33}% 
-\contentsline {section}{\numberline {7.5}DFS algorithms}{35}% 
-\contentsline {section}{\numberline {7.6}Heuristics}{36}% 
-\contentsline {section}{\numberline {7.7}Trees}{37}% 
-\contentsline {section}{\numberline {7.8}Functional Graphs}{40}% 
-\contentsline {section}{\numberline {7.9}Other}{41}% 
-\contentsline {chapter}{\numberline {8}Geometry}{44}% 
-\contentsline {section}{\numberline {8.1}Geometric primitives}{44}% 
-\contentsline {section}{\numberline {8.2}Circles}{45}% 
-\contentsline {section}{\numberline {8.3}Polygons}{46}% 
-\contentsline {section}{\numberline {8.4}Misc. Point Set Problems}{47}% 
-\contentsline {section}{\numberline {8.5}3D}{49}% 
-\contentsline {section}{\numberline {8.6}xyz 2D Geometry Library}{51}% 
-\contentsline {chapter}{\numberline {9}Strings}{54}% 
-\contentsline {chapter}{\numberline {10}Various}{58}% 
-\contentsline {section}{\numberline {10.1}Intervals}{58}% 
-\contentsline {section}{\numberline {10.2}Misc. algorithms}{58}% 
-\contentsline {section}{\numberline {10.3}Dynamic programming}{60}% 
-\contentsline {section}{\numberline {10.4}Debugging tricks}{63}% 
-\contentsline {section}{\numberline {10.5}Optimization tricks}{63}% 
-\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{63}% 
-\contentsline {subsection}{\numberline {10.5.2}Pragmas}{63}% 
-\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{64}% 
-\contentsline {section}{\numberline {10.7}Random Numbers}{64}% 
-\contentsline {section}{\numberline {10.8}Other languages}{64}% 
-\contentsline {subsection}{\numberline {10.8.1}BigInteger}{65}% 
-\contentsline {paragraph}{BigInteger}{65}% 
+\contentsline {subsection}{\numberline {4.1.1}Generating functions}{18}% 
+\contentsline {subsection}{\numberline {4.1.2}Generating functions}{18}% 
+\contentsline {subsection}{\numberline {4.1.3}General linear recurrences}{18}% 
+\contentsline {subsection}{\numberline {4.1.4}Inverse polynomial modulo $x^l$}{18}% 
+\contentsline {subsection}{\numberline {4.1.5}Fast subset convolution}{18}% 
+\contentsline {subsection}{\numberline {4.1.6}Polyominoes}{19}% 
+\contentsline {subsection}{\numberline {4.1.7}Table of non-trigonometric integrals}{19}% 
+\contentsline {subsection}{\numberline {4.1.8}Table of trigonometric integrals}{19}% 
+\contentsline {subsection}{\numberline {4.1.9}Common integral substitutions}{19}% 
+\contentsline {subsection}{\numberline {4.1.10}Determinants and PM}{19}% 
+\contentsline {chapter}{\numberline {5}Number theory}{20}% 
+\contentsline {section}{\numberline {5.1}Modular arithmetic}{20}% 
+\contentsline {section}{\numberline {5.2}Primality}{21}% 
+\contentsline {section}{\numberline {5.3}Divisibility}{22}% 
+\contentsline {section}{\numberline {5.4}Fractions}{24}% 
+\contentsline {section}{\numberline {5.5}Chinese remainder theorem}{25}% 
+\contentsline {section}{\numberline {5.6}Pythagorean Triples}{25}% 
+\contentsline {section}{\numberline {5.7}Primes}{25}% 
+\contentsline {subsection}{\numberline {5.7.1}Primitive Roots}{25}% 
+\contentsline {subsubsection}{Sum of primes}{25}% 
+\contentsline {subsection}{\numberline {5.7.2}Chicken McNugget Theorem}{25}% 
+\contentsline {subsection}{\numberline {5.7.3}Wilson's Theorem}{25}% 
+\contentsline {subsection}{\numberline {5.7.4}Wolstenholme's Theorem}{25}% 
+\contentsline {subsection}{\numberline {5.7.5}B\IeC {\'e}zout's identity}{25}% 
+\contentsline {subsection}{\numberline {5.7.6}M\IeC {\"o}bius Inversion Formula}{25}% 
+\contentsline {subsection}{\numberline {5.7.7}Estimates}{25}% 
+\contentsline {subsection}{\numberline {5.7.8}Prime counting function ($\pi (x)$)}{25}% 
+\contentsline {subsection}{\numberline {5.7.9}Floor}{25}% 
+\contentsline {chapter}{\numberline {6}Combinatorial}{26}% 
+\contentsline {section}{\numberline {6.1}Permutations}{26}% 
+\contentsline {subsection}{\numberline {6.1.1}Factorial}{26}% 
+\contentsline {subsection}{\numberline {6.1.2}Cycles}{26}% 
+\contentsline {subsection}{\numberline {6.1.3}Derangements}{26}% 
+\contentsline {subsection}{\numberline {6.1.4}Inclusion-Exclusion Principle}{26}% 
+\contentsline {subsection}{\numberline {6.1.5}The twelvefold way (from Stanley)}{26}% 
+\contentsline {subsection}{\numberline {6.1.6}Involutions}{26}% 
+\contentsline {subsection}{\numberline {6.1.7}Burnside}{26}% 
+\contentsline {section}{\numberline {6.2}Partitions and subsets}{26}% 
+\contentsline {subsection}{\numberline {6.2.1}Partition function}{26}% 
+\contentsline {subsection}{\numberline {6.2.2}Lucas' Theorem}{26}% 
+\contentsline {subsection}{\numberline {6.2.3}Binomials}{26}% 
+\contentsline {section}{\numberline {6.3}General purpose numbers}{27}% 
+\contentsline {subsection}{\numberline {6.3.1}Stirling numbers of the first kind}{27}% 
+\contentsline {subsection}{\numberline {6.3.2}Eulerian numbers}{27}% 
+\contentsline {subsection}{\numberline {6.3.3}Stirling numbers of the second kind}{27}% 
+\contentsline {subsection}{\numberline {6.3.4}Bell numbers}{27}% 
+\contentsline {subsection}{\numberline {6.3.5}Labeled unrooted trees}{27}% 
+\contentsline {subsection}{\numberline {6.3.6}Catalan numbers}{27}% 
+\contentsline {subsection}{\numberline {6.3.7}Super Catalan numbers}{27}% 
+\contentsline {subsection}{\numberline {6.3.8}Motzkin numbers}{27}% 
+\contentsline {subsection}{\numberline {6.3.9}Narayana numbers}{27}% 
+\contentsline {subsection}{\numberline {6.3.10}Schroder numbers}{27}% 
+\contentsline {subsection}{\numberline {6.3.11}Triangles}{28}% 
+\contentsline {section}{\numberline {6.4}Game Theory}{28}% 
+\contentsline {subsection}{\numberline {6.4.1}Nim}{28}% 
+\contentsline {subsection}{\numberline {6.4.2}Mis\`{e}re Nim}{28}% 
+\contentsline {subsection}{\numberline {6.4.3}Staircase Nim}{28}% 
+\contentsline {subsection}{\numberline {6.4.4}Moore's Nim$_k$}{28}% 
+\contentsline {subsection}{\numberline {6.4.5}Dim$^+$}{28}% 
+\contentsline {subsection}{\numberline {6.4.6}Aliquot Game}{28}% 
+\contentsline {subsection}{\numberline {6.4.7}Nim (at most half)}{28}% 
+\contentsline {subsection}{\numberline {6.4.8}Lasker's Nim}{28}% 
+\contentsline {subsection}{\numberline {6.4.9}Hackenbush on Trees}{28}% 
+\contentsline {chapter}{\numberline {7}Graph}{30}% 
+\contentsline {section}{\numberline {7.1}Fundamentals}{30}% 
+\contentsline {subsection}{\numberline {7.1.1}Landau}{31}% 
+\contentsline {subsection}{\numberline {7.1.2}Matroid Intersection Theorem}{31}% 
+\contentsline {subsection}{\numberline {7.1.3}Vizing's Thereom}{31}% 
+\contentsline {subsection}{\numberline {7.1.4}Euler's Theorem}{31}% 
+\contentsline {subsection}{\numberline {7.1.5}Menger's Theorem}{31}% 
+\contentsline {subsection}{\numberline {7.1.6}Dilworth's Thereom}{31}% 
+\contentsline {subsection}{\numberline {7.1.7}Erd\IeC {\"o}s-Gallai Theorem}{31}% 
+\contentsline {subsection}{\numberline {7.1.8}Hall's Marriage Theorem}{31}% 
+\contentsline {subsection}{\numberline {7.1.9}Maximum Density Subgraph}{31}% 
+\contentsline {subsection}{\numberline {7.1.10}Maximum-Weight Closure}{31}% 
+\contentsline {subsection}{\numberline {7.1.11}Maximum Weighted Independent Set in a Bipartite Graph}{31}% 
+\contentsline {subsection}{\numberline {7.1.12}Synchronizing word problem}{31}% 
+\contentsline {subsection}{\numberline {7.1.13}Tur\IeC {\'a}n's theorem}{31}% 
+\contentsline {subsection}{\numberline {7.1.14}Dirac's theorem}{31}% 
+\contentsline {subsection}{\numberline {7.1.15}Ore's theorem}{31}% 
+\contentsline {subsection}{\numberline {7.1.16}Eulerian Cycles}{32}% 
+\contentsline {subsection}{\numberline {7.1.17}Useful facts}{32}% 
+\contentsline {section}{\numberline {7.2}Euler walk}{32}% 
+\contentsline {section}{\numberline {7.3}Network flow}{32}% 
+\contentsline {subsection}{\numberline {7.3.1}K\IeC {\"o}nig-Egervary Theorem}{34}% 
+\contentsline {section}{\numberline {7.4}Matching}{34}% 
+\contentsline {section}{\numberline {7.5}DFS algorithms}{36}% 
+\contentsline {section}{\numberline {7.6}Heuristics}{37}% 
+\contentsline {section}{\numberline {7.7}Trees}{38}% 
+\contentsline {section}{\numberline {7.8}Functional Graphs}{41}% 
+\contentsline {section}{\numberline {7.9}Other}{42}% 
+\contentsline {chapter}{\numberline {8}Geometry}{45}% 
+\contentsline {section}{\numberline {8.1}Geometric primitives}{45}% 
+\contentsline {section}{\numberline {8.2}Circles}{46}% 
+\contentsline {section}{\numberline {8.3}Polygons}{47}% 
+\contentsline {section}{\numberline {8.4}Misc. Point Set Problems}{48}% 
+\contentsline {section}{\numberline {8.5}3D}{50}% 
+\contentsline {section}{\numberline {8.6}xyz 2D Geometry Library}{52}% 
+\contentsline {chapter}{\numberline {9}Strings}{55}% 
+\contentsline {chapter}{\numberline {10}Various}{59}% 
+\contentsline {section}{\numberline {10.1}Intervals}{59}% 
+\contentsline {section}{\numberline {10.2}Misc. algorithms}{59}% 
+\contentsline {section}{\numberline {10.3}Dynamic programming}{61}% 
+\contentsline {section}{\numberline {10.4}Debugging tricks}{64}% 
+\contentsline {section}{\numberline {10.5}Optimization tricks}{64}% 
+\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{64}% 
+\contentsline {subsection}{\numberline {10.5.2}Pragmas}{64}% 
+\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{65}% 
+\contentsline {section}{\numberline {10.7}Random Numbers}{65}% 
+\contentsline {section}{\numberline {10.8}Other languages}{65}% 
+\contentsline {subsection}{\numberline {10.8.1}BigInteger}{66}% 
+\contentsline {paragraph}{BigInteger}{66}% 
 \contentsfinish 

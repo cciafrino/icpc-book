@@ -1,17 +1,20 @@
 /**
  * Author: Chris
  * Description: Lucas theorem
- * Time: 
+ * Time: $O(log_p(n) * mod_inverse())$
  * Source: 
  */
+#include<ModTemplate.h>
+#include<nCr.h>
 
-modnum lucas(lint n, lint m) {
-	modnum x1 = m % MOD, x2 = m / MOD;
-	modnum y1 = n % MOD, y2 = n / MOD;
-	modnum ret = 1;
-	if (y1 >= x1) ret = ret * ncr(y1, x1);
-	else ret = 0;
-	if (y2 >= x2) ret = ret * ncr(y2, x2);
-	else ret = 0;
-	return ret;
+num lucas(lint n, lint m) {
+	num c = 1;
+	while (n || m) {
+		lint x = n % MOD, y = m % MOD;
+		if (x < y) return 0;
+		c = c * ncr(x, y);
+		n /= MOD;
+		m /= MOD;
+	}
+	return c;
 }
