@@ -19,7 +19,7 @@ typedef double T; // long double, Rational, double + mod<P>...
 typedef vector<T> vd;
 typedef vector<vd> vvd;
 
-const T eps = 1e-8, inf = 1/.0;
+const T EPS = 1e-8, inf = 1/.0;
 #define MP make_pair
 #define ltj(X) if(s == -1 || MP(X[j],N[j]) < MP(X[s],N[s])) s=j
 
@@ -28,7 +28,7 @@ struct LPSolver {
 	vi N, B;
 	vvd D;
 
-	LPSolver(const vvd& A, const vd& b, const vd& c.size() :
+	LPSolver(const vvd& A, const vd& b, const vd& c) :
 		m(b.size()), n(c.size()), N(n+1), B(m), D(m+2, vd(n+2)) { /// start-hash
 			for(int i = 0; i < m; ++i) for(int j = 0; j < n; ++j) D[i][j] = A[i][j];
 			for(int i = 0; i < m; ++i) { B[i] = n+i; D[i][n] = -1; D[i][n+1] = b[i];}
@@ -38,7 +38,7 @@ struct LPSolver {
 
 	void pivot(int r, int s) { /// start-hash
 		T *a = D[r].data(), inv = 1 / a[s];
-		for(int i = 0; i < m+2; ++i) if (i != r && abs(D[i][s]) > eps) {
+		for(int i = 0; i < m+2; ++i) if (i != r && abs(D[i][s]) > EPS) {
 			T *b = D[i].data(), inv2 = b[s] * inv;
 			for(int j = 0; j < n+2; ++j) b[j] -= a[j] * inv2;
 			b[s] = a[s] * inv2;
@@ -48,16 +48,15 @@ struct LPSolver {
 		D[r][s] = inv;
 		swap(B[r], N[s]);
 	} /// end-hash
-
 	bool simplex(int phase) { /// start-hash
 		int x = m + phase - 1;
-		for (;;) {
+		while(1) {
 			int s = -1;
-			for(int j = 0; j < n+1; ++j) if (N[j] != -phase) ltj(D[x]);
-			if (D[x][s] >= -eps) return true;
+			for(int j = 0; j <= n; ++j) if (N[j] != -phase) ltj(D[x]);
+			if (D[x][s] >= -EPS) return true;
 			int r = -1;
 			for(int i = 0; i < m; ++i) {
-				if (D[i][s] <= eps) continue;
+				if (D[i][s] <= EPS) continue;
 				if (r == -1 || MP(D[i][n+1] / D[i][s], B[i])
 				             < MP(D[r][n+1] / D[r][s], B[r])) r = i;
 			}
@@ -69,9 +68,9 @@ struct LPSolver {
 	T solve(vd &x) { /// start-hash
 		int r = 0;
 		for(int i = 1; i < m; ++i) if (D[i][n+1] < D[r][n+1]) r = i;
-		if (D[r][n+1] < -eps) {
+		if (D[r][n+1] < -EPS) {
 			pivot(r, n);
-			if (!simplex(2) || D[m+1][n+1] < -eps) return -inf;
+			if (!simplex(2) || D[m+1][n+1] < -EPS) return -inf;
 			for(int i = 0; i < m; ++i) if (B[i] == -1) {
 				int s = 0;
 				for(int j = 1; j < n+1; ++j) ltj(D[i]);

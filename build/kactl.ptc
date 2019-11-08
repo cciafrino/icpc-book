@@ -137,15 +137,16 @@
 \contentsline {subsection}{\texttt {Bezout.h}\hspace {0.2em}}{23}% 
 \contentsline {subsection}{\texttt {EulerPhi.h}\hspace {0.2em}}{23}% 
 \contentsline {subsection}{\texttt {phiFunction.h}\hspace {0.2em}}{23}% 
-\contentsline {subsection}{\texttt {DiscreteLogarithm.cpp}\hspace {0.2em}}{23}% 
+\contentsline {subsection}{\texttt {DiscreteLogarithm.h}\hspace {0.2em}}{23}% 
 \contentsline {subsection}{\texttt {Legendre.h}\hspace {0.2em}}{24}% 
 \contentsline {subsection}{\texttt {GroupOrder.h}\hspace {0.2em}}{24}% 
+\contentsline {subsection}{\texttt {Bet.h}\hspace {0.2em}}{24}% 
 \contentsline {section}{\numberline {5.4}Fractions}{24}% 
 \contentsline {subsection}{\texttt {Fractions.h}\hspace {0.2em}}{24}% 
 \contentsline {subsection}{\texttt {ContinuedFractions.h}\hspace {0.2em}}{24}% 
 \contentsline {subsection}{\texttt {FracBinarySearch.h}\hspace {0.2em}}{24}% 
-\contentsline {section}{\numberline {5.5}Chinese remainder theorem}{25}% 
-\contentsline {subsection}{\texttt {ChineseRemainder.h}\hspace {0.2em}}{25}% 
+\contentsline {section}{\numberline {5.5}Chinese remainder theorem}{24}% 
+\contentsline {subsection}{\texttt {ChineseRemainder.h}\hspace {0.2em}}{24}% 
 \contentsline {section}{\numberline {5.6}Pythagorean Triples}{25}% 
 \contentsline {section}{\numberline {5.7}Primes}{25}% 
 \contentsline {subsection}{\numberline {5.7.1}Primitive Roots}{25}% 
@@ -174,7 +175,7 @@
 \contentsline {subsection}{\numberline {6.1.7}Burnside}{26}% 
 \contentsline {section}{\numberline {6.2}Partitions and subsets}{26}% 
 \contentsline {subsection}{\numberline {6.2.1}Partition function}{26}% 
-\contentsline {subsection}{\numberline {6.2.2}Lucas' Theorem}{26}% 
+\contentsline {subsection}{\numberline {6.2.2}Lucas's Theorem}{26}% 
 \contentsline {subsection}{\numberline {6.2.3}Binomials}{26}% 
 \contentsline {subsection}{\texttt {nCr.h}\hspace {0.2em}}{26}% 
 \contentsline {subsection}{\texttt {NWayDistribute.h}\hspace {0.2em}}{26}% 
@@ -288,11 +289,11 @@
 \contentsline {subsection}{\texttt {Boruvka.h}\hspace {0.2em}}{42}% 
 \contentsline {subsection}{\texttt {ManhattanMST.h}\hspace {0.2em}}{42}% 
 \contentsline {subsection}{\texttt {SteinerTree.h}\hspace {0.2em}}{42}% 
-\contentsline {subsection}{\texttt {Pruefer.cpp}\hspace {0.2em}}{43}% 
+\contentsline {subsection}{\texttt {Pruefer.cpp}\hspace {0.2em}}{42}% 
 \contentsline {subsection}{\texttt {ErdosGallai.h}\hspace {0.2em}}{43}% 
 \contentsline {subsection}{\texttt {MisraGries.h}\hspace {0.2em}}{43}% 
 \contentsline {subsection}{\texttt {Directed-MST.cpp}\hspace {0.2em}}{43}% 
-\contentsline {subsection}{\texttt {Graph-Dominator-Tree.cpp}\hspace {0.2em}}{44}% 
+\contentsline {subsection}{\texttt {Graph-Dominator-Tree.cpp}\hspace {0.2em}}{43}% 
 \contentsline {subsection}{\texttt {Graph-Negative-Cycle.cpp}\hspace {0.2em}}{44}% 
 \contentsline {chapter}{\numberline {8}Geometry}{45}% 
 \ttl@stoptoc {chapters@7}
@@ -357,6 +358,7 @@
 \contentsline {section}{\texttt {SuffixArray.cpp}\hspace {0.2em}}{57}% 
 \contentsline {section}{\texttt {AhoCorasick.cpp}\hspace {0.2em}}{57}% 
 \contentsline {section}{\texttt {Suffix-Array.h}\hspace {0.2em}}{57}% 
+\contentsline {section}{\texttt {PalindromicTree.h}\hspace {0.2em}}{58}% 
 \contentsline {section}{\texttt {ReverseBurrowsWheeler.h}\hspace {0.2em}}{58}% 
 \contentsline {chapter}{\numberline {10}Various}{59}% 
 \ttl@stoptoc {chapters@9}
@@ -403,24 +405,27 @@
 \contentsline {subsection}{\texttt {KnapsackBitset.h}\hspace {0.2em}}{64}% 
 \contentsline {subsection}{\texttt {TSP.h}\hspace {0.2em}}{64}% 
 \contentsline {subsection}{\texttt {DistinctSubsequences.h}\hspace {0.2em}}{64}% 
+\contentsline {subsection}{\texttt {CircularLCS.h}\hspace {0.2em}}{64}% 
 \contentsline {section}{\numberline {10.4}Debugging tricks}{64}% 
 \contentsline {section}{\numberline {10.5}Optimization tricks}{64}% 
 \contentsline {subsection}{\numberline {10.5.1}Bit hacks}{64}% 
 \contentsline {subsection}{\numberline {10.5.2}Pragmas}{64}% 
 \contentsline {subsection}{\texttt {BumpAllocator.h}\hspace {0.2em}}{64}% 
 \contentsline {subsection}{\texttt {SmallPtr.h}\hspace {0.2em}}{64}% 
-\contentsline {subsection}{\texttt {BumpAllocatorSTL.h}\hspace {0.2em}}{64}% 
-\contentsline {subsection}{\texttt {Unrolling.h}\hspace {0.2em}}{64}% 
-\contentsline {subsection}{\texttt {SIMD.h}\hspace {0.2em}}{64}% 
+\contentsline {subsection}{\texttt {BumpAllocatorSTL.h}\hspace {0.2em}}{65}% 
+\contentsline {subsection}{\texttt {Unrolling.h}\hspace {0.2em}}{65}% 
+\contentsline {subsection}{\texttt {SIMD.h}\hspace {0.2em}}{65}% 
 \contentsline {subsection}{\texttt {Hashmap.h}\hspace {0.2em}}{65}% 
+\contentsline {subsection}{\texttt {FastInput.h}\hspace {0.2em}}{65}% 
 \contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{65}% 
 \contentsline {subsection}{\texttt {Hacks.h}\hspace {0.2em}}{65}% 
-\contentsline {subsection}{\texttt {Bitset.h}\hspace {0.2em}}{65}% 
-\contentsline {section}{\numberline {10.7}Random Numbers}{65}% 
-\contentsline {subsection}{\texttt {RandomNumbers.h}\hspace {0.2em}}{65}% 
-\contentsline {section}{\numberline {10.8}Other languages}{65}% 
-\contentsline {subsection}{\texttt {Main.java}\hspace {0.2em}}{65}% 
-\contentsline {subsection}{\texttt {MiscJava.java}\hspace {0.2em}}{65}% 
+\contentsline {subsection}{\texttt {Bitset.h}\hspace {0.2em}}{66}% 
+\contentsline {section}{\numberline {10.7}Random Numbers}{66}% 
+\contentsline {subsection}{\texttt {RandomNumbers.h}\hspace {0.2em}}{66}% 
+\contentsline {section}{\numberline {10.8}Other languages}{66}% 
+\contentsline {subsection}{\texttt {Python3.py}\hspace {0.2em}}{66}% 
+\contentsline {subsection}{\texttt {Main.java}\hspace {0.2em}}{66}% 
+\contentsline {subsection}{\texttt {MiscJava.java}\hspace {0.2em}}{66}% 
 \contentsline {subsection}{\numberline {10.8.1}BigInteger}{66}% 
 \contentsline {paragraph}{BigInteger}{66}% 
 \ttl@stoptoc {chapters@10}

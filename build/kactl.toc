@@ -41,7 +41,7 @@
 \contentsline {section}{\numberline {5.2}Primality}{21}% 
 \contentsline {section}{\numberline {5.3}Divisibility}{22}% 
 \contentsline {section}{\numberline {5.4}Fractions}{24}% 
-\contentsline {section}{\numberline {5.5}Chinese remainder theorem}{25}% 
+\contentsline {section}{\numberline {5.5}Chinese remainder theorem}{24}% 
 \contentsline {section}{\numberline {5.6}Pythagorean Triples}{25}% 
 \contentsline {section}{\numberline {5.7}Primes}{25}% 
 \contentsline {subsection}{\numberline {5.7.1}Primitive Roots}{25}% 
@@ -65,7 +65,7 @@
 \contentsline {subsection}{\numberline {6.1.7}Burnside}{26}% 
 \contentsline {section}{\numberline {6.2}Partitions and subsets}{26}% 
 \contentsline {subsection}{\numberline {6.2.1}Partition function}{26}% 
-\contentsline {subsection}{\numberline {6.2.2}Lucas' Theorem}{26}% 
+\contentsline {subsection}{\numberline {6.2.2}Lucas's Theorem}{26}% 
 \contentsline {subsection}{\numberline {6.2.3}Binomials}{26}% 
 \contentsline {section}{\numberline {6.3}General purpose numbers}{27}% 
 \contentsline {subsection}{\numberline {6.3.1}Stirling numbers of the first kind}{27}% 
@@ -134,8 +134,8 @@
 \contentsline {subsection}{\numberline {10.5.1}Bit hacks}{64}% 
 \contentsline {subsection}{\numberline {10.5.2}Pragmas}{64}% 
 \contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{65}% 
-\contentsline {section}{\numberline {10.7}Random Numbers}{65}% 
-\contentsline {section}{\numberline {10.8}Other languages}{65}% 
+\contentsline {section}{\numberline {10.7}Random Numbers}{66}% 
+\contentsline {section}{\numberline {10.8}Other languages}{66}% 
 \contentsline {subsection}{\numberline {10.8.1}BigInteger}{66}% 
 \contentsline {paragraph}{BigInteger}{66}% 
 \contentsfinish 
