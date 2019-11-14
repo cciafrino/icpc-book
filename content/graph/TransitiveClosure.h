@@ -4,12 +4,9 @@
  * License: CC0
  * Source: Wikipedia
  * Description: Given a directed graph adjacency matrix, computes closure, 
-		where closure[i][j] = 1 if there is a path from i to j
-		in the graph.
-		Closure is computed in O(N^3 / 64) due to bitset.
-		Also supports adding an edge to the graph and
-		updating the closure accordingly in O(N^2 / 64).
-
+ * where $closure[i][j] = 1$ if there is a path from $i$ to $j$
+ * in the graph. Closure is computed in $O(N^3 / 64)$ due to bitset.
+ * Also supports adding an edge to the graph and updating the closure accordingly in $O(N^2 / 64)$.
  * Time: 
  * Status: Not tested
  */

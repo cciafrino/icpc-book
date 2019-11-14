@@ -116,26 +116,26 @@
 \contentsline {section}{\numberline {7.6}Heuristics}{37}% 
 \contentsline {section}{\numberline {7.7}Trees}{38}% 
 \contentsline {section}{\numberline {7.8}Functional Graphs}{41}% 
-\contentsline {section}{\numberline {7.9}Other}{42}% 
+\contentsline {section}{\numberline {7.9}Other}{41}% 
 \contentsline {chapter}{\numberline {8}Geometry}{45}% 
 \contentsline {section}{\numberline {8.1}Geometric primitives}{45}% 
-\contentsline {section}{\numberline {8.2}Circles}{46}% 
-\contentsline {section}{\numberline {8.3}Polygons}{47}% 
-\contentsline {section}{\numberline {8.4}Misc. Point Set Problems}{48}% 
-\contentsline {section}{\numberline {8.5}3D}{50}% 
-\contentsline {section}{\numberline {8.6}xyz 2D Geometry Library}{52}% 
-\contentsline {chapter}{\numberline {9}Strings}{55}% 
-\contentsline {chapter}{\numberline {10}Various}{59}% 
-\contentsline {section}{\numberline {10.1}Intervals}{59}% 
-\contentsline {section}{\numberline {10.2}Misc. algorithms}{59}% 
-\contentsline {section}{\numberline {10.3}Dynamic programming}{61}% 
-\contentsline {section}{\numberline {10.4}Debugging tricks}{64}% 
-\contentsline {section}{\numberline {10.5}Optimization tricks}{64}% 
-\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{64}% 
-\contentsline {subsection}{\numberline {10.5.2}Pragmas}{64}% 
-\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{65}% 
-\contentsline {section}{\numberline {10.7}Random Numbers}{66}% 
-\contentsline {section}{\numberline {10.8}Other languages}{66}% 
-\contentsline {subsection}{\numberline {10.8.1}BigInteger}{66}% 
-\contentsline {paragraph}{BigInteger}{66}% 
+\contentsline {section}{\numberline {8.2}Circles}{47}% 
+\contentsline {section}{\numberline {8.3}Polygons}{48}% 
+\contentsline {section}{\numberline {8.4}Misc. Point Set Problems}{49}% 
+\contentsline {section}{\numberline {8.5}3D}{51}% 
+\contentsline {section}{\numberline {8.6}xyz 2D Geometry Library}{53}% 
+\contentsline {chapter}{\numberline {9}Strings}{56}% 
+\contentsline {chapter}{\numberline {10}Various}{60}% 
+\contentsline {section}{\numberline {10.1}Intervals}{60}% 
+\contentsline {section}{\numberline {10.2}Misc. algorithms}{60}% 
+\contentsline {section}{\numberline {10.3}Dynamic programming}{62}% 
+\contentsline {section}{\numberline {10.4}Debugging tricks}{65}% 
+\contentsline {section}{\numberline {10.5}Optimization tricks}{65}% 
+\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{65}% 
+\contentsline {subsection}{\numberline {10.5.2}Pragmas}{65}% 
+\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{66}% 
+\contentsline {section}{\numberline {10.7}Random Numbers}{67}% 
+\contentsline {section}{\numberline {10.8}Other languages}{67}% 
+\contentsline {subsection}{\numberline {10.8.1}BigInteger}{67}% 
+\contentsline {paragraph}{BigInteger}{67}% 
 \contentsfinish 

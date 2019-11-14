@@ -1,93 +1,61 @@
 /**
- * Author: WishingBone's ACM/ICPC Routine Library
- * Description: Max clique N<64. Bit trick for speed.
- * clique solver calculates both size and consitution of maximum clique
- * uses bit operation to accelerate searching
- * graph size limit is 63, the graph should be undirected
- * can optimize to calculate on each component, and sort on vertex degrees
- *can be used to solve maximum independent set
- *
+ * Author: chilli, SJTU, Janez Konc
+ * Date: 2019-05-10
+ * License: GPL3+
+ * Source: https://en.wikipedia.org/wiki/MaxCliqueDyn_maximum_clique_algorithm, https://gitlab.com/janezkonc/mcqd/blob/master/mcqd.h
+ * Description: Finds a maximum clique of a graph (given as symmetric bitset
+ * matrix; self-edges not allowed). Can be used to find a maximum independent
+ * set by finding a clique of the complement graph.
+ * Time: Runs in about 1s for n=155 and worst case random graphs (p=.90). Runs
+ * faster for sparse graphs.
+ * Status: fuzz-tested
  */
-
-class clique {
-  public:
-  static const long long ONE = 1;
-  static const long long MASK = (1 << 21) - 1;
-  char* bits;
-  int n, size, cmax[63];
-  long long mask[63], cons;
-  // initiate lookup table
-  clique() { /// start-hash
-    bits = new char[1 << 21];
-    bits[0] = 0;
-    for (int i = 1; i < (1<<21); ++i) 
-      bits[i] = bits[i >> 1] + (i & 1);
-  }
-  ~clique() {
-    delete bits;
-  } /// end-hash
-  // search routine
-  bool search(int step,int siz,LL mor,LL con);
-  // solve maximum clique and return size
-  int sizeClique(vector<vector<int> >& mat);
-  // solve maximum clique and return set
-  vector<int>getClq(vector<vector<int> >&mat);
+typedef vector<bitset<200>> vb;
+struct Maxclique {
+	double limit = 0.025, pk = 0;
+	struct Vertex { int i, d = 0; };
+	typedef vector<Vertex> vv;
+	vb e;
+	vv V;
+	vector<vector<int>> C;
+	vector<int> qmax, q, S, old;
+	void init(vv& r) {
+		for(auto& v : r) v.d = 0;
+		for(auto& v : r) for(auto& j : r) v.d += e[v.i][j.i];
+		sort(r.begin(), r.end(), [](auto a, auto b) { return a.d > b.d; });
+		int mxD = r[0].d;
+		for(int i = 0; i < r.size(); ++i) r[i].d = min(i, mxD) + 1;
+	}
+	void expand(vv& R, int lev = 1) {
+		S[lev] += S[lev - 1] - old[lev];
+		old[lev] = S[lev - 1];
+		while (R.size()) {
+			if (q.size() + R.back().d <= qmax.size()) return;
+			q.push_back(R.back().i);
+			vv T;
+			for(auto& v : R) if (e[R.back().i][v.i]) T.push_back({v.i});
+			if (T.size()) {
+				if (S[lev]++ / ++pk < limit) init(T);
+				int j = 0, mxk = 1, mnk = max(qmax.size() - q.size() + 1, 1);
+				C[1].clear(), C[2].clear();
+				for(auto& v : T) {
+					int k = 1;
+					auto f = [&](int i) { return e[v.i][i]; };
+					while (any_of(C[k].begin(), C[k].end(), f)) k++;
+					if (k > mxk) mxk = k, C[mxk + 1].clear();
+					if (k < mnk) T[j++].i = v.i;
+					C[k].push_back(v.i);
+				}
+				if (j > 0) T[j - 1].d = 0;
+				for(int k = mnk; k <= mxk; ++k) for(auto& i : C[k])
+					T[j].i = i, T[j++].d = k;
+				expand(T, lev + 1);
+			} else if (q.size() > qmax.size()) qmax = q;
+			q.pop_back(), R.pop_back();
+		}
+	}
+	vi maxClique() { init(V), expand(V); return qmax; }
+	Maxclique(vb conn) : e(conn), C(sz(e)+1), S(C.size()), old(S) {
+		for(int i = 0; i < e.size(); ++i) V.push_back({i});
+	}
 };
-// step is node id, size is current sol., more is available mask, cons is constitution mask
-bool clique::search(int step, int size, 
-                    LL more, LL cons) { /// start-hash
-  if (step >= n) {
-    if (size > this->size) {
-      // a new solution reached
-      this->size = size;
-      this->cons = cons;
-    }
-    return true;
-  }
-  long long now = ONE << step;
-  if ((now & more) > 0) {
-    long long next = more & mask[step];
-    if (size + bits[next & MASK] + 
-        bits[(next >> 21) & MASK] + 
-        bits[next >> 42] >= this->size 
-     && size + cmax[step] > this->size) {
-      // the current node is in the clique
-      if (search(step+1,size+1,next,cons|now))      
-        return true;
-    }
-  }
-  long long next = more & ~now;
-  if (size + bits[next & MASK] + 
-      bits[(next >> 21) & MASK] + 
-      bits[next >> 42] > this->size) {
-    // the current node is not in the clique
-    if (search(step + 1, size, next, cons))
-      return true;
-  }
-  return false;
-} /// end-hash
-// solve maximum clique and return size
-int clique::sizeClique(vector<vector<int> >& mat) { /// start-hash
-  n = mat.size();
-  // generate mask vectors
-  for (int i = 0; i < n; ++i) {
-    mask[i] = 0;
-    for (int j = 0; j < n; ++j) 
-      if (mat[i][j] > 0) mask[i] |= ONE << j;
-  }
-  size = 0;
-  for (int i = n - 1; i >= 0; --i) {
-    search(i + 1, 1, mask[i], ONE << i);
-    cmax[i] = size;
-  }
-  return size;
-} /// end-hash
-// calls sizeClique and restore cons
-vector<int> clique::getClq(
-    vector<vector<int> >& mat) { /// start-hash
-  sizeClique(mat);
-  vector<int> ret;
-  for (int i = 0; i < n; ++i) 
-    if ((cons&(ONE<<i)) > 0) ret.push_back(i);
-  return ret;
-}  /// end-hash
