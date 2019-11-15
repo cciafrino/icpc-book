@@ -68,17 +68,18 @@
 \contentsline {subsection}{\numberline {6.2.2}Lucas's Theorem}{26}% 
 \contentsline {subsection}{\numberline {6.2.3}Binomials}{26}% 
 \contentsline {section}{\numberline {6.3}General purpose numbers}{27}% 
-\contentsline {subsection}{\numberline {6.3.1}Stirling numbers of the first kind}{27}% 
-\contentsline {subsection}{\numberline {6.3.2}Eulerian numbers}{27}% 
-\contentsline {subsection}{\numberline {6.3.3}Stirling numbers of the second kind}{27}% 
-\contentsline {subsection}{\numberline {6.3.4}Bell numbers}{27}% 
-\contentsline {subsection}{\numberline {6.3.5}Labeled unrooted trees}{27}% 
-\contentsline {subsection}{\numberline {6.3.6}Catalan numbers}{27}% 
-\contentsline {subsection}{\numberline {6.3.7}Super Catalan numbers}{27}% 
-\contentsline {subsection}{\numberline {6.3.8}Motzkin numbers}{27}% 
-\contentsline {subsection}{\numberline {6.3.9}Narayana numbers}{27}% 
-\contentsline {subsection}{\numberline {6.3.10}Schroder numbers}{27}% 
-\contentsline {subsection}{\numberline {6.3.11}Triangles}{28}% 
+\contentsline {subsection}{\numberline {6.3.1}Bernoulli numbers}{27}% 
+\contentsline {subsection}{\numberline {6.3.2}Stirling numbers of the first kind}{27}% 
+\contentsline {subsection}{\numberline {6.3.3}Eulerian numbers}{27}% 
+\contentsline {subsection}{\numberline {6.3.4}Stirling numbers of the second kind}{27}% 
+\contentsline {subsection}{\numberline {6.3.5}Bell numbers}{27}% 
+\contentsline {subsection}{\numberline {6.3.6}Labeled unrooted trees}{27}% 
+\contentsline {subsection}{\numberline {6.3.7}Catalan numbers}{27}% 
+\contentsline {subsection}{\numberline {6.3.8}Super Catalan numbers}{27}% 
+\contentsline {subsection}{\numberline {6.3.9}Motzkin numbers}{27}% 
+\contentsline {subsection}{\numberline {6.3.10}Narayana numbers}{28}% 
+\contentsline {subsection}{\numberline {6.3.11}Schroder numbers}{28}% 
+\contentsline {subsection}{\numberline {6.3.12}Triangles}{28}% 
 \contentsline {section}{\numberline {6.4}Game Theory}{28}% 
 \contentsline {subsection}{\numberline {6.4.1}Nim}{28}% 
 \contentsline {subsection}{\numberline {6.4.2}Mis\`{e}re Nim}{28}% 
@@ -97,17 +98,18 @@
 \contentsline {subsection}{\numberline {7.1.4}Euler's Theorem}{31}% 
 \contentsline {subsection}{\numberline {7.1.5}Menger's Theorem}{31}% 
 \contentsline {subsection}{\numberline {7.1.6}Dilworth's Thereom}{31}% 
-\contentsline {subsection}{\numberline {7.1.7}Erd\IeC {\"o}s-Gallai Theorem}{31}% 
-\contentsline {subsection}{\numberline {7.1.8}Hall's Marriage Theorem}{31}% 
-\contentsline {subsection}{\numberline {7.1.9}Maximum Density Subgraph}{31}% 
-\contentsline {subsection}{\numberline {7.1.10}Maximum-Weight Closure}{31}% 
-\contentsline {subsection}{\numberline {7.1.11}Maximum Weighted Independent Set in a Bipartite Graph}{31}% 
+\contentsline {subsection}{\numberline {7.1.7}Hall's Marriage Theorem}{31}% 
+\contentsline {subsection}{\numberline {7.1.8}Maximum Density Subgraph}{31}% 
+\contentsline {subsection}{\numberline {7.1.9}Fecho de Peso M\IeC {\'a}ximo}{31}% 
+\contentsline {subsection}{\numberline {7.1.10}Conjunto Independente de Peso M\IeC {\'a}ximo num Grafo Bipartido}{31}% 
+\contentsline {subsection}{\numberline {7.1.11}Erd\IeC {\"o}s-Gallai Theorem}{31}% 
 \contentsline {subsection}{\numberline {7.1.12}Synchronizing word problem}{31}% 
-\contentsline {subsection}{\numberline {7.1.13}Tur\IeC {\'a}n's theorem}{31}% 
-\contentsline {subsection}{\numberline {7.1.14}Dirac's theorem}{31}% 
-\contentsline {subsection}{\numberline {7.1.15}Ore's theorem}{31}% 
-\contentsline {subsection}{\numberline {7.1.16}Eulerian Cycles}{32}% 
-\contentsline {subsection}{\numberline {7.1.17}Useful facts}{32}% 
+\contentsline {subsection}{\numberline {7.1.13}Tutte's theorem}{31}% 
+\contentsline {subsection}{\numberline {7.1.14}Tur\IeC {\'a}n's theorem}{31}% 
+\contentsline {subsection}{\numberline {7.1.15}Dirac's theorem}{31}% 
+\contentsline {subsection}{\numberline {7.1.16}Ore's theorem}{31}% 
+\contentsline {subsection}{\numberline {7.1.17}Eulerian Cycles}{32}% 
+\contentsline {subsection}{\numberline {7.1.18}Fatos \IeC {\'u}teis}{32}% 
 \contentsline {section}{\numberline {7.2}Euler walk}{32}% 
 \contentsline {section}{\numberline {7.3}Network flow}{32}% 
 \contentsline {subsection}{\numberline {7.3.1}K\IeC {\"o}nig-Egervary Theorem}{34}% 

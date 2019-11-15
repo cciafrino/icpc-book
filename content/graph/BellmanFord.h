@@ -18,7 +18,6 @@ struct Node { lint dist = inf; int prev = -1; };
 void bellmanFord(vector<Node>& nodes, vector<Ed>& eds, int s) {
 	nodes[s].dist = 0;
 	sort(eds.begin(), eds.end(), [](Ed a, Ed b) { return a.s() < b.s(); });
-
 	int lim = nodes.size() / 2 + 2; // /3+100 with shuffled vertices
 	for(int i = 0; i < lim; ++i) for(auto &ed : eds) {
 		Node cur = nodes[ed.a], &dest = nodes[ed.b];
