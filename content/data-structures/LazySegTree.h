@@ -112,7 +112,7 @@ struct LazySegTree {
     T combine(T left, T right) {
         return max(left, right); // (left + right) or min(left,right)
     }
-    Tlazy combinelazy(Tlazy lazy, Tlazy up_lazy) {
+    T combinelazy(Tlazy lazy, Tlazy up_lazy) {
         if (up_lazy == -1) return lazy;
         return up_lazy;
         

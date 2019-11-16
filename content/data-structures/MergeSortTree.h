@@ -2,30 +2,45 @@
  * Author: Chris 
  * Date: 
  * License: CC0
- * Source: G4G Tutorial
+ * Source: 
  * Description: 
  * Status: fuzz-tested a bit
  */
 
-template<typename T, int size>
 struct MergeSortTree {
-    vector<T> tree[4*size];
-    vector<T> a;
-    MergeSortTree(vector<T> &values) { a = values; }
-    void build(int idx, int lx, int rx) {
-        if (lx == rx) tree[idx].push_back(a[lx]);
+    vector<int> v, id; 
+    vector<vector<int>> tree;
+    MergeSortTree(vector<int> &v) : v(v), tree(4*(v.size()+1)) {
+        for(int i = 0; i < v.size(); ++i) id.push_back(i);
+        sort(id.begin(), id.end(), [&v](int i, int j) { return v[i] < v[j]; });
+        make_tree(1, 0, v.size()-1);
+    }
+    void make_tree(int id, int left, int right) {
+        if (left == right) 
+            tree[id].push_back(id[left]);
         else {
-            int mid = lx + (rx-lx)/2;
-            build(2*idx, lx, mid);
-            build(2*idx+1, mid+1, rx);
-            merge(tree[2*idx].begin(), tree[2*idx].end(), tree[2*idx+1].begin(), tree[2*idx+1].end(), back_inserter(tree[idx]));
+            int mid = (left + right)/2;
+            make_tree(2*id, left, mid);
+            make_tree(2*id+1, mid+1, right);
+            tree[id] = vector<int>(right - left + 1);
+            merge(tree[2*i].begin(), tree[2*i].end(), 
+                tree[2*id+1].begin(), tree[2*id+1].end(), 
+                tree[id].begin());   
         }
     }
-    T query(int idx, int lx, int rx, int ql, int qr, int a, int b) {
-        if (ql <= lx && rx <= qr)
-            return upper_bound(tree[idx].begin(), tree[idx].end(), b) - lower_bound(tree[idx].begin(), tree[idx].end(), a);
-        if (qr < lx || ql > rx) return 0;
-        int mid = lx + (rx - lx)/2;
-        return query(2*idx, lx, mid, ql, qr, a, b) + query(2*idx+1, mid+1, rx, ql, qr, a, b);
+    // how many elements in this node have id in the range [a,b]
+    int how_many(int id, int a, int b) { 
+        return (int)(upper_bound(tree[id].begin(), tree[id].end(), b)
+            - lower_bound(tree[id].begin(), tree[id].end(), a));
+    }
+    int query(int id, int left, int right, int a, int b, int x) {
+        if (left == right) return v[tree[id].back()];
+        int mid = (left + right)/2;
+        int lcount = how_many(2*id, a, b);
+        if (lcount >= x) return query(2*id, left, mid, a, b, x);
+        else return query(2*id+1, mid+1, right, a, b, x - lcount);
+    }
+    int kth(int a, int b, int k) {
+        return query(1, 0, v.size()-1, a, b, k);
     }
 };

@@ -14,7 +14,7 @@ int month[2][13] = {{0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}, {0, 31,
 
 /* O(1) - Checks if year y is a leap year. */
 bool leap_year(int y){
-	return (y % 4 == 0 and y % 100 != 0) or y % 400 == 0;
+	return (y % 4 == 0 && y % 100 != 0) || y % 400 == 0;
 }
 
 /* O(1) - Increases the day by one. */
