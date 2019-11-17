@@ -29,13 +29,13 @@ for(query_t &q : queries) {
 		++freq[values[i]];
 		if (freq[values[i]] == 2) total += 2;
 		else if (freq[values[i]] > 2) ++total;
-	}
+	};
 	auto del = [&](int i) {
 		// Change if needed
 		--freq[values[i]];
 		if (freq[values[i]] == 1) total -= 2;
 		else if (freq[values[i]] > 1) --total;
-	}
+	};
 	while(r < q.r) add(++r);
 	while(l > q.l) add(--l);
 	while(r > q.r) del(r--);
