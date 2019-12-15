@@ -30,8 +30,7 @@ struct tree_t {
 	}
 	pair<int,int> find_centroid(int v) {
 		int tsz = dfs_sz(v, -1);
-		dfs(tsz, v, -1);
-		centroid.second = centroid.first;
+		centroid.second = dfs(tsz, v, -1);
 		for (int u : edges[centroid.first]) {
 			if (2*sz[u] == tsz) 
 				centroid.second = u;

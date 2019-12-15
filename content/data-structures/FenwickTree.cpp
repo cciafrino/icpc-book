@@ -1,3 +1,12 @@
+/**
+ * Author: Chris
+ * Date: 
+ * License: 
+ * Source: TopCoder
+ * Description: 
+ * Time: Both operations are $O(\log N)$.
+ */
+
 struct bit_t {
     vector<int> tree;
     bit_t(int n){

@@ -1,7 +1,7 @@
 /**
  * Author: Arthur Nascimento
- * Date: 2009-10-26
- * License: CC0
+ * Date: 
+ * License: 
  * Source: folklore
  * Description: 
  * Time: 
