@@ -53,7 +53,7 @@ struct tree_t {
 			delta[offset] = int(delta.size());
 		return delta[offset];
 	}
-	lint get_hash(int v) {
+	lint get_hash(int v = 0) {
 		pair<int,int> cent = find_centroid(v);
 		lint x = hash_it(cent.first, -1), y = hash_it(cent.second, -1);
 		if (x > y) swap(x, y);
