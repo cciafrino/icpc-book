@@ -2,9 +2,9 @@
  * Author: Chris
  * Date: 
  * License: 
- * Source: UFMG
+ * Source: UFMG & https://www.slideshare.net/KuoE0/acmicpc-tree-isomorphism
  * Description: 
- * Time: O(N\logN)
+ * Time: O(N\log(N))
  * Status: not tested
  */
 

@@ -277,23 +277,23 @@
 \contentsline {subsection}{\texttt {HLD.h}\hspace {0.2em}}{36}% 
 \contentsline {subsection}{\texttt {Heavylight.cpp}\hspace {0.2em}}{36}% 
 \contentsline {subsection}{\texttt {HeavylightLCA.h}\hspace {0.2em}}{37}% 
-\contentsline {subsection}{\texttt {TreeIsomorphism.h}\hspace {0.2em}}{37}% 
-\contentsline {subsection}{\texttt {MatrixTree.h}\hspace {0.2em}}{38}% 
-\contentsline {section}{\numberline {7.8}Functional Graphs}{38}% 
-\contentsline {subsection}{\texttt {Lumberjack.h}\hspace {0.2em}}{38}% 
+\contentsline {subsection}{\texttt {Tree-Isomorphism.h}\hspace {0.2em}}{37}% 
+\contentsline {subsection}{\texttt {MatrixTree.h}\hspace {0.2em}}{37}% 
+\contentsline {section}{\numberline {7.8}Functional Graphs}{37}% 
+\contentsline {subsection}{\texttt {Lumberjack.h}\hspace {0.2em}}{37}% 
 \contentsline {subsection}{\texttt {Lumberjack2.h}\hspace {0.2em}}{38}% 
 \contentsline {section}{\numberline {7.9}Other}{38}% 
 \contentsline {subsection}{\texttt {kthShortestPath.h}\hspace {0.2em}}{38}% 
-\contentsline {subsection}{\texttt {Hamiltonian.h}\hspace {0.2em}}{39}% 
-\contentsline {subsection}{\texttt {Boruvka.h}\hspace {0.2em}}{39}% 
-\contentsline {subsection}{\texttt {ManhattanMST.h}\hspace {0.2em}}{39}% 
+\contentsline {subsection}{\texttt {Hamiltonian.h}\hspace {0.2em}}{38}% 
+\contentsline {subsection}{\texttt {Boruvka.h}\hspace {0.2em}}{38}% 
+\contentsline {subsection}{\texttt {ManhattanMST.h}\hspace {0.2em}}{38}% 
 \contentsline {subsection}{\texttt {SteinerTree.h}\hspace {0.2em}}{39}% 
 \contentsline {subsection}{\texttt {Pruefer.cpp}\hspace {0.2em}}{39}% 
 \contentsline {subsection}{\texttt {ErdosGallai.h}\hspace {0.2em}}{39}% 
-\contentsline {subsection}{\texttt {MisraGries.h}\hspace {0.2em}}{40}% 
-\contentsline {subsection}{\texttt {Directed-MST.cpp}\hspace {0.2em}}{40}% 
+\contentsline {subsection}{\texttt {MisraGries.h}\hspace {0.2em}}{39}% 
+\contentsline {subsection}{\texttt {Directed-MST.cpp}\hspace {0.2em}}{39}% 
 \contentsline {subsection}{\texttt {Graph-Dominator-Tree.cpp}\hspace {0.2em}}{40}% 
-\contentsline {subsection}{\texttt {Graph-Negative-Cycle.cpp}\hspace {0.2em}}{41}% 
+\contentsline {subsection}{\texttt {Graph-Negative-Cycle.cpp}\hspace {0.2em}}{40}% 
 \contentsline {subsection}{\texttt {TransitiveClosure.h}\hspace {0.2em}}{41}% 
 \contentsline {chapter}{\numberline {8}Geometry}{42}% 
 \ttl@stoptoc {chapters@7}
