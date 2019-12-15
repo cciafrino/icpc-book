@@ -3,14 +3,20 @@
  * Description: 
  */
 
-lint phi(lint n){
-    lint result = n;
-    for (lint p = 2; p*p <= n; ++p) {
-        if (n % p == 0) {
-            while (n % p == 0) n /= p;
-            result -= result / p;
+template<typename T>
+T phi(T n){
+    T aux, result;
+    aux = result = n;
+    for (T i = 2; i*i <= n; ++i) {
+        if (aux % i == 0) {
+            while (aux % i == 0) aux /= i;
+            result /= i;
+            result *= (i-1)
         }
     }
-    if (n > 1) result -= result / n;
+    if (aux > 1) {
+    	result /= aux;
+    	result *= (aux-1);
+    }
     return result;
 }

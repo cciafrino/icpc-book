@@ -12,8 +12,8 @@
 using T = double;
 constexpr T EPS = 1e-8;
 
-T elimination(vector<vector<double>> &m, int rows) {	// return the determinant
-	int r = 0; T det = 1;							// MODIFIES the input
+T elimination(vector<vector<double>> &m, int rows) { // return the determinant
+	int r = 0; T det = 1;							 // MODIFIES the input
 	for (int c = 0; c < rows && r < rows; ++c) {
 		int p = r;
 		for (int i = r+1; i < rows; ++i) 
@@ -22,7 +22,7 @@ T elimination(vector<vector<double>> &m, int rows) {	// return the determinant
 		swap(m[p], m[r]);		
 		det = -det;
 		T s = 1.0 / m[r][c], t;	det *= m[r][c];
-		for(int j = 0; j < C; ++j) m[r][j] *= s;				// make leading term in row 1
+		for(int j = 0; j < C; ++j) m[r][j] *= s; // make leading term in row 1
 		for(int i = 0; i < rows; ++i) 
 			if (i != r){ 
 				t = m[i][c]; 

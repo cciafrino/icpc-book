@@ -23,6 +23,8 @@ namespace maximum {
 
 }
 
+#include "../content/data-structures/SegTree.h"
+
 namespace nonabelian {
 
 // https://en.wikipedia.org/wiki/Dihedral_group_of_order_6
@@ -59,13 +61,15 @@ struct Tree {
 
 int main() {
 	{
-		maximum::Tree t(0);
-		assert(t.query(0, 0) == t.LOW);
+		//maximum::Tree t(0);
+		segtree_t<int> t(0);
+		assert(t.query(0, 0) == INT_MIN);
 	}
 
 	if (1) {
 		const int N = 10000;
-		maximum::Tree tr(N);
+		//maximum::Tree tr(N);
+		segtree_t<int> tr(N);
 		ll sum = 0;
 		rep(it,0,1000000) {
 			tr.update(ra() % N, ra());
@@ -80,7 +84,8 @@ int main() {
 	}
 
 	rep(n,1,10) {
-		maximum::Tree tr(n);
+		//maximum::Tree tr(n);
+		segtree_t<int> tr(n);
 		vi v(n);
 		rep(it,0,1000000) {
 			int i = rand() % (n+1), j = rand() % (n+1);
@@ -88,7 +93,7 @@ int main() {
 
 			int r = rand() % 100;
 			if (r < 30) {
-				int ma = tr.LOW;
+				int ma = INT_MIN;
 				rep(k,i,j) ma = max(ma, v[k]);
 				assert(ma == tr.query(i,j));
 			}

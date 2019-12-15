@@ -1,21 +1,21 @@
 /**
- * Author: BenQ
+ * Author: Chris
  * Description: Full Iterative Segment Tree
  */
 
 template<class T>
 struct segtree_t {
     int size;
-    vector<T> t;
+    vector<T> tree;
     vector<T> lazy;
-    segtree_t(int N) : size(N), t(2 * N), lazy(N) {}
+    segtree_t(int N) : size(N), tree(2 * N), lazy(N) {}
     segtree_t(const vector<T> &other) :
             size(other.size()),
-            t(2 * other.size()),
+            tree(2 * other.size()),
             lazy(other.size()) {
         copy(other.begin(), other.end(), t.begin() + size);
         for (int i = size; i-- > 1;) 
-            t[i] = t[2 * i] + t[2 * i + 1];
+            tree[i] = tree[2 * i] + tree[2 * i + 1];
     }
     T query(int l, int r) { // query [l, r)
         if (l == r) return 0;
@@ -26,14 +26,14 @@ struct segtree_t {
         while (l < r) {
             if (leftMult != 0) sum += lazy[l - 1] * leftMult;
             if (l & 1) {
-                sum += t[l];
+                sum += tree[l];
                 leftMult += level;
                 l++;
             }
             if (rightMult != 0) sum += lazy[r] * rightMult;
             if (r & 1) {
                 r--;
-                sum += t[r];
+                sum += tree[r];
                 rightMult += level;
             }
             l /= 2;
@@ -56,18 +56,18 @@ struct segtree_t {
         int level = 1;
         T leftAdd = 0, rightAdd = 0;
         while (l < r) {
-            if (leftAdd != 0) t[l - 1] = leftAdd;
+            if (leftAdd != 0) tree[l - 1] = leftAdd;
             if (l & 1) {
                 if (l < size) lazy[l] = value;
-                t[l] = level * value;
+                tree[l] = level * value;
                 leftAdd = level * value;
                 l++;
             }
-            if (rightAdd != 0) t[r] = rightAdd;
+            if (rightAdd != 0) tree[r] = rightAdd;
             if (r & 1) {
                 r--;
                 if (r < size) lazy[r] = value;
-                t[r] = level * value;
+                tree[r] = level * value;
                 rightAdd = level * value;
             }
             l /= 2;
@@ -76,15 +76,15 @@ struct segtree_t {
         }
         l--;
         while (r > 0) {
-            t[l] += leftAdd;
-            t[r] += rightAdd;
+            tree[l] += leftAdd;
+            tree[r] += rightAdd;
             l /= 2;
             r /= 2;
         }
     }
     T query(int p) {
         p += size;
-        T res = t[p];
+        T res = tree[p];
         while (p > 1) {
             p = p / 2;
             res += lazy[p];
@@ -94,7 +94,7 @@ struct segtree_t {
     void update(int p, T value) {
         p += size;
         while (p > 0) {
-            t[p] += value;
+            tree[p] += value;
             p = p / 2;
         }
     }

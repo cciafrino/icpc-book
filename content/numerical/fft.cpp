@@ -288,7 +288,7 @@ vector<num> eval(const poly& a, const vector<num>& x) {
 	if (!n) return {};
 	vector<poly> up(2*n);
 	for(int i = 0; i < n; ++i) up[i+n] = poly({0-x[i], 1});
-	for(int i = 1; i < n; ++i) up[i] = up[2*i]*up[2*i+1];
+	for(int i = n; i >= 1; --i) up[i] = up[2*i]*up[2*i+1];
 	vector<poly> down(2*n);
 	down[1] = a % up[1];
 	for(int i = 2; i < 2*n; ++i) down[i] = down[i/2] % up[i];
@@ -301,11 +301,11 @@ poly interp(const vector<num>& x, const vector<num>& y) {
 	int n=x.size();
 	assert(n);
 	vector<poly> up(n*2);
-	rep(i,0,n) up[i+n] = poly({0-x[i], 1});
-	per(i,1,n) up[i] = up[2*i]*up[2*i+1];
+	for(int i = 0; i < n; ++i) up[i+n] = poly({0-x[i], 1});
+	for(int i = n; i >= 1; --i) up[i] = up[2*i]*up[2*i+1];
 	vector<num> a = eval(deriv(up[1]), x);
 	vector<poly> down(2*n);
-	rep(i,0,n) down[i+n] = poly({y[i]*inv(a[i])});
-	per(i,1,n) down[i] = down[i*2] * up[i*2+1] + down[i*2+1] * up[i*2];
+	for(int i = 0; i < n; ++i) down[i+n] = poly({y[i]*inv(a[i])});
+	for(int i = n; i >= 1; --i) down[i] = down[i*2] * up[i*2+1] + down[i*2+1] * up[i*2];
 	return down[1];
 } /// end-hash

@@ -52,10 +52,8 @@ struct LazySegTree {
     }
     T query(int l, int r) {
         if (l == r) return init();
-        l += size;
-        r += size;
-        push(l);
-        push(r - 1);
+        l += size; r += size;
+        push(l); push(r - 1);
         T left = init(), right = init();
         while (l < r) {
             if (l & 1) {
@@ -66,18 +64,15 @@ struct LazySegTree {
                 r--;
                 right = combine(t[r], right);
             }
-            l /= 2;
-            r /= 2;
+            l /= 2; r /= 2;
         }
         return combine(left, right);
     }
     void update(int l, int r, Tlazy value) {
         push(l); push(r-1); // not sure if its needed
         if (l == r) return;
-        l += size;
-        r += size;
-        int l0 = l;
-        int r0 = r - 1;
+        l += size; r += size;
+        int l0 = l; int r0 = r - 1;
         int level = 0;
         while (l < r) {
             if (l & 1) {
@@ -88,19 +83,16 @@ struct LazySegTree {
                 r--;
                 apply(r, level, value);
             }
-            l /= 2;
-            r /= 2;
+            l /= 2; r /= 2;
             level++;
         }
-        build(l0);
-        build(r0);
+        build(l0); build(r0);
     }
     T query(int p) {
         p += size;
         push(p);
         return t[p];
     }
- 
  private: 
     T combineWithlazy(T left, T right, int level, Tlazy lazy) {
         if (lazy == -1) { // sum = return (right - left + 1) * lazy

@@ -1,3 +1,12 @@
+/**
+ * Author: Kevin Sun
+ * Date: 
+ * License: 
+ * Source: MIT NULL
+ * Description: Disjoint-set data structure.
+ * Time: $O(\alpha(N))$
+ */
+
 struct UF {
     int n;
     vector<int> par;

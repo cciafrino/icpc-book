@@ -3,8 +3,8 @@
  * Date: 
  * License: CC0
  * Source: https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/WaveletTree.cpp
- * Description: Segment tree on values instead of indices
- * Time: $O(Nlog(n))$
+ * Description: 
+ * Time: $O(log(MAXN-MINN))$
  */
 int n, v[MAX];
 vector<vector<int> > esq(4*(MAXN-MINN)), pref(4*(MAXN-MINN));

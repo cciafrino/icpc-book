@@ -24,7 +24,7 @@ struct segtree_t {
     T get(int p) {
         return t[p + size];
     }
-    void modify(int p, T value) {
+    void update(int p, T value) {
         p += size;
         t[p] = value;
         while (p > 1) {
@@ -53,7 +53,7 @@ struct segtree_t {
     }
 private:
     T combine(T left, T right) {
-        return left + right;
+        return (left + right);
     }
     T init() {
         return T();

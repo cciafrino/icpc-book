@@ -21,6 +21,7 @@ struct MCMF_SSPA { ///start-hash
 	vector<char> seen;
 	vector<cost_t> pi;
 	vector<int> prv;
+	explicit MCMF_SSPA(int N_) : N(N_), adj(N), pi(N, 0), prv(N) {}
 	void addEdge(int from, int to, flow_t cap, cost_t cost) {
 		assert(cap >= 0);
 		int e = int(edges.size());
@@ -83,5 +84,4 @@ struct MCMF_SSPA { ///start-hash
 		}
 		return {totFlow, totCost};
 	} ///end-hash
-	explicit MCMF_SSPA(int N_) : N(N_), adj(N), pi(N, 0), prv(N) {}
 };
