@@ -3,55 +3,57 @@
  * Date: 
  * License: 
  * Source: me
- * Description: Segment tree with ability to add or set values of large intervals, and compute sum of intervals.
- * Can be changed to other things.
+ * Description: Better SegTree. Range Sum, can be extended to max/min/product/gcd, pay attention 
+ * to propagate, f and update functions when extending. Be careful with each initialization aswell.
  */
- 
+
 template<typename T>
 struct segtree_t {
     int n;
-    vector<T> tree, lazy;
-    segtree_t(int _n) : n(_n), tree(4*n, 0), lazy(4*n, 0) { build(1, 0, n-1); }
-    T f(const T a, const T b) { return a + b; } //any commutative
-    void build(int v, int lx, int rx) {
-        if (lx == rx) return;
-        else {
-            int m = lx + (rx - lx)/2;
-            build(2*v, lx, m);
-            build(2*v+1, m+1, rx);
-            tree[v] = f(tree[2*v], tree[2*v+1]);
-        }
+    vector<T> tree, lazy, og;
+    segtree_t(int N) : n(N), tree(4 * N), lazy(4*N) {}
+    segtree_t(const vector<T> &other) :
+            n(other.size()), og(other),
+            tree(4 * other.size()),
+            lazy(4 * other.size()) {
+        build(1, 0, n-1);
     }
-    void push(int v, int lx, int rx) {
-        tree[v] += lazy[v] * (rx - lx + 1); // Change if needed
-        if (lx != rx) {
-            lazy[2*v] += lazy[v];
-            lazy[2*v+1] += lazy[v];
-        }
+    T f(const T a, const T b) { return (a + b); }
+    T build(int v, int l, int r) {
+        lazy[v] = 0;
+        if (l == r) return tree[v] = og[l];
+        int m = l + (r - l)/2;
+        return tree[v] = f(build(2*v,l, m), build(2*v+1, m+1, r));
+    }
+    void propagate(int v, int l, int r) {
+        if (!lazy[v]) return;
+        int m = l + (r - l)/2;
+        tree[2*v] += lazy[v] * (m - l + 1);
+        tree[2*v+1] += lazy[v] * (r - (m+1) + 1);
+        lazy[2*v] += lazy[v];
+        lazy[2*v+1] += lazy[v];
         lazy[v] = 0;
     }
-    void update(int a, int b, T delta) { update(1,0,n-1,a,b,delta); }
-    void update(int v, int lx, int rx, int a, int b, T delta) {
-        push(v, lx, rx);
-        if (b < lx || rx < a) return;
-        if (a <= lx && rx <= b) {
-            lazy[v] = delta;
-            push(v, lx, rx);
-        }
-        else {
-            int m = lx + (rx - lx)/2;
-            update(2*v, lx, m, a, b, delta);
-            update(2*v+1, m+1, rx, a, b, delta);
-            tree[v] = f(tree[2*v], tree[2*v+1]);
-        }
+    T query(int a, int b) { return query(a, b, 1, 0, n-1); }
+    T query(int a, int b, int v, int l, int r) {
+        if (b < l or r < a) return 0;
+        if (a <= l and r <= b) return tree[v];
+        propagate(v,l, r);
+        int m = l + (r - l)/2;
+        return f(query(a, b, 2*v,l, m), query(a, b, 2*v+1, m+1, r));
     }
-    T query(int a, int b) { return query(1, 0, n-1, a, b); }
-    T query(int v, int lx, int rx, int a, int b) {
-        push(v, lx, rx);
-        if (a <= lx && rx <= b) return tree[v];
-        if (b < lx || rx < a) return 0;
-        int m = lx + (rx - lx)/2;
-        return f(query(2*v, lx, m, a, b), query(2*v+1, m+1, rx, a, b));
-    } 
+    T update(int a, int b, int delta) { return update(a, b, delta, 1, 0, n-1); }
+    T update(int a, int b, int delta, int v, int l, int r) {
+        if (b < l or r < a) return tree[v];
+        if (a <= l and r <= b) {
+            tree[v] += (T)delta * (r-l+1);
+            lazy[v] += delta;
+            return tree[v];
+        }
+        propagate(v,l, r);
+        int m = l + (r - l)/2;
+        return tree[v] = f(update(a, b, delta, 2*v, l, m),
+            update(a, b, delta, 2*v+1, m+1, r));
+    }
 };
 

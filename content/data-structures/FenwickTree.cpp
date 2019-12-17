@@ -7,10 +7,10 @@
  * Time: Both operations are $O(\log N)$.
  */
 
-struct bit_t {
-    vector<int> tree;
+template<typename T> struct bit_t {
+    vector<T> tree;
     bit_t(int n){
-        tree.assign(n, 0);
+        tree.assign(n, T());
     }
     void update(int idx){
         while (idx < tree.size()){
@@ -18,8 +18,8 @@ struct bit_t {
             idx += idx & -idx;
         }
     }
-    int query(int idx){
-        int ret = 0;
+    T query(int idx){
+        T ret = 0;
         while (idx) {
             ret += tree[idx];
             idx -= idx & -idx;

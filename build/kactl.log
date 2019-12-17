@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2019.11.2)  15 DEC 2019 13:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2019.11.2)  17 DEC 2019 15:40
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -657,7 +657,7 @@ runsystem(python2 kactlprocessor.py -i "../content/data-structures/OrderStatisti
  (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
-runsystem(python2 kactlprocessor.py -i "../content/data-structures/UnionFind.h" -o kactl.tmp )...executed.
+runsystem(python2 kactlprocessor.py -i "../content/data-structures/DSU.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
@@ -685,12 +685,12 @@ runsystem(python2 kactlprocessor.py --print-header "LazySegmentTree.h|LazySegmen
  (./header2.tmp) [4])
 runsystem(rm -f kactl.tmp)...executed.
 
-runsystem(python2 kactlprocessor.py -i "../content/data-structures/MergeSortTree.h" -o kactl.tmp )...executed.
+runsystem(python2 kactlprocessor.py -i "../content/data-structures/DynamicSegTree.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
-runsystem(python2 kactlprocessor.py -i "../content/data-structures/DynamicSegTree.h" -o kactl.tmp )...executed.
+runsystem(python2 kactlprocessor.py -i "../content/data-structures/MergeSortTree.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
@@ -704,6 +704,11 @@ runsystem(python2 kactlprocessor.py --print-header "Mo.h|Mo.h" -o header2.tmp)..
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/RMQ.h" -o kactl.tmp )...executed.
+
+ (./kactl.tmp)
+runsystem(rm -f kactl.tmp)...executed.
+
+runsystem(python2 kactlprocessor.py -i "../content/data-structures/FenwickTree.cpp" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
@@ -731,7 +736,7 @@ runsystem(rm -f kactl.tmp)...executed.
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/LineContainer.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "LineContainer.h|LineContainer.h" -o header2.tmp)...executed.
+runsystem(python2 kactlprocessor.py --print-header "MisofTree.h|LineContainer.h" -o header2.tmp)...executed.
 
  (./header2.tmp) [6])
 runsystem(rm -f kactl.tmp)...executed.
@@ -756,7 +761,7 @@ runsystem(rm -f kactl.tmp)...executed.
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/LCT.cpp" -o kactl.tmp )...executed.
 
  (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "|LCT.cpp" -o header2.tmp)...executed.
+runsystem(python2 kactlprocessor.py --print-header "LCT.cpp|LCT.cpp" -o header2.tmp)...executed.
 
  (./header2.tmp) [7])
 runsystem(rm -f kactl.tmp)...executed.
@@ -768,15 +773,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/SplayTree.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "|SplayTree.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [8])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/Wavelet.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "Wavelet.h|Wavelet.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [8]
 
 ! Package inputenc Error: Invalid UTF-8 byte sequence.
 
@@ -1292,14 +1297,14 @@ runsystem(rm -f kactl.tmp)...executed.
 runsystem(python2 kactlprocessor.py -i "../content/combinatorial/PascalTriangle.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
+runsystem(python2 kactlprocessor.py --print-header "NWayDistribute.h|PascalTriangle.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [23]
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/combinatorial/Multinomial.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
-runsystem(python2 kactlprocessor.py --print-header "Multinomial.h|Multinomial.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [23]
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/combinatorial/Catalan.h" -o kactl.tmp )...executed.
@@ -1426,15 +1431,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/combinatorial/Nim.cpp" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "Nim.cpp|Nim.cpp" -o header2.tmp)...executed.
+
+ (./header2.tmp) [25])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/combinatorial/Nim-Product.cpp" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "Nim.cpp|Nim-Product.cpp" -o header2.tmp)...executed.
-
- (./header2.tmp) [25])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/combinatorial/Schreier-Sims.cpp" -o kactl.tmp )...executed.
@@ -1467,7 +1472,7 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 )
-runsystem(python2 kactlprocessor.py --print-header "|Lucas.h" -o header2.tmp)...executed.
+runsystem(python2 kactlprocessor.py --print-header "Lucas.h|Lucas.h" -o header2.tmp)...executed.
 
  (./header2.tmp) [26] (../content/graph/chapter.tex
 Chapter 7.
@@ -3082,6 +3087,11 @@ runsystem(python2 kactlprocessor.py -i "../content/various/Hashmap.h" -o kactl.t
  (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
+runsystem(python2 kactlprocessor.py -i "../content/various/OwnFunctions.h" -o kactl.tmp )...executed.
+
+ (./kactl.tmp)
+runsystem(rm -f kactl.tmp)...executed.
+
 runsystem(python2 kactlprocessor.py -i "../content/various/Hacks.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp
@@ -3114,10 +3124,10 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/MiscJava.java" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
 runsystem(python2 kactlprocessor.py --print-header "MiscJava.java|MiscJava.java" -o header2.tmp)...executed.
 
- (./header2.tmp) [64])
+ (./header2.tmp) [64]))
 runsystem(python2 kactlprocessor.py --print-header "|MiscJava.java" -o header2.tmp)...executed.
 
  (./header2.tmp) [65] (../content/appendix/chapter.tex
@@ -3141,15 +3151,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
  (./kactl.aux) ) 
 Here is how much of TeX's memory you used:
- 12869 strings out of 494533
- 167179 string characters out of 6176596
+ 12885 strings out of 494533
+ 167333 string characters out of 6176596
  1271095 words of memory out of 5000000
- 15619 multiletter control sequences out of 15000+600000
+ 15631 multiletter control sequences out of 15000+600000
  16940 words of font info for 65 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 44i,15n,60p,855b,2031s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,15n,60p,855b,2069s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on kactl.pdf (67 pages, 1867983 bytes).
+Output written on kactl.pdf (67 pages, 1868888 bytes).
 PDF statistics:
  677 PDF objects out of 1000 (max. 8388607)
  451 compressed objects within 5 object streams

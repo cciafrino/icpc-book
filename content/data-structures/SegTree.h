@@ -28,13 +28,12 @@ struct segtree_t {
         p += size;
         t[p] = value;
         while (p > 1) {
-            p = p / 2;
+            p /= 2;
             t[p] = combine(t[2 * p], t[2 * p + 1]);
         }
     }
     T query(int l, int r) {
-        l += size;
-        r += size;
+        l += size; r += size;
         T left = init();
         T right = init();
         while (l < r) {
@@ -46,8 +45,7 @@ struct segtree_t {
                 r--;
                 right = combine(t[r], right);
             }
-            l = l / 2;
-            r = r / 2;
+            l /= 2; r /= 2;
         }
         return combine(left, right);
     }

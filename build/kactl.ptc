@@ -37,26 +37,27 @@
 \ttl@starttoc {chapters@3}
 \contentsline {section}{\texttt {HashMap.h}\hspace {0.2em}}{4}% 
 \contentsline {section}{\texttt {OrderStatisticTree.h}\hspace {0.2em}}{4}% 
-\contentsline {section}{\texttt {UnionFind.h}\hspace {0.2em}}{4}% 
+\contentsline {section}{\texttt {DSU.h}\hspace {0.2em}}{4}% 
 \contentsline {section}{\texttt {DSURoll.h}\hspace {0.2em}}{4}% 
 \contentsline {section}{\texttt {MinQueue.h}\hspace {0.2em}}{4}% 
 \contentsline {section}{\texttt {SegTree.h}\hspace {0.2em}}{4}% 
 \contentsline {section}{\texttt {LazySegmentTree.h}\hspace {0.2em}}{4}% 
-\contentsline {section}{\texttt {MergeSortTree.h}\hspace {0.2em}}{5}% 
 \contentsline {section}{\texttt {DynamicSegTree.h}\hspace {0.2em}}{5}% 
+\contentsline {section}{\texttt {MergeSortTree.h}\hspace {0.2em}}{5}% 
 \contentsline {section}{\texttt {Mo.h}\hspace {0.2em}}{5}% 
 \contentsline {section}{\texttt {RMQ.h}\hspace {0.2em}}{6}% 
+\contentsline {section}{\texttt {FenwickTree.cpp}\hspace {0.2em}}{6}% 
 \contentsline {section}{\texttt {FenwickTree.h}\hspace {0.2em}}{6}% 
 \contentsline {section}{\texttt {LazyFenwickTree.h}\hspace {0.2em}}{6}% 
 \contentsline {section}{\texttt {FenwickTree2d.h}\hspace {0.2em}}{6}% 
 \contentsline {section}{\texttt {MisofTree.h}\hspace {0.2em}}{6}% 
-\contentsline {section}{\texttt {LineContainer.h}\hspace {0.2em}}{6}% 
+\contentsline {section}{\texttt {LineContainer.h}\hspace {0.2em}}{7}% 
 \contentsline {section}{\texttt {Matrix.h}\hspace {0.2em}}{7}% 
 \contentsline {section}{\texttt {Treap3.h}\hspace {0.2em}}{7}% 
 \contentsline {section}{\texttt {LCT.cpp}\hspace {0.2em}}{7}% 
 \contentsline {section}{\texttt {PalindromicTree.h}\hspace {0.2em}}{8}% 
 \contentsline {section}{\texttt {SplayTree.h}\hspace {0.2em}}{8}% 
-\contentsline {section}{\texttt {Wavelet.h}\hspace {0.2em}}{8}% 
+\contentsline {section}{\texttt {Wavelet.h}\hspace {0.2em}}{9}% 
 \contentsline {section}{\texttt {ColorUpdate.h}\hspace {0.2em}}{9}% 
 \contentsline {chapter}{\numberline {4}Numerical}{10}% 
 \ttl@stoptoc {chapters@3}
@@ -176,8 +177,8 @@
 \contentsline {subsection}{\numberline {6.2.3}Binomials}{23}% 
 \contentsline {subsection}{\texttt {nCr.h}\hspace {0.2em}}{23}% 
 \contentsline {subsection}{\texttt {NWayDistribute.h}\hspace {0.2em}}{23}% 
-\contentsline {subsection}{\texttt {PascalTriangle.h}\hspace {0.2em}}{23}% 
-\contentsline {subsection}{\texttt {Multinomial.h}\hspace {0.2em}}{23}% 
+\contentsline {subsection}{\texttt {PascalTriangle.h}\hspace {0.2em}}{24}% 
+\contentsline {subsection}{\texttt {Multinomial.h}\hspace {0.2em}}{24}% 
 \contentsline {subsection}{\texttt {Catalan.h}\hspace {0.2em}}{24}% 
 \contentsline {section}{\numberline {6.3}General purpose numbers}{24}% 
 \contentsline {subsection}{\numberline {6.3.1}Bernoulli numbers}{24}% 
@@ -188,7 +189,7 @@
 \contentsline {subsection}{\numberline {6.3.6}Labeled unrooted trees}{24}% 
 \contentsline {subsection}{\numberline {6.3.7}Catalan numbers}{24}% 
 \contentsline {subsection}{\numberline {6.3.8}Super Catalan numbers}{24}% 
-\contentsline {subsection}{\numberline {6.3.9}Motzkin numbers}{24}% 
+\contentsline {subsection}{\numberline {6.3.9}Motzkin numbers}{25}% 
 \contentsline {subsection}{\numberline {6.3.10}Narayana numbers}{25}% 
 \contentsline {subsection}{\numberline {6.3.11}Schroder numbers}{25}% 
 \contentsline {subsection}{\numberline {6.3.12}Triangles}{25}% 
@@ -422,6 +423,7 @@
 \contentsline {subsection}{\texttt {Unrolling.h}\hspace {0.2em}}{63}% 
 \contentsline {subsection}{\texttt {SIMD.h}\hspace {0.2em}}{63}% 
 \contentsline {subsection}{\texttt {Hashmap.h}\hspace {0.2em}}{63}% 
+\contentsline {subsection}{\texttt {OwnFunctions.h}\hspace {0.2em}}{63}% 
 \contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{63}% 
 \contentsline {subsection}{\texttt {Hacks.h}\hspace {0.2em}}{63}% 
 \contentsline {subsection}{\texttt {Bitset.h}\hspace {0.2em}}{64}% 
@@ -431,8 +433,8 @@
 \contentsline {subsection}{\texttt {Python3.py}\hspace {0.2em}}{64}% 
 \contentsline {subsection}{\texttt {Main.java}\hspace {0.2em}}{64}% 
 \contentsline {subsection}{\texttt {MiscJava.java}\hspace {0.2em}}{64}% 
-\contentsline {subsection}{\numberline {10.8.1}BigInteger}{64}% 
-\contentsline {paragraph}{BigInteger}{64}% 
+\contentsline {subsection}{\numberline {10.8.1}BigInteger}{65}% 
+\contentsline {paragraph}{BigInteger}{65}% 
 \ttl@stoptoc {chapters@10}
 \ttl@starttoc {chapters@11}
 \contentsfinish 

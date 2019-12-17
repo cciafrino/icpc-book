@@ -10,3 +10,8 @@ lint ncr(lint n, lint r){
     a = (a * invfact[n-r]) % mod;
     return a;
 }
+
+num ncr(int n, int k){
+	if(k < 0 || k > n) return 0;
+	return fact[n] * ifact[k] * ifact[n-k];
+}
