@@ -25,3 +25,19 @@ for (lx += n, rx += n; lx <= rx; lx /= 2, rx /= 2){
     if (lx%2 == 1) result += tree[lx++];
     if (rx%2 == 0) result += tree[rx--];
 }
+
+// A bit fast segtree with bitwise operators
+for (M = 1; M <= n+1; M *= 2);
+for (int i = 1; i <= n; ++i) tree[i+M] = v[i];
+for (int i = M-1; i ; --i) tree[i] = tree[i+i] + tree[i+i+1];
+
+int idx = 1, delta = 10;
+tree[idx+M] = delta;
+for (int i = (idx+M)>>1; i; i >>= 1) tree[i] = tree[i+i] + tree[i+i+1];
+
+int res = 0;
+int lx = 1, rx = 9;
+for (lx += M-1, rx += M+1; lx ^ rx ^ 1; lx >>= 1, rx >>= 1) {
+	if (~lx & 1) res += tree[lx^1];
+	if (rx & 1) res += tree[rx^1];
+}

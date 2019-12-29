@@ -3,7 +3,7 @@
  * Date: Unknown
  * Source: Codeforces
  * Description: Min-cost max-flow. cap[i][j] != cap[j][i] is allowed; double edges are not.
- * Status: Working on kattis Minimum Cost Maximum Flow
+ * Status: Working on kattis Minimum Cost Maximum Flow and Spoj Greedy
  * Time: Approximately O(E^2) faster than Kactl's on practice
  */
  
@@ -13,9 +13,7 @@ struct MCMF_SSPA { ///start-hash
 	int N;
 	vector<vector<int>> adj;
 	struct edge_t {
-		int dest;
-		flow_t cap;
-		cost_t cost;
+		int dest; flow_t cap; cost_t cost;
 	};
 	vector<edge_t> edges;
 	vector<char> seen;
@@ -44,7 +42,6 @@ struct MCMF_SSPA { ///start-hash
 		while (!q.empty()) {
 			int i = q.top().second; q.pop();
 			cost_t d = dist[i];
-			//cerr << i << ' ' << d << '\n';
 			for (int e : adj[i]) {
 				if (edges[e].cap) {
 					int j = edges[e].dest;
@@ -54,7 +51,6 @@ struct MCMF_SSPA { ///start-hash
 						prv[j] = e;
 						if (its[j] == q.end()) its[j] = q.push({-(dist[j] - pi[j]), j});
 						else q.modify(its[j], {-(dist[j] - pi[j]), j});
-						
 					}
 				}
 			}

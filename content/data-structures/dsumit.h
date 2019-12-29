@@ -17,7 +17,7 @@ struct UF {
         if(a != par[a]) par[a] = find(par[a]);
         return par[a];
     }
-    void join(int a, int b){
+    void unite(int a, int b){
         par[find(a)] = find(b);
     }
 };

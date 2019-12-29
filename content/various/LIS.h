@@ -7,17 +7,17 @@
  */
 #pragma once
 
-template<class I> vector<int> lis(vector<I> S) {
+template<class I> vector<int> lis(const vector<I>& S) {
+	if (S.empty()) return {};
 	vector<int> prev(S.size());
 	typedef pair<I, int> p;
 	vector<p> res;
-	for(int i = 0; i < S.size(); i++) {
-		p el { S[i], i };
-		//S[i]+1 for non-decreasing
-		auto it = lower_bound(res.begin(), res.end(), p { S[i], 0 }); 
-		if (it == res.end()) res.push_back(el), it = --res.end();
-		*it = el;
-		prev[i] = it==res.begin() ?0:(it-1)->second; 
+	for(int i = 0; i < (int)S.size(); i++) {
+		// change 0 -> i for longest non-decreasing subsequence
+		auto it = lower_bound(res.begin(), res.end(), p {S[i], 0}); 
+		if (it == res.end()) res.emplace_back(), it = res.end()-1;
+		*it = {S[i], i};
+		prev[i] = it == res.begin() ? 0 : (it-1)->second; 
 	}
 	int L = res.size(), cur = res.back().second;
 	vector<int> ans(L);

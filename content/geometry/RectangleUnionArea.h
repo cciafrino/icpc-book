@@ -19,7 +19,8 @@ struct segtree_t { // stores min + # of mins
     vector<pair<int,int>> tree; // set n to a power of two
     segtree_t(int _n) : n(_n), tree(2*n, {0,0}), lazy(2*n, 0) { }
     void build() {
-        for(int i = SZ-1; i >= 1; --i) tree[i] = tree[2*i] + tree[2*i+1];
+        for(int i = n-1; i >= 1; --i) 
+        	tree[i] = tree[2*i] + tree[2*i+1];
     }
     void push(int v, int lx, int rx) {
         tree[v].first += lazy[v];
@@ -29,7 +30,7 @@ struct segtree_t { // stores min + # of mins
         }
         lazy[v] = 0;
     }
-    void update(int a, int b, int delta) { update(1,0,SZ-1,a,b,delta); }
+    void update(int a, int b, int delta) { update(1,0,n-1,a,b,delta); }
     void update(int v, int lx, int rx, int a, int b, int delta) {
         push(v, lx, rx);
         if (b < lx || rx < a) return;
