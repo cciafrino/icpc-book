@@ -3,38 +3,36 @@
  * Date: 2009-10-28
  * License: CC0
  * Source:
- * Description: This is a simple matching algorithm but should
- * be just fine in most cases. Graph $g$ should be a list of
- * neighbours of the left partition. $n$ is the size of the left
- * partition and $m$ is the size of the right partition.
- * If you want to get the matched pairs, $match[i]$ contains
- * match for vertex $i$ on the right side or $-1$ if it's not
- * matched.
- * Time: O(EV) where $E$ is the number of edges and V is the number of vertices.
+ * Description: Simple bipartite matching algorithm. Graph $g$ should be a list
+ * of neighbors of the left partition, and $btoa$ should be a vector full of
+ * -1's of the same size as the right partition. Returns the size of
+ * the matching. $btoa[i]$ will be the match for vertex $i$ on the right side,
+ * or $-1$ if it's not matched.
+ * Time: O(VE)
+ * Usage: vector<int> btoa(m, -1); dfsMatching(g, btoa);
  * Status: works
- * 	   Working on Kattis Bilateral Projects
  */
-vector<int> match;
-vector<bool> seen;
-bool find(int j, const vector<vector<int>>& g) {
-    if (match[j] == -1) return 1;
-    seen[j] = 1; int di = match[j];
-    for (int e : g[di])
-        if (!seen[e] && find(e, g)) {
-            match[e] = di;
+#pragma once
+
+bool find(int j, vector<vector<int>>& g, vector<int>& btoa, vector<int>& seen) {
+    if (btoa[j] == -1) return 1;
+    seen[j] = 1; int di = btoa[j];
+    for(auto &e : g[di])
+        if (!seen[e] && find(e, g, btoa, seen)) {
+            btoa[e] = di;
             return 1;
         }
     return 0;
 }
-int dfs_matching(const vector<vector<int>>& g, int n, int m) {
-    match.assign(m, -1);
-    for (int i = 0; i < n; ++i) {
-        seen.assign(m, 0);
-        for (int j : g[i])
-            if (find(j, g)) {
-                match[j] = i;
+int dfsMatching(vector<vector<int>>& g, vector<int>& btoa) {
+    vector<int> seen;
+    for(int i = 0 i < g.size(); ++i) {
+        seen.assign(btoa.size(), 0);
+        for(auto &j : g[i])
+            if (find(j, g, btoa, seen)) {
+                btoa[j] = i;
                 break;
             }
     }
-    return m - (int)count(match.begin(), match.end(), -1);
+    return btoa.size() - (int)count(btoa.begin(), btoa.end(), -1);
 }

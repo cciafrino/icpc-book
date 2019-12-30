@@ -35,7 +35,7 @@ struct Dinic {
 		}
 		return 0;
 	}
-	T calc(int s, int t) {
+	T maxflow(int s, int t) {
 		T flow = 0; q[0] = s;
 		for(int L = 0; L < 31; ++L) do { // 'int L=30' maybe faster for random data
 			lvl = ptr = vector<int>(q.size());
@@ -62,7 +62,7 @@ struct Dinic {
 	}
 	//only if you want the edges of the cut
 	vector<pair<pair<int,int>,int>> findMinCut(int u,int t){
-		calc(u,t); //DONT call again if you already called it
+		maxflow(u,t); //DONT call again if you already called it
 		dfsMC(u);
 		return cut;
 	}

@@ -2,7 +2,7 @@
  * Author: Lucian Bicsi, Simon Lindholm
  * Date: 2017-10-31
  * License: CC0
- * Description: Given $f$ and $N$, finds the smalintest fraction $p/q \in [0, 1]$
+ * Description: Given $f$ and $N$, finds the smallest fraction $p/q \in [0, 1]$
  * such that $f(p/q)$ is true, and $p, q \le N$.
  * You may want to throw an exception from $f$ if it finds an exact solution,
  * in which case $N$ can be removed.
@@ -16,22 +16,22 @@ struct Frac { lint p, q; };
 template<class F>
 Frac fracBS(F f, lint N) { /// start-hash
 	bool dir = 1, A = 1, B = 1;
-	Frac lo{0, 1}, hi{1, 1}; // Set hi to 1/0 to search (0, N]
-	assert(!f(lo)); assert(f(hi));
+	Frac left{0, 1}, right{1, 1}; // Set right to 1/0 to search (0, N]
+	assert(!f(left)); assert(f(right));
 	while (A || B) {
-		lint adv = 0, step = 1; // move hi if dir, else lo
+		lint adv = 0, step = 1; // move right if dir, else left
 		for (int si = 0; step; (step *= 2) >>= si) {
 			adv += step;
-			Frac mid{lo.p * adv + hi.p, lo.q * adv + hi.q};
+			Frac mid{left.p * adv + right.p, left.q * adv + right.q};
 			if (abs(mid.p) > N || mid.q > N || dir == !f(mid)) {
 				adv -= step; si = 2;
 			}
 		}
-		hi.p += lo.p * adv;
-		hi.q += lo.q * adv;
+		right.p += left.p * adv;
+		right.q += left.q * adv;
 		dir = !dir;
-		swap(lo, hi);
+		swap(left, right);
 		A = B; B = !!adv;
 	}
-	return dir ? hi : lo;
+	return dir ? right : left;
 } /// end-hash

@@ -23,10 +23,8 @@ struct PushRelabel {
 	PushRelabel(int n) : g(n), ec(n), cur(n), hs(2*n), H(n) {}
 	void add_edge(int s, int t, Flow cap, Flow rcap=0) {
 		if (s == t) return;
-		Edge a = {t, g[t].size(), 0, cap};
-		Edge b = {s, g[s].size(), 0, rcap};
-		g[s].push_back(a);
-		g[t].push_back(b);
+		g[s].push_back({t, g[t].size(), 0, cap});
+		g[t].push_back({s, g[s].size(), 0, rcap});
 	}
 	void add_flow(Edge& e, Flow f) {
 		Edge &back = g[e.dest][e.back];
@@ -39,7 +37,6 @@ struct PushRelabel {
 		vector<int> co(2*v); co[0] = v-1;
 		for(int i = 0; i < v; ++i) cur[i] = g[i].data();
 		for(auto &e : g[s]) add_flow(e, e.c);
-
 		for (int hi = 0;;) {
 			while (hs[hi].empty()) if (!hi--) return -ec[s];
 			int u = hs[hi].back(); hs[hi].pop_back();
@@ -57,4 +54,5 @@ struct PushRelabel {
 				else ++cur[u];
 		}
 	}
+	bool leftOfMintCut(int a) { return H[a] >= g.size(); }
 };

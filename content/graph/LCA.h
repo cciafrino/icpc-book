@@ -1,5 +1,5 @@
 /**
- * Author: Johan Sannemo, Simon Lindholm
+ * Author: Johan Sannemo, Simon Lindholm, Chris
  * Date: 2015-09-20
  * License: CC0
  * Source: Folklore
@@ -9,44 +9,56 @@
  * either directed or undirected.
  * Can also find the distance between two nodes.
  * Usage:
- *  LCA lca(undirGraph);
+ *  lca_t lca(undirGraph);
  *  lca.query(firstNode, secondNode);
- *  lca.distance(firstNode, secondNode);
+ *  lca.dist(firstNode, secondNode);
  * Time: $O(N \log N + Q)$
  */
 #pragma once
 
-typedef vector<vector<pair<int,int>>> graph;
+template<class T>
+struct RMQ {
+	vector<vector<T>> jmp;
+	RMQ(const vector<T>& V) {
+		int N = V.size(), on = 1, depth = 1;
+		while (on < N) on *= 2, depth++;
+		jmp.assign(depth, V);
+		for(int i = 0; i < depth-1; ++i) for(int j = 0; j < N; ++j)
+			jmp[i+1][j] = min(jmp[i][j],
+			jmp[i][min(N - 1, j + (1 << i))]);
+	}
+	T query(int a, int b) {
+		assert(a < b); // or return inf if a == b
+		int dep = 31 - __builtin_clz(b - a);
+		return min(jmp[dep][a], jmp[dep][b - (1 << dep)]);
+	}
+};
 
-#include "../data-structures/RMQ.h"
-
-struct LCA {
-	vector<int> time;
-	vector<lint> dist;
+struct lca_t {
+	int n;
+	vector<int> depth, order;
+	vector<vector<int>> edges;
+	vector<pair<int,int>> temp;
 	RMQ<pair<int,int>> rmq;
-	LCA(graph &C) : time(C.size(), -99), dist(C.size()), rmq(dfs(C)) {}
-	vector<pair<int,int>> dfs(graph &C) {
-		vector<tuple<int, int, int, lint>> q(1);
-		vector<pair<int,int>> ret;
-		int T = 0, v, p, d; lint di;
-		while (!q.empty()) {
-			tie(v, p, d, di) = q.back();
-			q.pop_back();
-			if (d) ret.emplace_back(d, p);
-			time[v] = T++;
-			dist[v] = di;
-			for(auto &e : C[v]) if (e.first != p)
-				q.emplace_back(e.first, v, d+1, di + e.second);
+	lca_t(vector<vector<int>>& g) : n(g.size()), 
+	edges(g), depth(n), order(n), rmq(dfs(0,-1)) {}
+	vector<pair<int,int>> dfs(int v, int p) {
+		order[v] = temp.size();
+		depth[v] = 1 + depth[p];
+		temp.push_back({depth[v], v});
+		for (int u : edges[v]) {
+			if (u == p) continue;
+			dfs(u, v);
+			temp.push_back({depth[v], v});
 		}
-		return ret;
+		return temp;
 	}
 	int query(int a, int b) {
-		if (a == b) return a;
-		a = time[a], b = time[b];
-		return rmq.query(min(a, b), max(a, b)).second;
+		a = order[a]; b = order[b];
+		if (a > b) swap(a, b);
+		return rmq.query(a, b).second;
 	}
-	lint distance(int a, int b) {
-		int lca = query(a, b);
-		return dist[a] + dist[b] - 2 * dist[lca];
+	int dist(int a, int b) {
+		return depth[a] + depth[b] - 2*depth[query(a, b)];
 	}
 };

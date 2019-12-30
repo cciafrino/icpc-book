@@ -54,7 +54,7 @@ struct Maxclique {
 			q.pop_back(), R.pop_back();
 		}
 	}
-	vi maxClique() { init(V), expand(V); return qmax; }
+	vector<int> maxClique() { init(V), expand(V); return qmax; }
 	Maxclique(vb conn) : e(conn), C(sz(e)+1), S(C.size()), old(S) {
 		for(int i = 0; i < e.size(); ++i) V.push_back({i});
 	}
