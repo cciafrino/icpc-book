@@ -1,9 +1,9 @@
 /**
  * Author: Neal Wu
  * Description: Provides two operations on an array A (the same as a Fenwick tree):
- * 1. Add x to A[i]. Runs in O(1).
- * 2. Query the sum of A[left] through A[right - 1].
- * Time: O(\sqrt(n))
+ * 1) Add x to A[i]. Runs in O(1).
+ * 2) Query the sum of A[left] through A[right - 1].
+ * Time: O(\sqrt n)
  */
 template<typename T>
 struct sqrt_sums {

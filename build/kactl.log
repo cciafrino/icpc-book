@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2019.11.2)  30 DEC 2019 01:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2019.11.2)  1 JAN 2020 15:18
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -720,15 +720,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/LazyFenwickTree.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "LazyFenwickTree.h|LazyFenwickTree.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [6])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/FenwickTree2d.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "LazyFenwickTree.h|FenwickTree2d.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [6])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/MisofTree.h" -o kactl.tmp )...executed.
@@ -755,10 +755,10 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/Treap3.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
 runsystem(python2 kactlprocessor.py --print-header "Treap3.h|Treap3.h" -o header2.tmp)...executed.
 
- (./header2.tmp) [7]
+ (./header2.tmp) [7])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/LCT.cpp" -o kactl.tmp )...executed.
@@ -3157,14 +3157,14 @@ runsystem(rm -f kactl.tmp)...executed.
  (./kactl.aux) ) 
 Here is how much of TeX's memory you used:
  12923 strings out of 494533
- 167913 string characters out of 6176596
+ 167905 string characters out of 6176596
  1266159 words of memory out of 5000000
  15667 multiletter control sequences out of 15000+600000
  16940 words of font info for 65 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  44i,15n,60p,855b,2069s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on kactl.pdf (67 pages, 1870297 bytes).
+Output written on kactl.pdf (67 pages, 1870416 bytes).
 PDF statistics:
  677 PDF objects out of 1000 (max. 8388607)
  451 compressed objects within 5 object streams
