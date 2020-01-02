@@ -55,10 +55,8 @@
 \contentsline {section}{\texttt {Matrix.h}\hspace {0.2em}}{7}% 
 \contentsline {section}{\texttt {Treap3.h}\hspace {0.2em}}{7}% 
 \contentsline {section}{\texttt {LCT.cpp}\hspace {0.2em}}{8}% 
-\contentsline {section}{\texttt {PalindromicTree.h}\hspace {0.2em}}{8}% 
 \contentsline {section}{\texttt {SplayTree.h}\hspace {0.2em}}{8}% 
 \contentsline {section}{\texttt {Wavelet.h}\hspace {0.2em}}{9}% 
-\contentsline {section}{\texttt {ColorUpdate.h}\hspace {0.2em}}{9}% 
 \contentsline {chapter}{\numberline {4}Numerical}{10}% 
 \ttl@stoptoc {chapters@3}
 \ttl@starttoc {chapters@4}
@@ -245,22 +243,23 @@
 \contentsline {section}{\numberline {7.3}Network flow}{29}% 
 \contentsline {subsection}{\texttt {PushRelabel.h}\hspace {0.2em}}{29}% 
 \contentsline {subsection}{\texttt {Dinic.h}\hspace {0.2em}}{29}% 
-\contentsline {subsection}{\texttt {EdmondsKarp.h}\hspace {0.2em}}{30}% 
+\contentsline {subsection}{\texttt {EdmondsKarp.h}\hspace {0.2em}}{29}% 
 \contentsline {subsection}{\texttt {MinCut.h}\hspace {0.2em}}{30}% 
 \contentsline {subsection}{\texttt {MinCostMaxFlow.h}\hspace {0.2em}}{30}% 
 \contentsline {subsection}{\texttt {StoerWagner.h}\hspace {0.2em}}{30}% 
 \contentsline {subsection}{\numberline {7.3.1}K\IeC {\"o}nig-Egervary Theorem}{30}% 
-\contentsline {section}{\numberline {7.4}Matching}{31}% 
-\contentsline {subsection}{\texttt {HopcroftKarp.h}\hspace {0.2em}}{31}% 
+\contentsline {section}{\numberline {7.4}Matching}{30}% 
+\contentsline {subsection}{\texttt {HopcroftKarp.h}\hspace {0.2em}}{30}% 
 \contentsline {subsection}{\texttt {DFSMatching.h}\hspace {0.2em}}{31}% 
 \contentsline {subsection}{\texttt {WeightedMatching.h}\hspace {0.2em}}{31}% 
 \contentsline {subsection}{\texttt {GeneralMatching.h}\hspace {0.2em}}{31}% 
+\contentsline {subsection}{\texttt {MaximumIndependentSet.h}\hspace {0.2em}}{32}% 
 \contentsline {subsection}{\texttt {MinimumVertexCover.h}\hspace {0.2em}}{32}% 
 \contentsline {subsection}{\texttt {Koenig.cpp}\hspace {0.2em}}{32}% 
 \contentsline {subsection}{\texttt {Hungarian.h}\hspace {0.2em}}{32}% 
 \contentsline {section}{\numberline {7.5}DFS algorithms}{32}% 
 \contentsline {subsection}{\texttt {CentroidDecomposition.cpp}\hspace {0.2em}}{32}% 
-\contentsline {subsection}{\texttt {Tarjan.h}\hspace {0.2em}}{33}% 
+\contentsline {subsection}{\texttt {Tarjan.h}\hspace {0.2em}}{32}% 
 \contentsline {subsection}{\texttt {Kosaraju.h}\hspace {0.2em}}{33}% 
 \contentsline {subsection}{\texttt {BiconnectedComponents.h}\hspace {0.2em}}{33}% 
 \contentsline {subsection}{\texttt {2sat.h}\hspace {0.2em}}{33}% 
@@ -269,24 +268,24 @@
 \contentsline {subsection}{\texttt {MaximalCliques.h}\hspace {0.2em}}{34}% 
 \contentsline {subsection}{\texttt {MaximumClique.h}\hspace {0.2em}}{34}% 
 \contentsline {subsection}{\texttt {Cycle-Counting.cpp}\hspace {0.2em}}{34}% 
-\contentsline {section}{\numberline {7.7}Trees}{35}% 
-\contentsline {subsection}{\texttt {Tree.h}\hspace {0.2em}}{35}% 
+\contentsline {section}{\numberline {7.7}Trees}{34}% 
+\contentsline {subsection}{\texttt {Tree.h}\hspace {0.2em}}{34}% 
 \contentsline {subsection}{\texttt {TreePower.h}\hspace {0.2em}}{35}% 
 \contentsline {subsection}{\texttt {LCA.cpp}\hspace {0.2em}}{35}% 
 \contentsline {subsection}{\texttt {LCA.h}\hspace {0.2em}}{35}% 
-\contentsline {subsection}{\texttt {CompressTree.h}\hspace {0.2em}}{36}% 
+\contentsline {subsection}{\texttt {CompressTree.h}\hspace {0.2em}}{35}% 
 \contentsline {subsection}{\texttt {HLD.h}\hspace {0.2em}}{36}% 
 \contentsline {subsection}{\texttt {Heavylight.cpp}\hspace {0.2em}}{36}% 
 \contentsline {subsection}{\texttt {HeavylightLCA.h}\hspace {0.2em}}{36}% 
 \contentsline {subsection}{\texttt {Tree-Isomorphism.h}\hspace {0.2em}}{37}% 
 \contentsline {subsection}{\texttt {LineTree.h}\hspace {0.2em}}{37}% 
-\contentsline {subsection}{\texttt {MatrixTree.h}\hspace {0.2em}}{38}% 
+\contentsline {subsection}{\texttt {MatrixTree.h}\hspace {0.2em}}{37}% 
 \contentsline {section}{\numberline {7.8}Functional Graphs}{38}% 
 \contentsline {subsection}{\texttt {Lumberjack.h}\hspace {0.2em}}{38}% 
 \contentsline {subsection}{\texttt {Lumberjack2.h}\hspace {0.2em}}{38}% 
 \contentsline {section}{\numberline {7.9}Other}{38}% 
 \contentsline {subsection}{\texttt {kthShortestPath.h}\hspace {0.2em}}{38}% 
-\contentsline {subsection}{\texttt {Hamiltonian.h}\hspace {0.2em}}{39}% 
+\contentsline {subsection}{\texttt {Hamiltonian.h}\hspace {0.2em}}{38}% 
 \contentsline {subsection}{\texttt {Boruvka.h}\hspace {0.2em}}{39}% 
 \contentsline {subsection}{\texttt {ManhattanMST.h}\hspace {0.2em}}{39}% 
 \contentsline {subsection}{\texttt {SteinerTree.h}\hspace {0.2em}}{39}% 

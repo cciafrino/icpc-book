@@ -4,6 +4,7 @@
  * License: CC0
  * Source: folklore
  * Description: Mo's algorithm example problem: Count how many elements appear at least two times in given range $[l, r]$.
+ * For path queries on trees, flatten the tree by DFSing and pushing even-depth nodes at entry and odd-depth nodes at exit.
  * Time: $(n + q)sqrt(n)$
  * Status: Tested on SPOJ DQUERY
  */

@@ -1,6 +1,6 @@
 /**
  * Author: halyavin
- * Description: Dynamic Segment 
+ * Description: Link Cut Tree
  */
 struct Edge {
     int from;
@@ -38,8 +38,8 @@ struct DynamicTree {
         }
     }
  
-    std::vector<E*> parentEdges;
-    std::vector<Node> nodes;
+    vector<E*> parentEdges;
+    vector<Node> nodes;
  
     bool isRoot(uint32_t node) {
         uint32_t parent = nodes[node].parent;
@@ -50,11 +50,11 @@ struct DynamicTree {
         int result = 0;
         uint32_t left = nodes[node].left;
         if (left != Node::null) {
-            result = std::min(result, nodes[left].min + nodes[left].dv);
+            result = min(result, nodes[left].min + nodes[left].dv);
         }
         uint32_t right = nodes[node].right;
         if (right != Node::null) {
-            result = std::min(result, nodes[right].min + nodes[right].dv);
+            result = min(result, nodes[right].min + nodes[right].dv);
         }
         nodes[node].min = result;
     }
@@ -129,7 +129,7 @@ struct DynamicTree {
                 nodes[left].dv += nodes[parent].dv;
             }
             if (nodes[parent].parent == Node::null && nodes[parent].right == Node::null) {
-                nodes[parent].dv = std::numeric_limits<int>::max();
+                nodes[parent].dv = numeric_limits<int>::max();
                 nodes[parent].min = 0;
             }
             nodes[parent].left = node;
@@ -158,14 +158,14 @@ struct DynamicTree {
         nodes[newRoot].parent = Node::null;
         nodes[newRoot].right = Node::null;
         nodes[root].parent = Node::null;
-        nodes[root].dv = std::numeric_limits<int>::max();
+        nodes[root].dv = numeric_limits<int>::max();
         nodes[root].min = 0;
         setCapacity(newRoot, parentEdges[newRoot], nodes[newRoot].dv);
         parentEdges[newRoot] = nullptr;
         if (nodes[newRoot].left != Node::null) {
-            nodes[nodes[newRoot].left].dv += nodes[newRoot].dv - std::numeric_limits<int>::max();
+            nodes[nodes[newRoot].left].dv += nodes[newRoot].dv - numeric_limits<int>::max();
         }
-        nodes[newRoot].dv = std::numeric_limits<int>::max();
+        nodes[newRoot].dv = numeric_limits<int>::max();
         nodes[newRoot].min = 0;
         return newRoot;
     }
@@ -180,13 +180,13 @@ struct DynamicTree {
  
         setCapacity(u, parentEdges[u], nodes[u].dv);
         if (nodes[u].left != Node::null) {
-            nodes[nodes[u].left].dv += nodes[u].dv - std::numeric_limits<int>::max();
+            nodes[nodes[u].left].dv += nodes[u].dv - numeric_limits<int>::max();
         }
-        nodes[u].dv = std::numeric_limits<int>::max();
+        nodes[u].dv = numeric_limits<int>::max();
         parentEdges[u] = nullptr;
         nodes[u].min = 0;
         if (nodes[v].left == Node::null && nodes[v].right == Node::null) {
-            nodes[v].dv = std::numeric_limits<int>::max();
+            nodes[v].dv = numeric_limits<int>::max();
             nodes[v].min = 0;
         }
     }
