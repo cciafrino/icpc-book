@@ -10,15 +10,14 @@
  */
 typedef lint Flow;
 
-struct Edge {
-	int dest, back;
-	Flow f, c;
-};
-
 struct PushRelabel {
-	vector<vector<Edge>> g;
+	struct edge_t {
+		int dest, back;
+		Flow f, c;
+	};
+	vector<vector<edge_t>> g;
 	vector<Flow> ec;
-	vector<Edge*> cur;
+	vector<edge_t*> cur;
 	vector<vector<int>> hs; vector<int> H;
 	PushRelabel(int n) : g(n), ec(n), cur(n), hs(2*n), H(n) {}
 	void add_edge(int s, int t, Flow cap, Flow rcap=0) {
@@ -26,8 +25,8 @@ struct PushRelabel {
 		g[s].push_back({t, g[t].size(), 0, cap});
 		g[t].push_back({s, g[s].size(), 0, rcap});
 	}
-	void add_flow(Edge& e, Flow f) {
-		Edge &back = g[e.dest][e.back];
+	void add_flow(edge_t& e, Flow f) {
+		edge_t &back = g[e.dest][e.back];
 		if (!ec[e.dest] && f) hs[H[e.dest]].push_back(e.dest);
 		e.f += f; e.c -= f; ec[e.dest] += f;
 		back.f -= f; back.c += f; ec[back.dest] -= f;

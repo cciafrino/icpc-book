@@ -18,7 +18,7 @@ const lint mod = 1000000007; /** exclude-line */
 
 typedef vector<lint> Poly;
 lint linearRec(Poly S, Poly tr, lint k) { /// start-hash
-	int n = S.size();
+	int n = tr.size();
 	auto combine = [&](Poly a, Poly b) {
 		Poly res(n * 2 + 1);
 		for(int i = 0; i < n+1; ++i) for(int j = 0; j < n+1; ++j)

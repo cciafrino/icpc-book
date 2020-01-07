@@ -1,6 +1,10 @@
 /**
- * Author: Chris
- * Description: Find first $x$ such that $L \leq Ax$ (mod p) $\leq R$.
+ * Author: BenQ
+ * Description: Given fractions $a<b$ with non-negative numerators and denominators, 
+ * finds fraction $f$ with lowest denominator such that $a<f<b.$ Should work with 
+ * all numbers less than $2^{62}.$
+ * Source: ?
+ * Verification: http://acm.hdu.edu.cn/showproblem.php?pid=6624
  */
 
 lint cdiv(lint x, lint y) { return (x+y-1)/y; }
