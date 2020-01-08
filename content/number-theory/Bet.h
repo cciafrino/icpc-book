@@ -1,10 +1,11 @@
 /**
  * Author: BenQ
- * Description: Given fractions $a<b$ with non-negative numerators and denominators, 
- * finds fraction $f$ with lowest denominator such that $a<f<b.$ Should work with 
- * all numbers less than $2^{62}.$
- * Source: ?
- * Verification: http://acm.hdu.edu.cn/showproblem.php?pid=6624
+ * Description: 
+ * Given fractions $a \leq b$ with non-negative numerators and denominators, 
+ * finds fraction $f$ with lowest denominator such that $a \leq f \leq b$. Should work with 
+ * all numbers less than $2^{62}$.
+ * Source: 
+ * Status: tested
  */
 
 lint cdiv(lint x, lint y) { return (x+y-1)/y; }

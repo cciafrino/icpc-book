@@ -9,14 +9,13 @@
 		\import{factorial.tex}
 		\kactlimport{Factorial.h}
 		\kactlimport{IntPerm.h}
-		\kactlimport{numPerm.h}		
-
+		\kactlimport{numPerm.h}\\
 
 \subsection{Cycles}
 		Suponha que $g_S(n)$ é o número de $n$-permutações quais o tamanho do ciclo pertence ao conjunto $S$. Então
 		\small
 		$$\sum_{n=0} ^\infty g_S(n) \frac{x^n}{n!} = \exp\left(\sum_{n\in S} \frac{x^n} {n} \right)$$
-		\normalsize
+		\normalsize 
 
 \subsection{Derangements}
 		Permutações de um conjunto tais que nenhum dos elementos aparecem em sua posição original.
@@ -169,7 +168,7 @@ Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\lim
 			\item ordered trees with $n+1$ vertices.
 			\item \# ways a convex polygon with $n+2$ sides can be cut into triangles by connecting vertices with straight lines.
 			\item permutations of $[n]$ with no 3-term increasing subsequence.
-		\end{itemize}\newline
+		\end{itemize}
 
     \subsection{Super Catalan numbers}
     The number of monotonic lattice paths of a $n$x$n$ grid that do not touch the diagonal.\\
@@ -192,8 +191,6 @@ Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\lim
     1, 1, 1, 1, 3, 1, 1, 6, 6, 1, 1, 10, 20, 10, 1, 1, 15, 50\newline
     
 
-    \
-
 
     \subsection{Schroder numbers}
 	Number of lattice paths from (0, 0) to ($n$, $n$) using only steps
@@ -202,9 +199,6 @@ Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\lim
 	double east EE, never going below the x-axis. Twice the
 	Super Catalan number, except for the first term.\\
 	1, 2, 6, 22, 90, 394, 1806, 8558, 41586, 206098\\
-
-
-	\
 
 
     \subsection{Triangles}
@@ -225,28 +219,25 @@ Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\lim
     A game can be reduced to Nim if it is a finite impartial game.
 	Nim and its variants include:
 
-	\
-
-
 	\subsection{Nim}
-		Let $X = \bigoplus_{i=1}^n x_i$, then $(x_i)_{i=1}^n$ is a winning position iff $X\neq 0$. Find a move by picking $k$ such that $x_k > x_k \oplus X$.\newline
+		Let $X = \bigoplus_{i=1}^n x_i$, then $(x_i)_{i=1}^n$ is a winning position iff $X\neq 0$. Find a move by picking $k$ such that $x_k > x_k \oplus X$.
 		
     \subsection{Mis\`{e}re Nim} 
-        Regular Nim, except that the last player to move \textit{loses}. Play regular Nim until there is only one pile of size larger than $1$, reduce it to $0$ or $1$ such that there is an odd number of piles. The second player wins $(a_1, \dots, a_n)$ if 1) there is a pile $a_i > 1$ and $\oplus_{i=1}^{n} a_i = 0$ or 2) all $a_i \leq 1$ and $\oplus_{i=1}^{n} a_i = 1$.\newline
+        Regular Nim, except that the last player to move \textit{loses}. Play regular Nim until there is only one pile of size larger than $1$, reduce it to $0$ or $1$ such that there is an odd number of piles. The second player wins $(a_1, \dots, a_n)$ if 1) there is a pile $a_i > 1$ and $\oplus_{i=1}^{n} a_i = 0$ or 2) all $a_i \leq 1$ and $\oplus_{i=1}^{n} a_i = 1$.
     \subsection{Staircase Nim}
     Stones are moved down a staircase and only removed from the last pile. $(x_i)_{i=1}^n$ is an $L$-position if $(x_{2i-1})_{i=1}^{n/2}$ is (i.e. only look at odd-numbered piles).\newline
     \subsection{Moore's Nim$_k$}
-    The player may remove from at most $k$ piles (Nim $=$ Nim$_1$). Expand the piles in base $2$, do a carry-less addition in base $k+1$ (i.e. the number of ones in each column should be divisible by $k+1$).\newline
+    The player may remove from at most $k$ piles (Nim $=$ Nim$_1$). Expand the piles in base $2$, do a carry-less addition in base $k+1$ (i.e. the number of ones in each column should be divisible by $k+1$).
     \subsection{Dim$^+$}
-    The number of removed stones must be a divisor of the pile size. The Sprague-Grundy function is $k+1$ where $2^k$ is the largest power of $2$ dividing the pile size.\newline
+    The number of removed stones must be a divisor of the pile size. The Sprague-Grundy function is $k+1$ where $2^k$ is the largest power of $2$ dividing the pile size.
     \subsection{Aliquot Game}
-    Same as above, except the divisor should be proper (hence $1$ is also a terminal state, but watch out for size $0$ piles). Now the Sprague-Grundy function is just $k$.\newline
+    Same as above, except the divisor should be proper (hence $1$ is also a terminal state, but watch out for size $0$ piles). Now the Sprague-Grundy function is just $k$.
     \subsection{Nim (at most half)}
-    Write $n+1 = 2^my$ with $m$ maximal, then the Sprague-Grundy function of $n$ is $(y - 1) / 2$.\newline
+    Write $n+1 = 2^my$ with $m$ maximal, then the Sprague-Grundy function of $n$ is $(y - 1) / 2$.
     \subsection{Lasker's Nim}
-    Players may alternatively split a pile into two new non-empty piles. $g(4k+1) = 4k+1$, $g(4k+2) = 4k+2$, $g(4k+3) = 4k+4$, $g(4k+4) = 4k+3$ ($k\geq 0$).\newline
+    Players may alternatively split a pile into two new non-empty piles. $g(4k+1) = 4k+1$, $g(4k+2) = 4k+2$, $g(4k+3) = 4k+4$, $g(4k+4) = 4k+3$ ($k\geq 0$).
     \subsection{Hackenbush on Trees}
-    A tree with stalks $(x_i)_{i=1}^n$ may be replaced with a single stalk with length $\bigoplus_{i=1}^n x_i$.\newline
+    A tree with stalks $(x_i)_{i=1}^n$ may be replaced with a single stalk with length $\bigoplus_{i=1}^n x_i$.
 
     \kactlimport{Grundy.h}
     \kactlimport{Nim.cpp}

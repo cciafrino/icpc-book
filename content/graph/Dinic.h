@@ -57,8 +57,7 @@ struct Dinic {
 			if (!partition[e.to])
 				if (e.c - e.f == 0)
 					cut.push_back({{u,e.to},e.c});
-				else if (e.c - e.f > 0)
-					dfsMC(e.to);
+				else if (e.c - e.f > 0) dfsMC(e.to);
 	}
 	//only if you want the edges of the cut
 	vector<pair<pair<int,int>,int>> findMinCut(int u,int t){
