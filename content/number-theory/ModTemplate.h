@@ -6,6 +6,7 @@
  
 template <int MOD_>  struct modnum {
 private:
+	using lint = long long;
 	lint v;
 	static int modinv(int a, int m) {
 		a %= m;

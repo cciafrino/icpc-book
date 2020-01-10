@@ -6,13 +6,13 @@
  * Time: O(\sqrt n)
  */
 template<typename T>
-struct sqrt_sums {
+struct sqrt_tree {
     int n, bucket_size, n_buckets;
     vector<T> values, bucket_sums;
-    sqrt_sums(int _n = 0) : n(_n), bucket_size(1.2*sqrt(n)+1), 
+    sqrt_tree(int _n = 0) : n(_n), bucket_size(1.2*sqrt(n)+1), 
         n_buckets((n+bucket_size-1)/bucket_size), values(n), 
         bucket_sums(n_buckets) {}
-    sqrt_sums(const vector<T> &other) : n(other.size()), 
+    sqrt_tree(const vector<T> &other) : n(other.size()), 
         bucket_size(1.2*sqrt(n)+1), n_buckets((n+bucket_size-1)/bucket_size), 
         values(other), bucket_sums(n_buckets) {
             for (int b = 0; b < n_buckets; b++) {

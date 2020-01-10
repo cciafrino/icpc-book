@@ -7,23 +7,15 @@
  * Status: tested
  */
  
-double f(double x){	
-	return (x*x) - 4;
-}
-
-double df(double x){	
-	return 2*x;
-}
-
-double root(double x0){
+double f(double x) { return (x*x) - 4; }
+double df(double x) { return 2*x; }
+double root(double x0) {
     const double eps = 1E-15;
     double x = x0;
-    for (;;) {
+    while (1) {
         double nx = x - (f(x)/df(x));
-        if (abs(x - nx) < eps)
-            break;
+        if (abs(x - nx) < eps) break;
         x = nx;
-
     }
-    return x;	
+    return x;
 }

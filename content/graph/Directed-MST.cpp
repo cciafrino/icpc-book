@@ -1,75 +1,62 @@
 /**
- * Author: 
- * Description: Finds the minimum spanning arborescence from the root. (any more notes?)
+ * Author: chilli, Takanori MAEHARA
+ * Date: 2019-05-10
+ * License: CC0
+ * Source: https://github.com/spaghetti-source/algorithm/blob/master/graph/arborescence.cc
+ * Description: Edmonds' algorithm for finding the weight of the minimum spanning
+ * tree/arborescence of a directed graph, given a root node. If no MST exists, returns -1.
+ * Time: O(E \log V)
+ * Status: Stress-tested, also tested on NWERC 2018 fastestspeedrun
  */
-#define N 110000
-#define M 110000
-#define inf 2000000000
+#pragma once
 
-struct edg {
-    int u, v;
-    int cost;
-} E[M], E_copy[M];
+#include "../data-structures/UnionFind.h"
 
-int In[N], ID[N], vis[N], pre[N];
-
-// edges pointed from root. 
-int Directed_MST(int root, int NV, int NE) { 
-	for (int i = 0; i < NE; i++)
-		E_copy[i] = E[i];
-    int ret = 0;
-    int u, v;
-    while (true) {/// start-hash
-        for (int i = 0; i < NV; ++i) In[i] = inf;
-        for (int i = 0; i < NE; ++i) {
-            u = E_copy[i].u;
-            v = E_copy[i].v;
-            if(E_copy[i].cost < In[v] && u != v) {
-                In[v] = E_copy[i].cost;
-                pre[v] = u;
-            }
-        }
-        for (int i = 0; i < NV; ++i) {
-            if(i == root)   continue;
-            if(In[i] == inf)    return -1; // no solution
-        }
-
-        int cnt = 0;
-        for (int i = 0; i < NV; ++i) {
-        	ID[i] = -1;
-        	vis[i] = -1;
-        }
-        In[root] = 0;
-
-        for (int i = 0; i < NV; ++i) {
-            ret += In[i];
-            int v = i;
-            while(vis[v] != i && ID[v] == -1 && v != root) {
-                vis[v] = i;
-                v = pre[v];
-            }
-            if(v != root && ID[v] == -1) {
-                for(u = pre[v]; u != v; u = pre[u]) {
-                    ID[u] = cnt;
-                }
-                ID[v] = cnt++;
-            }
-        }
-        if(cnt == 0)    break;
-        for (int i = 0; i < NV; ++i) {
-            if(ID[i] == -1) ID[i] = cnt++;
-        }
-        for (int i = 0; i < NE; ++i) {
-            v = E_copy[i].v;
-            E_copy[i].u = ID[E_copy[i].u];
-            E_copy[i].v = ID[E_copy[i].v];
-            if(E_copy[i].u != E_copy[i].v) {
-                E_copy[i].cost -= In[v];
-            }
-        }
-        NV = cnt;
-        root = ID[root];
+struct edge_t { int a, b; lint w; };
+struct Node { /// lazy skew heap node
+    edge_t key;
+    Node *l, *r;
+    lint delta;
+    void prop() {
+        key.w += delta;
+        if (l) l->delta += delta;
+        if (r) r->delta += delta;
+        delta = 0;
     }
-    return ret;
-}/// end-hash
+    edge_t top() { prop(); return key; }
+};
+Node *merge(Node *a, Node *b) {
+    if (!a || !b) return a ?: b;
+    a->prop(), b->prop();
+    if (a->key.w > b->key.w) swap(a, b);
+    swap(a->l, (a->r = merge(b, a->r)));
+    return a;
+}
+void pop(Node*& a) { a->prop(); a = merge(a->l, a->r); }
 
+lint dmst(int n, int r, vector<edge_t>& g) {
+    UF uf(n);
+    vector<Node*> heap(n);
+    for(auto &e : g) heap[e.b] = merge(heap[e.b], new Node{e});
+    lint res = 0;
+    vector<int> seen(n, -1), path(n);
+    seen[r] = r;
+    for(int s = 0; s < n; ++s) {
+        int u = s, qi = 0, w;
+        while (seen[u] < 0) {
+            path[qi++] = u, seen[u] = s;
+            if (!heap[u]) return -1;
+            edge_t e = heap[u]->top();
+            heap[u]->delta -= e.w, pop(heap[u]);
+            res += e.w, u = uf.find(e.a);
+            if (seen[u] == s) {
+                Node* cyc = 0;
+                do cyc = merge(cyc, heap[w = path[--qi]]);
+                while (uf.unite(u, w));
+                u = uf.find(u);
+                heap[u] = cyc, seen[u] = -1;
+            }
+        }
+    }
+    return res;
+}

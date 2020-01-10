@@ -14,7 +14,7 @@ template<typename T> struct FT {
     T tree_sum;
     const int n;
     vector<T> tree;
-    FT(int n) : tree(n) {}
+    FT(int _n) : n(_n), tree(n) {}
     FT(vector<T> &og) : n(og.size()+1), tree(n+1), tree_sum(0) {
         for (int i = 1; i <= n; ++i) { 
             tree_sum += og[i-1];
@@ -25,13 +25,12 @@ template<typename T> struct FT {
     }
     void update(int idx, const T delta) {
         tree_sum += delta;
-        for (int i = idx+1; i <= tree.size(); i += i&-i)
+        for (;idx <= n; idx += idx&-idx)
             tree[i] += delta;
     }
     T query(int idx){
         T ret = 0;
-        for (int i = idx; i > 0; i -= i&-i) 
-            ret += tree[i];
+        for (; idx; idx -= idx&-idx) ret += tree[i];
         return ret;
     }
     T query_suffix(int idx) { return tree_sum - query(idx); }

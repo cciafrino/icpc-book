@@ -1,24 +1,25 @@
 /**
  * Author: Chris
- * Date: 2016-08-23
+ * Date: 
  * License: CC0
  * Source: me
- * Description: Maximum rectangle in histogram
+ * Description: Maximum area of a histogram. 
+ * Time: O(n)
  */
- 
-lint histogram(lint vet[], int n) {
-	stack<lint> s;
-	lint ans = 0, tp, cur;
-	int i = 0;
-	while(i < n || !s.empty()) {
-		if (i < n && (s.empty() || vet[s.top()] <= vet[i])) s.push(i++);
-		else {
-			tp = s.top();
-			s.pop();
-			cur = vet[tp] * (s.empty() ? i : i - s.top() - 1);
-			if (ans < cur) ans = cur;
-		}
-	}
-	return ans;
-}
 
+template<typename T = int>
+T max_area(vector<int> v) {
+    T ret = T();
+    stack<int> s;
+    v.insert(v.begin(), -1);
+    v.insert(v.end(), -1);
+    s.push(0);
+    for(int i = 0; i < v.size(); ++i) {
+        while (v[s.top()] > v[i]) {
+            int h = v[s.top()]; s.pop();
+            ret = max(ret, h * (i - s.top() - 1));
+        }
+        s.push(i);
+    }
+    return ret;
+}

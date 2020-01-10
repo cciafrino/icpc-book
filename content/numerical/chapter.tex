@@ -11,7 +11,7 @@
 \kactlimport{Determinant.h}
 \kactlimport{IntDeterminant.h}
 \kactlimport{Elimination.h}
-\kactlimport{Simplex.h}
+%\kactlimport{Simplex.h}
 \kactlimport{Math-Simplex.cpp}
 \kactlimport{SolveLinear.h}
 \kactlimport{SolveLinear2.h}
@@ -22,61 +22,26 @@
 \kactlimport{NewtonSQRT.h}
 \kactlimport{MarkovChain.cpp}
 \section{Fourier transforms}
-	%\kactlimport{fft.cpp}
-	%\kactlimport{poly-exp-log.cpp}
-	\kactlimport{FastFourierTransform.h}
-	\kactlimport{FastFourierTransformMod.h}	
-	\kactlimport{NumberTheoreticTransform.h}
-	\kactlimport{FastSubsetTransform.h}
-\columnbreak
-    \subsection{Generating functions}
-      A list of generating functions for useful sequences:
-
-      \begin{tabular}{|c|c|}
-        \hline
-        $(1,1,1,1,1,1,\ldots)$ & $\frac{1}{1-z}$ \\ \hline
-        $(1,-1,1,-1,1,-1,\ldots)$ & $\frac{1}{1+z}$ \\ \hline
-        $(1,0,1,0,1,0,\ldots)$ & $\frac{1}{1-z^2}$ \\ \hline
-        $(1,0,\ldots,0,1,0,1,0,\ldots,0,1,0,\ldots)$ & $\frac{1}{1-z^2}$ \\ \hline
-        $(1,2,3,4,5,6,\ldots)$ & $\frac{1}{(1-z)^2}$ \\ \hline
-        $(1,\binom{m+1}{m},\binom{m+2}{m},\binom{m+3}{m},\ldots)$ & $\frac{1}{(1-z)^{m+1}}$ \\ \hline
-        $(1,c,\binom{c+1}{2},\binom{c+2}{3},\ldots)$ & $\frac{1}{(1-z)^c}$ \\ \hline
-        $(1,c,c^2, c^3, \ldots)$ & $\frac{1}{1-cz}$ \\ \hline
-        $(0,1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\ldots)$ & $\ln \frac{1}{1-z}$ \\ \hline
-      \end{tabular}
-
-      \ 
-
-      A neat manipulation trick is:
-      \begin{equation*}
-        \frac{1}{1-z}G(z) = \sum_{n}\sum_{k\leq n}g_kz^n
-      \end{equation*}
-
-	\subsection{Generating functions}
-	Ordinary (ogf): $A(x) := \sum_{n=0}^{\infty} a_i x^i$.
-
-	Calculate product $c_n = \sum_{k=0}^{n} a_k b_{n-k}$ with FFT.
-
-	Exponential (e.g.f.): $A(x) := \sum_{n=0}^{\infty} a_i x^i/i!$,
-
-	$c_n = \sum_{k=0}^{n} \binom{n}{k} a_k b_{n-k} = n! \sum_{k=0}^{n} \frac{a_k}{k!} \frac{b_{n-k}}{(n-k)!}$ (use FFT).
+%\kactlimport{fft.cpp}
+%\kactlimport{poly-exp-log.cpp}
+\kactlimport{FastFourierTransform.h}
+\kactlimport{FastFourierTransformMod.h}	
+\kactlimport{NumberTheoreticTransform.h}
+\kactlimport{FastSubsetTransform.h}
 
 \subsection{General linear recurrences}
-	If $a_n = \sum_{k=0}^{n-1} a_k b_{n-k}$, then $A(x) = \frac{a_0}{1-B(x)}$.
+  If $a_n = \sum_{k=0}^{n-1} a_k b_{n-k}$, then $A(x) = \frac{a_0}{1-B(x)}$.
 
 \subsection{Inverse polynomial modulo $x^l$}
-	Given $A(x)$, find $B(x)$ such that $A(x)B(x) = 1 + x^l Q(x)$ for some $Q(x)$.
+  Given $A(x)$, find $B(x)$ such that $A(x)B(x) = 1 + x^l Q(x)$ for some $Q(x)$.
 
-	Step 1: Start with $B_0(x) = 1/a_0$
+  Step 1: Start with $B_0(x) = 1/a_0$
 
-	Step 2: $B_{k+1}(x) = (-B_k(x)^2 A(x) + 2 B_k(x)) \mod x^{2^{k+1}}$.
+  Step 2: $B_{k+1}(x) = (-B_k(x)^2 A(x) + 2 B_k(x)) \mod x^{2^{k+1}}$.
 
 \subsection{Fast subset convolution}
-	Given array $a_i$ of size $2^k$ calculate $b_i = \sum_{j \BitAnd i = i} a_j$.
-	
-
-\newpage
-
+  Given array $a_i$ of size $2^k$ calculate $b_i = \sum_{j \BitAnd i = i} a_j$.
+  
 \subsection{Polyominoes} How many free (rotation, reflection), one-sided (rotation) and fixed $n$-ominoes are there?
       
       \resizebox{\columnwidth}{!}{%
@@ -90,6 +55,38 @@
       }
 
 
+\subsection{Determinants}
+
+              det(A) &= \sum_{\sigma \in S_n}\text{sgn}(\sigma)\prod_{i = 1}^n a_{i,\sigma(i)}
+              %perm(A) &= \sum_{\sigma \in S_n} \prod_{i = 1}^n a_{i,\sigma(i)}\\
+              %pf(A) &= \frac{1}{2^nn!}\sum_{\sigma \in S_{2n}} \text{sgn}(\sigma)\prod_{i = 1}^n a_{\sigma(2i-1),\sigma(2i)}\\ &= \sum_{M \in \text{PM}(n)} \text{sgn}(M) \prod_{(i,j) \in M} a_{i,j}
+
+\subsection{Generating functions}
+  A list of generating functions for useful sequences:
+
+  \begin{tabular}{|c|c|}
+    \hline
+    $(1,1,1,1,1,1,\ldots)$ & $\frac{1}{1-z}$ \\ \hline
+    $(1,-1,1,-1,1,-1,\ldots)$ & $\frac{1}{1+z}$ \\ \hline
+    $(1,0,1,0,1,0,\ldots)$ & $\frac{1}{1-z^2}$ \\ \hline
+    $(1,0,\ldots,0,1,0,1,0,\ldots,0,1,0,\ldots)$ & $\frac{1}{1-z^2}$ \\ \hline
+    $(1,2,3,4,5,6,\ldots)$ & $\frac{1}{(1-z)^2}$ \\ \hline
+    $(1,\binom{m+1}{m},\binom{m+2}{m},\binom{m+3}{m},\ldots)$ & $\frac{1}{(1-z)^{m+1}}$ \\ \hline
+    $(1,c,\binom{c+1}{2},\binom{c+2}{3},\ldots)$ & $\frac{1}{(1-z)^c}$ \\ \hline
+    $(1,c,c^2, c^3, \ldots)$ & $\frac{1}{1-cz}$ \\ \hline
+    $(0,1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\ldots)$ & $\ln \frac{1}{1-z}$ \\ \hline
+  \end{tabular}
+
+\
+
+
+A neat manipulation trick is:
+\begin{equation*}
+  \frac{1}{1-z}G(z) = \sum_{n}\sum_{k\leq n}g_kz^n
+\end{equation*}
+
+
+\
 
 
 \subsection{Table of non-trigonometric integrals}
@@ -127,7 +124,10 @@
       \end{tabular}
 
 
-  \subsection{Common integral substitutions} And finally, a list of common substitutions:
+\
+
+
+\subsection{Common integral substitutions} And finally, a list of common substitutions:
 \resizebox{\columnwidth}{!}{%
       \begin{tabular}{|c|c|c|}
         \hline
@@ -139,10 +139,3 @@
         $\int F(\ln x) dx$ & $u = \ln x$ & $\int F(u) e^u du$ \\ \hline
       \end{tabular}%
       }
-
-      \subsection{Determinants and PM}
-                \begin{align*}
-                    det(A) &= \sum_{\sigma \in S_n}\text{sgn}(\sigma)\prod_{i = 1}^n a_{i,\sigma(i)}\\
-                    perm(A) &= \sum_{\sigma \in S_n} \prod_{i = 1}^n a_{i,\sigma(i)}\\
-                    pf(A) &= \frac{1}{2^nn!}\sum_{\sigma \in S_{2n}} \text{sgn}(\sigma)\prod_{i = 1}^n a_{\sigma(2i-1),\sigma(2i)}\\ &= \sum_{M \in \text{PM}(n)} \text{sgn}(M) \prod_{(i,j) \in M} a_{i,j}
-                \end{align*}

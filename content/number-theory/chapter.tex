@@ -23,7 +23,7 @@
 
 \section{Divisibility}
 	\kactlimport{ExtendedEuclidean.h}
-	\kactlimport{Euclid.java}
+	%\kactlimport{Euclid.java}
 	\kactlimport{DiophantineEquation.h}
 	\kactlimport{Divisors.h}
 	\kactlimport{Pell.h}
@@ -31,7 +31,7 @@
 	\kactlimport{NumDiv.h}
 	\kactlimport{NumPF.h}
 	\kactlimport{SumDiv.h}
-	\kactlimport{GoldbachConjecture.cpp}
+	%\kactlimport{GoldbachConjecture.cpp}
     \kactlimport{Bezout.h}
 	\kactlimport{EulerPhi.h}
 	\kactlimport{phiFunction.h}
@@ -60,26 +60,26 @@
 	(52-bit). There are 78498 primes less than 1\,000\,000.
 
 	Primitive roots exist modulo any prime power $p^a$, except for $p = 2, a > 2$, and there are $\phi(\phi(p^a))$ many.
-	For $p = 2, a > 2$, the group $\mathbb Z_{2^a}^\times$ is instead isomorphic to $\mathbb Z_2 \times \mathbb Z_{2^{a-2}}$.\\
+	For $p = 2, a > 2$, the group $\mathbb Z_{2^a}^\times$ is instead isomorphic to $\mathbb Z_2 \times \mathbb Z_{2^{a-2}}$.
 
 \subsection{Primitive Roots}
 	It only exists when $n$ is $2, 4, p^k, 2p^k$, where $p$ odd prime.
 	If $g$ is a primitive root, all primitive roots are of the form $g^k$
-	where $k,\phi(p)$ are coprime (hence there are $\phi(\phi(p))$ primitive roots).\\
+	where $k,\phi(p)$ are coprime (hence there are $\phi(\phi(p))$ primitive roots).
 	
 \subsubsection{Sum of primes} For any multiplicative $f$:
                 \[
                     S(n,p) = S(n, p-1) - f(p) \cdot (S(n/p,p-1) - S(p-1,p-1))
                 \]
 
-\subsection{Chicken McNugget Theorem}
-	Sejam $x$ e $y$ dois inteiros coprimos, o maior inteiro que não pode ser escrito como $ax + by$ é $\frac{(x-1)(y-1)}{2}$\\
+\subsection{Chicken McNugget theorem}
+	Sejam $x$ e $y$ dois inteiros coprimos, o maior inteiro que não pode ser escrito como $ax + by$ é $\frac{(x-1)(y-1)}{2}$
 
-\subsection{Wilson's Theorem}
+\subsection{Wilson's theorem}
 Seja~$n > 1$. Então~$n|(n-1)!+1$ sse~$n$ é primo. 
 
 
-\subsection{Wolstenholme's Theorem}
+\subsection{Wolstenholme's theorem}
 Seja~$p > 3$ um número primo. Então o numerador do número 
 $ 1 + \frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{p-1} $
 é divisível por~$p^2$.
