@@ -3,7 +3,6 @@
  * Description: 
  */
 
-
 vector<vector<int>> m, w
 vector<int> man_match;
 void stable_marriage() {

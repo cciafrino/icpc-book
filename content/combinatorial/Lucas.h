@@ -1,7 +1,7 @@
 /**
  * Author: Chris
  * Description: Lucas theorem
- * Time: $O(log_p(n) * mod_inverse())$
+ * Time: $O(log_p(n)\textt{mod_inverse()})$
  * Source: 
  */
 #include<ModTemplate.h>

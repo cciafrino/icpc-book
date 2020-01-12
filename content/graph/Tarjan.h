@@ -15,7 +15,7 @@ struct tarjan_t {
     vector<int> preorder_of, cnt_of, order;
     stack<int> stack_t;
     tarjan_t(int n): n(n), edges(n), preorder_of(n, 0), cnt_of(n, -1) {}
-    int dfs(int u) { /// start-hash
+    int dfs(int u) { 
         int reach = preorder_of[u] = ++time, v;
         stack_t.push(u);
         for (int v : edges[u]) 
@@ -31,7 +31,7 @@ struct tarjan_t {
             ++ncnt;
         }
         return preorder_of[u] = reach;
-    }/// end-hash
+    }
     void solve() {
         time = ncnt = 0;
         for (int i = 0; i < (int)edges.size(); ++i)

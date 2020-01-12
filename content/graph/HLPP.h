@@ -3,7 +3,7 @@
  * Date: 
  * License: 
  * Source: 
- * Description: Highest label preflow relabel algorithm. Use it only if you really need the fastest maxflow algo. One limitation of the HLPP implementation is that you can't 
+ * Description: Highest label preflow push algorithm. Use it only if you really need the fastest maxflow algo. One limitation of the HLPP implementation is that you can't 
  * recover the weights for the full flow - use Dinic's for this.
  * Time: $O(V^2\sqrt E)$. Faster than Dinic with scaling(in practice). 
  * Status: Tested on kattis and SPOJ

@@ -28,7 +28,7 @@
 \kactlimport{FastFourierTransformMod.h}	
 \kactlimport{NumberTheoreticTransform.h}
 \kactlimport{FastSubsetTransform.h}
-
+\iffalse
 \subsection{General linear recurrences}
   If $a_n = \sum_{k=0}^{n-1} a_k b_{n-k}$, then $A(x) = \frac{a_0}{1-B(x)}$.
 
@@ -41,25 +41,7 @@
 
 \subsection{Fast subset convolution}
   Given array $a_i$ of size $2^k$ calculate $b_i = \sum_{j \BitAnd i = i} a_j$.
-  
-\subsection{Polyominoes} How many free (rotation, reflection), one-sided (rotation) and fixed $n$-ominoes are there?
-      
-      \resizebox{\columnwidth}{!}{%
-       \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-        \hline
-        n&3&4&5&6&7&8&9&10 \\ \hline
-        free&2&5&12&35&108&369&1.285&4.655 \\ \hline
-        one-sided&2&7&18&60&196&704&2.500&9.189 \\ \hline
-        fixed&6&19&63&216&760&2.725&9.910&36.446 \\ \hline
-      \end{tabular}
-      }
-
-
-\subsection{Determinants}
-
-              det(A) &= \sum_{\sigma \in S_n}\text{sgn}(\sigma)\prod_{i = 1}^n a_{i,\sigma(i)}
-              %perm(A) &= \sum_{\sigma \in S_n} \prod_{i = 1}^n a_{i,\sigma(i)}\\
-              %pf(A) &= \frac{1}{2^nn!}\sum_{\sigma \in S_{2n}} \text{sgn}(\sigma)\prod_{i = 1}^n a_{\sigma(2i-1),\sigma(2i)}\\ &= \sum_{M \in \text{PM}(n)} \text{sgn}(M) \prod_{(i,j) \in M} a_{i,j}
+\fi
 
 \subsection{Generating functions}
   A list of generating functions for useful sequences:
@@ -85,9 +67,12 @@ A neat manipulation trick is:
   \frac{1}{1-z}G(z) = \sum_{n}\sum_{k\leq n}g_kz^n
 \end{equation*}
 
-
 \
 
+\subsection{Determinants}
+              det(A) &= \sum_{\sigma \in S_n}\text{sgn}(\sigma)\prod_{i = 1}^n a_{i,\sigma(i)}
+              %perm(A) &= \sum_{\sigma \in S_n} \prod_{i = 1}^n a_{i,\sigma(i)}\\
+              %pf(A) &= \frac{1}{2^nn!}\sum_{\sigma \in S_{2n}} \text{sgn}(\sigma)\prod_{i = 1}^n a_{\sigma(2i-1),\sigma(2i)}\\ &= \sum_{M \in \text{PM}(n)} \text{sgn}(M) \prod_{(i,j) \in M} a_{i,j}
 
 \subsection{Table of non-trigonometric integrals}
       Some useful integrals are:
@@ -138,4 +123,17 @@ A neat manipulation trick is:
         $\int F(e^{ax}) dx$ & $u = e^{ax}$ & $\frac{1}{a} \int \frac{F(u)}{u} du$ \\ \hline
         $\int F(\ln x) dx$ & $u = \ln x$ & $\int F(u) e^u du$ \\ \hline
       \end{tabular}%
+      }
+
+
+\subsection{Polyominoes} How many free (rotation, reflection), one-sided (rotation) and fixed $n$-ominoes are there?
+      
+      \resizebox{\columnwidth}{!}{%
+       \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+        \hline
+        n&3&4&5&6&7&8&9&10 \\ \hline
+        free&2&5&12&35&108&369&1.285&4.655 \\ \hline
+        one-sided&2&7&18&60&196&704&2.500&9.189 \\ \hline
+        fixed&6&19&63&216&760&2.725&9.910&36.446 \\ \hline
+      \end{tabular}
       }

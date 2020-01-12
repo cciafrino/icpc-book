@@ -9,13 +9,21 @@
 		\import{factorial.tex}
 		\kactlimport{Factorial.h}
 		\kactlimport{IntPerm.h}
-		\kactlimport{numPerm.h}\\
+		\kactlimport{numPerm.h}
+\subsection{Binomials}
+	\kactlimport{nCr.h}
+	%\kactlimport{NWayDistribute.h}
+	%\kactlimport{PascalTriangle.h}
+	\kactlimport{Multinomial.h}
+	\kactlimport{Catalan.h}
+
 
 \subsection{Cycles}
 		Suponha que $g_S(n)$ é o número de $n$-permutações quais o tamanho do ciclo pertence ao conjunto $S$. Então
 		\small
 		$$\sum_{n=0} ^\infty g_S(n) \frac{x^n}{n!} = \exp\left(\sum_{n\in S} \frac{x^n} {n} \right)$$
-		\normalsize 
+		\normalsize
+		\columnbreak
 
 \subsection{Derangements}
 		Permutações de um conjunto tais que nenhum dos elementos aparecem em sua posição original.
@@ -94,13 +102,6 @@ Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\lim
     \subsection{Lucas's theorem}
 		Let $n,m$ be non-negative integers and $p$ a prime. Write $n=n_k p^k+...+n_1 p+n_0$ and $m=m_k p^k+...+m_1 p + m_0$. Then $\binom{n}{m} \equiv \prod_{i = 0}^k\binom{n_i}{m_i} \pmod{p}$.
 
-
-	\subsection{Binomials}
-		\kactlimport{nCr.h}
-		%\kactlimport{NWayDistribute.h}
-		\kactlimport{PascalTriangle.h}
-		\kactlimport{Multinomial.h}
-		\kactlimport{Catalan.h}
 
 \section{General purpose numbers}
 	\subsection{Bernoulli numbers}

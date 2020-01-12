@@ -1,49 +1,37 @@
 /**
- * Author: ?
+ * Author: BenQ + Chris
  * Date: 
- * License: CC0
- * Source: https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/WaveletTree.cpp
- * Description: 
- * Time: $O(log(MAXN-MINN))$
+ * License: 
+ * Source: 
+ * Description: Segment tree on values instead of indices. kth return the largest number in 0-indexed interval.
+ * count return the number of elements of a[i, j) that belong in [x, y].
+ * Time: $O(\log(n))$
  */
-int n, v[MAX];
-vector<vector<int> > esq(4*(MAXN-MINN)), pref(4*(MAXN-MINN));
 
-void build(int b = 0, int e = n, int p = 1, int l = MINN, int r = MAXN) {
-	int m = (l+r)/2; esq[p].push_back(0); pref[p].push_back(0);
-	for (int i = b; i < e; i++) {
-		esq[p].push_back(esq[p].back()+(v[i]<=m));
-		pref[p].push_back(pref[p].back()+v[i]);
+template<int SZ> struct Wavelet { 
+	vector<int> L[SZ], R[SZ];
+	void build(vector<int> a, int v=1, int lx=0, int rx=SZ-1) { 
+		if (lx == rx) return;
+		L[v] = R[v] = {0};
+		vector<int> A[2]; int mid = lx + (rx-lx)/2;
+		for(auto &t:a) {
+			A[t>mid].pb(t);
+			L[v].pb(A[0].size()), R[v].pb(A[1].size());
+		}
+		build(A[0],2*v,lx,mid), build(A[1],2*v+1,mid+1,rx);
 	}
-	if (l == r) return;
-	int m2 = stable_partition(v+b, v+e, [=](int i){return i <= m;}) - v;
-	build(b, m2, 2*p, l, m), build(m2, e, 2*p+1, m+1, r);
-}
-
-int count(int i, int j, int x, int y, int p = 1, int l = MINN, int r = MAXN) { 
-	if (y < l or r < x) return 0; //count(i, j, x, y) retorna o numero de elementos 
-	if (x <= l and r <= y) return j-i; // de v[i, j) que pertencem a [x, y]
-	int m = (l+r)/2, ei = esq[p][i], ej = esq[p][j];
-	return count(ei, ej, x, y, 2*p, l, m)+count(i-ei, j-ej, x, y, 2*p+1, m+1, r);
-}
-
-int kth(int i, int j, int k, int p=1, int l = MINN, int r = MAXN) {
-	if (l == r) return l; //kth(i, j, k) retorna o elemento que estaria na 
-	int m = (l+r)/2, ei = esq[p][i], ej = esq[p][j]; // posiçao k-1 de v[i, j), se ele 
-	if (k <= ej-ei) return kth(ei, ej, k, 2*p, l, m); // fosse ordenado
-	return kth(i-ei, j-ej, k-(ej-ei), 2*p+1, m+1, r);
-}
-
-int sum(int i, int j, int x, int y, int p = 1, int l = MINN, int r = MAXN) {
-	if (y < l or r < x) return 0; // sum(i, j, x, y) retorna a soma dos elementos de 
-	if (x <= l and r <= y) return pref[p][j]-pref[p][i]; // v[i, j) que pertencem a [x, y]
-	int m = (l+r)/2, ei = esq[p][i], ej = esq[p][j];
-	return sum(ei, ej, x, y, 2*p, l, m) + sum(i-ei, j-ej, x, y, 2*p+1, m+1, r);
-}
-
-int sumk(int i, int j, int k, int p = 1, int l = MINN, int r = MAXN) {
-	if (l == r) return l*k; //sumk(i, j, k) retorna a soma dos k-esimos menores 
-	int m = (l+r)/2, ei = esq[p][i], ej = esq[p][j]; // elementos de v[i, j) (sum(i, j, 1) retorna o menor)
-	if (k <= ej-ei) return sumk(ei, ej, k, 2*p, l, m);
-	return pref[2*p][ej]-pref[2*p][ei]+sumk(i-ei, j-ej, k-(ej-ei), 2*p+1, m+1, r);
-}
+	int kth(int i,int j,int k,int v=1,int lx=0,int rx=SZ-1) { // [i, j)!!
+		if (lx == rx) return lx;
+		int mid = lx + (rx - lx)/2, t = L[v][j]-L[v][i];
+		if (t >= k) return kth(L[v][i],
+						L[v][j],k,2*v,lx,mid);
+		return kth(R[v][i],
+			R[v][j],k-t,2*v+1,mid+1,rx);
+	}
+	int count(int i,int j,int x, int y, int v=1,int lx=0,int rx=SZ-1) { 
+		if (y < lx || rx < x) return 0; //count(i, j, x, y) retorna o numero de elementos 
+		if (x <= lx && rx <= y) return j - i; // de a[i, j) que pertencem a [x, y]
+		int mid = lx + (rx - lx)/2;
+		return count(L[v][i], L[v][j], x, y, 2*v, lx, mid) + count(i-L[v][i], j-L[v][j], x, y, 2*v+1, mid+1, rx);
+	}
+};

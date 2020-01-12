@@ -9,14 +9,14 @@
  * infos about the children, like subtree of a given vertex
  */
 vector<int> deg, subtree, order, par, parincycles, idxcycle, sz, st, depth, cycles[MAXN];
-vector<bool> mark, incycle,
+vector<bool> seen, incycle,
     
 void bfs() {
     queue<int> q;
     for (int i = 0; i < n; ++i)
 	    if (deg[i] == 1) {
 		    q.push(i);
-		    mark[i] = 1;
+		    seen[i] = 1;
 	    }
     while(!q.empty()) {
 	    int v = q.front(); q.pop();
@@ -28,12 +28,12 @@ void bfs() {
 	    subtree[curpar] += subtree[v];
 	    if (deg[curpar] == 1) {
 		    q.push(curpar);
-		    mark[curpar] = 1;
+		    seen[curpar] = 1;
 	    }
     }
     numcycles = 0;
     for (int i = 0; i < n; ++i) 
-	    if (!mark[i]) find_cycle(i);
+	    if (!seen[i]) find_cycle(i);
     for (int i = order.sz()-1; i >= 0; --i) {
 	    int v = order[i], curpar = par[v];
 	    parincycle[v] = parincycle[curpar];
@@ -48,8 +48,8 @@ void find_cycle(int u) {
     st[idx] = u;
     sz[idx] = 0;
     cycles[idx].clear();
-    while(!mark[u]) {
-	    mark[u] = incycle[u] = 1;
+    while(!seen[u]) {
+	    seen[u] = incycle[u] = 1;
 	    par[u] = find_par(u);
 	    if (par[u] == -1) par[u] = par;
 	    parincycle[u] = u;
@@ -64,7 +64,7 @@ void find_cycle(int u) {
     }
 }
 int find_par(int u) {
-    for (int v : graph[u])
-        if (!mark[v]) return v;
+    for (int v : graph[u]) if (!seen[v]) 
+    	return v;
     return -1;
 }

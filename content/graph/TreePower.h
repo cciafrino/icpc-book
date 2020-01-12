@@ -13,7 +13,7 @@
 
 vector<vector<int>> treeJump(vector<int>& P){
 	int on = 1, d = 1;
-	while(on < sz(P)) on *= 2, d++;
+	while(on < P.size()) on *= 2, d++;
 	vector<vector<int>> jmp(d, P);
 	for(int i = 1; i < d; ++i) for(int j = 0; j < P.size(); ++j)
 		jmp[i][j] = jmp[i-1][jmp[i-1][j]];
@@ -30,7 +30,7 @@ int lca(vector<vector<int>>& tbl, vector<int>& depth, int a, int b) {
 	if (depth[a] < depth[b]) swap(a, b);
 	a = jmp(tbl, a, depth[a] - depth[b]);
 	if (a == b) return a;
-	for (int i = sz(tbl); i--;) {
+	for (int i = tbl.size(); i--;) {
 		int c = tbl[i][a], d = tbl[i][b];
 		if (c != d) a = c, b = d;
 	}

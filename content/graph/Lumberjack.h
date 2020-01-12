@@ -11,7 +11,7 @@
   
 
 vector<int> deg, subtree, order, par, parincycles, idxcycle, sz, st, depth, cycles[MAXN];
-vector<bool> mark, incycle,
+vector<bool> seen, incycle,
 int numcycle;
 
 void bfs() {
@@ -19,7 +19,7 @@ void bfs() {
     for (int i = 0; i < n; ++i)
 	    if (!indeg[i]) {
 		    q.push(i);
-		    mark[i] = 1;
+		    seen[i] = 1;
 	    }
     while(!q.empty()) {
 	    int v = q.front(); q.pop();
@@ -30,12 +30,12 @@ void bfs() {
 	    subtree[curpar] += subtree[v];
 	    if (!indeg[curpar]) {
 		    q.push(curpar);
-		    mark[curpar] = 1;
+		    seen[curpar] = 1;
 	    }
     }
     numcycles = 0;
     for (int i = 0; i < n; ++i) 
-	    if (!mark[i]) find_cycle(i);
+	    if (!seen[i]) find_cycle(i);
     for (int i = order.size()-1; i >= 0; --i) {
 	    int v = order[i], curpar = par[v];
 	    parincycle[v] = parincycle[curpar];
@@ -50,8 +50,8 @@ void find_cycle(int u) {
     st[idx] = u;
     size[idx] = 0;
     cycles[idx].clear();
-    while(!mark[u]) {
-	    mark[u] = incycle[u] = 1;
+    while(!seen[u]) {
+	    seen[u] = incycle[u] = 1;
 	    parincycle[u] = u;
 	    cycle[u] = idx;
 	    idxcycle[u] = cur;

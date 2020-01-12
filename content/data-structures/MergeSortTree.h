@@ -3,8 +3,10 @@
  * Date: 
  * License: CC0
  * Source: 
- * Description: 
+ * Description: Build segment tree where each node stores a sorted version
+        of the underlying range.
  * Status: fuzz-tested a bit
+ * Time: $O(\log^2 N)$
  */
 
 struct MergeSortTree {
