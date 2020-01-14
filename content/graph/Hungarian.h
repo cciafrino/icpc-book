@@ -10,19 +10,20 @@ int HungarianMatch(const vector<vector<int>> &a) { // cost array, negative value
     vector<int> u(n+1), v(m+1), p(m+1); // p[j] -> job picked by worker j
     for(int i = 1; i <= n; ++i) { // find alternating path with job i
         p[0] = i; int j0 = 0;
-        vector<int> dist(m+1, MOD), pre(m+1,-1); // dist, previous vertex on shortest path
+        vector<int> dist(m+1, INT_MAX), pre(m+1,-1); // dist, previous vertex on shortest path
         vector<bool> done(m+1, false);
         do {
             done[j0] = true;
-            int i0 = p[j0], j1; int delta = MOD;
+            int i0 = p[j0], j1; int delta = INT_MAX;
             for(int j = 1; j <= m; ++j) if (!done[j]) {
                 auto cur = a[i0][j]-u[i0]-v[j];
                 if (cur < dist[j]) dist[j] = cur, pre[j] = j0;
                 if (dist[j] < delta) delta = dist[j], j1 = j;
             }
-            for(int j = 0; j <= m; ++j) // just dijkstra with potentials
+            for(int j = 0; j <= m; ++j) { // just dijkstra with potentials
                 if (done[j]) u[p[j]] += delta, v[j] -= delta;
                 else dist[j] -= delta;
+            }
             j0 = j1;
         } while (p[j0]);
         do { // update values on alternating path

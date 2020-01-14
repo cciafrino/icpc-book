@@ -1,104 +1,64 @@
 /**
- * Author: Johan Sannemo
- * Date: 2015-02-10
+ * Author: Benjamin Qi, Oleksandr Kulkov, chilli
+ * Date: 2020-01-12
  * License: CC0
- * Source: folkore
+ * Source: https://codeforces.com/blog/entry/53170, https://github.com/bqi343/USACO/blob/master/Implementations/content/graphs%20(12)/Trees%20(10)/HLD%20(10.3).h
  * Description: Decomposes a tree into vertex disjoint heavy paths and light
- *  edges such that the path from any leaf to the root contains at most log(n)
- *  light edges. The function of the HLD can be changed by modifying T, LOW and
- *  f. f is assumed to be associative and commutative.
- * Usage:
- *  HLD hld(G);
- *  hld.update(index, value);
- *  tie(value, lca) = hld.query(n1, n2);
- * Status: Tested at SPOJ
+ * edges such that the path from any leaf to the root contains at most log(n)
+ * light edges. Supports any segtree modifications/queries on paths and
+ * subtrees. Takes as input the full adjacency list.
+ * Status: Will do in morning
  */
 #pragma once
 
-#include "../data-structures/SegmentTree.h"
+#include "../data-structures/DynamicSegTree.h"
 
-
-struct Node {
-	int d, par, val, chain = -1, pos = -1;
-};
-
-struct Chain {
-	int par, val;
-	vector<int> nodes;
-	Tree tree;
-};
-
-struct HLD {
-	typedef int T;
-	const T LOW = -(1<<29);
-	void f(T &a, T b) { a = max(a, b); }
-	vector<Node> V;
-	vector<Chain> C;
-	HLD(vector<vector<pair<int,int>>> &g) : V(g.size()) {
-		dfs(0, -1, g, 0);
-        for (auto &c : C) {
-			c.tree = {c.nodes.size(), 0};
-			for (int ni : c.nodes)
-				c.tree.update(V[ni].pos, V[ni].val);
+template<bool USE_EDGES> struct HLD {
+	int N;
+	vector<vector<int>> edges;
+	vector<int> par, sz, depth, rt, pos;
+	node *tree;
+	HLD(vector<vector<int>> g)
+		: N(g.size()), edges(g), par(N, -1), sz(N, 1), depth(N),
+		  rt(N), pos(N) { dfs_sz(),dfsHld(); tree = build(0, n-1); }
+	void dfs_sz(int v = 0) {
+		if (par[v] != -1) 
+			edges[v].erase(find(edges[v].begin(), edges[v].end(), par[v]));
+		for(int u : edges[v]) {
+			par[u] = v, depth[u] = depth[v] + 1;
+			dfs_sz(u);
+			sz[v] += sz[u];
+			if (sz[u] > sz[edges[v][0]]) swap(u, edges[v][0]);
 		}
 	}
-	void update(int node, T val) {
-		Node &n = V[node]; n.val = val;
-		if (n.chain != -1) C[n.chain].tree.update(n.pos, val);
-	}
-	int pard(Node& nod) {
-		if (nod.par == -1) return -1;
-		return V[nod.chain == -1 ? nod.par : C[nod.chain].par].d;
-	}
-	// query all *edges* between n1, n2
-	pair<T, int> query(int i1, int i2) {
-		T ans = LOW;
-		while(i1 != i2) {
-			Node n1 = V[i1], n2 = V[i2];
-			if (n1.chain != -1 && n1.chain == n2.chain) {
-				int lo = n1.pos, hi = n2.pos;
-				if (lo > hi) swap(lo, hi);
-				f(ans, C[n1.chain].tree.query(lo, hi));
-				i1 = i2 = C[n1.chain].nodes[hi];
-			} else {
-				if (pard(n1) < pard(n2))
-					n1 = n2, swap(i1, i2);
-				if (n1.chain == -1)
-					f(ans, n1.val), i1 = n1.par;
-				else {
-					Chain &c = C[n1.chain];
-					f(ans, n1.pos ? c.tree.query(n1.pos, sz(c.nodes))
-					              : c.tree.s[1]);
-					i1 = c.par;
-				}
-			}
+	int t = 0;
+	void dfsHld(int v = 0) {
+		pos[v] = t++;
+		for(int u : edges[v]) {
+			rt[u] = (u == edges[v][0] ? rt[v] : u);
+			dfsHld(u);
 		}
-		return make_pair(ans, i1);
 	}
-	// query all *nodes* between n1, n2
-	pair<T, int> query2(int i1, int i2) {
-		pair<T, int> ans = query(i1, i2);
-		f(ans.first, V[ans.second].val);
-		return ans;
-	}
-	pair<int,int> dfs(int at, int par, vector<vector<pair<int,int>>> &g, int d) {
-		V[at].d = d; V[at].par = par;
-		int sum = 1, ch, nod, sz;
-		tuple<int,int,int> mx(-1,-1,-1);
-		for(auto &e : g[at]){
-			if (e.first == par) continue;
-			tie(sz, ch) = dfs(e.first, at, g, d+1);
-			V[e.first].val = e.second;
-			sum += sz;
-			mx = max(mx, make_tuple(sz, e.first, ch));
+	template <class B> void process(int u, int v, B op) {
+		for (; rt[u] != rt[v]; v = par[rt[v]]) {
+			if (depth[rt[u]] > depth[rt[v]]) swap(u, v);
+			op(pos[rt[v]], pos[v] + 1);
 		}
-		tie(sz, nod, ch) = mx;
-		if (2*sz < sum) return {sum, -1};
-		if (ch == -1) { ch = C.size(); C.emplace_back(); }
-		V[nod].pos = sz(C[ch].nodes);
-		V[nod].chain = ch;
-		C[ch].par = at;
-		C[ch].nodes.push_back(nod);
-		return {sum, ch};
+		if (depth[u] > depth[v]) swap(u, v);
+		op(pos[u] + USE_EDGES, pos[v] + 1);
+	}
+	void modifyPath(int u, int v, int delta) {
+		process(u, v, [&](int l, int r) { upd(tree, l, r, delta); });
+	}
+	int queryPath(int u, int v) {
+		int res = 0;
+		process(u,v,[&](int l, int r) { res+=query(tree,l,r); });
+		return res;
+	}
+	void modifySubtree(int v, int delta) {
+		upd(tree, pos[v] + USE_EDGES, pos[v]+sz[v]-1, delta);
+	}
+	int querySubtree(int v) { 
+		return query(tree, pos[v] + USE_EDGES, pos[v] + sz[v]);
 	}
 };

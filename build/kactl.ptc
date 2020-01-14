@@ -206,12 +206,13 @@
 \contentsline {subsection}{\texttt {Dijkstra.cpp}\hspace {0.2em}}{22}% 
 \contentsline {subsection}{\texttt {Prim.h}\hspace {0.2em}}{22}% 
 \contentsline {subsection}{\texttt {Kruskal.h}\hspace {0.2em}}{22}% 
+\contentsline {subsection}{\texttt {SPFA.h}\hspace {0.2em}}{23}% 
 \contentsline {section}{\numberline {7.2}Euler walk}{23}% 
 \contentsline {subsection}{\texttt {EulerWalk.h}\hspace {0.2em}}{23}% 
 \contentsline {section}{\numberline {7.3}Network flow}{23}% 
 \contentsline {subsection}{\texttt {PushRelabel.h}\hspace {0.2em}}{23}% 
 \contentsline {subsection}{\texttt {Dinic.h}\hspace {0.2em}}{23}% 
-\contentsline {subsection}{\texttt {HLPP.h}\hspace {0.2em}}{23}% 
+\contentsline {subsection}{\texttt {HLPP.h}\hspace {0.2em}}{24}% 
 \contentsline {subsection}{\texttt {EdmondsKarp.h}\hspace {0.2em}}{24}% 
 \contentsline {subsection}{\texttt {MinCut.h}\hspace {0.2em}}{24}% 
 \contentsline {subsection}{\texttt {MinCostMaxFlow.h}\hspace {0.2em}}{24}% 
@@ -237,7 +238,6 @@
 \contentsline {subsection}{\texttt {Cycle-Counting.cpp}\hspace {0.2em}}{28}% 
 \contentsline {section}{\numberline {7.7}Trees}{29}% 
 \contentsline {subsection}{\texttt {Tree.h}\hspace {0.2em}}{29}% 
-\contentsline {subsection}{\texttt {TreePower.h}\hspace {0.2em}}{29}% 
 \contentsline {subsection}{\texttt {LCA.cpp}\hspace {0.2em}}{29}% 
 \contentsline {subsection}{\texttt {LCA.h}\hspace {0.2em}}{29}% 
 \contentsline {subsection}{\texttt {CompressTree.h}\hspace {0.2em}}{30}% 
@@ -248,16 +248,16 @@
 \contentsline {subsection}{\texttt {Lumberjack2.h}\hspace {0.2em}}{31}% 
 \contentsline {section}{\numberline {7.9}Other}{31}% 
 \contentsline {subsection}{\texttt {kthShortestPath.h}\hspace {0.2em}}{31}% 
-\contentsline {subsection}{\texttt {Hamiltonian.h}\hspace {0.2em}}{31}% 
-\contentsline {subsection}{\texttt {Boruvka.h}\hspace {0.2em}}{31}% 
+\contentsline {subsection}{\texttt {MatrixTreeMST.h}\hspace {0.2em}}{31}% 
+\contentsline {subsection}{\texttt {Boruvka.h}\hspace {0.2em}}{32}% 
 \contentsline {subsection}{\texttt {ManhattanMST.h}\hspace {0.2em}}{32}% 
 \contentsline {subsection}{\texttt {SteinerTree.h}\hspace {0.2em}}{32}% 
 \contentsline {subsection}{\texttt {Pruefer.cpp}\hspace {0.2em}}{32}% 
 \contentsline {subsection}{\texttt {ErdosGallai.h}\hspace {0.2em}}{32}% 
-\contentsline {subsection}{\texttt {MisraGries.h}\hspace {0.2em}}{32}% 
+\contentsline {subsection}{\texttt {MisraGries.h}\hspace {0.2em}}{33}% 
 \contentsline {subsection}{\texttt {Directed-MST.cpp}\hspace {0.2em}}{33}% 
 \contentsline {subsection}{\texttt {Graph-Dominator-Tree.cpp}\hspace {0.2em}}{33}% 
-\contentsline {subsection}{\texttt {Graph-Negative-Cycle.cpp}\hspace {0.2em}}{33}% 
+\contentsline {subsection}{\texttt {Graph-Negative-Cycle.cpp}\hspace {0.2em}}{34}% 
 \contentsline {subsection}{\texttt {TransitiveClosure.h}\hspace {0.2em}}{34}% 
 \contentsline {section}{\numberline {7.10}Theorems and Facts}{34}% 
 \contentsline {subsection}{\numberline {7.10.1}Vizing's Thereom}{34}% 
@@ -268,11 +268,11 @@
 \contentsline {subsection}{\numberline {7.10.6}Fecho de Peso M\IeC {\'a}ximo}{34}% 
 \contentsline {subsection}{\numberline {7.10.7}Menger's theorem}{34}% 
 \contentsline {subsection}{\numberline {7.10.8}Erd\IeC {\"o}s-Gallai theorem}{34}% 
-\contentsline {subsection}{\numberline {7.10.9}Landau}{34}% 
-\contentsline {subsection}{\numberline {7.10.10}Tutte's theorem}{34}% 
-\contentsline {subsection}{\numberline {7.10.11}Tur\IeC {\'a}n's theorem}{34}% 
-\contentsline {subsection}{\numberline {7.10.12}Dirac's theorem}{34}% 
-\contentsline {subsection}{\numberline {7.10.13}Ore's theorem}{34}% 
+\contentsline {subsection}{\numberline {7.10.9}Landau}{35}% 
+\contentsline {subsection}{\numberline {7.10.10}Tutte's theorem}{35}% 
+\contentsline {subsection}{\numberline {7.10.11}Tur\IeC {\'a}n's theorem}{35}% 
+\contentsline {subsection}{\numberline {7.10.12}Dirac's theorem}{35}% 
+\contentsline {subsection}{\numberline {7.10.13}Ore's theorem}{35}% 
 \contentsline {subsection}{\numberline {7.10.14}Eulerian Cycles}{35}% 
 \contentsline {subsection}{\numberline {7.10.15}Matroid Intersection theorem}{35}% 
 \contentsline {subsection}{\numberline {7.10.16}K\IeC {\"o}nig-Egervary theorem}{35}% 
@@ -287,7 +287,7 @@
 \contentsline {subsection}{\texttt {SegmentDistance.h}\hspace {0.2em}}{35}% 
 \contentsline {subsection}{\texttt {SegmentClosestPoint.h}\hspace {0.2em}}{35}% 
 \contentsline {subsection}{\texttt {SegmentIntersection.h}\hspace {0.2em}}{35}% 
-\contentsline {subsection}{\texttt {SegmentIntersectionQ.h}\hspace {0.2em}}{35}% 
+\contentsline {subsection}{\texttt {SegmentIntersectionQ.h}\hspace {0.2em}}{36}% 
 \contentsline {subsection}{\texttt {LineIntersection.h}\hspace {0.2em}}{36}% 
 \contentsline {subsection}{\texttt {LineProjectionReflection.h}\hspace {0.2em}}{36}% 
 \contentsline {subsection}{\texttt {SideOf.h}\hspace {0.2em}}{36}% 
@@ -295,7 +295,7 @@
 \contentsline {subsection}{\texttt {LinearTransformation.h}\hspace {0.2em}}{36}% 
 \contentsline {subsection}{\texttt {Angle.h}\hspace {0.2em}}{36}% 
 \contentsline {subsection}{\texttt {AngleCmp.h}\hspace {0.2em}}{36}% 
-\contentsline {subsection}{\texttt {Complex.h}\hspace {0.2em}}{36}% 
+\contentsline {subsection}{\texttt {Complex.h}\hspace {0.2em}}{37}% 
 \contentsline {subsection}{\texttt {LinearSolver.h}\hspace {0.2em}}{37}% 
 \contentsline {section}{\numberline {8.2}Circles}{37}% 
 \contentsline {subsection}{\texttt {CircleIntersection.h}\hspace {0.2em}}{37}% 
@@ -308,18 +308,18 @@
 \contentsline {section}{\numberline {8.3}Polygons}{38}% 
 \contentsline {subsection}{\texttt {InsidePolygon.h}\hspace {0.2em}}{38}% 
 \contentsline {subsection}{\texttt {PolygonArea.h}\hspace {0.2em}}{38}% 
-\contentsline {subsection}{\texttt {PolygonCenter.h}\hspace {0.2em}}{38}% 
-\contentsline {subsection}{\texttt {PolygonCut.h}\hspace {0.2em}}{38}% 
-\contentsline {subsection}{\texttt {ConvexHull.h}\hspace {0.2em}}{38}% 
+\contentsline {subsection}{\texttt {PolygonCenter.h}\hspace {0.2em}}{39}% 
+\contentsline {subsection}{\texttt {PolygonCut.h}\hspace {0.2em}}{39}% 
+\contentsline {subsection}{\texttt {ConvexHull.h}\hspace {0.2em}}{39}% 
 \contentsline {subsection}{\texttt {HullDiameter.h}\hspace {0.2em}}{39}% 
 \contentsline {subsection}{\texttt {PointInsideHull.h}\hspace {0.2em}}{39}% 
 \contentsline {subsection}{\texttt {PolyUnion.h}\hspace {0.2em}}{39}% 
 \contentsline {subsection}{\texttt {LineHullIntersection.h}\hspace {0.2em}}{39}% 
-\contentsline {subsection}{\texttt {HalfPlane.h}\hspace {0.2em}}{39}% 
+\contentsline {subsection}{\texttt {HalfPlane.h}\hspace {0.2em}}{40}% 
 \contentsline {section}{\numberline {8.4}Misc. Point Set Problems}{40}% 
 \contentsline {subsection}{\texttt {ClosestPair.h}\hspace {0.2em}}{40}% 
 \contentsline {subsection}{\texttt {KdTree.h}\hspace {0.2em}}{40}% 
-\contentsline {subsection}{\texttt {DelaunayTriangulation.h}\hspace {0.2em}}{40}% 
+\contentsline {subsection}{\texttt {DelaunayTriangulation.h}\hspace {0.2em}}{41}% 
 \contentsline {subsection}{\texttt {FastDelaunay.h}\hspace {0.2em}}{41}% 
 \contentsline {subsection}{\texttt {RectangleUnionArea.h}\hspace {0.2em}}{41}% 
 \contentsline {section}{\numberline {8.5}3D}{42}% 
@@ -331,25 +331,25 @@
 \ttl@stoptoc {chapters@8}
 \ttl@starttoc {chapters@9}
 \contentsline {section}{\texttt {KMP.cpp}\hspace {0.2em}}{42}% 
-\contentsline {section}{\texttt {Extended-KMP.h}\hspace {0.2em}}{42}% 
+\contentsline {section}{\texttt {Extended-KMP.h}\hspace {0.2em}}{43}% 
 \contentsline {section}{\texttt {Duval.h}\hspace {0.2em}}{43}% 
 \contentsline {section}{\texttt {Z.h}\hspace {0.2em}}{43}% 
 \contentsline {section}{\texttt {Manacher.h}\hspace {0.2em}}{43}% 
 \contentsline {section}{\texttt {MinRotation.h}\hspace {0.2em}}{43}% 
 \contentsline {section}{\texttt {Trie.h}\hspace {0.2em}}{43}% 
-\contentsline {section}{\texttt {TrieXOR.h}\hspace {0.2em}}{43}% 
+\contentsline {section}{\texttt {TrieXOR.h}\hspace {0.2em}}{44}% 
 \contentsline {section}{\texttt {Hashing.h}\hspace {0.2em}}{44}% 
 \contentsline {section}{\texttt {HashGood.h}\hspace {0.2em}}{44}% 
 \contentsline {section}{\texttt {SuffixTree.h}\hspace {0.2em}}{44}% 
-\contentsline {section}{\texttt {AhoCorasick.cpp}\hspace {0.2em}}{44}% 
+\contentsline {section}{\texttt {AhoCorasick.cpp}\hspace {0.2em}}{45}% 
 \contentsline {section}{\texttt {Suffix-Array.h}\hspace {0.2em}}{45}% 
 \contentsline {chapter}{\numberline {10}Various}{45}% 
 \ttl@stoptoc {chapters@9}
 \ttl@starttoc {chapters@10}
 \contentsline {section}{\numberline {10.1}Intervals}{45}% 
 \contentsline {subsection}{\texttt {IntervalContainer.h}\hspace {0.2em}}{45}% 
-\contentsline {subsection}{\texttt {IntervalCover.h}\hspace {0.2em}}{45}% 
-\contentsline {subsection}{\texttt {ConstantIntervals.h}\hspace {0.2em}}{45}% 
+\contentsline {subsection}{\texttt {IntervalCover.h}\hspace {0.2em}}{46}% 
+\contentsline {subsection}{\texttt {ConstantIntervals.h}\hspace {0.2em}}{46}% 
 \contentsline {section}{\numberline {10.2}Misc. algorithms}{46}% 
 \contentsline {subsection}{\texttt {TernarySearch.h}\hspace {0.2em}}{46}% 
 \contentsline {subsection}{\texttt {LowerBound.h}\hspace {0.2em}}{46}% 
@@ -359,18 +359,18 @@
 \contentsline {subsection}{\texttt {CountTriangles.h}\hspace {0.2em}}{46}% 
 \contentsline {subsection}{\texttt {sqrt.h}\hspace {0.2em}}{46}% 
 \contentsline {subsection}{\texttt {Karatsuba.h}\hspace {0.2em}}{46}% 
-\contentsline {subsection}{\texttt {CountInversions.h}\hspace {0.2em}}{46}% 
-\contentsline {subsection}{\texttt {Histogram.h}\hspace {0.2em}}{46}% 
+\contentsline {subsection}{\texttt {CountInversions.h}\hspace {0.2em}}{47}% 
+\contentsline {subsection}{\texttt {Histogram.h}\hspace {0.2em}}{47}% 
 \contentsline {subsection}{\texttt {DateManipulation.h}\hspace {0.2em}}{47}% 
 \contentsline {subsection}{\texttt {NQueens.cpp}\hspace {0.2em}}{47}% 
 \contentsline {subsection}{\texttt {SudokuSolver.h}\hspace {0.2em}}{47}% 
-\contentsline {subsection}{\texttt {FloydCycle.h}\hspace {0.2em}}{47}% 
+\contentsline {subsection}{\texttt {FloydCycle.h}\hspace {0.2em}}{48}% 
 \contentsline {subsection}{\texttt {SlidingWindow.h}\hspace {0.2em}}{48}% 
 \contentsline {subsection}{\texttt {Scanline.h}\hspace {0.2em}}{48}% 
 \contentsline {section}{\numberline {10.3}Dynamic programming}{48}% 
 \contentsline {subsection}{\texttt {DivideAndConquerDP.h}\hspace {0.2em}}{48}% 
 \contentsline {subsection}{\texttt {KnuthDP.h}\hspace {0.2em}}{48}% 
-\contentsline {subsection}{\texttt {ConvexHullTrick.h}\hspace {0.2em}}{48}% 
+\contentsline {subsection}{\texttt {ConvexHullTrick.h}\hspace {0.2em}}{49}% 
 \contentsline {subsection}{\texttt {Coin.h}\hspace {0.2em}}{49}% 
 \contentsline {subsection}{\texttt {MinCoin.h}\hspace {0.2em}}{49}% 
 \contentsline {subsection}{\texttt {EditDistance.h}\hspace {0.2em}}{49}% 
@@ -379,32 +379,36 @@
 \contentsline {subsection}{\texttt {LCS.h}\hspace {0.2em}}{49}% 
 \contentsline {subsection}{\texttt {Knapsack.h}\hspace {0.2em}}{49}% 
 \contentsline {subsection}{\texttt {01Knapsack.h}\hspace {0.2em}}{49}% 
-\contentsline {subsection}{\texttt {LargeKnapsack.h}\hspace {0.2em}}{49}% 
+\contentsline {subsection}{\texttt {LargeKnapsack.h}\hspace {0.2em}}{50}% 
 \contentsline {subsection}{\texttt {KnapsackUnbounded.h}\hspace {0.2em}}{50}% 
 \contentsline {subsection}{\texttt {KnapsackBounded.h}\hspace {0.2em}}{50}% 
 \contentsline {subsection}{\texttt {KnapsackBitset.h}\hspace {0.2em}}{50}% 
 \contentsline {subsection}{\texttt {TSP.h}\hspace {0.2em}}{50}% 
 \contentsline {subsection}{\texttt {DistinctSubsequences.h}\hspace {0.2em}}{50}% 
 \contentsline {subsection}{\texttt {CircularLCS.h}\hspace {0.2em}}{50}% 
-\contentsline {section}{\numberline {10.4}Debugging tricks}{50}% 
-\contentsline {section}{\numberline {10.5}Optimization tricks}{50}% 
-\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{50}% 
+\contentsline {subsection}{\texttt {MaxNonConsecutiveSum.h}\hspace {0.2em}}{51}% 
+\contentsline {subsection}{\texttt {MaxSubarraySumSkip.h}\hspace {0.2em}}{51}% 
+\contentsline {subsection}{\texttt {MaxZeroSubmatrix.h}\hspace {0.2em}}{51}% 
+\contentsline {section}{\numberline {10.4}Debugging tricks}{51}% 
+\contentsline {section}{\numberline {10.5}Optimization tricks}{51}% 
+\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{51}% 
 \contentsline {subsection}{\numberline {10.5.2}Pragmas}{51}% 
 \contentsline {subsection}{\texttt {FastInput.h}\hspace {0.2em}}{51}% 
 \contentsline {subsection}{\texttt {BumpAllocator.h}\hspace {0.2em}}{51}% 
-\contentsline {subsection}{\texttt {SmallPtr.h}\hspace {0.2em}}{51}% 
-\contentsline {subsection}{\texttt {BumpAllocatorSTL.h}\hspace {0.2em}}{51}% 
-\contentsline {subsection}{\texttt {Hashmap.h}\hspace {0.2em}}{51}% 
-\contentsline {subsection}{\texttt {OwnFunctions.h}\hspace {0.2em}}{51}% 
-\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{51}% 
-\contentsline {subsection}{\texttt {Hacks.h}\hspace {0.2em}}{51}% 
+\contentsline {subsection}{\texttt {SmallPtr.h}\hspace {0.2em}}{52}% 
+\contentsline {subsection}{\texttt {BumpAllocatorSTL.h}\hspace {0.2em}}{52}% 
+\contentsline {subsection}{\texttt {Hashmap.h}\hspace {0.2em}}{52}% 
+\contentsline {subsection}{\texttt {PQueue.h}\hspace {0.2em}}{52}% 
+\contentsline {subsection}{\texttt {OwnFunctions.h}\hspace {0.2em}}{52}% 
+\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{52}% 
+\contentsline {subsection}{\texttt {Hacks.h}\hspace {0.2em}}{52}% 
 \contentsline {subsection}{\texttt {Bitset.h}\hspace {0.2em}}{52}% 
 \contentsline {section}{\numberline {10.7}Random Numbers}{52}% 
 \contentsline {subsection}{\texttt {RandomNumbers.h}\hspace {0.2em}}{52}% 
-\contentsline {section}{\numberline {10.8}Other languages}{52}% 
-\contentsline {subsection}{\texttt {Python3.py}\hspace {0.2em}}{52}% 
-\contentsline {subsection}{\texttt {Main.java}\hspace {0.2em}}{52}% 
-\contentsline {subsection}{\texttt {MiscJava.java}\hspace {0.2em}}{52}% 
-\contentsline {subsection}{\numberline {10.8.1}BigInteger}{52}% 
-\contentsline {paragraph}{BigInteger}{52}% 
+\contentsline {section}{\numberline {10.8}Other languages}{53}% 
+\contentsline {subsection}{\texttt {Python3.py}\hspace {0.2em}}{53}% 
+\contentsline {subsection}{\texttt {Main.java}\hspace {0.2em}}{53}% 
+\contentsline {subsection}{\texttt {MiscJava.java}\hspace {0.2em}}{53}% 
+\contentsline {subsection}{\numberline {10.8.1}BigInteger}{53}% 
+\contentsline {paragraph}{BigInteger}{53}% 
 \contentsfinish 

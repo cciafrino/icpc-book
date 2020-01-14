@@ -1,6 +1,7 @@
 /**
  * Author: Chris
- * Description: Dynamic Segment Tree with lazy propagation.
+ * Description: Dynamic Segment Tree with lazy propagation. Allows range query, range update (increment and assignment). 
+ * For assignment change all += to = in push and update functions.
  * Usage: vector<int> a;
  * node *segtree = build(0, n, a);
  */
@@ -11,8 +12,8 @@ struct node {
 	int lx, rx;
 };
 
-void push(node *v) {
-	if(v != nullptr && v->lazy) {
+void push(node *v) { 
+	if(v != nullptr && v->lazy) { 
 		v->minv += v->lazy;
 		v->sumv += v->lazy * (v->rx - v->lx + 1);
 		if(v->l) v->l->lazy += v->lazy;
