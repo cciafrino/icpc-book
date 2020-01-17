@@ -22,11 +22,12 @@ ull pollard(ull n) {
 		if (p != n) return p;
 	}
 }
+
 vector<ull> factor(ull n) {
 	if (n == 1) return {};
 	if (isPrime(n)) return {n};
 	ull x = pollard(n);
-	auto l = factor(x), r = factor(n / x);
+	auto l = factor(x), r = factor(n/x);
 	l.insert(l.end(), all(r));
 	return l;
 }

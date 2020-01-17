@@ -3,20 +3,20 @@
  * Description: Precalculate factorials
  */
  
-void pre(int lim) {
+void init(int lim) {
     fact.resize(lim + 1);
     fact[0] = 1;
     for (int i = 1; i <= lim; ++i)
-        fact[i] = (lint)i * fact[i - 1] % mod;
-    inv_fact.resize(lim + 1);
-    inv_fact[lim] = inv(fact[lim], mod);
-    for (int i = lim - 1; i >= 0; --i)
-        inv_fact[i] = (lint)(i + 1) * inv_fact[i + 1] % mod;
+        fact[i] = (lint)i * fact[i-1] % mod;
+    ifact.resize(lim + 1);
+    ifact[lim] = modinv(fact[lim], mod);
+    for (int i = lim-1; i >= 0; --i)
+        ifact[i] = (lint)(i+1) * ifact[i+1] % mod;
 }
 
-void init() {
+void init(int lim) { // modtemplate!
 	fact = {1};
-	for(int i = 1; i < 1010; i++) 
+	for(int i = 1; i <= lim; i++) 
 		fact.push_back(i * fact[i-1]);
 	ifact.resize(fact.size());
 	ifact.back() = 1/fact.back();

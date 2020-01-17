@@ -1,6 +1,7 @@
 /**
  * Author: Chris 
  * Description: Shortest Path Faster Algorithm.
+ * Time: $O(E)$
  */
 
 int s; // source node

@@ -18,37 +18,28 @@ struct Line {///start-hash
 		assert(lineIntersection(P1, P2, y.P1, y.P2, r) == 1);
 		return r;
 	}
-	P dir() {
-		return P2 - P1;
-	}
-	bool contains(P x) {
-		return (P2 - P1).cross(x - P1) < eps;
-	}
-	bool out(P x) {
-		return !contains(x);
-	}
+	P dir() { return P2 - P1; }
+	bool contains(P x) { return (P2 - P1).cross(x - P1) < eps; }
+	bool out(P x) { return !contains(x); }
 }; ///end-hash
 
 template<class T>
 bool mycmp(Point<T> a, Point<T> b) {///start-hash
 	// return atan2(a.y, a.x) < atan2(b.y, b.x);
-	if (a.x * b.x < 0)	return a.x < 0;
+	if (a.x * b.x < 0) return a.x < 0;
 	if (abs(a.x) < eps) {
-		if (abs(b.x) < eps) 	return a.y > 0 && b.y < 0;
-		if (b.x < 0)	return a.y > 0;
-		if (b.x > 0)	return true;
+		if (abs(b.x) < eps) return a.y > 0 && b.y < 0;
+		if (b.x < 0) return a.y > 0;
+		if (b.x > 0) return true;
 	}
 	if (abs(b.x) < eps) {
-		if (a.x < 0)	return b.y < 0;
-		if (a.x > 0)	return false;
+		if (a.x < 0) return b.y < 0;
+		if (a.x > 0) return false;
 	}
 	return a.cross(b) > 0;
 }///end-hash
 
-bool cmp(Line a, Line b) {
-	return mycmp(a.dir(), b.dir());
-}
-
+bool cmp(Line a, Line b) { return mycmp(a.dir(), b.dir()); }
 double Intersection_Area(vector <Line> b) { ///start-hash
 	sort(b.begin(), b.end(), cmp);
 	int n = b.size();
@@ -70,9 +61,9 @@ double Intersection_Area(vector <Line> b) { ///start-hash
 	if (h - q <= 1)	return 0;
 	c[h + 1] = c[q];
 	vector <P> s;
-	for (i = q; i <= h; i++)	s.push_back(c[i].intpo(c[i + 1]));
+	for (i = q; i <= h; i++) s.push_back(c[i].intpo(c[i + 1]));
 	s.push_back(s[0]);
 	double ans = 0;
-	for (i = 0; i < (int) s.size() - 1; i++)	ans += s[i].cross(s[i + 1]);
-	return ans / 2;
+	for (i = 0; i < (int)s.size()-1; i++) ans += s[i].cross(s[i + 1]);
+	return ans/2;
 }///end-hash

@@ -5,13 +5,13 @@
  * Source: 
  * Description: Pre calculate all mobius values.
  * Status: Works
- * Time: $O(sqrt(n))$
+ * Time: $O(N))$
  */
 
 vector<int> mobius, lp;
 void run_sieve(int n) {
-    mobius.assign(n, -1);
-    lp.assign(n, 0);
+    mobius.assign(n+1, -1);
+    lp.assign(n+1, 0);
     mobius[1] = 1;
     vector<int> prime;
     for (int i = 2; i <= n; ++i) {

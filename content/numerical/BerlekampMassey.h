@@ -31,6 +31,6 @@ vector<lint> BerlekampMassey(vector<lint> s) {
 		L = i + 1 - L; B = T; b = d; m = 0;
 	}
 	C.resize(L + 1); C.erase(C.begin());
-	for(auto &x : C) x = (mod - x) % mod;
+	for(lint &x : C) x = (mod - x) % mod;
 	return C;
 }

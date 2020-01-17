@@ -1,12 +1,11 @@
 /**
  * Author: Rodrigo Zhou
  * Description: 
- * Time: $O(n*log(n))$
+ * Time: $O(N\logN)$
  */
 
 int n, inv;
 vector<int> v, result;
-
 void merge_sort(int lx, int rx, vector<int> &v) {
     if (lx == rx) return;
     int m = lx + (rx - lx)/2;

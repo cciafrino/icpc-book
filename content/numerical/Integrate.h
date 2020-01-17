@@ -9,12 +9,12 @@
  *  precision when epsilon changes.
  * Status: mostly untested
  */
+
 #pragma once
 
-double quad(double (*f)(double), double a, double b) {
-	const int n = 1000;
-	double h = (b - a) / 2 / n;
-	double v = f(a) + f(b);
+template<class F>
+double quad(double a, double b, F f, const int n = 1000) {
+	double h = (b - a) / 2 / n, v = f(a) + f(b);
 	for(int i = 1; i < n*2; ++i)
 		v += f(a + i*h) * (i&1 ? 4 : 2);
 	return v * h / 3;

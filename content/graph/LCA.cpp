@@ -1,8 +1,8 @@
 /**
  * Author: Chris
- * Description: Data structure for computing lowest common
- * ancestors in a tree (with 0 as root). 
- * Can also find the distance between two nodes.
+ * Description: Solve lowest common ancestor queries using binary jumps.
+ * Can also find the distance between two nodes. 
+ * Time: $O(N\lgN + Q\lgN)$ 
  */
 
 struct lca_t {

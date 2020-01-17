@@ -3,8 +3,8 @@
  * Description: Find $x$ such that $ax \equiv 1$(mod $m$). The inverse
  * only exist if $a$ and $m$ are coprimes.
  */
- 
-lint modinv(lint a, int m) {
+template<typename T>
+T modinv(T a, T m) {
 	assert(m > 0);
 	if (m == 1) return 0;
 	a %= m;
@@ -15,6 +15,8 @@ lint modinv(lint a, int m) {
 }
 
 // Iff mod is prime
-lint modinv(lint a) {
-    return modpow(a % Mod, Mod-2);
-}
+lint modinv(lint a) { return modpow(a % mod, mod-2); }
+
+// const lint mod = 1000000007, LIM = 200000; ///include-line
+lint* inv = new lint[LIM] - 1; inv[1] = 1;
+for(int i = 2; i < LIM; ++i) inv[i] = mod - (mod/i) * inv[mod%i] % mod;

@@ -16,10 +16,10 @@
  * Status: Tested
  */
 #pragma once
-
-const int LIM = 500000;
-vector<lint> phi(LIM);
-iota(phi.begin(), phi.end(), 0);
-for(int i = 1; i <= LIM; ++i)
-    for (int j = i+i; j <= LIM; j += i)
-        phi[j] -= phi[i];
+const int LIM = int(1e5) * 5;
+vector<int> phi(LIM);
+void calculatePhi() {
+	for(int i = 0; i < LIM; ++i) phi[i] = i&1 ? i : i/2;
+	for(int i = 3; i < LIM; i += 2) if(phi[i] == i)
+		for(int j = i; j < LIM; j += i) phi[j] -= phi[j] / i;
+}

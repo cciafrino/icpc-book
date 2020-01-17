@@ -3,9 +3,9 @@
  * Date: 
  * License: 
  * Source: 
- * Description: Returns the number of msts in undirected weighted graph.
+ * Description: Returns the number of msts in undirected weighted graph using the Matrix Tree theorem.
  * Status: somewhat tested - http://acm.hdu.edu.cn/showproblem.php?pid=4408
- * Time: 
+ * Time: $O(N^3)$
  */
 
 lint det(vector<vector<lint>> a, int n, int p) {

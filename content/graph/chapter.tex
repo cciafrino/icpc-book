@@ -134,8 +134,8 @@ Para construir, ligamos~1 com~$2, 3, \ldots, d_1 + 1$ e seguimos recursivamente.
 \subsection{Landau}
 Existe um torneio com graus de saída~$d_1 \leq d_2 \leq \ldots \leq d_n$ sse:
 \begin{itemize}
-\item $d_1 + d_2 + \ldots + d_n = {n \choose 2}$\\
-\item $d_1 + d_2 + \ldots + d_k \geq {k \choose 2} \quad \forall 1 \leq k \leq n.$
+\item $d_1 + d_2 + \ldots + d_n = {n \choose 2}$\newline
+\item $d_1 + d_2 + \ldots + d_k \geq {k \choose 2} \quad \forall 1 \leq k \leq n.$\newline
 \end{itemize}
 Para construir, fazemos~1 apontar para~$2, 3, \ldots, d_1 + 1$ e seguimos recursivamente.
 \iffalse
@@ -145,8 +145,13 @@ to the same state) iff.\ each pair of states has a synchronizing word.
 That can be checked using reverse DFS over pairs of states. Finding the
 shortest synchronizing word is NP-complete.
 \fi
+ 
+\subsection{Tutte-Berge formula}
+The theorem states that the size of a maximum matching of a graph $G=(V,E)$ equals ${\frac {1}{2}}\min _{U\subseteq V}\left(|U|- \texttt{odd}(G-U)+|V|\right)\,,$ where \texttt{odd}(H) counts how many of the connected components of the graph $H$ have an odd number of vertices.
+
 \subsection{Tutte's theorem}
 Um grafo $G = (V, A)$ tem um emparelhamento perfeito sse para todo subconjunto $U$ de $V$, o subgrafo induzido por $V \setminus U$ tem no máximo $|U|$ componentes conexas com uma quantidade ímpar de vértices.
+\newpage
 
 \subsection{Turán's theorem} 
 Nenhum grafo com $n$ vértices que é $K_{r+1}$-livre pode ter mais arestas do que o grafo de $Tur\acute{a}n$: Um grafo completo $k$-partido com conjuntos de tamanho mais próximo possível.
@@ -155,21 +160,21 @@ Nenhum grafo com $n$ vértices que é $K_{r+1}$-livre pode ter mais arestas do q
 \subsection{Dirac's theorem} Seja $G$ um grafo com $n$ vértices, cada um com grau pelo menos $n/2$. Então $G$ é hamiltoniano.
 
 \subsection{Ore's theorem} Seja $G$ um grafo simples de ordem $n \geq 3$ tal que 
-\[g(u) + g(v) \geq n \] para todo par $u$,$v$ de vértices não adjacentes, então $G$ é hamiltoniano.\newline
+\[g(u) + g(v) \geq n \] para todo par $u$,$v$ de vértices não adjacentes, então $G$ é hamiltoniano.
 
 \subsection{Eulerian Cycles}
 A quantidade de ciclos $Eulerianos$ num digrafo $G$ é:\newline
 		\begin{equation*}
 			t_w(G) \prod_{v \in G} (\deg v - 1)!,
 		\end{equation*}\newline
-		onde $t_w(G)$ é a quantidade de arborescências (árvore geradora direcionada) enraizada em $w$: $t_w(G) = \det\left( q_{ij} \right)_{i,j \neq w}$, with $q_{ij} = [i=j] \mathrm{indeg}(i) - \# \set{(i,j) \in E}$.\newline
+		onde $t_w(G)$ é a quantidade de arborescências (árvore geradora direcionada) enraizada em $w$: $t_w(G) = \det\left( q_{ij} \right)_{i,j \neq w}$, with $q_{ij} = [i=j] \mathrm{indeg}(i) - \# \set{(i,j) \in E}$.
 
 \subsection{Matroid Intersection theorem}
 Sejam~$M_1 = (E, I_1)$ e~$M_2 = (E, I_2)$ matróides. Então
 $ \max\limits_{S \in I_1 \cap I_2}{|S|} = \min\limits_{U \subseteq E}{r_1(U) + r_2(E \setminus U)}.$
 
 \subsection{König-Egervary theorem}
-    Em todo grafo bipartido~$G$, a quantidade de arestas no emparelhamento máximo é maior ou igual à quantidade de vértices na cobertura mínima. Ou seja, para todo~$G$,~$\alpha(G) \geq \beta(G)$. Note que isso prova que~$\alpha(G) = \beta(G)$ para grafos bipartidos. 
+    Em todo grafo bipartido~$G$, a quantidade de arestas no emparelhamento máximo é maior ou igual à quantidade de vértices na cobertura mínima. Ou seja, para todo~$G$,~$\alpha(G) \geq \beta(G)$. Note que isso prova que~$\alpha(G) = \beta(G)$ para grafos bipartidos.
 
 \subsection{Number of Spanning Trees}
 		% I.e. matrix-tree theorem.

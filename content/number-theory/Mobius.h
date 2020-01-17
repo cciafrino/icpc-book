@@ -1,9 +1,9 @@
 /**
  * Author: Chris
- * Date: 2016-07-24
- * License: CC0
+ * Date: 
+ * License: 
  * Source: 
- * Description: Return 0 if divisible by any perfect square, 1 if has an even quantity of prime numbers and -1 if has an odd quantity of primes.
+ * Description: If $g$ and $f$ are arithmetic functions . Return 0 if divisible by any perfect square, 1 if has an even quantity of prime numbers and -1 if has an odd quantity of primes.
  * Status: Works
  * Time: $O(sqrt(n))$
  */

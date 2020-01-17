@@ -6,20 +6,19 @@
  * Time:
  */
 
-template <int MAXN = 100000>
-struct pell {
-	pair <lint, lint> solve (lint n) { /// start-hash
-		static lint p[MAXN], q[MAXN], g[MAXN], h[MAXN], a[MAXN];
-		p[1] = q[0] = h[1] = 1; p[0] = q[1] = g[1] = 0;
-		a[2] = (lint)(floor(sqrtl(n) + 1e-7L));
-		for (int i = 2; ; ++i) {
-			g[i] = -g[i - 1] + a[i] * h[i - 1];
-			h[i] = (n - g[i] * g[i]) / h[i - 1];
-			a[i + 1] = (g[i] + a[2]) / h[i];
-			p[i] = a[i] * p[i - 1] + p[i - 2];
-			q[i] = a[i] * q[i - 1] + q[i - 2];
-			if (p[i] * p[i] - n * q[i] * q[i] == 1)
-				return { p[i], q[i] }; 
-        } 
-    } /// end-hash
-};
+pair<int,int> Pell(int n) {
+	int p0 = 0, p1 = 1, q0 = 1, q1 = 0;
+	int a0 = (int)sqrt(n), a1 = a0, a2 = a0;
+	if(a0 * a0 == n) return {-1, -1};
+	int g1 = 0, h1 = 1;
+	while (1) {
+		int g2 = -g1 + a1 * h1;
+		int h2 = (n - g2 * g2)/h1;
+		a2 = (g2 + a0)/h2;
+		int p2 = a1 * p1 + p0;
+		int q2 = a1 * q1 + q0;
+		if (p2*p2 - n*q2*q2 == 1) return {p2, q2};
+		a1 = a2; g1 = g2; h1 = h2; p0 = p1;
+		p1 = p2; q0 = q1; q1 = q2;
+	}
+}

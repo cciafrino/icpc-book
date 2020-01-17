@@ -24,6 +24,6 @@ template<typename T>
 T order(T a, T n) {
     vector<T> d = divisors(phi(n));
     for (int i : v) 
-        if (mod_pow(a, i, n) == 1) return i;
+        if (modpow(a, i, n) == 1) return i;
     return -1;
 }

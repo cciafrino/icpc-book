@@ -3,9 +3,9 @@
  * Date: 2016-08-31
  * License: CC0
  * Source: http://eli.thegreenplace.net/2009/03/07/computing-modular-square-roots-in-python/
- * Description: Tonelli-Shanks algorithm for modular square roots. Finds x s.t. $x^2 = a \mod p$
- * Time: O(\log^2 p) worst case, often O(\log p)
- * Status: Tested for alint a,p <= 10000
+ * Description: Tonelli-Shanks algorithm for modular square roots. Finds $x$ s.t. $x^2 = a \pmod p$ ($-x$ gives the other solution).
+ * Time: O(\log^2 p) worst case, O(\log p) for most $p$
+ * Status: Tested for all a,p <= 10000
  */
 #pragma once
 
@@ -14,30 +14,24 @@
 lint sqrt(lint a, lint p) {
 	a %= p; if (a < 0) a += p;
 	if (a == 0) return 0;
-	assert(modpow(a, (p-1)/2, p) == 1);
+	assert(modpow(a, (p-1)/2, p) == 1); // else no solution
 	if (p % 4 == 3) return modpow(a, (p+1)/4, p);
 	// a^(n+3)/8 or 2^(n+3)/8 * 2^(n-1)/4 works if p % 8 == 5
-	lint s = p - 1;
-	int r = 0;
-	while (s % 2 == 0)
-		++r, s /= 2;
-	lint n = 2; // find a non-square mod p
+	lint s = p - 1, n = 2;
+	int r = 0, m;
+	while (s % 2 == 0) ++r, s /= 2;
+	/// find a non-square mod p
 	while (modpow(n, (p - 1) / 2, p) != p - 1) ++n;
 	lint x = modpow(a, (s + 1) / 2, p);
-	lint b = modpow(a, s, p);
-	lint g = modpow(n, s, p);
-	for (;;) {
+	lint b = modpow(a, s, p), g = modpow(n, s, p);
+	for (;; r = m) {
 		lint t = b;
-		int m = 0;
-		for (; m < r; ++m) {
-			if (t == 1) break;
+		for (m = 0; m < r && t != 1; ++m)
 			t = t * t % p;
-		}
 		if (m == 0) return x;
-		lint gs = modpow(g, 1 << (r - m - 1), p);
+		lint gs = modpow(g, 1LL << (r - m - 1), p);
 		g = gs * gs % p;
 		x = x * gs % p;
 		b = b * g % p;
-		r = m;
 	}
 }

@@ -6,29 +6,29 @@
  * Time: $O(N \log N)$
  */
  
-// 1-indexed bottom-up, faster in practice
-int Knapsack(int limit, vector<int> &v, vector<int> &w) {
-    vector<int> dyn(10*v.size(), -1); int n = w.size();
-    dyn[0] = 0;
+// 1-indexed bottom-up, waaaay faster in practice
+int knapsack(int limit, vector<int> &v, vector<int> &w) {
+    vector<int> dp(limit+1, -1); int n = w.size();
+    dp[0] = 0;
     for (int i = 0; i < n; ++i)
         for (int j = limit; j >= w[i]; --j)
-            if (dyn[j - w[i]] >= 0)
-                dyn[j] = max(dyn[j], dyn[j - w[i]] + v[i]);
+            if (dp[j - w[i]] >= 0)
+                dp[j] = max(dp[j], dp[j - w[i]] + v[i]);
     int result = 0;
     for (int i = 0; i <= limit; ++i) 
-        result = max(result, dyn[i]);
+        result = max(result, dp[i]);
     return result;
 }
 // top-down
 int n, c; // total of items and cost
 array<int, MAXN> w, v; // weight, value
-array<array<int, MAXN>, MAXN> dyn; // filled -1
+array<array<int, MAXN>, MAXN> dp; // filled -1
 
 int get(int idx, int cap) {
     if (cap < 0) return -INT_MAX;
     if (idx == n) return 0;
-    if (dyn[idx][cap] != -1) return dyn[idx][cap];
-    return dyn[idx][cap] = max(get(idx+1, cap), v[idx] + get(idx+1, cap - w[idx]));
+    if (dp[idx][cap] != -1) return dp[idx][cap];
+    return dp[idx][cap] = max(get(idx+1, cap), v[idx] + get(idx+1, cap - w[idx]));
 }
 
 void recover(int idx, int cap) { 

@@ -9,9 +9,9 @@ lint modpow(lint a, lint e){
     return (c*c) % mod;
 }
 
-lint modpow(lint a, lint e) {
+lint modpow(lint b, lint e) {
 	lint ret = 1;
-	for (int i = 1; i <= e; i *= 2, a = 1LL * a * a % mod)
-		if (i & e) ret = 1LL * ret * a % mod;
+	for (int i = 1; i <= e; i *= 2, b = b * b % mod)
+		if (i & e) ret = ret * b % mod;
 	return ret;
 }
