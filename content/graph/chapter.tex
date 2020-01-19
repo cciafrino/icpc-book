@@ -25,7 +25,7 @@
   
 \section{Matching}
 	\kactlimport{HopcroftKarp.h}
-	\kactlimport{DFSMatching.h}
+	\kactlimport{MCBM.h}
     \kactlimport{WeightedMatching.h}
 	\kactlimport{GeneralMatching.h}
 	\kactlimport{MaximumIndependentSet.h}
@@ -135,7 +135,7 @@ Para construir, ligamos~1 com~$2, 3, \ldots, d_1 + 1$ e seguimos recursivamente.
 Existe um torneio com graus de saída~$d_1 \leq d_2 \leq \ldots \leq d_n$ sse:
 \begin{itemize}
 \item $d_1 + d_2 + \ldots + d_n = {n \choose 2}$\newline
-\item $d_1 + d_2 + \ldots + d_k \geq {k \choose 2} \quad \forall 1 \leq k \leq n.$\newline
+\item $d_1 + d_2 + \ldots + d_k \geq {k \choose 2} \quad \forall 1 \leq k \leq n.$\newpage
 \end{itemize}
 Para construir, fazemos~1 apontar para~$2, 3, \ldots, d_1 + 1$ e seguimos recursivamente.
 \iffalse
@@ -151,7 +151,7 @@ The theorem states that the size of a maximum matching of a graph $G=(V,E)$ equa
 
 \subsection{Tutte's theorem}
 Um grafo $G = (V, A)$ tem um emparelhamento perfeito sse para todo subconjunto $U$ de $V$, o subgrafo induzido por $V \setminus U$ tem no máximo $|U|$ componentes conexas com uma quantidade ímpar de vértices.
-\newpage
+
 
 \subsection{Turán's theorem} 
 Nenhum grafo com $n$ vértices que é $K_{r+1}$-livre pode ter mais arestas do que o grafo de $Tur\acute{a}n$: Um grafo completo $k$-partido com conjuntos de tamanho mais próximo possível.

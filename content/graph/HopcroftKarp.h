@@ -56,6 +56,6 @@ int hopcroftKarp(const vector<vector<int>> &g, vector<int> &btoa) { /// start-ha
 		}
 		/// Use DFS to scan for augmenting paths.
 		for(int a = 0; a < g.size(); ++a) 
-			res += dfs(a, 0, g, btoa, A, B)
+			res += dfs(a, 0, g, btoa, A, B);
 	}
 } /// end-hash

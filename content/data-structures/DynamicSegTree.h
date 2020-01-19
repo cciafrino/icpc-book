@@ -46,8 +46,8 @@ void upd(node *v, int lx, int rx, lint delta) {
 		v->sumv += delta;
 		return;
 	}
-	update(v->l, lx, rx, delta);
-	update(v->r, lx, rx, delta);	
+	upd(v->l, lx, rx, delta);
+	upd(v->r, lx, rx, delta);	
 	v->minv = min(v->l->minv, v->r->minv) + v->lazy;
 	v->sumv = v->l->sumv + v->r->sumv + v->lazy * (v->rx - v->lx + 1);		
 }

@@ -1,11 +1,12 @@
 #include "../utilities/template.h"
 
 #include "../../content/graph/MinimumVertexCover.h"
-#include "../../content/graph/hopcroftKarp.h"
+#include "../../content/graph/HopcroftKarp.h"
+#include "../../content/graph/DFSMatching.h"
 
 vi coverHK(vector<vi>& g, int n, int m) {
 	vi match(m, -1);
-	int res = hopcroftKarp(g, match);
+	int res = dfsMatching(g, match);
 	vector<bool> lfound(n, true), seen(m);
 	trav(it, match) if (it != -1) lfound[it] = false;
 	vi q, cover;
@@ -25,13 +26,17 @@ vi coverHK(vector<vi>& g, int n, int m) {
 }
 
 int main() {
+	clock_t start1, end1, start2, end2;
+	int a = 0, b = 0;
 	rep(it,0,300000) {
 		int N = rand() % 20, M = rand() % 20;
 		int prop = rand();
 		vector<vi> gr(N);
 		vi left(N), right(M);
+		BipartiteMatcher mc(N, M);
 		rep(i,0,N) rep(j,0,M) if (rand() < prop) {
 			gr[i].push_back(j);
+			mc.addEdge(i,j);
 		}
 		auto verify = [&](vi& cover) {
 			trav(x, cover) {
@@ -49,12 +54,22 @@ int main() {
 				} */
 			}
 		};
-		vi cover1 = cover(gr, N, M);
+		start1 = clock();
+		// mc.improve();
+		vi cover1 = cover(gr, N, M, mc);
+		end1 = clock();
+		start2 = clock();
 		vi cover2 = coverHK(gr, N, M);
+		end2 = clock();
+		// cout << double(end1 - start1)/CLOCKS_PER_SEC << "    " << 
+		// double(end2 - start2)/CLOCKS_PER_SEC << endl;
+		if (double(end1 - start1)/CLOCKS_PER_SEC > double(end2 - start2)/CLOCKS_PER_SEC) ++a;
+		else ++b;
 		assert(sz(cover1) == sz(cover2));
 		verify(cover1);
 		verify(cover2);
 		// cout << '.' << endl;
 	}
-	cout<<"Tests passed!"<<endl;
+	
+	cout<<"Tests passed! " << a << ' ' << b << endl;
 }

@@ -26,7 +26,7 @@ for (lx += n, rx += n; lx <= rx; lx /= 2, rx /= 2){
     if (rx%2 == 0) result += tree[rx--];
 }
 
-// A bit fast segtree with bitwise operators
+// A bit faster segtree with bitwise operators
 for (M = 1; M <= n+1; M *= 2);
 for (int i = 1; i <= n; ++i) tree[i+M] = v[i];
 for (int i = M-1; i ; --i) tree[i] = tree[i+i] + tree[i+i+1];

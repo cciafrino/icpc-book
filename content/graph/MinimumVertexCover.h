@@ -10,20 +10,20 @@
 #pragma once
 
 #include "DFSMatching.h"
+#include "MCBM.h"
 
-vector<int> cover(vector<vector<int>>& g, int n, int m) {
-    vector<int> match(m, -1);
-    int res = dfsMatching(g, match);
+vector<int> cover(vector<vector<int>>& g, int n, int m, BipartiteMatcher &B) {
+    int res = B.match();
     vector<bool> lfound(n, true), seen(m);
-    for(int &it : match) if (it != -1) lfound[it] = false;
+    for(int &it : B.R) if (it != -1) lfound[it] = false;
     vector<int> q, cover;
     for(int i = 0; i < n; ++i) if (lfound[i]) q.push_back(i);
     while (!q.empty()) {
         int i = q.back(); q.pop_back();
         lfound[i] = 1;
-        for(e, g[i]) if (!seen[e] && match[e] != -1) {
+        for(int e : g[i]) if (!seen[e] && B.R[e] != -1) {
             seen[e] = true;
-            q.push_back(match[e]);
+            q.push_back(B.R[e]);
         }
     }
     for(int i = 0; i < n; ++i) if (!lfound[i]) cover.push_back(i);

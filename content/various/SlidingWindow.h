@@ -8,7 +8,7 @@
  */
  
 vector<int> sliding_window_minmax(vector<int> &v, int K, bool mx) {
-  deque< pair<int, int>> window;
+  deque<pair<int, int>> window;
   vector<int> ans;
   for (int i = 0; i < v.size(); i++) {
     if (mx) {
@@ -18,7 +18,7 @@ vector<int> sliding_window_minmax(vector<int> &v, int K, bool mx) {
       while (!window.empty() && window.back().first >= v[i])
         window.pop_back();
     }
-    window.push_back(make_pair(v[i], i));
+    window.emplace_back(v[i], i);
     while(window.front().second <= i - K)
       window.pop_front();
     ans.push_back(window.front().first);

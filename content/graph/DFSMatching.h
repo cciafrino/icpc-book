@@ -26,7 +26,7 @@ bool find(int j, vector<vector<int>>& g, vector<int>& btoa, vector<int>& seen) {
 }
 int dfsMatching(vector<vector<int>>& g, vector<int>& btoa) {
     vector<int> seen;
-    for(int i = 0 i < g.size(); ++i) {
+    for(int i = 0; i < g.size(); ++i) {
         seen.assign(btoa.size(), 0);
         for(auto &j : g[i])
             if (find(j, g, btoa, seen)) {
