@@ -30,7 +30,7 @@
 	\kactlimport{GeneralMatching.h}
 	\kactlimport{MaximumIndependentSet.h}
 	\kactlimport{MinimumVertexCover.h}
-	\kactlimport{Koenig.cpp}
+	%\kactlimport{Koenig.cpp}
 	\kactlimport{Hungarian.h}
 	
 
@@ -79,14 +79,11 @@
 	\kactlimport{Directed-MST.cpp}
 	\kactlimport{Graph-Dominator-Tree.cpp}
 	\kactlimport{Graph-Negative-Cycle.cpp}
-    \kactlimport{TransitiveClosure.h}\newline
+    \kactlimport{TransitiveClosure.h}\\
 
 \section{Theorems and Facts}
 \subsection{Vizing's Thereom}
 Dado um grafo~$G$, seja~$\delta$ o maior grau de um vértice. Então~$G$ tem número cromático de aresta~$\delta$ ou~$\delta + 1$.
-\begin{itemize}
-\item $\chi(G) = \delta $ ou $\chi(G) = \delta + 1$.
-\end{itemize}
 
 \subsection{Euler's theorem}
 Sendo~$V$,~$A$ e~$F$ as quantidades de vértices, arestas e faces de um grafo planar conexo,
@@ -135,7 +132,7 @@ Para construir, ligamos~1 com~$2, 3, \ldots, d_1 + 1$ e seguimos recursivamente.
 Existe um torneio com graus de saída~$d_1 \leq d_2 \leq \ldots \leq d_n$ sse:
 \begin{itemize}
 \item $d_1 + d_2 + \ldots + d_n = {n \choose 2}$\newline
-\item $d_1 + d_2 + \ldots + d_k \geq {k \choose 2} \quad \forall 1 \leq k \leq n.$\newpage
+\item $d_1 + d_2 + \ldots + d_k \geq {k \choose 2} \quad \forall 1 \leq k \leq n.$
 \end{itemize}
 Para construir, fazemos~1 apontar para~$2, 3, \ldots, d_1 + 1$ e seguimos recursivamente.
 \iffalse
