@@ -11,7 +11,7 @@
   
 
 vector<int> deg, subtree, order, par, parincycles, idxcycle, sz, st, depth, cycles[MAXN];
-vector<bool> seen, incycle,
+vector<bool> seen, incycle;
 int numcycle;
 
 void bfs() {
