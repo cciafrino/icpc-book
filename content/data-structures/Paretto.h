@@ -31,7 +31,6 @@ struct paretto {
         return *(--it);
     }
     void insert(T x,T y,int id){
-    
         point lo = query(x);
         if(lo.Y <= y) return;
         point P ({x,y},id);

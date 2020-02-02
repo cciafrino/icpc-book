@@ -8,27 +8,26 @@
 	\subsection{Factorial}
 		\import{factorial.tex}
 		\kactlimport{Factorial.h}
-		\kactlimport{IntPerm.h}
+		%\kactlimport{IntPerm.h}
 		\kactlimport{numPerm.h}
 \subsection{Binomials}
-	\kactlimport{nCr.h}\newpage
+	\kactlimport{nCr.h}
 	%\kactlimport{NWayDistribute.h}
-	%\kactlimport{PascalTriangle.h}
-	\kactlimport{Multinomial.h}
 	\kactlimport{Catalan.h}
-
-
-\subsection{Cycles}
-		Suponha que $g_S(n)$ é o número de $n$-permutações quais o tamanho do ciclo pertence ao conjunto $S$. Então
-		\small
-		$$\sum_{n=0} ^\infty g_S(n) \frac{x^n}{n!} = \exp\left(\sum_{n\in S} \frac{x^n} {n} \right)$$
-		\normalsize
+	\kactlimport{Multinomial.h}
+	\kactlimport{PascalTriangle.h}
 
 \subsection{Derangements}
 		Permutações de um conjunto tais que nenhum dos elementos aparecem em sua posição original.
 		\small
 		\[ \mkern-2mu D(n) = (n-1)(D(n-1)+D(n-2)) = n D(n-1)+(-1)^n = \left\lfloor\frac{n!}{e}\right\rceil \]
 		\normalsize
+
+\subsection{Cycles}
+		Suponha que $g_S(n)$ é o número de $n$-permutações quais o tamanho do ciclo pertence ao conjunto $S$. Então
+		\small
+		$$\sum_{n=0} ^\infty g_S(n) \frac{x^n}{n!} = \exp\left(\sum_{n\in S} \frac{x^n} {n} \right)$$
+		\normalsize\columnbreak
 %\subsection{The Twelvefold Way}
 %Putting $n$ balls into $k$ boxes.
 %$\mathrm{p}(n,k)$ is \# partitions of $n$ in $k$ parts, each $>0$.
@@ -188,9 +187,7 @@ Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\lim
     $$N(n,k) = \frac{1}{n} \binom{n}{k} \binom{n}{k-1}$$
     $$N(n,1) = N(n,n) = 1$$
     $$\sum_{k=1}^{n} N(n,k) = C_{n}$$
-    1, 1, 1, 1, 3, 1, 1, 6, 6, 1, 1, 10, 20, 10, 1, 1, 15, 50\newline
-    
-
+    1, 1, 1, 1, 3, 1, 1, 6, 6, 1, 1, 10, 20, 10, 1, 1, 15, 50\\
 
     \subsection{Schroder numbers}
 	Number of lattice paths from (0, 0) to ($n$, $n$) using only steps
@@ -242,7 +239,7 @@ Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\lim
     %\kactlimport{Grundy.h}
     %\kactlimport{Nim.cpp}
 	\kactlimport{Nim-Product.cpp}
-	\kactlimport{Schreier-Sims.cpp}
+	%\kactlimport{Schreier-Sims.cpp}
 	\kactlimport{RandomWalk.h}
 	\kactlimport{Partitions.cpp}
 	\kactlimport{Lucas.h}

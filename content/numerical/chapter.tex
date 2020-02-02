@@ -81,6 +81,12 @@
       \end{tabular}
 
 
+\subsection{Determinants}
+              det(A) &= \sum_{\sigma \in S_n}\text{sgn}(\sigma)\prod_{i = 1}^n a_{i,\sigma(i)}
+              %perm(A) &= \sum_{\sigma \in S_n} \prod_{i = 1}^n a_{i,\sigma(i)}\\
+              %pf(A) &= \frac{1}{2^nn!}\sum_{\sigma \in S_{2n}} \text{sgn}(\sigma)\prod_{i = 1}^n a_{\sigma(2i-1),\sigma(2i)}\\ &= \sum_{M \in \text{PM}(n)} \text{sgn}(M) \prod_{(i,j) \in M} a_{i,j}
+
+
 \subsection{Common integral substitutions} And finally, a list of common substitutions:
 \resizebox{\columnwidth}{!}{%
       \begin{tabular}{|c|c|c|}
@@ -116,11 +122,6 @@ A neat manipulation trick is:
 \begin{equation*}
   \frac{1}{1-z}G(z) = \sum_{n}\sum_{k\leq n}g_kz^n
 \end{equation*}
-
-\subsection{Determinants}
-              det(A) &= \sum_{\sigma \in S_n}\text{sgn}(\sigma)\prod_{i = 1}^n a_{i,\sigma(i)}
-              %perm(A) &= \sum_{\sigma \in S_n} \prod_{i = 1}^n a_{i,\sigma(i)}\\
-              %pf(A) &= \frac{1}{2^nn!}\sum_{\sigma \in S_{2n}} \text{sgn}(\sigma)\prod_{i = 1}^n a_{\sigma(2i-1),\sigma(2i)}\\ &= \sum_{M \in \text{PM}(n)} \text{sgn}(M) \prod_{(i,j) \in M} a_{i,j}
 
 \subsection{Polyominoes} How many free (rotation, reflection), one-sided (rotation) and fixed $n$-ominoes are there?
       

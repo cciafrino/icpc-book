@@ -12,6 +12,8 @@
 using num = modnum<int(1e9)+7>;
 using hsh = pairnum<num, num>;
 const hsh BASE(163, 311);
+// uniform_int_distribution<int> MULT_DIST(0.1*MOD,0.9*MOD); 
+// constexpr hsh BASE(MULT_DIST(rng), MULT_DIST(rng));
 
 struct hash_t {
     int n;
@@ -26,6 +28,15 @@ struct hash_t {
     hsh get_hash(int left, int right) {
         assert(left <= right);
         return hash[right] - hash[left] * basePow[right - left];
+    }
+    int lcp(hash_t &other) { // need some testing
+        int left = 0, right = min(str.size(), other.str.size());
+        while (left < right) {
+            int mid = (left + right + 1)/2;
+            if (hash[mid] == other.hash[mid]) left = mid;
+            else right = mid-1;
+        }
+        return left;
     }
 };
 

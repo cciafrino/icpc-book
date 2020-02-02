@@ -5,10 +5,10 @@
  */
 #include<FenwickTree.h>
 
-FT<int> bit(maxv+10);    
+FT<int, 10010> bit;    
 int inv = 0;
 for (int i = n-1; i >= 0; --i) {
-    inv += bit.query(v[i]); // careful with the interval 
-    bit.update(v[i], 1);    // [0, x) or [0, x] ?
+    inv += bit.sum(values[i]); // careful with the interval 
+    bit.update(values[i], 1);    // [0, x) or [0, x] ?
 }
 

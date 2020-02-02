@@ -27,7 +27,6 @@ struct LPSolver {
 	int m, n;
 	vi N, B;
 	vvd D;
-
 	LPSolver(const vvd& A, const vd& b, const vd& c) :
 		m(b.size()), n(c.size()), N(n+1), B(m), D(m+2, vd(n+2)) { /// start-hash
 			for(int i = 0; i < m; ++i) for(int j = 0; j < n; ++j) D[i][j] = A[i][j];
@@ -35,7 +34,6 @@ struct LPSolver {
 			for(int j = 0; j < n; ++j) { N[j] = j; D[m][j] = -c[j]; }
 			N[n] = -1; D[m+1][n] = 1;
 		} /// end-hash
-
 	void pivot(int r, int s) { /// start-hash
 		T *a = D[r].data(), inv = 1 / a[s];
 		for(int i = 0; i < m+2; ++i) if (i != r && abs(D[i][s]) > EPS) {
@@ -64,7 +62,6 @@ struct LPSolver {
 			pivot(r, s);
 		}
 	} /// end-hash
-
 	T solve(vd &x) { /// start-hash
 		int r = 0;
 		for(int i = 1; i < m; ++i) if (D[i][n+1] < D[r][n+1]) r = i;
