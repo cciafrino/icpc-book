@@ -8,10 +8,8 @@
  * of v before reaching a vertex v, therefore we can compute some
  * infos about the children, like subtree of a given vertex
  */
-  
-
 vector<int> deg, subtree, order, par, parincycles, idxcycle, size, st, depth, cycles[MAXN];
-vector<bool> seen, incycle,
+vector<bool> seen, incycle;
 int numcycle;
 
 void bfs() {
