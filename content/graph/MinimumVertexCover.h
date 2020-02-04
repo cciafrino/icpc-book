@@ -12,7 +12,7 @@
 #include "DFSMatching.h"
 #include "MCBM.h"
 
-vector<int> cover(vector<vector<int>>& g, int n, int m, BipartiteMatcher &B) {
+vector<int> cover(vector<vector<int>>& g, int n, int m, MCBM &B) {
     int res = B.match();
     vector<bool> lfound(n, true), seen(m);
     for(int &it : B.R) if (it != -1) lfound[it] = false;
@@ -20,7 +20,7 @@ vector<int> cover(vector<vector<int>>& g, int n, int m, BipartiteMatcher &B) {
     for(int i = 0; i < n; ++i) if (lfound[i]) q.push_back(i);
     while (!q.empty()) {
         int i = q.back(); q.pop_back();
-        lfound[i] = 1;
+        lfound[i] = true;
         for(int e : g[i]) if (!seen[e] && B.R[e] != -1) {
             seen[e] = true;
             q.push_back(B.R[e]);

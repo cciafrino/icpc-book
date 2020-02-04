@@ -6,7 +6,7 @@
  * Time: $O(N \log N)$
  */
 
-int unbounded_knapsack(vector<int> &v, vector<int> &w, int total) {
+int knapsack(vector<int> &v, vector<int> &w, int total) {
     vector<int> dp(total+1, -1);
     int result = 0; dp[0] = 0;
     for (int i = 0; i <= total; ++i) for (int j = 0; j < n; ++j)

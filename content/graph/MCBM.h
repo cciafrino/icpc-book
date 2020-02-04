@@ -14,10 +14,10 @@
  * Status: stress-tested
  */
 
-struct BipartiteMatcher {
+struct MCBM {
     vector<vector<int>> edges;
     vector<int> L, R, seen;
-    BipartiteMatcher(int n, int m) :
+    MCBM(int n, int m) :
     edges(n), L(n, -1), R(m, -1), seen(n) {}
     void addEdge(int a, int b) { edges[a].push_back(b); }  
     void improve() {
@@ -30,14 +30,12 @@ struct BipartiteMatcher {
         seen[v] = true;
         for (int u : edges[v]) 
             if (R[u] == -1) {
-                L[v] = u;
-                R[u] = v;
+                L[v] = u; R[u] = v;
                 return true;
             }
         for (int u : edges[v]) 
             if (find(R[u])) {
-                L[v] = u;
-                R[u] = v;
+                L[v] = u; R[u] = v;
                 return true;
             }
         return false;
