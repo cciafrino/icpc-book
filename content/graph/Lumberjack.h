@@ -7,6 +7,7 @@
  *  note that during this processing time we go through all the childrens
  * of v before reaching a vertex v, therefore we can compute some
  * infos about the children, like subtree of a given vertex
+ * *** always declare global ***
  * Status: Tested on CodeForces 22E - Scheme
  */
   
@@ -15,18 +16,21 @@ struct LumberJack {
 	int n, numcycle;
 	vector<int> subtree, order, par, cycle;
 	vector<int> parincycles, idxcycle, sz, st;
-	vector<int> depth, indeg, cycles[12345];
+	vector<int> depth, indeg, cycles[MAXN];
 	vector<bool> seen, incycle, leaf;
-	LumberJack(int N):n(N) { init(n); }
-	LumberJack(vector<int>& deg) : n(deg.size()) {
-		init(n);
-		par = deg;
+	
+	
+	void init(vector<int> &Par, vector<int> &Indeg){ 
+		init(Par.size());
+		par = Par; indeg = Indeg; 
 	}
-	void init(int n) {
-		subtree.assign(n, 0);
-		seen.assign(n, false);
+
+	void init(int N) {
+		n=N;
+		subtree.assign(N, 0);
+		seen.assign(N, false);
 		sz = st = subtree;
-		order = par = cycle = sz;
+		parincycles = order = par = cycle = sz;
 		idxcycle = depth = indeg = sz; 
 		incycle = leaf = seen;
 	}
@@ -80,4 +84,5 @@ struct LumberJack {
 		}
 	}
 };
+
 
