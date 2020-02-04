@@ -7,6 +7,7 @@
  *  note that during this processing time we go through all the childrens
  * of v before reaching a vertex v, therefore we can compute some
  * infos about the children, like subtree of a given vertex
+ * Status: Tested on CodeForces 22E - Scheme
  */
   
 
