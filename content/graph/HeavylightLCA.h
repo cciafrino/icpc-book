@@ -61,15 +61,15 @@ struct heavylight {
         while(!in_subtree(nxt[v], u)) v = parent[nxt[v]];
         return preorder[u] < preorder[v] ? u : v;
     }
-    vector<pair<int,int>> getPathtoAncestor(int u, int anc) {
+    vector<pair<int,int>> getPathtoAncestor(int v, int p) {
         // returns ranges [l, r) that the path has
         vector<pair<int,int>> ret;
-        assert(in_subtree(anc, u));
-        while(nxt[u] != nxt[anc]) {
-            ret.emplace_back(preorder[nxt[u]], preorder[u] + 1);
-            u = parent[nxt[u]];
+        assert(in_subtree(p, v));
+        while(nxt[v] != nxt[p]) {
+            ret.emplace_back(preorder[nxt[v]], preorder[v] + 1);
+            v = parent[nxt[v]];
         } // this includes the ancestor
-        ret.emplace_back(preorder[anc], preorder[u] + 1);
+        ret.emplace_back(preorder[p], preorder[v] + 1);
         return ret;
     }
     

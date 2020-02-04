@@ -72,3 +72,25 @@ template<typename T, typename U, typename B> struct ModularFFT {
     uint nextpow2(uint v) { return v ? 1 << __lg(2*v-1) : 1; }
 };
 
+const int mod = 998244353, mod_gen = 3;
+
+vector<int> convolute(const vector<int> &a, const vector<int> &b) {
+    if (a.empty() || b.empty()) return {};
+    ModularFFT<int, uint, lint> modular_fft;
+    return modular_fft.convolution(a, b, mod, mod_gen);
+}
+ 
+vector<int> convolute_all(const vector<vector<int>> &polys, int begin,
+                          int end) {
+    if (end - begin == 0) return {1};
+    else if (end - begin == 1) return polys[begin];
+    else {
+        int mid = begin + (end - begin) / 2;
+        return convolute(convolute_all(polys, begin, mid),
+                         convolute_all(polys, mid, end));
+    }
+}
+
+vector<int> convolute_all(const vector<vector<int>> &polys) {
+  return convolute_all(polys, 0, (int)polys.size());
+}

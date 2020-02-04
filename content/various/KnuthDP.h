@@ -19,7 +19,7 @@
  * Time: from $O(N^3)$ to $O(N^2)$
  */
  
-array<array<lint, 1123>, 1123> dyn;
+array<array<lint, 1123>, 1123> dp;
 array<array<int, 1123>, 1123> opt;
 array<int, 1123> b;
 int l, n;
@@ -34,18 +34,18 @@ int main() {
         b[0] = 0;
         b[n + 1] = l;
         for (int i = 1; i <= n+1; ++i) {
-            dyn[i][i - 1] = 0 
+            dp[i][i - 1] = 0 
             opt[i][i - 1] = i;    
         }
         for (int i = n; i > 0; --i) 
             for (int j = i; j <= n; ++j) {
-                dyn[i][j] = LLONG_MAX; // INF
+                dp[i][j] = LLONG_MAX; // INF
                 for (int k = max(i, opt[i][j - 1]); k <= j && k <= opt[i + 1][j]; ++k)
-                    if (dyn[i][k - 1] + dyn[k + 1][j] + f(i, j) < dyn[i][j]) {
-                        dyn[i][j] = dyn[i][k - 1] + dyn[k + 1][j] + f(i, j);
+                    if (dp[i][k - 1] + dp[k + 1][j] + f(i, j) < dp[i][j]) {
+                        dp[i][j] = dp[i][k - 1] + dp[k + 1][j] + f(i, j);
                         opt[i][j] = k;
                     }
             }
-        cout << dyn[1][n] << '\n';
+        cout << dp[1][n] << '\n';
     }
 }

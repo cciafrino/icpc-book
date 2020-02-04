@@ -6,7 +6,7 @@
  * Time: O(\sqrt n)
  */
 template<typename T>
-struct sqrt_tree {
+struct sqrt_sum {
     int n, bucket_size, n_buckets;
     vector<T> values, bucket_sums;
     sqrt_tree(int _n = 0) : n(_n), bucket_size(1.2*sqrt(n)+1), 
@@ -22,33 +22,29 @@ struct sqrt_tree {
                     bucket_sums[b] += values[i];
             }
     }
-    int which_bucket(int index) const { return index < n ? index / bucket_size : n_buckets; }
-    int get_bucket_left(int b) const { return bucket_size * b; }
-    int get_bucket_right(int b) const { return min(bucket_size * (b + 1), n);}
+    int which_bucket(int index) { return index < n ? index / bucket_size : n_buckets; }
+    int get_bucket_left(int b) { return bucket_size * b; }
+    int get_bucket_right(int b) { return min(bucket_size * (b + 1), n);}
     void update(int index, T change) {
         assert(0 <= index && index < n);
         values[index] += change;
         bucket_sums[which_bucket(index)] += change;
     }
-    T query(int left, int right) const {
+    T query(int left, int right) {
         assert(0 <= left && left <= right && right <= n);
         T sum = 0;
-        int left_b = which_bucket(left), right_b = which_bucket(right);
+        int left_b = which_bucket(left);
+        int right_b = which_bucket(right);
         int bucket_left = get_bucket_left(left_b);
         int bucket_right = get_bucket_right(left_b);
         if (left - bucket_left < bucket_right - left) 
-            while (left > bucket_left)
-                sum -= values[--left];
-        else while (left < bucket_right)
-                sum += values[left++];
+            while (left > bucket_left) sum -= values[--left];
+        else while (left < bucket_right) sum += values[left++];
         bucket_left = get_bucket_left(right_b);
         bucket_right = get_bucket_right(right_b);
         if (right - bucket_left < bucket_right - right) 
-            while (right > bucket_left)
-                sum += values[--right];
-        else 
-            while (right < bucket_right)
-                sum -= values[right++];
+            while (right > bucket_left) sum += values[--right];
+        else while (right < bucket_right) sum -= values[right++];
         left_b = which_bucket(left);
         right_b = which_bucket(right);
         for (int b = left_b; b < right_b; b++)

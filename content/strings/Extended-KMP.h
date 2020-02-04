@@ -8,7 +8,7 @@
 
 int S[N], T[N];
 
-void extKMP(const string &s, const string &t) { /// start-hash
+void extKMP(const string &s, const string &t) {
     int m = t.size(), maT = 0, maS = 0;
     T[0] = 0;
     for (int i = 1; i < m; i++) {
@@ -18,8 +18,8 @@ void extKMP(const string &s, const string &t) { /// start-hash
         while (T[i] + i < m && t[T[i]] == t[T[i] + i])
             T[i]++;
         if (i + T[i] > maT + T[maT]) maT = i;
-    } /// end-hash
-    int n = s.size(); /// start-hash
+    } 
+    int n = s.size();
     for (int i = 0; i < n; i++) {
         if (maS + S[maS] >= i)
             S[i] = min(T[i - maS], maS + S[maS] - i);
@@ -28,6 +28,5 @@ void extKMP(const string &s, const string &t) { /// start-hash
             S[i]++;
         if (i + S[i] > maS + S[maS]) maS = i;
     }
-    /// end-hash
 }
 

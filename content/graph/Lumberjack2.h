@@ -16,7 +16,7 @@ void bfs() {
     for (int i = 0; i < n; ++i)
 	    if (deg[i] == 1) {
 		    q.push(i);
-		    seen[i] = 1;
+		    seen[i] = true;
 	    }
     while(!q.empty()) {
 	    int v = q.front(); q.pop();
@@ -28,17 +28,17 @@ void bfs() {
 	    subtree[curpar] += subtree[v];
 	    if (deg[curpar] == 1) {
 		    q.push(curpar);
-		    seen[curpar] = 1;
+		    seen[curpar] = true;
 	    }
     }
     numcycles = 0;
     for (int i = 0; i < n; ++i) 
 	    if (!seen[i]) find_cycle(i);
-    for (int i = order.sz()-1; i >= 0; --i) {
+    for (int i = order.size()-1; i >= 0; --i) {
 	    int v = order[i], curpar = par[v];
 	    parincycle[v] = parincycle[curpar];
 	    cycle[v] = cycle[curpar];
-	    incycle[v] = 0;
+	    incycle[v] = false;
 	    idxcycle[v] = -1;
 	    depth[v] = 1 + depth[curpar];
     }
@@ -49,7 +49,7 @@ void find_cycle(int u) {
     sz[idx] = 0;
     cycles[idx].clear();
     while(!seen[u]) {
-	    seen[u] = incycle[u] = 1;
+	    seen[u] = incycle[u] = true;
 	    par[u] = find_par(u);
 	    if (par[u] == -1) par[u] = par;
 	    parincycle[u] = u;

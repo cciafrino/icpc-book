@@ -1,11 +1,19 @@
-
+/**
+ * Author: someone on Codeforces
+ * Date: 
+ * Source: 
+ * Description: A short self-balancing tree. It acts as a
+ *  sequential container with log-time splits/joins, and
+ *  is easy to augment with additional data.
+ * Time: $O(\log N)$
+ */
 mt19937_64 mt(48);
 
 struct node {
-	LL sz, v, p, lazy;
-	LL val, maxval, vsum;
+	lint sz, v, p, lazy;
+	lint val, maxval, vsum;
 	node *l, *r;
-	node(LL _v, LL _val): sz(1), v(_v), l(NULL),r(NULL), p(mt()), lazy(0){
+	node(lint _v, lint _val): sz(1), v(_v), l(NULL),r(NULL), p(mt()), lazy(0){
 		val = _val;
 		maxval = val;
 		vsum = v;
@@ -28,16 +36,16 @@ void push(node* t){
 	}
 }
 
-LL sz(node* t){
+lint sz(node* t){
 	push(t);
 	return (t == NULL ? 0 : t->sz);
 }
-LL vsum(node* t){
+lint vsum(node* t){
 	push(t);
 	return (t == NULL ? 0 : t->vsum);
 }
 
-LL maxval(node* t){
+lint maxval(node* t){
 	push(t);
 	return (t == NULL ? -1e15 : t->maxval);
 }
@@ -48,7 +56,7 @@ void upd(node* t){ // computes fully correct values of sum, sz
 	t->vsum = t->v + vsum(t->l) + vsum(t->r);
 	t->maxval = max(t->val, max(maxval(t->l), maxval(t->r)));
 }
-void split(node *t, node *&l, node *&r, LL k){ // splits into [0,k-1] and [k,?]
+void split(node *t, node *&l, node *&r, lint k){ // splits into [0,k-1] and [k,?]
 	push(t);
 	if(t == NULL){
 		l = NULL;
@@ -62,7 +70,7 @@ void split(node *t, node *&l, node *&r, LL k){ // splits into [0,k-1] and [k,?]
 	}
 	upd(t);
 }
-void splitv(node *t, node *&l, node *&r, LL v){ // splits into <= v and > v
+void splitv(node *t, node *&l, node *&r, lint v){ // splits into <= v and > v
 	push(t);
 	if(t == NULL){
 		l = NULL;
@@ -101,10 +109,10 @@ void pt(node *r){
 
 node * treap = nullptr;
 
-void add_eel(LL x){
+void add_eel(lint x){
 	node *a, *b;
 	splitv(treap, a, b, x);
-	LL newval = x - 2 * vsum(a);
+	lint newval = x - 2 * vsum(a);
 	if(b != nullptr){
 		b->lazy -= 2*x;
 	}
@@ -114,7 +122,7 @@ void add_eel(LL x){
 	merge(treap, c, b);
 }
 
-void remove_eel(LL x){
+void remove_eel(lint x){
 	node *a, *b;
 	splitv(treap, a, b, x-1);
 	node *v;

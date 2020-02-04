@@ -2,7 +2,7 @@
  * Author: Arthur Pratti Dadalto
  * License: CC0
  * Source: Codeforces
- * Description: Optimizes dp of the form (or similar) $dyn[i][j] = min_{k < i}(dyn[k][j-1] + f(k + 1, i))$.
+ * Description: Optimizes dp of the form (or similar) $dp[i][j] = min_{k < i}(dp[k][j-1] + f(k + 1, i))$.
 		The classical case is a partitioning $dp$, where k determines the break point for the next partition.
 		In this case, $i$ is the number of elements to partition and $j$ is the number of partitions allowed.
 		
@@ -22,17 +22,17 @@ int n, m;
 template<typename MAXN, typename MAXM>
 struct dp_task {
     array<array<int, MAXN>, MAXN> u;
-    array<array<int, MAXN>, MAXM> dyn;
+    array<array<int, MAXN>, MAXM> dp;
     inline f(int i, int j) {
         return (u[j][j] - u[j][i-1] - u[i-1][j] + u[i-1][i-1]) / 2;
     }
     // This is responsible for computing tab[l...r][j], knowing that opt[l...r][j] is in range [low_opt...high_opt]
     void solve(int j, int l, int r, int low_opt, int high_opt) {
         int mid = (l + r) / 2, opt = -1;
-        dyn[mid][j] = INF;
+        dp[mid][j] = INF;
         for (int k = low_opt; k <= high_opt && k < mid; ++k) 
-            if (dyn[k][j-1] + f(k + 1, mid) < dyn[mid][j]) {
-                dyn[mid][j] = dyn[k][j-1] + f(k + 1, mid);
+            if (dp[k][j-1] + f(k + 1, mid) < dp[mid][j]) {
+                dp[mid][j] = dp[k][j-1] + f(k + 1, mid);
                 opt = k;
             }
 	    // New bounds on opt for other pending computation.
@@ -55,19 +55,19 @@ int main() {
 			DP.u[i][j] += DP.u[i - 1][j] + DP.u[i][j - 1] - DP.u[i - 1][j - 1];
 
 	for (int i = 1; i <= n; i++)
-		DP.dyn[i][0] = INF;
+		DP.dp[i][0] = INF;
 
 	// Original dp
 	// for (int i = 1; i <= n; i++)
 	// 	for (int j = 1; j <= m; j++) {
-	// 		dyn[i][j] = INF;
+	// 		dp[i][j] = INF;
 	// 		for (int k = 0; k < i; k++)
-	// 			dyn[i][j] = min(dyn[i][j], dyn[k][j-1] + f(k + 1,i);
+	// 			dp[i][j] = min(dp[i][j], dp[k][j-1] + f(k + 1,i);
 	// 	}
 
 	for (int j = 1; j <= m; j++)
 		DP.solve(j, 1, n, 0, n - 1);
 
-	cout << DP.dyn[n][m] << endl;
+	cout << DP.dp[n][m] << endl;
 }
 
