@@ -10,14 +10,13 @@
  * Status: Tested on CodeForces 22E - Scheme
  */
   
-
-struct LumberJack {
+struct Lumberjack {
 	int n, numcycle;
 	vector<int> subtree, order, par, cycle;
 	vector<int> parincycles, idxcycle, sz, st;
 	vector<int> depth, indeg, cycles[12345];
 	vector<bool> seen, incycle, leaf;
-	LumberJack(int N):n(N) { init(n); }
+	LumberJack(int N) : n(N) { init(n); }
 	LumberJack(vector<int>& deg) : n(deg.size()) {
 		init(n);
 		par = deg;
@@ -26,8 +25,9 @@ struct LumberJack {
 		subtree.assign(n, 0);
 		seen.assign(n, false);
 		sz = st = subtree;
+		parincycles = depth = sz;
 		order = par = cycle = sz;
-		idxcycle = depth = indeg = sz; 
+		idxcycle = indeg = sz; 
 		incycle = leaf = seen;
 	}
 	void find_cycle(int u){

@@ -13,28 +13,27 @@
  * Status: bruteforce-tested mod 5 for n <= 5
  */
 #pragma once
+#include "ModularArithmetic.h"
 
-const lint mod = 1000000007; /** exclude-line */
-
-typedef vector<lint> Poly;
-lint linearRec(Poly S, Poly tr, lint k) { /// start-hash
-	int n = tr.size();
-	auto combine = [&](Poly a, Poly b) {
-		Poly res(n*2 + 1);
-		for(int i = 0; i <= n; ++i) for(int j = 0; j <= n; ++j)
-			res[i + j] = (res[i+j] + a[i] * b[j]) % mod;
-		for (int i = 2 * n; i > n; --i) for(int j = 0; j < n; ++j)
-			res[i-1-j] = (res[i-1-j] + res[i] * tr[j]) % mod;
+template <typename num>
+num linearRec(const vector<num>& S, const vector<num>& tr, lint k) {
+	int n = int(tr.size());
+	assert(S.size() >= tr.size());
+	auto combine = [&](vector<num> a, vector<num> b) {
+		vector<num> res(n * 2 + 1);
+		for (int i = 0; i <= n; i++) for (int j = 0; j <= n; j++) res[i + j] += a[i] * b[j];
+		for (int i = 2 * n; i > n; --i) for (int j = 0; j < n; j++)
+			res[i - 1 - j] += res[i] * tr[j];
 		res.resize(n + 1);
 		return res;
 	};
-	Poly pol(n+1), e(pol);
+	vector<num> pol(n + 1), e(pol);
 	pol[0] = e[1] = 1;
 	for (++k; k; k /= 2) {
 		if (k % 2) pol = combine(pol, e);
 		e = combine(e, e);
 	}
-	lint res = 0;
-	for(int i = 0; i < n; ++i) res = (res + pol[i+1] * S[i]) % mod;
+	num res = 0;
+	for (int i = 0; i < n; i++) res += pol[i + 1] * S[i];
 	return res;
-} /// end-hash
+}

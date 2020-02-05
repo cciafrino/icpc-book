@@ -1,7 +1,7 @@
 /**
  * Author: Chris
- * License: CC0
- * Description: Knapsack problem but repetitions are allowed.
+ * License: 
+ * Description: Knapsack problem but now take the same item multiple items is allowed.
  * Status: tested
  * Time: $O(N \log N)$
  */

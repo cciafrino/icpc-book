@@ -7,6 +7,7 @@
  * Status: somewhat tested - http://acm.hdu.edu.cn/showproblem.php?pid=4408
  * Time: $O(N^3)$
  */
+#include "DSU.h"
 
 lint det(vector<vector<lint>> a, int n, int p) {
 	lint ans = 1;

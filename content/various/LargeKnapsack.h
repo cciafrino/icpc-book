@@ -1,6 +1,6 @@
 /**
  * Author: Chris
- * License: CC0
+ * License: 
  * Description: Knapsack with definition changed. Support large values because the weight isn't a dimension in our dp anymore.
  * Status: tested
  * Time: $O(vW)$ where $v$ is the sum of values.

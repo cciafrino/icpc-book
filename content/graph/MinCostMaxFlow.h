@@ -12,9 +12,7 @@ template <typename flow_t = int, typename cost_t = long long>
 struct MCMF_SSPA { ///start-hash
 	int N;
 	vector<vector<int>> adj;
-	struct edge_t {
-		int dest; flow_t cap; cost_t cost;
-	};
+	struct edge_t { int dest; flow_t cap; cost_t cost; };
 	vector<edge_t> edges;
 	vector<char> seen;
 	vector<cost_t> pi;

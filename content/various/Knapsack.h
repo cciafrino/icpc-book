@@ -1,7 +1,7 @@
 /**
  * Author: BenQ
  * License: CC0
- * Description: Knapsack 01 problem, returns a vector that holds each chosen item.
+ * Description: Same 0-1 Knapsack problem, but returns a vector that holds each chosen item.
  * Status: tested
  * Time: $O(nW)$
  */
