@@ -7,27 +7,28 @@
  *  note that during this processing time we go through all the childrens
  * of v before reaching a vertex v, therefore we can compute some
  * infos about the children, like subtree of a given vertex
+ * Usage: Lumberjack<10010> g; g.init(N); (Be careful with the size of cyles when declared locally!)
  * Status: Tested on CodeForces 22E - Scheme
  */
-  
+
+template<int T>
 struct Lumberjack {
 	int n, numcycle;
 	vector<int> subtree, order, par, cycle;
 	vector<int> parincycles, idxcycle, sz, st;
-	vector<int> depth, indeg, cycles[12345];
+	vector<int> depth, indeg, cycles[T];
 	vector<bool> seen, incycle, leaf;
-	LumberJack(int N) : n(N) { init(n); }
-	LumberJack(vector<int>& deg) : n(deg.size()) {
-		init(n);
-		par = deg;
+	void init(vector<int>& par, vector<int>& indeg){ 
+		init(Par.size());
+		par = Par; indeg = Indeg; 
 	}
-	void init(int n) {
+	void init(int N) {
+		n = N;
 		subtree.assign(n, 0);
 		seen.assign(n, false);
 		sz = st = subtree;
-		parincycles = depth = sz;
-		order = par = cycle = sz;
-		idxcycle = indeg = sz; 
+		parincycles = order = par = cycle = sz;
+		idxcycle = depth = indeg = sz; 
 		incycle = leaf = seen;
 	}
 	void find_cycle(int u){
@@ -80,4 +81,3 @@ struct Lumberjack {
 		}
 	}
 };
-
