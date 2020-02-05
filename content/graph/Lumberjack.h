@@ -19,8 +19,8 @@ struct Lumberjack {
 	vector<int> depth, indeg, cycles[T];
 	vector<bool> seen, incycle, leaf;
 	void init(vector<int>& par, vector<int>& indeg){ 
-		init(Par.size());
-		par = Par; indeg = Indeg; 
+		init(par.size());
+		par = par; indeg = indeg; 
 	}
 	void init(int N) {
 		n = N;

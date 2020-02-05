@@ -10,34 +10,32 @@
  *
  * Status: NOT tested
  */
-struct LumberJack {
+template<int T>
+struct Lumberjack {
 	int n, numcycle;
 	vector<int> subtree, order, par, cycle;
 	vector<int> parincycles, idxcycle, sz, st;
-	vector<int> depth, deg, cycles[MAXN];
+	vector<int> depth, deg, cycles[T];
 	vector<bool> seen, incycle, leaf;
-	vector<vector<int> > graph;
-	
-	void init(vector<vector<int> > &Graph, vector<int> &Deg){ 
-		init(Graph.size());
-		graph = Graph; deg = Deg; 
+	vector<vector<int>> graph;
+	void init(vector<vector<int>>& graph, vector<int>& deg){ 
+		init(graph.size());
+		graph = graph; deg = deg; 
 	}
-
 	void init(int N) {
-		n=N;
-		subtree.assign(N, 0);
-		seen.assign(N, false);
+		n = N;
+		subtree.assign(n, 0);
+		seen.assign(n, false);
 		sz = st = subtree;
 		parincycles = order = par = cycle = sz;
 		idxcycle = depth = deg = sz; 
 		incycle = leaf = seen;
-		vector<int> adj; graph.assign(n,adj);
+		vector<int> adj; graph.assign(n, adj);
 	}
-	
 	int find_par(int u) {
-    for (int v : graph[u]) if (!seen[v]) 
-    	return v;
-    return -1;
+	    for (int v : graph[u]) if (!seen[v]) 
+	    	return v;
+	    return -1;
 	}
 	void find_cycle(int u){
 		int idx= ++numcycle, cur = 0, p = u;
