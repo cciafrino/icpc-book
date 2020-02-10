@@ -1,64 +1,64 @@
 /**
- * Author: Johan Sannemo, Simon Lindholm, Chris
- * Date: 2015-09-20
- * License: CC0
- * Source: Folklore
- * Status: Somewhat tested
- * Description: Data structure for computing lowest common
- * ancestors in a tree (with 0 as root). C should be an adjacency list of the tree,
- * either directed or undirected.
- * Can also find the distance between two nodes.
+ * Author: Chris
+ * Date: 
+ * License: 
+ * Source: 
+ * Status: tested
+ * Description: 
  * Usage:
- *  lca_t lca(undirGraph);
- *  lca.query(firstNode, secondNode);
- *  lca.dist(firstNode, secondNode);
- * Time: $O(N \log N + Q)$
+ * Time: 
  */
-#pragma once
-
-template<class T>
-struct RMQ {
-	vector<vector<T>> jmp;
-	RMQ(const vector<T>& V) {
-		int N = V.size(), on = 1, depth = 1;
-		while (on < N) on *= 2, depth++;
-		jmp.assign(depth, V);
-		for(int i = 0; i < depth-1; ++i) for(int j = 0; j < N; ++j)
-			jmp[i+1][j] = min(jmp[i][j],
-			jmp[i][min(N - 1, j + (1 << i))]);
-	}
-	T query(int a, int b) {
-		assert(a < b); // or return inf if a == b
-		int dep = 31 - __builtin_clz(b - a);
-		return min(jmp[dep][a], jmp[dep][b - (1 << dep)]);
-	}
+template<typename T, class Cmp=less<T>>
+struct rmq_t {
+    Cmp cmp; vector<vector<T>> table;
+    rmq_t() {}
+    rmq_t(const vector<T> &values, Cmp _cmp = Cmp()): cmp(_cmp) {
+        table.push_back(values);
+        for (int l = 1; l <= (int)__lg(values.size()); ++l) {
+            table.push_back(vector<T>(values.size() - (1<<l) + 1));
+            for (int i = 0; i+(1<<l) <= (int)values.size(); ++i) 
+                table[l][i] = min(table[l-1][i], table[l-1][i+(1<<(l-1))], cmp);
+        }
+    }
+    T query(int a, int b) {
+        int l = __lg(b-a+1);
+        return min(table[l][a], table[l][b-(1<<l)+1], cmp);
+    }
 };
 
-struct lca_t {
-	int n;
-	vector<int> depth, order;
-	vector<vector<int>> edges;
-	vector<pair<int,int>> temp;
-	RMQ<pair<int,int>> rmq;
-	lca_t(vector<vector<int>>& g) : n(g.size()), 
-	edges(g), depth(n), order(n), rmq(dfs(0,-1)) {}
-	vector<pair<int,int>> dfs(int v, int p) {
-		order[v] = temp.size();
-		depth[v] = 1 + depth[p];
-		temp.push_back({depth[v], v});
-		for (int u : edges[v]) {
-			if (u == p) continue;
-			dfs(u, v);
-			temp.push_back({depth[v], v});
-		}
-		return temp;
-	}
-	int query(int a, int b) {
-		a = order[a]; b = order[b];
-		if (a > b) swap(a, b);
-		return rmq.query(a, b).second;
-	}
-	int dist(int a, int b) {
-		return depth[a] + depth[b] - 2*depth[query(a, b)];
-	}
+template<typename T>
+struct cmp_as_key {
+    vector<T> *values = nullptr;
+    cmp_as_key() {}
+    cmp_as_key(vector<T> *_values): values(_values) {}
+    bool operator()(int a, int b) const {
+        return (*values)[a] < (*values)[b];
+    }
 };
+
+vector<vector<int>> edges;
+vector<int> walk, last_seen, depth;
+rmq_t<int, cmp_as_key<int>> rmq;
+
+void dfs(int v, int p, int d) {
+    depth[v] = d;
+    last_seen[v] = walk.size();
+    walk.push_back(v);
+    for (int u : edges[v]) {
+        if (u == p) continue;
+        dfs(u, v, d + 1);
+        last_seen[v] = walk.size();
+        walk.push_back(v);
+    }
+}
+ 
+void precalc() {
+    dfs(0, -1, 0);
+    rmq = {walk, {&depth}};
+}
+ 
+int lca(int a, int b) {
+    int pa = last_seen[a], pb = last_seen[b];
+    if (pa <= pb) return rmq.query(pa, pb);
+    else return rmq.query(pb, pa);
+}

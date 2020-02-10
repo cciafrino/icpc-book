@@ -46,20 +46,10 @@
   Given array $a_i$ of size $2^k$ calculate $b_i = \sum_{j \BitAnd i = i} a_j$.
 \fi
 
-\subsection{Table of non-trigonometric integrals}
-      Some useful integrals are:
-      
-      \begin{tabular}{|c|c|}
-        \hline
-        $\int \frac{dx}{x^2 + a^2}$ & $\frac{1}{a} \arctan \frac{x}{a}$ \\ \hline
-        $\int \frac{dx}{x^2 - a^2}$ & $\frac{1}{2a} \ln \frac{x - a}{x + a}$ \\ \hline
-        $\int \frac{dx}{a^2 - x^2}$ & $\frac{1}{2a} \ln \frac{a + x}{a - x}$ \\ \hline
-        $\int \frac{dx}{\sqrt{a^2 - x^2}}$ & $\arcsin \frac{x}{a}$ \\ \hline
-        $\int \frac{dx}{\sqrt{x^2 - a^2}}$ & $\ln \left(u + \sqrt{x^2 - a^2}\right)$ \\ \hline
-        $\int \frac{dx}{x \sqrt{x^2 - a^2}}$ & $\frac{1}{a} \text{arcsec} \left| \frac{u}{a} \right|$ \\ \hline
-        $\int \frac{dx}{x \sqrt{x^2 + a^2}}$ & $-\frac{1}{a} \ln \left( \frac{a + \sqrt{x^2 + a^2}}{x} \right)$ \\ \hline
-        $\int \frac{dx}{x \sqrt{a^2 + x^2}}$ & $-\frac{1}{a} \ln \left( \frac{a + \sqrt{a^2 - x^2}}{x} \right)$ \\ \hline
-      \end{tabular}
+\subsection{Determinants}
+              det(A) &= \sum_{\sigma \in S_n}\text{sgn}(\sigma)\prod_{i = 1}^n a_{i,\sigma(i)}
+              %perm(A) &= \sum_{\sigma \in S_n} \prod_{i = 1}^n a_{i,\sigma(i)}\\
+              %pf(A) &= \frac{1}{2^nn!}\sum_{\sigma \in S_{2n}} \text{sgn}(\sigma)\prod_{i = 1}^n a_{\sigma(2i-1),\sigma(2i)}\\ &= \sum_{M \in \text{PM}(n)} \text{sgn}(M) \prod_{(i,j) \in M} a_{i,j}
 
 
 \subsection{Table of trigonometric integrals}
@@ -80,11 +70,20 @@
         $\int \arctan x dx$ & $x \arctan x - \frac{1}{2} \ln |1 - x^2|$ \\ \hline
       \end{tabular}
 
-
-\subsection{Determinants}
-              det(A) &= \sum_{\sigma \in S_n}\text{sgn}(\sigma)\prod_{i = 1}^n a_{i,\sigma(i)}
-              %perm(A) &= \sum_{\sigma \in S_n} \prod_{i = 1}^n a_{i,\sigma(i)}\\
-              %pf(A) &= \frac{1}{2^nn!}\sum_{\sigma \in S_{2n}} \text{sgn}(\sigma)\prod_{i = 1}^n a_{\sigma(2i-1),\sigma(2i)}\\ &= \sum_{M \in \text{PM}(n)} \text{sgn}(M) \prod_{(i,j) \in M} a_{i,j}
+\subsection{Table of non-trigonometric integrals}
+      Some useful integrals are:
+      
+      \begin{tabular}{|c|c|}
+        \hline
+        $\int \frac{dx}{x^2 + a^2}$ & $\frac{1}{a} \arctan \frac{x}{a}$ \\ \hline
+        $\int \frac{dx}{x^2 - a^2}$ & $\frac{1}{2a} \ln \frac{x - a}{x + a}$ \\ \hline
+        $\int \frac{dx}{a^2 - x^2}$ & $\frac{1}{2a} \ln \frac{a + x}{a - x}$ \\ \hline
+        $\int \frac{dx}{\sqrt{a^2 - x^2}}$ & $\arcsin \frac{x}{a}$ \\ \hline
+        $\int \frac{dx}{\sqrt{x^2 - a^2}}$ & $\ln \left(u + \sqrt{x^2 - a^2}\right)$ \\ \hline
+        $\int \frac{dx}{x \sqrt{x^2 - a^2}}$ & $\frac{1}{a} \text{arcsec} \left| \frac{u}{a} \right|$ \\ \hline
+        $\int \frac{dx}{x \sqrt{x^2 + a^2}}$ & $-\frac{1}{a} \ln \left( \frac{a + \sqrt{x^2 + a^2}}{x} \right)$ \\ \hline
+        $\int \frac{dx}{x \sqrt{a^2 + x^2}}$ & $-\frac{1}{a} \ln \left( \frac{a + \sqrt{a^2 - x^2}}{x} \right)$ \\ \hline
+      \end{tabular}
 
 
 \subsection{Common integral substitutions} And finally, a list of common substitutions:
@@ -117,6 +116,7 @@
     $(0,1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\ldots)$ & $\ln \frac{1}{1-z}$ \\ \hline
   \end{tabular}
 
+\
 
 A neat manipulation trick is:
 \begin{equation*}

@@ -17,17 +17,17 @@
 	\kactlimport{Multinomial.h}
 	\kactlimport{PascalTriangle.h}
 
-\subsection{Derangements}
-		Permutações de um conjunto tais que nenhum dos elementos aparecem em sua posição original.
-		\small
-		\[ \mkern-2mu D(n) = (n-1)(D(n-1)+D(n-2)) = n D(n-1)+(-1)^n = \left\lfloor\frac{n!}{e}\right\rceil \]
-		\normalsize
+ \subsection{Involutions}
+    Uma involução é uma permutação com ciclo de tamanho máximo 2, e é a sua própria inversa.
+    $$a(n) = a(n-1) + (n-1)a(n-2)$$
+    $$a(0) = a(1) = 1$$
+    1, 1, 2, 4, 10, 26, 76, 232, 764, 2620, 9496, 35696, 140152\\ \hfill
 
 \subsection{Cycles}
 		Suponha que $g_S(n)$ é o número de $n$-permutações quais o tamanho do ciclo pertence ao conjunto $S$. Então
 		\small
 		$$\sum_{n=0} ^\infty g_S(n) \frac{x^n}{n!} = \exp\left(\sum_{n\in S} \frac{x^n} {n} \right)$$
-		\normalsize\columnbreak
+		\normalsize
 %\subsection{The Twelvefold Way}
 %Putting $n$ balls into $k$ boxes.
 %$\mathrm{p}(n,k)$ is \# partitions of $n$ in $k$ parts, each $>0$.
@@ -62,15 +62,10 @@
       \end{tabular}
 	}
 
-      Where $\binom{a}{b} = \frac{1}{b!}(a)_b $, $p_x(n)$ is the number of ways to partition the integer $n$ using $x$ summand and $\stirlingsecond{n}{x}$ is the number of ways to partition a set of $n$ elements into $x$ subsets (aka Stirling number of the second kind). 
+      Where $\binom{a}{b} = \frac{1}{b!}(a)_b $, $p_x(n)$ is the number of ways to partition the integer $n$ using $x$ summand and $\stirlingsecond{n}{x}$ is the number of ways to partition a set of $n$ elements into $x$ subsets (aka Stirling number of the second kind).
 
-    \subsection{Involutions}
-    Uma involução é uma permutação com ciclo de tamanho máximo 2, e é a sua própria inversa.
-    $$a(n) = a(n-1) + (n-1)a(n-2)$$
-    $$a(0) = a(1) = 1$$
-    1, 1, 2, 4, 10, 26, 76, 232, 764, 2620, 9496, 35696, 140152\\ \hfill
 
-   
+\
 
 	
 \subsection{Burnside}
@@ -81,6 +76,13 @@ Seja~$A \colon GX \rightarrow X$ uma ação. Defina:
 \item $F_g \coloneqq \{x \in X \mid g \cdot x = x \} $
 \end{itemize}
 Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\limits_{g \in G}{|F_g|}. $
+
+
+\subsection{Derangements}
+		Permutações de um conjunto tais que nenhum dos elementos aparecem em sua posição original.
+		\small
+		\[ \mkern-2mu D(n) = (n-1)(D(n-1)+D(n-2)) = n D(n-1)+(-1)^n = \left\lfloor\frac{n!}{e}\right\rceil \]
+		\normalsize
 
 \section{Partitions and subsets}
 	\subsection{Partition function}
@@ -187,7 +189,11 @@ Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\lim
     $$N(n,k) = \frac{1}{n} \binom{n}{k} \binom{n}{k-1}$$
     $$N(n,1) = N(n,n) = 1$$
     $$\sum_{k=1}^{n} N(n,k) = C_{n}$$
-    1, 1, 1, 1, 3, 1, 1, 6, 6, 1, 1, 10, 20, 10, 1, 1, 15, 50\\
+    1, 1, 1, 1, 3, 1, 1, 6, 6, 1, 1, 10, 20, 10, 1, 1, 15, 50
+
+
+\
+
 
     \subsection{Schroder numbers}
 	Number of lattice paths from (0, 0) to ($n$, $n$) using only steps

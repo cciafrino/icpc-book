@@ -1,5 +1,5 @@
 /**
- * Author: Lucian Bicsi
+ * Author: Lucian Bicsi / Andrew He
  * Date: 2018-02-14
  * License: CC0
  * Source: Chinese material

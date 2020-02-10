@@ -9,7 +9,6 @@
 int main() {
     bitset<100> bt;
     cin >> bt;
-
     cout << bt[0] << "\n";
     cout << bt.count() << "\n"; // number of bits set
     cout << (~bt).none() << "\n"; // return true if has no bits set

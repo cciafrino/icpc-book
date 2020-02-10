@@ -1,12 +1,14 @@
 /**
  * Author: Chris
- * Description: RSQ using Sparse Table
+ * Description: Range Sum Queries on an array. Returns
+ * sum(V[a], V[a + 1], ... V[b - 1]) in constant time.
  */
 
 template<typename T>
-struct RSQ {
+struct rsq_t {
     vector<vector<T>> table;
-    RSQ(const vector<T> &values) {
+    rsq_t() {}
+    rsq_t(const vector<T> &values) {
         int n = values.size();
         table.resize(__lg(n)+1);
         table[0].resize(n);
@@ -18,14 +20,12 @@ struct RSQ {
         }
     }
     T query(int a, int b) {
-        lint l = b - a + 1, ret = 0;
-        for (int i = (int)table.size(); i >= 0; --i) {
+        int l = b - a + 1; T ret{};
+        for (int i = (int)table.size(); i >= 0; --i) 
             if ((1 << i) <= l) {
-                ret += table[i][a];
-                a += (1 << i);
+                ret += table[i][a]; a += (1<<i);
                 l = b - a + 1;
             }
-        }
         return ret;
     }
 };
