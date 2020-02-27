@@ -1,14 +1,20 @@
 /**
  * Author: Chris
- * Description: $\Comb{n}{r}$
+ * Date: 
+ * License: CC0
+ * Source: 
+ * Status: 
+ * Description: Pre-compute all the factorial numbers until $lim$.
+ * Usage:
+ * Time: $O(N + \log(mod))$
  */
-lint ncr(lint n, lint r){
-    if(r < 0 || n < 0) return 0;
-    if(n < r) return 0;
-    lint a = fact[n];
-    a = (a * invfact[r]) % mod;
-    a = (a * invfact[n-r]) % mod;
-    return a;
+num ncr(int n, int k) {
+	num res = 1;
+	for (int i = 1; i <= k; ++i) {
+		res *= (n - i + 1);
+		res /= i;
+	}
+	return res;
 }
 
 num ncr(int n, int k){

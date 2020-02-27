@@ -2,6 +2,7 @@
  * Author: Simon Lindholm
  * Date: 2018-07-06
  * License: CC0
+ * Source: http://antoinecomeau.blogspot.com/2014/07/mapping-between-permutations-and.html
  * Description: Permutation -> integer conversion. (Not order preserving.)
  * Time: O(n)
  */

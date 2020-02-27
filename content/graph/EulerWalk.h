@@ -1,9 +1,16 @@
 /**
- * Author: BenQ
-* Description: Eulerian undirected/directed path/cycle algorithm. Returns a list of nodes in the Eulerian path/cycle with src at both start and end, or
- *  empty list if no cycle/path exists. To get edge indices back, also put it->second in s (and then ret).
- * Time: O(E) where E is the number of edges.
- * Status: tested
+ * Author: Simon Lindholm
+ * Date: 2019-12-31
+ * License: CC0
+ * Source: folklore
+ * Description: Eulerian undirected/directed path/cycle algorithm.
+ * Input should be a vector of (dest, global edge index), where
+ * for undirected graphs, forward/backward edges have the same index.
+ * Returns a list of nodes in the Eulerian path/cycle with src at both start and end, or
+ * empty list if no cycle/path exists.
+ * To get edge indices back, add .second to s and ret.
+ * Time: O(V + E)
+ * Status: stress-tested
  */
 using pii = pair<int,int>;
 

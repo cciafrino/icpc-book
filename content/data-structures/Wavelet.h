@@ -1,8 +1,8 @@
 /**
- * Author: BenQ + Chris
+ * Author: Chris + BenQ
  * Date: 
  * License: 
- * Source: 
+ * Source: BenQ
  * Description: Segment tree on values instead of indices. kth return the largest number in 0-indexed interval.
  * count return the number of elements of a[i, j) that belong in [x, y].
  * Time: $O(\log(n))$

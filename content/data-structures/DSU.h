@@ -1,6 +1,9 @@
 /**
- * Author: Chris
- * Description: Disjoint-set data structure
+ * Author: Lukas Polacek
+ * Date: 2018
+ * License: CC0
+ * Source: Me
+ * Description: Disjoint-set data structure.
  * Time: $O(\alpha(N))$
  */
 
@@ -15,8 +18,7 @@ struct UF {
         return parent[v] = find(parent[v]);
     }
     int unite(int a, int b) {
-        a = find(a);
-        b = find(b);
+        a = find(a), b = find(b);
         if (a == b) return a;
         if (rank[a] > rank[b]) swap(a, b);
         parent[a] = b;

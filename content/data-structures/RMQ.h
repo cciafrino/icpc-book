@@ -4,8 +4,8 @@
  * License: CC0
  * Source: Felipe Abella
  * Status: Tested at Spoj RMQ
- * Description: Range Minimum Queries on an array. Returns
- * min(V[a], V[a + 1], ... V[b - 1]) in constant time. Returns a pair that holds the answer, first element is the value and the second is the index, obviously doesn't work with sum or similar queries.
+ * Description: Range Minimum/Maximum Queries on an array. Returns
+ * min(V[a], V[a + 1], ... V[b - 1]) in constant time. Returns a pair that holds the answer, first element is the value and the second is the index.
  * Usage:
  *  rmq_t<int> rmq(values);
  *  rmq.query(inclusive, inclusive); 

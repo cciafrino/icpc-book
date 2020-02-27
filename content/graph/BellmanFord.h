@@ -29,6 +29,5 @@ void bellmanFord(vector<Node>& nodes, vector<Ed>& eds, int s) {
 		}
 	}
 	for(int i = 0; i < lim; ++i) for(auto &e : eds) 
-		if (nodes[e.a].dist == -inf)
-			nodes[e.b].dist = -inf;
+		if (nodes[e.a].dist == -inf) nodes[e.b].dist = -inf;
 }

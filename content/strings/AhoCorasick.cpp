@@ -4,16 +4,17 @@
  * Description: String searching algorithm that matches all strings simultaneously. To use with stl string: (char *)stringname.c\_str()
  */
 
-struct Node {
+struct node_t {
     int fail;
     vector<pair<int,int>> out; // num e tamanho do padrao
     //bool marc;  // p/ decisao
     map<char,int> link;
 	int next; // aponta para o proximo sufixo que tenha out.size > 0
 };
-Node tree[1000003]; // quantida maxima de nos
+node_t tree[1000003]; // quantida maxima de nos
 
 struct AhoCorasick {
+
 	//bool encontrado[1005]; // quantidade maxima de padroes, p/ decisao
 	int qtdNos, qtdPadroes;
 	vector<vector<int>> result;
@@ -28,12 +29,11 @@ struct AhoCorasick {
 	    //tree[0].marc = false; // p/ decisao
 	    //memset(encontrado, false, sizeof(encontrado)); // p/ decisao
 	}
-	// Funcao para adicionar um padrao
 	void add(string &pat) {
 		vector<int> v;
 		result.push_back(v);
 	    int no = 0, len = 0;
-	    for (int i = 0; i < pat.size(); i++, len++) {
+	    for (int i = 0; i < pat.size(); ++i, ++len) {
 	        if (tree[no].link.find(pat[i]) == tree[no].link.end()) {
 	            tree[qtdNos].link.clear(); tree[qtdNos].out.clear();
 	            //tree[qtdNos].marc = false; // p/ decisao
@@ -41,19 +41,18 @@ struct AhoCorasick {
 	            no = qtdNos++;
 	        } else no = tree[no].link[pat[i]];
 	    }
-	    tree[no].out.push_back({qtdPadroes++,len});
+	    tree[no].out.push_back({++qtdPadroes,len});
 	}
-	// Ativar Aho-corasick, ajustando funcoes de falha
 	void activate() {
-	    int no,v,f,w;
+	    int no, v, f, w;
 	    vector<int> bfs;
 	    for (auto  it = tree[0].link.begin();
-	       it != tree[0].link.end() ; it++) {
+	       it != tree[0].link.end() ; ++it) {
 	        tree[no = it->second].fail = 0;
 	        tree[no].next = tree[0].out.size() ? 0 : -1;
 	        bfs.push_back(no);
 	    }
-	    for(int i = 0; i < bfs.size(); ++i) {
+	    for (int i = 0; i < bfs.size(); ++i) {
 	        no = bfs[i]; 
 	        for (auto it = tree[no].link.begin();
 	             it != tree[no].link.end(); it++) {
@@ -71,8 +70,7 @@ struct AhoCorasick {
 	        }
 	    }
 	}
-	// Buscar padroes no aho-corasik
-	void search_all(string &text) {
+	void matches(string& text) {
 	    int v, no = 0;
 	    for (int i = 0; i < text.size(); ++i) {
 	        while (tree[no].link.find(text[i]) == tree[no].link.end()) {
@@ -81,7 +79,7 @@ struct AhoCorasick {
 	        }
 	        v = no = tree[no].link[text[i]];
 	        // marcar os encontrados
-	        while (v != -1 /* && !tree[v].marc */ ) { // p/ decisao
+	        while (v != -1 /* && !tree[v].marc */) { // p/ decisao
 	            //tree[v].marc = true; // p/ decisao: nao continua a link
 	            for (int k = 0 ; k < tree[v].out.size() ; k++) {
 	                //encontrado[tree[v].out[k].first] = true; // p/ decisao

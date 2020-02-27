@@ -44,7 +44,7 @@ struct linetree_t {
 	const T limit = numeric_limits<T>::min();
 	vector<int> index, line;
 	vector<edge_t> edges; vector<T> line_w;
-	unique_ptr<RMQ<T>> rmq;
+	unique_ptr<rmq_t<T>> rmq;
 	linetree_t(int _n) : n(_n), index(n) {}
 	void addEdge(int from, int to, T weight) {
 		edges.emplace_back(from, to, weight);

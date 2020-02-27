@@ -5,6 +5,8 @@
  * Source: me
  * Description: Better SegTree. Range Sum, can be extended to max/min/product/gcd, pay attention 
  * to propagate, f and update functions when extending. Be careful with each initialization aswell.
+ * Status: Tested
+ * Time: $O(\lg(N))$
  */
 
 template<typename T, typename Q>
@@ -18,7 +20,7 @@ struct segtree_t {
             tree(4*n), lazy(4*n) {
         build(1, 0, n-1);
     }
-    T f(const T &a, const T &b) { return (a + b); }
+    T f(const T &a, const T &b) { return (a,b); }
     T build(int v, int l, int r) {
         lazy[v] = 0;
         if (l == r) return tree[v] = og[l];

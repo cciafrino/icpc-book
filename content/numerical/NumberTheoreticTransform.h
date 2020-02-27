@@ -1,5 +1,5 @@
 /**
- * Author: chilinti
+ * Author: chilli
  * Date: 2019-04-16
  * License: CC0
  * Source: based on KACTL's FFT

@@ -1,5 +1,9 @@
 /**
  * Author: Chris
+ * Date: 
+ * License: CC0
+ * Source: 
+ * Status: 
  * Description: Lucas theorem
  * Time: $O(log_p(n)\textt{mod_inverse()})$
  * Source: 

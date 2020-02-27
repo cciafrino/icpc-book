@@ -1,7 +1,12 @@
 /**
  * Author: Chris
- * Description: Pre-compute all binomial coefficient
- * Time: $O(n^2)$
+ * Date: 
+ * License: CC0
+ * Source: 
+ * Status: 
+ * Description: Pre-compute all the Binomial Coefficients until $n$.
+ * Usage:
+ * Time: $O(N^2)$
  */
 
 void init() {

@@ -1,8 +1,13 @@
 /**
  * Author: Chris
- * Description: Precalculate factorials
+ * Date: 
+ * License: CC0
+ * Source: 
+ * Status: 
+ * Description: Pre-compute all the factorial numbers until $lim$.
+ * Usage:
+ * Time: 
  */
- 
 void init(int lim) {
     fact.resize(lim + 1);
     fact[0] = 1;

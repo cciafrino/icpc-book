@@ -1,7 +1,15 @@
 /**
  * Author: Chris
+ * Date: 
+ * License: CC0
+ * Source: Felipe Abella
+ * Status: Tested at Spoj RMQ
  * Description: Range Sum Queries on an array. Returns
- * sum(V[a], V[a + 1], ... V[b - 1]) in constant time.
+ * min(V[a], V[a + 1], ... V[b - 1]) in constant time. 
+ * Usage:
+ *  rsq_t<int> rsq(values);
+ *  rsq.query(inclusive, inclusive); 
+ * Time: $O(|V| \log |V| + Q)$
  */
 
 template<typename T>

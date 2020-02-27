@@ -1,7 +1,11 @@
 /**
  * Author: Chris
  * Description: Dynamic Segment Tree with lazy propagation. Allows range query, range update (increment and assignment). 
- * For assignment change all += to = in push and update functions.
+ * For assignment change all += to = in push and update functions. If not using lazy, remove all push related function calls.
+ * License: CC0
+ * Source: folklore
+ * Time: $O(\lg(N))$
+ * Status: Tested
  * Usage: vector<int> a;
  * node *segtree = build(0, n, a);
  */
@@ -48,15 +52,15 @@ void upd(node *v, int lx, int rx, lint delta) {
 	}
 	upd(v->l, lx, rx, delta);
 	upd(v->r, lx, rx, delta);	
-	v->minv = min(v->l->minv, v->r->minv) + v->lazy;
+	v->minv = max(v->l->minv, v->r->minv) + v->lazy;
 	v->sumv = v->l->sumv + v->r->sumv + v->lazy * (v->rx - v->lx + 1);		
 }
 
 lint mquery(node *v, int lx, int rx) {
 	push(v);
-	if(rx < v->lx || v->rx < lx) return 1e16;
+	if(rx < v->lx || v->rx < lx) return -1e16;
 	if(lx <= v->lx && v->rx <= rx) return v->minv;
-	return min(mquery(v->l, lx, rx), mquery(v->r, lx, rx));
+	return max(mquery(v->l, lx, rx), mquery(v->r, lx, rx));
 }
 
 lint squery(node *v, int lx, int rx) {
@@ -66,17 +70,17 @@ lint squery(node *v, int lx, int rx) {
 	return squery(v->l, lx, rx) + squery(v->r, lx, rx);
 }
 
-node *build(int lx, int rx, vector<int>& a) {
+node *build(int lx, int rx) {
 	node *v = new node();
 	v->lx = lx; v->rx = rx;
 	if(lx == rx) {
 		v->lazy = 0;
 		v->l = v->r = nullptr;
-		v->minv = v->sumv = a[lx];
+		v->minv = v->sumv = 0;
 	}
 	else {
-		v->l = build(lx, (lx + rx)/2, a);
-		v->r = build((lx + rx)/2 + 1, rx, a);
+		v->l = build(lx, (lx + rx)/2);
+		v->r = build((lx + rx)/2 + 1, rx);
 		v->minv = min(v->l->minv, v->r->minv);
 		v->sumv = v->l->sumv + v->r->sumv;
 		v->lazy = 0;

@@ -1,7 +1,8 @@
 /**
  * Author: Chris
  * Description: Structure that handles tree's, can find its diameter
- * points, diameter length, center vertices, etc;
+ * points, diameter length, center vertices, etc. Consider using two BFS's if
+ * constraints are too tight.
  */
 
 struct tree_t {

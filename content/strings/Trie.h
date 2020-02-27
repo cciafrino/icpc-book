@@ -49,7 +49,7 @@
 	}
  
 	bool is_prefix(const string &s, int i) {
-		if(i ==(int)s.size()) return cnt;
+		if(i == (int)s.size()) return cnt;
 		if(!m.count(s[i])) return false;
 		return m[s[i]].is_prefix(s, i + 1);
 	}

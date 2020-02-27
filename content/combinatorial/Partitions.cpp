@@ -2,7 +2,11 @@
  * Author: Snapdragon
  * Date: 2019
  * License: CC0
+ * Source: 
+ * Status: 
  * Description: Fills array with partition function p(n) for 0 <= i <= n
+ * Usage:
+ * Time: 
  */
 
 array<int, 122> part; // 121 is max partition that will fit into int

@@ -2,7 +2,7 @@
  * Author: Chris
  * Date: 
  * License: 
- * Source: TopCoder
+ * Source: TopCoder tutorial
  * Description: Classic FT with linear initialization. All queries are [a, b). get(pos) function returns the element at index pos in O(1) amortized. lowerbound(sum) returns the largest i in [0, n] st query(i) <= sum. Returns -1 if no such i exists (sum < 0).  Can be used as an ordered set on indices in [0, n) by using the tree as a 0/1 array: update(index, +1) is equivalent to insert(index); be careful not to re-insert. 
  * get(index) provides whether index is present or not. 
  * query(index) provides the count of elements < index. 

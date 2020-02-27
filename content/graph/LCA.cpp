@@ -63,8 +63,7 @@ struct lca_t {
     }
     int get_kth_on_path(int a, int b, int k) {
         int v = query(a, b);
-        int x = height[a] - height[v];
-        int y = height[b] - height[v];
+        int x = height[a] - height[v], y = height[b] - height[v];
         if (k < x) return get_kth_ancestor(a, k);
         else return get_kth_ancestor(b, x + y - k);
     }

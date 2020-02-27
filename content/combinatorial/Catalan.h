@@ -1,8 +1,12 @@
 /**
  * Author: Chris
- * Description: Pre calculate Catalan numbers.
- * Usage: 
-          
+ * Date: 
+ * License: CC0
+ * Source: 
+ * Status: 
+ * Description: Pre-compute all the Catalan numbers until $n$.
+ * Usage:
+ * Time: 
  */
 #include<ModTemplate.h>
 

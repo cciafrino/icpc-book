@@ -120,13 +120,7 @@ Um grafo é k-conexo sse todo par de vértices é conectado por pelo menos k cam
 \item Para arestas:
 Um grafo é dito~$k$-aresta-conexo se a retirada de menos de~$k$ arestas do grafo o mantém conexo. Então um grafo é~$k$ -aresta-conexo sse para todo par de vértices~$u$ e~$v$, existem~$k$ caminhos que ligam~$u$ a~$v$ sem arestas em comum.
 
-\subsection{Erdös-Gallai theorem}
-Existe um grafo simples com graus~$d_1 \geq d_2 \geq \ldots \geq d_n$ sse:
-\begin{itemize}
-\item $d_1 + d_2 + \ldots + d_n$ é par
-\item $\sum\limits_{i = 1}^k{d_i} \leq k(k-1) + \sum\limits_{i=k+1}^n{\min(d_i, k)} \quad \forall 1 \leq k \leq n$.
-\end{itemize}
-Para construir, ligamos~1 com~$2, 3, \ldots, d_1 + 1$ e seguimos recursivamente.
+\
 
 \subsection{Landau}
 Existe um torneio com graus de saída~$d_1 \leq d_2 \leq \ldots \leq d_n$ sse:
@@ -135,6 +129,18 @@ Existe um torneio com graus de saída~$d_1 \leq d_2 \leq \ldots \leq d_n$ sse:
 \item $d_1 + d_2 + \ldots + d_k \geq {k \choose 2} \quad \forall 1 \leq k \leq n.$
 \end{itemize}
 Para construir, fazemos~1 apontar para~$2, 3, \ldots, d_1 + 1$ e seguimos recursivamente.
+
+\
+
+\subsection{Erdös-Gallai theorem}
+Existe um grafo simples com graus~$d_1 \geq d_2 \geq \ldots \geq d_n$ sse:
+\begin{itemize}
+\item $d_1 + d_2 + \ldots + d_n$ é par
+\item $\sum\limits_{i = 1}^k{d_i} \leq k(k-1) + \sum\limits_{i=k+1}^n{\min(d_i, k)} \quad \forall 1 \leq k \leq n$.
+\end{itemize}
+Para construir, ligamos~1 com~$2, 3, \ldots, d_1 + 1$ e seguimos recursivamente.\newline
+
+
 \iffalse
 \subsection{Synchronizing word problem}
 A DFA has a synchronizing word (an input sequence that moves all states
@@ -142,9 +148,15 @@ to the same state) iff.\ each pair of states has a synchronizing word.
 That can be checked using reverse DFS over pairs of states. Finding the
 shortest synchronizing word is NP-complete.
 \fi
- 
+
+
+\ 
+
+
 \subsection{Tutte-Berge formula}
 The theorem states that the size of a maximum matching of a graph $G=(V,E)$ equals ${\frac {1}{2}}\min _{U\subseteq V}\left(|U|- \texttt{odd}(G-U)+|V|\right)\,,$ where \texttt{odd}(H) counts how many of the connected components of the graph $H$ have an odd number of vertices.
+
+\
 
 \subsection{Tutte's theorem}
 Um grafo $G = (V, A)$ tem um emparelhamento perfeito sse para todo subconjunto $U$ de $V$, o subgrafo induzido por $V \setminus U$ tem no máximo $|U|$ componentes conexas com uma quantidade ímpar de vértices.
@@ -181,6 +193,3 @@ $ \max\limits_{S \in I_1 \cap I_2}{|S|} = \min\limits_{U \subseteq E}{r_1(U) + r
 		\texttt{mat[a][b]--, mat[b][b]++} (and \texttt{mat[b][a]--, mat[a][a]++} if $G$ is undirected).
 		Remove the $i$th row and column and take the determinant; this yields the number of directed spanning trees rooted at $i$
 		(if $G$ is undirected, remove any row/column).
-
-\subsection{Fatos úteis}
-O número de vértices de um grafo é igual a sua cobertura mínima mais a cardinalidade do conjunto independente máximo.
