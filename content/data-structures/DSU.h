@@ -1,5 +1,5 @@
 /**
- * Author: Lukas Polacek
+ * Author: Chris
  * Date: 2018
  * License: CC0
  * Source: Me
@@ -17,12 +17,12 @@ struct UF {
         if (parent[v] == v) return v;
         return parent[v] = find(parent[v]);
     }
-    int unite(int a, int b) {
+    bool unite(int a, int b) {
         a = find(a), b = find(b);
-        if (a == b) return a;
+        if (a == b) return false;
         if (rank[a] > rank[b]) swap(a, b);
         parent[a] = b;
         if (rank[a] == rank[b]) ++rank[b];
-        return b;
+        return true;
     }
 };

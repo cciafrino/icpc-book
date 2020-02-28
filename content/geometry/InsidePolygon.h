@@ -5,7 +5,7 @@
  * Source: https://vlecomte.github.io/cp-geo.pdf
  * Description: Returns true if p lies within the polygon. If strict is true,
  * it returns false for points on the boundary. The algorithm uses
- * products in intermediate steps so watch out for overflow.
+ * products in intermediate steps so watch out for overflow. 
  * Time: O(n)
  * Status: fuzz-tested and Kattis problem pointinpolygon
  * Usage:
@@ -23,7 +23,8 @@ bool inPolygon(vector<P> &p, P a, bool strict = true) {
 	int cnt = 0, n = p.size();
 	for(int i = 0; i < n; ++i) {
 		P q = p[(i + 1) % n];
-		if (onSegment(p[i], q, a)) return !strict;
+		if (onSegment(p[i], q, a)) return !strict; // change to
+				// -1 if u need to detect points in the boundary
 		//or: if (segDist(p[i], q, a) <= eps) return !strict;
 		cnt ^= ((a.y<p[i].y) - (a.y<q.y)) * a.cross(p[i], q) > 0;
 	}

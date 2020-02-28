@@ -13,8 +13,7 @@ vector<int> Z(string& S) {
         z[i] = i >= r ? 0 : min(r - i, z[i - l]);
         while (i + z[i] < S.size() && S[i + z[i]] == S[z[i]])
             z[i]++;
-        if (i + z[i] > r)
-            l = i, r = i + z[i];
+        if (i + z[i] > r) l = i, r = i + z[i];
     }
     return z;
 }

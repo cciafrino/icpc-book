@@ -15,7 +15,7 @@
  * Status: somewhat tested
  */
 
-typedef complex<long double> doublex;
+using doublex = complex<long double>;
 struct FFT {
     vector<doublex> fft(vector<doublex> y, bool invert = false) {
         const int N = y.size(); assert(N == (N&-N));
@@ -49,4 +49,4 @@ struct FFT {
         c.resize(n);
         return move(c);
     }
-} fft;
+};
