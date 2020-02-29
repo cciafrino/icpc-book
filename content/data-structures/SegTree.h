@@ -1,59 +1,28 @@
 /**
- * Author: halyavin
+ * Author: Lucian Bicsi
  * Date: 2017-10-31
  * License: CC0
  * Source: folklore
- * Description: Time and space efficient Segment Tree. Point update and range query.
+ * Description: Zero-indexed sum-tree. Bounds are inclusive to the left and exclusive to the right. Can be changed by modifying T, LOW and f.
  * Time: O(\log N)
  * Status: fuzz-tested
  */
-#pragma once
-
-template<class T>
-struct segtree_t {
-    int size;
-    vector<T> t;
-    segtree_t(int N) : size(N), t(2 * N) {}
-    segtree_t(const vector<T> &other) :
-            size(other.size()),
-            t(2 * other.size()) {
-        copy(other.begin(), other.end(), t.begin() + size);
-        for (int i = size; i-- > 1;) 
-            t[i] = combine(t[2 * i], t[2 * i + 1]);
+template<typename T>
+struct tree_t {
+    static const T LOW = 0;
+    T f(T a, T b) { return (a + b); } // (any associative fn)
+    vector<T> s; int n;
+    tree_t(int n = 0, T def = 0) : s(2*n, def), n(n) {}
+    void update(int pos, T val) {
+        for (s[pos += n] = val; pos > 1; pos /= 2)
+            s[pos / 2] = f(s[pos & ~1], s[pos | 1]);
     }
-    T get(int p) {
-        return t[p + size];
-    }
-    void update(int p, T value) {
-        p += size;
-        t[p] = value;
-        while (p > 1) {
-            p /= 2;
-            t[p] = combine(t[2 * p], t[2 * p + 1]);
+    T query(int b, int e) { // query [b, e)
+        T ra = LOW, rb = LOW;
+        for (b += n, e += n; b < e; b /= 2, e /= 2) {
+            if (b % 2) ra = f(ra, s[b++]);
+            if (e % 2) rb = f(s[--e], rb);
         }
-    }
-    T query(int l, int r) {
-        l += size; r += size;
-        T left = init();
-        T right = init();
-        while (l < r) {
-            if (l & 1) {
-                left = combine(left, t[l]);
-                l++;
-            }
-            if (r & 1) {
-                r--;
-                right = combine(t[r], right);
-            }
-            l /= 2; r /= 2;
-        }
-        return combine(left, right);
-    }
-private:
-    T combine(T left, T right) {
-        return (left + right);
-    }
-    T init() {
-        return T();
+        return f(ra, rb);
     }
 };

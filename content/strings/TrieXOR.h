@@ -1,39 +1,36 @@
 /**
  * Author: BenQ
  * Source: 
- * Description: Query max xor with some int in the Trie
+ * Description: Query max xor with some int in the xor_trie
  * Time: 
  * Status: Fuzz-tested
  * Usage:
  */
  
-template<int MX, int MXBIT> struct Trie { /// start-hash
-    vector<vector<int>> nex;// num is last node in trie
-    vector<int> sz;
+template<int MX, int MXBIT> 
+struct xor_trie {
+    int nxt[MX][2], sz[MX];// num is last node in trie
     int num = 0;
     // change 2 to 26 for lowercase letters
-    Trie() {
-        nex = vector<vector<int>>(MX, vector<int>(2));
-        sz = vector<int>(MX);
-    } /// end-hash
-    // insert or delete
-    void insert(lint x, int a = 1) { /// start-hash
+    xor_trie() { memset(nxt, 0, sizeof nxt), memset(sz, 0, sizeof sz); }
+    // add or delete
+    void add(lint x, int a = 1) { 
         int cur = 0; sz[cur] += a; 
         for(int i = MXBIT-1; i >= 0; --i) {
-            int t = (x&(1lint<<i))>>i;
-            if (!nex[cur][t]) nex[cur][t] = ++num;
-            sz[cur = nex[cur][t]] += a;
+            int t = (x & (1 << i)) >> i;
+            if (!nxt[cur][t]) nxt[cur][t] = ++num;
+            sz[cur = nxt[cur][t]] += a;
         }
-    }/// end-hash
+    }
     // compute max xor
-    lint test(lint x) {  /// start-hash
-        if (sz[0] == 0) return -INF; // no elements in trie
+    lint query(lint x) {
+        if (sz[0] == 0) return INT_MIN; // no elements in trie
         int cur = 0;
         for(int i = MXBIT-1; i >= 0; --i) {
-            int t = ((x&(1lint<<i))>>i) ^ 1;
-            if (!nex[cur][t] || !sz[nex[cur][t]]) t ^= 1;
-            cur = nex[cur][t]; if (t) x ^= 1lint<<i;
+            int t = ((x & (1 << i)) >> i) ^ 1;
+            if (!nxt[cur][t] || !sz[nxt[cur][t]]) t ^= 1;
+            cur = nxt[cur][t]; if (t) x ^= 1lint<<i;
         }
         return x;
-    }/// end-hash
+    }
 };

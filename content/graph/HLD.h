@@ -15,16 +15,17 @@
  */
 #pragma once
 
-#include "../data-structures/DynamicSegTree.h"
+#include "../data-structures/LazySegmentTree.h"
 
 template <bool VALS_EDGES> struct HLD {
 	int N, t = 0;
 	vector<vector<int>> edges;
 	vector<int> par, size, depth, rt, pos;
-	node *tree;
+	// Node *tree;
+	segtree_t<int,int> tree;
 	HLD(vector<vector<int>> adj_)
-		: N(sz(adj_)), edges(adj_), par(N, -1), size(N, 1), depth(N),
-		  rt(N),pos(N) { dfs_sz(),dfs_hld(); tree = build(0, N);}
+		: N(adj_.size()), edges(adj_), par(N, -1), size(N, 1), depth(N),
+		  rt(N),pos(N), tree(N) { dfs_sz(),dfs_hld();}
 	void dfs_sz(int v = 0) {
 		if (par[v] != -1) 
 			edges[v].erase(find(edges[v].begin(), edges[v].end(), par[v]));
@@ -45,22 +46,25 @@ template <bool VALS_EDGES> struct HLD {
 	template <class B> void process(int u, int v, B op) {
 		for (; rt[u] != rt[v]; v = par[rt[v]]) {
 			if (depth[rt[u]] > depth[rt[v]]) swap(u, v);
-			op(pos[rt[v]], pos[v] + 1);
+			op(pos[rt[v]], pos[v]);
 		}
 		if (depth[u] > depth[v]) swap(u, v);
-		op(pos[u] + VALS_EDGES, pos[v] + 1);
+		op(pos[u] + VALS_EDGES, pos[v]);
 	}
 	void modifyPath(int u, int v, int val) {
-		process(u, v, [&](int l, int r) { upd(tree, l, r, val); });
+		process(u, v, [&](int l, int r) { tree.update(l, r, val); });
 	}
 	int queryPath(int u, int v) { // Modify depending on query
 		int res = -1e9;
 		process(u, v, [&](int l, int r) {
-				res = max(res, int(mquery(tree, l, r)));
+				res = max(res, tree.query(l, r));
 		});
 		return res;
 	}
 	int querySubtree(int v) { // modifySubtree is similar
-		return mquery(tree, pos[v] + VALS_EDGES, pos[v] + size[v]);
+		return tree.query(pos[v] + VALS_EDGES, pos[v] + size[v] - 1);
+	}
+	void modifySubtree(int v, int delta) {
+		tree.update(pos[v] + VALS_EDGES, pos[v] + size[v] - 1, delta);
 	}
 };

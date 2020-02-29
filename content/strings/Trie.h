@@ -1,77 +1,46 @@
 /**
- * Author: LoppA
- * Source: 
+ * Author: Chris
+ * Source: wesley-a-leung
  * Description: Trie implementation.
  * Time: 
  * Status: Fuzz-tested
  * Usage:
  */
  
- struct Trie {
-	int cnt, word;
-	map<char, Trie> m;
-	Trie() : word(0), cnt(0) { m.clear();}
-	void add(const string &s, int i) {
-		cnt++;
-		if(i ==(int)s.size()) {
-			word++;
-			return;
-		}
-		if(!m.count(s[i])) m[s[i]] = Trie();
-		m[s[i]].add(s, i + 1);
-	}
-	bool remove(const string &s, int i) {
-		if(i ==(int)s.size()) {
-			if(word) {
-				cnt--;
-				word--;
-				return true;
-			}
-			return false;
-		}
-		if(!m.count(s[i])) return false;
-		if(m[s[i]].remove(s, i + 1) == true) {
-			cnt--;
-			return true;
-		}
-		return false;
-	}
-	bool count(const string &s, int i) {
-		if(i ==(int)s.size()) return word;
-		if(!m.count(s[i])) return false;
-		return m[s[i]].count(s, i + 1);
-	}
-	bool count_prefix(const string &s, int i) {
-		if (word) return true;
-		if(i ==(int)s.size()) return false;
-		if(!m.count(s[i])) return false;
-		return m[s[i]].count_prefix(s, i + 1);
-	}
- 
-	bool is_prefix(const string &s, int i) {
-		if(i == (int)s.size()) return cnt;
-		if(!m.count(s[i])) return false;
-		return m[s[i]].is_prefix(s, i + 1);
-	}
-	void add(const string &s) {
-		add(s, 0);
-	}
-	bool remove(const string &s) {
-		return remove(s, 0);
-	}
-	bool count(const string &s) {
-		return count(s, 0);
-	}
-	// return if trie countains a string that is prefix os s
-	// trie has 123, query 12345	returns true
-	// trie has 12345, query 123 	returns false
-	bool count_prefix(const string &s) {
-		return count_prefix(s, 0);
-	}
-	// return if s is prefix of some string countained in trie
-	// trie has 12345, query 123 	returns true
-	// trie has 123, query 12345	returns false
-	bool is_prefix(const string &s) {
-		return is_prefix(s, 0);
-	}
-} T;
+struct Trie {
+    struct node_t { 
+    	unordered_map<char, node_t*> child; 
+    	int cnt = 0, prefixCnt = 0; 
+    } *root = new node_t();
+    void add(node_t *v, const string &s) {
+        node_t *cur = v;
+        for (char c : s) {
+            if (cur->child.count(c)) cur = cur->child[c];
+            else cur = cur->child[c] = new node_t();
+            cur->prefixCnt++;
+        }
+        cur->cnt++;
+    }
+    int count(node_t *v, const string &s) {
+        node_t *cur = v;
+        for (char c : s) {
+            if (cur->child.count(c)) cur = cur->child[c];
+            else return 0;
+        }
+        return cur->cnt;
+    }
+    int prefixCount(node_t *v, const string &s) {
+        node_t *cur = v;
+        for (char c : s) {
+            if (cur->child.count(c)) cur = cur->child[c];
+            else return 0;
+        }
+        return cur->prefixCnt;
+    }
+    Trie() {}
+    void add(const string &s) { add(root, s); }
+    bool contains(const string &s) { return count(root, s) >= 1; }
+    bool hasPrefix(const string &s) { return prefixCount(root, s) >= 1; }
+    int count(const string &s) { return count(root, s); }
+    int prefixCount(const string &s) { return prefixCount(root, s); }
+};
