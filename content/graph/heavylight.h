@@ -49,7 +49,7 @@ struct HLD {
 				if(e == g[u][0]) parflow[v] = parflow[u];
 				else parflow[v] = v;
 				dfs_flow(g, v);
-				val[in[v]] = USE_EDGES ? e.nd : 0;
+				val[in[v]] = USE_EDGES ? e.nd : T();
 			}
 		}
 	}
