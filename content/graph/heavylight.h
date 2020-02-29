@@ -11,13 +11,13 @@ struct HLD {
 	int t, n;
 	vector<int> in, par, parflow, sz, depth;
 	vector<T> val;
- 	tree_t<T> seg;
+ 	tree_t<T> seg; //or another query struct
 	HLD(){}
 	HLD(adj &g, int r = 0) : t(0), n(g.size()), par(n,-1), 
 	parflow(n,-1), depth(n), in(n), sz(n), val(n) { 
 		par[r] = parflow[r] = r;
 		dfs_sz(g, r), dfs_flow(g, r); 
-		seg.s = val;
+		seg.s = val; //init query struct
 	}
 	T query(int a, int b) {//inclusive query
 		return seg.query(a, b+1);
@@ -28,7 +28,7 @@ struct HLD {
 	void update(int a, int b, T value) {//inclusive update
 		
 	}
-	void dfs_sz(adj &g, int u) {
+	void dfs_sz(adj &g, int u) { //par, size & depth
 		sz[u]++;
 		for(auto &e : g[u]) {
 			int v = e.st;
@@ -53,7 +53,7 @@ struct HLD {
 			}
 		}
 	}
-	void update_path(int u, int v, F value){ //update path
+	void update_path(int u, int v, T value){ //update path
 		if (u == v){ update(in[u],in[u],value); return; }
 		for(int e, p; parflow[u] != parflow[v]; u = p){
 			if(depth[parflow[u]] < depth[parflow[v]]) swap(u,v);
