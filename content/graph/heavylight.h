@@ -17,7 +17,7 @@ struct HLD {
 	pf(n,-1), dep(n), in(n), sz(n), val(n) { 
 		par[r] = pf[r] = r;
 		dfs_sz(g, r), dfs_flow(g, r); 
-		seg.s = val; //init query struct
+		seg = {val}; //init query struct
 	}
 	T query(int a, int b) {//inclusive query
 		return seg.query(a, b+1);
