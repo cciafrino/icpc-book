@@ -81,9 +81,9 @@ struct HLD {
 		update(in[u],value);
 	}
 	T query_subtree(int v) { 
-		return seg.query(in[v] + USE_EDGES, in[v] + sz[v]);
+		return query(in[v] + USE_EDGES, in[v] + sz[v]);
 	}
 	void modify_subtree(int v, T value) {
-		seg.update(in[v] + USE_EDGES, in[v] + sz[v], value);
+		update(in[v] + USE_EDGES, in[v] + sz[v], value);
 	}
 };
