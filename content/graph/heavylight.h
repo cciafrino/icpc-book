@@ -13,7 +13,6 @@ struct HLD {
 	vector<int> in, par, pf, sz, dep;
 	vector<T> val;
  	tree_t<T> seg; //or another query struct
-	HLD(){}
 	HLD(adj &g, int r = 0) : t(0), n(g.size()), par(n,-1), 
 	pf(n,-1), dep(n), in(n), sz(n),  ini_val(T()), val(n,ini_val){ 
 		par[r] = pf[r] = r;
