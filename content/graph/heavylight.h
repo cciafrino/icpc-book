@@ -4,7 +4,7 @@
  * Time: 
  */
 #include "SegTree.h"
-typedef vector<vector<pair<int,int>>> adj; //vertex, value
+typedef vector<vector<pair<int,lint>>> adj; //vertex, value
 
 template<typename T, bool USE_EDGES>
 struct HLD {
@@ -81,9 +81,9 @@ struct HLD {
 		update(in[u],value);
 	}
 	T query_subtree(int v) { 
-		return tree.query(in[v] + USE_EDGES, pos[v] + sz[v]);
+		return seg.query(in[v] + USE_EDGES, in[v] + sz[v]);
 	}
 	void modify_subtree(int v, T value) {
-		tree.update(in[v] + USE_EDGES, in[v] + sz[v], value);
+		seg.update(in[v] + USE_EDGES, in[v] + sz[v], value);
 	}
 };
