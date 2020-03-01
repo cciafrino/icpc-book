@@ -55,7 +55,7 @@ struct HLD {
 		}
 	}
 	void update_path(int u, int v, T value){ //update path
-		if (u == v){ update(in[u],in[u],value); return; }
+		if (u == v){ return update(in[u],in[u],value);}
 		for(int e, p; pf[u] != pf[v]; u = p){
 			if(dep[pf[u]] < dep[pf[v]]) swap(u,v);
 			e = 1, p = pf[u];
