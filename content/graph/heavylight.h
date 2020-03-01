@@ -50,7 +50,7 @@ struct HLD {
 				if(e == g[u][0]) pf[v] = pf[u];
 				else pf[v] = v;
 				dfs_flow(g, v);
-				val[in[v]] = USE_EDGES ? e.nd : ini_val;
+				if(USE_EDGES) val[in[v]] = e.nd;
 			}
 		}
 	}
