@@ -67,7 +67,7 @@ struct HLD {
 	}
 	T query_path(int u, int v) {
 		if (u == v) return query(in[u], in[u]);
-		T ans = INF;	
+		T ans = T();	
 		for (int e, p; pf[u] != pf[v]; u = p){
 			if(dep[pf[u]] < dep[pf[v]]) swap(u,v);
 			e = 1, p = pf[u];
