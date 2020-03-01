@@ -9,17 +9,18 @@ typedef vector<vector<pair<int,int>>> adj; //vertex, value
 template<typename T, bool USE_EDGES>
 struct HLD {
 	int t, n;
+	T ini_val;
 	vector<int> in, par, pf, sz, dep;
 	vector<T> val;
  	tree_t<T> seg; //or another query struct
 	HLD(){}
 	HLD(adj &g, int r = 0) : t(0), n(g.size()), par(n,-1), 
-	pf(n,-1), dep(n), in(n), sz(n), val(n) { 
+	pf(n,-1), dep(n), in(n), sz(n),  ini_val(T()), val(n,ini_val){ 
 		par[r] = pf[r] = r;
 		dfs_sz(g, r), dfs_flow(g, r); 
 		seg = {val}; //init query struct
 	}
-	T f(T &a, T b){return a += b;}
+	void f(T &a, T b){ a += b; } 
 	T query(int a, int b) {//inclusive query
 		return seg.query(a, b+1);
 	}
@@ -50,32 +51,30 @@ struct HLD {
 				if(e == g[u][0]) pf[v] = pf[u];
 				else pf[v] = v;
 				dfs_flow(g, v);
-				val[in[v]] = USE_EDGES ? e.nd : T();
+				val[in[v]] = USE_EDGES ? e.nd : ini_val;
 			}
 		}
 	}
-	void update_path(int u, int v, T value){ //update path
-		if (u == v){ return update(in[u],in[u],value);}
+	void path(int u, int v, function<void(int,int)> func){
+		if (u == v){ return func(in[u],in[u]);}
 		for(int e, p; pf[u] != pf[v]; u = p){
 			if(dep[pf[u]] < dep[pf[v]]) swap(u,v);
 			e = 1, p = pf[u];
 			if(u == p) e = 0, p = par[u];
-			update(in[pf[u]] + e, in[u], value);
+			func(in[pf[u]] + e, in[u]);
 		}
 		if (in[u] > in[v]) swap(u, v);
-		update(in[u] + USE_EDGES, in[v], value);
+		func(in[u] + USE_EDGES, in[v]);
+	}
+	void update_path(int u, int v, T value){
+		function<void(int,int)> func = [value,this](int a,int b){update(a,b,value);};
+		path(u,v,func);
 	}
 	T query_path(int u, int v) {
-		if (u == v) return query(in[u], in[u]);
-		T ans = T();	
-		for (int e, p; pf[u] != pf[v]; u = p){
-			if(dep[pf[u]] < dep[pf[v]]) swap(u,v);
-			e = 1, p = pf[u];
-			if(u == p) e = 0, p = par[u];
-			f(ans, query(in[pf[u]] + e, in[u]));
-		}
-		if (in[u] > in[v]) swap(u, v);
-		return f(ans, query(in[u] + USE_EDGES, in[v]));
+		T ans = ini_val;
+		function<void(int,int)> func = [&ans,this](int a,int b){ f(ans, query(a,b));};
+		path(u,v,func);
+		return ans;
 	}	
 	void update_edge(int u, int v, T value) {
 		if (dep[u] < dep[v]) u = v;
