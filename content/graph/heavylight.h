@@ -19,6 +19,7 @@ struct HLD {
 		dfs_sz(g, r), dfs_flow(g, r); 
 		seg = {val}; //init query struct
 	}
+	T f(T &a, T b){return a += b;}
 	T query(int a, int b) {//inclusive query
 		return seg.query(a, b+1);
 	}
@@ -66,17 +67,17 @@ struct HLD {
 	}
 	T query_path(int u, int v) {
 		if (u == v) return query(in[u], in[u]);
-		T ans = T();	
+		T ans = INF;	
 		for (int e, p; pf[u] != pf[v]; u = p){
 			if(dep[pf[u]] < dep[pf[v]]) swap(u,v);
 			e = 1, p = pf[u];
 			if(u == p) e = 0, p = par[u];
-			ans += query(in[pf[u]] + e, in[u]);
+			f(ans, query(in[pf[u]] + e, in[u]));
 		}
 		if (in[u] > in[v]) swap(u, v);
-		return ans += query(in[u] + USE_EDGES, in[v]);
+		return f(ans, query(in[u] + USE_EDGES, in[v]));
 	}	
-	void update_node(int u, int v, T value) {
+	void update_edge(int u, int v, T value) {
 		if (dep[u] < dep[v]) u = v;
 		update(in[u],value);
 	}
