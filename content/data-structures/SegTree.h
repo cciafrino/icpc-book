@@ -1,5 +1,5 @@
 /**
- * Author: Lucian Bicsi
+ * Author: Lucian Bicsi, Chris
  * Date: 2017-10-31
  * License: CC0
  * Source: folklore
@@ -12,16 +12,22 @@ struct tree_t {
     static const T LOW = 0;
     T f(T a, T b) { return (a + b); } // (any associative fn)
     vector<T> s; int n;
-    tree_t(int n = 0, T def = 0) : s(2*n, def), n(n) {}
+    tree_t() {}
+    tree_t(int size, T def = LOW) : s(2*size, def), n(size) {}
+    tree_t(const vector<T> &other) : n(other.size()), s(2*other.size(), LOW) {
+        copy(other.begin(), other.end(), s.begin() + n);
+        for (int i = n; i-- > 1; )
+            s[i] = f(s[i<<1], s[i<<1|1]);
+    }
     void update(int pos, T val) {
         for (s[pos += n] = val; pos > 1; pos /= 2)
             s[pos / 2] = f(s[pos & ~1], s[pos | 1]);
     }
-    T query(int b, int e) { // query [b, e)
+    T query(int l, int r) { // query [b, e)
         T ra = LOW, rb = LOW;
-        for (b += n, e += n; b < e; b /= 2, e /= 2) {
-            if (b % 2) ra = f(ra, s[b++]);
-            if (e % 2) rb = f(s[--e], rb);
+        for (l += n, r += n; l < r; l /= 2, r /= 2) {
+            if (l % 2) ra = f(ra, s[l++]);
+            if (r % 2) rb = f(s[--r], rb);
         }
         return f(ra, rb);
     }
