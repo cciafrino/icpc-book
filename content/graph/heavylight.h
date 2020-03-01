@@ -67,15 +67,13 @@ struct HLD {
 		func(in[u] + USE_EDGES, in[v]);
 	}
 	void update_path(int u, int v, T value){
-		function<void(int,int)> func = [value,this](int a,int b){update(a,b,value);};
-		path(u,v,func);
+		path(u,v, [value,this](int a,int b){ update(a,b,value); });
 	}
 	T query_path(int u, int v) {
 		T ans = ini_val;
-		function<void(int,int)> func = [&ans,this](int a,int b){ f(ans, query(a,b));};
-		path(u,v,func);
+		path(u,v,[&ans,this](int a,int b){ f(ans, query(a,b)); });
 		return ans;
-	}	
+	}
 	void update_edge(int u, int v, T value) {
 		if (dep[u] < dep[v]) u = v;
 		update(in[u],value);
