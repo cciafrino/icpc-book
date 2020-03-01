@@ -4,7 +4,7 @@
  * Time: 
  */
 #include "SegTree.h"
-typedef vector<vector<pair<int,int>>> adj;
+typedef vector<vector<pair<int,int>>> adj; //vertex, value
 
 template<typename T, bool USE_EDGES>
 struct HLD {
