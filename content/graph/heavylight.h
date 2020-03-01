@@ -9,12 +9,11 @@ typedef vector<vector<pair<int,int>>> adj; //vertex, value
 template<typename T, bool USE_EDGES>
 struct HLD {
 	int t, n;
-	T ini_val;
 	vector<int> in, par, pf, sz, dep;
 	vector<T> val;
  	tree_t<T> seg; //or another query struct
 	HLD(adj &g, int r = 0) : t(0), n(g.size()), par(n,-1), 
-	pf(n,-1), dep(n), in(n), sz(n),  ini_val(T()), val(n,ini_val){ 
+	pf(n,-1), dep(n), in(n), sz(n),  val(n){ 
 		par[r] = pf[r] = r;
 		dfs_sz(g, r), dfs_flow(g, r); 
 		seg = {val}; //init query struct
@@ -69,7 +68,7 @@ struct HLD {
 		path(u,v, [value,this](int a,int b){ update(a,b,value); });
 	}
 	T query_path(int u, int v) {
-		T ans = ini_val;
+		T ans = T();
 		path(u,v,[&ans,this](int a,int b){ f(ans, query(a,b)); });
 		return ans;
 	}
