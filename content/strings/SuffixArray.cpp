@@ -1,5 +1,5 @@
 /**
- * Author: Felipe Abella
+ * Author: Felipe Abella, Chris
  * Description: Builds suffix array for a string. 
  * The {\tt lcp} function calculates longest
  * common prefixes for neighbouring strings in suffix array.
@@ -8,15 +8,14 @@
  * for creation of the SA. $O(N)$ for longest common prefixes.
  */
  
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 struct suffix_array_t { /// start-hash
     vector<vector<pair<int, int>>> rmq;
     int n, h; vector<int> sa, invsa, lcp;
-    random_device rd;
-    uniform_int_distribution<int> rng;
     bool cmp(int a, int b) { return invsa[a+h] < invsa[b+h]; }
     void ternary_sort(int a, int b) {
         if (a == b) return;
-        int pivot = sa[a+(rng(rd))%(b-a)];
+        int pivot = sa[a+rng()%(b-a)];
         int left = a, right = b;
         for (int i = a; i < b; ++i) if (cmp(sa[i], pivot)) swap(sa[i], sa[left++]);
         for (int i = b-1; i >= left; --i) if (cmp(pivot, sa[i])) swap(sa[i], sa[--right]);
