@@ -80,10 +80,10 @@ struct HLD {
 		if (dep[u] < dep[v]) u = v;
 		update(in[u],value);
 	}
-	T querySubtree(int v) { 
+	T query_subtree(int v) { 
 		return tree.query(in[v] + USE_EDGES, pos[v] + sz[v]);
 	}
-	void modifySubtree(int v, T value) {
+	void modify_subtree(int v, T value) {
 		tree.update(in[v] + USE_EDGES, in[v] + sz[v], value);
 	}
 };
