@@ -6,7 +6,6 @@
  * Status: Tested
  */
 
-template<typename T>
 struct lca_t {
     int logn{0}, preorderpos{0};
     vector<int> invpreorder, height;
