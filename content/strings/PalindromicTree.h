@@ -57,3 +57,94 @@ template<int SZ> struct PalTree {
         for(auto& a : v) oc[link[a.second]] += oc[a.second];
     }
 };
+
+
+// vv Fmota's
+class lg_parents {
+public:
+    vector<vector<int>> parents;
+    void add_edge(int u, int v){
+        reserve(u);
+        reserve(v);
+        vector<int> pv = {u};
+        for(int i = 1; ; i++){
+            int up = pv[i - 1];
+            reserve(up);
+            if(parents[up].size() >= i){
+                pv.push_back(parents[up][i - 1]);
+            } else {
+                break;
+            }
+        }
+        parents[v] = pv;
+    }
+private:
+    void reserve(int u){
+        while(parents.size() <= u) parents.emplace_back();
+    }
+};
+struct eertree {
+    vector<map<int,int>> to;
+    vector<int> fail, len, text, dep;
+    vector<long long> sum;
+    int odd, even, last;
+    int get_node(int l){
+        to.emplace_back();
+        fail.emplace_back(-1);
+        len.emplace_back(l);
+        dep.emplace_back();
+        sum.emplace_back();
+        return len.size() - 1;
+    }
+    int match(int node){
+        int sz = text.size();
+        for(; text[sz - len[node] - 2] != text[sz - 1]; node = fail[node]);
+        return node;
+    }
+    int adj(int u, int c){
+        auto it = to[u].find(c);
+        if(it == to[u].end()) return -1;
+        return it->second;
+    }
+    lg_parents ps;
+    bool extend(int c){
+        text.push_back(c);
+        int now = match(last), p;
+        if((p = adj(now, c)) != -1)
+            return last = p, false;
+        last = to[now][c] = get_node(len[now] + 2);
+        if(now == odd) fail[last] = even;
+        else {
+            now = match(fail[now]);
+            fail[last] = adj(now, c);
+        }
+        ps.add_edge(fail[last], last);
+        solve(last);
+        return true;
+    }
+    void solve(int u){
+        int need = len[u] / 2;
+        int at = u, pos = ps.parents[u].size() - 1;
+        while(pos >= 0){
+            if(ps.parents[at].size() <= pos) pos--;
+            else {
+                if(len[ps.parents[at][pos]] > need) at = ps.parents[at][pos];
+                else pos--;
+            }
+        }
+        int up = 0;
+        if(ps.parents[at].size() > 0 && len[ps.parents[at][0]] == need){
+            up = ps.parents[at][0];
+        }
+        dep[last] = dep[up] + 1;
+        sum[last] = sum[fail[last]] + dep[last];
+    }
+    void init(){
+        text.push_back(-1);
+        last = even = get_node(0);
+        odd = get_node(-1);
+        fail[even] = odd;
+        ps.add_edge(odd, even);
+    }
+    eertree(){ init(); }
+};

@@ -54,7 +54,7 @@ def addref(caption, outstream):
         f.write(caption + "\n")
 
 def processwithcomments(caption, instream, outstream, listingslang = None):
-    knowncommands = ['Author', 'Date', 'Description', 'Source', 'Time', 'Memory', 'License', 'Status', 'Usage']
+    knowncommands = ['Author', 'Date', 'Description', 'Source', 'Time', 'Memory', 'License', 'Status', 'Usage', 'Details']
     requiredcommands = ['Author', 'Description']
     includelist = []
     error = ""
@@ -147,7 +147,7 @@ def processwithcomments(caption, instream, outstream, listingslang = None):
                 cline = cline[1:].strip()
                 allow_command = True
             ind = cline.find(':')
-            if allow_command and ind != -1 and ' ' not in cline[:ind]:
+            if allow_command and ind != -1 and ' ' not in cline[:ind] and cline[0] != '(':
                 if command:
                     if command not in knowncommands:
                         error = error + "Unknown command: " + command + ". "
