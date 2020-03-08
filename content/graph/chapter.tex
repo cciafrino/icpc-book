@@ -54,8 +54,7 @@
 	\kactlimport{LCA.h}
 	\kactlimport{CompressTree.h}
     %\kactlimport{HLD.h}
-    %\kactlimport{Heavylight.cpp}
-    %\kactlimport{HeavylightLCA.h}
+    \kactlimport{Heavylight.h}
     \kactlimport{Tree-Isomorphism.h}
     \kactlimport{LineTree.h}
 	%\kactlimport{LinkCutTree.h}
@@ -182,9 +181,6 @@ A quantidade de ciclos $Eulerianos$ num digrafo $G$ é:\newline
 Sejam~$M_1 = (E, I_1)$ e~$M_2 = (E, I_2)$ matróides. Então
 $ \max\limits_{S \in I_1 \cap I_2}{|S|} = \min\limits_{U \subseteq E}{r_1(U) + r_2(E \setminus U)}.$
 
-\subsection{König-Egervary theorem}
-    Em todo grafo bipartido~$G$, a quantidade de arestas no emparelhamento máximo é maior ou igual à quantidade de vértices na cobertura mínima. Ou seja, para todo~$G$,~$\alpha(G) \geq \beta(G)$. Note que isso prova que~$\alpha(G) = \beta(G)$ para grafos bipartidos.
-
 \subsection{Number of Spanning Trees}
 		% I.e. matrix-tree theorem.
 		% Source: https://en.wikipedia.org/wiki/Kirchhoff%27s_theorem
@@ -192,4 +188,12 @@ $ \max\limits_{S \in I_1 \cap I_2}{|S|} = \min\limits_{U \subseteq E}{r_1(U) + r
 		Create an $N\times N$ matrix \texttt{mat}, and for each edge $a \rightarrow b \in G$, do
 		\texttt{mat[a][b]--, mat[b][b]++} (and \texttt{mat[b][a]--, mat[a][a]++} if $G$ is undirected).
 		Remove the $i$th row and column and take the determinant; this yields the number of directed spanning trees rooted at $i$
-		(if $G$ is undirected, remove any row/column).
+		(if $G$ is undirected, remove any row/column).\newline
+
+\subsection{König-Egervary theorem}
+    Em todo grafo bipartido~$G$, a quantidade de arestas no emparelhamento máximo é maior ou igual à quantidade de vértices na cobertura mínima. Ou seja, para todo~$G$,~$\alpha(G) \geq \beta(G)$. Note que isso prova que~$\alpha(G) = \beta(G)$ para grafos bipartidos.
+
+
+\
+
+
