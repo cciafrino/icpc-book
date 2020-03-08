@@ -9,12 +9,12 @@
  */
 template<typename T>
 struct tree_t {
-    static const T LOW = 0;
-    T f(T a, T b) { return (a + b); } // (any associative fn)
+    static const T LOW = -(1<<29);
+    T f(T a, T b) { return max(a,b); } // (any associative fn)
     vector<T> s; int n;
     tree_t() {}
     tree_t(int size, T def = LOW) : s(2*size, def), n(size) {}
-    tree_t(const vector<T> &other) : n(other.size()), s(2*other.size(), LOW) {
+    tree_t(const vector<T> &other) : n(other.size()), s(2*other.size(), -(1<<29)) {
         copy(other.begin(), other.end(), s.begin() + n);
         for (int i = n; i-- > 1; )
             s[i] = f(s[i<<1], s[i<<1|1]);

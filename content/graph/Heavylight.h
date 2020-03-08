@@ -1,10 +1,18 @@
 /**
- * Author: Letícia Freire
- * Status: tested on codeForces 101807J and 101908L
- * Description: 
- * Time: 
+ * Author: LeticiaFCS
+ * Date: 2020-03-07
+ * License: CC0
+ * Source: https://codeforces.com/blog/entry/53170, KACTL
+ * Description: Decomposes a tree into vertex disjoint heavy paths and light
+ * edges such that the path from any leaf to the root contains at most log(n)
+ * light edges. Code supports commutative segtree modifications/queries on paths, edges and subtrees.
+ * Takes as input the full adjacency list with pairs of (vertex, value). USE_EDGES being true means that
+ * values are stored in the edges and are initialized with the adjacency list, otherwise values are
+ * stored in the nodes and are initialized to the T defaults value.
+ * Time: O((\log N)^2)
+ * Status: Tested on codeforces 101908L and 101807J
  */
-#include "SegTree.h"
+#include "../data-structures/SegTree.h" 
 typedef vector<vector<pair<int,int>>> adj;
 template<typename T, bool USE_EDGES>
 struct HLD {
@@ -18,7 +26,7 @@ struct HLD {
 		dfs_sz(g, r), dfs_hld(g, r); 
 		seg = {val}; 
 	}
-	void f(T &a, T b){ a += b; } 
+	void f(T &a, T b){ a = max(a,b); } 
 	T query(int a, int b) { return seg.query(a, b+1); }
 	void update(int a, T value) { seg.update(a, value); }
 	void update(int a, int b, T value) { }
@@ -62,7 +70,7 @@ struct HLD {
 		path(u, v, [&](int a,int b){ update(a, b, value); });
 	}
 	T query_path(int u, int v) {
-		T ans = T();
+		T ans = -(1<<29);
 		path(u, v, [&](int a,int b){ f(ans, query(a, b)); });
 		return ans;
 	}
