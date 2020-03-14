@@ -15,12 +15,9 @@ struct segtree_t {
     vector<T> tree;
     vector<Q> lazy, og;
     segtree_t(int N) : n(N), tree(4*N), lazy(4*N) {}
-    segtree_t(const vector<Q> &other) :
-            n(other.size()), og(other),
-            tree(4*n), lazy(4*n) {
-        build(1, 0, n-1);
-    }
-    T f(const T &a, const T &b) { return (a,b); }
+    segtree_t(const vector<Q> &other) : n(other.size()), og(other), 
+    tree(4*n), lazy(4*n) { build(1, 0, n-1); }
+    T f(const T &a, const T &b) { return (a + b); }
     T build(int v, int l, int r) {
         lazy[v] = 0;
         if (l == r) return tree[v] = og[l];
@@ -58,4 +55,3 @@ struct segtree_t {
             update(a, b, delta, 2*v+1, m+1, r));
     }
 };
-

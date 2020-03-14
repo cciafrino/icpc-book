@@ -10,14 +10,14 @@ vector<pair<int,int>> edges[100100];
 vector<int> q;
 void spfa() {
     q.push_back(s);
-    memset(d, 127,sizeof(d));
-    memset(f,0,sizeof(f));
+    memset(d, 127, sizeof(d));
+    memset(f, 0, sizeof(f));
     f[s] = 1, d[s] = 0;
     int inf = d[s+1];
     for (int i = 0; i < q.size();++i) {
-        int now=q[i];
-        f[now]=0;
-        for(auto u:edges[now]) {
+        int now = q[i];
+        f[now] = 0;
+        for(auto u : edges[now]) {
             int cost = u.second;
             if (d[u.first] > d[now] + cost) {
                 d[u.first] = d[now] + cost;

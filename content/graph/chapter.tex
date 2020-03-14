@@ -119,8 +119,6 @@ Um grafo é k-conexo sse todo par de vértices é conectado por pelo menos k cam
 \item Para arestas:
 Um grafo é dito~$k$-aresta-conexo se a retirada de menos de~$k$ arestas do grafo o mantém conexo. Então um grafo é~$k$ -aresta-conexo sse para todo par de vértices~$u$ e~$v$, existem~$k$ caminhos que ligam~$u$ a~$v$ sem arestas em comum.
 
-\
-
 \subsection{Landau}
 Existe um torneio com graus de saída~$d_1 \leq d_2 \leq \ldots \leq d_n$ sse:
 \begin{itemize}
@@ -128,8 +126,6 @@ Existe um torneio com graus de saída~$d_1 \leq d_2 \leq \ldots \leq d_n$ sse:
 \item $d_1 + d_2 + \ldots + d_k \geq {k \choose 2} \quad \forall 1 \leq k \leq n.$
 \end{itemize}
 Para construir, fazemos~1 apontar para~$2, 3, \ldots, d_1 + 1$ e seguimos recursivamente.
-
-\
 
 \subsection{Erdös-Gallai theorem}
 Existe um grafo simples com graus~$d_1 \geq d_2 \geq \ldots \geq d_n$ sse:
@@ -148,18 +144,11 @@ That can be checked using reverse DFS over pairs of states. Finding the
 shortest synchronizing word is NP-complete.
 \fi
 
-
-\ 
-
-
 \subsection{Tutte-Berge formula}
 The theorem states that the size of a maximum matching of a graph $G=(V,E)$ equals ${\frac {1}{2}}\min _{U\subseteq V}\left(|U|- \texttt{odd}(G-U)+|V|\right)\,,$ where \texttt{odd}(H) counts how many of the connected components of the graph $H$ have an odd number of vertices.
 
-\
-
 \subsection{Tutte's theorem}
 Um grafo $G = (V, A)$ tem um emparelhamento perfeito sse para todo subconjunto $U$ de $V$, o subgrafo induzido por $V \setminus U$ tem no máximo $|U|$ componentes conexas com uma quantidade ímpar de vértices.
-
 
 \subsection{Turán's theorem} 
 Nenhum grafo com $n$ vértices que é $K_{r+1}$-livre pode ter mais arestas do que o grafo de $Tur\acute{a}n$: Um grafo completo $k$-partido com conjuntos de tamanho mais próximo possível.

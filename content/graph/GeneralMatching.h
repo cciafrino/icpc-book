@@ -58,7 +58,7 @@ struct blossom_t {
         }
         return false;
     }
-    int find_match() {
+    int solve() {
         int ans = 0;
         // find random matching (not necessary, constant improvement)
         vector<int> V(n-1); iota(V.begin(), V.end(), 1);

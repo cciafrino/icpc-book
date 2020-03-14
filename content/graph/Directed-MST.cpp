@@ -13,9 +13,9 @@
 #include "../data-structures/UnionFind.h"
 
 struct edge_t { int a, b; lint w; };
-struct Node { /// lazy skew heap node
+struct node_t { /// lazy skew heap node
     edge_t key;
-    Node *l, *r;
+    node_t *l, *r;
     lint delta;
     void prop() {
         key.w += delta;
@@ -25,19 +25,19 @@ struct Node { /// lazy skew heap node
     }
     edge_t top() { prop(); return key; }
 };
-Node *merge(Node *a, Node *b) {
+node_t *merge(node_t *a, node_t *b) {
     if (!a || !b) return a ?: b;
     a->prop(), b->prop();
     if (a->key.w > b->key.w) swap(a, b);
     swap(a->l, (a->r = merge(b, a->r)));
     return a;
 }
-void pop(Node*& a) { a->prop(); a = merge(a->l, a->r); }
+void pop(node_t*& a) { a->prop(); a = merge(a->l, a->r); }
 
 lint dmst(int n, int r, vector<edge_t>& g) {
     UF uf(n);
-    vector<Node*> heap(n);
-    for(auto &e : g) heap[e.b] = merge(heap[e.b], new Node{e});
+    vector<node_t*> heap(n);
+    for(auto &e : g) heap[e.b] = merge(heap[e.b], new node_t{e});
     lint res = 0;
     vector<int> seen(n, -1), path(n);
     seen[r] = r;
@@ -50,7 +50,7 @@ lint dmst(int n, int r, vector<edge_t>& g) {
             heap[u]->delta -= e.w, pop(heap[u]);
             res += e.w, u = uf.find(e.a);
             if (seen[u] == s) {
-                Node* cyc = 0;
+                node_t* cyc = 0;
                 do cyc = merge(cyc, heap[w = path[--qi]]);
                 while (uf.unite(u, w));
                 u = uf.find(u);
