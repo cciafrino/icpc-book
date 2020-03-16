@@ -9,7 +9,7 @@
  * Status: Tested on SPOJ FASTFLOW, SPOJ MATCHING, Kattis Minimum Cut and CodeForces 101712h
  */
 template<typename T = lint>
-struct Dinic {
+struct Dinic { // hash-cpp-1 
 	struct edge_t { int to, rev; T c, f; };
 	vector<int> lvl, ptr, q, partition; //call findMinCut before use it
 	vector<pair<pair<int,int>,int>> cut; //u, v, c
@@ -19,7 +19,8 @@ struct Dinic {
 		adj[a].push_back({b, adj[b].size(), c, 0});
 		adj[b].push_back({a, adj[a].size() - 1, rcap, 0});
 	}
-	T dfs(int v, int t, T f) {
+ 	// hash-cpp-1 = 3902531be63fa33614b7f8225a3f0282
+	T dfs(int v, int t, T f) { // hash-cpp-2
 		if (v == t || !f) return f;
 		for (int &i = ptr[v]; i < adj[v].size(); ++i) {
 			edge_t &e = adj[v][i];
@@ -31,7 +32,8 @@ struct Dinic {
 		}
 		return 0;
 	}
-	T maxflow(int s, int t) {
+ 	// hash-cpp-2 = 990b8517435ec0305e94f9cc76e99974  
+	T maxflow(int s, int t) { // hash-cpp-3
 		T flow = 0; q[0] = s;
 		for (int L = 0; L < 31; ++L) do { // 'int L=30' maybe faster for random data
 			lvl = ptr = vector<int>(q.size());
@@ -46,8 +48,9 @@ struct Dinic {
 		} while (lvl[t]);
 		return flow;
 	}
+ 	// hash-cpp-3 = 7238df1d571c542a8fae4f5f3c9bf27b
 	//only if you want the edges of the cut
-	void find_cut(int u){
+	void find_cut(int u){ // hash-cpp-4
 		partition[u] = 1; vector<int> q = {u};
 		for(int i=0;i<q.size();i++) for(edge_t &e : adj[q[i]])
 			if(!partition[e.to])
@@ -60,5 +63,5 @@ struct Dinic {
 	vector<pair<pair<int,int>, int>> findMinCut(int u,int t) {
 		maxflow(u,t); //DONT call again if you already called it
 		find_cut(u); return cut;
-	}
+	} // hash-cpp-4 = fa05269ad9706653f07079162f20c514  
 };
