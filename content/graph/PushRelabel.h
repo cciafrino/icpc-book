@@ -4,28 +4,24 @@
  * License: CC0
  * Source: Wikipedia, tinyKACTL
  * Description: Push-relabel using the highest label selection rule and the gap heuristic. Quite fast in practice.
- *  To obtain the actual flow, look at positive values only.
+ *  To obtain the actual flow, look at positive values only. id can be used to restore each edge and its amount of flow used.
  * Time: $O(V^2\sqrt E)$ Better for dense graphs - Slower than Dinic (in practice)
  * Status: Tested on kattis and SPOJ
  */
-typedef lint Flow;
 
-struct PushRelabel {
-	struct edge_t {
-		int dest, back;
-		Flow f, c;
-	};
+template<typename Flow = lint> struct PushRelabel {
+	struct edge_t { int dest, back; Flow f, c; int id; };
 	vector<vector<edge_t>> g;
 	vector<Flow> ec;
 	vector<edge_t*> cur;
 	vector<vector<int>> hs; vector<int> H;
 	PushRelabel(int n) : g(n), ec(n), cur(n), hs(2*n), H(n) {}
-	void add_edge(int s, int t, Flow cap, Flow rcap=0) {
+	void addEdge(int s, int t, Flow cap, int id, Flow rcap=0) {
 		if (s == t) return;
-		g[s].push_back({t, g[t].size(), 0, cap});
-		g[t].push_back({s, g[s].size(), 0, rcap});
+		g[s].push_back({t, g[t].size(), 0, cap, id});
+		g[t].push_back({s, g[s].size()-1, 0, rcap, -1});
 	}
-	void add_flow(edge_t& e, Flow f) {
+	void addFlow(edge_t& e, Flow f) {
 		edge_t &back = g[e.dest][e.back];
 		if (!ec[e.dest] && f) hs[H[e.dest]].push_back(e.dest);
 		e.f += f; e.c -= f; ec[e.dest] += f;
@@ -35,7 +31,7 @@ struct PushRelabel {
 		int v = g.size(); H[s] = v; ec[t] = 1;
 		vector<int> co(2*v); co[0] = v-1;
 		for(int i = 0; i < v; ++i) cur[i] = g[i].data();
-		for(auto &e : g[s]) add_flow(e, e.c);
+		for(auto& e : g[s]) addFlow(e, e.c);
 		for (int hi = 0;;) {
 			while (hs[hi].empty()) if (!hi--) return -ec[s];
 			int u = hs[hi].back(); hs[hi].pop_back();
@@ -49,9 +45,9 @@ struct PushRelabel {
 							--co[H[i]], H[i] = v + 1;
 					hi = H[u];
 				} else if (cur[u]->c && H[u] == H[cur[u]->dest]+1)
-					add_flow(*cur[u], min(ec[u], cur[u]->c));
+					addFlow(*cur[u], min(ec[u], cur[u]->c));
 				else ++cur[u];
 		}
 	}
-	bool leftOfMintCut(int a) { return H[a] >= g.size(); }
+	bool leftOfMinCut(int a) { return H[a] >= g.size(); }
 };
