@@ -6,7 +6,7 @@
  * Description: Flow algorithm with complexity $O(VE\log U)$ where $U = \max |\text{cap}|$.
  * $O(\min(E^{1/2}, V^{2/3})E)$ if $U = 1$; $O(\sqrt{V}E)$ for bipartite matching.
  * To obtain the actual flow, look at positive values only.
- * Status: Tested on SPOJ FASTFLOW, SPOJ MATCHING and Kattis Minimum Cut
+ * Status: Tested on SPOJ FASTFLOW, SPOJ MATCHING, Kattis Minimum Cut and CodeForces 101712h
  */
 template<typename T = lint>
 struct Dinic {
@@ -49,11 +49,13 @@ struct Dinic {
 	//only if you want the edges of the cut
 	void find_cut(int u){
 		partition[u] = 1;
-		for (edge_t &e : adj[u])
-			if (!partition[e.to])
-				if (e.c - e.f == 0)
+		vector<int> q = {u};
+		for(int i=0;i<q.size();i++) for(edge_t &e : adj[q[i]])
+			if(!partition[e.to])
+				if(e.c-e.f == 0)
 					cut.push_back({{u,e.to}, e.c});
-				else if (e.c - e.f > 0) find_cut(e.to);
+				else if(e.c - e.f > 0)
+					partition[e.to] = 1, q.push_back(e.to);			
 	}
 	//only if you want the edges of the cut
 	vector<pair<pair<int,int>, int>> findMinCut(int u,int t) {
