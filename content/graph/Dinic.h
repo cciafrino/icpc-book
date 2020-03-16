@@ -48,8 +48,7 @@ struct Dinic {
 	}
 	//only if you want the edges of the cut
 	void find_cut(int u){
-		partition[u] = 1;
-		vector<int> q = {u};
+		partition[u] = 1; vector<int> q = {u};
 		for(int i=0;i<q.size();i++) for(edge_t &e : adj[q[i]])
 			if(!partition[e.to])
 				if(e.c-e.f == 0)
