@@ -13,9 +13,8 @@ struct Dinitz { /// start-hash
 	struct edge_t { int to, rev; T c, f; };
 	vector<vector<edge_t>> adj;
 	vector<int> lvl, ptr, q;
-	vector<int> partition; // Only if you need the mincut
-	vector<pair<pair<int,int>,int>> cut; 
-	Dinitz(int n) : lvl(n), ptr(n), q(n), adj(n), partition(n), cut(0) {}
+	vector<int> partition; // Only if you need the mincut 
+	Dinitz(int n) : lvl(n), ptr(n), q(n), adj(n), partition(n) {}
 	void addEdge(int a, int b, T c, int rcap = 0) {
 		adj[a].push_back({b, adj[b].size(), c, 0});
 		adj[b].push_back({a, adj[a].size() - 1, rcap, 0});
@@ -43,22 +42,22 @@ struct Dinitz { /// start-hash
 					if (!lvl[e.to] && (e.c - e.f) >> (30 - L))
 						q[qe++] = e.to, lvl[e.to] = lvl[v] + 1;
 			}
-			while (T p = dfs(s, t, LLONG_MAX)) flow += p;
+			while (T p = dfs(s, t, numeric_limits<T>::max()/4)) flow += p;
 		} while (lvl[t]);
 		return flow;
 	} /// end-hash
 	// Only if you need the minCut
-	void findCut(int u){ /// start-hash
-		partition[u] = 1; vector<int> q = {u};
-		for(int i = 0; i < q.size(); ++i) for(edge_t &e : adj[q[i]])
-			if (!partition[e.to])
-				if (e.c - e.f == 0)
-					cut.push_back({{u,e.to}, e.c});
-				else if(e.c - e.f > 0)
-					partition[e.to] = 1, q.push_back(e.to);			
+	void findPart(int u){ /// start-hash
+		partition[u] = 1; 
+		for(edge_t &e : adj[u])
+			if(!partition[e.to] && e.c > e.f) findPart(e.to);		
 	}
-	vector<pair<pair<int,int>, int>> minCut(int u,int t) {
-		maxflow(u,t);
-		find_cut(u); return cut;
+	pair<T, vector<pair<int,int>>> minCut(int s,int t) {
+		T cost = maxflow(s,t); findPart(s);
+		vector<pair<int,int>> cut;		
+		for(int u=0;u<adj.size();u++) for(edge_t &e : adj[u])
+			if(partition[u] && !partition[e.to])
+				cut.push_back({u,e.to});
+		return {cost, cut};
 	} /// end-hash
 };
