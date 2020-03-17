@@ -31,8 +31,8 @@ template <int MAXN, class T = int> struct HLPP {
     }
     void globalRelabel() {
         work = 0;
-        fill(height.begin(), height.end(), MAXN);
-        fill(cnt.begin(), cnt.end(), 0);
+        fill(height, height + MAXN, MAXN);
+        fill(cnt, cnt + MAXN, 0);
         for (int i = 0; i < highest; i++)
             lst[i].clear(), gap[i].clear();
         height[t] = 0;
@@ -72,7 +72,7 @@ template <int MAXN, class T = int> struct HLPP {
         }
     }
     T maxflow(int heur_n = MAXN) {
-        fill(excess.begin(), excess.end(), 0);
+        fill(excess, excess + MAXN, 0);
         excess[s] = INF, excess[t] = -INF;
         globalRelabel();
         for (auto &e : adj[s]) push(s, e);

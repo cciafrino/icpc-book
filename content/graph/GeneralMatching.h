@@ -59,18 +59,16 @@ struct blossom_t {
         return false;
     }
     int solve() {
-        int ans = 0;
-        // find random matching (not necessary, constant improvement)
-        vector<int> V(n-1); iota(V.begin(), V.end(), 1);
+        int ans = 0; // find random matching (not necessary, 
+        vector<int> V(n-1); iota(V.begin(), V.end(), 1);// constant improvement)
         shuffle(V.begin(), V.end(), mt19937(0x94949));
         for(auto &x : V) if(!match[x]) 
             for(auto &y : edges[x]) if (!match[y]) {
                 match[x] = y, match[y] = x;
                 ++ans; break;
             }
-        for(int i = 1; i <= n; ++i) 
-            if (!match[i] && bfs(i)) 
-                ++ans;
+        for (int i = 1; i <= n; ++i) 
+            if (!match[i] && bfs(i)) ++ans;
         return ans;
     }
 };
