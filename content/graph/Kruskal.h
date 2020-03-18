@@ -5,10 +5,10 @@
  */
 
 template<typename T> 
-T kruskal(vector<pair<T, pair<int,int>>> &edges) {
+T kruskal(int n, vector<pair<T, pair<int,int>>> &edges) {
     sort(edges.begin(), edges.end());
     T cost = 0;
-    UF dsu(edges.size());
+    UF dsu(n);
     for (auto &e : edges) 
         if (dsu.find(e.second.first) != dsu.find(e.second.second)) {
             dsu.unite(e.second.first, e.second.second);

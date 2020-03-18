@@ -1,88 +1,92 @@
 /**
- * Author: chilli
- * Date: 
+ * Author: Yuhao Du, Chris
+ * Date: 2020-03-18
  * License: 
- * Source: 
+ * Source: Chinese Paper
  * Description: Highest label preflow push algorithm. Use it only if you really need the fastest maxflow algo. One limitation of the HLPP implementation is that you can't 
  * recover the weights for the full flow - use Dinic's for this.
  * Time: $O(V^2\sqrt E)$. Faster than Dinic with scaling(in practice). 
- * Status: Tested on kattis and SPOJ
+ * Status: Tested and stress-tested
  */
-template <int MAXN, class T = int> struct HLPP {
+#include "../../content/various/LinkedList.h"
+
+template <typename T, bool UseGlobal = true, bool UseGap = true>
+struct HLPP {
+    struct edge_t { int to, rev; T cap; };
     const T INF = numeric_limits<T>::max();
-    struct edge_t { int to, rev; T flow; };
-    int s = MAXN - 1, t = MAXN - 2;
-    vector<edge_t> adj[MAXN];
-    vector<int> lst[MAXN], gap[MAXN];
-    T excess[MAXN];
-    int highest, height[MAXN], cnt[MAXN], work;
-    void addEdge(int from, int to, int flow, bool isDirected = true) {
-        adj[from].push_back({to, adj[to].size(), flow});
-        adj[to].push_back({from, adj[from].size() - 1, isDirected ? 0 : flow});
+    int n, highest_active, highest;
+    vector<vector<edge_t>> adj;
+    vector<int> height, count, que;
+    vector<T> excess;
+    LinkedList list;
+    DoublyLinkedList dlist;
+    HLPP(int n) : n(n), adj(n), que(n), list(n), dlist(n) {}
+    inline void addEdge(int from, int to, T cap, T rcap = 0) {
+        adj[from].push_back({to, (int)adj[to].size(), cap});
+        adj[to].push_back({from, (int)adj[from].size() - 1, rcap});
     }
-    void updHeight(int v, int nh) {
-        work++;
-        if (height[v] != MAXN) cnt[height[v]]--;
-        height[v] = nh;
-        if (nh == MAXN) return;
-        cnt[nh]++, highest = nh;
-        gap[nh].push_back(v);
-        if (excess[v] > 0) lst[nh].push_back(v);
+    void globalRelabel(int t) {
+        if (!UseGlobal) return;
+        height.assign(n, n); height[t] = 0;
+        count.assign(n, 0);
+        int qh = 0, qt = 0;
+        for (que[qt++] = t; qh < qt; ) {
+            int u = que[qh++], h = height[u] + 1;
+            for (edge_t &e : adj[u]) if (height[e.to] == n && adj[e.to][e.rev].cap > 0) {
+                    count[height[e.to] = h] += 1;
+                    que[qt++] = e.to;
+                }
+        }
+        list.clear(); dlist.clear();
+        for (int u = 0; u < n; ++u) if (height[u] < n) {
+                dlist.insert(height[u], u);
+                if (excess[u] > 0) list.push(height[u], u);
+            }
+        highest = highest_active = height[que[qt - 1]];
     }
-    void globalRelabel() {
-        work = 0;
-        fill(height, height + MAXN, MAXN);
-        fill(cnt, cnt + MAXN, 0);
-        for (int i = 0; i < highest; i++)
-            lst[i].clear(), gap[i].clear();
-        height[t] = 0;
-        queue<int> q({t});
-        while (!q.empty()) {
-            int v = q.front(); q.pop();
-            for (auto &e : adj[v])
-                if (height[e.to] == MAXN && adj[e.to][e.rev].flow > 0)
-                    q.push(e.to), updHeight(e.to, height[v] + 1);
-            highest = height[v];
+    void push(int u, edge_t &e) {
+        int v = e.to;
+        T df = min(excess[u], T(e.cap));
+        e.cap -= df, adj[v][e.rev].cap += df;
+        excess[u] -= df, excess[v] += df;
+        if (0 < excess[v] && excess[v] <= df) list.push(height[v], v);
+    }
+    void discharge(int u) {
+        int nh = n;
+        for (edge_t &e : adj[u]) if (e.cap > 0) 
+                if (height[u] == height[e.to] + 1) {
+                    push(u, e);
+                    if (excess[u] == 0) return;
+                } else nh = min(nh, height[e.to] + 1);
+        int h = height[u];
+        if (UseGap && count[h] == 1) {
+            dlist.erase_all(h, highest, [&](int u) {
+                count[height[u]]--, height[u] = n; });
+            highest = h - 1;
+        } else {
+            count[h]--; dlist.erase(h, u);
+            height[u] = nh;
+            if (nh == n) return;
+            count[nh]++; dlist.insert(nh, u);
+            highest = max(highest, highest_active = nh);
+            list.push(nh, u);
         }
     }
-    void push(int v, edge_t &e) {
-        if (excess[e.to] == 0)
-            lst[height[e.to]].push_back(e.to);
-        T df = min(excess[v], e.flow);
-        e.flow -= df, adj[e.to][e.rev].flow += df;
-        excess[v] -= df, excess[e.to] += df;
-    }
-    void discharge(int v) {
-        int nh = MAXN;
-        for (auto &e : adj[v]) {
-            if (e.flow > 0) {
-                if (height[v] == height[e.to] + 1) {
-                    push(v, e);
-                    if (excess[v] <= 0) return;
-                } 
-                else nh = min(nh, height[e.to] + 1);
-            }
-        }
-        if (cnt[height[v]] > 1) updHeight(v, nh);
-        else {
-            for (int i = height[v]; i <= highest; i++) {
-                for (auto j : gap[i]) updHeight(j, MAXN);
-                gap[i].clear();
-            }
-        }
-    }
-    T maxflow(int heur_n = MAXN) {
-        fill(excess, excess + MAXN, 0);
-        excess[s] = INF, excess[t] = -INF;
-        globalRelabel();
-        for (auto &e : adj[s]) push(s, e);
-        for (; highest >= 0; highest--) {
-            while (!lst[highest].empty()) {
-                int v = lst[highest].back();
-                lst[highest].pop_back();
-                discharge(v);
-                if (work > 4 * heur_n) globalRelabel();
-            }
+    T maxflow(int s, int t) {
+        if (s == t) return 0;
+        highest_active = 0; // highest label (active)
+        highest = 0; // highest label (active and inactive)
+        height.assign(n, 0); height[s] = n;
+        for (int i = 0; i < n; ++i) if (i != s) dlist.insert(height[i], i);
+        count.assign(n, 0); count[0] = n - 1;
+        excess.assign(n, 0); excess[s] = INF; excess[t] = -INF;
+        for (edge_t &e : adj[s]) push(s, e);
+        globalRelabel(t);
+        for (int u = -1, rest = n; highest_active >= 0; ) {
+            if ((u = list.front(highest_active)) < 0) { --highest_active; continue; }
+            list.pop(highest_active);
+            discharge(u);
+            if (--rest == 0) rest = n, globalRelabel(t);
         }
         return excess[t] + INF;
     }
