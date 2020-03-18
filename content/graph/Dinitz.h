@@ -6,7 +6,7 @@
  * Description: Flow algorithm with complexity $O(VE\log U)$ where $U = \max |\text{cap}|$.
  * $O(\min(E^{1/2}, V^{2/3})E)$ if $U = 1$; $O(\sqrt{V}E)$ for bipartite matching.
  * To obtain the actual flow, look at positive values only.
- * Status: Tested on SPOJ FASTFLOW, SPOJ MATCHING, Kattis Minimum Cut and CodeForces 101712h
+ * Status: Tested 
  */
 template<typename T = lint>
 struct Dinitz { /// start-hash
@@ -49,15 +49,15 @@ struct Dinitz { /// start-hash
 	// Only if you need the minCut
 	void findPart(int u){ /// start-hash
 		partition[u] = 1; 
-		for(edge_t &e : adj[u])
-			if(!partition[e.to] && e.c > e.f) findPart(e.to);		
+		for (edge_t &e : adj[u])
+			if (!partition[e.to] && e.c > e.f) findPart(e.to);		
 	}
 	pair<T, vector<pair<int,int>>> minCut(int s,int t) {
 		T cost = maxflow(s,t); findPart(s);
 		vector<pair<int,int>> cut;		
-		for(int u=0;u<adj.size();u++) for(edge_t &e : adj[u])
-			if(partition[u] && !partition[e.to])
-				cut.push_back({u,e.to});
+		for (int i = 0; i < adj.size(); ++i) for (edge_t &e : adj[u])
+			if (partition[i] && !partition[e.to])
+				cut.push_back({i, e.to});
 		return {cost, cut};
 	} /// end-hash
 };

@@ -2,14 +2,14 @@
  * Author: Chris 
  * Description: Shortest Path Faster Algorithm.
  * Time: $O(E)$
+ * Status: Slightly tested
  */
 
-int s; // source node
 int d[100100], f[100100], head[100100];
 vector<pair<int,int>> edges[100100];
-vector<int> q;
-void spfa() {
-    q.push_back(s);
+
+void spfa(int s = 0) {
+    vector<int> q = {s};
     memset(d, 127, sizeof(d));
     memset(f, 0, sizeof(f));
     f[s] = 1, d[s] = 0;
