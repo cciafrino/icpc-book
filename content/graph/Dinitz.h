@@ -10,13 +10,13 @@
  */
 template<typename T = lint>
 struct Dinitz { /// start-hash
-	struct edge_t { int to, rev; T c, f; int id; };
+	struct edge_t { int to, rev; T c, f; };
 	vector<vector<edge_t>> adj;
 	vector<int> lvl, ptr, q;
 	Dinitz(int n) : lvl(n), ptr(n), q(n), adj(n), partition(n) {}
-	void addEdge(int a, int b, T c, int id, int rcap = 0) {
-		adj[a].push_back({b, adj[b].size(), c, 0, id});
-		adj[b].push_back({a, adj[a].size() - 1, rcap, 0, id});
+	void addEdge(int a, int b, T c, int rcap = 0) {
+		adj[a].push_back({b, adj[b].size(), c, 0});
+		adj[b].push_back({a, adj[a].size() - 1, rcap, 0});
 	} /// end-hash
 	T dfs(int v, int t, T f) { /// start-hash
 		if (v == t || !f) return f;
@@ -49,8 +49,7 @@ struct Dinitz { /// start-hash
 		T cost = maxflow(s,t); 
 		vector<int> cut;		
 		for (int i = 0; i < adj.size(); i++) for(edge_t &e : adj[i])
-			if (lvl[i] && !lvl[e.to])
-				cut.push_back(e.id);
+			if (lvl[i] && !lvl[e.to]) cut.push_back(e.id);
 		return {cost, cut};
 	} /// end-hash
 };
