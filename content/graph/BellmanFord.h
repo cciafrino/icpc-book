@@ -12,15 +12,15 @@
 #pragma once
 
 const lint inf = LLONG_MAX;
-struct Ed { int a, b, w, s() { return a < b ? a : -a; }};
-struct Node { lint dist = inf; int prev = -1; };
+struct edge_t { int a, b, w, s() { return a < b ? a : -a; }};
+struct node_t { lint dist = inf; int prev = -1; };
 
-void bellmanFord(vector<Node>& nodes, vector<Ed>& eds, int s) {
+void bellmanFord(vector<node_t>& nodes, vector<edge_t>& eds, int s) {
 	nodes[s].dist = 0;
-	sort(eds.begin(), eds.end(), [](Ed a, Ed b) { return a.s() < b.s(); });
+	sort(eds.begin(), eds.end(), [](edge_t a, edge_t b) { return a.s() < b.s(); });
 	int lim = nodes.size() / 2 + 2; // /3+100 with shuffled vertices
 	for(int i = 0; i < lim; ++i) for(auto &ed : eds) {
-		Node cur = nodes[ed.a], &dest = nodes[ed.b];
+		node_t cur = nodes[ed.a], &dest = nodes[ed.b];
 		if (abs(cur.dist) == inf) continue;
 		lint d = cur.dist + ed.w;
 		if (d < dest.dist) {

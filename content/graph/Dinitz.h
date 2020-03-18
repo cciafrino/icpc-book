@@ -13,8 +13,8 @@ struct Dinitz { /// start-hash
 	struct edge_t { int to, rev; T c, f; };
 	vector<vector<edge_t>> adj;
 	vector<int> lvl, ptr, q;
-	Dinitz(int n) : lvl(n), ptr(n), q(n), adj(n), partition(n) {}
-	void addEdge(int a, int b, T c, int rcap = 0) {
+	Dinitz(int n) : lvl(n), ptr(n), q(n), adj(n) {}
+	void addEdge(int a, int b, T c, T rcap = 0) {
 		adj[a].push_back({b, adj[b].size(), c, 0});
 		adj[b].push_back({a, adj[a].size() - 1, rcap, 0});
 	} /// end-hash

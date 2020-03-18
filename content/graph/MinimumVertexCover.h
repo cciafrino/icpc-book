@@ -9,10 +9,9 @@
  */
 #pragma once
 
-#include "DFSMatching.h"
-#include "MCBM.h"
+#include "MaxBipartiteMatching.h"
 
-vector<int> cover(vector<vector<int>>& g, int n, int m, MCBM &B) {
+vector<int> cover(vector<vector<int>>& g, int n, int m, Kuhn &B) {
     int res = B.match();
     vector<bool> lfound(n, true), seen(m);
     for(int &it : B.R) if (it != -1) lfound[it] = false;

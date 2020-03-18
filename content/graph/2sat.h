@@ -28,8 +28,8 @@ struct TwoSat {
 	void either(int f, int j) { /// start-hash
 		f = max(2*f, -1-2*f);
 		j = max(2*j, -1-2*j);
-		gr[f^1].push_back(j);
-		gr[j^1].push_back(f);
+		gr[f].push_back(j^1);
+		gr[j].push_back(f^1);
 	} /// end-hash
 	void set_value(int x) { either(x, x); }
 	void at_most_one(const vector<int>& li) { // (optional) /// start-hash
@@ -45,16 +45,15 @@ struct TwoSat {
 		either(cur, ~li[1]);
 	}/// end-hash
 	vector<int> val, comp, z; int time = 0;
-	int dfs(int i) {/// start-hash
+	int dfs(int i) { /// start-hash
 		int low = val[i] = ++time, x; z.push_back(i);
-		for (auto e : gr[i]) if (!comp[e])
+		trav(e, gr[i]) if (!comp[e])
 			low = min(low, val[e] ?: dfs(e));
-		++time;
 		if (low == val[i]) do {
 			x = z.back(); z.pop_back();
-			comp[x] = time;
+			comp[x] = low;
 			if (values[x>>1] == -1)
-				values[x>>1] = !(x&1);
+				values[x>>1] = x&1;
 		} while (x != i);
 		return val[i] = low;
 	}/// end-hash

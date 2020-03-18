@@ -14,11 +14,10 @@
  * Status: stress-tested
  */
 
-struct MCBM {
+struct Kuhn {
     vector<vector<int>> edges;
     vector<int> L, R, seen;
-    MCBM(int n, int m) :
-    edges(n), L(n, -1), R(m, -1), seen(n) {}
+    Kuhn(int n, int m) : edges(n), L(n, -1), R(m, -1), seen(n) {}
     void addEdge(int a, int b) { edges[a].push_back(b); }  
     void improve() {
         mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
@@ -30,17 +29,17 @@ struct MCBM {
         seen[v] = true;
         for (int u : edges[v]) 
             if (R[u] == -1) {
-                L[v] = u; R[u] = v;
+                L[v] = u, R[u] = v;
                 return true;
             }
         for (int u : edges[v]) 
             if (find(R[u])) {
-                L[v] = u; R[u] = v;
+                L[v] = u, R[u] = v;
                 return true;
             }
         return false;
     }
-    int match() {
+    int maxMaching() {
         int ok = true;
         while (ok--) {
             fill(seen.begin(), seen.end(), 0);

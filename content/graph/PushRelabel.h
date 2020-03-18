@@ -16,7 +16,7 @@ template<typename Flow = lint> struct PushRelabel {
 	vector<edge_t*> cur;
 	vector<vector<int>> hs; vector<int> H;
 	PushRelabel(int n) : g(n), ec(n), cur(n), hs(2*n), H(n) {}
-	void addEdge(int s, int t, Flow cap, Flow rcap=0) {
+	void addEdge(int s, int t, Flow cap, Flow rcap = 0) {
 		if (s == t) return;
 		g[s].push_back({t, g[t].size(), 0, cap});
 		g[t].push_back({s, g[s].size()-1, 0, rcap});
