@@ -45,11 +45,11 @@ struct Dinitz { /// start-hash
 		} while (lvl[t]);
 		return flow;
 	} /// end-hash
-	pair<T, vector<int>> minCut(int s,int t) {
+	pair<T, vector<pair<int,int>>> minCut(int s,int t) {
 		T cost = maxflow(s,t); 
-		vector<int> cut;		
+		vector<pair<int,int>> cut;		
 		for (int i = 0; i < adj.size(); i++) for(edge_t &e : adj[i])
-			if (lvl[i] && !lvl[e.to]) cut.push_back(e.id);
+			if (lvl[i] && !lvl[e.to]) cut.push_back({i, e.to});
 		return {cost, cut};
 	} /// end-hash
 };
