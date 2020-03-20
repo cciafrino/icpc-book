@@ -18,7 +18,7 @@ int main() {
 	mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 	long double HLPP1t = 0, PushRelabelt = 0, HLPP2t = 0, Dinitzt = 0;
 	long double EKt = 0;
-	rep(it,0,100000) {
+	rep(it,0,1000) {
 		bufi = sizeof buf;
 		int n = 2 + rng() % 10;
 		int s = rng() % n;
@@ -28,7 +28,7 @@ int main() {
 		Dinitz<ll> dinic(n);
 		HLPP<ll> flow2(n);
 		vector<unordered_map<int, int>> ek(n);
-		int m = rng() % 40;
+		int m = rng() % 100000;
 		rep(eit,0,m) {
 			int a = rng() % n;
 			int b = rng() % n;
