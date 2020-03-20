@@ -30,10 +30,10 @@ struct HLPP {
         height.assign(n, n); height[t] = 0;
         count.assign(n, 0);
         int qh = 0, qt = 0;
-        for (que[qt++] = t; qh < qt; ) {
+        for (que[qt++] = t; qh < qt;) {
             int u = que[qh++], h = height[u] + 1;
             for (edge_t &e : adj[u]) if (height[e.to] == n && adj[e.to][e.rev].cap > 0) {
-                    count[height[e.to] = h] += 1;
+                    count[height[e.to] = h]++;
                     que[qt++] = e.to;
                 }
         }
@@ -42,7 +42,7 @@ struct HLPP {
                 dlist.insert(height[u], u);
                 if (excess[u] > 0) list.push(height[u], u);
             }
-        highest = highest_active = height[que[qt - 1]];
+        highest = highest_active = height[que[qt-1]];
     }
     void push(int u, edge_t &e) {
         int v = e.to;
@@ -89,5 +89,14 @@ struct HLPP {
             if (--rest == 0) rest = n, globalRelabel(t);
         }
         return excess[t] + INF;
+    }
+    bool leftOfMinCut(int a) { return height[a] >= adj.size(); }
+    pair<int, vector<pair<int,int>>> minCut(int s, int t) {
+        T maxflow = maxflow(s, t);
+        vector<pair<int,int>> cut; // if 0-indexed
+        for (int i = 0; i < n; ++i) for (edge_t &e : adj[i]) 
+            if (leftOfMinCut(i) && !leftOfMinCut(e.to))
+                edges.push_back({i, e.to});
+        return {maxflow, edges};
     }
 };

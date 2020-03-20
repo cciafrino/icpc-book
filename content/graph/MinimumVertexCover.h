@@ -14,7 +14,7 @@
 vector<int> cover(vector<vector<int>>& g, int n, int m, Kuhn &B) {
     int res = B.match();
     vector<bool> lfound(n, true), seen(m);
-    for(int &it : B.R) if (it != -1) lfound[it] = false;
+    for(int &it : B.R) if (it == -1) lfound[it] = false;
     vector<int> q, cover;
     for(int i = 0; i < n; ++i) if (lfound[i]) q.push_back(i);
     while (!q.empty()) {

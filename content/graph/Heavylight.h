@@ -6,10 +6,10 @@
  * Description: Decomposes a tree into vertex disjoint heavy paths and light
  * edges such that the path from any leaf to the root contains at most log(n)
  * light edges. Code supports commutative segtree modifications/queries on paths, edges and subtrees.
- * Takes as input the full adjacency list with pairs of (vertex, value). USE_EDGES being true means that
+ * Takes as input the full adjacency list with pairs of (vertex, value). USE\_EDGES being true means that
  * values are stored in the edges and are initialized with the adjacency list, otherwise values are
  * stored in the nodes and are initialized to the T defaults value.
- * Time: O((\log N)^2)
+ * Time: $O((\log N)^2)$
  * Status: Tested on codeforces 101908L and 101807J
  */
 #include "../data-structures/SegTree.h" 
