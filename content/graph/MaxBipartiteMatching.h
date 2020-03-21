@@ -8,16 +8,16 @@
  * DFSMatching and sometimes even faster than hopcroftKarp (Crazy heuristic huh). 
  * This implementation has got an $O(n^2)$ worst case on a sparse graph. Shuffling the
  * edges and vertices ordering might fix it. Good Luck.  $R[i]$ will be the match for vertex $i$ on the right side,
- * or $-1$ if it's not matched.
+ * or $-1$ if it's not matched. $L[i]$ will be the match for vertex $i$ on the left side.
  * Time: $O(VE)$ worst case with shuffling I guess
  * Usage: 
  * Status: stress-tested
  */
 
-struct Kuhn {
+struct BipartiteMatcher {
     vector<vector<int>> edges;
     vector<int> L, R, seen;
-    Kuhn(int n, int m) : edges(n), L(n, -1), R(m, -1), seen(n) {}
+    BipartiteMatcher(int n, int m) : edges(n), L(n, -1), R(m, -1), seen(n) {}
     void addEdge(int a, int b) { edges[a].push_back(b); }  
     void improve() {
         mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
@@ -39,7 +39,7 @@ struct Kuhn {
             }
         return false;
     }
-    int maxMaching() {
+    int maxMatching() {
         int ok = true;
         while (ok--) {
             fill(seen.begin(), seen.end(), 0);

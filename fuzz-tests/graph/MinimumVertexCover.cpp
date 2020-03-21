@@ -1,8 +1,8 @@
 #include "../utilities/template.h"
 
-#include "../../content/graph/MinimumVertexCover.h"
 #include "../../content/graph/HopcroftKarp.h"
 #include "../../content/graph/DFSMatching.h"
+#include "../../content/graph/MinimumVertexCover.h"
 
 vi coverHK(vector<vi>& g, int n, int m) {
 	vi match(m, -1);
@@ -26,8 +26,8 @@ vi coverHK(vector<vi>& g, int n, int m) {
 }
 
 int main() {
-	clock_t start1, end1, start2, end2;
-	int a = 0, b = 0;
+	mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+	long double kuhn = 0, kactl = 0;
 	rep(it,0,300000) {
 		int N = rand() % 20, M = rand() % 20;
 		int prop = rand();
@@ -54,22 +54,26 @@ int main() {
 				} */
 			}
 		};
-		start1 = clock();
-		// mc.improve();
-		vi cover1 = cover(gr, N, M, mc);
-		end1 = clock();
-		start2 = clock();
+
+		auto start_kuhn = chrono::high_resolution_clock::now();
+		vi cover1 = cover(mc, N, M);
+		auto end_kuhn = chrono::high_resolution_clock::now();
+		
+		auto start_kactl = chrono::high_resolution_clock::now();
 		vi cover2 = coverHK(gr, N, M);
-		end2 = clock();
-		// cout << double(end1 - start1)/CLOCKS_PER_SEC << "    " << 
-		// double(end2 - start2)/CLOCKS_PER_SEC << endl;
-		if (double(end1 - start1)/CLOCKS_PER_SEC > double(end2 - start2)/CLOCKS_PER_SEC) ++a;
-		else ++b;
+		auto end_kactl = chrono::high_resolution_clock::now();
+		
+		kuhn +=  chrono::duration_cast<chrono::nanoseconds>(end_kuhn - start_kuhn).count(); 
+		kactl += chrono::duration_cast<chrono::nanoseconds>(end_kactl - start_kactl).count(); 
+		
 		assert(sz(cover1) == sz(cover2));
 		verify(cover1);
 		verify(cover2);
 		// cout << '.' << endl;
 	}
-	
-	cout<<"Tests passed! " << a << ' ' << b << endl;
+	kuhn *= 1e-9;
+	kactl *= 1e-9;
+	cout << "Fast Kuhn's performance: " << kuhn << endl;
+	cout << "Kactl's implementation performance: " << kactl << endl;
+	cout<<"Tests passed!" << endl;
 }

@@ -1,5 +1,5 @@
 /**
- * Author: Johan Sannemo, Simon Lindholm
+ * Author: Johan Sannemo, Simon Lindholm, Chris
  * Date: 2016-12-15
  * License: CC0
  * Description: Finds a minimum vertex cover in a bipartite graph.
@@ -11,16 +11,16 @@
 
 #include "MaxBipartiteMatching.h"
 
-vector<int> cover(vector<vector<int>>& g, int n, int m, Kuhn &B) {
-    int res = B.match();
+vector<int> cover(BipartiteMatcher& B, int n, int m) {
+    int res = B.maxMatching();
     vector<bool> lfound(n, true), seen(m);
-    for(int &it : B.R) if (it == -1) lfound[it] = false;
+    for(int &it : B.R) if (it != -1) lfound[it] = false;
     vector<int> q, cover;
     for(int i = 0; i < n; ++i) if (lfound[i]) q.push_back(i);
-    while (!q.empty()) {
-        int i = q.back(); q.pop_back();
-        lfound[i] = true;
-        for(int e : g[i]) if (!seen[e] && B.R[e] != -1) {
+    for(int i = 0; i < q.size(); ++i) {
+        int v = q[i];
+        lfound[v] = true;
+        for (int e : B.edges[v]) if (!seen[e] && B.R[e] != -1) {
             seen[e] = true;
             q.push_back(B.R[e]);
         }

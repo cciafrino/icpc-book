@@ -96,7 +96,7 @@ struct HLPP {
         vector<pair<int,int>> cut; // if 0-indexed
         for (int i = 0; i < n; ++i) for (edge_t &e : adj[i]) 
             if (leftOfMinCut(i) && !leftOfMinCut(e.to))
-                edges.push_back({i, e.to});
-        return {maxflow, edges};
+                cut.push_back({i, e.to});
+        return {maxflow, cut};
     }
 };
