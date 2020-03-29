@@ -15,7 +15,6 @@ struct node {
 	lint minv, sumv, lazy;
 	int lx, rx;
 };
-
 void push(node *v) { 
 	if(v != nullptr && v->lazy) { 
 		v->minv += v->lazy;
@@ -25,7 +24,6 @@ void push(node *v) {
 		v->lazy = 0;
 	}
 }
-
 void update(node *v, int lx, int rx, lint delta) {
 	push(v);
 	if(rx < v->lx || v->rx < lx) return;
@@ -40,7 +38,6 @@ void update(node *v, int lx, int rx, lint delta) {
 	v->minv = min(v->l->minv, v->r->minv);
 	v->sumv = v->l->sumv + v->r->sumv;	
 }
-
 // without propagation, way faster in practice
 void upd(node *v, int lx, int rx, lint delta) {
 	if(rx < v->lx || v->rx < lx) return;
@@ -52,24 +49,21 @@ void upd(node *v, int lx, int rx, lint delta) {
 	}
 	upd(v->l, lx, rx, delta);
 	upd(v->r, lx, rx, delta);	
-	v->minv = max(v->l->minv, v->r->minv) + v->lazy;
+	v->minv = min(v->l->minv, v->r->minv) + v->lazy;
 	v->sumv = v->l->sumv + v->r->sumv + v->lazy * (v->rx - v->lx + 1);		
 }
-
 lint mquery(node *v, int lx, int rx) {
 	push(v);
-	if(rx < v->lx || v->rx < lx) return -1e16;
+	if(rx < v->lx || v->rx < lx) return 1e19;
 	if(lx <= v->lx && v->rx <= rx) return v->minv;
-	return max(mquery(v->l, lx, rx), mquery(v->r, lx, rx));
+	return min(mquery(v->l, lx, rx), mquery(v->r, lx, rx));
 }
-
 lint squery(node *v, int lx, int rx) {
 	push(v);
 	if(rx < v->lx || v->rx < lx) return 0;
 	if(lx <= v->lx && v->rx <= rx) return v->sumv;
 	return squery(v->l, lx, rx) + squery(v->r, lx, rx);
 }
-
 node *build(int lx, int rx) {
 	node *v = new node();
 	v->lx = lx; v->rx = rx;

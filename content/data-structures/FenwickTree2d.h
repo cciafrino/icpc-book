@@ -11,25 +11,24 @@
 
 #include "FenwickTree.h"
 
-struct FT2 {
-	vector<vi> ys; vector<FT> ft;
+template<typename T> struct FT2 {
+	vector<vector<int>> ys; vector<FT<T>> ft;
 	FT2(int limx) : ys(limx) {}
 	void fakeUpdate(int x, int y) {
-		for (; x < sz(ys); x |= x + 1) ys[x].push_back(y);
+		for (; x < (int)ys.size(); x |= x + 1) ys[x].push_back(y);
 	}
 	void init() {
 		for(auto v : ys) sort(v.begin(), v.end()), ft.emplace_back(v.size());
 	}
 	int ind(int x, int y) {
 		return (int)(lower_bound(ys[x].begin(), ys[x].end(), y) - ys[x].begin()); }
-	void update(int x, int y, ll dif) {
+	void update(int x, int y, T dif) {
 		for (; x < ys.size(); x |= x + 1)
 			ft[x].update(ind(x, y), dif);
 	}
-	ll query(int x, int y) {
-		ll sum = 0;
-		for (; x; x &= x - 1)
-			sum += ft[x-1].query(ind(x-1, y));
+	T query(int x, int y) {
+		T sum = 0;
+		for (; x; x &= x - 1) sum += ft[x-1].query(ind(x-1, y));
 		return sum;
 	}
 };

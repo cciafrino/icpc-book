@@ -7,12 +7,11 @@
  * in $G_1$ and $y_1,y_2,\ldots,y_n$ is legal in $G_2$, then turning coins at 
  * all positions $(x_i,y_j)$ is legal assuming that the coin at $(x_m,y_n)$ 
  * goes from heads to tails. Then the grundy function $g(x,y)$ of $G_1\times G_2$ 
- * is $g_1(x)\times g_2(y).$ 
- * Source: pg 35 of https://www.fmf.uni-lj.si/~juvan/Seminar1/ferguson.pdf and
- * https://en.wikipedia.org/wiki/Nimber
+ * is $g_1(x)\times g_2(y)$. 
+ * Source: pg 35 of www.fmf.uni-lj.si/~juvan/Seminar1/ferguson.pdf and
+ * en.wikipedia.org/wiki/Nimber
  * Time: $64^2$ xors per multiplication, memorize to speed up.
- * Status: Tested on https://codeforces.com/gym/102341/problem/L
- * https://projecteuler.net/problem=459
+ * Status: Tested on Codeforces 102341L and ProjectEuler 459
 */
 using ull = uint64_t;
 ull _nimProd2[64][64];

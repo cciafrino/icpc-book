@@ -20,12 +20,12 @@ struct tree_t {
             s[i] = f(s[i<<1], s[i<<1|1]);
     }
     void update(int pos, T val) {
-        for (s[pos += n] = val; pos > 1; pos /= 2)
-            s[pos / 2] = f(s[pos & ~1], s[pos | 1]);
+        for (s[pos += n] = val; pos > 1; pos >>= 1)
+            s[pos >> 1] = f(s[pos & ~1], s[pos | 1]);
     }
     T query(int l, int r) { // query [b, e)
         T ra = LOW, rb = LOW;
-        for (l += n, r += n; l < r; l /= 2, r /= 2) {
+        for (l += n, r += n; l < r; l >>= 1, r >>= 1) {
             if (l % 2) ra = f(ra, s[l++]);
             if (r % 2) rb = f(s[--r], rb);
         }

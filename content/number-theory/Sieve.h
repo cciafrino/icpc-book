@@ -2,22 +2,29 @@
  * Author: Chris
  * Date: 
  * License:
- * Source: http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+ * Source: Yuhao Du and Chinese Paper.
  * Description: Prime sieve for generating all primes up to a certain limit. isprime$[i]$ is true iff $i$ is a prime.
+ * Also useful if you need to compute any multiplicative function (in this case Moebius..).
  * Status: Works
- * Time: lim=100'000'000 $\approx$ 0.8 s. Runs 30\% faster if only odd indices are stored.
+ * Time: 
  */
 #pragma once
 
 const int MAX_PR = 5000000;
-bitset<MAX_PR> isprime;
-vector<int> run_sieve(int lim) {
-	isprime.set(); isprime[0] = isprime[1] = 0;
-	for (int i = 4; i < lim; i += 2) isprime[i] = 0;
-	for (int i = 3; i*i < lim; i += 2) if (isprime[i])
-		for (int j = i*i; j < lim; j += i*2) isprime[j] = 0;
-	vector<int> primes;
-	for(int i = 2; i < lim; ++i) if (isprime[i]) 
-		primes.push_back(i);
-	return primes;
+vector<int> p(MAX_PR), prime(MAX_PR), mu(MAX_PR, -1);
+void run_sieve {
+	mu[1] = 1;
+	int i, j, tot, t1;
+	for (i = 1; i <= MAX_PR; ++i) p[i] = i;
+	for (i = 2, tot = 0; i <= MAX_PR; ++i){
+		if (p[i] == i) prime[++tot] = i;
+		for (j = 1; j <= tot && (t1 = prime[j] * i) <= MAX_PR; ++j) {
+			p[t1] = prime[j];
+			mu[t1] *= mu[i];
+			if (i % prime[j] == 0) {
+				phi[t1] = phi[i] * prime[j];
+				break;
+			}
+		} 
+	}	
 }

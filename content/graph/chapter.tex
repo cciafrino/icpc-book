@@ -62,6 +62,24 @@
 	%\kactlimport{LinkCutTree.h}
 	%\kactlimport{MatrixTree.h}
     %\columnbreak
+    \subsection{Sqrt Decomposition}
+
+		HLD generally suffices. If not, here are some common strategies:
+		
+		\begin{itemize}
+			\item Rebuild the tree after every $\sqrt N$ queries. 
+			\item Consider vertices with $>$ or $<\sqrt N$ degree separately. 
+			\item For subtree updates, note that there are $O(\sqrt N)$ distinct sizes among child subtrees of any vertex.
+		\end{itemize}
+
+		\textbf{Block Tree:} Use a DFS to split edges into contiguous groups of size $\sqrt N$ to $2\sqrt N.$
+
+		\textbf{Mo's Algorithm for Tree Paths:} Maintain an array of vertices where each one appears twice, once when a DFS enters the vertex (\texttt{st}) and one when the DFS exists (\texttt{en}). For a tree path $u\leftrightarrow v$ such that \texttt{st[u]<st[v]},
+
+		\begin{itemize}
+		\item If $u$ is an ancestor of $v,$ query \texttt{[st[u],st[v]]}.
+		\item Otherwise, query $\texttt{[en[u],st[v]]}$ and consider $lca(u,v)$ separately.
+		\end{itemize}
     
 \section{Functional Graphs}
     \kactlimport{Lumberjack.h}

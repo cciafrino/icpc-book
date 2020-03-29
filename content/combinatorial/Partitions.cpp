@@ -4,7 +4,7 @@
  * License: CC0
  * Source: 
  * Status: 
- * Description: Fills array with partition function p(n) for 0 <= i <= n
+ * Description: Fills array with partition function $p(n)$  $\forall 0 \leq i leq n$
  * Usage:
  * Time: 
  */

@@ -16,7 +16,6 @@ num ncr(int n, int k) {
 	}
 	return res;
 }
-
 num ncr(int n, int k){
 	if(k < 0 || k > n) return 0;
 	return fact[n] * ifact[k] * ifact[n-k];

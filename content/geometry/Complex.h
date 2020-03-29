@@ -27,20 +27,10 @@ P rotate(P p, T a) { return p * polar(1.0, a); }
 P rotate(P v, T a, P pivot) { (a-pivot) * polar(1.0, a) + pivot; }
 T dot(P v, P w) { return (conj(v)*w).x; }
 T cross(P v, P w) { return (conj(v)*w).y; }
-T cross(P A, P B, P C) {
-	return cross(B - A, C - A);
-}
-P proj(P a, P v) {
-	return v * dot(a, v) / dot(v, v);
-}
- 
-P closest(P p, line l) {
-	return l.p + proj(p - l.p, l.v);
-}
-
-double dist(P p, line l) {
-	return fabs(p - closest(p, l));
-}
+T cross(P A, P B, P C) { return cross(B - A, C - A); }
+P proj(P a, P v) { return v * dot(a, v) / dot(v, v); }
+P closest(P p, line l) { return l.p + proj(p - l.p, l.v); }
+double dist(P p, line l) { return fabs(p - closest(p, l)); }
 P reflect(P p, P v, P w) {
     P z = p - v; P q = w - v;
     return conj(z/q) * q + v;
@@ -52,7 +42,8 @@ P intersection(line a, line b) { // undefined if parallel
 }
 vector<P> convex_hull(vector<P> points) {
     if (points.size() <= 1) return points;
-	sort(points.begin(), points.end(), [](P a, P b) { return real(a) == real(b) ? imag(a) < imag(b) : real(a) < real(b); });
+	sort(points.begin(), points.end(), [](P a, P b) { 
+		return real(a)==real(b) ? imag(a)<imag(b) : real(a)<real(b); });
 	vector<P> hull(points.size()+1);
 	int s = 0, k = 0;
 	for (int it = 2; it--; s = --k, reverse(points.begin(), points.end()))

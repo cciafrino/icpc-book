@@ -11,7 +11,7 @@ struct CircleUnion {
     int n;
     double x[maxn], y[maxn], r[maxn];
     int covered[maxn];
-    vector<pair<double, double> > seg, cover;
+    vector<pair<double, double>> seg, cover;
     double arc, pol;
     inline int sign(double x) {return x < -EPS ? -1 : x > EPS;}
     inline int sign(double x, double y) {return sign(x - y);}

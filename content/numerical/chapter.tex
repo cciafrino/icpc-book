@@ -52,54 +52,6 @@
               %pf(A) &= \frac{1}{2^nn!}\sum_{\sigma \in S_{2n}} \text{sgn}(\sigma)\prod_{i = 1}^n a_{\sigma(2i-1),\sigma(2i)}\\ &= \sum_{M \in \text{PM}(n)} \text{sgn}(M) \prod_{(i,j) \in M} a_{i,j}
 
 
-\subsection{Table of trigonometric integrals}
-      A list of common and not-so-common trigonometric integrals:
-
-      \begin{tabular}{|c|c|}
-        \hline
-        $\int \tan x dx$ & $-\ln |\cos x|$ \\ \hline
-        $\int \cot x dx$ & $\ln |\sin x|$ \\ \hline
-        $\int \sec x dx$ & $\ln |\sec x + \tan x|$ \\ \hline
-        $\int \csc x dx$ & $\ln |\csc x - \cot x|$ \\ \hline
-        $\int \sec^2 x dx$ & $\tan x$ \\ \hline
-        $\int \csc^2 x dx$ & $\cot x$ \\ \hline
-        $\int \sin^n x dx$ & $\frac{-\sin^{n-1} x \cos x}{n} + \frac{n-1}{n}\int \sin^{n-2}x dx$ \\ \hline
-        $\int \cos^n x dx$ & $\frac{\cos^{n-1} x \sin x}{n} + \frac{n-1}{n}\int \cos^{n-2}x dx$ \\ \hline
-        $\int \arcsin x dx$ & $x \arcsin x + \sqrt{1 - x^2}$ \\ \hline
-        $\int \arccos x dx$ & $x \arccos x - \sqrt{1 - x^2}$ \\ \hline
-        $\int \arctan x dx$ & $x \arctan x - \frac{1}{2} \ln |1 - x^2|$ \\ \hline
-      \end{tabular}
-
-\subsection{Table of non-trigonometric integrals}
-      Some useful integrals are:
-      
-      \begin{tabular}{|c|c|}
-        \hline
-        $\int \frac{dx}{x^2 + a^2}$ & $\frac{1}{a} \arctan \frac{x}{a}$ \\ \hline
-        $\int \frac{dx}{x^2 - a^2}$ & $\frac{1}{2a} \ln \frac{x - a}{x + a}$ \\ \hline
-        $\int \frac{dx}{a^2 - x^2}$ & $\frac{1}{2a} \ln \frac{a + x}{a - x}$ \\ \hline
-        $\int \frac{dx}{\sqrt{a^2 - x^2}}$ & $\arcsin \frac{x}{a}$ \\ \hline
-        $\int \frac{dx}{\sqrt{x^2 - a^2}}$ & $\ln \left(u + \sqrt{x^2 - a^2}\right)$ \\ \hline
-        $\int \frac{dx}{x \sqrt{x^2 - a^2}}$ & $\frac{1}{a} \text{arcsec} \left| \frac{u}{a} \right|$ \\ \hline
-        $\int \frac{dx}{x \sqrt{x^2 + a^2}}$ & $-\frac{1}{a} \ln \left( \frac{a + \sqrt{x^2 + a^2}}{x} \right)$ \\ \hline
-        $\int \frac{dx}{x \sqrt{a^2 + x^2}}$ & $-\frac{1}{a} \ln \left( \frac{a + \sqrt{a^2 - x^2}}{x} \right)$ \\ \hline
-      \end{tabular}
-
-
-\subsection{Common integral substitutions} And finally, a list of common substitutions:
-\resizebox{\columnwidth}{!}{%
-      \begin{tabular}{|c|c|c|}
-        \hline
-        $\int F(\sqrt{ax + b}) dx$ & $u = \sqrt{ax + b}$ & $\frac{2}{a} \int u F(u) du$ \\ \hline
-        $\int F(\sqrt{a^2 - x^2}) dx$ & $x = a \sin u$ & $a \int F(a \cos u) \cos u du$ \\ \hline
-        $\int F(\sqrt{x^2 + a^2}) dx$ & $x = a \tan u$ & $a \int F(a \sec u) \sec^2 u du$ \\ \hline
-        $\int F(\sqrt{x^2 - a^2}) dx$ & $x = a \sec u$ & $a \int F(a \tan u) \sec u \tan u du$ \\ \hline
-        $\int F(e^{ax}) dx$ & $u = e^{ax}$ & $\frac{1}{a} \int \frac{F(u)}{u} du$ \\ \hline
-        $\int F(\ln x) dx$ & $u = \ln x$ & $\int F(u) e^u du$ \\ \hline
-      \end{tabular}%
-      }
-
-
 \subsection{Generating functions}
   A list of generating functions for useful sequences:
 

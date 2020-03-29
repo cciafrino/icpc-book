@@ -1,5 +1,5 @@
 /**
- * Author: Lucian Bicsi / Andrew He
+ * Author: Lucian Bicsi, Andrew He
  * Date: 2017-10-31
  * License: CC0
  * Source: Wikipedia
@@ -12,7 +12,6 @@
  * Time: O(N^2)
  * Status: bruteforce-tested mod 5 for n <= 5 and all s
  */
-#pragma once
 #include "ModularArithmetic.h"
 
 template <typename num>

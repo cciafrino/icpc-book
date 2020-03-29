@@ -15,18 +15,17 @@ struct MergeSortTree {
     MergeSortTree(vector<int> &v) : v(v), tree(4*(v.size()+1)) {
         for(int i = 0; i < v.size(); ++i) id.push_back(i);
         sort(id.begin(), id.end(), [&v](int i, int j) { return v[i] < v[j]; });
-        make_tree(1, 0, v.size()-1);
+        build(1, 0, v.size()-1);
     }
-    void make_tree(int id, int left, int right) {
-        if (left == right) 
-            tree[id].push_back(id[left]);
+    void build(int id, int left, int right) {
+        if (left == right) tree[id].push_back(id[left]);
         else {
-            int mid = (left + right)/2;
-            make_tree(2*id, left, mid);
-            make_tree(2*id+1, mid+1, right);
+            int mid = (left + right)>>1;
+            build(id<<1, left, mid);
+            build(id<<1|1, mid+1, right);
             tree[id] = vector<int>(right - left + 1);
-            merge(tree[2*i].begin(), tree[2*i].end(), 
-                tree[2*id+1].begin(), tree[2*id+1].end(), 
+            merge(tree[i<<1].begin(), tree[i<<1].end(), 
+                tree[id<<1|1].begin(), tree[id<<1|1].end(), 
                 tree[id].begin());   
         }
     }
@@ -37,12 +36,12 @@ struct MergeSortTree {
     }
     int query(int id, int left, int right, int a, int b, int x) {
         if (left == right) return v[tree[id].back()];
-        int mid = (left + right)/2;
-        int lcount = how_many(2*id, a, b);
-        if (lcount >= x) return query(2*id, left, mid, a, b, x);
-        else return query(2*id+1, mid+1, right, a, b, x - lcount);
+        int mid = (left + right)>>1;
+        int lcount = how_many(id<<1, a, b);
+        if (lcount >= x) return query(id<<1, left, mid, a, b, x);
+        else return query(id<<1|1, mid+1, right, a, b, x - lcount);
     }
-    int kth(int a, int b, int k) {
+    int kth(int a, int b, int k) { 
         return query(1, 0, v.size()-1, a, b, k);
     }
 };
