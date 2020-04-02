@@ -11,7 +11,7 @@ T phi(T n){
         if (aux % i == 0) {
             while (aux % i == 0) aux /= i;
             result /= i;
-            result *= (i-1)
+            result *= (i-1);
         }
     if (aux > 1) {
     	result /= aux;
