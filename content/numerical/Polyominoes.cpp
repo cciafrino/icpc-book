@@ -17,7 +17,7 @@ void findPoly(int n){
 		for(auto &om : poly[i-1]){
 			pair<int,int> mini =
 			{om.begin() -> st, om.begin() -> nd};
-			for(auto &p: om){
+			for(auto &p: om)
 				for(int d = 0; d < numdir; d++){
 					int x = p.st + diri[d];
 					int y = p.nd + dirj[d];
@@ -32,6 +32,5 @@ void findPoly(int n){
 							poly[i].insert(norm);
 					}
 				}
-			}
 		}
 }
