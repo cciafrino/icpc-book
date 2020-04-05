@@ -14,7 +14,6 @@ int matInv(vector<vector<double>>& A) {
 	int n = A.size(); vector<int> col(n);
 	vector<vector<double>> tmp(n, vector<double>(n));
 	for(int i = 0; i < n; ++i) tmp[i][i] = 1, col[i] = i;
-    
 	for(int i = 0; i < n; ++i) {///start-hash
 		int r = i, c = i;
 		for(int j = i; j < n; ++j) for(int k = i; k < n; ++k)
@@ -36,13 +35,11 @@ int matInv(vector<vector<double>>& A) {
 		for(int j = 0; j < n; ++j) tmp[i][j] /= v;
 		A[i][i] = 1;
 	}///end-hash
-
 	/// forget A at this point, just eliminate tmp backward
 	for (int i = n-1; i > 0; --i) for(int j = 0; j < i; ++j) {///start-hash
 		double v = A[j][i];
 		for(int k = 0; k < n; ++k) tmp[j][k] -= v*tmp[i][k];
 	}
-
 	for(int i = 0; i < n; ++i) for(int j = 0; j < n; ++j) A[col[i]][col[j]] = tmp[i][j];
 	return n;
 }///end-hash
