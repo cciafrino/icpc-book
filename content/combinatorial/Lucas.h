@@ -17,8 +17,7 @@ num lucas(lint n, lint m) {
 		lint x = n % MOD, y = m % MOD;
 		if (x < y) return 0;
 		c = c * ncr(x, y);
-		n /= MOD;
-		m /= MOD;
+		n /= MOD; m /= MOD;
 	}
 	return c;
 }

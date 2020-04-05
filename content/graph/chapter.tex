@@ -10,8 +10,6 @@
     \kactlimport{Prim.h}
     \kactlimport{Kruskal.h}
     \kactlimport{SPFA.h}
-    
-\section{Euler walk}
 	\kactlimport{EulerWalk.h}
 
 \section{Network flow}
@@ -22,6 +20,7 @@
 	\kactlimport{MinCut.h}
 	\kactlimport{MinCostMaxFlow.h}
 	\kactlimport{StoerWagner.h}
+	\kactlimport{GomoryHu.h}
   
 \section{Matching}
 	\kactlimport{HopcroftKarp.h}
@@ -33,8 +32,6 @@
 	\kactlimport{MinimumEdgeCover.h}
 	\kactlimport{MinimumPathCover.h}
 	%\kactlimport{Koenig.cpp}
-	\kactlimport{Hungarian.h}
-	
 
 \section{DFS algorithms}
     \kactlimport{CentroidDecomposition.cpp}
@@ -61,11 +58,8 @@
     \kactlimport{LineTree.h}
 	%\kactlimport{LinkCutTree.h}
 	%\kactlimport{MatrixTree.h}
-    %\columnbreak
     \subsection{Sqrt Decomposition}
-
 		HLD generally suffices. If not, here are some common strategies:
-		
 		\begin{itemize}
 			\item Rebuild the tree after every $\sqrt N$ queries. 
 			\item Consider vertices with $>$ or $<\sqrt N$ degree separately. 
@@ -123,6 +117,7 @@ case when density is $0$. This also works for weighted graphs by
 replacing $d_u$ by the weighted degree, and doing more iterations (if
 weights are not integers).
 \fi
+
 \subsection{Dilworth's theorem}
 Em todo conjunto parcialmente ordenado, a quantidade máxima de elementos de uma anticadeia é igual à  quatidade mínima de cadeias disjuntas que cobrem o conjunto.
 
@@ -130,15 +125,17 @@ Em todo conjunto parcialmente ordenado, a quantidade máxima de elementos de uma
 É o mesmo que a cobertura de peso mínimo. Podemos resolver criando uma rede de fluxo com arestas $(S,u,w(u))$ para $u\in L$,
 $(v,T,w(v))$ para $v\in R$ e $(u,v,\infty)$ para $(u,v)\in E$. O corte mínimo de $S$ a $T$ é a resposta. Vértices adjacentes a uma aresta de corte estão na cobertura de vértices.
 
+\iffalse % commenting this block
 \subsection{Fecho de Peso Máximo}
 Dado um digrafo $G$ com peso nos vértices. Transforme $G$ numa rede de fluxo, colocando o peso de cada aresta como $\infty$. Adicione vértices $S,T$. Para cada vértice $v$ de peso $w$, adicione uma aresta $(S, v, w)$ se $w\geq 0$, ou a aresta $(v,T,-w)$ se $w<0$. A soma de todos os pesos positivos menos o corte mínimo $c(S,T)$ é a resposta. Vértices que são alcançados a partir de $S$ estão no fecho. O fecho de peso máximo é o mesmo que o complemento do fecho de peso mínimo num grafo com as arestas invertidas.
+\fi
+
 
 \subsection{Tutte-Berge formula}
 The theorem states that the size of a maximum matching of a graph $G=(V,E)$ equals ${\frac {1}{2}}\min _{U\subseteq V}\left(|U|- \texttt{odd}(G-U)+|V|\right)\,,$ where \texttt{odd}(H) counts how many of the connected components of the graph $H$ have an odd number of vertices.
 
 \subsection{Tutte's theorem}
 Um grafo $G = (V, A)$ tem um emparelhamento perfeito sse para todo subconjunto $U$ de $V$, o subgrafo induzido por $V \setminus U$ tem no máximo $|U|$ componentes conexas com uma quantidade ímpar de vértices.
-
 
 \subsection{Menger's theorem}
 \item Para vértices:
@@ -200,3 +197,9 @@ $ \max\limits_{S \in I_1 \cap I_2}{|S|} = \min\limits_{U \subseteq E}{r_1(U) + r
 \subsection{König-Egervary theorem}
     Em todo grafo bipartido~$G$, a quantidade de arestas no emparelhamento máximo é maior ou igual à quantidade de vértices na cobertura mínima. Ou seja, para todo~$G$,~$\alpha(G) \geq \beta(G)$. Note que isso prova que~$\alpha(G) = \beta(G)$ para grafos bipartidos.
 
+\subsection{Tutte Matrix}
+	\begin{itemize}
+	\item A graph has a perfect matching iff the $Tutte$ matrix has a non-zero determinant.
+
+	\item The rank of the $Tutte$ matrix is equal to twice the size of the maximum matching. The maximum cost matching can be found by polynomial interpolation.
+	\end{itemize}

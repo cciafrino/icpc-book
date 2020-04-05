@@ -16,23 +16,18 @@ bool diophantine(T a, T b, T c, T &x, T &y, T &g) { /// start-hash
     }
     if (a == 0) {
         if (c % b == 0) {
-            x = 0;
-            y = c / b;
-            g = abs(b);
+            x = 0; y = c / b; g = abs(b);
             return true;
         }
         return false;
     }
     if (b == 0) {
         if (c % a == 0) {
-            x = c / a;
-            y = 0;
-            g = abs(a);
+            x = c / a; y = 0; g = abs(a);
             return true;
         }
         return false;
-    }/// end-hash
-    /// start-hash
+    }
     g = egcd<lint>(a, b, x, y);
     if (c % g != 0) return false;
     T dx = c / a;
@@ -43,4 +38,4 @@ bool diophantine(T a, T b, T c, T &x, T &y, T &g) { /// start-hash
     y = dy + (T) ((__int128) y * (c / g) % a);
     g = abs(g);
     return true; // |x|, |y| <= max(|a|, |b|, |c|) 
-} /// end-hash
+} 

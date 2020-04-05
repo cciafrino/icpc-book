@@ -1,14 +1,16 @@
 /**
  * Author: Chris 
- * Description: n = vertices and v = starting point
+ * Description: n = vertices and s = starting point
  */
-template<class K> using pq = priority_queue<K, vector<K>, greater<K>>;
-template<typename T> vector<T> Dijkstra(vector<vector<pair<int,T>>> &edges, int n, int v) { 
-	assert(0 <= v && v < n);
-    vector<int> dist(n, INT_MAX/2), parent(n, -1);
-    pq<pair<int,int>> q;
-    q = pq<pair<int,int>>(); 
-    q.push({dist[v] = 0, v});
+
+template<typename T> 
+vector<T> Dijkstra(vector<vector<pair<int,T>>> &edges, int s) { 
+    const int n = (int)edges.size();
+	assert(0 <= s && s < n);
+    vector<int> dist(n, numeric_limits<T>::max()/2), parent(n, -1);
+    using Q = pair<T, int>;
+    priority_queue<Q, vector<Q>, greater<Q>> q;
+    q.push({dist[s] = 0, s});
     while(!q.empty()) {
         auto x = q.top(); q.pop();
         if (dist[x.second] < x.first) continue;

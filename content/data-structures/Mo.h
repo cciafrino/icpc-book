@@ -15,40 +15,10 @@ int n, m, total = 0; // elements, queries, result.
 const int sqn = sqrt(n), maxv = 1000000;
 vector<int> values(n), freq(2*maxv), result(m);
 vector<query_t> queries(m);
-
 sort(queries.begin(), queries.end(), [sqn](const query_t &a, const query_t &b) {
 	if (a.l/sqn != b.l/sqn) return a.l < b.l;
 	return a.r < b.r;
 });
-
-/*
-Mo's using Hilbert Curves.
-
-constexpr int lgn = 20, maxn = 1 << lgn;
-struct query_t {
-	int l, r, id;
-	inline lint order() const {
-		int x = l, y = r;
-		lint d = 0;
-		for (int s = 1 << (lgn - 1); s; s >>= 1) {
-			bool rx = x & s, ry = y & s;
-			d = d << 2 | rx * 3 ^ static_cast<int>(ry);
-			if (!ry) {
-				if (rx) {
-					x = maxn - x;
-					y = maxn - y;
-				}
-				swap(x, y);
-			}
-		}
-		return d;
-	}	
-};
-sort(queries.begin(), queries.end(), [&](const query_t &a, const query_t &b) {
-	return a.order() < b.order();	
-});
-*/
-
 int l = 0, r = -1;
 for(query_t &q : queries) {
 	auto add = [&](int i) {
