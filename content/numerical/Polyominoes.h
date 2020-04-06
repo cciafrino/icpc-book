@@ -24,11 +24,11 @@ void generate(int n){
 					int x = p.st + diri[d];
 					int y = p.nd + dirj[d];
 					if(!binary_search(om.begin(), om.end(), pii(x,y))) {
-						auto m = min(mini, {x, y});
+						pii m = min(mini, {x, y});
 						pii new_cell(x - m.st, y - m.nd);
 						bool new_in = false;
 						vector<pii> norm;
-						for(auto &pn : om) {
+						for(pii &pn : om) {
 							pii cur(pn.st - m.st, pn.nd - m.nd);
 							if(cur > new_cell && !new_in) {
 								new_in = true;
