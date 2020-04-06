@@ -31,7 +31,7 @@ void findPoly(int n){
 						for(auto &pn:om){
 							pii cur(pn.st - m.st, pn.nd - m.nd);
 							if(cur > new_cell && !new_in){
-								new_in=true;
+								new_in = true;
 								norm.push_back(new_cell);
 							}
 							norm.push_back(cur);
