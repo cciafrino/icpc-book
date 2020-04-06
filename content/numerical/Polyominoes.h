@@ -13,7 +13,7 @@ int dirj[] = { 1, 0,-1, 0};
 
 typedef pair<int,int> pii;
 vector<vector<pii>> poly [LIM];
-void findPoly(int n){
+void generate(int n){
 	poly[1] = {{{0 , 0}}};
 	for(int i = 2 ; i <= n; i++) {
 		set<vector<pii>> cur_om;
@@ -30,7 +30,7 @@ void findPoly(int n){
 						vector<pii> norm;
 						for(auto &pn : om) {
 							pii cur(pn.st - m.st, pn.nd - m.nd);
-							if(cur > new_cell && !new_in){
+							if(cur > new_cell && !new_in) {
 								new_in = true;
 								norm.push_back(new_cell);
 							}
