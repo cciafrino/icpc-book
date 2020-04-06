@@ -3,16 +3,14 @@
  * Date: 2020-04-01
  * License: CC0
  * Description: Generate all free polyominoes with n squares.
- * Takes less than a sec for $n \geq 10$, around 2s for n=10
- * and around 6s for n=11
+ * Takes less than a sec for $n < 10$, around 2s if $n = 10$
+ * and around 6s if $n = 11$.
  * Status: Tested on URI 1712
  */
-
-int diri[] = { 0, 1, 0,-1};
-int dirj[] = { 1, 0,-1, 0};
-
-typedef pair<int,int> pii;
-vector<vector<pii>> poly [LIM];
+using pii = pair<int,int>;
+vector<int> diri = {0, 1, 0, -1};
+vector<int> dirj = {1, 0, -1, 0};
+vector<vector<pii>> poly[LIM];
 void generate(int n){
 	poly[1] = {{{0 , 0}}};
 	for(int i = 2 ; i <= n; i++) {
@@ -21,8 +19,7 @@ void generate(int n){
 			pii mini = om[0];
 			for(auto &p : om)
 				for(int d = 0; d < 4; d++) {
-					int x = p.st + diri[d];
-					int y = p.nd + dirj[d];
+					int x = p.st + diri[d], y = p.nd + dirj[d];
 					if(!binary_search(om.begin(), om.end(), pii(x,y))) {
 						pii m = min(mini, {x, y});
 						pii new_cell(x - m.st, y - m.nd);
