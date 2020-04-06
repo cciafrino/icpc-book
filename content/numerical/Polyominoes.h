@@ -3,7 +3,7 @@
  * Date: 2020-04-01
  * License: CC0
  * Description: Generate all free polyominoes with n squares.
- * Takes less than a sec for $n < 10$, around 2s if $n = 10$
+ * Takes less than a sec if $n < 10$, around 2s if $n = 10$
  * and around 6s if $n = 11$.
  * Status: Tested on URI 1712
  */
