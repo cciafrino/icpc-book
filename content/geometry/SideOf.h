@@ -8,8 +8,6 @@
  * Usage:
  * 	bool left = sideOf(p1,p2,q)==1;
  */
-#pragma once
-
 #include "Point.h"
 
 template<class P>

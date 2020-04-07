@@ -9,8 +9,7 @@
  * for $u \subset B$, $lvl[u] = 0$.
  * Status: Tested, stress-tested
  */
-template<typename T = lint>
-struct Dinitz { ///start-hash
+template<typename T = lint> struct Dinitz { ///start-hash
 	struct edge_t { int to, rev; T c, f; };
 	vector<vector<edge_t>> adj;
 	vector<int> lvl, ptr, q;

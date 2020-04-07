@@ -8,7 +8,6 @@
  * Usage:
  * Time: 
  */
-
 bool elimination(vector<vector<double>> &m, int row, int col) {
 	for (int i = 0; i < row; ++i) {
 		int p = i; // Choose the biggest pivot

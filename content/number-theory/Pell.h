@@ -5,7 +5,6 @@
  * Status: Tested
  * Time:
  */
-
 pair<int,int> Pell(int n) {
 	int p0 = 0, p1 = 1, q0 = 1, q1 = 0;
 	int a0 = (int)sqrt(n), a1 = a0, a2 = a0;

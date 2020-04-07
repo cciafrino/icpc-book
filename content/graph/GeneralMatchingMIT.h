@@ -8,10 +8,7 @@
  * Time: O(N^3)
  * Status: not very well tested
  */
-#pragma once
-
 #include "../numerical/MatrixInverse-mod.h"
-
 vector<pair<int,int>> generalMatching(int N, vector<pair<int,int>> &ed) {
 	vector<vector<lint>> mat(N, vector<lint>(N)), A;
     for (auto &pa : ed) {

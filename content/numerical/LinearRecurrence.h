@@ -12,7 +12,6 @@
  * Time: O(n^2 \log k)
  * Status: bruteforce-tested mod 5 for n <= 5
  */
-#pragma once
 #include "ModularArithmetic.h"
 
 template <typename num>

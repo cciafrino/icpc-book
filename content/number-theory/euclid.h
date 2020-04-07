@@ -6,8 +6,6 @@
  * you just need gcd, use the built in \texttt{\_\_gcd} instead.
  * If $a$ and $b$ are coprime, then $x$ is the inverse of $a \pmod{b}$.
  */
-#pragma once
-
 template<typename T>
 T egcd(T a, T b, T &x, T &y) {
 	if (b) { T d = egcd(b, a % b, y, x);

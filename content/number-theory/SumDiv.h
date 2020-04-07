@@ -4,7 +4,6 @@
  */
 #include "Sieve.h"
 #include "Modpow.h"
-
 lint sumDiv(int n){
     int idx = 0, prime_factors = primes[idx];
     lint ans = 1;

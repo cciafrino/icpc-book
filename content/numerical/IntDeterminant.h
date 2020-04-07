@@ -7,8 +7,6 @@
  * Status: bruteforce-tested for N <= 3, mod <= 7
  * Time: $O(N^3)$
  */
-#pragma once
-
 const lint mod = 12345;
 lint det(vector<vector<lint>>& a) {
 	int n = a.size(); lint ans = 1;

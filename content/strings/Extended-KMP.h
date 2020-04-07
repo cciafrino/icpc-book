@@ -4,10 +4,7 @@
  * S[i] stores the maximum common prefix between s[i:] and t;
  * T[i] stores the maximum common prefix between t[i:] and t for i>0;
  */
-
-
 int S[N], T[N];
-
 void extKMP(const string &s, const string &t) {
     int m = t.size(), maT = 0, maS = 0;
     T[0] = 0;

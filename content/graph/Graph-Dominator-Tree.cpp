@@ -2,15 +2,12 @@
  * Author: 
  * Description: Dominator Tree.
  */
-
 #define N 110000 //max number of vertices
-
 vector<int> succ[N], prod[N], bucket[N], dom_t[N];
 int semi[N], anc[N], idom[N], best[N], fa[N], tmp_idom[N];
 int dfn[N], redfn[N];
 int child[N], size[N];
 int timestamp;
-
 void dfs(int now) { /// start-hash
   dfn[now] = ++timestamp;
   redfn[timestamp] = now;
@@ -25,7 +22,6 @@ void dfs(int now) { /// start-hash
     prod[dfn[succ[now][i]]].push_back(dfn[now]);
   }
 } /// end-hash
-
 void compress(int now) { /// start-hash
   if(anc[anc[now]] != 0) {
     compress(anc[now]);
@@ -34,7 +30,6 @@ void compress(int now) { /// start-hash
     anc[now] = anc[anc[now]];
   }
 } /// end-hash
-
 inline int eval(int now) { /// start-hash
   if(anc[now] == 0)
     return now;

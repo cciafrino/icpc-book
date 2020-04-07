@@ -10,9 +10,7 @@
  * Time: O(\log(N))
  * Status: fuzz-tested for n <= 300
  */
-
 struct Frac { lint p, q; };
-
 template<class F>
 Frac fracBS(F f, lint N) { /// start-hash
 	bool dir = 1, A = 1, B = 1;

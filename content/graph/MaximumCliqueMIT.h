@@ -8,7 +8,6 @@
  *can be used to solve maximum independent set
  *
  */
-
 class clique {
   public:
   static const long long ONE = 1;

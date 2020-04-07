@@ -3,7 +3,6 @@
  * Description: Divide and Conquer on Trees.
  * 
  */
-
 struct centroid_t {
     vector<bool> seen;
     vector<int> sz, level, par_tree, closest;

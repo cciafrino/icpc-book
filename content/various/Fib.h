@@ -5,7 +5,6 @@
  * Status:
  * Time: 
  */
- 
 unordered_map<int, int> dp;
 lint fib(int n) {
     if (n < 2) return 1;

@@ -2,13 +2,11 @@
  * Author:
  * Description: Linear-time SA+LCP+Tree
  */
-
 const int N=1000010;
 char s[N];
 int *h;
- 
 namespace SuffixArray {
- 
+
 const int N=1000010;
  
 int sa[N],rk[N],ht[N];

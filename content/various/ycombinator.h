@@ -8,7 +8,6 @@
  		auto check = std::y_combinator([&] (auto self, int v) -> void {});
  * Status: Not well tested.
  */
-
 namespace std {
 template<class F>
 class y_combinator_result {

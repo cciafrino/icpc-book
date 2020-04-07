@@ -13,7 +13,6 @@
  * Time: O(\log N)
  * Status: fuzz-tested for n <= 300
  */
-
 typedef double d; // for N ~ 1e7; long double for N ~ 1e9
 pair<lint, lint> approximate(d x, lint N) { /// start-hash
 	lint LP = 0, LQ = 1, P = 1, Q = 0, inf = LLONG_MAX; d y = x;

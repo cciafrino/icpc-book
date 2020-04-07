@@ -7,8 +7,6 @@
  * Time: 
  * Status: 
  */
-#pragma once
-
 struct suffix_aut {
     vector<map<int,int>> to;
     vector<int> len, link, cnt;

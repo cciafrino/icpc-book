@@ -10,8 +10,6 @@
  * To find the tangents of a circle with a point set r2 to 0.
  * Status: tested
  */
-#pragma once
-
 #include "Point.h"
 
 template<class P>

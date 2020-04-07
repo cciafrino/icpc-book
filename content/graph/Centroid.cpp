@@ -3,7 +3,6 @@
  * Description: Divide and Conquer on Trees.
  * 
  */
-
 vector<int> adj[N]; int cn_sz[N], n;
 vector<int> cn_chld[N]; int cn_dep[N], cn_dist[20][N]; // removable
 void cn_setdist (int u, int p, int depth, int dist) { // removable

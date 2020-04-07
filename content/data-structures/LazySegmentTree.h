@@ -8,8 +8,7 @@
  * Status: Tested on USACO 2015 December Contest (Platinum) P3 - Counting Haybales.
  * Time: $O(\lg(N))$
  */
-template<typename T, typename Q>
-struct segtree_t {
+template<typename T, typename Q> struct segtree_t {
     int n;
     vector<T> tree;
     vector<Q> lazy, og;

@@ -6,8 +6,6 @@
  * Time: O(N)
  * Status: Fuzz-tested
  */
-#pragma once
-
 array<vector<int>, 2> manacher(const string &s) { /// start-hash
 	int n = s.size();
 	array<vector<int>, 2> p = {vector<int>(n+1), vector<int>(n)};
@@ -17,7 +15,7 @@ array<vector<int>, 2> manacher(const string &s) { /// start-hash
 		int L = i-p[z][i], R = i+p[z][i]-!z;
 		while (L>=1 && R+1<n && s[L-1] == s[R+1])
 			p[z][i]++, L--, R++;
-		if (R>r) l=L, r=R;
+		if (R > r) l = L, r = R;
     }
     return p;
 }/// end-hash

@@ -7,9 +7,6 @@
  * no duplicate/colinear points).
  * Status: Fuzz-tested, submitted on kattis roberthood
  */
-#pragma once
-
-typedef Point<lint> P;
 array<P, 2> hullDiameter(vector<P> S) {
 	int n = S.size(), j = n < 2 ? 0 : 1;
 	pair<lint, array<P, 2>> res({0, {S[0], S[0]}});

@@ -8,8 +8,6 @@
  * Time: O(n^3)
  * Status: Slightly tested
  */
-#pragma once
-
 int matInv(vector<vector<double>>& A) {
 	int n = A.size(); vector<int> col(n);
 	vector<vector<double>> tmp(n, vector<double>(n));

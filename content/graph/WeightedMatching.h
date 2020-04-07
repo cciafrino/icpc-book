@@ -12,7 +12,6 @@
  * Time: O(N^2M)
  * Status: Tested on kattis:cordonbleu, stress-tested
  */
-
 pair<int, vector<int>> hungarian(const vector<vector<int>> &a) {
 	if (a.empty()) return {0, {}};
 	int n = a.size() + 1, m = a[0].size() + 1;

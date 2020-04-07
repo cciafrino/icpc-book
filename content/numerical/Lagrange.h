@@ -8,8 +8,7 @@
 #include "ModInv.h"
 #include "Factorial.h"
 
-template<typename T>
-struct Lagrange {
+template<typename T> struct Lagrange {
 	const int n;
 	vector<T> f, den;
 	Lagrange(vector<T> other) : f(other), n(other.size()) {

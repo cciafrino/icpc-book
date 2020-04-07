@@ -8,7 +8,6 @@
  * Time: $O(N^3)$
  */
 #include "DSU.h"
-
 lint det(vector<vector<lint>> a, int n, int p) {
 	lint ans = 1;
 	for (int i = 0; i < n; i++) for (int j = 0; j < n; j++) a[i][j] %= p;
@@ -29,7 +28,6 @@ lint det(vector<vector<lint>> a, int n, int p) {
 	}
 	return (ans + p) % p;
 }
-
 struct edge_t {
 	int u, v, w;
 	bool operator<(const edge_t& o) const {
@@ -42,12 +40,10 @@ vector<edge_t> edge;
 vector<bool> seen;
 vector<int> g[N];
 vector<vector<lint>> p, deg;
-
 void addEdge(int u, int v, int d){
 	edge_t E = { u, v, d };
 	edge[++edgenum] = E;
 }
- 
 lint MST_count(int n, lint MOD) {
 	sort(edge.begin()+1, edge.begin()+edgenum+1);
 	int pre = edge[1].w;
@@ -94,7 +90,6 @@ lint MST_count(int n, lint MOD) {
 	}
 	if (!edgenum) return 0;
 	for (int i = 2; i <= n; i++)
-		if (b.find(i) != b.find(1))
-			return 0;
+		if (b.find(i) != b.find(1)) return 0;
 	return ans;
 }

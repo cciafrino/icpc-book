@@ -29,9 +29,7 @@ struct UF {
         return result;
     }
 };
-
-template<typename T>
-struct linetree_t {
+template<typename T> struct linetree_t {
 	struct edge_t {
 		int u, v; T w;
 		edge_t() {}

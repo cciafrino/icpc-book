@@ -3,8 +3,7 @@
  * Description: 
  */
 
-template<typename T>
-T isqrt(T n) {
+template<typename T> T isqrt(T n) {
     T left = 0, right = 10000000;
     while (right - left > 1) {
         T mid = (left + right)/2;

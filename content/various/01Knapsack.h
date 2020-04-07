@@ -5,7 +5,7 @@
  * knapsack of capacity W to get the maximum total value possible. More efficient
  * space-wise since we work in only one row.
  * Status: tested
- * Time: $O(N \log N)$
+ * Time: $O(NW)$
  */
  
 int knapsack(int limit, vector<int> &v, vector<int> &w) {

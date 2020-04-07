@@ -6,7 +6,6 @@
  * Status: Fuzz-tested
  * Usage:
  */
- 
 struct Trie {
     struct node_t { 
     	unordered_map<char, node_t*> child; 

@@ -31,8 +31,6 @@ the algorithm is numerically stable and neither \texttt{tr} nor the check for \t
  * Time: O(N)
  * Status: Brute-force tested mod 5 and 7 and fuzz-tested for real matrices obeying the criteria above.
  */
-#pragma once
-
 typedef double T;
 vector<T> tridiagonal(vector<T> diag, const vector<T> &super,
 		const vector<T> &sub, vector<T> b) {

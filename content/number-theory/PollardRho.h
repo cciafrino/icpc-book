@@ -38,7 +38,6 @@
  */
 #include "ModMulLL.h"
 #include "MillerRabin.h"
-
 ull pollard(ull n) {
 	auto f = [n](ull x) { return mod_mul(x, x, n) + 1; };
 	ull x = 0, y = 0, t = 0, prd = 2, i = 1, q;

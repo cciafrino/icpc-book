@@ -10,10 +10,7 @@
  * The root points to itself.
  * Time: $O(|S| \log |S|)$
  */
-#pragma once
-
 #include "LCA.h"
-
 vector<pair<int,int>> compressTree(lca_t &lca, const vector<int>& subset) {
 	static vector<int> rev; rev.resize(lca.time.size());
 	vector<int> li = subset, &T = lca.time;

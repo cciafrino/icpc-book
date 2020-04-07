@@ -3,7 +3,6 @@
  * Description: Sparse Segment Tree with point update. Doesnt allocate storage for nodes with no data. Use BumpAllocator for better performance!
  * Time: 
  */
-
 const int SZ = 1<<19;
 template<class T> struct node_t {
 	T delta = 0; node_t<T>* c[2];

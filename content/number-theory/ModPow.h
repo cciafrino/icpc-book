@@ -6,8 +6,6 @@
  * Description:
  * Status: tested
  */
-#pragma once
-
 const ll mod = 1000000007; // faster if const
 ll modpow(ll a, ll e) {
 	if (e == 0) return 1;

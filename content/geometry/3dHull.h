@@ -8,8 +8,6 @@
  * Time: O(n^2)
  * Status: tested on SPOJ CH3D
  */
-#pragma once
-
 #include "Point3D.h"
 
 typedef Point3D<double> P3;

@@ -5,8 +5,6 @@
  * Status: Tested on Kattis, longincsubseq
  * Time: $O(N \log N)$
  */
-#pragma once
-
 template<class I> vector<int> lis(const vector<I>& S) {
 	if (S.empty()) return {};
 	vector<int> prev(S.size());

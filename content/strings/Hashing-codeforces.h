@@ -7,11 +7,8 @@
  * Use on Codeforces, which lacks 64-bit support and where solutions can be hacked.
  * Status: somewhat tested
  */
-#pragma once
-
 typedef uint64_t ull;
 static int C; // initialized below
-
 // Arithmetic mod two primes and 2^32 simultaneously.
 // "typedef uint64_t H;" instead if Thue-Morse does not apply.
 template<int M, class B>

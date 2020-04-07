@@ -6,8 +6,6 @@
  * Usage: poly_roots({{2,-3,1}},-1e9,1e9) // solve x^2-3x+2 = 0
  * Time: O(n^2 \log(1/\epsilon))
  */
-#pragma once
-
 #include "Polynomial.h"
 
 vector<double> poly_roots(Poly p, double xmin, double xmax) {
@@ -22,7 +20,7 @@ vector<double> poly_roots(Poly p, double xmin, double xmax) {
 	for(int i = 0; i < dr.size()-1; ++i) {
 		double l = dr[i], h = dr[i+1];
 		bool sign = p(l) > 0;
-		if (sign ^ (p(h) > 0)) {
+		if (sign^(p(h) > 0)) {
 			for(int it = 0; it < 60; ++it) { // while (h - l > 1e-8)
 				double m = (l + h) / 2, f = p(m);
 				if ((f <= 0) ^ sign) l = m;

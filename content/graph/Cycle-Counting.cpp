@@ -3,16 +3,11 @@
  * Description: Counts 3 and 4 cycles
  * Status: working
  */
-#include <bits/stdc++.h>
-using namespace std;
-
 #define P 1000000007
 #define N 110000
-
 int n, m;
-vector <int> go[N], lk[N];
-
-int w[N];
+vector<int> go[N], lk[N];
+int w[N], deg[N], pos[N], id[N];
 int circle3(){ /// start-hash
 	int ans=0;
 	for (int i = 1; i <= n; i++)
@@ -29,9 +24,6 @@ int circle3(){ /// start-hash
 	}
 	return ans;
 } /// end-hash
-
-int deg[N], pos[N], id[N];
-
 int circle4(){ /// start-hash
 	for (int i = 1; i <= n; i++)
 		w[i]=0;
@@ -45,11 +37,9 @@ int circle4(){ /// start-hash
 	}
 	return ans;
 } /// end-hash
-
 inline bool cmp(const int &x,const int &y){
 	return deg[x]<deg[y];
 }
-
 void init() {
 	scanf("%d%d", &n, &m);
 	for (int i = 1; i <= n; i++)

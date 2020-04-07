@@ -3,7 +3,6 @@
  * Description: Find the strongly connected components of a digraph
  * 
  */
-
 struct kosaraju_t {
     int time = 1, n;
     vector<vector<int>> adj, tree;

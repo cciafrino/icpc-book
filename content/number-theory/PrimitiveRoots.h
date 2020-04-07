@@ -9,7 +9,6 @@
  * Status: 
  * Time: 
  */
-
 template<typename T>
 T primitive_roots(T p) {
     T n = p - 1;

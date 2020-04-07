@@ -8,7 +8,6 @@
  * Time: $O(N\sum)$ for addChar, $O(N\log N)$ for updAns
  * Source: http://codeforces.com/blog/entry/13959, https://codeforces.com/blog/entry/19193
  */
-
 template<int SZ> struct PalTree {
     static const int sigma = 26;
     int s[SZ], len[SZ], link[SZ], to[SZ][sigma], oc[SZ];

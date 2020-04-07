@@ -7,10 +7,7 @@
  *  Clockwise enumeration gives negative area. Watch out for overflow if using int as T!
  * Status: Tested with unitTest, Kattis problems polygonarea and wrapping and UVa Online Judge Problem: 109 - SCUD Busters
  */
-#pragma once
-
 #include "Point.h"
-
 template<class T>
 T polygonArea(vector<Point<T>> &v) {
 	T a = v.back().cross(v[0]);

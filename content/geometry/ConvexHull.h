@@ -6,7 +6,7 @@
  * Description:
 \\\begin{minipage}{75mm}
 Returns a vector of indices of the convex hull in counter-clockwise order.
-Points on the edge of the hull between two other points are not considered part of the hulint.
+Points on the edge of the hull between two other points are not considered part of the hull.
 \end{minipage}
 \begin{minipage}{15mm}
 \vspace{-6mm}
@@ -16,11 +16,8 @@ Points on the edge of the hull between two other points are not considered part 
  * Status: tested with Kattis problems convexhull
  * Time: O(n \log n)
 */
-#pragma once
-
 #include "Point.h"
 
-typedef Point<lint> P;
 vector<P> convexHull(vector<P> pts) {
 	if (pts.size() <= 1) return pts;
 	sort(pts.begin(), pts.end());

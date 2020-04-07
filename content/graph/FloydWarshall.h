@@ -9,8 +9,6 @@
  * Time: O(N^3)
  * Status: slightly tested
  */
-#pragma once
-
 const lint inf = 1LL << 62;
 void floydWarshall(vector<vector<lint>>& m) {
 	int n = m.size();

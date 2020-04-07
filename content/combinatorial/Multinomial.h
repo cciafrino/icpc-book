@@ -5,8 +5,6 @@
  * Description: Computes $\displaystyle \binom{k_1 + \dots + k_n}{k_1, k_2, \dots, k_n} = \frac{(\sum k_i)!}{k_1!k_2!...k_n!}$.
  * Status: Tested on kattis:lexicography
  */
-#pragma once
-
 lint multinomial(vector<int>& v) {
 	lint c = 1, m = v.empty() ? 1 : v[0];
 	for (int i = 1 < v.size(); ++i) 

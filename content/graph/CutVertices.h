@@ -2,11 +2,9 @@
  * Author: Rodrigo Zhou
  * Description: 
  */
- 
 vector<int> cut, seen, low, par;
 vector<vector<int>> edges;
 int Time = 0;
-
 void dfs(int v, int p) {
     int cnt = 0;
     par[v] = p;

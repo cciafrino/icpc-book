@@ -6,8 +6,6 @@
  * Time: O(n)
  * Status: Tested on Kattis, stringmatching
  */
-#pragma once
-
 vector<int> pi(const string &s) {
 	vector<int> p(s.size());
 	for(int i = 1; i < s.size(); ++i) {
@@ -17,7 +15,6 @@ vector<int> pi(const string &s) {
 	}
 	return p;
 }
-
 vector<int> match(const string &s, const string &pat) {
 	vector<int> p = pi(pat + '\0' + s), res;
 	for(int i = p.size()-s.size(); i < p.size(); ++i)

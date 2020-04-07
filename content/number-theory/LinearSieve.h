@@ -5,8 +5,7 @@
  * Status: Tested
  * Time: $O(n)$
  */
-vector<int> least = {0, 1};
-vector<int> primes;
+vector<int> primes, least = {0, 1};
 int precalculated = 1;
 void LinearSieve(int n) {
     n = max(n, 1);

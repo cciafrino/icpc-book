@@ -9,10 +9,7 @@
  * Time: O(n^3)
  * Status: Slightly tested
  */
-#pragma once
-
 #include "../number-theory/ModPow.h"
-
 int matInv(vector<vector<lint>>& A) {
 	int n = A.size(); vi col(n);
 	vector<vector<lint>> tmp(n, vector<lint>(n));

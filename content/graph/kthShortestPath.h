@@ -4,7 +4,6 @@
  * Time: O((V + E) lg(V) * k)
  * Source: https://github.com/dragonslayerx
  */
-
 int getCost(vector<vector<pair<int,int>>> &G, int s, int t, int k) {
     int n = G.size();
     vector<int> dist(n, INF), count(n, 0);

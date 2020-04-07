@@ -6,8 +6,6 @@
  * Description: Permutation -> integer conversion. (Not order preserving.)
  * Time: O(n)
  */
-#pragma once
-
 int permToInt(vector<int>& v) {
 	int use = 0, i = 0, r = 0;
 	for (auto &x : v) r=r * ++i + __builtin_popcount(use & -(1 << x)),

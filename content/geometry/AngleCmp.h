@@ -5,8 +5,6 @@
  * Description: Useful utilities for dealing with angles of rays from origin.
  * OK for integers, only uses cross product. Doesn't support (0,0).
  */
-#pragma once
-
 template <class P>
 bool sameDir(P s, P t) {
 	return s.cross(t) == 0 && s.dot(t) > 0;

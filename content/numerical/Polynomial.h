@@ -3,8 +3,6 @@
  * Date: 2003-03-16
  * Description:
  */
-#pragma once
-
 struct Poly {
 	vector<double> a;
 	double operator()(double x) const {

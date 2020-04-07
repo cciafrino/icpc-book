@@ -13,7 +13,6 @@
  * Status: stress-tested
  */
 using pii = pair<int,int>;
-
 vector<int> eulerWalk(vector<vector<pii>>& gr, int nedges, int src=0) {
     int n = gr.size();
     vector<int> D(n), its(n), eu(nedges), ret, s = {src};

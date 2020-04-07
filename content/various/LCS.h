@@ -7,8 +7,6 @@
  * Time: $O(nm)$ where n and m are the lengths of the sequences.
  * Memory: $O(nm)$.
  */
-#pragma once
-
 template<class T> T lcs(const T &X, const T &Y) {
 	int a = X.size(), b = Y.size();
 	vector<vvector<int>> dp(a+1, vector<int>(b+1));

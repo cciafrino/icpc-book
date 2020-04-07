@@ -14,7 +14,6 @@
  * Time: O(N \log N) with $N = |A|+|B|$ ($\tilde 1s$ for $N=2^{22}$)
  * Status: somewhat tested
  */
-
 using doublex = complex<long double>;
 struct FFT {
     vector<doublex> fft(vector<doublex> y, bool invert = false) {

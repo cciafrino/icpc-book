@@ -7,8 +7,6 @@
  * 	T can be e.g. double or long long. (Avoid int.)
  * Status: Works fine, used a lot
  */
-#pragma once
-
 template <class T> int sgn(T x) { return (x > 0) - (x < 0); }
 template<class T>
 struct Point {
@@ -35,3 +33,4 @@ struct Point {
 	P rotate(double a) const {
 		return P(x*cos(a)-y*sin(a),x*sin(a)+y*cos(a)); }
 };
+using P = Point<double>;

@@ -8,8 +8,6 @@
  tested with Kattis problem airlinehub
  to be tested with UVa 535
  */
-#pragma once
-
 double sphericalDistance(double f1, double t1,
 		double f2, double t2, double radius) {
 	double dx = sin(t2)*cos(f2) - sin(t1)*cos(f1);

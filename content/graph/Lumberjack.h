@@ -10,9 +10,7 @@
  * Usage: Lumberjack<10010> g; g.init(N); (Be careful with the size of cyles when declared locally!)
  * Status: Tested on CodeForces 22E - Scheme
  */
-
-template<int T>
-struct Lumberjack {
+template<int T> struct Lumberjack {
 	int n, numcycle;
 	vector<int> subtree, order, par, cycle;
 	vector<int> parincycles, idxcycle, sz, st;

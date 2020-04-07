@@ -7,7 +7,6 @@
  * Status: Works
  * Time: $O(N))$
  */
-
 vector<int> mu, lp;
 void run_sieve(int n) {
     mu.assign(n+1, -1);

@@ -3,7 +3,6 @@
  * Description: Operators for modular arithmetic. You need to set 
  * {\tt mod} to some number first and then you can use the structure.
  */
- 
 template <int MOD_>  struct modnum {
 private:
 	using lint = long long;
@@ -54,12 +53,10 @@ public:
 	friend modnum operator*(const modnum& a, const modnum& b) { return modnum(a) *= b; }
 	friend modnum operator/(const modnum& a, const modnum& b) { return modnum(a) /= b; }
 };
- 
 template <typename T> T pow(T a, lint b) {
 	assert(b >= 0);
 	T r = 1; while (b) { if (b & 1) r *= a; b >>= 1; a *= a; } return r;
 }
-
 using num = modnum<int(1e9)+7>;
 
  

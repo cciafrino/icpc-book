@@ -8,8 +8,6 @@
  * Status: Works
  * Time: 
  */
-#pragma once
-
 const int MAX_PR = 5000000;
 vector<int> p(MAX_PR), prime(MAX_PR), mu(MAX_PR, -1);
 void run_sieve {

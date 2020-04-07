@@ -12,8 +12,6 @@
  *  // sweeps j such that (j-i) represents the number of positively oriented triangles with vertices at 0 and i
  * Status: Used, works well
  */
-#pragma once
-
 struct Angle {
 	int x, y;
 	int t;
@@ -32,7 +30,6 @@ bool operator<(Angle a, Angle b) {
 	return make_tuple(a.t, a.half(), a.y * (ll)b.x) <
 	       make_tuple(b.t, b.half(), a.x * (ll)b.y);
 }
-
 // Given two points, this calculates the smallest angle between
 // them, i.e., the angle that covers the defined line segment.
 pair<Angle, Angle> segmentAngles(Angle a, Angle b) {

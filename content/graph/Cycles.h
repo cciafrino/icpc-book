@@ -4,7 +4,6 @@
  * Time: O(V)
  * Source: https://github.com/dragonslayerx
  */
-
 bool detectCycle(vector<vector<int>> &edges, bool undirected) {
     vector<int> seen(n, 0), parent(n), stack_t;
     for (int i = 0; i < edges.size(); ++i) {

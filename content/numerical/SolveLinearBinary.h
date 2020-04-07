@@ -8,8 +8,6 @@
  * Time: O(n^2 m)
  * Status: bruteforce-tested for n, m <= 4
  */
-#pragma once
-
 typedef bitset<1000> bs;
 
 int solveLinear(vector<bs> &A, vector<int> &b, bs& x, int m) {

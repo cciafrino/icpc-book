@@ -7,11 +7,8 @@
  * Time: O(n \log n)
  * Status: stress-tested
  */
-#pragma once
-
 #include "Point.h"
 
-typedef Point<ll> P;
 pair<P, P> closest(vector<P> v) {
 	assert(v.size() > 1);
 	set<P> S;

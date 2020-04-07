@@ -12,8 +12,6 @@
  * Status: Tested on oldkattis.adkbipmatch and SPOJ:MATCHING
  * Time: O(\sqrt{V}E)
  */
-#pragma once
-
 using vi = vector<int>;
 bool dfs(int a, int L, const vector<vi> &g, vi &btoa, vi &A, vi &B) { /// start-hash
     if (A[a] != L) return 0;
@@ -25,7 +23,6 @@ bool dfs(int a, int L, const vector<vi> &g, vi &btoa, vi &A, vi &B) { /// start-
     }
     return 0;
 }/// end-hash
-
 int hopcroftKarp(const vector<vi> &g, vi &btoa) { /// start-hash
     int res = 0;
     vector<int> A(g.size()), B(btoa.size()), cur, next;

@@ -5,7 +5,6 @@
  * Source: me
  * Description: 
  */
-
 int N,m; // N = n*n, m = n; where n equal number of rows or columns
 array<array<int, 10>, 10> grid;
 struct SudokuSolver {    
@@ -36,7 +35,6 @@ struct SudokuSolver {
     }
     bool Solve(){
         int row, col;
-        //cout<<row<<" "<<col<<endl;
         if(!find(row,col)) return true;
         for(int num = 1; num <= N; ++num){
             if(isSafe(row,col,num)){

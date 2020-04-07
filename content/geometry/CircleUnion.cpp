@@ -6,13 +6,9 @@
  * $O(n^2 logn)$
  * Status: somewhat tested
  */
-// 
-
-
 C a[N];
 int n;
 double S[N];
-
 typedef pair<double, int> PDI;
 PDI A[N*2]; int LA;
 

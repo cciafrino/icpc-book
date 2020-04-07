@@ -17,14 +17,10 @@
  *    ed[b].emplace_back(a, eid++); 
  *  }
  */
-
-typedef vector<int> vi;
 typedef vector<vector<pair<int,int>>> vii;
-
 vector<int> num, st;
 vii ed;
 int Time;
-
 int dfs(int at, int par,vector<vector<int>> &comps) {
 	int me = num[at] = ++Time, e, y, top = me;
 	for (auto &pa : ed[at]) if (pa.second != par) {
@@ -50,11 +46,8 @@ int dfs(int at, int par,vector<vector<int>> &comps) {
 	}
 	return top;
 }
-
-
-vector<vector<int>> bicomps() { 
-	// returns components and its edges ids
-	vector<vector<int>> comps;
+vector<vector<int>> solve() { // returns components 
+	vector<vector<int>> comps; // and its edges ids
 	num.assign(ed.size(), 0);
 	for (int i = 0; i < ed.size(); ++i) 
 		if (!num[i]) dfs(i, -1, comps);

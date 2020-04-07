@@ -7,8 +7,6 @@
  * Time: O(n^2 m)
  * Status: tested on kattis:equationsolver, and bruteforce-tested mod 3 and 5 for n,m <= 3
  */
-#pragma once
-
 typedef vector<double> vd;
 const double eps = 1e-12;
 

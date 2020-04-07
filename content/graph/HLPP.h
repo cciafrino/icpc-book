@@ -9,7 +9,6 @@
  * Status: Tested and stress-tested
  */
 #include "../../content/various/LinkedList.h"
-
 template <typename T, bool UseGlobal = true, bool UseGap = true>
 struct HLPP {
     struct edge_t { int to, rev; T cap; };

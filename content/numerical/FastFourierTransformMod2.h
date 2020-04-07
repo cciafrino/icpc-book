@@ -9,8 +9,6 @@
  * Time: O(N \log N), where $N = |A|+|B|$ (twice as slow as NTT or FFT)
  * Status: somewhat tested
  */
-#pragma once
-
 #include "FastFourierTransform.h"
 
 typedef vector<lint> vl;

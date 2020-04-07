@@ -4,10 +4,8 @@
  * Time: $O(E)$
  * Status: Slightly tested
  */
-
 int d[100100], f[100100], head[100100];
 vector<pair<int,int>> edges[100100];
-
 void spfa(int s = 0) {
     vector<int> q = {s};
     memset(d, 127, sizeof(d));

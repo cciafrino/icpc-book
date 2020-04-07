@@ -9,7 +9,6 @@
  * do 2 phases; 1st check feasibility;
  * 2nd check boundedness and ans
  */
- 
 vector<double> simplex(vector<vector<double>> A, vector<double> b, vector<double> c) {
     int n = A.size(), m = A[0].size() + 1, r = n, s = m-1; 
     vector<vector<double>> D = vector<vector<double>>(n+2, vector<double>(m+1)); 

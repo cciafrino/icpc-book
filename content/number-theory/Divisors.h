@@ -2,19 +2,13 @@
  * Author: Chris
  * Description: Get all divisors of $n$.
  */
- 
- vector<int> divisors(int n) {
-    vector<int> ret, ret1;
-    for (int i = 1; i*i <= n; ++i) {
+vector<int> divisors(int n) {
+    vector<int> result, aux;
+    for (int i = 1; i*i <= n; ++i) 
         if (n % i == 0) {
-            ret.push_back(i);
-            int d = n / i;
-            if (d != i) ret1.push_back(d);
+            result.push_back(i);
+            if (i*i != n) aux.push_back(n/i);
         }
-    }
-    if (!ret1.empty()) {
-        reverse(ret1.begin(), ret1.end());
-        ret.insert(ret.end(), ret1.begin(), ret1.end());
-    }
-    return ret;
- }
+    for (int i = aux.size()-1; i+1; --i) result.push_back(aux[i]);
+    return result;
+}

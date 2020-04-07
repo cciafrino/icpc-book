@@ -8,10 +8,7 @@
  * Time: $O(V)$ Flow Computations
  * Status: Tested on CERC 2015 J, stress-tested
  */
-#pragma once
-
 #include "PushRelabel.h"
-
 typedef array<lint, 3> Edge;
 vector<Edge> gomoryHu(int N, vector<Edge> ed) {
     vector<Edge> tree;

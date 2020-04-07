@@ -7,7 +7,6 @@
  * Time: $O(N \log N)$ where $N$ is the length of the string
  * for creation of the SA. $O(N)$ for longest common prefixes.
  */
- 
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 struct suffix_array_t { /// start-hash
     vector<vector<pair<int, int>>> rmq;

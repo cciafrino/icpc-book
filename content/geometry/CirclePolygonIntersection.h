@@ -8,11 +8,8 @@
  * Status: Tested on GNYR 2019 Gerrymandering, stress-tested
  * Time: O(n)
 */
-#pragma once
-
 #include "Point.h"
 
-typedef Point<double> P;
 #define arg(p, q) atan2(p.cross(q), p.dot(q))
 double circlePoly(P c, double r, vector<P> ps) {
 	auto tri = [&](P p, P q) {

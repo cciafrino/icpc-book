@@ -8,7 +8,6 @@
  * Time: $O(V^2\sqrt E)$ Better for dense graphs - Slower than Dinic (in practice)
  * Status: Tested on kattis and SPOJ
  */
-
 template<typename Flow = lint> struct PushRelabel {
 	struct edge_t { int dest, back; Flow f, c; };
 	vector<vector<edge_t>> g;

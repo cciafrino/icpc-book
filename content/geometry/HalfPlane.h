@@ -5,10 +5,7 @@
 
 #include "Point.h"
 #include "lineIntersection.h"
-
 #define eps 1e-8
-typedef Point<double> P;
-
 struct Line {///start-hash
 	P P1, P2;
 	// Right hand side of the ray P1 -> P2

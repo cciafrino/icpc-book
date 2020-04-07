@@ -8,7 +8,6 @@
  * Usage:
  * Time: 
  */
-
 array<int, 122> part; // 121 is max partition that will fit into int
 void partition(int n) {
     part[0] = 1;

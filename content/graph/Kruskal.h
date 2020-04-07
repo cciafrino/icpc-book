@@ -3,7 +3,6 @@
  * Description: Find the minimum spanning tree. Better for sparse graphs.
  * Time: $O(E \log E)$
  */
-
 template<typename T> 
 T kruskal(int n, vector<pair<T, pair<int,int>>> &edges) {
     sort(edges.begin(), edges.end());

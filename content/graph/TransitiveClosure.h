@@ -10,9 +10,7 @@
  * Time: $O(N^3/64)$
  * Status: Not tested
  */
-
-template<int sz>
-struct TC {
+template<int sz> struct TC {
 	vector<bitset<sz>> closure;
 	TC(vector<vector<int>> adj) : closure(sz) {
 		for(int i = 0; i < sz; ++i)

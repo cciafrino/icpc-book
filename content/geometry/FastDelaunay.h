@@ -10,10 +10,7 @@
  * Time: O(n \log n)
  * Status: fuzz-tested
  */
-#pragma once
-
 #include "Point.h"
-
 typedef Point<ll> P;
 typedef struct Quad* Q;
 typedef __int128_t lll; // (can be ll if coords are < 2e4)

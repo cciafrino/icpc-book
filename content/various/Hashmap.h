@@ -2,8 +2,6 @@
  * Author: Andrew He
  * Description: Faster/better hash maps, taken from CF
  */
-#pragma once
-
 #include <ext/pb_ds/assoc_container.hpp> /** keep-include */
 using namespace __gnu_pbds;
 gp_hash_table<int, int> table;

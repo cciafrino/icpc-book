@@ -7,7 +7,7 @@
  */
 constexpr int limit = (int)1e5+10;
 int knapsack(int capacity, vector<lint> &v, vector<lint> &w) {
-    vector<lint> dp(limit, 1LL << 60); dp[0] = 0;
+    vector<lint> dp(limit, 1ll << 60); dp[0] = 0;
     for (int i = 0; i < v.size(); ++i) 
         for (int j = limit-v[i]-1; j >= 0; --j)   
             dp[j + v[i]] = min(dp[j + v[i]], dp[j] + w[i]);

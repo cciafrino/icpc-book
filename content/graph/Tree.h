@@ -23,8 +23,7 @@ struct tree_t {
         }
     }
     pair<int,int> find_diameter() { // diameter start->finish point
-        parent[0] = -1;
-        dist[0] = 0;
+        parent[0] = -1; dist[0] = 0;
         dfs(0, 0);
         for (int i = 0; i < n; ++i)
             if (dist[i] > dist[diameter.first]) diameter.first = i;

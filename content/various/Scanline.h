@@ -5,7 +5,6 @@
  * Usage: O(N)
  * Source: https://github.com/dragonslayerx 
  */
-
 void scanline(vector<pair<int,int>> p, vector<pair<int,int>> &intervals) {
 	int f = p[0].first, l = p[0].second;
 	for (int i = 0; i < m; ++i) {

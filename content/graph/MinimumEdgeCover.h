@@ -9,10 +9,7 @@
           auto cover = minEdgeCover(g, mark);
  * Status: Tested
  */
-#pragma once
-
 #include "MaxBipartiteMatching.h"
-
 vector<pair<int,int>> minEdgeCover(BipartiteMatcher &g, vector<int> &mark) {
     int maxMatching = g.maxMatching();
     vector<pair<int,int>> cover;

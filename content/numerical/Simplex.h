@@ -13,8 +13,6 @@
  * Time: O(NM * \#pivots), where a pivot may be e.g. an edge relaxation. O(2^n) in the general case.
  * Status: seems to work?
  */
-#pragma once
-
 typedef double T; // long double, Rational, double + mod<P>...
 typedef vector<T> vd;
 typedef vector<vd> vvd;

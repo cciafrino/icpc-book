@@ -5,9 +5,7 @@
  * Time: $O(3^{t}n + 2^{t}n^{2} + n^{3})$
  * 
  */
-
 //TODO: Check what is a terminal...
-
 int Steiner(vector<vector<int>> &g, vector<int> &ts) {
     int n = g.size(), m = ts.size();
     if (m < 2) return 0;

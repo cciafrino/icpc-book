@@ -8,11 +8,8 @@
  * Time: O(1) for \texttt{mod\_mul}, O(\log b) for \texttt{mod\_pow}
  * Status: stress-tested, proven correct
  */
-#pragma once
-
 typedef unsigned long long ull;
 typedef long double ld;
-
 ull mod_mul(ull a, ull b, ull M) {
 	lint ret = a * b - M * ull(ld(a) * ld(b) / ld(M));
 	return ret + M * (ret < 0) - M * (ret >= (lint)M);

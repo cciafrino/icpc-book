@@ -9,8 +9,6 @@
  * Time: O(N \log N)
  * Status: tested
  */
-#pragma once
-
 void FST(vector<int> &a, bool inv) {///start-hash
 	for (int n = a.size(), step = 1; step < n; step *= 2) {
 		for (int i = 0; i < n; i += 2 * step) for(int j = i; j < i+step; ++j) {

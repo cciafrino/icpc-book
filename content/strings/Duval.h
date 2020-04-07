@@ -29,7 +29,6 @@ pair<int, vector<string>> duval(int n, const T &s) { /// start-hash
     // returns 0-indexed position of the least cyclic shift
     // min cyclic string will be s.substr(ans, n/2)
 } /// end-hash
-
 template <typename T>
 pair<int, vector<string>> duval(const T &s) {
     return duval((int) s.size(), s);

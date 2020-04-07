@@ -7,10 +7,7 @@
  *  the complement is a maximum independent set.
  * Status: stress-tested
  */
-#pragma once
-
 #include "MaxBipartiteMatching.h"
-
 vector<int> cover(BipartiteMatcher& B, int n, int m) {
     int res = B.maxMatching();
     vector<bool> lfound(n, true), seen(m);

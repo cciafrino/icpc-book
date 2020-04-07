@@ -5,9 +5,7 @@
  * Status:
  * Time: 
  */
-
-template<typename T>
-struct PQ {
+template<typename T> struct PQ {
     int sz;
     vector<T> q;
     T offset = 0;

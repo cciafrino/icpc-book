@@ -6,8 +6,6 @@
  * Time: O(V^3)
  * Status: Lightly tested
  */
-#pragma once
-
 pair<int, vector<int>> GetMinCut(vector<vector<int>> &weights) {
 	int N = weights.size();
 	vector<int> used(N), cut, best_cut;

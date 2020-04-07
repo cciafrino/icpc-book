@@ -19,8 +19,6 @@ Products of three coordinates are used in intermediate steps so watch out for ov
  * 	if (res.first == 1)
  * 		cout << "intersection point at " << res.second << endl;
  */
-#pragma once
-
 #include "Point.h"
 
 template<class P>

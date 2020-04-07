@@ -4,11 +4,9 @@
  * to set the first level as 1. (level[0] = 1)
  * 
  */
-
 vector<vector<int>> edges;
 vector<int> level, dp;
 int bridge = 0;
-
 void dfs(int v, int p) {
     dp[v] = 0;
     for (int u : edges[v]) {

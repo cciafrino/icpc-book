@@ -8,11 +8,9 @@
  * Point<double>
  * Status: unit tested
  */
-
 #include "Point.h"
 #include "lineDistance.h"
 #include "LineProjectionReflection.h"
-
 template<class P>
 vector<P> circleLine(P c, double r, P a, P b) {
 	double h2 = r*r - a.cross(b,c)*a.cross(b,c)/(b-a).dist2();

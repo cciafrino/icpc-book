@@ -15,18 +15,16 @@ template<int SZ> struct Wavelet {
 		L[v] = R[v] = {0};
 		vector<int> A[2]; int mid = lx + (rx-lx)/2;
 		for(auto &t:a) {
-			A[t>mid].pb(t);
-			L[v].pb(A[0].size()), R[v].pb(A[1].size());
+			A[t>mid].push_back(t);
+			L[v].push_back(A[0].size()), R[v].push_back(A[1].size());
 		}
 		build(A[0],2*v,lx,mid), build(A[1],2*v+1,mid+1,rx);
 	}
 	int kth(int i,int j,int k,int v=1,int lx=0,int rx=SZ-1) { // [i, j)!!
 		if (lx == rx) return lx;
 		int mid = lx + (rx - lx)/2, t = L[v][j]-L[v][i];
-		if (t >= k) return kth(L[v][i],
-						L[v][j],k,2*v,lx,mid);
-		return kth(R[v][i],
-			R[v][j],k-t,2*v+1,mid+1,rx);
+		if (t >= k) return kth(L[v][i], L[v][j],k,2*v,lx,mid);
+		return kth(R[v][i], R[v][j],k-t,2*v+1,mid+1,rx);
 	}
 	int count(int i,int j,int x, int y, int v=1,int lx=0,int rx=SZ-1) { 
 		if (y < lx || rx < x) return 0; //count(i, j, x, y) retorna o numero de elementos 

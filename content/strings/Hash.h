@@ -6,12 +6,9 @@
  * Description:
  * Status: not tested
  */
- 
 const int maxn = 400001;
 const int mod = 1004669333, base = 33, inv_base = 121778101;
-
 vector<int> base_pow(maxn + 1), inv_base_pow(maxn + 1);
-
 void prep() {
     base_pow[0] = 1;
     for (int i = 1; i <= maxn; ++i)
@@ -20,7 +17,6 @@ void prep() {
     for (int i = 1; i <= maxn; ++i)
         inv_base_pow[i] = (lint)inv_base_pow[i - 1] * inv_base % mod;
 }
-
 struct hashes_t {
     string s;
     int n;

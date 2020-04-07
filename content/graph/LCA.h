@@ -9,7 +9,6 @@
  * or undirected. 
  * Time: $O(N \log N + Q)$
  */
-
 #include "../data-structures/RMQ.h"
 struct lca_t {
     int T = 0;
@@ -31,5 +30,4 @@ struct lca_t {
         tie(a, b) = minmax(time[a], time[b]);
         return path[rmq.query(a, b-1).first];
     }
-    //dist(a,b){return depth[a] + depth[b] - 2*depth[lca(a,b)];}
 };

@@ -4,8 +4,7 @@
  * Can be used to find all occurrences of a pattern in a text.
  * Time: O(n)
  */
-template<typename T>
-struct kmp_t {
+template<typename T> struct kmp_t {
     vector<T> word;
     vector<int> failure;
     kmp_t(const vector<T> &_word): word(_word) { /// start-hash

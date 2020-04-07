@@ -5,7 +5,6 @@
  * Time: O(n)
  * Status: stress-tested
  */
-
 vector<int> Z(string& S) {
     vector<int> z(S.size());
     int l = -1, r = -1;
@@ -17,7 +16,6 @@ vector<int> Z(string& S) {
     }
     return z;
 }
-
 vector<int> get_prefix(string a, string b) { /// start-hash
     string str = a + '@' + b;
     vector<int> k = z(str);

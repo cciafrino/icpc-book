@@ -13,8 +13,6 @@
  *  ts.values[0..N-1] holds the assigned values to the vars
  * Time: O(N+E), where N is the number of boolean variables, and E is the number of clauses.
  */
-#pragma once
-
 struct TwoSat {
 	int N;
 	vector<vector<int>> gr;
@@ -58,8 +56,7 @@ struct TwoSat {
 		return val[i] = low;
 	}/// end-hash
 	bool solve() { /// start-hash
-		values.assign(N, -1);
-		val.assign(2*N, 0); comp = val;
+		values.assign(N, -1);val.assign(2*N, 0); comp = val;
 		for (int i = 0; i < 2*N; ++i) if (!comp[i]) dfs(i);
 		for (int i = 0; i < N; ++i) if (comp[2*i] == comp[2*i+1]) return 0;
 		return 1;

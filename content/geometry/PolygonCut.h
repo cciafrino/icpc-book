@@ -17,12 +17,9 @@
  * 	vector<P> p = ...;
  * 	p = polygonCut(p, P(0,0), P(1,0));
  */
-#pragma once
-
 #include "Point.h"
 #include "lineIntersection.h"
 
-typedef Point<double> P;
 vector<P> polygonCut(const vector<P>& poly, P s, P e) {
 	vector<P> res;
 	for(int i = 0; i < poly.size(); ++i) {

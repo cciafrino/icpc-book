@@ -13,8 +13,6 @@
  */
 #include "Point.h"
 #include "sideOf.h"
-
-typedef Point<double> P;
 double rat(P a, P b) { return sgn(b.x) ? a.x/b.x : a.y/b.y; }
 double polyUnion(vector<vector<P>>& poly) {
 	double ret = 0;

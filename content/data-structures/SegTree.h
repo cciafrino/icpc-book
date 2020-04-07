@@ -7,8 +7,7 @@
  * Time: O(\log N)
  * Status: fuzz-tested
  */
-template<typename T>
-struct tree_t {
+template<typename T> struct tree_t {
     static const T LOW = -(1<<29);
     T f(T a, T b) { return max(a,b); } // (any associative fn)
     vector<T> s; int n;

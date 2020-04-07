@@ -3,8 +3,6 @@
 * Description: Returns the closest point to p in the segment from point 
 * s to e as well as the distance between them
 */
-
-
 pair<P,double> SegmentClosestPoint(P &s, P &e, P &p){
 	P ds=p-s, de=p-e;
 	if(e==s)

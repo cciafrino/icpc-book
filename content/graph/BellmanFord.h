@@ -9,12 +9,9 @@
  * Time: O(VE)
  * Status: Tested on kattis:shortestpath3
  */
-#pragma once
-
 const lint inf = LLONG_MAX;
 struct edge_t { int a, b, w, s() { return a < b ? a : -a; }};
 struct node_t { lint dist = inf; int prev = -1; };
-
 void bellmanFord(vector<node_t>& nodes, vector<edge_t>& eds, int s) {
 	nodes[s].dist = 0;
 	sort(eds.begin(), eds.end(), [](edge_t a, edge_t b) { return a.s() < b.s(); });

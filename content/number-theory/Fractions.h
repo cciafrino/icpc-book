@@ -5,7 +5,6 @@
  * Source: 
  * Description: Template that helps deal with fractions.
  */
-
 struct frac { /// start-hash
     lint n, d;
     frac() { n = 0, d = 1; }

@@ -3,16 +3,14 @@
  * Date: 
  * License: CC0
  * Source: 
- * Description: Sweep line algorithm that calculates area of union of rectangles in the form [x1,x2) x [y1,y2)
- * Usage: Create vector with both x's coordinates and y's coordinates of each rectangle.//vector<pair<int,int>,pair<int,int>> rectangles;// rectangles.push_back({{x1, x2}, {y1, y2}});// lint result = rectangle_union_area(rectangles);
+ * Description: Sweep line algorithm that calculates area of union of rectangles in the form $[x1,x2) \times [y1,y2)$
+ * Usage: Create vector with both $x$ coordinates and $y$ coordinates of each rectangle.//vector<pair<int,int>,pair<int,int>> rectangles;// rectangles.push_back({{x1, x2}, {y1, y2}});// lint result = rectangle_union_area(rectangles);
  * Status: tested
  */
-
 pair<int,int> operator+(const pair<int,int>& l, const pair<int,int>& r) {
     if (l.first != r.first) return min(l,r);
     return {l.first, l.second + r.second};
 }
- 
 struct segtree_t { // stores min + # of mins
     int n;
     vector<int> lazy;
@@ -44,7 +42,6 @@ struct segtree_t { // stores min + # of mins
         }
     }
 };
- 
 lint rectangle_union_area(vector<pair<pair<int,int>,pair<int,int>>> v) { // area of union of rectangles
     const int n = 1<<18;
     segtree_t tree(n);

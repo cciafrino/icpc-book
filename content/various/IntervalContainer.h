@@ -7,8 +7,6 @@
  * Status: fuzz-tested
  * Time: O(\log N)
  */
-#pragma once
-
 set<pair<int,int>>::iterator addInterval(set<pair<int,int>> &is, int L, int R) {
 	if (L == R) return is.end();
 	auto it = is.lower_bound({L, R}), before = it;

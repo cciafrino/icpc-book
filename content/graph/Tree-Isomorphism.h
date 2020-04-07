@@ -7,9 +7,7 @@
  * Time: O(N\log(N))
  * Status: not tested
  */
-
 map<vector<int>, int> delta;
-
 struct tree_t {
 	int n;
 	pair<int,int> centroid;

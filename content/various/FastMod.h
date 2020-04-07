@@ -8,8 +8,6 @@
  * Status: proven correct, fuzz-tested
  * Measured as having 3 times lower latency, and 8 times higher throughput.
  */
-#pragma once
-
 typedef unsigned long long ull;
 typedef __uint128_t L;
 struct FastMod {

@@ -7,10 +7,7 @@
  * Time: O(\log^2 p) worst case, O(\log p) for most $p$
  * Status: Tested for all a,p <= 10000
  */
-#pragma once
-
 #include "ModPow.h"
-
 lint sqrt(lint a, lint p) {
 	a %= p; if (a < 0) a += p;
 	if (a == 0) return 0;

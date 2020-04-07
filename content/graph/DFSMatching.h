@@ -12,8 +12,6 @@
  * Usage: vector<int> btoa(m, -1); dfsMatching(g, btoa);
  * Status: works
  */
-#pragma once
-
 bool find(int j, vector<vector<int>>& g, vector<int>& btoa, vector<int>& seen) {
     if (btoa[j] == -1) return 1;
     seen[j] = 1; int di = btoa[j];

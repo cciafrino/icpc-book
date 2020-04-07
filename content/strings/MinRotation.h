@@ -7,8 +7,6 @@
  * Usage:
  *  rotate(v.begin(), v.begin()+min_rotation(v), v.end());
  */
-#pragma once
-
 int min_rotation(string s) { /// start-hash
 	int a=0, N=s.size(); s += s;
 	for(int b = 0; b < N; ++b) for(int i =0; i < N; ++i) {

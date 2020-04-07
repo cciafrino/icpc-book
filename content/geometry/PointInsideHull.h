@@ -10,13 +10,9 @@
  * Status: fuzz-tested
  * Time: O(\log N)
  */
-#pragma once
-
 #include "Point.h"
 #include "sideOf.h"
 #include "OnSegment.h"
-
-typedef Point<lint> P;
 
 bool inHull(const vector<P> &l, P p, bool strict = true) {
 	int a = 1, b = l.size() - 1, r = !strict;

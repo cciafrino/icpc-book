@@ -8,7 +8,7 @@
  * Status: Works
  * Time: $O(\log(n)) - O(n\log(LCM(m)))$
  */
- 
+
 template<typename T>
 T crt(T a, T m, T b, T n, T &x, T &y) { /// start-hash
 	if (n > m) swap(a, b), swap(m, n);
@@ -17,7 +17,6 @@ T crt(T a, T m, T b, T n, T &x, T &y) { /// start-hash
 	x = (b - a) % n * x % n / g * m + a;
 	return x < 0 ? x + m*n/g : x;
 }/// end-hash
-
 template<typename T> // Solve system up to n congruences
 T crt_system(vector<T> &a, vector<T> &m, int n) {
 	for (int i = 0; i < n; ++i)

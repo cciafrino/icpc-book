@@ -8,8 +8,6 @@
  * from cycles will not be returned.
  * Time: $O(|V|+|E|)$
  */
-#pragma once
-
 vector<int> topo_sort(const vector<vector<int>> &g) {
 	vector<int> indeg(g.size()), ret;
 	for(auto &li : g) for(auto &x : li) indeg[x]++;

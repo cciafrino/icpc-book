@@ -12,8 +12,6 @@
  * vector<P> v = {P{4,4}, P{1,2}, P{2,1}};
  * bool in = inPolygon(v, P{3, 3}, false);
  */
-#pragma once
-
 #include "Point.h"
 #include "OnSegment.h"
 #include "SegmentDistance.h"

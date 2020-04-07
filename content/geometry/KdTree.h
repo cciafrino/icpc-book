@@ -5,8 +5,6 @@
  * Description: KD-tree (2d, can be extended to 3d)
  * Status: Untested, but works for Stanford
  */
-#pragma once
-
 #include "Point.h"
 
 typedef long long T;

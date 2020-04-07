@@ -6,7 +6,6 @@
  * Description: Square root find method
  * Status: tested
  */
- 
 double sqrt_newton(double n) {
     const double eps = 1E-15;
     double x = 1;

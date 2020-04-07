@@ -4,9 +4,7 @@
 Finding a $D$-edge coloring is NP-hard.
  * Source: https://en.wikipedia.orgraph/wiki/Misra_%26_graphries_edgraphe_coloringraph_algraphorithm
  */
- 
 struct edge {int to, color, rev; };
-
 struct MisraGries {
     int N, K = 0;
     vector<vector<int>> F;

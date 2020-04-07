@@ -14,8 +14,6 @@
 \end{minipage}
  * Status: not tested
  */
-#pragma once
-
 #include "Point.h"
 
 typedef Point<double> P;

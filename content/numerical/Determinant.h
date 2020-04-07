@@ -7,8 +7,6 @@
  * Status: somewhat tested
  * Time: $O(N^3)$
  */
-#pragma once
-
 double det(vector<vector<double>> &a) {
 	int n = a.size(); double res = 1;
 	for(int i = 0; i < n; ++i) {

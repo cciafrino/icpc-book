@@ -5,8 +5,6 @@
  * Source: me
  * Description:
  */
-#pragma once
-
 #define F {...; ++i;}
 int i = from;
 while (i&3 && i < to) F // for alignment, if needed

@@ -7,7 +7,6 @@
  * Source: 
  * Status: tested
  */
-
 lint cdiv(lint x, lint y) { return (x+y-1)/y; }
 lint bet(lint P, lint A, lint L, lint R) { 
 	if (A == 0) return L == 0 ? 0 : -1;

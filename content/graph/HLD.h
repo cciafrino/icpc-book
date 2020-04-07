@@ -13,15 +13,11 @@
  * Time: O((\log N)^2)
  * Status: stress-tested against old HLD
  */
-#pragma once
-
 #include "../data-structures/LazySegmentTree.h"
-
 template <bool VALS_EDGES> struct HLD {
 	int N, t = 0;
 	vector<vector<int>> edges;
 	vector<int> par, size, depth, rt, pos;
-	// Node *tree;
 	segtree_t<int,int> tree;
 	HLD(vector<vector<int>> adj_)
 		: N(adj_.size()), edges(adj_), par(N, -1), size(N, 1), depth(N),

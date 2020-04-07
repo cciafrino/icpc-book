@@ -7,10 +7,7 @@
  * Usage:       
  * Status: Tested
  */
-#pragma once
-
 #include "MaxBipartiteMatching.h"
-
 vector<vector<int>> minPathCover(BipartiteMatcher &g) {
     int how_many = g.edges.size() - g.maxMatching();
     vector<vector<int>> paths;

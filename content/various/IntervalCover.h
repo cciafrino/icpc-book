@@ -7,8 +7,6 @@
  * Time: O(N \log N)
  * Status: Tested on Kattis, intervalcover
  */
-#pragma once
-
 template<class T>
 vector<int> cover(pair<T, T> G, vector<pair<T, T>> I) {
 	vector<int> S(I.size()), R;

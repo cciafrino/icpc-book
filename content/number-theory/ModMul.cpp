@@ -2,7 +2,6 @@
  * Author: Chris
  * Description: Modular multiplication operation
  */
-
 lint modMul(lint a, lint b){
     lint ret = 0;
     a %= mod;

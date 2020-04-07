@@ -8,7 +8,6 @@
 using namespace std;
 using namespace __gnu_cxx;
 using lint = long long;
-
 int gcd(int a,int b){
     return b ? gcd(b, a % b) : a; 
 }

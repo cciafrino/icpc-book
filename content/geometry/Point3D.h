@@ -8,8 +8,6 @@
  * Usage:
  * Status: tested, except for phi and theta
  */
-#pragma once
-
 template<class T> struct Point3D { ///start-hash
 	typedef Point3D P;
 	typedef const P& R;

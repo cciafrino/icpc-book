@@ -7,10 +7,7 @@
  * Guaranteed to work for numbers up to $2^{64}$; for larger numbers, extend A randomly.
  * Time: 7 times the complexity of $a^b \mod c$.
  */
-#pragma once
-
 #include "ModMulLL.h"
-
 bool isPrime(ull n) {
 	if (n < 2 || n % 6 % 4 != 1) return (n | 1) == 3;
 	vector<ull> A = {2, 325, 9375, 28178, 450775, 9780504, 1795265022};

@@ -17,8 +17,6 @@
  * Status: fuzz-tested
  * Time: O(N + Q \log n)
  */
-#pragma once
-
 #include "Point.h"
 
 typedef array<P, 2> Line;

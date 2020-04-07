@@ -8,13 +8,11 @@
  */
 #include<ModTemplate.h>
 #include<PairNumTemplate.h>
-
 using num = modnum<int(1e9)+7>;
 using hsh = pairnum<num, num>;
 const hsh BASE(163, 311);
 // uniform_int_distribution<int> MULT_DIST(0.1*MOD,0.9*MOD); 
 // constexpr hsh BASE(MULT_DIST(rng), MULT_DIST(rng));
-
 struct hash_t {
     int n;
     string str;
@@ -39,7 +37,6 @@ struct hash_t {
         return left;
     }
 };
-
 vector<int> rabinkarp(string t, string p) {
     vector<int> matches;
     hsh h(0, 0);

@@ -6,7 +6,6 @@
  * Description: Finds \{x, y, d\} s.t. ax + by = d = gcd(a, b).
  * Status: Tested
  */
-
 static BigInteger[] euclid(BigInteger a, BigInteger b) {
 	BigInteger x = BigInteger.ONE, yy = x;
 	BigInteger y = BigInteger.ZERO, xx = y;

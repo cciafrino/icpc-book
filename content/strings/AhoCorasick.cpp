@@ -1,9 +1,7 @@
-
 /**
  * Author: Maurício Collares (Adapted)
  * Description: String searching algorithm that matches all strings simultaneously. To use with stl string: (char *)stringname.c\_str()
  */
-
 struct node_t {
     int fail;
     vector<pair<int,int>> out; // num e tamanho do padrao
@@ -12,9 +10,7 @@ struct node_t {
 	int next; // aponta para o proximo sufixo que tenha out.size > 0
 };
 node_t tree[1000003]; // quantida maxima de nos
-
 struct AhoCorasick {
-
 	//bool encontrado[1005]; // quantidade maxima de padroes, p/ decisao
 	int qtdNos, qtdPadroes;
 	vector<vector<int>> result;

@@ -9,7 +9,6 @@ const int MX = 15;
 array<array<int, MX>, 1<<N> dp;
 array<array<int, MX>, MX> dist;
 int N;
-
 int TSP(int n) {
     dp[0][1] = 0;
     for (int j = 0; j < (1 << n); ++j)

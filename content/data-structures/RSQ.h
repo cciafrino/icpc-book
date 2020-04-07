@@ -18,8 +18,7 @@ struct rsq_t {
     rsq_t() {}
     rsq_t(const vector<T> &values) {
         int n = values.size();
-        table.resize(__lg(n)+1);
-        table[0].resize(n);
+        table.resize(__lg(n)+1); table[0].resize(n);
         for (int i = 0; i < n; ++i) table[0][i] = values[i];
         for (int l = 1; l < (int)table.size(); ++l) {
             table[l].resize(n - (1<<l) + 1);

@@ -4,7 +4,6 @@
  * solution.
  * Status: Tested
  */
-
 template<typename T>
 bool diophantine(T a, T b, T c, T &x, T &y, T &g) { /// start-hash
     if (a == 0 && b == 0) {

@@ -3,7 +3,6 @@
  * Description: Reverse of Burrows-Wheeler 
  * Time: $O(nlog(n))
  */
-
 string RBW(string &s) {
     vector<pair<char,int>> v;
     vector<int> nex(s.size());

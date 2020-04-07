@@ -9,8 +9,6 @@
  * Time: construction $O(N \log N)$, queries $O(\log N)$
  * Status: Tested at Petrozavodsk, also stress-tested via LCA.cpp
  */
-#pragma once
-
 vector<vector<int>> treeJump(vector<int>& P){
 	int on = 1, d = 1;
 	while(on < P.size()) on *= 2, d++;

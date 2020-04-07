@@ -8,10 +8,7 @@
  * Time: O(E \log V)
  * Status: Stress-tested, also tested on NWERC 2018 fastestspeedrun
  */
-#pragma once
-
 #include "../data-structures/UnionFind.h"
-
 struct edge_t { int a, b; lint w; };
 struct node_t { /// lazy skew heap node
     edge_t key;
@@ -33,7 +30,6 @@ node_t *merge(node_t *a, node_t *b) {
     return a;
 }
 void pop(node_t*& a) { a->prop(); a = merge(a->l, a->r); }
-
 lint dmst(int n, int r, vector<edge_t>& g) {
     UF uf(n);
     vector<node_t*> heap(n);

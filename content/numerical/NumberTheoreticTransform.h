@@ -9,8 +9,6 @@
  * Time: O(N \log N)
  * Status: fuzz-tested
  */
-#pragma once
-
 #include "../number-theory/modpow.h"
 
 const lint mod = (119 << 23) + 1, root = 62; // = 998244353

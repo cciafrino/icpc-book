@@ -8,11 +8,9 @@
  *can be used to solve maximum independent set
  *
  */
-
 class clique {
   public:
-  static const long long ONE = 1;
-  static const long long MASK = (1 << 21) - 1;
+  static const long long ONE = 1, MASK = (1 << 21) - 1;
   char* bits;
   int n, size, cmax[63];
   long long mask[63], cons;

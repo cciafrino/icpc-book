@@ -7,8 +7,6 @@
  * Status: Works
  * Time: lim=100'000'000 $\approx$ 0.8 s. Runs 30\% faster if only odd indices are stored.
  */
-#pragma once
-
 const int MAX_PR = int(1e5)*5;
 bitset<MAX_PR> isprime;
 vector<int> run_sieve(int lim) {

@@ -19,8 +19,6 @@ Products of three coordinates are used in intermediate steps so watch out for ov
  * if (sz(inter)==1)
  *   cout << "segments intersect at " << inter[0] << endl;
  */
-#pragma once
-
 #include "Point.h"
 #include "OnSegment.h"
 

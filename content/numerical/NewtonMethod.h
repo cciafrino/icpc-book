@@ -6,7 +6,6 @@
  * Description: Root find method
  * Status: tested
  */
- 
 double f(double x) { return (x*x) - 4; }
 double df(double x) { return 2*x; }
 double root(double x0) {

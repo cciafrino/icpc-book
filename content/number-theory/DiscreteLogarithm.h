@@ -7,7 +7,6 @@
  * Time: $O(\sqrt m)$
  * Status: tested for all 0 <= a,x,m < 200.
  */
-
 lint modLog(lint a, lint b, lint m) {
     assert(__gcd(a, m) == 1);
     lint n = (lint) sqrt(m) + 1, e = 1, x = 1, res = LLONG_MAX;
@@ -15,7 +14,6 @@ lint modLog(lint a, lint b, lint m) {
     for(int i = 0; i < n; ++i) e = e * a % m;
     for(int i = 0; i < n; ++i) x = x * e % m, f.emplace(x, i + 1);
     for(int i = 0; i < n; ++i) 
-        if (f.count(b = b * a % m))
-            res = min(res, f[b] * n - i - 1);
+        if (f.count(b = b * a % m)) res = min(res, f[b] * n - i - 1);
     return res;
 }
