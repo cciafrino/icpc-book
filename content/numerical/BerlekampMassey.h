@@ -17,7 +17,7 @@
 template <typename num>
 vector<num> BerlekampMassey(const vector<num>& s) {
 	int n = int(s.size()), L = 0, m = 0;
-	std::vector<num> C(n), B(n), T;
+	vector<num> C(n), B(n), T;
 	C[0] = B[0] = 1;
 	num b = 1;
 	for(int i = 0; i < n; i++) { ++m;

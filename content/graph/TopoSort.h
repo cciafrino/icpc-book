@@ -15,10 +15,8 @@ vector<int> topo_sort(const vector<vector<int>> &g) {
 	for(int i = 0; i < g.size(); ++i) if (indeg[i] == 0) q.push(-i);
 	while (!q.empty()) {
 		int i = -q.front(); // top() for priority queue
-		ret.push_back(i);
-		q.pop();
-		for(auto &x : g[i])
-			if (--indeg[x] == 0) q.push(-x);
+		ret.push_back(i); q.pop();
+		for(auto &x : g[i]) if (--indeg[x] == 0) q.push(-x);
 	}
 	return ret;
 }
