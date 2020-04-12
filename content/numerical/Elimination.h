@@ -1,30 +1,40 @@
 /**
  * Author: Chris
- * Date: 2019
- * License: CC0
- * Source: 
- * Description: Gauss-Jordan algorithm.
+ * Date: 2020
+ * License: 
+ * Source:
+ * Description: Gauss-Jordan algorithm. Transform a matrix into 
+ * its row echelon form. Returns a vector of pivots (for each variable) 
+ * or -1 if free variable.
  * Status: tested
  * Usage:
  * Time: 
  */
-bool elimination(vector<vector<double>> &m, int row, int col) {
-	for (int i = 0; i < row; ++i) {
-		int p = i; // Choose the biggest pivot
-		for (int j = i; j < row; ++j) 
-			if (abs(m[j][i]) > abs(m[p][i])) p = j;
-		for (int j = i; j < col; ++j) swap(m[i][j], m[p][j]);
-		if (!m[i][i]) return false;
-		double c = 1.0/m[i][i]; // Normalize pivot line
-		for(int j = 0; j < col; ++j) m[i][j] *= c;
-		for(int k = i+1; k < col; ++k) {
-			double c = -m[k][i]; // Remove pivot variable from other lines
-			for(int j = 0; j < col; ++j) m[k][j] += c*m[i][j];
-		}
-	} // Make triangular system a diagonal one
-	for(int i = row-1; i >= 0; --i) for(int j = i-1; j >= 0; --j) {
-		double c = -m[j][i];
-		for(int k = i; k < col; ++k) m[j][k] += c*m[i][k];
-	}
-	return true;
-}
+vector<int> ToRowEchelon(vector<vector<double>> &M) {
+    int cons = M.size(), vars = M[0].size() - 1;
+    vector<int> pivot(vars, -1);
+    int cur = 0;
+    for (int var = 0; var < vars; ++var) {
+        if (cur >= cons) continue;
+        for (int con = cur + 1; con < cons; ++con)
+            if(M[con][var] > M[cur][var])
+                swap(M[con], M[cur]);
+      if (abs(M[cur][var]) > kEps) {
+            pivot[var] = cur;
+            double aux = M[cur][var];
+            for (int i = 0; i <= vars; ++i)
+                M[cur][i] /= aux;
+            for (int con = 0; con < cons; ++con) {
+                if (con != cur) {
+                    double mul = M[con][var];
+                    for (int i = 0; i <= vars; ++i) {
+                        M[con][i] -= mul * M[cur][i];
+                    }
+                    assert(M[con][var] < kEps);
+                }   
+            }
+            ++cur;
+        }
+    }
+    return pivot;
+}  

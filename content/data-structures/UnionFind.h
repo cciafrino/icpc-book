@@ -6,8 +6,6 @@
  * Description: Disjoint-set data structure.
  * Time: $O(\alpha(N))$
  */
-#pragma once
-
 struct UF {
 	vector<int> e;
 	UF(int n) : e(n, -1) {}

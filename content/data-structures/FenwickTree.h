@@ -8,8 +8,6 @@
  * Time: Both operations are $O(\log N)$.
  * Status: Stress-tested
  */
-#pragma once
-
 template<typename T> struct FT {
 	vector<T> s;
 	FT(int n) : s(n) {}

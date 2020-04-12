@@ -7,8 +7,8 @@ priority_queue<pair<int, int>> pq;
 void process(int v) { 
     seen[v] = true;
     for (auto u : edges[v]) 
-        if (!seen[v.first]) 
-            pq.push({-v.second, -v.first});
+        if (!seen[u.first]) 
+            pq.push({-u.second, -u.first});
 }
 int mst() {
     int mst_cost = 0; process(0);

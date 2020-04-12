@@ -26,7 +26,7 @@ template<typename T> struct FT {
     void update(int idx, const T delta) {
         tree_sum += delta;
         for (;idx <= n; idx += idx&-idx)
-            tree[i] += delta;
+            tree[idx] += delta;
     }
     T query(int idx){
         T ret = 0;
