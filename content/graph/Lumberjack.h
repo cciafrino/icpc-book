@@ -16,9 +16,9 @@ template<int T> struct Lumberjack {
 	vector<int> parincycles, idxcycle, sz, st;
 	vector<int> depth, indeg, cycles[T];
 	vector<bool> seen, incycle, leaf;
-	void init(vector<int>& par, vector<int>& indeg){ 
-		init(par.size());
-		par = par; indeg = indeg; 
+	void init(vector<int>& _par, vector<int>& _indeg){ 
+		init(_par.size());
+		par = _par; indeg = _indeg; 
 	}
 	void init(int N) {
 		n = N;
