@@ -9,7 +9,7 @@
  */
 template<class T> T lcs(const T &X, const T &Y) {
 	int a = X.size(), b = Y.size();
-	vector<vvector<int>> dp(a+1, vector<int>(b+1));
+	vector<vector<int>> dp(a+1, vector<int>(b+1));
 	for(int i = 1; i <= a; ++i) for(int j = 1; j <= b; j++)
 		dp[i][j] = X[i-1]==Y[j-1] ? dp[i-1][j-1]+1 :
 			max(dp[i][j-1],dp[i-1][j]);

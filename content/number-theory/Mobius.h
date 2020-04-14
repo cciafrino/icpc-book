@@ -15,5 +15,5 @@ template<typename T> T mobius(T n) {
             p += 1;
             if (n % i == 0) return 0;
         }
-    return (p&1 ? 1 : -1);
+    return (p&1 || n == 1? 1 : -1);
 }
