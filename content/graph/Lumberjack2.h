@@ -23,10 +23,11 @@ template<int T> struct Lumberjack {
 	}
 	void init(int N) {
 		n = N;
+		order.resize(0);
 		subtree.assign(n, 0);
 		seen.assign(n, false);
 		sz = st = subtree;
-		parincycles = order = par = cycle = sz;
+		parincycles = par = cycle = sz;
 		idxcycle = depth = deg = sz; 
 		incycle = leaf = seen;
 		vector<int> adj; graph.assign(n, adj);
