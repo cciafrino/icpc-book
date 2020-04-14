@@ -17,9 +17,9 @@ template<int T> struct Lumberjack {
 	vector<int> depth, deg, cycles[T];
 	vector<bool> seen, incycle, leaf;
 	vector<vector<int>> graph;
-	void init(vector<vector<int>>& graph, vector<int>& deg){ 
-		init(graph.size());
-		graph = graph; deg = deg; 
+	void init(vector<vector<int>>& _graph, vector<int>& _deg){ 
+		init(_graph.size());
+		graph = _graph; deg = _deg; 
 	}
 	void init(int N) {
 		n = N;
