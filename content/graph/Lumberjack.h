@@ -16,16 +16,17 @@ template<int T> struct Lumberjack {
 	vector<int> parincycles, idxcycle, sz, st;
 	vector<int> depth, indeg, cycles[T];
 	vector<bool> seen, incycle, leaf;
-	void init(vector<int>& par, vector<int>& indeg){ 
-		init(par.size());
-		par = par; indeg = indeg; 
+	void init(vector<int>& _par, vector<int>& _indeg){ 
+		init(_par.size());
+		par = _par; indeg = _indeg; 
 	}
 	void init(int N) {
 		n = N;
+		order.resize(0);
 		subtree.assign(n, 0);
 		seen.assign(n, false);
 		sz = st = subtree;
-		parincycles = order = par = cycle = sz;
+		parincycles = par = cycle = sz;
 		idxcycle = depth = indeg = sz; 
 		incycle = leaf = seen;
 	}

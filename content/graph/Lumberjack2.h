@@ -17,16 +17,17 @@ template<int T> struct Lumberjack {
 	vector<int> depth, deg, cycles[T];
 	vector<bool> seen, incycle, leaf;
 	vector<vector<int>> graph;
-	void init(vector<vector<int>>& graph, vector<int>& deg){ 
-		init(graph.size());
-		graph = graph; deg = deg; 
+	void init(vector<vector<int>>& _graph, vector<int>& _deg){ 
+		init(_graph.size());
+		graph = _graph; deg = _deg; 
 	}
 	void init(int N) {
 		n = N;
+		order.resize(0);
 		subtree.assign(n, 0);
 		seen.assign(n, false);
 		sz = st = subtree;
-		parincycles = order = par = cycle = sz;
+		parincycles = par = cycle = sz;
 		idxcycle = depth = deg = sz; 
 		incycle = leaf = seen;
 		vector<int> adj; graph.assign(n, adj);
