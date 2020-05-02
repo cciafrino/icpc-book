@@ -5,7 +5,7 @@
  * Source:
  * Description: Prime sieve for generating all primes up to n.
  * Status: Stress-tested
- * Time: n=1e9 $\approx$ 1.5s
+ * Time: $n=1e9$ $\approx$ 1.5s
  * Details: Despite its n log log n complexity, segmented sieve is still faster
  * than other options, including bitset sieves and linear sieves. This is
  * primarily due to its low memory usage, which reduces cache misses. This
@@ -18,14 +18,14 @@ vector<int> run_sieve() {
 	const int sq = round(sqrt(n)), e = n>>1, lg = int(log(n));
 	vector<int> pr, sieve(sq+1); pr.reserve(int(n/lg*1.1));
 	vector<array<int, 2>> cp;
-	for (int i = 3; i <= sq; i += 2) if (!sieve[i]) {
+	for(int i = 3; i <= sq; i += 2) if (!sieve[i]) {
 		cp.push_back({i, i*i/2 - 1});
 		for (int j = i*i; j <= sq; j += 2*i) sieve[j] = true;
 	}
-	for (int s = 1; s <= e; s += sq) {
+	for(int s = 1; s <= e; s += sq) {
 		vector<bool> block(sq);
 		for(auto &[p, id] : cp)
-			for (; id < sq+s; id += p) block[id-s] = true;
+			for (int i = id; i < sq+s; i = (id+=p)) block[i-s] = 1;
 		for(int i = 0; i < min(sq, e - s); ++i)
 			if (!block[i]) pr.push_back((s + i)*2 + 1);
 	};

@@ -15,12 +15,12 @@
  * \textbf{Fermat's little thm}: $p$ prime $\Rightarrow a^{p-1} \equiv 1 \pmod{p}$ $\forall a$.
  * Status: Tested
  */
-const int n = int(1e5) * 5;
+const int n = int(1e5)*5;
 vector<int> phi(n);
 void calculatePhi() {
 	for(int i = 0; i < n; ++i) phi[i] = i&1 ? i : i/2;
-	for(int i = 3; i < n; i += 2) if(phi[i] == i)
-		for(int j = i; j < n; j += i) phi[j] -= phi[j] / i;
+	for(int i = 3; i < n; i += 2) if (phi[i] == i)
+		for(int j = i; j < n; j += i) phi[j] -= phi[j]/i;
 }
 template<typename T> T phi(T n){
     T aux, result;

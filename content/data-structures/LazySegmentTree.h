@@ -34,7 +34,7 @@ template<typename T, typename Q> struct segtree_t {
     T query(int a, int b, int v, int l, int r) {
         if (b < l || r < a) return 0;
         if (a <= l && r <= b) return tree[v];
-        propagate(v,l, r);
+        propagate(v, l, r);
         int m = l + (r - l)/2;
         return f(query(a, b, v<<1,l, m), query(a, b, v<<1|1, m+1, r));
     }
@@ -46,7 +46,7 @@ template<typename T, typename Q> struct segtree_t {
             lazy[v] += delta;
             return tree[v];
         }
-        propagate(v,l, r);
+        propagate(v, l, r);
         int m = l + (r - l)/2;
         return tree[v] = f(update(a, b, delta, v<<1, l, m),
             update(a, b, delta, v<<1|1, m+1, r));
