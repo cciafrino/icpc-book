@@ -1,12 +1,15 @@
 /**
- * Author: Chris
+ * Author: Simon Lindholm, Chris
+ * Date: 2016-09-10
+ * License: CC0
+ * Source: folklore
  * Description:
+ * Status: tested
  */
-lint modpow(lint a, lint e){
-    if(e == 0) return 1;
-    if(e & 1) return (a*modpow(a,e-1)) % mod;
-    lint c = modpow(a, e>>1);
-    return (c*c) % mod;
+lint modpow(lint a, lint e) {
+	if (e == 0) return 1;
+	lint x = modpow(a * a % mod, e >> 1);
+	return e & 1 ? x * a % mod : x;
 }
 lint modpow(lint b, lint e) {
 	lint ret = 1;

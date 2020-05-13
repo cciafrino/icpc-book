@@ -12,76 +12,98 @@
  * Time: $O((\log N)^2)$
  * Status: Tested on codeforces 101908L and 101807J
  */
-#include "../data-structures/SegTree.h" 
-typedef vector<vector<pair<int,int>>> adj;
-template<typename T, bool USE_EDGES>
-struct HLD {
-	int t{0}, n;
-	vector<int> in, par, chain, sz, dep;
+#include "../data-structures/LazySegmentTree.h" 
+using G = vector<vector<pair<int,int>>>;
+template<typename T, bool USE_EDGES> struct heavylight_t {
+	int t, n;
+	vector<int> timer, preorder;
+	vector<int> chain, par;
+	vector<int> dep, sz;
 	vector<T> val;
- 	tree_t<T> seg; 
-	HLD(adj &g, int r = 0) : n(g.size()), par(n,-1), 
-	chain(n,-1), dep(n), in(n), sz(n),  val(n){ 
-		par[r] = chain[r] = r;
-		dfs_sz(g, r), dfs_hld(g, r); 
-		seg = {val}; 
+	heavylight_t() {}
+	heavylight_t(G &g, int r = 0) : t(0), n(g.size()), par(n, -1), chain(n, -1), 
+	dep(n), timer(n), sz(n),  val(n), preorder(n) { par[r] = chain[r] = r;
+		dfs_sz(g, r), dfs_hld(g, r);  
 	}
-	void f(T &a, T b){ a = max(a,b); } 
-	T query(int a, int b) { return seg.query(a, b+1); }
-	void update(int a, T value) { seg.update(a, value); }
-	void update(int a, int b, T value) { }
-	void dfs_sz(adj &g, int u) { 
-		sz[u]++;
+	int dfs_sz(G &g, int u) { 
+		int subtree = 1;
 		for(auto &e : g[u]) {
 			int v = e.first;
-			if(par[v] == -1) {
-				par[v] = u; dep[v] = dep[u] + 1;
-				dfs_sz(g, v);
-				sz[u] += sz[v]; 
-				if (par[u] == g[u][0].first || sz[v] > sz[g[u][0].first])
-					swap(g[u][0], e);
-			}
+			if (par[v] != -1) continue;
+			par[v] = u; dep[v] = dep[u] + 1;
+			subtree += dfs_sz(g, v);
+			if (sz[v] > sz[g[u][0].first]) swap(g[u][0], e);
 		}
+		return sz[u] = subtree;
 	}
-	void dfs_hld(adj &g, int u) {
-		in[u] = t++;
+	void dfs_hld(G &g, int u) {
+		preorder[timer[u] = t++] = u;
 		for (auto &e : g[u]) {
 			int v = e.first;
-			if (chain[v] == -1) {
-				if (e == g[u][0]) chain[v] = chain[u];
-				else chain[v] = v;
-				dfs_hld(g, v);
-				if (USE_EDGES) val[in[v]] = e.second;
-			}
+			if (chain[v] != -1) continue;
+			chain[v] = (e == g[u][0] ? chain[u] : v);
+			dfs_hld(g, v);
+			if (USE_EDGES) val[timer[v]] = e.second;
 		}
 	}
-	void path(int u, int v, function<void(int,int)> func){
-		if (u == v){ return func(in[u],in[u]);}
-		for(int e, p; chain[u] != chain[v]; u = p){
+	template<class F> void path(int u, int v, F op) {
+		if (u == v) return op(timer[u], timer[u]); 
+		for(int e, p; chain[u] != chain[v]; u = p) {
 			if (dep[chain[u]] < dep[chain[v]]) swap(u,v);
-			e = 1, p = chain[u];
-			if(u == p) e = 0, p = par[u];
-			func(in[chain[u]] + e, in[u]);
+			u == (p = chain[u]) ? e = 0, p = par[u] : e = 1;
+			op(timer[chain[u]] + e, timer[u]);
 		}
-		if (in[u] > in[v]) swap(u, v);
-		func(in[u] + USE_EDGES, in[v]);
+		if (timer[u] > timer[v]) swap(u, v);
+		op(timer[u] + USE_EDGES, timer[v]);
 	}
-	void update_path(int u, int v, T value){
-		path(u, v, [&](int a,int b){ update(a, b, value); });
+};
+
+template<typename T, bool USE_EDGES> struct hld_solver {
+	heavylight_t<T, USE_EDGES> h;
+	segtree_t<T, int> seg;
+	hld_solver(const HLD<T, USE_EDGES> &g) : h(g), seg(h.val) {}
+	void updatePath(int u, int v, T value) {
+		h.path(u, v, [&](int a,int b) { seg.update(a, b, value); });
 	}
-	T query_path(int u, int v) {
-		T ans = -(1<<29);
-		path(u, v, [&](int a,int b){ f(ans, query(a, b)); });
+	T queryPath(int u, int v) { 
+		T ans = 0;
+		h.path(u, v, [&](int a,int b) { ans = max(ans, seg.query(a, b)); });
 		return ans;
 	}
-	void update_edge(int u, int v, T value) {
-		if (dep[u] < dep[v]) u = v;
-		update(in[u], value);
+	void updateEdge(int u, int v, T value) {
+		int pos = h.timer[h.dep[u] < h.dep[v] ? v : u];
+		seg.update(pos, pos, value);
 	}
-	T query_subtree(int v) { 
-		return query(in[v] + USE_EDGES, in[v] + sz[v] - 1);
+	T querySubtree(int v) { 
+		return seg.query(h.timer[v] + USE_EDGES, h.timer[v] + h.sz[v] - 1);
 	}
-	void update_subtree(int v, T value) {
-		update(in[v] + USE_EDGES, in[v] + sz[v] - 1, value);
+	void updateSubtree(int v, T value) {
+		seg.update(h.timer[v] + USE_EDGES, h.timer[v] + h.sz[v] - 1, value);
+	}
+};
+
+template<typename T, bool USE_EDGES> struct lca_t { // lca operations using hld
+	HLD<T, USE_EDGES> h;
+	lca_t(const HLD<T, USE_EDGES> &g) : h(g) {}
+	int kth_ancestor(int u, int k) const {	
+		int kth = u;
+		for(int p = h.chain[kth]; k && h.timer[kth]; kth = p, p = h.chain[kth]) {
+			if (p == kth) p = h.par[kth];
+			if (h.dep[kth] - h.dep[p] >= k) p = h.preorder[h.timer[kth]-k];
+			k -= (h.dep[kth] - h.dep[p]);
+		}
+		return (k ? -1 : kth);
+	}
+	int lca(int u, int v) {
+		if (u == v) return u;
+		int x = h.timer[u];
+		h.path(u, v, [&](int a,int b) { x = a - USE_EDGES; });
+		return h.preorder[x];
+	}
+	int kth_on_path(int u, int v, int k) { //k 0-indexed
+		int x = lca(u,v);		
+		if (k > h.dep[u] + h.dep[v] - 2 * h.dep[x]) return -1;
+		if (h.dep[u] - h.dep[x] > k) return kth_ancestor(u, k);
+		return kth_ancestor(v, h.dep[u] + h.dep[v] - 2 * h.dep[x] - k );	
 	}
 };

@@ -10,8 +10,6 @@
  *  vec = (A^N) * vec;
  * Status: tested
  */
-#pragma once
-
 template<class T, int N> struct Matrix {
 	typedef Matrix M;
 	array<array<T, N>, N> d{};

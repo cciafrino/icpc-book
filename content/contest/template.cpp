@@ -11,15 +11,6 @@ int cmp_double(double a, double b = 0, double eps = 1e-9) {
     return a + eps > b ? b + eps > a ? 0 : 1 : -1;
 }
 
-//be careful with cin optimization
-string read_string() { 
-    char *str;
-    scanf("%ms", &str);
-    string result(str);
-    free(str);
-    return result;
-}
-
 int main() {
     ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     cin.exceptions(cin.failbit);

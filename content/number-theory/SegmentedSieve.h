@@ -16,7 +16,7 @@
 const int n = 1e6;
 vector<int> run_sieve() {
 	const int sq = round(sqrt(n)), e = n>>1, lg = int(log(n));
-	vector<int> pr, sieve(sq+1); pr.reserve(int(n/lg*1.1));
+	vector<int> pr = {2}, sieve(sq+1); pr.reserve(int(n/lg*1.1));
 	vector<array<int, 2>> cp;
 	for(int i = 3; i <= sq; i += 2) if (!sieve[i]) {
 		cp.push_back({i, i*i/2 - 1});
