@@ -2,14 +2,15 @@
  * Author: Maurício Collares (Adapted)
  * Description: String searching algorithm that matches all strings simultaneously. To use with stl string: (char *)stringname.c\_str()
  */
-struct node_t {
+struct Node {
     int fail;
     vector<pair<int,int>> out; // num e tamanho do padrao
     //bool marc;  // p/ decisao
-    map<char,int> link;
+    map<char,int> trie;
 	int next; // aponta para o proximo sufixo que tenha out.size > 0
 };
-node_t tree[1000003]; // quantida maxima de nos
+Node tree[1000003]; // quantida maxima de nos
+
 struct AhoCorasick {
 	//bool encontrado[1005]; // quantidade maxima de padroes, p/ decisao
 	int qtdNos, qtdPadroes;
@@ -17,7 +18,7 @@ struct AhoCorasick {
 	AhoCorasick() { // Construtor para inicializar
 		result.resize(0);
 	    tree[0].fail = -1;
-	    tree[0].link.clear();
+	    tree[0].trie.clear();
 	    tree[0].out.clear();
 	    tree[0].next = -1;
 	    qtdNos = 1;
@@ -25,67 +26,69 @@ struct AhoCorasick {
 	    //tree[0].marc = false; // p/ decisao
 	    //memset(encontrado, false, sizeof(encontrado)); // p/ decisao
 	}
+	// Funcao para adicionar um padrao
 	void add(string &pat) {
 		vector<int> v;
 		result.push_back(v);
 	    int no = 0, len = 0;
-	    for (int i = 0; i < pat.size(); ++i, ++len) {
-	        if (tree[no].link.find(pat[i]) == tree[no].link.end()) {
-	            tree[qtdNos].link.clear(); tree[qtdNos].out.clear();
+	    for (int i = 0; i < pat.size(); i++, len++) {
+	        if (tree[no].trie.find(pat[i]) == tree[no].trie.end()) {
+	            tree[qtdNos].trie.clear(); tree[qtdNos].out.clear();
 	            //tree[qtdNos].marc = false; // p/ decisao
-	            tree[no].link[pat[i]] = qtdNos;
+	            tree[no].trie[pat[i]] = qtdNos;
 	            no = qtdNos++;
-	        } else no = tree[no].link[pat[i]];
+	        } else no = tree[no].trie[pat[i]];
 	    }
-	    tree[no].out.push_back({++qtdPadroes,len});
+	    tree[no].out.push_back({qtdPadroes++,len});
 	}
+	// Ativar Aho-corasick, ajustando funcoes de falha
 	void activate() {
-	    int no, v, f, w;
-	    vector<int> bfs;
-	    for (auto  it = tree[0].link.begin();
-	       it != tree[0].link.end() ; ++it) {
+	    int no,v,f,w;
+	    queue<int> bfs;
+	    for (auto  it = tree[0].trie.begin();
+	       it != tree[0].trie.end() ; it++) {
 	        tree[no = it->second].fail = 0;
 	        tree[no].next = tree[0].out.size() ? 0 : -1;
-	        bfs.push_back(no);
+	        bfs.push(no);
 	    }
-	    for (int i = 0; i < bfs.size(); ++i) {
-	        no = bfs[i]; 
-	        for (auto it = tree[no].link.begin();
-	             it != tree[no].link.end(); it++) {
+	    while (!bfs.empty()) {
+	        no = bfs.front(); bfs.pop();
+	        for (auto it = tree[no].trie.begin();
+	             it != tree[no].trie.end(); it++) {
 	            char c = it->first;
 	            v = it->second;
-	            bfs.push_back(v);
+	            bfs.push(v);
 	            f = tree[no].fail;
-	            while (tree[f].link.find(c) == tree[f].link.end()) {
-	                if (f == 0) { tree[0].link[c] = 0; break; }
+	            while (tree[f].trie.find(c) == tree[f].trie.end()) {
+	                if (f == 0) { tree[0].trie[c] = 0; break; }
 	                f = tree[f].fail;
 	            }
-	            w = tree[f].link[c];
+	            w = tree[f].trie[c];
 	            tree[v].fail = w;
 	            tree[v].next = tree[w].out.size() ? w : tree[w].next;
 	        }
 	    }
 	}
-	void matches(string& text) {
+	// Buscar padroes no aho-corasik
+	void matches(string &text) {
 	    int v, no = 0;
-	    for (int i = 0; i < text.size(); ++i) {
-	        while (tree[no].link.find(text[i]) == tree[no].link.end()) {
-	            if (no == 0) { tree[0].link[text[i]] = 0; break; }
+	    for (int i = 0; i < text.size(); i++) {
+	        while (tree[no].trie.find(text[i]) == tree[no].trie.end()) {
+	            if (no == 0) { tree[0].trie[text[i]] = 0; break; }
 	            no = tree[no].fail;
 	        }
-	        v = no = tree[no].link[text[i]];
+	        v = no = tree[no].trie[text[i]];
 	        // marcar os encontrados
-	        while (v != -1 /* && !tree[v].marc */) { // p/ decisao
-	            //tree[v].marc = true; // p/ decisao: nao continua a link
+	        while (v != -1 /* && !tree[v].marc */ ) { // p/ decisao
+	            //tree[v].marc = true; // p/ decisao: nao continua a trie
 	            for (int k = 0 ; k < tree[v].out.size() ; k++) {
 	                //encontrado[tree[v].out[k].first] = true; // p/ decisao
 	                result[tree[v].out[k].first].push_back(i-tree[v].out[k].second+1);
-	                printf("Padrao %d na posicao %d\n", tree[v].out[k].first,
-	                       i-tree[v].out[k].second+1);
+	               // printf("Padrao %d na posicao %d\n", tree[v].out[k].first, i-tree[v].out[k].second+1);
+	                
 	            }
 	            v = tree[v].next;
 	        }
 	    }
 	}
 };
- 

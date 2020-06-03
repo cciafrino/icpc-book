@@ -7,19 +7,22 @@
  * Time: 
  * Status: 
  */
-template<typename Str>
-struct suffix_automaton{
-    typedef typename Str::value_type Char;
-    struct node{
-        int len = 0, link = -1, firstpos = -1;
+template<typename T> struct SuffixAutomaton {
+    typedef typename T::value_type Char;
+    struct node_t {
+        int len = 0, link = -1, stpos = -1;
         bool isclone = false;
         map<Char, int> next;
         vector<int> invlink;
         int cnt = -1;
     };
-    vector<node> state = vector<node>(1);
-    int last = 0;
-    suffix_automaton(const Str &s){
+    vector<node_t> state = vector<node_t>(1);
+    int last = 0;int64_t how_many = 0;
+    SuffixAutomaton() {
+        state = vector<node_t>(1);
+        last = how_many = 0;
+    }
+    SuffixAutomaton(const T &s){
         state.reserve(s.size());
         for(auto c: s) insert(c);
     }
@@ -27,77 +30,74 @@ struct suffix_automaton{
         int cur = state.size();
         state.push_back({state[last].len + 1, -1, state[last].len});
         int p = last;
-        while(p != -1 && !state[p].next.count(c)){
+        how_many += state[cur].len;
+        while (p != -1 && !state[p].next.count(c)){
             state[p].next[c] = cur;
             p = state[p].link;
         }
-        if(p == -1) state[cur].link = 0;
-        else{
+        if (p == -1) state[cur].link = 0;
+        else {
             int q = state[p].next[c];
-            if(state[p].len + 1 == state[q].len) state[cur].link = q;
-            else{
+            if (state[p].len + 1 == state[q].len) state[cur].link = q;
+            else {
                 int clone = state.size();
-                state.push_back({state[p].len + 1, state[q].link, state[q].firstpos, true, state[q].next});
-                while(p != -1 && state[p].next[c] == q){
+                state.push_back({state[p].len + 1, state[q].link, state[q].stpos, true, state[q].next});
+                how_many += state[clone].len;
+                while (p != -1 && state[p].next[c] == q) {
                     state[p].next[c] = clone;
                     p = state[p].link;
                 }
+                how_many += state[state[q].link].len;
                 state[q].link = state[cur].link = clone;
+                how_many -= state[state[clone].link].len;
+                how_many -= state[state[q].link].len;
             }
         }
+        how_many -= state[state[cur].link].len;
         last = cur;
     }
-    void print(){
-        for(int u = 0; u < state.size(); ++ u){
-            cout << "--------------------------------\n";
-            cout << "Node " << u << ": len = " << state[u].len << ", link = " << state[u].link;
-            cout << ", firstpos = " << state[u].firstpos << ", cnt = " << state[u].cnt;
-            cout << ", isclone = " << state[u].isclone;
-            cout << "\ninvlink = " << state[u].invlink << "next = " << state[u].next;
-            cout << "--------------------------------" << endl;
-        }
-    }
-    pair<int, int> match(const Str &s){ // (Length of the longest prefix of s, state)
+    pair<int, int> match(const T &s) { // (Length of the longest prefix of s, state)
         int u = 0;
-        for(int i = 0; i < s.size(); ++ i){
-            if(!state[u].next.count(s[i])) return {i, u};
+        for (int i = 0; i < s.size(); ++i) {
+            if (!state[u].next.count(s[i])) return {i, u};
             u = state[u].next[s[i]];
         }
         return {s.size(), u};
     }
-    vector<long long> distinct_substr_cnt(){
-        vector<long long> dp(state.size());
-        function<long long(int)> solve = [&](int u){
-            if(dp[u]) return dp[u];
+    int64_t cnt() {
+        return how_many;
+    }
+    vector<int64_t> substr_cnt() { // distinct!!
+        vector<int64_t> dp(state.size());
+        y_combinator([&](auto self, int u) -> int64_t {
+            if (dp[u]) return dp[u];
             dp[u] = 1;
-            for(auto [c, v]: state[u].next) dp[u] += solve(v);
+            for(auto [c, v]: state[u].next) dp[u] += self(v);
             return dp[u];
-        };
-        solve(0);
+        })(0);
         return dp;
     }
-    vector<long long> distinct_substr_len(){
-        vector<long long> res(state.size()), dp(state.size());
-        function<long long(int)> solve = [&](int u){
-            if(dp[u]) return res[u];
+    vector<int64_t> substr_len() { // distinct!!
+        vector<int64_t> res(state.size()), dp(state.size());
+        y_combinator([&](auto self, int u) -> int64_t {
+            if (dp[u]) return res[u];
             dp[u] = 1;
             for(auto [c, v]: state[u].next){
-                res[u] += solve(v) + dp[v];
+                res[u] += self(v) + dp[v];
                 dp[u] += dp[v];
             }
             return res[u];
-        };
-        solve(0);
+        })(0);
         return res;
     }
-    pair<Str, int> k_th_substr(long long k){
-        vector<long long> dp(distinct_substr_cnt());
+    pair<T, int> kth_substr(int64_t k) {
+        vector<int64_t> dp(substr_cnt());
         assert(dp[0] >= k && k);
-        Str res;
+        T res;
         int u = 0;
-        for(; -- k; ) for(auto [c, v]: state[u].next){
-            if(k > dp[v]) k -= dp[v];
-            else{
+        for (; --k; ) for (auto [c, v]: state[u].next) {
+            if (k > dp[v]) k -= dp[v];
+            else {
                 res.push_back(c);
                 u = v;
                 break;
@@ -105,10 +105,10 @@ struct suffix_automaton{
         }
         return {res, u};
     }
-    pair<Str, int> smallest_substr(int length){
-        Str res;
+    pair<T, int> smallest_substr(int length) {
+        T res;
         int u = 0;
-        for(; length --; ){
+        for(; length--;) {
             assert(!state[u].next.empty());
             auto it = state[u].next.begin();
             res.push_back(it->first);
@@ -116,28 +116,27 @@ struct suffix_automaton{
         }
         return {res, u};
     }
-    pair<int, int> find_first(const Str &s){ // length, pos
+    pair<int, int> find_first(const T &s) { // length, pos
         auto [l, u] = match(s);
-        return {l, state[u].firstpos - int(s.size()) + 1};
+        return {l, state[u].stpos - int(s.size()) + 1};
     }
-    void process_invlink(){
-        for(int u = 1; u < int(state.size()); ++ u) state[state[u].link].invlink.push_back(u);
+    void build_invlink() {
+        for (int u = 1; u < int(state.size()); ++ u) state[state[u].link].invlink.push_back(u);
     }
-    vector<int> find_all(const Str &s, bool invlink_init = false){
+    vector<int> findAll(const T &s, bool invlink_init = false) {
         auto [l, u] = match(s);
-        if(l < int(s.size())) return{};
+        if (l < int(s.size())) return {};
         vector<int> res;
-        if(!invlink_init) process_invlink();
-        function<void(int)> solve = [&](int u){
-            if(!state[u].isclone) res.push_back(state[u].firstpos);
-            for(auto v: state[u].invlink) solve(v);
-        };
-        solve(u);
-        for(auto &x: res) x += 1 - int(s.size());
+        if (!invlink_init) build_invlink();
+        y_combinator([&](auto self, int u) -> void {
+            if (!state[u].isclone) res.push_back(state[u].stpos);
+            for (auto v: state[u].invlink) self(v);
+        })(u);
+        for (auto &x: res) x += 1 - int(s.size());
         sort(res.begin(), res.end());
         return res;
     }
-    Str lcs(const Str &s){
+    T LCS(const T &s){
         int u = 0, l = 0, best = 0, bestpos = 0;
         for(int i = 0; i < int(s.size()); ++ i){
             while(u && !state[u].next.count(s[i])){
@@ -146,7 +145,7 @@ struct suffix_automaton{
             }
             if(state[u].next.count(s[i])){
                 u = state[u].next[s[i]];
-                ++ l;
+                ++l;
             }
             if(l > best){
                 best = l;
@@ -155,32 +154,31 @@ struct suffix_automaton{
         }
         return {s.begin() + bestpos - best + 1, s.begin() + bestpos + 1};
     }
-    vector<int> process_lcs(const Str &s){ // list of length ending at the pos
+    vector<int> build_LCS(const T &s){ // list of length ending at the pos
         int u = 0, l = 0;
         vector<int> res(s.size());
-        for(int i = 0; i < int(s.size()); ++ i){
-            while(u && !state[u].next.count(s[i])){
+        for (int i = 0; i < int(s.size()); ++i){
+            while (u && !state[u].next.count(s[i])){
                 u = state[u].link;
                 l = state[u].len;
             }
-            if(state[u].next.count(s[i])){
+            if (state[u].next.count(s[i])){
                 u = state[u].next[s[i]];
-                ++ l;
+                ++l;
             }
             res[i] = l;
         }
         return res;
     }
-    void process_cnt(bool invlink_init = false){
+    void build_CNT(bool invlink_init = false){
         for(int u = 0; u < int(state.size()); ++ u) state[u].cnt = (!state[u].isclone && u);
-        if(!invlink_init) process_invlink();
-        function<void(int)> solve = [&](int u){
-            for(auto v: state[u].invlink){
-                solve(v);
+        if(!invlink_init) build_invlink();
+        y_combinator([&](auto self, int u) -> void {
+            for (auto v: state[u].invlink){
+                self(v);
                 state[u].cnt += state[v].cnt;
             }
-        };
-        solve(0);
+        })(0);
     }
     int count(const string &s){
         assert(state[0].cnt != -1);

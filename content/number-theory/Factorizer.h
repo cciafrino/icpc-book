@@ -3,8 +3,7 @@
  * Description: 
  */
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
-template<typename T>
-struct Factorizer {
+template<typename T> struct Factorizer {
 	const int N = 1010000;
 	T C, mut, A[1001000];
 	vector<T> factors, exp, lp, d;

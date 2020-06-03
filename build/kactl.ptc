@@ -389,7 +389,7 @@
 \contentsline {subsection}{\texttt {SmallPtr.h}\hspace {0.2em}}{48}%
 \contentsline {subsection}{\texttt {BumpAllocatorSTL.h}\hspace {0.2em}}{48}%
 \contentsline {subsection}{\texttt {Hashmap.h}\hspace {0.2em}}{48}%
-\contentsline {subsection}{\texttt {PQueue.h}\hspace {0.2em}}{48}%
+\contentsline {subsection}{\texttt {PQueue.h}\hspace {0.2em}}{49}%
 \contentsline {subsection}{\texttt {OwnFunctions.h}\hspace {0.2em}}{49}%
 \contentsline {subsection}{\texttt {FastMod.h}\hspace {0.2em}}{49}%
 \contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{49}%
