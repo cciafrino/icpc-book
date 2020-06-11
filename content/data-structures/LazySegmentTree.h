@@ -23,7 +23,7 @@ template<typename T, typename Q> struct segtree_t {
         return tree[v] = f(build(v<<1, l, m), build(v<<1|1, m+1, r));
     }
     void propagate(int v, int l, int r) {
-        if (!lazy[v] || l==r) return; 
+        if (!lazy[v]) return; 
         int m = l + (r - l)/2;
         tree[v<<1] += lazy[v] * (m - l + 1);
         tree[v<<1|1] += lazy[v] * (r - (m + 1) + 1);
