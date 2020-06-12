@@ -7,11 +7,16 @@
 #include "Sieve.h"
 #include "Modpow.h"
 
-lint divsum(int n) {
-    lint sum = 1;
-    int p, f;
+template<typename T> T divSum(T n) {
+    T sum = 1;
     while (n > 1) {
-        for (p = lp[n], f = 0; (n > 1) && (p == lp[n]); n /= p) f++;
-        sum *= (Pow(p, f + 1) - 1)/(p - 1);
+        int exp = 0;
+        T p = lp[n];
+        do {
+            n /= p;
+            ++exp;
+        } while(n % p == 0);
+        sum *= (Pow(p, exp + 1) - 1)/(p - 1);
     }
+    return sum;
 }

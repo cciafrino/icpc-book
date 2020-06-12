@@ -19,7 +19,7 @@ void run_sieve(int n) {
 		for (j = 1; j <= tot && (x = primes[j]*i) <= n; ++j) {
 			lp[x] = primes[j];
 			mu[x] *= mu[i];
-			if (i % primes[j] == 0) {mu[x] = 0; break;}
+			if (i % primes[j] == 0) { mu[x] = 0; break; }
 		} 
 	}	
 }

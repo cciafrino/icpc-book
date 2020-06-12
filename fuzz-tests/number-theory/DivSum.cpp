@@ -50,6 +50,19 @@ lint divsum(int x) {
         sum *= (Pow(p, f + 1) - 1)/(p - 1);
     }
 }
+template<typename T> T divSum(T n) {
+    T sum = 1;
+    while (n > 1) {
+        int exp = 0;
+        T p = lp[n];
+        do {
+            n /= p;
+            ++exp;
+        } while(n % p == 0);
+        sum *= (Pow(p, exp + 1) - 1)/(p - 1);
+    }
+    return sum;
+}
 
 int main() {
     ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
@@ -62,8 +75,9 @@ int main() {
     	for (auto [p, e] : factors) {
     		res *= (Pow(p, e+1) - 1)/(p - 1);
     	}
-        lint ret = divsum(n);
-        assert(res == ret);
+        lint ret = divSum(n);
+        lint ret2 = divsum(n);
+        assert(res == ret && ret == ret2);
     }
     cout << "Tests passed!" << endl;
 

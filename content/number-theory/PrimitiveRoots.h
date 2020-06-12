@@ -3,26 +3,17 @@
  * Date: 
  * License: 
  * Source: 
- * Description: That is, 
- * $g$ is a primitive root mod $n$ if for every number $x$ coprime to $n$
- * there is an integer $z$ s.t. $x \equiv g^z  \pmod{n}$
+ * Description: $a$ is a primitive root mod $n$ if for every number $x$ coprime to $n$
+ * there is an integer $z$ s.t. $x \equiv g^z  \pmod{n}$. The number of primitive roots mod n, if
+ * there are any, is equal to $phi(phi(N))$
  * Status: 
- * Time: 
+ * Time: $O(log(N))$
  */
-template<typename T>
-T primitive_roots(T p) {
-    T n = p - 1;
-    vector<T> factors;
-    for (int i = 2; i*i <= n; ++i) if (n % i == 0) {
-        factors.push_back(i);
-        while (n % i == 0) n /= i;
-    }
-    if (n > 1) factors.push_back(n);
-    for (int i = 2; i <= p; ++i) {
-        bool works = true;
-        for (int j = 0; j < factors.size() && works; ++j) 
-            works &= modpow(i, (p-1)/factors[i], p) != 1;
-        if (works) return i;
-    }
-    return -1;
+#include<Sieve.h>
+#include<PrimeFactors.h>
+template<typename T> bool is_primitive(T a, T m) {
+    vector<pair<T, T>> D = prime_factorize(m-1);
+    for(int i = 0; i < (int)D.size(); ++i) 
+        if (modpow(a, (m-1)/D[i].first, m) == 1) return false;
+    return true;
 }

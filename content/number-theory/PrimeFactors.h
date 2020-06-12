@@ -1,18 +1,33 @@
 /**
  * Author: Chris
  * Description: Find all prime factors of $n$.
+ * Time: $O(log(n))$
  */
 #include "Sieve.h"
-vector<int> primeFac(int n){
-    vector<int> factors;
-    int idx = 0, prime_factors = primes[idx];
-    while (prime_factors * prime_factors <= n){
-        while (n % prime_factors == 0) {
-            n /= prime_factors;
-            factors.push_back(prime_factors);
-        }
-        prime_factors = primes[++idx];
+
+template<typename T>
+vector<pair<T, int>> prime_factorize(T n) {
+    vector<pair<T, int>> factors;
+    while(n != 1) {
+        T p = lp[n];
+        int exp = 0;
+        do {
+            n /= p;
+            ++exp;
+        } while(n % p == 0);
+        factors.push_back({p, exp});
     }
-    if (n != 1) factors.push_back(n);
+    for (T p : primes) {
+        if (p == 0) continue;
+        if (p * p > n) break;
+        if (p * p == 0) {
+            factors.push_back({p, 0});
+            do {
+                n /= p;
+                ++factors.back().second;
+            } while(n % p == 0);
+        }
+    }
+    if (n > 1) factors.push_back({n, 1});
     return factors;
 }

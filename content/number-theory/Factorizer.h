@@ -21,7 +21,7 @@ template<typename T> struct Factorizer {
 			return ret;
 		}
 	}
-	void run_sieve(){
+	void run_sieve() {
 		int i, j, tot, t1;
 		for (i = 1; i <= psize; ++i) lp[i] = i;
 		for (i = 2, tot = 0; i <= psize; ++i){
@@ -47,7 +47,7 @@ template<typename T> struct Factorizer {
 		T x = modpow(a, u, n), y=0;
 		for (; t; t--) {
 			y = mul(x, x, n);
-			if (y == 1 && x != 1 && x != n-1) return 1;
+			if (y == 1 && x != 1 && x != n-1) return true;
 			x = y;
 		}
 		return y != 1;

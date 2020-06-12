@@ -1,20 +1,22 @@
 /**
  * Author: Chris
- * Description: Count the number of divisors of $n$.
+ * Description: Count the number of divisors of $n$. Requires having run Sieve up to at least sqrt(n).
+ * Time: $O(log(N))$
  */
 #include "Sieve.h"
-int NumDiv(lint n){
-    int idx = 0, prime_factors = primes[idx];
-    lint ans = 1;
-    while (prime_factors * prime_factors <= n) {
-        int power = 0;
-        while (n % prime_factors == 0) {
-            n /= prime_factors;
-            ++power;
-        }
-        ans *= 1ll * (power + 1);
-        prime_factors = primes[++idx];
+
+template<typename T> T numDiv(T n) {
+    T how_many = 1, prime_factors = 0;
+    while(n != 1) {
+        T p = lp[n];
+        int exp = 0;
+        do {
+            n /= p;
+            ++exp;
+            ++prime_factors; //count prime factors!
+        } while(n % p == 0);
+        how_many *= 1ll * (exp + 1);
     }
-    if (n != 1) ans *= 2;
-    return ans;
+    if (n != 1) ++prime_factors;
+    return how_many;
 }
