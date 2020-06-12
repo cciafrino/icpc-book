@@ -6,11 +6,11 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 template<typename T> struct Factorizer {
 	const int N = 1010000;
 	T C, mut, A[1001000];
-	vector<T> factors, exp, lp, d;
-	vector<int> prime, p;
+	vector<T> factors, exp, q, d;
+	vector<int> prime, lp;
 	int cnt, l, psize, how_many;
 	Factorizer(int _n) : psize(_n), factors(10010), prime(N),
-		p(N), exp(100), lp(100) { run_sieve(); }
+		lp(N), exp(100), q(100) { run_sieve(); }
 	inline T mul(T a, T b, T m) {
 		if (m <= 1000000000) return a * b % m;
 		else if (m <= 1000000000000ll) return (((a*(b>>20)%m)<<20)+(a*(b&((1<<20)-1))))%m;
@@ -23,11 +23,11 @@ template<typename T> struct Factorizer {
 	}
 	void run_sieve(){
 		int i, j, tot, t1;
-		for (i = 1; i <= psize; ++i) p[i] = i;
+		for (i = 1; i <= psize; ++i) lp[i] = i;
 		for (i = 2, tot = 0; i <= psize; ++i){
-			if (p[i] == i) prime[++tot] = i;
+			if (lp[i] == i) prime[++tot] = i;
 			for (j = 1; j <= tot && (t1 = prime[j] * i) <= psize; ++j){
-				p[t1] = prime[j];
+				lp[t1] = prime[j];
 				if (i % prime[j] == 0) break;
 			} 
 		}
@@ -54,7 +54,7 @@ template<typename T> struct Factorizer {
 	}
 	bool miller(T n) {
 		if (n < 2) return 0;
-		if (n <= psize) return p[n] == n;
+		if (n <= psize) return lp[n] == n;
 		if (~n&1) return 0;
 		for (int j = 0; j < 8; ++j) if (witness(rng()%(n-1)+1,n)) return 0;
 		return 1;
@@ -99,7 +99,7 @@ template<typename T> struct Factorizer {
 		for (int i = 0; i < cnt; ++i) {
 			if (n % factors[i] == 0) n /= factors[i], factors[cnt++] = factors[i];}
 		if (n <= psize) {
-			for (;n != 1; n /= p[n]) factors[cnt++] = p[n];
+			for (;n != 1; n /= lp[n]) factors[cnt++] = lp[n];
 			return;
 		}
 		if (miller(n)) factors[cnt++] = n;
@@ -113,7 +113,7 @@ template<typename T> struct Factorizer {
 		else {
 			dfs(x, 1 + depth);
 			for (int i = 1; i <= exp[depth]; ++i) 
-				dfs(x *= lp[depth], 1 + depth);
+				dfs(x *= q[depth], 1 + depth);
 		}
 	}
 	void norm() {
@@ -121,7 +121,7 @@ template<typename T> struct Factorizer {
 		how_many = 0;
 		for(int i = 0; i < cnt; ++i) 
 			if (i == 0 || factors[i] != factors[i-1]) 
-				lp[how_many] = factors[i], exp[how_many++] = 1;
+				q[how_many] = factors[i], exp[how_many++] = 1;
 			else ++exp[how_many-1];
 	}
 	vector<T> getd() {
@@ -139,7 +139,7 @@ template<typename T> struct Factorizer {
 		get_factors(n);
 		norm();
 		vector<pair<T,T>> D;
-		for(int i = 0; i < how_many; ++i) D.push_back({lp[i], exp[i]});
+		for(int i = 0; i < how_many; ++i) D.push_back({q[i], exp[i]});
 		return D;
 	}
 	bool is_primitive(T a, T m) {

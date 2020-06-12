@@ -1,21 +1,17 @@
 /**
  * Author: Chris
  * Description: Sum of all divisors of $n$.
+ * Time: O($lg(N)$)
+ * Status: stress-tested until $n = 100'000'000$
  */
 #include "Sieve.h"
 #include "Modpow.h"
-lint sumDiv(int n){
-    int idx = 0, prime_factors = primes[idx];
-    lint ans = 1;
-    while (prime_factors * prime_factors <= n){
-        int power = 0;
-        while (n % prime_factors == 0) {
-            n /= prime_factors;
-            power++;
-        }
-        ans *= (Pow(prime_factors, power+1)-1)/(prime_factors-1);
-        prime_factors = primes[++idx];
+
+lint divsum(int n) {
+    lint sum = 1;
+    int p, f;
+    while (n > 1) {
+        for (p = lp[n], f = 0; (n > 1) && (p == lp[n]); n /= p) f++;
+        sum *= (Pow(p, f + 1) - 1)/(p - 1);
     }
-    if (n != 1) ans *= (n*n - 1)/(n-1);
-    return ans;
 }

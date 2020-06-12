@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.28)  3 JUN 2020 17:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.28)  11 JUN 2020 22:45
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -391,7 +391,12 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count287
 \l__pdf_internal_box=\box99
-) (./kactl.aux)
+)
+
+LaTeX Warning: Unused global option(s):
+    [9pt].
+
+(./kactl.aux)
 \openout1 = `kactl.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
@@ -665,7 +670,7 @@ runsystem(rm -f kactl.tmp)...executed.
 runsystem(python2 kactlprocessor.py -i "../content/data-structures/FenwickTree2d.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "FenwickTree2d.h|FenwickTree2d.h" -o header2.tmp)...executed.
+runsystem(python2 kactlprocessor.py --print-header "FenwickTree.h|FenwickTree2d.h" -o header2.tmp)...executed.
 
  (./header2.tmp) [6])
 runsystem(rm -f kactl.tmp)...executed.
@@ -981,7 +986,9 @@ File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <7> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 7.
-)
+runsystem(python2 kactlprocessor.py --print-header "PollardRho.h|PollardRho.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [14])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/number-theory/ExtendedEuclidean.h" -o kactl.tmp )...executed.
@@ -991,10 +998,7 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/number-theory/DiophantineEquation.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "ExtendedEuclidean.h|DiophantineEquation.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [14])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/number-theory/Divisors.h" -o kactl.tmp )...executed.
@@ -1019,7 +1023,26 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/number-theory/SumDiv.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+! Missing \right. inserted.
+<inserted text> 
+                \right .
+l.6 \begin{lstlisting}[caption={SumDiv.h}]
+                                          
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Extra \right.
+<argument> \mathcal {O} \left ( $lg(N)$ \right )
+                                                
+l.6 \begin{lstlisting}[caption={SumDiv.h}]
+                                          
+I'm ignoring a \right that had no matching \left.
+
+)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/number-theory/Bezout.h" -o kactl.tmp )...executed.
@@ -1034,15 +1057,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/number-theory/DiscreteLogarithm.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "phiFunction.h|DiscreteLogarithm.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [15])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/number-theory/Legendre.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "Legendre.h|Legendre.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [15])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/number-theory/GroupOrder.h" -o kactl.tmp )...executed.
@@ -1077,10 +1100,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--9
 \OT1/cmr/bx/n/7 Usage: \OT1/pcr/m/n/7 fracBS([](Frac f) \OMS/cmsy/m/n/7 f \OT1/pcr/m/n/7 return f.p$\OML/cmm/m/it/7 >$\OT1/pcr/m/n/7 =3*f.q; \OMS/cmsy/m/n/7 g\OT1/pcr/m/n/7 , 10); //
  []
 
-)
 runsystem(python2 kactlprocessor.py --print-header "FracBinarySearch.h|FracBinarySearch.h" -o header2.tmp)...executed.
 
- (./header2.tmp) [16]) (../content/combinatorial/chapter.tex
+(./header2.tmp) [16])) (../content/combinatorial/chapter.tex
 Chapter 6.
 (../content/combinatorial/factorial.tex
 Overfull \hbox (7.39503pt too wide) in paragraph at lines 2--19
@@ -1102,15 +1124,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/combinatorial/PascalTriangle.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "numPerm.h|PascalTriangle.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [17])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/combinatorial/nCr.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
-runsystem(python2 kactlprocessor.py --print-header "nCr.h|nCr.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [17]
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/combinatorial/Multinomial.h" -o kactl.tmp )...executed.
@@ -1290,15 +1312,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/TopoSort.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "FloydWarshall.h|TopoSort.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [20])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/CutVertices.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "CutVertices.h|CutVertices.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [20])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/Bridges.h" -o kactl.tmp )...executed.
@@ -1329,14 +1351,14 @@ runsystem(rm -f kactl.tmp)...executed.
 runsystem(python2 kactlprocessor.py -i "../content/graph/EulerWalk.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
+runsystem(python2 kactlprocessor.py --print-header "EulerWalk.h|EulerWalk.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [21]
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/PushRelabel.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "PushRelabel.h|PushRelabel.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [21])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/Dinitz.h" -o kactl.tmp )...executed.
@@ -1346,7 +1368,10 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/HLPP.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "|HLPP.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [22])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/EdmondsKarp.h" -o kactl.tmp )...executed.
@@ -1356,9 +1381,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--7
 \OT1/pcr/m/n/7 graph[a][b] += c; //adds edge from a to b with capacity c,
  []
 
-runsystem(python2 kactlprocessor.py --print-header "EdmondsKarp.h|EdmondsKarp.h" -o header2.tmp)...executed.
-
-(./header2.tmp) [22])
+)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/MinCut.h" -o kactl.tmp )...executed.
@@ -1378,15 +1401,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/GomoryHu.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "StoerWagner.h|GomoryHu.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [23])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/HopcroftKarp.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "HopcroftKarp.h|HopcroftKarp.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [23])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/MaxBipartiteMatching.h" -o kactl.tmp )...executed.
@@ -1401,10 +1424,10 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/GeneralMatching.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
-runsystem(python2 kactlprocessor.py --print-header "|GeneralMatching.h" -o header2.tmp)...executed.
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "GeneralMatching.h|GeneralMatching.h" -o header2.tmp)...executed.
 
- (./header2.tmp) [24]
+ (./header2.tmp) [24])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/MaximumIndependentSet.h" -o kactl.tmp )...executed.
@@ -1434,15 +1457,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/Tarjan.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "Tarjan.h|Tarjan.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [25])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/BiconnectedComponents.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "BiconnectedComponents.h|BiconnectedComponents.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [25])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/2sat.h" -o kactl.tmp )...executed.
@@ -1508,15 +1531,14 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-)
+runsystem(python2 kactlprocessor.py --print-header "LCA.cpp|LCA.cpp" -o header2.tmp)...executed.
+
+(./header2.tmp) [27])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/LCA.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "LCA.h|LCA.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [27])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/CompressTree.h" -o kactl.tmp )...executed.
@@ -1527,14 +1549,14 @@ runsystem(rm -f kactl.tmp)...executed.
 runsystem(python2 kactlprocessor.py -i "../content/graph/Heavylight.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
+runsystem(python2 kactlprocessor.py --print-header "|Heavylight.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [28]
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/Tree-Isomorphism.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "Tree-Isomorphism.h|Tree-Isomorphism.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [28])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/LineTree.h" -o kactl.tmp )...executed.
@@ -1549,7 +1571,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--11
 \OT1/cmr/bx/n/7 Usage: \OT1/pcr/m/n/7 Lumberjack$\OML/cmm/m/it/7 <$\OT1/pcr/m/n/7 10010$\OML/cmm/m/it/7 >$ \OT1/pcr/m/n/7 g; g.init(N); (Be careful with
  []
 
-runsystem(python2 kactlprocessor.py --print-header "|Lumberjack.h" -o header2.tmp)...executed.
+runsystem(python2 kactlprocessor.py --print-header "Lumberjack.h|Lumberjack.h" -o header2.tmp)...executed.
 
 (./header2.tmp) [29])
 runsystem(rm -f kactl.tmp)...executed.
@@ -1603,15 +1625,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/MisraGries.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "MisraGries.h|MisraGries.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [31])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/Directed-MST.cpp" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "Directed-MST.cpp|Directed-MST.cpp" -o header2.tmp)...executed.
-
- (./header2.tmp) [31])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/graph/Graph-Negative-Cycle.cpp" -o kactl.tmp )...executed.
@@ -1759,15 +1781,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--17
 []$
  []
 
-)
+runsystem(python2 kactlprocessor.py --print-header "SegmentClosestPoint.h|SegmentIntersection.h" -o header2.tmp)...executed.
+
+(./header2.tmp) [33 <../content/geometry/lineDistance.pdf> <../content/geometry/SegmentDistance.pdf>])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/SegmentIntersectionQ.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "SegmentIntersectionQ.h|SegmentIntersectionQ.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [33 <../content/geometry/lineDistance.pdf> <../content/geometry/SegmentDistance.pdf>])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/LineIntersection.h" -o kactl.tmp )...executed.
@@ -1838,7 +1859,10 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/AngleCmp.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "Angle.h|AngleCmp.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [34 <../content/geometry/linearTransformation.pdf>])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/LinearSolver.h" -o kactl.tmp )...executed.
@@ -1865,17 +1889,7 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/CircleTangents.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "CircleTangents.h|CircleTangents.h" -o header2.tmp)...executed.
-
- (./header2.tmp)
-
-Package Fancyhdr Warning: \headheight is too small (25.0pt): 
-Make it at least 34.54448pt.
-We now make it that large for the rest of the document.
-This may cause the page layout to be inconsistent, however.
-
-[34 <../content/geometry/linearTransformation.pdf>])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/Circumcircle.h" -o kactl.tmp )...executed.
@@ -1896,7 +1910,10 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/CircleUnion.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "|CircleUnion.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [35 <../content/geometry/circumcircle.pdf>])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/CircleLine.h" -o kactl.tmp )...executed.
@@ -1907,9 +1924,6 @@ runsystem(rm -f kactl.tmp)...executed.
 runsystem(python2 kactlprocessor.py -i "../content/geometry/CircleCircleArea.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
-runsystem(python2 kactlprocessor.py --print-header "CircleCircleArea.h|CircleCircleArea.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [35 <../content/geometry/circumcircle.pdf>]
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/CirclePolygonIntersection.h" -o kactl.tmp )...executed.
@@ -1984,7 +1998,10 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/HullDiameter.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "ConvexHull.h|HullDiameter.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [36])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/PointInsideHull.h" -o kactl.tmp )...executed.
@@ -1994,10 +2011,7 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/PolyUnion.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "PolyUnion.h|PolyUnion.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [36])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/LineHullIntersection.h" -o kactl.tmp )...executed.
@@ -2007,7 +2021,10 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/HalfPlane.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "HalfPlane.h|HalfPlane.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [37])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/ClosestPair.h" -o kactl.tmp )...executed.
@@ -2017,10 +2034,7 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/KdTree.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "KdTree.h|KdTree.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [37])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/DelaunayTriangulation.h" -o kactl.tmp )...executed.
@@ -2030,7 +2044,10 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/FastDelaunay.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "|FastDelaunay.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [38])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/RectangleUnionArea.h" -o kactl.tmp )...executed.
@@ -2055,9 +2072,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--5
 \OT1/pcr/m/n/7 rectangles;// rectangles.push[]back(\OMS/cmsy/m/n/7 ff\OT1/pcr/m/n/7 x1, x2\OMS/cmsy/m/n/7 g\OT1/pcr/m/n/7 , \OMS/cmsy/m/n/7 f\OT1/pcr/m/n/7 y1, y2\OMS/cmsy/m/n/7 gg\OT1/pcr/m/n/7 );//
  []
 
-runsystem(python2 kactlprocessor.py --print-header "RectangleUnionArea.h|RectangleUnionArea.h" -o header2.tmp)...executed.
-
-(./header2.tmp) [38])
+)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/PolyhedronVolume.h" -o kactl.tmp )...executed.
@@ -2072,7 +2087,10 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/3dHull.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "3dHull.h|3dHull.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [39])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/geometry/SphericalDistance.h" -o kactl.tmp )...executed.
@@ -2083,10 +2101,7 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/strings/PrefixAutomaton.h" -o kactl.tmp )...executed.
 
-(./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "PrefixAutomaton.h|PrefixAutomaton.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [39])
+(./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/strings/KMP.cpp" -o kactl.tmp )...executed.
@@ -2106,7 +2121,10 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/strings/Z.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "Duval.h|Z.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [40])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/strings/Manacher.h" -o kactl.tmp )...executed.
@@ -2126,10 +2144,7 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/strings/Trie.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "Trie.h|Trie.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [40])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/strings/TrieXOR.h" -o kactl.tmp )...executed.
@@ -2161,15 +2176,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/strings/SuffixTree.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
-runsystem(rm -f kactl.tmp)...executed.
-
-runsystem(python2 kactlprocessor.py -i "../content/strings/AhoCorasick.cpp" -o kactl.tmp )...executed.
-
  (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "AhoCorasick.cpp|AhoCorasick.cpp" -o header2.tmp)...executed.
+runsystem(python2 kactlprocessor.py --print-header "SuffixTree.h|SuffixTree.h" -o header2.tmp)...executed.
 
  (./header2.tmp) [41])
+runsystem(rm -f kactl.tmp)...executed.
+
+runsystem(python2 kactlprocessor.py -i "../content/strings/AhoCorasick.h" -o kactl.tmp )...executed.
+
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/strings/Suffix-Array.h" -o kactl.tmp )...executed.
@@ -2185,7 +2200,10 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/IntervalCover.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "IntervalContainer.h|IntervalCover.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [42])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/ConstantIntervals.h" -o kactl.tmp )...executed.
@@ -2195,9 +2213,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--7
 \OT1/cmr/bx/n/7 Usage: \OT1/pcr/m/n/7 constantIntervals(0, sz(v), [&](int x)\OMS/cmsy/m/n/7 f\OT1/pcr/m/n/7 return
  []
 
-runsystem(python2 kactlprocessor.py --print-header "ConstantIntervals.h|ConstantIntervals.h" -o header2.tmp)...executed.
-
-(./header2.tmp) [42])
+)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/TernarySearch.h" -o kactl.tmp )...executed.
@@ -2242,15 +2258,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/Karatsuba.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "Karatsuba.h|Karatsuba.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [43])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/CountInversions.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "CountInversions.h|CountInversions.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [43])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/Histogram.h" -o kactl.tmp )...executed.
@@ -2270,15 +2286,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/SudokuSolver.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "SudokuSolver.h|SudokuSolver.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [44])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/FloydCycle.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
-runsystem(python2 kactlprocessor.py --print-header "FloydCycle.h|FloydCycle.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [44]
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/SubsetXOR.h" -o kactl.tmp )...executed.
@@ -2298,15 +2314,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/ConvexHullTrick.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "KnuthDP.h|ConvexHullTrick.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [45])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/Coin.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
-runsystem(python2 kactlprocessor.py --print-header "Coin.h|Coin.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [45]
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/MinCoin.h" -o kactl.tmp )...executed.
@@ -2351,7 +2367,10 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/KnapsackUnbounded.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "KnapsackUnbounded.h|KnapsackUnbounded.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [46])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/KnapsackBounded.h" -o kactl.tmp )...executed.
@@ -2361,10 +2380,7 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/KnapsackBoundedCosts.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "KnapsackBoundedCosts.h|KnapsackBoundedCosts.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [46])
+ (./kactl.tmp)
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/KnapsackBitset.h" -o kactl.tmp )...executed.
@@ -2390,6 +2406,9 @@ runsystem(rm -f kactl.tmp)...executed.
 runsystem(python2 kactlprocessor.py -i "../content/various/MaxNonConsecutiveSum.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
+runsystem(python2 kactlprocessor.py --print-header "MaxNonConsecutiveSum.h|MaxNonConsecutiveSum.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [47]
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/MaxSubarraySumSkip.h" -o kactl.tmp )...executed.
@@ -2399,10 +2418,7 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/MaxZeroSubmatrix.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp
-runsystem(python2 kactlprocessor.py --print-header "MaxZeroSubmatrix.h|MaxZeroSubmatrix.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [47])
+ (./kactl.tmp)
 LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 56.
 runsystem(rm -f kactl.tmp)...executed.
@@ -2852,15 +2868,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/BumpAllocatorSTL.h" -o kactl.tmp )...executed.
 
- (./kactl.tmp)
+ (./kactl.tmp
+runsystem(python2 kactlprocessor.py --print-header "SmallPtr.h|BumpAllocatorSTL.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [48])
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/Hashmap.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
-runsystem(python2 kactlprocessor.py --print-header "Hashmap.h|Hashmap.h" -o header2.tmp)...executed.
-
- (./header2.tmp) [48]
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/PQueue.h" -o kactl.tmp )...executed.
@@ -2891,16 +2907,16 @@ runsystem(rm -f kactl.tmp)...executed.
 runsystem(python2 kactlprocessor.py -i "../content/various/RandomNumbers.h" -o kactl.tmp )...executed.
 
  (./kactl.tmp)
+runsystem(python2 kactlprocessor.py --print-header "RandomNumbers.h|RandomNumbers.h" -o header2.tmp)...executed.
+
+ (./header2.tmp) [49]
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/Python3.py" -o kactl.tmp )...executed.
 
  (./kactl.tmp (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/09/10 1.8c listings language file
-)
-runsystem(python2 kactlprocessor.py --print-header "Python3.py|Python3.py" -o header2.tmp)...executed.
-
- (./header2.tmp) [49])
+))
 runsystem(rm -f kactl.tmp)...executed.
 
 runsystem(python2 kactlprocessor.py -i "../content/various/Main.java" -o kactl.tmp )...executed.
@@ -2927,15 +2943,15 @@ runsystem(rm -f kactl.tmp)...executed.
 
  (./kactl.aux) ) 
 Here is how much of TeX's memory you used:
- 12060 strings out of 483163
- 159316 string characters out of 5965511
- 1439010 words of memory out of 5000000
- 26249 multiletter control sequences out of 15000+600000
+ 12067 strings out of 483163
+ 159470 string characters out of 5965511
+ 1441826 words of memory out of 5000000
+ 26256 multiletter control sequences out of 15000+600000
  546312 words of font info for 77 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 41i,15n,64p,855b,2214s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,15n,64p,855b,2064s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/cciafrino/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0700.600pk> </home/cciafrino/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on kactl.pdf (51 pages, 1645584 bytes).
+Output written on kactl.pdf (51 pages, 1645113 bytes).
 PDF statistics:
  603 PDF objects out of 1000 (max. 8388607)
  405 compressed objects within 5 object streams
