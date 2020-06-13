@@ -7,9 +7,9 @@ template<typename T> struct Factorizer {
 	const int N = 1010000;
 	T C, mut, A[1001000];
 	vector<T> factors, exp, q, d;
-	vector<int> prime, lp;
+	vector<int> primes, lp;
 	int cnt, l, psize, how_many;
-	Factorizer(int _n) : psize(_n), factors(10010), prime(N),
+	Factorizer(int _n) : psize(_n), factors(10010), primes(N),
 		lp(N), exp(100), q(100) { run_sieve(); }
 	inline T mul(T a, T b, T m) {
 		if (m <= 1000000000) return a * b % m;
@@ -23,12 +23,12 @@ template<typename T> struct Factorizer {
 	}
 	void run_sieve() {
 		int i, j, tot, t1;
-		for (i = 1; i <= psize; ++i) lp[i] = i;
+		iota(lp.begin(), lp.end(), 0);
 		for (i = 2, tot = 0; i <= psize; ++i){
-			if (lp[i] == i) prime[++tot] = i;
-			for (j = 1; j <= tot && (t1 = prime[j] * i) <= psize; ++j){
-				lp[t1] = prime[j];
-				if (i % prime[j] == 0) break;
+			if (lp[i] == i) primes[tot++] = i;
+			for (j = 1; j <= tot && (t1 = primes[j] * i) <= psize; ++j){
+				lp[t1] = primes[j];
+				if (i % primes[j] == 0) break;
 			} 
 		}
 	}

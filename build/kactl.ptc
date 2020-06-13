@@ -104,6 +104,7 @@
 \contentsline {subsection}{\texttt {MulOrder.h}\hspace {0.2em}}{14}%
 \contentsline {subsection}{\texttt {Quadratic.h}\hspace {0.2em}}{14}%
 \contentsline {section}{\numberline {5.2}Primality}{14}%
+\contentsline {subsection}{\texttt {Sieve.h}\hspace {0.2em}}{14}%
 \contentsline {subsection}{\texttt {SegmentedSieve.h}\hspace {0.2em}}{14}%
 \contentsline {subsection}{\texttt {Mobius.h}\hspace {0.2em}}{14}%
 \contentsline {subsection}{\texttt {MillerRabin.h}\hspace {0.2em}}{14}%
@@ -111,6 +112,7 @@
 \contentsline {subsection}{\texttt {PollardRho.h}\hspace {0.2em}}{14}%
 \contentsline {section}{\numberline {5.3}Divisibility}{15}%
 \contentsline {subsection}{\texttt {ExtendedEuclidean.h}\hspace {0.2em}}{15}%
+\contentsline {subsection}{\texttt {Euclid.java}\hspace {0.2em}}{15}%
 \contentsline {subsection}{\texttt {DiophantineEquation.h}\hspace {0.2em}}{15}%
 \contentsline {subsection}{\texttt {Divisors.h}\hspace {0.2em}}{15}%
 \contentsline {subsection}{\texttt {Pell.h}\hspace {0.2em}}{15}%
@@ -118,7 +120,7 @@
 \contentsline {subsection}{\texttt {NumDiv.h}\hspace {0.2em}}{15}%
 \contentsline {subsection}{\texttt {SumDiv.h}\hspace {0.2em}}{15}%
 \contentsline {subsection}{\texttt {Bezout.h}\hspace {0.2em}}{15}%
-\contentsline {subsection}{\texttt {phiFunction.h}\hspace {0.2em}}{15}%
+\contentsline {subsection}{\texttt {phiFunction.h}\hspace {0.2em}}{16}%
 \contentsline {subsection}{\texttt {DiscreteLogarithm.h}\hspace {0.2em}}{16}%
 \contentsline {subsection}{\texttt {Legendre.h}\hspace {0.2em}}{16}%
 \contentsline {subsection}{\texttt {GroupOrder.h}\hspace {0.2em}}{16}%
@@ -128,7 +130,7 @@
 \contentsline {section}{\numberline {5.5}Fractions}{16}%
 \contentsline {subsection}{\texttt {Fractions.h}\hspace {0.2em}}{16}%
 \contentsline {subsection}{\texttt {ContinuedFractions.h}\hspace {0.2em}}{16}%
-\contentsline {subsection}{\texttt {FracBinarySearch.h}\hspace {0.2em}}{16}%
+\contentsline {subsection}{\texttt {FracBinarySearch.h}\hspace {0.2em}}{17}%
 \contentsline {subsection}{\numberline {5.5.1}Bézout's identity}{17}%
 \contentsline {subsection}{\numberline {5.5.2}Pythagorean Triples}{17}%
 \contentsline {subsection}{\numberline {5.5.3}Primitive Roots}{17}%
@@ -145,8 +147,8 @@
 \ttl@starttoc {chapters@6}
 \contentsline {section}{\numberline {6.1}Permutations}{17}%
 \contentsline {subsection}{\numberline {6.1.1}Factorial}{17}%
-\contentsline {subsection}{\texttt {Factorial.h}\hspace {0.2em}}{17}%
-\contentsline {subsection}{\texttt {numPerm.h}\hspace {0.2em}}{17}%
+\contentsline {subsection}{\texttt {Factorial.h}\hspace {0.2em}}{18}%
+\contentsline {subsection}{\texttt {numPerm.h}\hspace {0.2em}}{18}%
 \contentsline {subsection}{\numberline {6.1.2}Binomials}{18}%
 \contentsline {subsection}{\texttt {PascalTriangle.h}\hspace {0.2em}}{18}%
 \contentsline {subsection}{\texttt {nCr.h}\hspace {0.2em}}{18}%
@@ -162,7 +164,7 @@
 \contentsline {subsection}{\numberline {6.2.2}Lucas' Theorem}{18}%
 \contentsline {section}{\numberline {6.3}General purpose numbers}{18}%
 \contentsline {subsection}{\numberline {6.3.1}Bernoulli numbers}{18}%
-\contentsline {subsection}{\numberline {6.3.2}Stirling numbers of the first kind}{18}%
+\contentsline {subsection}{\numberline {6.3.2}Stirling numbers of the first kind}{19}%
 \contentsline {subsection}{\numberline {6.3.3}Eulerian numbers}{19}%
 \contentsline {subsection}{\numberline {6.3.4}Stirling numbers of the second kind}{19}%
 \contentsline {subsection}{\numberline {6.3.5}Bell numbers}{19}%
@@ -174,7 +176,7 @@
 \contentsline {subsection}{\numberline {6.3.11}Schroder numbers}{19}%
 \contentsline {subsection}{\numberline {6.3.12}Triangles}{19}%
 \contentsline {section}{\numberline {6.4}Game Theory}{19}%
-\contentsline {subsection}{\numberline {6.4.1}Nim}{19}%
+\contentsline {subsection}{\numberline {6.4.1}Nim}{20}%
 \contentsline {subsection}{\numberline {6.4.2}Mis\`{e}re Nim}{20}%
 \contentsline {subsection}{\numberline {6.4.3}Staircase Nim}{20}%
 \contentsline {subsection}{\numberline {6.4.4}Moore's Nim$_k$}{20}%

@@ -18,7 +18,6 @@ vector<pair<T, int>> prime_factorize(T n) {
         factors.push_back({p, exp});
     }
     for (T p : primes) {
-        if (p == 0) continue;
         if (p * p > n) break;
         if (p * p == 0) {
             factors.push_back({p, 0});
