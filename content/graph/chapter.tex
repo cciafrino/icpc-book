@@ -86,9 +86,13 @@
 \subsection{Vizing's Thereom}
 Dado um grafo~$G$, seja~$\delta$ o maior grau de um vértice. Então~$G$ tem número cromático de aresta~$\delta$ ou~$\delta + 1$.
 
+\
+
 \subsection{Euler's theorem}
 Sendo~$V$,~$A$ e~$F$ as quantidades de vértices, arestas e faces de um grafo planar conexo,
 $V - A + F = 2$.
+
+\
 
 \subsection{Hall's Marriage theorem}
 Dado um grafo bipartido com classes~$V_1$ e~$V_2$, para~$S$~$\subset$~$V_1$ seja~$N(S)$ o conjunto de todos os vértices vizinhos a algum elemento de~$S$. Um emparelhamento de~$V_1$ em~$V_2$ é um conjunto de arestas disjuntas cujas extremidades estão em classes diferentes. Então existe um emparelhamento completo de~$V_1$ em~$V_2$ sse $|N(S)| \geq |S|$ \forall $ S \subset V_1 $.
@@ -106,8 +110,12 @@ replacing $d_u$ by the weighted degree, and doing more iterations (if
 weights are not integers).
 \fi
 
+\
+
 \subsection{Dilworth's theorem}
 Em todo conjunto parcialmente ordenado, a quantidade máxima de elementos de uma anticadeia é igual à  quatidade mínima de cadeias disjuntas que cobrem o conjunto.
+
+\
 
 \subsection{Conjunto Independente de Peso Máximo num Grafo Bipartido}
 É o mesmo que a cobertura de peso mínimo. Podemos resolver criando uma rede de fluxo com arestas $(S,u,w(u))$ para $u\in L$,
@@ -118,18 +126,26 @@ $(v,T,w(v))$ para $v\in R$ e $(u,v,\infty)$ para $(u,v)\in E$. O corte mínimo d
 Dado um digrafo $G$ com peso nos vértices. Transforme $G$ numa rede de fluxo, colocando o peso de cada aresta como $\infty$. Adicione vértices $S,T$. Para cada vértice $v$ de peso $w$, adicione uma aresta $(S, v, w)$ se $w\geq 0$, ou a aresta $(v,T,-w)$ se $w<0$. A soma de todos os pesos positivos menos o corte mínimo $c(S,T)$ é a resposta. Vértices que são alcançados a partir de $S$ estão no fecho. O fecho de peso máximo é o mesmo que o complemento do fecho de peso mínimo num grafo com as arestas invertidas.
 \fi
 
+\
 
 \subsection{Tutte-Berge formula}
 The theorem states that the size of a maximum matching of a graph $G=(V,E)$ equals ${\frac {1}{2}}\min _{U\subseteq V}\left(|U|- \texttt{odd}(G-U)+|V|\right)\,,$ where \texttt{odd}(H) counts how many of the connected components of the graph $H$ have an odd number of vertices.
 
+\
+
 \subsection{Tutte's theorem}
 Um grafo $G = (V, A)$ tem um emparelhamento perfeito sse para todo subconjunto $U$ de $V$, o subgrafo induzido por $V \setminus U$ tem no máximo $|U|$ componentes conexas com uma quantidade ímpar de vértices.
+
+\
+
 
 \subsection{Menger's theorem}
 \item Para vértices:
 Um grafo é k-conexo sse todo par de vértices é conectado por pelo menos k caminhos sem vértices intermediários em comum.
 \item Para arestas:
 Um grafo é dito~$k$-aresta-conexo se a retirada de menos de~$k$ arestas do grafo o mantém conexo. Então um grafo é~$k$ -aresta-conexo sse para todo par de vértices~$u$ e~$v$, existem~$k$ caminhos que ligam~$u$ a~$v$ sem arestas em comum.
+
+\
 
 \subsection{Landau}
 Existe um torneio com graus de saída~$d_1 \leq d_2 \leq \ldots \leq d_n$ sse:
@@ -138,6 +154,8 @@ Existe um torneio com graus de saída~$d_1 \leq d_2 \leq \ldots \leq d_n$ sse:
 \item $d_1 + d_2 + \ldots + d_k \geq {k \choose 2} \quad \forall 1 \leq k \leq n.$
 \end{itemize}
 Para construir, fazemos~1 apontar para~$2, 3, \ldots, d_1 + 1$ e seguimos recursivamente.
+
+\
 
 \subsection{Erdős–Gallai theorem}
 		% Source: https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gallai_theorem
@@ -153,14 +171,21 @@ That can be checked using reverse DFS over pairs of states. Finding the
 shortest synchronizing word is NP-complete.
 \fi
 
+\
+
 \subsection{Turán's theorem} 
 Nenhum grafo com $n$ vértices que é $K_{r+1}$-livre pode ter mais arestas do que o grafo de $Tur\acute{a}n$: Um grafo completo $k$-partido com conjuntos de tamanho mais próximo possível.
 
+\
 
 \subsection{Dirac's theorem} Seja $G$ um grafo com $n$ vértices, cada um com grau pelo menos $n/2$. Então $G$ é hamiltoniano.
 
+\
+
 \subsection{Ore's theorem} Seja $G$ um grafo simples de ordem $n \geq 3$ tal que 
 \[g(u) + g(v) \geq n \] para todo par $u$,$v$ de vértices não adjacentes, então $G$ é hamiltoniano.
+
+\
 
 \subsection{Eulerian Cycles}
 A quantidade de ciclos $Eulerianos$ num digrafo $G$ é:\newline
@@ -169,9 +194,13 @@ A quantidade de ciclos $Eulerianos$ num digrafo $G$ é:\newline
 		\end{equation*}\newline
 		onde $t_w(G)$ é a quantidade de arborescências (árvore geradora direcionada) enraizada em $w$: $t_w(G) = \det\left( q_{ij} \right)_{i,j \neq w}$, with $q_{ij} = [i=j] \mathrm{indeg}(i) - \# \set{(i,j) \in E}$.
 
+\
+
 \subsection{Matroid Intersection theorem}
 Sejam~$M_1 = (E, I_1)$ e~$M_2 = (E, I_2)$ matróides. Então
 $ \max\limits_{S \in I_1 \cap I_2}{|S|} = \min\limits_{U \subseteq E}{r_1(U) + r_2(E \setminus U)}.$
+
+\
 
 \subsection{Number of Spanning Trees}
 		% I.e. matrix-tree theorem.
@@ -181,6 +210,8 @@ $ \max\limits_{S \in I_1 \cap I_2}{|S|} = \min\limits_{U \subseteq E}{r_1(U) + r
 		\texttt{mat[a][b]--, mat[b][b]++} (and \texttt{mat[b][a]--, mat[a][a]++} if $G$ is undirected).
 		Remove the $i$th row and column and take the determinant; this yields the number of directed spanning trees rooted at $i$
 		(if $G$ is undirected, remove any row/column).\newline
+
+\
 
 \subsection{König-Egervary theorem}
     Em todo grafo bipartido~$G$, a quantidade de arestas no emparelhamento máximo é maior ou igual à quantidade de vértices na cobertura mínima. Ou seja, para todo~$G$,~$\alpha(G) \geq \beta(G)$. Note que isso prova que~$\alpha(G) = \beta(G)$ para grafos bipartidos.
