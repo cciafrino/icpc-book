@@ -11,9 +11,11 @@
  */
 #include<Sieve.h>
 #include<PrimeFactors.h>
+#include<Modpow.h>
+
 template<typename T> bool is_primitive(T a, T m) {
     vector<pair<T, T>> D = prime_factorize(m-1);
-    for(int i = 0; i < (int)D.size(); ++i) 
-        if (modpow(a, (m-1)/D[i].first, m) == 1) return false;
+    for(auto [x, y] : D) 
+        if (modpow(a, (m-1)/x, m) == 1) return false;
     return true;
 }

@@ -4,21 +4,39 @@
  * License: CC0
  * Description: Find the minimum numbers of edits required to convert string s into t.
  * Only insertion, removal and replace operations are allowed.
- * Source: https://github.com/ludopulles/tcr/blob/master/code/strings/edit_dist.cpp 
+ * Source: 
  */
-
-vector<vector<int>> dp(MAX_SIZE_S+1, vector<int>(MAX_SIZE_T+1, INF));
-int edit_dist(const string &s, const string &t) {
-	dp[0][0] = 0;
-    for (int i = 0; i <= s.size(); ++i) {
-        for (int j = 0; j <= t.size(); ++j) {
-            if (i > 0) dp[i][j] = min(dp[i][j], dp[i-1][j] + 1);
-			if (j > 0) dp[i][j] = min(dp[i][j], dp[i][j-1] + 1);
-			if (i > 0 && j > 0)
-				dp[i][j] = min(dp[i][j], dp[i-1][j-1] + (s[i-1] != t[j-1]));
+int edit_dist(string &s, string &t) {
+    const int n = int(s.size()), m = int(t.size());
+    vector<vector<int>> dp(n+1, vector<int>(m+1, n+m+2));
+    vector<vector<int>> prv(n+1, vector<int>(m+1, 0));
+    dp[0][0] = 0;
+    for (int i = 0; i <= n; i++) {
+        for (int j = 0; j <= m; j++) {
+            if (i < n) { // remove
+                int cnd = dp[i][j] + 1;
+                if (cnd < dp[i+1][j]) {
+                    dp[i+1][j] = cnd;
+                    prv[i+1][j] = 1;
+                }
+            }
+            if (j < m) { // insert
+                int cnd = dp[i][j] + 1;
+                if (cnd < dp[i][j+1]) {
+                    dp[i][j+1] = cnd;
+                    prv[i][j+1] = 2;
+                }
+            }
+            if (i < n && j < m) { // modify
+                int cnd = dp[i][j] + (s[i] != t[j]);
+                if (cnd < dp[i+1][j+1]) {
+                    dp[i+1][j+1] = cnd;
+                    prv[i+1][j+1] = 3;
+                }
+            }
         }
     }
-    return dp[s.size()][t.size()];
+    return dp[n][m];
 }
 
 

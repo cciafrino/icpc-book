@@ -37,4 +37,13 @@ struct PrefixAutomaton {
         }
         return pi;
     }
+    vector<int> matches(string &t) {
+        vector<int> result;
+        int pos = 0;
+        for (int i = 0; i < t.size(); ++i) {
+            pos = aut[t[i] - 'a'][pos];
+            if (pos == s.size()) result.push_back(i - pos + 1);
+        }
+        return result;
+    }
 };
