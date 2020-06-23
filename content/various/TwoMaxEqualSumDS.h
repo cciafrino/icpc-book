@@ -24,7 +24,7 @@ pair<int, vector<int>> twoMaxEqualSumDS(vector<int> &v){
         }
 
     for(int j = i-1, d=sum; j>=0 ; j--)
-        d += s[j] = rec[j][d] ? s[j] == 2 ? v[j] : -v[j] : 0;
+        d += (s[j] = rec[j][d]) ? s[j] == 2 ? v[j] : -v[j] : 0;
     
     return {dp[sum], s};
 }
