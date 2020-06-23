@@ -19,9 +19,8 @@ pair<int, vector<int>> twoMaxEqualSumDS(vector<int> &v){
     
     for(i=0; i<n; i++, swap(dp, newdp))
         for(int d = v[i] - sum; d <= sum - v[i]; d++){
-            newdp[d + sum] = max({dp[d + sum], a = dp[d - v[i] + sum] + v[i], b = dp[d + v[i] + sum]});            
-            auto &np = newdp[d + sum];
-            rec[i][d + sum] = np == a ? 1 : np == b ? 2 : 0;
+            newdp[d + sum] = max({dp[d + sum], a = dp[d - v[i] + sum] + v[i], b = dp[d + v[i] + sum]});
+            rec[i][d + sum] = newdp[d + sum] == a ? 1 : newdp[d + sum] == b ? 2 : 0;
         }
 
     for(int j = i-1, bef=sum; j>=0 ; j--){
