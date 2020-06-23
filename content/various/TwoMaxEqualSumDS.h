@@ -10,15 +10,15 @@
  */
 
 pair<int, vector<int>> twoMaxEqualSumDS(vector<int> &v){
-    int n = (int) v.size();
+    int i, n = (int) v.size();
     int sum = accumulate(v.begin(), v.end(), 0);
     vector<int> dp(2*sum + 1, INT_MIN/2), newdp(2*sum + 1);
-    int a, b, i; dp[sum] = 0;
+    dp[sum] = 0;
     vector<vector<int>> rec(n, vector<int>(2*sum + 1));
     vector<int> s(n);   
     
     for(i=0; i<n; i++, swap(dp, newdp))
-        for(int d = v[i]; d <= 2*sum - v[i]; d++){
+        for(int a, b, d = v[i]; d <= 2*sum - v[i]; d++){
             newdp[d] = max({dp[d], a = dp[d - v[i]] + v[i], b = dp[d + v[i]]});
             rec[i][d] = newdp[d] == a ? 1 : newdp[d] == b ? 2 : 0;
         }
