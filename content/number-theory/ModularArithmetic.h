@@ -58,5 +58,3 @@ template <typename T> T pow(T a, lint b) {
 	T r = 1; while (b) { if (b & 1) r *= a; b >>= 1; a *= a; } return r;
 }
 using num = modnum<int(1e9)+7>;
-
- 

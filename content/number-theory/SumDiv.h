@@ -1,8 +1,8 @@
 /**
  * Author: Chris
- * Description: Sum of all divisors of $n$.
- * Time: O($lg(N)$)
- * Status: stress-tested until $n = 100'000'000$
+ * Description: Sum of all divisors of n.
+ * Time: O(log(N))
+ * Status: stress-tested until n = 100'000'000
  */
 #include "Sieve.h"
 #include "Modpow.h"

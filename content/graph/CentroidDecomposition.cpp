@@ -3,37 +3,62 @@
  * Description: Divide and Conquer on Trees.
  * 
  */
+
 struct centroid_t {
-    vector<bool> seen;
-    vector<int> sz, level, par_tree, closest;
-    vector<vector<int>> edges, dist, parent;
-    centroid_t(vector<vector<int>> &e, int n) : edges(e), seen(n), 
-        sz(n), level(n), par_tree(n), closest(n, INT_MAX/2), 
-        dist(n, vector<int>(20)), parent(n, vector<int>(20)) { 
-            build(0, -1); }
-    void dfs(int v, int p, int parc, int lvl) {
+    int n;
+    vector<vector<int>> edges; 
+    vector<vector<int>> dist; // dist to all ancestors
+    vector<bool> blocked; // processed centroid
+    vector<int> sz, depth, parent; // centroid parent
+    centroid_t(int _n) : n(_n), edges(n), blocked(n), sz(n), depth(n),
+        parent(n), dist(32 - __builtin_clz(n), vector<int>(n)) {}
+    void addEdge(int a, int b) {
+        edges[a].push_back(b);
+        edges[b].push_back(a);
+    }
+    void dfs_sz(int v, int p) { 
         sz[v] = 1;
-        parent[v][lvl] = parc;
-        dist[v][lvl] = 1 + dist[p][lvl];
         for (int u : edges[v]) {
-            if (u == p || seen[u]) continue;
-            dfs(u, v, parc, lvl);
+            if (u == p || blocked[u]) continue;
+            dfs_sz(u, v);
             sz[v] += sz[u];
         }
     }
-    int get_centroid(int v, int p, int tsz) {
+
+    int find(int v, int p, int tsz) { // find a centroid
         for (int u : edges[v]) 
-            if (!seen[u] && u != p && sz[u] > tsz/2)
-                return get_centroid(u, v, tsz);
+            if (!blocked[u] && u != p && 2*sz[u] > tsz) 
+                return find(u, v, tsz);
         return v;
     }
-    void build(int v, int p, int lvl = 0) {
-        dfs(v, -1, p, lvl);
-        int x = get_centroid(v, v, sz[v]);
-        seen[x] = 1;
-        par_tree[x] = p;
-        level[x] = 1 + lvl;
-        for (int u : edges[x]) 
-            if (!seen[u]) build(u, x, 1 + lvl);
+
+    void dfs_dist(int v, int p, int layer, int d) {
+        dist[layer][v] = d;
+        for (int u : edges[v]) {
+            if (blocked[u] || u == p) continue;
+            dfs_dist(u, v, layer, d + 1);
+        }
+    }
+
+    int solve(int v, int p) {
+        // solve the problem for each subtree here xD   
+    }
+
+    int decompose(int v, int layer) {
+        dfs_sz(v, -1);
+        int x = find(v, v, sz[v]);
+        blocked[x] = true;
+        depth[x] = layer;
+        parent[x] = v;
+        dfs_dist(x, x, layer, 0);
+
+        int res = solve(x, v); // solving for each subtree
+        
+        for (int u : edges[x]) {
+            if (blocked[u]) continue;
+            res += decompose(u, layer + 1);
+        }
+        return res;
     }
 };
+

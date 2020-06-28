@@ -3,14 +3,14 @@
 
 \chapter{Mathematics}
 
-%\section{Equations}
-%\[ax^2+bx+c=0 \Rightarrow x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}\]
+\section{Equations}
+\[ax^2+bx+c=0 \Rightarrow x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}\]
 
-%The extremum is given by $x = -b/2a$.
+The extremum is given by $x = -b/2a$.
 
-%\[\begin{aligned}ax+by=e\\cx+dy=f\end{aligned}
-%\Rightarrow
-%\begin{aligned}x=\dfrac{ed-bf}{ad-bc}\\y=\dfrac{af-ec}{ad-bc}\end{aligned}\]
+\[\begin{aligned}ax+by=e\\cx+dy=f\end{aligned}
+\Rightarrow
+\begin{aligned}x=\dfrac{ed-bf}{ad-bc}\\y=\dfrac{af-ec}{ad-bc}\end{aligned}\]
 
 In general, given an equation $Ax = b$, the solution to a variable $x_i$ is given by
 \[x_i = \frac{\det A_i'}{\det A} \]
@@ -60,11 +60,7 @@ Length of bisector (divides angles in two): $s_a=\sqrt{bc\left[1-\left(\dfrac{a}
 Law of sines: $\dfrac{\sin\alpha}{a}=\dfrac{\sin\beta}{b}=\dfrac{\sin\gamma}{c}=\dfrac{1}{2R}$\\
 Law of cosines: $a^2=b^2+c^2-2bc\cos\alpha$\\
 Law of tangents: $\dfrac{a+b}{a-b}=\dfrac{\tan\dfrac{\alpha+\beta}{2}}{\tan\dfrac{\alpha-\beta}{2}}$\\
-Pick's: A polygon on an integer grid strictly containing $i$ lattice points and having $b$ lattice points on the boundary has area $i + \frac{b}{2} - 1$. (Nothing similar in higher dimensions)\newline
-
-
-\
-
+Pick's: A polygon on an integer grid strictly containing $i$ lattice points and having $b$ lattice points on the boundary has area $i + \frac{b}{2} - 1$. (Nothing similar in higher dimensions)\\
 
 \subsection{Quadrilaterals}
 With side lengths $a,b,c,d$, diagonals $e, f$, diagonals angle $\theta$, area $A$ and
@@ -76,26 +72,17 @@ magic flux $F=b^2+d^2-a^2-c^2$:
 $ef = ac + bd$, and $A = \sqrt{(p-a)(p-b)(p-c)(p-d)}$.\\
 
 
-\
-
-
 \subsection{Spherical coordinates}
-\hfill\\
-
-\centerline{\includegraphics[width=25mm]{../content/math/sphericalCoordinates}}\newline
+\begin{center}
+\includegraphics[width=25mm]{../content/math/sphericalCoordinates}
+\end{center}
 \[\begin{array}{cc}
 x = r\sin\theta\cos\phi & r = \sqrt{x^2+y^2+z^2}\\
 y = r\sin\theta\sin\phi & \theta = \textrm{acos}(z/\sqrt{x^2+y^2+z^2})\\
-z = r\cos\theta & \phi = \textrm{atan2}(y,x)\\
+z = r\cos\theta & \phi = \textrm{atan2}(y,x)
 \end{array}\]
 
-
-\
-
-
-\subsection{Centroid of a polygon} The x coordinate of the centroid of a polygon is given by $\frac{1}{3A} \sum_{i = 0}^{n-1}(x_i+x_{i+1})(x_iy_{i+1} - x_{i+1}y_i)$, where $A$ is twice the signed area of the polygon.
-
-\
+\subsection{Centroid of a polygon} The x coordinate of the centroid of a polygon is given by $\frac{1}{3A} \sum_{i = 0}^{n-1}(x_i+x_{i+1})(x_iy_{i+1} - x_{i+1}y_i)$, where $A$ is twice the signed area of the polygon.\\
 
 \section{Derivatives/Integrals}
 \begin{align*}
@@ -109,8 +96,11 @@ Integration by parts:
 \[\int_a^bf(x)g(x)dx = [F(x)g(x)]_a^b-\int_a^bF(x)g'(x)dx\]
 
 
-\
-
+\subsection{XOR sum} 
+\begin{align*}
+\bigoplus_{x=0}^{n - 1} x = \{0, n - 1, 1, n\}[n \, \mathrm{mod} \, 4] \\
+\bigoplus_{x=l}^{r - 1} x = \bigoplus_{a=0}^{r - 1} a \oplus \bigoplus_{b=0}^{l - 1} b\\
+\end{align*}
 
 \section{Sums}
 \[ c^a + c^{a+1} + \dots + c^{b} = \frac{c^{b+1} - c^a}{c-1}, c \neq 1 \]
@@ -134,14 +124,6 @@ Let $X$ be a discrete random variable with probability $p_X(x)$ of assuming the 
 Expectation is linear:
 \[\mathbb{E}(aX+bY) = a\mathbb{E}(X)+b\mathbb{E}(Y)\]
 For independent $X$ and $Y$, \[V(aX+bY) = a^2V(X)+b^2V(Y).\]
-
-
-\subsection{Gambler's Ruin}
-        Em um jogo no qual ganhamos cada aposta com probabilidade~$p$ e perdemos com probabilidade~$q \coloneqq 1 - p$, paramos quando ganhamos~$B$ ou perdemos~$A$. Então~$\mathit{Prob}(\textnormal{ganhar B}) = \frac{1 - (p/q)^B}{1 - (p/q)^{A+B}}$.\newline
-
-    \subsection{Bertrand's ballot theorem} 
-    In an election where candidate A receives $p$ votes and candidate B receives $q$ votes with $p > q$, the probability that A will be strictly ahead of B throughout the count is $\frac{p - q}{p + q}$. If draw is a possible outcome, the probability will be equal to $\frac{p + 1- q}{p + 1}$, to find how many possible outcomes for both cases just multiply by $\binom{p + q}{q}$\newline
-
 
 \subsection{Discrete distributions}
 

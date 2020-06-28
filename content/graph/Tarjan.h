@@ -14,25 +14,25 @@ struct tarjan_t {
     vector<vector<int>> edges;
     vector<int> preorder, cnt_of, order, stack_t;
     tarjan_t(int n): n(n), edges(n), preorder(n), cnt_of(n, -1) {}
-    int dfs(int u) { 
-        int reach = preorder[u] = ++time, v;
-        stack_t.push_back(u);
-        for (int v : edges[u]) if (cnt_of[v] == -1) 
-            reach = min(reach, preorder[v]?:dfs(v));
-        if (reach == preorder[u]) { 
+    int dfs(int v) { 
+        int reach = preorder[v] = ++time, u;
+        stack_t.push_back(v);
+        for (int u : edges[v]) if (cnt_of[u] == -1) 
+            reach = min(reach, preorder[u]?:dfs(u));
+        if (reach == preorder[v]) { 
             do {
-                v = stack_t.back();
+                u = stack_t.back();
                 stack_t.pop_back();
                 order.push_back(v);
-                cnt_of[v] = ncnt;
+                cnt_of[u] = ncnt;
             } while (v != u);
             ++ncnt;
         }
-        return preorder[u] = reach;
+        return preorder[v] = reach;
     }
     void scc() {
         time = ncnt = 0;
-        for (int i = 0; i < (int)edges.size(); ++i)
+        for (int i = 0; i < int(edges.size()); ++i)
             if (cnt_of[i] == -1) dfs(i);
     }
 };

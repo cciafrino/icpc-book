@@ -38,25 +38,11 @@
 		\small
 		$$\sum_{n=0} ^\infty g_S(n) \frac{x^n}{n!} = \exp\left(\sum_{n\in S} \frac{x^n} {n} \right)$$
 		\normalsize
-%\subsection{The Twelvefold Way}
-%Putting $n$ balls into $k$ boxes.
-%$\mathrm{p}(n,k)$ is \# partitions of $n$ in $k$ parts, each $>0$.
-%$\mathrm{p}_k(n) = \sum_{i=0}^k \mathrm{p}(n,k)$.
-
-%\begin{tabular}{@{}c|c|c|c|c|l@{}}
-	%Balls & same & distinct & same & distinct\\
-	%Boxes & same & same & distinct & distinct\\
-	%\hline
-	%- & $\mathrm{p}_k(n)$ & $\sum_{i=0}^k \stirling{n}{i}$ & $\binom{n+k-1}{k-1}$ & $k^n$ \\ 
-	%$\mathrm{size}\ge 1$ & $\mathrm{p}(n,k)$ & $\stirling{n}{k}$ & $\binom{n-1}{k-1}$ & $k!\stirling{n}{k}$ \\
-	%$\mathrm{size}\le 1$ & $[n \le k]$ & $[n \le k]$ & $\binom{k}{n}$ & $n!\binom{k}{n}$ \\
-%	\bottomrule
-%\end{tabular}\\ \hfill
 
 \
 
 \subsection{Inclusion-Exclusion Principle}
-	Sejam $A_1, A_2, ..., A_n$ conjuntos. Então o número de elementos da união $A_1 \cup A_2 \cup ... \cup A_n$ é
+	Let $A_1, A_2, ..., A_n$ be finite sets. Then  $A_1 \cup A_2 \cup ... \cup A_n$ is
 	\[ \left| \bigcup^n_{i = 1} A_i \right|  = \sum_{\substack{I \subseteq \{1, 2, ..., n\}\\ I \neq \emptyset}}^{} (-1)^{\left| I \right| +1} \left| \bigcap\limits_{i\in I} A_i} \right| \]
 
 \
@@ -82,18 +68,18 @@
 
 	
 \subsection{Burnside}
-Seja~$A \colon GX \rightarrow X$ uma ação. Defina:
-\begin{itemize}
-\item $w \coloneqq $ número de órbitas em~$X$.
-\item $S_x \coloneqq \{g \in G \mid g \cdot x = x \}$
-\item $F_g \coloneqq \{x \in X \mid g \cdot x = x \} $
-\end{itemize}
-Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\limits_{g \in G}{|F_g|}. $
+Given a group $G$ of symmetries and a set $X$, the number of elements of $X$ \emph{up to symmetry} equals
+		 \[ {\frac {1}{|G|}}\sum _{{g\in G}}|X^{g}|, \]
+		 where $X^{g}$ are the elements fixed by $g$ ($g.x = x$).
+
+ If $f(n)$ counts ``configurations'' (of some sort) of length $n$, we can ignore rotational symmetry using $G = \mathbb Z_n$ to get
+		 \[ g(n) = \frac 1 n \sum_{k=0}^{n-1}{f(\text{gcd}(n, k))} = \frac 1 n \sum_{k|n}{f(k)\phi(n/k)}. \]
+
 
 \
 
 \subsection{Derangements}
-		Permutações de um conjunto tais que nenhum dos elementos aparecem em sua posição original.
+		Permutations of a set such that none of the elements appear in their original position.
 		\small
 		\[ \mkern-2mu D(n) = (n-1)(D(n-1)+D(n-2)) = n D(n-1)+(-1)^n = \left\lfloor\frac{n!}{e}\right\rceil \]
 		\normalsize
@@ -102,7 +88,7 @@ Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\lim
 
 \section{Partitions and subsets}
 	\subsection{Partition function}
-		Número de formas de escrever $n$ como a soma de inteiros positivos, independente da ordem deles.
+		Number of ways of writing $n$ as a sum of positive integers, disregarding the order of the summands.
 		\small
 		\[ p(0) = 1,\ p(n) = \sum_{k \in \mathbb Z \setminus \{0\}}{(-1)^{k+1} p(n - k(3k-1) / 2)} \]
 		\[ p(n) \sim 0.145 / n \cdot \exp(2.56 \sqrt{n}) \]
@@ -133,7 +119,7 @@ Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\lim
 		\small
 		\[ \sum_{i=1}^n n^m = \frac{1}{m+1} \sum_{k=0}^m \binom{m+1}{k} B_k (n+1)^{m+1-k} \]
 		\normalsize
-		Fórmula de Euler-Maclaurin para somas infinitas:
+		Euler-Maclaurin formula for infinite sums:
 		\small
 		\[ \sum_{i=m}^{\infty} f(i) = \int_m^\infty f(x) dx - \sum_{k=1}^\infty \frac{B_k}{k!}f^{(k-1)}(m) \]
 		\[ \approx \int_{m}^\infty f(x)dx + \frac{f(m)}{2} - \frac{f'(m)}{12} + \frac{f'''(m)}{720} + O(f^{(5)}(m)) \]
@@ -143,7 +129,7 @@ Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\lim
 
 
 	\subsection{Stirling numbers of the first kind}
-		Número de permutações em $n$ itens com $k$ ciclos.
+		Number of permutations on $n$ items with $k$ cycles.
 		\begin{align*}
 			&c(n,k) = c(n-1,k-1) + (n-1) c(n-1,k), c(0,0) = 1\\
 			&\textstyle \sum_{k=0}^n c(n,k)x^k = x(x+1) \dots (x+n-1)
@@ -154,7 +140,7 @@ Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\lim
 \
 
 	\subsection{Eulerian numbers}
-		Número de permutações $\pi \in S_n$ na qual exatamente $k$ elementos são maiores que os anteriores. $k$ $j$:s s.t. $\pi(j)>\pi(j+1)$, $k+1$ $j$:s s.t. $\pi(j)\geq j$, $k$ $j$:s s.t. $\pi(j)>j$.
+		Number of permutations $\pi \in S_n$ in which exactly $k$ elements are greater than the previous element. $k$ $j$:s s.t. $\pi(j)>\pi(j+1)$, $k+1$ $j$:s s.t. $\pi(j)\geq j$, $k$ $j$:s s.t. $\pi(j)>j$.
 		$$E(n,k) = (n-k)E(n-1,k-1) + (k+1)E(n-1,k)$$
 		$$E(n,0) = E(n,n-1) = 1$$
 		$$E(n,k) = \sum_{j=0}^k(-1)^j\binom{n+1}{j}(k+1-j)^n$$
@@ -163,7 +149,7 @@ Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\lim
 
 
 	\subsection{Stirling numbers of the second kind}
-		Partições de $n$ elementos distintos em exatamente $k$ grupos.
+		Partitions of $n$ distinct elements into exactly $k$ groups.
 		$$S(n,k) = S(n-1,k-1) + k S(n-1,k)$$
 		$$S(n,1) = S(n,n) = 1$$
 		$$S(n,k) = \frac{1}{k!}\sum_{j=0}^k (-1)^{k-j}\binom{k}{j}j^n$$
@@ -171,24 +157,23 @@ Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\lim
 \
 
 	\subsection{Bell numbers}
-		Número total de partições de $n$ elementos distintos. $B(n) =$
+		Total number of partitions of $n$ distinct elements. $B(n) =$
 		$1, 1, 2, 5, 15, 52, 203, 877, 4140, 21147, \dots$. 
 		\begin{equation*}
         \mathcal{B}_{n+1} = \sum_{k=0}^n \binom{n}{k} \mathcal{B}_k
       \end{equation*}
-      Também é possível calcular usando Stirling numbers of the second kind,
+      Also possible to calculate using Stirling numbers of the second kind,
       \[B_n = \sum_{k = 0}^{n} S(n, k)\]
-
-      Já para $p$ primo,
+      If $p$ is prime:
 		\[ B(p^m+n)\equiv mB(n)+B(n+1) \pmod{p} \]
 
 \
 
 	\subsection{Labeled unrooted trees}
-		\# em $n$ vertices: $n^{n-2}$\\
-		\# em $k$ árvores existentes de tamanho $n_i$: $n_1n_2\cdots n_k n^{k-2}$ \\
-		\# de grau $d_i$: $(n-2)! / ((d_1-1)! \cdots (d_n-1)!)$\\
-		\# florestas com exatamente $k$ árvores enraizadas: $$\binom{n}{k} k \cdot n^{n-k-1}$$.
+		\# on $n$ vertices: $n^{n-2}$ \\
+		\# on $k$ existing trees of size $n_i$: $n_1n_2\cdots n_k n^{k-2}$\\
+		\# with degrees $d_i$: $(n-2)! / ((d_1-1)! \cdots (d_n-1)!)$
+		\# forests with exactly $k$ rooted trees: $$\binom{n}{k} k \cdot n^{n-k-1}$$.
 
 \
     
@@ -250,33 +235,76 @@ Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\lim
             (n - 1)(n - 3)(2n - 1) & \text{$n$ odd}\\
         \end{array}
     \right.
-    }$$\\
-    is the number of distinct triangles (positive are) that can be constructed, i.e., the $#$ of $3$-subsets of $[n]$ s.t. $x \leq y \leq z$ and $z \neq x + y.
+    }$$$$\\
+    is the number of distinct triangles (positive are) that can be constructed, i.e., the $#$ of $3$-subsets of $[n]$ s.t. $x \leq y \leq z$ and $z \neq x + y$.\\
        
-    \text{
+ 
+ \
     
+
+\section{Fibonacci}
+\newcommand{\Fib}{\mathit{Fib}}
+\[\Fib(x + y) = \Fib(x + 1) \Fib(y) + \Fib(x) \Fib(y - 1)\]
+\[\Fib(n+1)\Fib(n-1) - \Fib(n)^2 = (-1)^n\]
+\[\Fib(2n-1) = \Fib(n)^2 - \Fib(n-1)^2\]
+$$ \sum_{i=0}^{n} \Fib(i) = \Fib(n+2) - 1$$
+$$ \sum_{i=0}^{n} \Fib(i)^2 = \Fib(n)\Fib(n+1)$$
+$$ \sum_{i=0}^{n} \Fib(i)^3 = \frac{\Fib(n)\Fib(n+1)^2 - (-1)^n\Fib(n-1) + 1}{2}$$
+
+
+
 
     \section{Game Theory}
     A game can be reduced to Nim if it is a finite impartial game.
 	Nim and its variants include:
 
+\
+
 	\subsection{Nim}
 		Let $X = \bigoplus_{i=1}^n x_i$, then $(x_i)_{i=1}^n$ is a winning position iff $X\neq 0$. Find a move by picking $k$ such that $x_k > x_k \oplus X$.
+
+\
 		
     \subsection{Mis\`{e}re Nim} 
         Regular Nim, except that the last player to move \textit{loses}. Play regular Nim until there is only one pile of size larger than $1$, reduce it to $0$ or $1$ such that there is an odd number of piles. The second player wins $(a_1, \dots, a_n)$ if 1) there is a pile $a_i > 1$ and $\oplus_{i=1}^{n} a_i = 0$ or 2) all $a_i \leq 1$ and $\oplus_{i=1}^{n} a_i = 1$.
+ 
+\
+
     \subsection{Staircase Nim}
-    Stones are moved down a staircase and only removed from the last pile. $(x_i)_{i=1}^n$ is an $L$-position if $(x_{2i-1})_{i=1}^{n/2}$ is (i.e. only look at odd-numbered piles).\newline
+    Stones are moved down a staircase and only removed from the last pile. $(x_i)_{i=1}^n$ is an $L$-position if $(x_{2i-1})_{i=1}^{n/2}$ is (i.e. only look at odd-numbered piles).
+
+    \
+
+
     \subsection{Moore's Nim$_k$}
     The player may remove from at most $k$ piles (Nim $=$ Nim$_1$). Expand the piles in base $2$, do a carry-less addition in base $k+1$ (i.e. the number of ones in each column should be divisible by $k+1$).
+    
+    \
+
+
     \subsection{Dim$^+$}
     The number of removed stones must be a divisor of the pile size. The Sprague-Grundy function is $k+1$ where $2^k$ is the largest power of $2$ dividing the pile size.
+    
+    \
+
+
     \subsection{Aliquot Game}
     Same as above, except the divisor should be proper (hence $1$ is also a terminal state, but watch out for size $0$ piles). Now the Sprague-Grundy function is just $k$.
+    
+    \
+
     \subsection{Nim (at most half)}
     Write $n+1 = 2^my$ with $m$ maximal, then the Sprague-Grundy function of $n$ is $(y - 1) / 2$.
+
+    \
+
+
     \subsection{Lasker's Nim}
     Players may alternatively split a pile into two new non-empty piles. $g(4k+1) = 4k+1$, $g(4k+2) = 4k+2$, $g(4k+3) = 4k+4$, $g(4k+4) = 4k+3$ ($k\geq 0$).
+
+    \
+
+
     \subsection{Hackenbush on Trees}
     A tree with stalks $(x_i)_{i=1}^n$ may be replaced with a single stalk with length $\bigoplus_{i=1}^n x_i$.
 
@@ -287,4 +315,4 @@ Então $ w = \frac{1}{|G|} \sum\limits_{x \in X}{|S_x|} = \frac{1}{|G|} \sum\lim
 	%\kactlimport{RandomWalk.h}
 	\kactlimport{Partitions.cpp}
 	\kactlimport{Lucas.h}
-	}
+	
