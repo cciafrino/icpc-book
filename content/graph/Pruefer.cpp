@@ -1,9 +1,6 @@
 /**
  * Author: Chris
- * Date: 2015-05-13
- * Source: Wikipedia
- * Description: Given a tree, construct its pruefer sequence. The Pruefer code is a way of encoding a labeled tree with $n$ vertices using a sequence of $n−2$ integers in the interval $[0, n-1]$. This encoding also acts as a bijection between all spanning trees of a complete graph and the numerical sequences.
- * Status: works
+ * Description: Given a tree, construct its pruefer sequence. The Pruefer code is a way of encoding a labeled tree with n vertices using a sequence of (n−2) integers in the interval from 0 to n-1. This encoding also acts as a bijection between all spanning trees of a complete graph and the numerical sequences.
  */
 struct pruefer_t {
     vector<vector<int>> adj;

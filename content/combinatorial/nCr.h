@@ -4,19 +4,15 @@
  * License: CC0
  * Source: 
  * Status: 
- * Description: Pre-compute all the factorial numbers until $lim$.
+ * Description: 
  * Usage:
- * Time: $O(N + \log(mod))$
+ * Time: $O(min(k, n-k))$
  */
-num ncr(int n, int k) {
-	num res = 1;
-	for (int i = 1; i <= k; ++i) {
-		res *= (n - i + 1);
-		res /= i;
+lint ncr(int n, int k) {
+	lint res = 1, to = min(k, n-k);
+	if (to < 0) return 0;
+	for (int i = 0; i < to; ++i) {
+		res = res * (n - i) / (i + 1);
 	}
 	return res;
-}
-num ncr(int n, int k){
-	if(k < 0 || k > n) return 0;
-	return fact[n] * ifact[k] * ifact[n-k];
 }

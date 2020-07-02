@@ -1,143 +1,133 @@
-\contentsline {chapter}{\numberline {1}Contest}{1}% 
-\contentsline {chapter}{\numberline {2}Mathematics}{1}% 
-\contentsline {section}{\numberline {2.1}Recurrences}{2}% 
-\contentsline {section}{\numberline {2.2}Master theorem}{2}% 
-\contentsline {section}{\numberline {2.3}Trigonometry}{2}% 
-\contentsline {section}{\numberline {2.4}Geometry}{2}% 
-\contentsline {subsection}{\numberline {2.4.1}Triangles}{2}% 
-\contentsline {subsection}{\numberline {2.4.2}Quadrilaterals}{2}% 
-\contentsline {subsection}{\numberline {2.4.3}Spherical coordinates}{2}% 
-\contentsline {subsection}{\numberline {2.4.4}Centroid of a polygon}{2}% 
-\contentsline {section}{\numberline {2.5}Derivatives/Integrals}{2}% 
-\contentsline {section}{\numberline {2.6}Sums}{2}% 
-\contentsline {section}{\numberline {2.7}Series}{3}% 
-\contentsline {section}{\numberline {2.8}Probability theory}{3}% 
-\contentsline {subsection}{\numberline {2.8.1}Gambler's Ruin}{3}% 
-\contentsline {subsection}{\numberline {2.8.2}Bertrand's ballot theorem}{3}% 
-\contentsline {subsection}{\numberline {2.8.3}Discrete distributions}{3}% 
-\contentsline {subsubsection}{Binomial distribution}{3}% 
-\contentsline {subsubsection}{First success distribution}{3}% 
-\contentsline {subsubsection}{Poisson distribution}{3}% 
-\contentsline {subsection}{\numberline {2.8.4}Continuous distributions}{3}% 
-\contentsline {subsubsection}{Uniform distribution}{3}% 
-\contentsline {subsubsection}{Exponential distribution}{3}% 
-\contentsline {subsubsection}{Normal distribution}{3}% 
-\contentsline {section}{\numberline {2.9}Markov chains}{3}% 
-\contentsline {chapter}{\numberline {3}Data Structures}{4}% 
-\contentsline {chapter}{\numberline {4}Numerical}{13}% 
-\contentsline {section}{\numberline {4.1}Fourier transforms}{16}% 
-\contentsline {subsection}{\numberline {4.1.1}Generating functions}{18}% 
-\contentsline {subsection}{\numberline {4.1.2}Generating functions}{18}% 
-\contentsline {subsection}{\numberline {4.1.3}General linear recurrences}{18}% 
-\contentsline {subsection}{\numberline {4.1.4}Inverse polynomial modulo $x^l$}{18}% 
-\contentsline {subsection}{\numberline {4.1.5}Fast subset convolution}{18}% 
-\contentsline {subsection}{\numberline {4.1.6}Polyominoes}{19}% 
-\contentsline {subsection}{\numberline {4.1.7}Table of non-trigonometric integrals}{19}% 
-\contentsline {subsection}{\numberline {4.1.8}Table of trigonometric integrals}{19}% 
-\contentsline {subsection}{\numberline {4.1.9}Common integral substitutions}{19}% 
-\contentsline {subsection}{\numberline {4.1.10}Determinants and PM}{19}% 
-\contentsline {chapter}{\numberline {5}Number theory}{20}% 
-\contentsline {section}{\numberline {5.1}Modular arithmetic}{20}% 
-\contentsline {section}{\numberline {5.2}Primality}{21}% 
-\contentsline {section}{\numberline {5.3}Divisibility}{22}% 
-\contentsline {section}{\numberline {5.4}Fractions}{24}% 
-\contentsline {section}{\numberline {5.5}Chinese remainder theorem}{24}% 
-\contentsline {section}{\numberline {5.6}Pythagorean Triples}{25}% 
-\contentsline {section}{\numberline {5.7}Primes}{25}% 
-\contentsline {subsection}{\numberline {5.7.1}Primitive Roots}{25}% 
-\contentsline {subsubsection}{Sum of primes}{25}% 
-\contentsline {subsection}{\numberline {5.7.2}Chicken McNugget Theorem}{25}% 
-\contentsline {subsection}{\numberline {5.7.3}Wilson's Theorem}{25}% 
-\contentsline {subsection}{\numberline {5.7.4}Wolstenholme's Theorem}{25}% 
-\contentsline {subsection}{\numberline {5.7.5}B\IeC {\'e}zout's identity}{25}% 
-\contentsline {subsection}{\numberline {5.7.6}M\IeC {\"o}bius Inversion Formula}{25}% 
-\contentsline {subsection}{\numberline {5.7.7}Estimates}{25}% 
-\contentsline {subsection}{\numberline {5.7.8}Prime counting function ($\pi (x)$)}{25}% 
-\contentsline {subsection}{\numberline {5.7.9}Floor}{25}% 
-\contentsline {chapter}{\numberline {6}Combinatorial}{26}% 
-\contentsline {section}{\numberline {6.1}Permutations}{26}% 
-\contentsline {subsection}{\numberline {6.1.1}Factorial}{26}% 
-\contentsline {subsection}{\numberline {6.1.2}Cycles}{26}% 
-\contentsline {subsection}{\numberline {6.1.3}Derangements}{26}% 
-\contentsline {subsection}{\numberline {6.1.4}Inclusion-Exclusion Principle}{26}% 
-\contentsline {subsection}{\numberline {6.1.5}The twelvefold way (from Stanley)}{26}% 
-\contentsline {subsection}{\numberline {6.1.6}Involutions}{26}% 
-\contentsline {subsection}{\numberline {6.1.7}Burnside}{26}% 
-\contentsline {section}{\numberline {6.2}Partitions and subsets}{26}% 
-\contentsline {subsection}{\numberline {6.2.1}Partition function}{26}% 
-\contentsline {subsection}{\numberline {6.2.2}Lucas's Theorem}{26}% 
-\contentsline {subsection}{\numberline {6.2.3}Binomials}{26}% 
-\contentsline {section}{\numberline {6.3}General purpose numbers}{27}% 
-\contentsline {subsection}{\numberline {6.3.1}Bernoulli numbers}{27}% 
-\contentsline {subsection}{\numberline {6.3.2}Stirling numbers of the first kind}{27}% 
-\contentsline {subsection}{\numberline {6.3.3}Eulerian numbers}{27}% 
-\contentsline {subsection}{\numberline {6.3.4}Stirling numbers of the second kind}{27}% 
-\contentsline {subsection}{\numberline {6.3.5}Bell numbers}{27}% 
-\contentsline {subsection}{\numberline {6.3.6}Labeled unrooted trees}{27}% 
-\contentsline {subsection}{\numberline {6.3.7}Catalan numbers}{27}% 
-\contentsline {subsection}{\numberline {6.3.8}Super Catalan numbers}{27}% 
-\contentsline {subsection}{\numberline {6.3.9}Motzkin numbers}{27}% 
-\contentsline {subsection}{\numberline {6.3.10}Narayana numbers}{28}% 
-\contentsline {subsection}{\numberline {6.3.11}Schroder numbers}{28}% 
-\contentsline {subsection}{\numberline {6.3.12}Triangles}{28}% 
-\contentsline {section}{\numberline {6.4}Game Theory}{28}% 
-\contentsline {subsection}{\numberline {6.4.1}Nim}{28}% 
-\contentsline {subsection}{\numberline {6.4.2}Mis\`{e}re Nim}{28}% 
-\contentsline {subsection}{\numberline {6.4.3}Staircase Nim}{28}% 
-\contentsline {subsection}{\numberline {6.4.4}Moore's Nim$_k$}{28}% 
-\contentsline {subsection}{\numberline {6.4.5}Dim$^+$}{28}% 
-\contentsline {subsection}{\numberline {6.4.6}Aliquot Game}{28}% 
-\contentsline {subsection}{\numberline {6.4.7}Nim (at most half)}{28}% 
-\contentsline {subsection}{\numberline {6.4.8}Lasker's Nim}{28}% 
-\contentsline {subsection}{\numberline {6.4.9}Hackenbush on Trees}{28}% 
-\contentsline {chapter}{\numberline {7}Graph}{30}% 
-\contentsline {section}{\numberline {7.1}Fundamentals}{30}% 
-\contentsline {subsection}{\numberline {7.1.1}Landau}{31}% 
-\contentsline {subsection}{\numberline {7.1.2}Matroid Intersection Theorem}{31}% 
-\contentsline {subsection}{\numberline {7.1.3}Vizing's Thereom}{31}% 
-\contentsline {subsection}{\numberline {7.1.4}Euler's Theorem}{31}% 
-\contentsline {subsection}{\numberline {7.1.5}Menger's Theorem}{31}% 
-\contentsline {subsection}{\numberline {7.1.6}Dilworth's Thereom}{31}% 
-\contentsline {subsection}{\numberline {7.1.7}Hall's Marriage Theorem}{31}% 
-\contentsline {subsection}{\numberline {7.1.8}Maximum Density Subgraph}{31}% 
-\contentsline {subsection}{\numberline {7.1.9}Fecho de Peso M\IeC {\'a}ximo}{31}% 
-\contentsline {subsection}{\numberline {7.1.10}Conjunto Independente de Peso M\IeC {\'a}ximo num Grafo Bipartido}{31}% 
-\contentsline {subsection}{\numberline {7.1.11}Erd\IeC {\"o}s-Gallai Theorem}{31}% 
-\contentsline {subsection}{\numberline {7.1.12}Synchronizing word problem}{31}% 
-\contentsline {subsection}{\numberline {7.1.13}Tutte's theorem}{31}% 
-\contentsline {subsection}{\numberline {7.1.14}Tur\IeC {\'a}n's theorem}{31}% 
-\contentsline {subsection}{\numberline {7.1.15}Dirac's theorem}{31}% 
-\contentsline {subsection}{\numberline {7.1.16}Ore's theorem}{31}% 
-\contentsline {subsection}{\numberline {7.1.17}Eulerian Cycles}{32}% 
-\contentsline {subsection}{\numberline {7.1.18}Fatos \IeC {\'u}teis}{32}% 
-\contentsline {section}{\numberline {7.2}Euler walk}{32}% 
-\contentsline {section}{\numberline {7.3}Network flow}{32}% 
-\contentsline {subsection}{\numberline {7.3.1}K\IeC {\"o}nig-Egervary Theorem}{34}% 
-\contentsline {section}{\numberline {7.4}Matching}{34}% 
-\contentsline {section}{\numberline {7.5}DFS algorithms}{36}% 
-\contentsline {section}{\numberline {7.6}Heuristics}{37}% 
-\contentsline {section}{\numberline {7.7}Trees}{38}% 
-\contentsline {section}{\numberline {7.8}Functional Graphs}{41}% 
-\contentsline {section}{\numberline {7.9}Other}{41}% 
-\contentsline {chapter}{\numberline {8}Geometry}{45}% 
-\contentsline {section}{\numberline {8.1}Geometric primitives}{45}% 
-\contentsline {section}{\numberline {8.2}Circles}{47}% 
-\contentsline {section}{\numberline {8.3}Polygons}{48}% 
-\contentsline {section}{\numberline {8.4}Misc. Point Set Problems}{49}% 
-\contentsline {section}{\numberline {8.5}3D}{51}% 
-\contentsline {section}{\numberline {8.6}xyz 2D Geometry Library}{53}% 
-\contentsline {chapter}{\numberline {9}Strings}{56}% 
-\contentsline {chapter}{\numberline {10}Various}{60}% 
-\contentsline {section}{\numberline {10.1}Intervals}{60}% 
-\contentsline {section}{\numberline {10.2}Misc. algorithms}{60}% 
-\contentsline {section}{\numberline {10.3}Dynamic programming}{62}% 
-\contentsline {section}{\numberline {10.4}Debugging tricks}{65}% 
-\contentsline {section}{\numberline {10.5}Optimization tricks}{65}% 
-\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{65}% 
-\contentsline {subsection}{\numberline {10.5.2}Pragmas}{65}% 
-\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{66}% 
-\contentsline {section}{\numberline {10.7}Random Numbers}{67}% 
-\contentsline {section}{\numberline {10.8}Other languages}{67}% 
-\contentsline {subsection}{\numberline {10.8.1}BigInteger}{67}% 
-\contentsline {paragraph}{BigInteger}{67}% 
+\contentsline {chapter}{\numberline {1}Contest}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Mathematics}{1}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Equations}{1}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Recurrences}{1}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Master theorem}{1}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Trigonometry}{1}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Geometry}{2}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Triangles}{2}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Quadrilaterals}{2}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}Spherical coordinates}{2}{subsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.5.4}Centroid of a polygon}{2}{subsection.2.5.4}%
+\contentsline {section}{\numberline {2.6}Derivatives/Integrals}{2}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}XOR sum}{2}{subsection.2.6.1}%
+\contentsline {section}{\numberline {2.7}Sums}{2}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Series}{2}{section.2.8}%
+\contentsline {section}{\numberline {2.9}Probability theory}{2}{section.2.9}%
+\contentsline {subsection}{\numberline {2.9.1}Discrete distributions}{2}{subsection.2.9.1}%
+\contentsline {subsubsection}{Binomial distribution}{2}{section*.1}%
+\contentsline {subsubsection}{First success distribution}{2}{section*.2}%
+\contentsline {subsubsection}{Poisson distribution}{2}{section*.3}%
+\contentsline {subsection}{\numberline {2.9.2}Continuous distributions}{3}{subsection.2.9.2}%
+\contentsline {subsubsection}{Uniform distribution}{3}{section*.4}%
+\contentsline {subsubsection}{Exponential distribution}{3}{section*.5}%
+\contentsline {subsubsection}{Normal distribution}{3}{section*.6}%
+\contentsline {section}{\numberline {2.10}Markov chains}{3}{section.2.10}%
+\contentsline {chapter}{\numberline {3}Data Structures}{3}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Numerical}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Fourier transforms}{10}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Duality}{11}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Generating functions}{11}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Polyominoes}{11}{subsection.4.1.3}%
+\contentsline {chapter}{\numberline {5}Number theory}{11}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Modular arithmetic}{11}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Primality}{13}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Divisibility}{13}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Chinese remainder theorem}{15}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Fractions}{15}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Bézout's identity}{15}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Pythagorean Triples}{15}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}Primitive Roots}{16}{subsection.5.5.3}%
+\contentsline {subsection}{\numberline {5.5.4}Chicken McNugget theorem}{16}{subsection.5.5.4}%
+\contentsline {section}{\numberline {5.6}Primes}{16}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Sum of primes}{16}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6.2}Moebius Function}{16}{subsection.5.6.2}%
+\contentsline {subsection}{\numberline {5.6.3}Dirichlet Convolution}{16}{subsection.5.6.3}%
+\contentsline {subsection}{\numberline {5.6.4}Wilson's theorem}{16}{subsection.5.6.4}%
+\contentsline {subsection}{\numberline {5.6.5}Wolstenholme's theorem}{16}{subsection.5.6.5}%
+\contentsline {subsection}{\numberline {5.6.6}Estimates}{16}{subsection.5.6.6}%
+\contentsline {subsection}{\numberline {5.6.7}Prime counting function ($\pi (x)$)}{16}{subsection.5.6.7}%
+\contentsline {chapter}{\numberline {6}Combinatorial}{16}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Permutations}{16}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Factorial}{16}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Binomials}{16}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Involutions}{16}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}Cycles}{17}{subsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.1.5}Inclusion-Exclusion Principle}{17}{subsection.6.1.5}%
+\contentsline {subsection}{\numberline {6.1.6}The twelvefold way (from Stanley)}{17}{subsection.6.1.6}%
+\contentsline {subsection}{\numberline {6.1.7}Burnside}{17}{subsection.6.1.7}%
+\contentsline {subsection}{\numberline {6.1.8}Derangements}{17}{subsection.6.1.8}%
+\contentsline {section}{\numberline {6.2}Partitions and subsets}{17}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Partition function}{17}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Lucas' Theorem}{17}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}General purpose numbers}{17}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Bernoulli numbers}{17}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Stirling numbers of the first kind}{17}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Eulerian numbers}{17}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Stirling numbers of the second kind}{17}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}Bell numbers}{17}{subsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.3.6}Labeled unrooted trees}{17}{subsection.6.3.6}%
+\contentsline {subsection}{\numberline {6.3.7}Catalan numbers}{17}{subsection.6.3.7}%
+\contentsline {subsection}{\numberline {6.3.8}Super Catalan numbers}{17}{subsection.6.3.8}%
+\contentsline {subsection}{\numberline {6.3.9}Motzkin numbers}{18}{subsection.6.3.9}%
+\contentsline {subsection}{\numberline {6.3.10}Narayana numbers}{18}{subsection.6.3.10}%
+\contentsline {subsection}{\numberline {6.3.11}Schroder numbers}{18}{subsection.6.3.11}%
+\contentsline {subsection}{\numberline {6.3.12}Triangles}{18}{subsection.6.3.12}%
+\contentsline {section}{\numberline {6.4}Fibonacci}{18}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Game Theory}{18}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Nim}{18}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Mis\`{e}re Nim}{18}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.3}Staircase Nim}{18}{subsection.6.5.3}%
+\contentsline {subsection}{\numberline {6.5.4}Moore's Nim$_k$}{18}{subsection.6.5.4}%
+\contentsline {subsection}{\numberline {6.5.5}Dim$^+$}{18}{subsection.6.5.5}%
+\contentsline {subsection}{\numberline {6.5.6}Aliquot Game}{18}{subsection.6.5.6}%
+\contentsline {subsection}{\numberline {6.5.7}Nim (at most half)}{18}{subsection.6.5.7}%
+\contentsline {subsection}{\numberline {6.5.8}Lasker's Nim}{18}{subsection.6.5.8}%
+\contentsline {subsection}{\numberline {6.5.9}Hackenbush on Trees}{18}{subsection.6.5.9}%
+\contentsline {chapter}{\numberline {7}Graph}{19}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Fundamentals}{19}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Network flow}{20}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Matching}{21}{section.7.3}%
+\contentsline {section}{\numberline {7.4}DFS algorithms}{22}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Heuristics}{24}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Trees}{25}{section.7.6}%
+\contentsline {subsection}{\numberline {7.6.1}Sqrt Decomposition}{27}{subsection.7.6.1}%
+\contentsline {section}{\numberline {7.7}Functional Graphs}{27}{section.7.7}%
+\contentsline {section}{\numberline {7.8}Other}{28}{section.7.8}%
+\contentsline {section}{\numberline {7.9}Theorems}{30}{section.7.9}%
+\contentsline {subsection}{\numberline {7.9.1}Euler's theorem}{30}{subsection.7.9.1}%
+\contentsline {subsection}{\numberline {7.9.2}Dirac's theorem}{30}{subsection.7.9.2}%
+\contentsline {subsection}{\numberline {7.9.3}Ore's theorem}{30}{subsection.7.9.3}%
+\contentsline {subsection}{\numberline {7.9.4}Eulerian Cycles}{30}{subsection.7.9.4}%
+\contentsline {subsection}{\numberline {7.9.5}Landau}{30}{subsection.7.9.5}%
+\contentsline {subsection}{\numberline {7.9.6}Dilworth's theorem}{30}{subsection.7.9.6}%
+\contentsline {subsection}{\numberline {7.9.7}König-Egervary theorem}{30}{subsection.7.9.7}%
+\contentsline {subsubsection}{Maximum Weight Closure}{30}{section*.7}%
+\contentsline {subsection}{\numberline {7.9.8}Maximum Weighted Independent Set in a Bipartite Graph}{30}{subsection.7.9.8}%
+\contentsline {subsection}{\numberline {7.9.9}Tutte-Berge formula}{30}{subsection.7.9.9}%
+\contentsline {subsection}{\numberline {7.9.10}Tutte's theorem}{30}{subsection.7.9.10}%
+\contentsline {subsection}{\numberline {7.9.11}Erdős–Gallai theorem}{30}{subsection.7.9.11}%
+\contentsline {subsection}{\numberline {7.9.12}Number of Spanning Trees}{30}{subsection.7.9.12}%
+\contentsline {subsection}{\numberline {7.9.13}Tutte Matrix}{30}{subsection.7.9.13}%
+\contentsline {subsection}{\numberline {7.9.14}Menger's theorem}{30}{subsection.7.9.14}%
+\contentsline {chapter}{\numberline {8}Geometry}{30}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Geometric primitives}{30}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Circles}{32}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Polygons}{33}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Misc. Point Set Problems}{35}{section.8.4}%
+\contentsline {section}{\numberline {8.5}3D}{36}{section.8.5}%
+\contentsline {chapter}{\numberline {9}Strings}{37}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Various}{39}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Intervals}{39}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Misc. algorithms}{40}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Dynamic programming}{42}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Debugging tricks}{44}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Optimization tricks}{44}{section.10.5}%
+\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{44}{subsection.10.5.1}%
+\contentsline {subsection}{\numberline {10.5.2}Pragmas}{44}{subsection.10.5.2}%
+\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{45}{section.10.6}%
+\contentsline {section}{\numberline {10.7}Random Numbers}{46}{section.10.7}%
+\contentsline {section}{\numberline {10.8}Other languages}{46}{section.10.8}%
+\contentsline {subsection}{\numberline {10.8.1}BigInteger}{46}{subsection.10.8.1}%
+\contentsline {paragraph}{BigInteger}{46}{section*.8}%
 \contentsfinish 

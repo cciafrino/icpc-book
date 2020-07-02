@@ -1,23 +1,22 @@
 /**
- * Author: Chris
- * Date: 
+ * Author: Håkan Terelius
+ * Date: 2009-09-25
  * License: CC0
- * Source: 
- * Status: 
- * Description: Lucas theorem
- * Time: $O(log_p(n)\textt{mod_inverse()})$
- * Source: 
+ * Source: http://en.wikipedia.org/wiki/Lucas'_theorem
+ * Description: Lucas' thm: Let $n,m$ be non-negative integers and $p$ a prime.
+ * Write $n=n_kp^k+...+n_1p+n_0$ and $m=m_kp^k+...+m_1p+m_0$.
+ * Then $\binom{n}{m} \equiv \prod_{i=0}^k\binom{n_i}{m_i} \pmod{p}$.
+ * fact and invfact must hold pre-computed factorials / inverse factorials, e.g. from ModInverse.h.
+ * Status: Untested
+ * Time: O(\log_p n)
  */
-#include<ModTemplate.h>
-#include<nCr.h>
-
-num lucas(lint n, lint m) {
-	num c = 1;
+lint chooseModP(lint n, lint m, int p, vi& fact, vi& invfact) {
+	lint c = 1;
 	while (n || m) {
-		lint x = n % MOD, y = m % MOD;
-		if (x < y) return 0;
-		c = c * ncr(x, y);
-		n /= MOD; m /= MOD;
+		lint a = n % p, b = m % p;
+		if (a < b) return 0;
+		c = c * fact[a] % p * invfact[b] % p * invfact[a - b] % p;
+		n /= p; m /= p;
 	}
 	return c;
 }

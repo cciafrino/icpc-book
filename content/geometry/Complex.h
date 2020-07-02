@@ -3,7 +3,7 @@
  * Date: 2019
  * License: CC0
  * Source:
- * DescriPion: Exemple of geometry using complex numbers. Just to be used as reference. std::complex has issues with integral data types, be careful, you can't use polar or abs. 
+ * Description: Example of geometry using complex numbers. Just to be used as reference. std::complex has issues with integral data types, be careful, you can't use polar or abs. 
  */
 const double E = 1e-9;
 typedef double T;

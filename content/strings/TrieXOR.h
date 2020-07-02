@@ -1,18 +1,18 @@
 /**
  * Author: BenQ
  * Source: 
- * Description: Query max xor with some int in the xor_trie
+ * Description: Query max xor with some int in the xor trie
  * Time: 
  * Status: Fuzz-tested
  * Usage:
  */
  
 template<int MX, int MXBIT> 
-struct xor_trie {
+struct xorTrie {
     int nxt[MX][2], sz[MX];// num is last node in trie
     int num = 0;
     // change 2 to 26 for lowercase letters
-    xor_trie() { memset(nxt, 0, sizeof nxt), memset(sz, 0, sizeof sz); }
+    xorTrie() { memset(nxt, 0, sizeof nxt), memset(sz, 0, sizeof sz); }
     // add or delete
     void add(lint x, int a = 1) { 
         int cur = 0; sz[cur] += a; 

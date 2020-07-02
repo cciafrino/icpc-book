@@ -4,8 +4,6 @@
 	\kactlimport{BellmanFord.h}
 	\kactlimport{FloydWarshall.h}
 	\kactlimport{TopoSort.h}
-    \kactlimport{CutVertices.h}
-    \kactlimport{Bridges.h}
     \kactlimport{Dijkstra.h}
     \kactlimport{Prim.h}
     \kactlimport{Kruskal.h}
@@ -15,7 +13,7 @@
 \section{Network flow}
 	\kactlimport{PushRelabel.h}
 	\kactlimport{Dinitz.h}
-	\kactlimport{HLPP.h}
+	% \kactlimport{HLPP.h}
 	\kactlimport{EdmondsKarp.h}
 	\kactlimport{MinCut.h}
 	\kactlimport{MinCostMaxFlow.h}
@@ -33,7 +31,8 @@
 	\kactlimport{MinimumPathCover.h}
 
 \section{DFS algorithms}
-    \kactlimport{CentroidDecomposition.cpp}
+	\kactlimport{DFSTree.h}
+    \kactlimport{CentroidDecomposition.h}
 	\kactlimport{Tarjan.h}
 	\kactlimport{Kosaraju.h}
 	\kactlimport{BiconnectedComponents.h}
@@ -44,7 +43,7 @@
 \section{Heuristics}
 	\kactlimport{MaximalCliques.h}
 	\kactlimport{MaximumClique.h}
-	\kactlimport{Cycle-Counting.cpp}
+	\kactlimport{CycleCounting.cpp}
 
 \section{Trees}
     \kactlimport{Tree.h}
@@ -52,11 +51,8 @@
 	\kactlimport{LCA.h}
 	\kactlimport{CompressTree.h}
     \kactlimport{Heavylight.h}
-    \kactlimport{Tree-Isomorphism.h}
+    \kactlimport{TreeIsomorphism.h}
     \kactlimport{LineTree.h}
-
-    \
-
 
     \subsection{Sqrt Decomposition}
 		HLD generally suffices. If not, here are some common strategies:
@@ -85,53 +81,32 @@
     \kactlimport{Pruefer.cpp}    
     \kactlimport{ErdosGallai.h}
     \kactlimport{MisraGries.h}
-	\kactlimport{Directed-MST.cpp}
+	\kactlimport{DirectedMST.cpp}
 	\kactlimport{NegCycle.h}
+
 
 \
 
 
 \section{Theorems}
-\subsection{Euler's theorem}
-Let~$V$,~$A$ and~$F$ be the number of vertices, edges and faces of connected planar graph,
-$V - A + F = 2$.\\
 
-\subsection{Dirac's theorem} Let $G$ be a graph with $n$ vertices, each one with degree at least $n/2$. Then $G$ is hamiltonian.\\
+\
+
+
+\subsection{Euler's theorem}
+Let~$V$,~$A$ and~$F$ be the number of vertices, edges and faces of connected planar graph, $V - A + F = 2$.
+
+\subsection{Dirac's theorem} Let $G$ be a graph with $n$ vertices, each one with degree at least $n/2$. Then $G$ is hamiltonian.
 
 \subsection{Ore's theorem} Let $G$ be a simple graph of order $n \geq 3$ st
-\[g(u) + g(v) \geq n \] for all pair $u$,$v$ of non adjacent vertices, then $G$ is hamiltonian.\\
+\[g(u) + g(v) \geq n \] for all pair $u$,$v$ of non adjacent vertices, then $G$ is hamiltonian.
 
-\subsection{Dilworth's theorem}
-For any partially ordered set, the sizes of the max antichain and of the min chain decomposition are equal. Equivalent to Konig's theorem on the bipartite graph $(U,V,E)$ where $U=V=S$ and $(u,v)$ is an edge when $u<v$. Those vertices outside the min vertex cover in both $U$ and $V$ form a max antichain.\\
-
-\subsubsection{Maximum-Weight Closure}
-Given a vertex-weighted directed graph $G$. Turn the graph into a flow
-network, adding weight $\infty$ to each edge. Add vertices $S,T$. For
-each vertex $v$ of weight $w$, add edge $(S,v,w)$ if $w\geq 0$, or edge
-$(v,T,-w)$ if $w<0$. Sum of positive weights minus minimum $S-T$ cut is
-the answer. Vertices reachable from $S$ are in the closure. The
-maximum-weight closure is the same as the complement of the
-minimum-weight closure on the graph with edges reversed.\\
-
-\subsection{Maximum Weighted Independent Set in a Bipartite Graph}
-This is the same as the minimum weighted vertex cover. Solve this by
-constructing a flow network with edges $(S,u,w(u))$ for $u\in L$,
-$(v,T,w(v))$ for $v\in R$ and $(u,v,\infty)$ for $(u,v)\in E$. The
-minimum $S,T$-cut is the answer. Vertices adjacent to a cut edge are
-in the vertex cover.\\
-
-\subsection{Tutte-Berge formula}
-The theorem states that the size of a maximum matching of a graph $G=(V,E)$ equals ${\frac {1}{2}}\min _{U\subseteq V}\left(|U|- \texttt{odd}(G-U)+|V|\right)\,,$ where \texttt{odd}(H) counts how many of the connected components of the graph $H$ have an odd number of vertices.\\
-
-\subsection{Tutte's theorem}
-A graph $G = (V, A)$ has a perfect matching iff for all subset $U$ of $V$, the induced subgraph by $V \setminus U$ has at most $|U|$ connected components with odd number of vertices.\\
-
-\subsection{Menger's theorem}
-\item Vertices:
-A graph is k-connected iff all pairwise vertices are connected to at least 
-$k$ internally disjoint paths.
-\item Edges:
-A graph is called $k$-edge-connected if the removal of at least $k$ edges of the graph keeps it connected. A graph is $k$-edge-connected iff for all pairwise vertices $u$ and $v$, exist $k$ paths which link $u$ to $v$ without sharing an edge.\\
+\subsection{Eulerian Cycles}
+The number of Eulerian cycles in a \emph{directed} graph $G$ is:
+\begin{equation*}
+	t_w(G) \prod_{v \in G} (\deg v - 1)!,
+\end{equation*}
+where $t_w(G)$ is the number of arborescences (``directed spanning'' tree) rooted at $w$: $t_w(G) = \det\left( q_{ij} \right)_{i,j \neq w}$, with $q_{ij} = [i=j] \mathrm{indeg}(i) - \# \set{(i,j) \in E}$.
 
 \subsection{Landau}
 There are a tournament with outdegree~$d_1 \leq d_2 \leq \ldots \leq d_n$ iff:
@@ -139,26 +114,41 @@ There are a tournament with outdegree~$d_1 \leq d_2 \leq \ldots \leq d_n$ iff:
 \item $d_1 + d_2 + \ldots + d_n = {n \choose 2}$\newline
 \item $d_1 + d_2 + \ldots + d_k \geq {k \choose 2} \quad \forall 1 \leq k \leq n.$
 \end{itemize}
-In order to build, lets make~1 point to~$2, 3, \ldots, d_1 + 1$ and we follow recursively.\\
+In order to build, lets make~1 point to~$2, 3, \ldots, d_1 + 1$ and we follow recursively.
+
+\subsection{Dilworth's theorem}
+For any partially ordered set, the sizes of the max antichain and of the min chain decomposition are equal. Equivalent to Konig's theorem on the bipartite graph $(U,V,E)$ where $U=V=S$ and $(u,v)$ is an edge when $u<v$. Those vertices outside the min vertex cover in both $U$ and $V$ form a max antichain.
+
+\subsection{König-Egervary theorem}
+	For Bipartite Graphs, the number of edges in the maximum matching is greater than or equal the number of vertices in the minimum cover.
+	
+\subsubsection{Maximum Weight Closure}
+Given a vertex-weighted directed graph $G$. Turn the graph into a flow
+network, adding weight $\infty$ to each edge. Add vertices $S,T$. For
+each vertex $v$ of weight $w$, add edge $(S,v,w)$ if $w\geq 0$, or edge
+$(v,T,-w)$ if $w<0$. Sum of positive weights minus minimum $S-T$ cut is
+the answer. Vertices reachable from $S$ are in the closure. The
+maximum-weight closure is the same as the complement of the
+minimum-weight closure on the graph with edges reversed.
+
+\subsection{Maximum Weighted Independent Set in a Bipartite Graph}
+This is the same as the minimum weighted vertex cover. Solve this by
+constructing a flow network with edges $(S,u,w(u))$ for $u\in L$,
+$(v,T,w(v))$ for $v\in R$ and $(u,v,\infty)$ for $(u,v)\in E$. The
+minimum $S,T$-cut is the answer. Vertices adjacent to a cut edge are
+in the vertex cover.
+
+\subsection{Tutte-Berge formula}
+The theorem states that the size of a maximum matching of a graph $G=(V,E)$ equals ${\frac {1}{2}}\min _{U\subseteq V}\left(|U|- \texttt{odd}(G-U)+|V|\right)\,,$ where \texttt{odd}(H) counts how many of the connected components of the graph $H$ have an odd number of vertices.
+
+\subsection{Tutte's theorem}
+A graph $G = (V, A)$ has a perfect matching iff for all subset $U$ of $V$, the induced subgraph by $V \setminus U$ has at most $|U|$ connected components with odd number of vertices.
 
 \subsection{Erdős–Gallai theorem}
 % Source: https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gallai_theorem
 % Test: stress-tests/graph/matrix-tree.cpp
 A simple graph with node degrees $d_1 \ge \dots \ge d_n$ exists iff $d_1 + \dots + d_n$ is even and for every $k = 1\dots n$,
 \[ \sum _{i=1}^{k}d_{i}\leq k(k-1)+\sum _{i=k+1}^{n}\min(d_{i},k). \]
-
-
-\subsection{Eulerian Cycles}
-The number of Eulerian cycles in a \emph{directed} graph $G$ is:
-\begin{equation*}
-	t_w(G) \prod_{v \in G} (\deg v - 1)!,
-\end{equation*}
-where $t_w(G)$ is the number of arborescences (``directed spanning'' tree) rooted at $w$: $t_w(G) = \det\left( q_{ij} \right)_{i,j \neq w}$, with $q_{ij} = [i=j] \mathrm{indeg}(i) - \# \set{(i,j) \in E}$.\\
-
-
-\subsection{Matroid Intersection theorem}
-Let~$M_1 = (E, I_1)$ e~$M_2 = (E, I_2)$ be matroids. Then
-$ \max\limits_{S \in I_1 \cap I_2}{|S|} = \min\limits_{U \subseteq E}{r_1(U) + r_2(E \setminus U)}.$\\
 
 \subsection{Number of Spanning Trees}
 		% I.e. matrix-tree theorem.
@@ -170,23 +160,22 @@ $ \max\limits_{S \in I_1 \cap I_2}{|S|} = \min\limits_{U \subseteq E}{r_1(U) + r
 		Remove the $i$th row and column and take the determinant; this yields the number of directed spanning trees rooted at $i$
 		(if $G$ is undirected, remove any row/column).
 
-
-
-\
-
-
-\subsection{König-Egervary theorem}
-	For Bipartite Graphs, the number of edges in the maximum matching is greater than or equal the number of vertices in the minimum cover.
-
-
-
-\
-
-
-
 \subsection{Tutte Matrix}
 	\begin{itemize}
 	\item A graph has a perfect matching iff the $Tutte$ matrix has a non-zero determinant.
 
 	\item The rank of the $Tutte$ matrix is equal to twice the size of the maximum matching. The maximum cost matching can be found by polynomial interpolation.
 	\end{itemize}
+
+\subsection{Menger's theorem}
+\item Vertices:
+A graph is k-connected iff all pairwise vertices are connected to at least 
+$k$ internally disjoint paths.
+\item Edges:
+A graph is called $k$-edge-connected if the removal of at least $k$ edges of the graph keeps it connected. A graph is $k$-edge-connected iff for all pairwise vertices $u$ and $v$, exist $k$ paths which link $u$ to $v$ without sharing an edge.
+
+% \subsection{Matroid Intersection theorem}
+% Let~$M_1 = (E, I_1)$ e~$M_2 = (E, I_2)$ be matroids. Then
+% $ \max\limits_{S \in I_1 \cap I_2}{|S|} = \min\limits_{U \subseteq E}{r_1(U) + r_2(E \setminus U)}.$
+
+

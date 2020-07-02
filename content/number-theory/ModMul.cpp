@@ -2,13 +2,14 @@
  * Author: Chris
  * Description: Modular multiplication operation
  */
-lint modMul(lint a, lint b){
-    lint ret = 0;
-    a %= mod;
-    while (b){
-        if (b & 1) ret = (ret + a) % mod;
-        a = (2 * a) % mod;
-        b >>= 1;
-    }
-    return ret;
+
+inline lint mul(lint a, lint b, lint m) {
+	if (m <= 1000000000) return a * b % m;
+	else if (m <= 1000000000000ll) return (((a*(b>>20)%m)<<20)+(a*(b&((1<<20)-1))))%m;
+	else {
+		lint x = (lint)floor(a*(long double)b/m+0.5);
+		lint ret = (a*b - x*m) % m;
+		if (ret < 0) ret += m;
+		return ret;
+	}
 }

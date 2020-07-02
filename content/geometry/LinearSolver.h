@@ -3,9 +3,8 @@
  * Date: 2019
  * License: CC0
  * Source:
- * Description: Solves the linear system {a * x + b * y = e
-                                         {c * x + d * y = f
- * Returns {1, {x, y}} if solution is unique, {0, {0,0}} if no solution and {-1, {0,0}} if infinite solutions. If using integer function type, this will give wrong answer if answer is not integer.
+ * Description: Solves the linear system (a * x + b * y = e) and (c * x + d * y = f)
+ * Returns tuple (1, Point(x, y)) if solution is unique, (0, Point(0,0)) if no solution and (-1, Point(0,0)) if infinite solutions. If using integer function type, this will give wrong answer if answer is not integer.
  */
 template<class T>
 pair<int, Point<T>> solve_linear(T a, T b, T c, T d, T e, T f) {

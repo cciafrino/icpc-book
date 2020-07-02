@@ -2,7 +2,7 @@
  * Author: Chris
  * Description: Solve lowest common ancestor queries using binary jumps.
  * Can also find the distance between two nodes. 
- * Time: $O(N\lgN + Q\lgN)$ 
+ * Time: $O(N \log N + Q \log N)$ 
  * Status: Tested
  */
 struct lca_t {
@@ -28,7 +28,7 @@ struct lca_t {
     }
     int climb(int v, int dist) { 
         for (int l = 0; l <= logn; ++l)
-            if (dist & (1 << l)) v = jump[v][l];
+            if (dist&(1<<l)) v = jump[v][l];
         return v;
     }
     int query(int a, int b) { 
