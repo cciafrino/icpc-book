@@ -10,7 +10,7 @@
  */
 pair<int, vector<int>> twoMaxEqualSumDS(vector<int> &v){
     const int n = int(v.size());
-    sum = accumulate(v.begin(), v.end(), 0);
+    const int sum = accumulate(v.begin(), v.end(), 0);
     vector<int> dp(2*sum + 1, INT_MIN/2), newdp(2*sum + 1), s(n);
     vector<vector<int>> rec(n, vector<int>(2*sum + 1));
     int i; dp[sum] = 0;   
