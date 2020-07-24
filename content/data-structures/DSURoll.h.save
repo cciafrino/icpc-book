@@ -7,6 +7,8 @@
  * Usage: int t = uf.time(); ...; uf.rollback(t);
  * Time: $O(\log(N))$
  */
+#pragma once
+
 struct RollbackUF {
     vector<int> e; vector<pair<int,int>> st;
     RollbackUF(int n) : e(n, -1) {}
@@ -26,5 +28,6 @@ struct RollbackUF {
         st.push_back({b, e[b]});
         e[a] += e[b]; e[b] = a;
         return true;
+q
     }
 };

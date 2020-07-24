@@ -30,9 +30,9 @@
  * exponents of a that are <= n, and then handling the non-tricky cases by
  * a simple gcd(a^n,m) == gcd(b,m) check.
  */
-lint modLog(lint a, lint b, lint m) {
+lint modLog(lint a, lint b, lint m) { // Careful with b = 1 case
 	lint n = (lint)sqrt(m) + 1, e = 1, f = 1, j = 1;
-	unordered_map<lint, lint> A;
+	unordered_map<lint, lint> A; 
 	while (j <= n && (e = f = e * a % m) != b % m)
 		A[e * b % m] = j++;
 	if (e == b % m) return j;

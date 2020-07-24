@@ -21,7 +21,7 @@ pair<int, vector<int>> hungarian(const vector<vector<int>> &a) {
 		int j0 = 0; // add "dummy" worker 0
 		vector<int> dist(m, INT_MAX), pre(m, -1);
 		vector<bool> done(m + 1);
-		do { // dijkstra
+		do { 
 			done[j0] = true;
 			int i0 = p[j0], j1, delta = INT_MAX;
 			for(int j = 1; j < m; ++j) if (!done[j]) {

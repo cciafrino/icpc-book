@@ -12,9 +12,22 @@
 
 \subsection{Binomials}
 	\kactlimport{PascalTriangle.h}
+
+	\begin{itemize}
+	\item Sum of every element in the $n$-th row of pascal triangle is $2^n$.
+	\item The product of the elements in each row is $\frac{(n + 1)^n}{n!}$
+	\item $\sum_{k = 0}^{n} \binom{n}{k}^2 = \binom{2n}{n}$
+	\item In a row $p$ where $p$ is a prime number, all the terms in that row except the 1s are multiples of $p$
+	\item To count odd terms in row $n$, convert $n$ to binary. Let $x$ be the number of 1s in the binary representation. Then the number of odd terms will be $2^x$
+	\item Every entry in row $2^n - 1$ is odd
+	\end{itemize}
+
 	\kactlimport{nCr.h}
 	\kactlimport{RollingBinomial.h}
-	\kactlimport{Multinomial.h} 
+	\kactlimport{Lucas.h}
+	\kactlimport{Multinomial.h}
+
+
 
 \subsection{Involutions}
     An involution is a permutation with maximum cycle length 2, and it is its own inverse. 
@@ -78,9 +91,6 @@ Permutations of a set such that none of the elements appear in their original po
 	\end{tabular}
 	\end{center}
 	\normalsize
-
-\subsection{Lucas' Theorem}
-		Let $n,m$ be non-negative integers and $p$ a prime. Write $n=n_kp^k+...+n_1p+n_0$ and $m=m_kp^k+...+m_1p+m_0$. Then $\binom{n}{m} \equiv \prod_{i=0}^k\binom{n_i}{m_i} \pmod{p}$.
 
 \section{General purpose numbers}
 
@@ -242,5 +252,4 @@ A tree with stalks $(x_i)_{i=1}^n$ may be replaced with a single stalk with leng
 %\kactlimport{Schreier-Sims.cpp}
 %\kactlimport{RandomWalk.h}
 \kactlimport{Partitions.cpp}
-\kactlimport{Lucas.h}
 	

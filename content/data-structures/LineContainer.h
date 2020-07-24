@@ -8,8 +8,6 @@
  * Time: O(\log N)
  * Status: stress-tested
  */
-#pragma once
-
 struct Line {
 	mutable lint k, m, p;
 	bool operator<(const Line& o) const { return k < o.k; }

@@ -13,6 +13,21 @@
 	\kactlimport{Quadratic.h}
 
 \section{Primality}
+	% https://blog.csdn.net/skywalkert/article/details/50500009
+	% https://math.stackexchange.com/questions/316376/how-to-calculate-these-totient-summation-sums-efficiently/579587#579587
+	% https://gratus907.com/43
+	% https://gratus907.com/108
+	% https://blog.sengxian.com/algorithms/mobius-inversion-formula
+	% http://robezh.com/2019/10/25/learning-notes-on-multiplicative-functions-dirichlet-convolution-mobius-inversion-etc/
+	% https://komsciguy.com/cp/multiplicative-functions/
+
+	% \subsection{Xudyh's Sieve}
+ %    $F(n)=\sum_{d\vert n}f(d)$\\
+ %    $S(n)=\sum_{i\leq n}f(i)=\sum_{i\leq n}F(i)-\sum_{d=2}^n S\left(\left\lfloor \frac{n}{d}\right\rfloor\right)$ \\
+ %    \text{Preprocess $S(1)$ to $S(M)$\hspace{0.1cm}(Set $M=n^{\frac{2}{3}}$ for complexity)} \\
+ %    $S(n)=\sum f(i) = \sum_{i\leq n}\left[F(i)-\sum_{j|i,j\neq i}f(j)\right]=\sum F(i) - \sum_{i/j=d=2}^n\sum_{dj\leq n}f(j)$ \\
+ %    $S(n)=\sum if(i) = \sum_{i\leq n}i\left[F(i)-\sum_{j|i,j\neq i}f(j)\right]=\sum iF(i) - \sum_{i/j=d=2}^n\sum_{dj\leq n}djf(j)$ \\
+ %    $\sum_{d\vert n}\varphi (d)=n\hspace{0.1cm}\sum_{d\vert n}\mu (d)=\text{if } (n > 1) \text{ then } 0 \text{ else } 1\hspace{0.1cm}\sum_{d\vert n}(\mu (\frac{n}{d})\sum_{e\vert d}f(e))=f(n)$ \\
 	\kactlimport{Sieve.h}
 	\kactlimport{SegmentedSieve.h}
 	\kactlimport{Mobius.h}
