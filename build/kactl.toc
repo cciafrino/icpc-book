@@ -32,12 +32,11 @@
 \contentsline {chapter}{\numberline {5}Number theory}{11}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Modular arithmetic}{11}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Primality}{13}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Xudyh's Sieve}{13}{subsection.5.2.1}%
 \contentsline {section}{\numberline {5.3}Divisibility}{13}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Chinese remainder theorem}{15}{section.5.4}%
 \contentsline {section}{\numberline {5.5}Fractions}{15}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Bézout's identity}{16}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}Pythagorean Triples}{16}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.1}Bézout's identity}{15}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Pythagorean Triples}{15}{subsection.5.5.2}%
 \contentsline {subsection}{\numberline {5.5.3}Primitive Roots}{16}{subsection.5.5.3}%
 \contentsline {subsection}{\numberline {5.5.4}Chicken McNugget theorem}{16}{subsection.5.5.4}%
 \contentsline {section}{\numberline {5.6}Primes}{16}{section.5.6}%
@@ -60,14 +59,13 @@
 \contentsline {subsection}{\numberline {6.1.8}Derangements}{17}{subsection.6.1.8}%
 \contentsline {section}{\numberline {6.2}Partitions and subsets}{17}{section.6.2}%
 \contentsline {subsection}{\numberline {6.2.1}Partition function}{17}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Lucas' Theorem}{17}{subsection.6.2.2}%
 \contentsline {section}{\numberline {6.3}General purpose numbers}{17}{section.6.3}%
 \contentsline {subsection}{\numberline {6.3.1}Bernoulli numbers}{17}{subsection.6.3.1}%
 \contentsline {subsection}{\numberline {6.3.2}Stirling numbers of the first kind}{17}{subsection.6.3.2}%
 \contentsline {subsection}{\numberline {6.3.3}Eulerian numbers}{17}{subsection.6.3.3}%
 \contentsline {subsection}{\numberline {6.3.4}Stirling numbers of the second kind}{17}{subsection.6.3.4}%
 \contentsline {subsection}{\numberline {6.3.5}Bell numbers}{17}{subsection.6.3.5}%
-\contentsline {subsection}{\numberline {6.3.6}Labeled unrooted trees}{18}{subsection.6.3.6}%
+\contentsline {subsection}{\numberline {6.3.6}Labeled unrooted trees}{17}{subsection.6.3.6}%
 \contentsline {subsection}{\numberline {6.3.7}Catalan numbers}{18}{subsection.6.3.7}%
 \contentsline {subsection}{\numberline {6.3.8}Super Catalan numbers}{18}{subsection.6.3.8}%
 \contentsline {subsection}{\numberline {6.3.9}Motzkin numbers}{18}{subsection.6.3.9}%
@@ -112,9 +110,9 @@
 \contentsline {subsection}{\numberline {7.9.13}Tutte Matrix}{30}{subsection.7.9.13}%
 \contentsline {subsection}{\numberline {7.9.14}Menger's theorem}{30}{subsection.7.9.14}%
 \contentsline {chapter}{\numberline {8}Geometry}{30}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Geometric primitives}{31}{section.8.1}%
+\contentsline {section}{\numberline {8.1}Geometric primitives}{30}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Circles}{32}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Polygons}{34}{section.8.3}%
+\contentsline {section}{\numberline {8.3}Polygons}{33}{section.8.3}%
 \contentsline {section}{\numberline {8.4}Misc. Point Set Problems}{35}{section.8.4}%
 \contentsline {section}{\numberline {8.5}3D}{36}{section.8.5}%
 \contentsline {chapter}{\numberline {9}Strings}{37}{chapter.9}%
@@ -126,7 +124,7 @@
 \contentsline {section}{\numberline {10.5}Optimization tricks}{44}{section.10.5}%
 \contentsline {subsection}{\numberline {10.5.1}Bit hacks}{44}{subsection.10.5.1}%
 \contentsline {subsection}{\numberline {10.5.2}Pragmas}{44}{subsection.10.5.2}%
-\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{46}{section.10.6}%
+\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{45}{section.10.6}%
 \contentsline {section}{\numberline {10.7}Random Numbers}{46}{section.10.7}%
 \contentsline {section}{\numberline {10.8}Other languages}{46}{section.10.8}%
 \contentsline {subsection}{\numberline {10.8.1}BigInteger}{46}{subsection.10.8.1}%
