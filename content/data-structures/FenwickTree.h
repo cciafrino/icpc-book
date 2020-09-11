@@ -8,7 +8,7 @@
  * Time: Both operations are $O(\log N)$.
  * Status: Stress-tested
  */
-template<typename T> struct FT {
+template<typename T> struct FT { 
 	vector<T> s;
 	FT(int n) : s(n) {}
 	void update(int pos, T dif) { // a[pos] += dif
@@ -29,4 +29,4 @@ template<typename T> struct FT {
 		}
 		return pos;
 	}
-};
+}; 

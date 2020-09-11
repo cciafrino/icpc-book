@@ -61,7 +61,7 @@ template<typename T, bool USE_EDGES> struct heavylight_t {
 template<typename T, bool USE_EDGES> struct hld_solver {
 	heavylight_t<T, USE_EDGES> h;
 	segtree_t<T, int> seg;
-	hld_solver(const HLD<T, USE_EDGES> &g) : h(g), seg(h.val) {}
+	hld_solver(const heavylight_t<T, USE_EDGES> &g) : h(g), seg(h.val) {}
 	void updatePath(int u, int v, T value) {
 		h.path(u, v, [&](int a,int b) { seg.update(a, b, value); });
 	}
@@ -83,8 +83,8 @@ template<typename T, bool USE_EDGES> struct hld_solver {
 };
 
 template<typename T, bool USE_EDGES> struct lca_t { // lca operations using hld
-	HLD<T, USE_EDGES> h;
-	lca_t(const HLD<T, USE_EDGES> &g) : h(g) {}
+	heavylight_t<T, USE_EDGES> h;
+	lca_t(const heavylight_t<T, USE_EDGES> &g) : h(g) {}
 	int kth_ancestor(int u, int k) const {	
 		int kth = u;
 		for(int p = h.chain[kth]; k && h.timer[kth]; kth = p, p = h.chain[kth]) {

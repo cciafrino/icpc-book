@@ -37,8 +37,8 @@
 \contentsline {section}{\numberline {5.5}Fractions}{15}{section.5.5}%
 \contentsline {subsection}{\numberline {5.5.1}Bézout's identity}{15}{subsection.5.5.1}%
 \contentsline {subsection}{\numberline {5.5.2}Pythagorean Triples}{15}{subsection.5.5.2}%
-\contentsline {subsection}{\numberline {5.5.3}Primitive Roots}{16}{subsection.5.5.3}%
-\contentsline {subsection}{\numberline {5.5.4}Chicken McNugget theorem}{16}{subsection.5.5.4}%
+\contentsline {subsection}{\numberline {5.5.3}Primitive Roots}{15}{subsection.5.5.3}%
+\contentsline {subsection}{\numberline {5.5.4}Chicken McNugget theorem}{15}{subsection.5.5.4}%
 \contentsline {section}{\numberline {5.6}Primes}{16}{section.5.6}%
 \contentsline {subsection}{\numberline {5.6.1}Sum of primes}{16}{subsection.5.6.1}%
 \contentsline {subsection}{\numberline {5.6.2}Moebius Function}{16}{subsection.5.6.2}%

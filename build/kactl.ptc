@@ -38,22 +38,23 @@
 \contentsline {section}{\texttt {UnionFind.h}\hspace {0.2em}}{3}{lstnumber.3.1.16}%
 \contentsline {section}{\texttt {DSURoll.h}\hspace {0.2em}}{3}{lstnumber.3.2.14}%
 \contentsline {section}{\texttt {MinQueue.h}\hspace {0.2em}}{3}{lstnumber.3.3.21}%
-\contentsline {section}{\texttt {LazySegmentTree.h}\hspace {0.2em}}{3}{lstnumber.3.4.24}%
-\contentsline {section}{\texttt {DynamicSegTree.h}\hspace {0.2em}}{4}{lstnumber.3.5.44}%
-\contentsline {section}{\texttt {SparseSegTree.h}\hspace {0.2em}}{4}{lstnumber.3.6.71}%
-\contentsline {section}{\texttt {SegTree2D.h}\hspace {0.2em}}{4}{lstnumber.3.7.39}%
-\contentsline {section}{\texttt {PersistentSegTree.h}\hspace {0.2em}}{4}{lstnumber.3.8.25}%
-\contentsline {section}{\texttt {MergeSortTree.h}\hspace {0.2em}}{5}{lstnumber.3.9.47}%
-\contentsline {section}{\texttt {RMQ.h}\hspace {0.2em}}{5}{lstnumber.3.10.36}%
-\contentsline {section}{\texttt {RSQ.h}\hspace {0.2em}}{5}{lstnumber.3.11.21}%
-\contentsline {section}{\texttt {FenwickTree.h}\hspace {0.2em}}{5}{lstnumber.3.12.24}%
-\contentsline {section}{\texttt {FenwickTree2d.h}\hspace {0.2em}}{5}{lstnumber.3.13.22}%
-\contentsline {section}{\texttt {Mo.h}\hspace {0.2em}}{6}{lstnumber.3.14.21}%
-\contentsline {section}{\texttt {MisofTree.h}\hspace {0.2em}}{6}{lstnumber.3.15.29}%
-\contentsline {section}{\texttt {LineContainer.h}\hspace {0.2em}}{6}{lstnumber.3.16.15}%
-\contentsline {section}{\texttt {Matrix.h}\hspace {0.2em}}{6}{lstnumber.3.17.29}%
-\contentsline {section}{\texttt {SubMatrix.h}\hspace {0.2em}}{6}{lstnumber.3.18.28}%
-\contentsline {section}{\texttt {Wavelet.h}\hspace {0.2em}}{6}{lstnumber.3.19.14}%
+\contentsline {section}{\texttt {SegTree.h}\hspace {0.2em}}{3}{lstnumber.3.4.24}%
+\contentsline {section}{\texttt {LazySegmentTree.h}\hspace {0.2em}}{4}{lstnumber.3.5.18}%
+\contentsline {section}{\texttt {DynamicSegTree.h}\hspace {0.2em}}{4}{lstnumber.3.6.35}%
+\contentsline {section}{\texttt {SparseSegTree.h}\hspace {0.2em}}{4}{lstnumber.3.7.71}%
+\contentsline {section}{\texttt {SegTree2D.h}\hspace {0.2em}}{4}{lstnumber.3.8.39}%
+\contentsline {section}{\texttt {PersistentSegTree.h}\hspace {0.2em}}{5}{lstnumber.3.9.25}%
+\contentsline {section}{\texttt {MergeSortTree.h}\hspace {0.2em}}{5}{lstnumber.3.10.47}%
+\contentsline {section}{\texttt {RMQ.h}\hspace {0.2em}}{5}{lstnumber.3.11.36}%
+\contentsline {section}{\texttt {RSQ.h}\hspace {0.2em}}{5}{lstnumber.3.12.21}%
+\contentsline {section}{\texttt {FenwickTree.h}\hspace {0.2em}}{5}{lstnumber.3.13.24}%
+\contentsline {section}{\texttt {FenwickTree2d.h}\hspace {0.2em}}{6}{lstnumber.3.14.22}%
+\contentsline {section}{\texttt {Mo.h}\hspace {0.2em}}{6}{lstnumber.3.15.21}%
+\contentsline {section}{\texttt {MisofTree.h}\hspace {0.2em}}{6}{lstnumber.3.16.29}%
+\contentsline {section}{\texttt {LineContainer.h}\hspace {0.2em}}{6}{lstnumber.3.17.15}%
+\contentsline {section}{\texttt {Matrix.h}\hspace {0.2em}}{6}{lstnumber.3.18.29}%
+\contentsline {section}{\texttt {SubMatrix.h}\hspace {0.2em}}{6}{lstnumber.3.19.28}%
+\contentsline {section}{\texttt {Wavelet.h}\hspace {0.2em}}{6}{lstnumber.3.20.14}%
 \contentsline {chapter}{\numberline {4}Numerical}{7}{chapter.4}%
 \ttl@stoptoc {chapters@3}
 \ttl@starttoc {chapters@4}
@@ -64,7 +65,7 @@
 \contentsline {section}{\texttt {Lagrange.h}\hspace {0.2em}}{7}{lstnumber.4.4.13}%
 \contentsline {section}{\texttt {BerlekampMassey.h}\hspace {0.2em}}{7}{lstnumber.4.5.29}%
 \contentsline {section}{\texttt {LinearRecurrence.h}\hspace {0.2em}}{7}{lstnumber.4.6.19}%
-\contentsline {section}{\texttt {HillClimbing.h}\hspace {0.2em}}{7}{lstnumber.4.7.22}%
+\contentsline {section}{\texttt {HillClimbing.h}\hspace {0.2em}}{8}{lstnumber.4.7.22}%
 \contentsline {section}{\texttt {Integrate.h}\hspace {0.2em}}{8}{lstnumber.4.8.14}%
 \contentsline {section}{\texttt {IntegrateAdaptive.h}\hspace {0.2em}}{8}{lstnumber.4.9.7}%
 \contentsline {section}{\texttt {Determinant.h}\hspace {0.2em}}{8}{lstnumber.4.10.15}%
@@ -77,13 +78,11 @@
 \contentsline {section}{\texttt {MatrixInverse.h}\hspace {0.2em}}{9}{lstnumber.4.17.34}%
 \contentsline {section}{\texttt {MatrixInverse-mod.h}\hspace {0.2em}}{9}{lstnumber.4.18.32}%
 \contentsline {section}{\texttt {Tridiagonal.h}\hspace {0.2em}}{9}{lstnumber.4.19.36}%
-\contentsline {section}{\texttt {NewtonMethod.h}\hspace {0.2em}}{10}{lstnumber.4.20.26}%
-\contentsline {section}{\texttt {NewtonSQRT.h}\hspace {0.2em}}{10}{lstnumber.4.21.12}%
-\contentsline {section}{\texttt {Polyominoes.h}\hspace {0.2em}}{10}{lstnumber.4.22.21}%
+\contentsline {section}{\texttt {Polyominoes.h}\hspace {0.2em}}{10}{lstnumber.4.20.26}%
 \contentsline {section}{\numberline {4.1}Fourier transforms}{10}{section.4.1}%
 \contentsline {subsection}{\texttt {FastFourierTransform.h}\hspace {0.2em}}{10}{section.4.1}%
-\contentsline {subsection}{\texttt {FastFourierTransformMod.h}\hspace {0.2em}}{10}{lstnumber.4.24.35}%
-\contentsline {subsection}{\texttt {NumberTheoreticTransform.h}\hspace {0.2em}}{11}{lstnumber.4.25.85}%
+\contentsline {subsection}{\texttt {FastFourierTransformMod.h}\hspace {0.2em}}{10}{lstnumber.4.22.35}%
+\contentsline {subsection}{\texttt {NumberTheoreticTransform.h}\hspace {0.2em}}{11}{lstnumber.4.23.85}%
 \contentsline {subsection}{\numberline {4.1.1}Duality}{11}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Generating functions}{11}{subsection.4.1.2}%
 \contentsline {subsection}{\numberline {4.1.3}Polyominoes}{11}{subsection.4.1.3}%
@@ -92,7 +91,7 @@
 \ttl@starttoc {chapters@5}
 \contentsline {section}{\numberline {5.1}Modular arithmetic}{11}{section.5.1}%
 \contentsline {subsection}{\texttt {ModularArithmetic.h}\hspace {0.2em}}{11}{section.5.1}%
-\contentsline {subsection}{\texttt {PairNumTemplate.h}\hspace {0.2em}}{12}{lstnumber.5.1.55}%
+\contentsline {subsection}{\texttt {PairNumTemplate.h}\hspace {0.2em}}{11}{lstnumber.5.1.55}%
 \contentsline {subsection}{\texttt {ModInv.h}\hspace {0.2em}}{12}{lstnumber.5.2.42}%
 \contentsline {subsection}{\texttt {Modpow.h}\hspace {0.2em}}{12}{lstnumber.5.3.13}%
 \contentsline {subsection}{\texttt {ModSum.h}\hspace {0.2em}}{12}{lstnumber.5.4.11}%
@@ -111,7 +110,7 @@
 \contentsline {section}{\numberline {5.3}Divisibility}{13}{section.5.3}%
 \contentsline {subsection}{\texttt {ExtendedEuclidean.h}\hspace {0.2em}}{13}{section.5.3}%
 \contentsline {subsection}{\texttt {DiophantineEquation.h}\hspace {0.2em}}{13}{lstnumber.5.17.10}%
-\contentsline {subsection}{\texttt {Divisors.h}\hspace {0.2em}}{14}{lstnumber.5.18.34}%
+\contentsline {subsection}{\texttt {Divisors.h}\hspace {0.2em}}{13}{lstnumber.5.18.34}%
 \contentsline {subsection}{\texttt {Pell.h}\hspace {0.2em}}{14}{lstnumber.5.19.9}%
 \contentsline {subsection}{\texttt {PrimeFactors.h}\hspace {0.2em}}{14}{lstnumber.5.20.16}%
 \contentsline {subsection}{\texttt {NumDiv.h}\hspace {0.2em}}{14}{lstnumber.5.21.25}%
@@ -122,7 +121,7 @@
 \contentsline {subsection}{\texttt {Legendre.h}\hspace {0.2em}}{14}{lstnumber.5.26.11}%
 \contentsline {subsection}{\texttt {GroupOrder.h}\hspace {0.2em}}{14}{lstnumber.5.27.8}%
 \contentsline {subsection}{\texttt {PrimitiveRoots.h}\hspace {0.2em}}{14}{lstnumber.5.28.6}%
-\contentsline {subsection}{\texttt {PrimeCounting.h}\hspace {0.2em}}{15}{lstnumber.5.29.6}%
+\contentsline {subsection}{\texttt {PrimeCounting.h}\hspace {0.2em}}{14}{lstnumber.5.29.6}%
 \contentsline {section}{\numberline {5.4}Chinese remainder theorem}{15}{section.5.4}%
 \contentsline {subsection}{\texttt {ChineseRemainder.h}\hspace {0.2em}}{15}{section.5.4}%
 \contentsline {section}{\numberline {5.5}Fractions}{15}{section.5.5}%
@@ -131,8 +130,8 @@
 \contentsline {subsection}{\texttt {FracBinarySearch.h}\hspace {0.2em}}{15}{lstnumber.5.33.21}%
 \contentsline {subsection}{\numberline {5.5.1}Bézout's identity}{15}{subsection.5.5.1}%
 \contentsline {subsection}{\numberline {5.5.2}Pythagorean Triples}{15}{subsection.5.5.2}%
-\contentsline {subsection}{\numberline {5.5.3}Primitive Roots}{16}{subsection.5.5.3}%
-\contentsline {subsection}{\numberline {5.5.4}Chicken McNugget theorem}{16}{subsection.5.5.4}%
+\contentsline {subsection}{\numberline {5.5.3}Primitive Roots}{15}{subsection.5.5.3}%
+\contentsline {subsection}{\numberline {5.5.4}Chicken McNugget theorem}{15}{subsection.5.5.4}%
 \contentsline {section}{\numberline {5.6}Primes}{16}{section.5.6}%
 \contentsline {subsection}{\numberline {5.6.1}Sum of primes}{16}{subsection.5.6.1}%
 \contentsline {subsection}{\numberline {5.6.2}Moebius Function}{16}{subsection.5.6.2}%
