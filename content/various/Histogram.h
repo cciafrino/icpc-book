@@ -14,7 +14,7 @@ template<typename T> struct MaxArea {
         assert(a <= b);
         if (a == b) return hist[a];
         int st = rmq.query(a, b).second;
-        T res = (b - a + 31) * hist[st];
+        T res = (b - a + 1) * hist[st];
         T aux = get_area(hist, a, st-1);
         res = max(res, aux);
         aux = get_area(hist, st+1, b);

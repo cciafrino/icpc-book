@@ -1,21 +1,21 @@
 \chapter{Graph}
 
 \section{Fundamentals}
-	\kactlimport{BellmanFord.h}
-	\kactlimport{FloydWarshall.h}
-	\kactlimport{TopoSort.h}
+    \kactlimport{BellmanFord.h}
+    \kactlimport{FloydWarshall.h}
+    \kactlimport{TopoSort.h}
     \kactlimport{Dijkstra.h}
     \kactlimport{Prim.h}
     \kactlimport{Kruskal.h}
     \kactlimport{SPFA.h}
-	\kactlimport{EulerWalk.h}
+    \kactlimport{EulerWalk.h}
 
 \section{Network flow}
 	\kactlimport{PushRelabel.h}
 	\kactlimport{Dinitz.h}
-	% \kactlimport{HLPP.h}
-	\kactlimport{EdmondsKarp.h}
-	\kactlimport{MinCut.h}
+	\kactlimport{HLPP.h}
+	%\kactlimport{EdmondsKarp.h}
+	%\kactlimport{MinCut.h}
 	\kactlimport{MinCostMaxFlow.h}
 	\kactlimport{StoerWagner.h}
 	\kactlimport{GomoryHu.h}
@@ -80,26 +80,26 @@
     \kactlimport{ManhattanMST.h}
     \kactlimport{Pruefer.cpp}    
     \kactlimport{ErdosGallai.h}
-    \kactlimport{MisraGries.h}
-	\kactlimport{DirectedMST.cpp}
-	\kactlimport{NegCycle.h}
+    %\kactlimport{MisraGries.h}
+    \kactlimport{DirectedMST.cpp}
+    \kactlimport{NegCycle.h}
 
 \section{Theorems}
 
 \subsection{Euler's theorem}
-Let~$V$,~$A$ and~$F$ be the number of vertices, edges and faces of connected planar graph, $V - A + F = 2$.
+Let~$V$,~$A$ and~$F$ be the number of vertices, edges and faces of connected planar graph, $V - A + F = 2$.\\
 
-\subsection{Dirac's theorem} Let $G$ be a graph with $n$ vertices, each one with degree at least $n/2$. Then $G$ is hamiltonian.
+\subsection{Dirac's theorem} Let $G$ be a graph with $n$ vertices, each one with degree at least $n/2$. Then $G$ is hamiltonian.\\
 
 \subsection{Ore's theorem} Let $G$ be a simple graph of order $n \geq 3$ st
-\[g(u) + g(v) \geq n \] for all pair $u$,$v$ of non adjacent vertices, then $G$ is hamiltonian.
+\[g(u) + g(v) \geq n \] for all pair $u$,$v$ of non adjacent vertices, then $G$ is hamiltonian.\\
 
 \subsection{Eulerian Cycles}
 The number of Eulerian cycles in a \emph{directed} graph $G$ is:
 \begin{equation*}
 	t_w(G) \prod_{v \in G} (\deg v - 1)!,
 \end{equation*}
-where $t_w(G)$ is the number of arborescences (``directed spanning'' tree) rooted at $w$: $t_w(G) = \det\left( q_{ij} \right)_{i,j \neq w}$, with $q_{ij} = [i=j] \mathrm{indeg}(i) - \# \set{(i,j) \in E}$.
+where $t_w(G)$ is the number of arborescences (``directed spanning'' tree) rooted at $w$: $t_w(G) = \det\left( q_{ij} \right)_{i,j \neq w}$, with $q_{ij} = [i=j] \mathrm{indeg}(i) - \# \set{(i,j) \in E}$.\\
 
 \subsection{Landau}
 There are a tournament with outdegree~$d_1 \leq d_2 \leq \ldots \leq d_n$ iff:
@@ -109,8 +109,10 @@ There are a tournament with outdegree~$d_1 \leq d_2 \leq \ldots \leq d_n$ iff:
 \end{itemize}
 In order to build, lets make~1 point to~$2, 3, \ldots, d_1 + 1$ and we follow recursively.
 
+
 \subsection{Dilworth's theorem}
 For any partially ordered set, the sizes of the max antichain and of the min chain decomposition are equal. Equivalent to Konig's theorem on the bipartite graph $(U,V,E)$ where $U=V=S$ and $(u,v)$ is an edge when $u<v$. Those vertices outside the min vertex cover in both $U$ and $V$ form a max antichain.
+
 
 \subsection{König-Egervary theorem}
 	For Bipartite Graphs, the number of edges in the maximum matching is greater than or equal the number of vertices in the minimum cover.

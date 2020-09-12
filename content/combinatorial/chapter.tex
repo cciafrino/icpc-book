@@ -210,7 +210,82 @@ $$ \sum_{i=0}^{n} \Fib(i) = \Fib(n+2) - 1$$
 $$ \sum_{i=0}^{n} \Fib(i)^2 = \Fib(n)\Fib(n+1)$$
 $$ \sum_{i=0}^{n} \Fib(i)^3 = \frac{\Fib(n)\Fib(n+1)^2 - (-1)^n\Fib(n-1) + 1}{2}$$
 
+\section{Linear Recurrences}
+\begin{enumerate}[label=(\roman*)]
+  \item $F_n = F_{n-1} + F_{n-2}$\\
 
+
+  \begin{bmatrix}
+  0 & 1\\
+  1 & 1
+  \end{bmatrix} 
+  \begin{bmatrix}
+  F_0\\
+  F_1
+  \end{bmatrix} =
+  \begin{bmatrix}
+    F_1\\
+    F_2
+  \end{bmatrix}
+
+\item $F_i = \sum_{j=1}^{K} C_j F_{i-j}$\\
+
+
+{   
+  \scriptsize
+  \begin{bmatrix}
+    0 & 1 & 0 & 0 & . & 0\\
+    0 & 0 & 1 & 0 & . & 0\\
+    0 & 0 & 0 & 1 & . & 0\\
+    . & . & . & . & . & .\\
+    C_K & C_{K-1} & C_{K-2} & C_{K-3} & . & C_{1}
+  \end{bmatrix} 
+  \begin{bmatrix}
+  F_0\\
+  F_1\\
+  F_2\\
+  .\\
+  F_{K-1}
+  \end{bmatrix} =
+  \begin{bmatrix}
+    F_1\\
+    F_2\\
+    F_3\\
+    .\\
+    F_K
+\end{bmatrix}
+}
+
+\item $F_i = \sum_{j=1}^{K} C_j F_{i-j} + D$\\
+
+    {
+  \scriptsize
+  \begin{bmatrix}
+    0 & 1 & 0 & 0 & . & 0 & 0\\
+    0 & 0 & 1 & 0 & . & 0 & 0\\
+    0 & 0 & 0 & 1 & . & 0 & 0\\
+    . & . & . & . & . & . & .\\
+    C_K & C_{K-1} & C_{K-2} & C_{K-3} & . & C_{1} & 1\\
+    0 & 0 & 0 & 0 & . & 0 & 1
+  \end{bmatrix} 
+  \begin{bmatrix}
+  F_0\\
+  F_1\\
+  F_2\\
+  .\\
+  F_{K-1}\\
+  D
+  \end{bmatrix} =
+  \begin{bmatrix}
+    F_1\\
+    F_2\\
+    F_3\\
+    .\\
+    F_K\\
+    D
+  \end{bmatrix}
+}
+\end{enumerate}
 \section{Game Theory}
 A game can be reduced to Nim if it is a finite impartial game.
 Nim and its variants include:

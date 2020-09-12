@@ -73,22 +73,23 @@
 \contentsline {subsection}{\numberline {6.3.11}Schroder numbers}{18}{subsection.6.3.11}%
 \contentsline {subsection}{\numberline {6.3.12}Triangles}{18}{subsection.6.3.12}%
 \contentsline {section}{\numberline {6.4}Fibonacci}{18}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Game Theory}{18}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Nim}{18}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}Mis\`{e}re Nim}{18}{subsection.6.5.2}%
-\contentsline {subsection}{\numberline {6.5.3}Staircase Nim}{18}{subsection.6.5.3}%
-\contentsline {subsection}{\numberline {6.5.4}Moore's Nim$_k$}{18}{subsection.6.5.4}%
-\contentsline {subsection}{\numberline {6.5.5}Dim$^+$}{18}{subsection.6.5.5}%
-\contentsline {subsection}{\numberline {6.5.6}Aliquot Game}{18}{subsection.6.5.6}%
-\contentsline {subsection}{\numberline {6.5.7}Nim (at most half)}{18}{subsection.6.5.7}%
-\contentsline {subsection}{\numberline {6.5.8}Lasker's Nim}{18}{subsection.6.5.8}%
-\contentsline {subsection}{\numberline {6.5.9}Hackenbush on Trees}{18}{subsection.6.5.9}%
+\contentsline {section}{\numberline {6.5}Linear Recurrences}{18}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Game Theory}{18}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Nim}{18}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Mis\`{e}re Nim}{18}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.3}Staircase Nim}{18}{subsection.6.6.3}%
+\contentsline {subsection}{\numberline {6.6.4}Moore's Nim$_k$}{18}{subsection.6.6.4}%
+\contentsline {subsection}{\numberline {6.6.5}Dim$^+$}{18}{subsection.6.6.5}%
+\contentsline {subsection}{\numberline {6.6.6}Aliquot Game}{18}{subsection.6.6.6}%
+\contentsline {subsection}{\numberline {6.6.7}Nim (at most half)}{18}{subsection.6.6.7}%
+\contentsline {subsection}{\numberline {6.6.8}Lasker's Nim}{18}{subsection.6.6.8}%
+\contentsline {subsection}{\numberline {6.6.9}Hackenbush on Trees}{18}{subsection.6.6.9}%
 \contentsline {chapter}{\numberline {7}Graph}{19}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Fundamentals}{19}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Network flow}{20}{section.7.2}%
 \contentsline {section}{\numberline {7.3}Matching}{21}{section.7.3}%
 \contentsline {section}{\numberline {7.4}DFS algorithms}{23}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Heuristics}{24}{section.7.5}%
+\contentsline {section}{\numberline {7.5}Heuristics}{25}{section.7.5}%
 \contentsline {section}{\numberline {7.6}Trees}{25}{section.7.6}%
 \contentsline {subsection}{\numberline {7.6.1}Sqrt Decomposition}{27}{subsection.7.6.1}%
 \contentsline {section}{\numberline {7.7}Functional Graphs}{27}{section.7.7}%
@@ -124,9 +125,9 @@
 \contentsline {section}{\numberline {10.5}Optimization tricks}{44}{section.10.5}%
 \contentsline {subsection}{\numberline {10.5.1}Bit hacks}{44}{subsection.10.5.1}%
 \contentsline {subsection}{\numberline {10.5.2}Pragmas}{44}{subsection.10.5.2}%
-\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{45}{section.10.6}%
+\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{46}{section.10.6}%
 \contentsline {section}{\numberline {10.7}Random Numbers}{46}{section.10.7}%
 \contentsline {section}{\numberline {10.8}Other languages}{46}{section.10.8}%
-\contentsline {subsection}{\numberline {10.8.1}BigInteger}{46}{subsection.10.8.1}%
-\contentsline {paragraph}{BigInteger}{46}{section*.8}%
+\contentsline {subsection}{\numberline {10.8.1}BigInteger}{47}{subsection.10.8.1}%
+\contentsline {paragraph}{BigInteger}{47}{section*.8}%
 \contentsfinish 
