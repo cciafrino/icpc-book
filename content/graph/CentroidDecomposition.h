@@ -56,7 +56,7 @@ struct centroid_t {
         
         for (int u : edges[x]) {
             if (blocked[u]) continue;
-            decompose(u, layer + 1, x);
+                res += decompose(u, layer + 1, x);
         }
         return res;
     }
