@@ -44,19 +44,19 @@ struct centroid_t {
         // solve the problem for each subtree here xD   
     }
 
-    int decompose(int v, int layer) {
+    int decompose(int v, int layer=0, int lst_x = -1) {
         dfs_sz(v, -1);
         int x = find(v, v, sz[v]);
         blocked[x] = true;
         depth[x] = layer;
-        parent[x] = v;
+        parent[x] = lst_x;
         dfs_dist(x, x, layer, 0);
 
         int res = solve(x, v); // solving for each subtree
         
         for (int u : edges[x]) {
             if (blocked[u]) continue;
-            res += decompose(u, layer + 1);
+            decompose(u, layer + 1, x);
         }
         return res;
     }
