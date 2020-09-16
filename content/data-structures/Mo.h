@@ -1,44 +1,42 @@
 /**
  * Author: Chris
- * Date: 2019
+ * Date: 2020
  * License: CC0
- * Source: folklore
+ * Source: kactl
  * Description: Mo's algorithm example problem: Count how many elements appear at least two times in given range $[l, r]$.
  * For path queries on trees, flatten the tree by DFSing and pushing even-depth nodes at entry and odd-depth nodes at exit.
- * If you need to squeeze Mo's in the TL and Q is greater than N, consider Hilbert Curves. Will work much faster.
- * Time: $(n + q)sqrt(n)$
- * Status: Tested on SPOJ DQUERY
+ * Time: O(N \sqrt Q)
+ * Status: Tested on SPOJ DQUERY and kattis farmingmars
  */
-
-struct query_t { int l, r, id; };
-int n, m, total = 0; // elements, queries, result.
-const int sqn = sqrt(n), maxv = 1000000;
-vector<int> values(n), freq(2*maxv), result(m);
-vector<query_t> queries(m);
-sort(queries.begin(), queries.end(), [sqn](const query_t &a, const query_t &b) {
-	if (a.l/sqn != b.l/sqn) return a.l < b.l;
-	return a.r < b.r;
-});
-int l = 0, r = -1;
-for(query_t &q : queries) {
-	auto add = [&](int i) {
-		// Change if needed
-		++freq[values[i]];
-		if (freq[values[i]] == 2) total += 2;
-		else if (freq[values[i]] > 2) ++total;
-	};
-	auto del = [&](int i) {
-		// Change if needed
-		--freq[values[i]];
-		if (freq[values[i]] == 1) total -= 2;
-		else if (freq[values[i]] > 1) --total;
-	};
-	while(r < q.r) add(++r);
-	while(l > q.l) add(--l);
-	while(r > q.r) del(r--);
-	while(l < q.l) del(l++);
-	result[q.id] = total;
+template<typename T>
+vector<T> mo(vector<pair<int, int>>& Q, vector<int>& A) {
+	const int sqn = 370; // ~ N/sqrt(Q)
+	vector<int> s(int(Q.size()));
+	iota(s.begin(), s.end(), 0);
+#define K(x) make_pair(x.first/sqn, x.second ^ -(x.first/sqn & 1))
+    sort(s.begin(), s.end(), [&](int s, int t) { return K(Q[s]) < K(Q[t]); });
+	const int ma = 100100; // max value in freq table
+	vector<T> result(int(Q.size()));
+	vector<int> freq(ma+1);
+	int L = 0, R = -1;
+	T cur = 0;
+	for (auto& qi : s) {
+		auto q = Q[qi];
+		auto add = [&](int i) { // add
+			++freq[values[i]];
+			if (freq[values[i]] == 2) total += 2;
+			else if (freq[values[i]] > 2) ++total;
+		};
+		auto del = [&](int i) { // remove
+			--freq[values[i]];
+			if (freq[values[i]] == 1) total -= 2;
+			else if (freq[values[i]] > 1) --total;
+		};
+		while(R < q.second) add(++R);
+		while(L > q.first) add(--L);
+		while(R > q.second) del(R--);
+		while(L < q.first) del(L++);
+		result[qi] = cur; 
+	}
+	return result;
 }
-
-
-
