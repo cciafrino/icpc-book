@@ -1,24 +1,21 @@
 /**
  * Author: Chris 
- * Description: n = vertices and s = starting point
+ * Description: Faster implementation of Dijkstra's algorithm. par vector can be used to recover the path.
  */
+#include<bits/extc++.h> // keep-include!!
 
-template<typename T> 
-vector<T> Dijkstra(vector<vector<pair<int,T>>> &edges, int s) { 
-    const int n = (int)edges.size();
-	assert(0 <= s && s < n);
-    vector<int> dist(n, numeric_limits<T>::max()/2), parent(n, -1);
-    using Q = pair<T, int>;
-    priority_queue<Q, vector<Q>, greater<Q>> q;
-    q.push({dist[s] = 0, s});
-    while(!q.empty()) {
-        auto x = q.top(); q.pop();
-        if (dist[x.second] < x.first) continue;
-        for (auto u : edges[x.second])
-            if (x.first + u.second < dist[u.first]) {
-                q.push({dist[u.first] = x.first + u.second, u.first});
-				parent[u.first] = x.second;
-			}
+vector<int> dist(N, INT_MAX/2), par(N, -1);
+__gnu_pbds::priority_queue<pair<int, int>> q;
+q.push({dist[S] = 0, S});
+while (!q.empty()) {
+    auto [u, v] = q.top(); q.pop();
+    if (dist[v] < u) continue;
+    for (auto& nxt : edges[v]) {
+        int cost = dist[v] + nxt.second;
+        if (cost < dist[nxt.first]) {
+            dist[nxt.first] = cost;
+            q.push({-dist[nxt.first], nxt.first});
+            par[nxt.first] = v;
+        }
     }
-    return dist;
 }
