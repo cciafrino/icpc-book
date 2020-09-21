@@ -8,7 +8,7 @@
  * Time: $O(V^2\sqrt E)$ Better for dense graphs - Slower than Dinic (in practice)
  * Status: Tested on kattis and SPOJ
  */
-template<typename flow_t = lint> struct PushRelabel {
+template<typename flow_t = int> struct PushRelabel {
 	struct edge_t { int dest, back; flow_t f, c; };
 	vector<vector<edge_t>> g;
 	vector<flow_t> ec;
@@ -27,7 +27,7 @@ template<typename flow_t = lint> struct PushRelabel {
 		back.f -= f; back.c += f; ec[back.dest] -= f;
 	}
 	flow_t maxflow(int s, int t) {
-		int v = g.size(); H[s] = v; ec[t] = 1;
+		int v = int(g.size()); H[s] = v; ec[t] = 1;
 		vector<int> co(2*v); co[0] = v-1;
 		for(int i = 0; i < v; ++i) cur[i] = g[i].data();
 		for(auto& e : g[s]) addFlow(e, e.c);

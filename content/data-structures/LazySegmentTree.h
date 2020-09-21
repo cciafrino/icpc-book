@@ -2,44 +2,41 @@
  * Author: Chris
  * Date: 
  * License: 
- * Source: me
+ * Source: BenQ
  * Description: Segment Tree with Lazy update. Can be extended to max/min/product/gcd, pay attention 
  * to propagate, f and update functions when extending. Be careful with each initialization aswell.
  * Status: Tested on USACO 2015 December Contest (Platinum) P3 - Counting Haybales.
  * Time: $O(\lg(N)*Q)$
+ * Status: stress-tested
  */
-template<typename T, typename Q> struct segtree_t {
-    int N;
-    vector<T> tree;
-    vector<Q> lazy;
-    segtree_t(int _N) : N(_N), tree(4*N), lazy(4*N) {}
-    segtree_t(const vector<Q>& o): N(int(o.size())), tree(4*N),
-    lazy(4*N){ for (int a = 0; a < N; ++a) tree[a + N] = o[a];}
-    T f(const T &a, const T &b) { return (a + b); }
-    void propagate(int v, int l, int r) {
-        if (!lazy[v]) return; 
-        tree[v] += T(r - l + 1) * lazy[v];
-        if (l != r) for (int a = 0; a < 2; ++a) lazy[2*v+a] += lazy[v];
-        lazy[v] = 0;
+
+template<class T, int N> struct segtree_t {
+    static_assert(__builtin_popcount(N) == 1); // SZ must be power of 2
+    const T unit = 0; T f(T a, T b) { return (a + b); }
+    vector<T> seg, lazy; 
+    segtree_t() : seg(2*N, unit), lazy(2*N) {}
+    segtree_t(const vector<T>& other) : seg(2*N, unit), lazy(2*N) {
+        for (int a = 0; a < int(other.size()); ++a) seg[a + N] = other[a];
+        for (int a = N-1; a; --a) pull(a);
     }
-    T query(int a, int b) { return query(a, b, 1, 0, N-1); }
-    T query(int a, int b, int v, int l, int r) {
-        propagate(v, l, r);
-        if (b < l || r < a) return 0;
-        if (a <= l && r <= b) return tree[v];
-        int m = l + (r - l)/2;
-        return f(query(a, b, 2*v, l, m), query(a, b, 2*v+1, m+1, r));
+    void push(int v, int L, int R) { 
+	    seg[v] += (R - L + 1) * lazy[v]; // dependent on operation
+    	if (L != R) for(int i = 0; i < 2; ++i) lazy[2*v+i] += lazy[v]; /// prop to children
+	    lazy[v] = 0; 
+    } // recalc values for current node
+    void pull(int v) { seg[v] = f(seg[2*v], seg[2*v+1]); }
+    void build() { for(int i = N-1; i > 0; --i) pull(i); }
+    void upd(int mi,int ma,T delta,int v = 1,int L = 0, int R = N-1) {
+    	push(v,L,R); if (ma < L || R < mi) return;
+    	if (mi <= L && R <= ma) { 
+	        lazy[v] = delta; push(v,L,R); return; }
+	    int M = (L+R)/2; upd(mi,ma,delta,2*v,L,M); 
+    	upd(mi,ma,delta,2*v+1,M+1,R); pull(v);
     }
-    void update(int a, int b, Q delta) { return update(a, b, delta, 1, 0, N-1); }
-    void update(int a, int b, Q delta, int v, int l, int r) {
-        propagate(v, l, r);
-        if (b < l || r < a) return;
-        if (a <= l && r <= b) {
-            lazy[v] = delta; propagate(v, l, r);
-            return;
-        }
-        int m = l + (r - l)/2;
-        update(a, b, delta, 2*v, l, m), update(a, b, delta, 2*v+1, m+1, r);
-        tree[v] = f(tree[2*v], tree[2*v + 1]);
+    T query(int mi, int ma, int v = 1, int L = 0, int R = N-1) {
+    	push(v,L,R); if (mi > R || L > ma) return unit;
+	    if (mi <= L && R <= ma) return seg[v];
+    	int M = (L+R)/2; 
+	    return f(query(mi,ma,2*v,L,M),query(mi,ma,2*v+1,M+1,R));
     }
 };
