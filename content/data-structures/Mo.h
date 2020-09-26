@@ -14,7 +14,7 @@ vector<T> mo(vector<pair<int, int>>& Q, vector<int>& A) {
 	vector<int> s(int(Q.size()));
 	iota(s.begin(), s.end(), 0);
 #define K(x) make_pair(x.first/sqn, x.second ^ -(x.first/sqn & 1))
-	sort(s.begin(), s.end(), [&](int s, int t) { return K(Q[s]) < K(Q[t]); });
+	sort(s.begin(), s.end(), [&](int x, int y) { return K(Q[x]) < K(Q[y]); });
 	const int ma = 100100; // max value in freq table
 	vector<T> result(int(Q.size()));
 	vector<int> freq(ma+1);
@@ -23,14 +23,14 @@ vector<T> mo(vector<pair<int, int>>& Q, vector<int>& A) {
 	for (auto& qi : s) {
 		auto q = Q[qi];
 		auto add = [&](int i) { // add
-			++freq[values[i]];
-			if (freq[values[i]] == 2) total += 2;
-			else if (freq[values[i]] > 2) ++total;
+			++freq[A[i]];
+			if (freq[A[i]] == 2) cur += 2;
+			else if (freq[A[i]] > 2) ++cur;
 		};
 		auto del = [&](int i) { // remove
-			--freq[values[i]];
-			if (freq[values[i]] == 1) total -= 2;
-			else if (freq[values[i]] > 1) --total;
+			--freq[A[i]];
+			if (freq[A[i]] == 1) cur -= 2;
+			else if (freq[A[i]] > 1) --cur;
 		};
 		while(R < q.second) add(++R);
 		while(L > q.first) add(--L);
