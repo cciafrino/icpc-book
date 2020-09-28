@@ -7,14 +7,14 @@
     \kactlimport{Dijkstra.h}
     \kactlimport{Prim.h}
     \kactlimport{Kruskal.h}
-    \kactlimport{SPFA.h}
+    %\kactlimport{SPFA.h}
     \kactlimport{EulerWalk.h}
 
 \section{Network flow}
 	\kactlimport{PushRelabel.h}
 	\kactlimport{Dinitz.h}
-	\kactlimport{HLPP.h}
-	%\kactlimport{EdmondsKarp.h}
+	%\kactlimport{HLPP.h}
+	\kactlimport{EdmondsKarp.h}
 	%\kactlimport{MinCut.h}
 	\kactlimport{MinCostMaxFlow.h}
 	%\kactlimport{StoerWagner.h}
@@ -34,7 +34,7 @@
 	\kactlimport{DFSTree.h}
 	\kactlimport{CentroidDecomposition.h}
 	\kactlimport{Tarjan.h}
-	\kactlimport{Kosaraju.h}
+	%\kactlimport{Kosaraju.h}
 	\kactlimport{BiconnectedComponents.h}
 	\kactlimport{2sat.h}
 	\kactlimport{Cycles.h}
@@ -75,10 +75,10 @@
     \kactlimport{Lumberjack.h}
     \kactlimport{Lumberjack2.h}
 \section{Other}
-    \kactlimport{kthShortestPath.h}
+    %\kactlimport{kthShortestPath.h}
     \kactlimport{MatrixTreeMST.h}
     \kactlimport{ManhattanMST.h}
-    \kactlimport{Pruefer.cpp}    
+    %\kactlimport{Pruefer.cpp}    
     \kactlimport{ErdosGallai.h}
     %\kactlimport{MisraGries.h}
     \kactlimport{DirectedMST.cpp}
@@ -86,37 +86,40 @@
 
 \section{Theorems}
 
-\subsection{Euler's theorem}
-Let~$V$,~$A$ and~$F$ be the number of vertices, edges and faces of connected planar graph, $V - A + F = 2$.\\
-
-\subsection{Dirac's theorem} Let $G$ be a graph with $n$ vertices, each one with degree at least $n/2$. Then $G$ is hamiltonian.\\
-
-\subsection{Ore's theorem} Let $G$ be a simple graph of order $n \geq 3$ st
-\[g(u) + g(v) \geq n \] for all pair $u$,$v$ of non adjacent vertices, then $G$ is hamiltonian.\\
-
-\subsection{Eulerian Cycles}
-The number of Eulerian cycles in a \emph{directed} graph $G$ is:
-\begin{equation*}
-	t_w(G) \prod_{v \in G} (\deg v - 1)!,
-\end{equation*}
-where $t_w(G)$ is the number of arborescences (``directed spanning'' tree) rooted at $w$: $t_w(G) = \det\left( q_{ij} \right)_{i,j \neq w}$, with $q_{ij} = [i=j] \mathrm{indeg}(i) - \# \set{(i,j) \in E}$.\\
-
 \subsection{Landau}
 There are a tournament with outdegree~$d_1 \leq d_2 \leq \ldots \leq d_n$ iff:
 \begin{itemize}
 \item $d_1 + d_2 + \ldots + d_n = {n \choose 2}$\newline
 \item $d_1 + d_2 + \ldots + d_k \geq {k \choose 2} \quad \forall 1 \leq k \leq n.$
 \end{itemize}
-In order to build, lets make~1 point to~$2, 3, \ldots, d_1 + 1$ and we follow recursively.
+In order to build, lets make~1 point to~$2, 3, \ldots, d_1 + 1$ and we follow recursively
 
+\
+
+\subsection{Euler's theorem}
+Let~$V$,~$A$ and~$F$ be the number of vertices, edges and faces of connected planar graph, $V - A + F = 2$
+
+
+\
+
+\subsection{Eulerian Cycles}
+The number of Eulerian cycles in a \emph{directed} graph $G$ is:
+\begin{equation*}
+	t_w(G) \prod_{v \in G} (\deg v - 1)!,
+\end{equation*}
+where $t_w(G)$ is the number of arborescences (``directed spanning'' tree) rooted at $w$: $t_w(G) = \det\left( q_{ij} \right)_{i,j \neq w}$, with $q_{ij} = [i=j] \mathrm{indeg}(i) - \# \set{(i,j) \in E}$
+
+\
 
 \subsection{Dilworth's theorem}
-For any partially ordered set, the sizes of the max antichain and of the min chain decomposition are equal. Equivalent to Konig's theorem on the bipartite graph $(U,V,E)$ where $U=V=S$ and $(u,v)$ is an edge when $u<v$. Those vertices outside the min vertex cover in both $U$ and $V$ form a max antichain.
+For any partially ordered set, the sizes of the max antichain and of the min chain decomposition are equal. Equivalent to Konig's theorem on the bipartite graph $(U,V,E)$ where $U=V=S$ and $(u,v)$ is an edge when $u<v$. Those vertices outside the min vertex cover in both $U$ and $V$ form a max antichain
 
+\
 
 \subsection{König-Egervary theorem}
-	For Bipartite Graphs, the number of edges in the maximum matching is greater than or equal the number of vertices in the minimum cover.
-	
+For Bipartite Graphs, the number of edges in the maximum matching is greater than or equal the number of vertices in the minimum cover
+
+
 \subsubsection{Maximum Weight Closure}
 Given a vertex-weighted directed graph $G$. Turn the graph into a flow
 network, adding weight $\infty$ to each edge. Add vertices $S,T$. For
@@ -139,11 +142,11 @@ The theorem states that the size of a maximum matching of a graph $G=(V,E)$ equa
 \subsection{Tutte's theorem}
 A graph $G = (V, A)$ has a perfect matching iff for all subset $U$ of $V$, the induced subgraph by $V \setminus U$ has at most $|U|$ connected components with odd number of vertices.
 
-\subsection{Erdős–Gallai theorem}
-% Source: https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gallai_theorem
-% Test: stress-tests/graph/matrix-tree.cpp
-A simple graph with node degrees $d_1 \ge \dots \ge d_n$ exists iff $d_1 + \dots + d_n$ is even and for every $k = 1\dots n$,
-\[ \sum _{i=1}^{k}d_{i}\leq k(k-1)+\sum _{i=k+1}^{n}\min(d_{i},k). \]
+%\subsection{Erdős–Gallai theorem}
+%% Source: https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gallai_theorem
+%% Test: stress-tests/graph/matrix-tree.cpp
+%A simple graph with node degrees $d_1 \ge \dots \ge d_n$ exists iff $d_1 + \dots + d_n$ is even and for every $k = 1\dots n$,
+%\[ \sum _{i=1}^{k}d_{i}\leq k(k-1)+\sum _{i=k+1}^{n}\min(d_{i},k). \]
 
 \subsection{Number of Spanning Trees}
 		% I.e. matrix-tree theorem.

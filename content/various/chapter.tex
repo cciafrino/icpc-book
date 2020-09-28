@@ -72,15 +72,13 @@
 			\item \lstinline{#pragma GCC optimize ("trapv")} kills the program on integer overflows (but is really slow).
 		\end{itemize}
 	\kactlimport{FastInput.h}
-	\kactlimport{Pragmas.h}
+	%\kactlimport{Pragmas.h}
 	\kactlimport{BumpAllocator.h}
 	\kactlimport{SmallPtr.h}
 	\kactlimport{BumpAllocatorSTL.h}
 	\kactlimport{Hashmap.h}
 	\kactlimport{Unrolling.h}
 	\kactlimport{SIMD.h}
-	\kactlimport{PQueue.h}
-	\kactlimport{OwnFunctions.h}
 	\kactlimport{FastMod.h}
 	\kactlimport{LinkedList.h}
 	
@@ -90,22 +88,4 @@
 \section {Random Numbers}
     \kactlimport{RandomNumbers.h}
 \section{Other languages}
-	\kactlimport{Main.java}
 	\kactlimport{MiscJava.java}
-
-\subsection{BigInteger}
-	\paragraph{BigInteger}
-To convert to a \texttt{BigInteger}, use \texttt{BigInteger.valueOf (int)} or \texttt{BigInteger (String, radix)}.
-
-To convert from a \texttt{BigInteger}, use \texttt{.intValue ()}, \texttt{.longValue ()}, \texttt{.toString (radix)}.
-
-Common unary operations include \texttt{.abs ()}, \texttt{.negate ()}, \texttt{.not ()}.
-
-Common binary operations include \texttt{.max}, \texttt{.min}, \texttt{.add}, \texttt{.subtract}, \texttt{.multiply}, \texttt{.divide}, \texttt{.remainder}, \texttt{.gcd}, \texttt{.modInverse}, \texttt{.and}, \texttt{.or}, \texttt{.xor}, \texttt{.shiftLeft (int)}, \texttt{.shiftRight (int)}, \texttt{.pow (int)}, \texttt{.compareTo}.
-
-Divide and remainder: \texttt{Biginteger[] .divideAndRemainder (Biginteger val)}.
-
-Power module: \texttt{.modPow (BigInteger exponent, module)}.
-
-Primality check: \texttt{.isProbablePrime (int certainty)}.\newline
-
