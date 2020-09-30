@@ -27,7 +27,7 @@ bool diophantine(T a, T b, T c, T &x, T &y, T &g) { /// start-hash
         }
         return false;
     }
-    g = egcd<lint>(a, b, x, y);
+    g = egcd<T>(a, b, x, y);
     if (c % g != 0) return false;
     T dx = c / a;
     c -= dx * a;
