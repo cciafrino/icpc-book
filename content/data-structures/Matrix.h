@@ -1,40 +1,39 @@
 /**
- * Author: Ulf Lundstrom modified by chris
- * Date: 2009-08-03
- * License: CC0
- * Source: My head
+ * Author: Chris
+ * Date: 2020
+ * License: 
+ * Source: Yosupo
  * Description: Basic operations on square matrices.
- * Usage: Matrix<int, 3> A;
- *  A.d = {{{{1,2,3}}, {{4,5,6}}, {{7,8,9}}}};
- *  vector<int> vec = {1,2,3};
- *  vec = (A^N) * vec;
+ * Usage: Matrix<int> A(N, vector<int>(N));
  * Status: tested
  */
-template<class T, int N> struct Matrix {
-	typedef Matrix M;
-	array<array<T, N>, N> d{};
-	M operator*(const M &m) const {
-		M a;
-		for(int i = 0; i < N; ++i) 
-		    for(int j = 0; j < N; ++j)
-			    for(int k = 0; k < N; ++k) a.d[i][j] += d[i][k]*m.d[k][j];
-		return a;
-	}
-	vector<T> operator*(const vector<T> &vec) const {
-		vector<T> ret(N);
-		for(int i = 0; i < N; ++i) 
-		    for(int j = 0; j < N; ++j) ret[i] += d[i][j] * vec[j];
-		return ret;
-	}
-	M operator^(T p) const {
-		assert(p >= 0);
-		M a, b(*this);
-		for(int i = 0; i < N; ++i) a.d[i][i] = 1;
-		while (p) {
-			if (p&1) a = a*b;
-			b = b*b;
-			p >>= 1;
-		}
-		return a;
-	}
+template <typename T> struct Matrix : vector<vector<T>> {
+    using vector<vector<T>>::vector;
+    using vector<vector<T>>::size;
+    int h() const { return int(size()); }
+    int w() const { return int((*this)[0].size()); }
+    Matrix operator*(const Matrix& r) const {
+        assert(w() == r.h());
+        Matrix res(h(), vector<T>(r.w()));
+        for (int i = 0; i < h(); i++) {
+            for (int j = 0; j < r.w(); j++) {
+                for (int k = 0; k < w(); k++) {
+                    res[i][j] += (*this)[i][k] * r[k][j];
+                }
+            }
+        }
+        return res;
+    }
+    Matrix& operator*=(const Matrix& r) { return *this = *this * r; }
+    Matrix pow(int n) const {
+        assert(h() == w());
+        Matrix x = *this, r(h(), vector<T>(w()));
+        for (int i = 0; i < h(); i++) r[i][i] = T(1);
+        while (n) {
+            if (n & 1) r *= x;
+            x *= x;
+            n >>= 1;
+        }
+        return r;
+    }
 };

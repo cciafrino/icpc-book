@@ -1,24 +1,37 @@
 /**
- * Author: Simon Lindholm
- * Date: 2016-09-06
- * License: CC0
- * Source: folklore
- * Description: Calculates determinant of a matrix. Destroys the matrix.
- * Status: somewhat tested
+ * Author: Chris
+ * Date: 2020
+ * License: 
+ * Source: Yosupo
+ * Description: Calculates determinant of a matrix. Destroys the matrix. Tested with modnum and doubles.
+ * Status: stress-tested (weakly)
  * Time: $O(N^3)$
  */
-double det(vector<vector<double>> &a) {
-	int n = a.size(); double res = 1;
-	for(int i = 0; i < n; ++i) {
-		int b = i;
-		for(int j = i+1; j < n; ++j) if (fabs(a[j][i]) > fabs(a[b][i])) b = j;
-		if (i != b) swap(a[i], a[b]), res *= -1;
-		res *= a[i][i];
-		if (res == 0) return 0;
-		for(int j = i+1; j < n; ++j) {
-			double v = a[j][i] / a[i][i];
-			if (v != 0) for(int k = i+1; k < n; ++k) a[j][k] -= v * a[i][k];
-		}
-	}
-	return res;
+#include<../Matrix.h>;
+template<typename T> T det(Matrix<T> a) { 
+    assert(a.h() == a.w());
+    int n = a.h();
+    bool flip = false;
+    for (int x = 0; x < n; x++) {
+        int my = -1;
+        for (int y = x; y < n; y++) {
+            if (T(a[y][x]) != 0) {
+                my = y;
+                break;
+            }
+        }
+        if (my == -1) return 0;
+        if (x != my) {
+            swap(a[x], a[my]);
+            if ((x - my) & 1) flip = !flip;
+        }
+        for (int y = x + 1; y < n; y++) {
+            if (T(a[y][x]) == 0) continue;
+            auto freq = a[y][x] / a[x][x];
+            for (int k = x; k < n; k++) a[y][k] -= freq * a[x][k];
+        }
+    }
+    T det = (!flip ? 1 : -1);
+    for (int i = 0; i < n; i++) det *= a[i][i];
+    return det;
 }
