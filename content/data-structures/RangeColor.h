@@ -56,9 +56,7 @@ template<class T = int64_t, class C = int32_t> struct RangeColor{
 				st.erase(p);
 				st.insert(Node( {b + 1LL, r, old} ));
 				break;
-			}else{
-				p = st.erase(p);
-			}
+			} else	p = st.erase(p);
 		}
 		freq[newColor] += (b - a + 1LL);
 		st.insert(Node( {a, b, newColor} ));
