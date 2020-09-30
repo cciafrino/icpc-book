@@ -4,41 +4,39 @@
  * License: 
  * Source: Paulo Miranda
  * Description: RangeColor structure, supports point queries and range updates
- * if $T$ is int32_t change $freq$ to a vector, set $maxColor$ value and resize $freq$
+ * if $C$ isn't int32_t change $freq$ to map<C, int64_t>
  * Status: Tested on URI 2698
  * Time: $O(\lg(L)*Q)$
  * Status: not well tested
  */
 
-template<class T> struct RangeColor{
+template<class T = int64_t, class C = int32_t> struct RangeColor{
 
 	struct Node{
-		lint l, r;
-		T color;
+		T l, r;
+		C color;
 		bool operator<(const Node &n) const{return r < n.r;}
 	};
 	
-	T minInf;
+	C minInf;
 	set<Node> st;
-	map<T, lint> freq;
-	//vector<lint> freq;
+	vector<int64_t> freq;
 	
-	RangeColor(lint first, lint last, T iniColor = {}, T minusInf = -1 /*, T maxColor = {}*/): minInf(minusInf){
-		//freq.resize(maxColor + 1); 
+	RangeColor(T first, T last, C maxColor, C iniColor = 0, C minusInf = -1): minInf(minusInf), freq(maxColor + 1) {
 		freq[iniColor] = last - first + 1LL;
 		st.insert(Node({first, last, iniColor}));
 	}
 	//get color in position i
-	T query(lint i){
+	C query(T i){
 		auto p = st.upper_bound(Node({0, i - 1LL, minInf}));
 		return p->color;
 	}
 	//set newColor in [a, b]
-	void upd(lint a, lint b, T newColor){
+	void upd(T a, T b, C newColor){
 		auto p = st.upper_bound(Node({0, a - 1LL, minInf}));
 		assert(p != st.end());
-		lint l = p->l, r = p->r;
-		T old = p->color;
+		T l = p->l, r = p->r;
+		C old = p->color;
 		freq[old] -= (r - l + 1LL);
 		p = st.erase(p);
 		if (l < a){
@@ -65,7 +63,7 @@ template<class T> struct RangeColor{
 		freq[newColor] += (b - a + 1LL);
 		st.insert(Node({a, b, newColor}));
 	}
-	lint countColor(T x){
+	T countColor(C x){
 		return freq[x];
 	}
 };
