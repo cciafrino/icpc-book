@@ -12,9 +12,9 @@ template<typename T> T det(Matrix<T> a) {
     assert(a.h() == a.w());
     int n = a.h();
     bool flip = false;
-    for (int x = 0; x < n; x++) {
+    for (int x = 0; x < n; ++x) {
         int my = -1;
-        for (int y = x; y < n; y++) {
+        for (int y = x; y < n; ++y) {
             if (T(a[y][x]) != 0) {
                 my = y;
                 break;
@@ -25,7 +25,7 @@ template<typename T> T det(Matrix<T> a) {
             swap(a[x], a[my]);
             if ((x - my) & 1) flip = !flip;
         }
-        for (int y = x + 1; y < n; y++) {
+        for (int y = x + 1; y < n; ++y) {
             if (T(a[y][x]) == 0) continue;
             auto freq = a[y][x] / a[x][x];
             for (int k = x; k < n; k++) a[y][k] -= freq * a[x][k];
