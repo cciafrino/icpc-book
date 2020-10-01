@@ -22,7 +22,7 @@ template<class T = int64_t, class C = int32_t> struct RangeColor{
 	set<Node> st;
 	vector<T> freq;
 	
-	RangeColor(T first, T last, C maxColor, C iniColor = C(0), C minusInf = C(-1)): minInf(minusInf), freq(maxColor + C(1)) {
+	RangeColor(T first, T last, C maxColor, C iniColor = C(0)): minInf(first - T(1)), freq(maxColor + 1) {
 		freq[iniColor] = last - first + T(1);
 		st.insert({first, last, iniColor});
 	}
