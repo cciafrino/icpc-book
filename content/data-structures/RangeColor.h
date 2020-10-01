@@ -3,7 +3,7 @@
  * Date: 
  * License: 
  * Source: Paulo Miranda
- * Description: RangeColor structure, supports point queries and range updates
+ * Description: RangeColor structure, supports point queries and range updates, 
  * if $C$ isn't int32\_t change $freq$ to map
  * Status: Tested on URI 2698
  * Time: $O(\lg(L)*Q)$
