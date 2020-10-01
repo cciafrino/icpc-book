@@ -28,12 +28,12 @@ template<class T = int64_t, class C = int32_t> struct RangeColor{
 	}
 	//get color in position i
 	C query(T i){
-		auto p = st.upper_bound({0, i - T(1), minInf});
+		auto p = st.upper_bound({T(0), i - T(1), minInf});
 		return p->color;
 	}
 	//set newColor in [a, b]
 	void upd(T a, T b, C newColor){
-		auto p = st.upper_bound({0, a - T(1), minInf});
+		auto p = st.upper_bound({T(0), a - T(1), minInf});
 		assert(p != st.end());
 		T l = p->l, r = p->r;
 		C old = p->color;
