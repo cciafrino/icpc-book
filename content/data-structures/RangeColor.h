@@ -13,9 +13,9 @@
 template<class T = int64_t, class C = int32_t> struct RangeColor{
 
 	struct Node{
-		T l, r;
+		T left, right;
 		C color;
-		bool operator < (const Node &n) const{ return r < n.r; }
+		bool operator < (const Node &n) const{ return right < n.right; }
 	};
 	
 	C minInf;
@@ -35,26 +35,26 @@ template<class T = int64_t, class C = int32_t> struct RangeColor{
 	void upd(T a, T b, C newColor){
 		auto p = st.upper_bound({T(0), a - T(1), minInf});
 		assert(p != st.end());
-		T l = p->l, r = p->r;
+		T left = p->left, right = p->right;
 		C old = p->color;
-		freq[old] -= (r - l + T(1));
+		freq[old] -= (right - left + T(1));
 		p = st.erase(p);
-		if (l < a){
-			freq[old] += (a - l);
-			st.insert({l, a - T(1), old});
+		if (left < a){
+			freq[old] += (a - left);
+			st.insert({left, a - T(1), old});
 		}
-		if (b < r){
-			freq[old] += (r - b);
-			st.insert({b + T(1), r, old});
+		if (b < right){
+			freq[old] += (right - b);
+			st.insert({b + T(1), right, old});
 		}
-		while ((p != st.end()) && (p->l <= b)){
-			l = p->l, r = p->r;
+		while ((p != st.end()) && (p->left <= b)){
+			left = p->left, right = p->right;
 			old = p->color;
-			freq[old] -= (r - l + T(1));
-			if (b < r){
-				freq[old] += (r - b);
+			freq[old] -= (right - left + T(1));
+			if (b < right){
+				freq[old] += (right - b);
 				st.erase(p);
-				st.insert({b + T(1), r, old});
+				st.insert({b + T(1), right, old});
 				break;
 			} else	p = st.erase(p);
 		}
