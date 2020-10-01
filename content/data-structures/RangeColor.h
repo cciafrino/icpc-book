@@ -22,46 +22,44 @@ template<class T = int64_t, class C = int32_t> struct RangeColor{
 	set<Node> st;
 	vector<T> freq;
 	
-	RangeColor(T first, T last, C maxColor, C iniColor = 0, C minusInf = -1): minInf(minusInf), freq(maxColor + 1) {
-		freq[iniColor] = last - first + 1LL;
-		st.insert(Node({first, last, iniColor}));
+	RangeColor(T first, T last, C maxColor, C iniColor = C(0), C minusInf = C(-1)): minInf(minusInf), freq(maxColor + C(1)) {
+		freq[iniColor] = last - first + T(1);
+		st.insert({first, last, iniColor});
 	}
 	//get color in position i
 	C query(T i){
-		auto p = st.upper_bound(Node( {0, i - 1LL, minInf} ));
+		auto p = st.upper_bound({0, i - T(1), minInf});
 		return p->color;
 	}
 	//set newColor in [a, b]
 	void upd(T a, T b, C newColor){
-		auto p = st.upper_bound(Node( {0, a - 1LL, minInf} ));
+		auto p = st.upper_bound({0, a - T(1), minInf});
 		assert(p != st.end());
 		T l = p->l, r = p->r;
 		C old = p->color;
-		freq[old] -= (r - l + 1LL);
+		freq[old] -= (r - l + T(1));
 		p = st.erase(p);
 		if (l < a){
 			freq[old] += (a - l);
-			st.insert(Node( {l, a - 1LL, old} ));
+			st.insert({l, a - T(1), old});
 		}
 		if (b < r){
 			freq[old] += (r - b);
-			st.insert(Node( {b + 1LL, r, old} ));
+			st.insert({b + T(1), r, old});
 		}
-		while ((p != st.end()) and (p->l <= b)){
+		while ((p != st.end()) && (p->l <= b)){
 			l = p->l, r = p->r;
 			old = p->color;
-			freq[old] -= (r - l + 1LL);
+			freq[old] -= (r - l + T(1));
 			if (b < r){
 				freq[old] += (r - b);
 				st.erase(p);
-				st.insert(Node( {b + 1LL, r, old} ));
+				st.insert({b + T(1), r, old});
 				break;
 			} else	p = st.erase(p);
 		}
-		freq[newColor] += (b - a + 1LL);
-		st.insert(Node( {a, b, newColor} ));
+		freq[newColor] += (b - a + T(1));
+		st.insert({a, b, newColor});
 	}
-	T countColor(C x){
-		return freq[x];
-	}
+	T countColor(C x){ return freq[x]; }
 };
