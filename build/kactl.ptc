@@ -91,7 +91,7 @@
 \ttl@starttoc {chapters@5}
 \contentsline {section}{\numberline {5.1}Modular arithmetic}{13}{section.5.1}%
 \contentsline {subsection}{\texttt {ModularArithmetic.h}\hspace {0.2em}}{13}{section.5.1}%
-\contentsline {subsection}{\texttt {PairNumTemplate.h}\hspace {0.2em}}{13}{lstnumber.5.1.55}%
+\contentsline {subsection}{\texttt {PairNumTemplate.h}\hspace {0.2em}}{13}{lstnumber.5.1.53}%
 \contentsline {subsection}{\texttt {ModInv.h}\hspace {0.2em}}{13}{lstnumber.5.2.42}%
 \contentsline {subsection}{\texttt {Modpow.h}\hspace {0.2em}}{13}{lstnumber.5.3.13}%
 \contentsline {subsection}{\texttt {ModSum.h}\hspace {0.2em}}{13}{lstnumber.5.4.11}%
@@ -316,7 +316,7 @@
 \contentsline {section}{\texttt {Hashing.h}\hspace {0.2em}}{38}{lstnumber.9.7.37}%
 \contentsline {section}{\texttt {SuffixTree.h}\hspace {0.2em}}{38}{lstnumber.9.8.40}%
 \contentsline {section}{\texttt {AhoCorasick.h}\hspace {0.2em}}{38}{lstnumber.9.9.47}%
-\contentsline {section}{\texttt {SuffixArray.h}\hspace {0.2em}}{38}{lstnumber.9.10.64}%
+\contentsline {section}{\texttt {SuffixArray.h}\hspace {0.2em}}{38}{lstnumber.9.10.65}%
 \contentsline {chapter}{\numberline {10}Various}{39}{chapter.10}%
 \ttl@stoptoc {chapters@9}
 \ttl@starttoc {chapters@10}
@@ -360,7 +360,7 @@
 \contentsline {subsection}{\texttt {TwoMaxEqualSumDS.h}\hspace {0.2em}}{43}{lstnumber.10.34.17}%
 \contentsline {subsection}{\texttt {DistinctSubsequences.h}\hspace {0.2em}}{43}{lstnumber.10.35.15}%
 \contentsline {subsection}{\texttt {CircularLCS.h}\hspace {0.2em}}{43}{lstnumber.10.36.7}%
-\contentsline {subsection}{\texttt {MaxZeroSubmatrix.h}\hspace {0.2em}}{43}{lstnumber.10.37.48}%
+\contentsline {subsection}{\texttt {MaxZeroSubmatrix.h}\hspace {0.2em}}{44}{lstnumber.10.37.48}%
 \contentsline {section}{\numberline {10.4}Debugging tricks}{44}{section.10.4}%
 \contentsline {section}{\numberline {10.5}Optimization tricks}{44}{section.10.5}%
 \contentsline {subsection}{\numberline {10.5.1}Bit hacks}{44}{subsection.10.5.1}%
@@ -374,9 +374,10 @@
 \contentsline {subsection}{\texttt {SIMD.h}\hspace {0.2em}}{44}{lstnumber.10.44.5}%
 \contentsline {subsection}{\texttt {FastMod.h}\hspace {0.2em}}{45}{lstnumber.10.45.43}%
 \contentsline {subsection}{\texttt {LinkedList.h}\hspace {0.2em}}{45}{lstnumber.10.46.10}%
+\contentsline {subsection}{\texttt {CustomComparator.h}\hspace {0.2em}}{45}{lstnumber.10.47.35}%
 \contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{45}{section.10.6}%
 \contentsline {subsection}{\texttt {Hacks.h}\hspace {0.2em}}{45}{section.10.6}%
-\contentsline {subsection}{\texttt {Bitset.h}\hspace {0.2em}}{45}{lstnumber.10.48.51}%
+\contentsline {subsection}{\texttt {Bitset.h}\hspace {0.2em}}{45}{lstnumber.10.49.51}%
 \contentsline {section}{\numberline {10.7}Random Numbers}{45}{section.10.7}%
 \contentsline {subsection}{\texttt {RandomNumbers.h}\hspace {0.2em}}{45}{section.10.7}%
 \contentsline {section}{\numberline {10.8}Other languages}{45}{section.10.8}%

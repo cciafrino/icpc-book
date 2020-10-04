@@ -3,63 +3,66 @@
  * Date: 2015-02-18
  * License: CC0
  * Source: marian's (TC) code
- * Description: Aho-Corasick tree is used for multiple pattern matching.
- * Initialize the tree with create(patterns). find(word) returns for each position
- * the index of the longest word that ends there, or -1 if none. findAll(\_, word) finds all words
- * (up to $N \sqrt N$ many if no duplicate patterns) that start at each position (shortest first).
+ * Description: Aho-Corasick automaton, used for multiple pattern matching.
+ * Initialize with AhoCorasick ac(patterns); the automaton start node will be at index 0.
+ * find(word) returns for each position the index of the longest word that ends there, or -1 if none.
+ * findAll($-$, word) finds all words (up to $N \sqrt N$ many if no duplicate patterns)
+ * that start at each position (shortest first).
  * Duplicate patterns are allowed; empty patterns are not.
  * To find the longest words that start at each position, reverse all input.
- * Time: create is $O(26N)$ where $N$ is the sum of length of patterns.
- * find is $O(M)$ where $M$ is the length of the word. findAll is $O(NM)$.
- * Status: lightly tested
+ * For large alphabets, split each symbol into chunks, with sentinel bits for symbol boundaries.
+ * Time: construction takes $O(26N)$, where $N =$ sum of length of patterns.
+ * find(x) is $O(N)$, where N = length of x. findAll is $O(NM)$.
+ * Status: stress-tested
  */
 struct AhoCorasick {
 	enum {alpha = 26, first = 'A'}; // change this!
 	struct Node {
 		// (nmatches is optional)
-		int back, next[alpha]{}, pat = -1, t = -1, nmatches = 0;
-		void p(int y, vector<int>& L) { t = (pat == -1 ? pat : L[t]) = y; }
+		int back, next[alpha], start = -1, end = -1, nmatches = 0;
+		Node(int v) { memset(next, v, sizeof next);}
 	};
 	vector<Node> N;
 	vector<int> backp;
 	void insert(string& s, int j) {
 		assert(!s.empty());
-		int n = 1;
+		int n = 0;
 		for(char c : s) {
 			int& m = N[n].next[c - first];
-			if (m) n = m;
-			else { n = m = N.size(); N.emplace_back(); }
+			if (m != -1) n = m;
+			else { n = m = N.size(); N.emplace_back(-1); }
 		}
-		backp.push_back(0);
-		N[n].p(j, backp);
+		if (N[n].end == -1) N[n].start = j;
+		backp.push_back(N[n].end);
+		N[n].end = j;
 		N[n].nmatches++;
 	}
-	AhoCorasick(vector<string>& pat) : N(2) {
-		for(int i = 0; i < alpha; ++i) N[0].next[i] = 1;
-		N[1].back = 0;
+	AhoCorasick(vector<string>& pat) : N(1, -1) {
 		for(int i = 0; i < pat.size(); ++i) insert(pat[i], i);
-
-		vector<int> q(N.size()); int qe = q[0] = 1;
-		for(int qi = 0; qi < qe; ++qi) {
-			int n = q[qi], prev = N[n].back;
+		N[0].back = int(N.size());
+		N.emplace_back(0);
+		queue<int> q;
+		for (q.push(0); !q.empty(); q.pop()) {
+			int n = q.front(), prev = N[n].back;
 			for(int i = 0; i < alpha; ++i) {
 				int &ed = N[n].next[i], y = N[prev].next[i];
-				if (!ed) ed = y;
+				if (ed == -1) ed = y;
 				else {
 					N[ed].back = y;
-					N[ed].p(N[y].pat, backp);
+					(N[ed].end == -1 ? N[ed].end : backp[N[ed].start])
+						= N[y].end;
 					N[ed].nmatches += N[y].nmatches;
-					q[qe++] = ed;
+					q.push(ed);
 				}
 			}
 		}
 	}
 	vector<int> find(string word) {
-		int n = 1;
+		int n = 0;
 		vector<int> res; // ll count = 0;
 		for(char &c : word) {
 			n = N[n].next[c - first];
-			res.push_back(N[n].pat);
+			res.push_back(N[n].end);
 			// count += N[n].nmatches;
 		}
 		return res;
@@ -70,7 +73,7 @@ struct AhoCorasick {
 		for(int i = 0; i < word.size(); ++i) {
 			int ind = r[i];
 			while (ind != -1) {
-				res[i - pat[ind].size() + 1].push_back(ind);
+				res[i - int(pat[ind].size()) + 1].push_back(ind);
 				ind = backp[ind];
 			}
 		}
