@@ -35,7 +35,7 @@ int extrVertex(vector<P>& poly, P dir) { ///start-hash
 }///end-hash
 
 #define cmpL(i) sgn(line[0].cross(poly[i], line[1]))
-array<int, 2> lineHull(Line line, vector<P> poly) { ///start-hash
+array<int, 2> lineHull(Line line, vector<P>& poly) { ///start-hash
 	int endA = extrVertex(poly, (line[0] - line[1]).perp());
 	int endB = extrVertex(poly, (line[1] - line[0]).perp());
 	if (cmpL(endA) < 0 || cmpL(endB) > 0)

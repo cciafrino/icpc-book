@@ -207,8 +207,8 @@
 \contentsline {subsection}{\texttt {GomoryHu.h}\hspace {0.2em}}{23}{lstnumber.7.11.70}%
 \contentsline {section}{\numberline {7.3}Matching}{23}{section.7.3}%
 \contentsline {subsection}{\texttt {HopcroftKarp.h}\hspace {0.2em}}{23}{section.7.3}%
-\contentsline {subsection}{\texttt {MaxBipartiteMatching.h}\hspace {0.2em}}{23}{lstnumber.7.13.35}%
-\contentsline {subsection}{\texttt {WeightedMatching.h}\hspace {0.2em}}{23}{lstnumber.7.14.38}%
+\contentsline {subsection}{\texttt {BipartiteMatching.h}\hspace {0.2em}}{23}{lstnumber.7.13.35}%
+\contentsline {subsection}{\texttt {WeightedMatching.h}\hspace {0.2em}}{23}{lstnumber.7.14.42}%
 \contentsline {subsection}{\texttt {GeneralMatching.h}\hspace {0.2em}}{23}{lstnumber.7.15.31}%
 \contentsline {subsection}{\texttt {MaximumIndependentSet.h}\hspace {0.2em}}{24}{lstnumber.7.16.68}%
 \contentsline {subsection}{\texttt {MinimumVertexCover.h}\hspace {0.2em}}{24}{lstnumber.7.17.1}%
