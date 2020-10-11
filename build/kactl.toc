@@ -91,7 +91,7 @@
 \contentsline {section}{\numberline {7.3}Matching}{23}{section.7.3}%
 \contentsline {section}{\numberline {7.4}DFS algorithms}{24}{section.7.4}%
 \contentsline {section}{\numberline {7.5}Heuristics}{26}{section.7.5}%
-\contentsline {section}{\numberline {7.6}Trees}{26}{section.7.6}%
+\contentsline {section}{\numberline {7.6}Trees}{27}{section.7.6}%
 \contentsline {subsection}{\numberline {7.6.1}Sqrt Decomposition}{28}{subsection.7.6.1}%
 \contentsline {section}{\numberline {7.7}Functional Graphs}{28}{section.7.7}%
 \contentsline {section}{\numberline {7.8}Other}{29}{section.7.8}%
@@ -106,14 +106,14 @@
 \contentsline {subsection}{\numberline {7.9.7}Tutte-Berge formula}{30}{subsection.7.9.7}%
 \contentsline {subsection}{\numberline {7.9.8}Tutte's theorem}{30}{subsection.7.9.8}%
 \contentsline {subsection}{\numberline {7.9.9}Number of Spanning Trees}{30}{subsection.7.9.9}%
-\contentsline {subsection}{\numberline {7.9.10}Tutte Matrix}{30}{subsection.7.9.10}%
-\contentsline {subsection}{\numberline {7.9.11}Menger's theorem}{30}{subsection.7.9.11}%
-\contentsline {chapter}{\numberline {8}Geometry}{30}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Geometric primitives}{30}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Circles}{32}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Polygons}{33}{section.8.3}%
+\contentsline {subsection}{\numberline {7.9.10}Tutte Matrix}{31}{subsection.7.9.10}%
+\contentsline {subsection}{\numberline {7.9.11}Menger's theorem}{31}{subsection.7.9.11}%
+\contentsline {chapter}{\numberline {8}Geometry}{31}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Geometric primitives}{31}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Circles}{33}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Polygons}{34}{section.8.3}%
 \contentsline {section}{\numberline {8.4}Misc. Point Set Problems}{35}{section.8.4}%
-\contentsline {section}{\numberline {8.5}3D}{36}{section.8.5}%
+\contentsline {section}{\numberline {8.5}3D}{37}{section.8.5}%
 \contentsline {chapter}{\numberline {9}Strings}{37}{chapter.9}%
 \contentsline {chapter}{\numberline {10}Various}{39}{chapter.10}%
 \contentsline {section}{\numberline {10.1}Intervals}{39}{section.10.1}%
@@ -123,7 +123,7 @@
 \contentsline {section}{\numberline {10.5}Optimization tricks}{44}{section.10.5}%
 \contentsline {subsection}{\numberline {10.5.1}Bit hacks}{44}{subsection.10.5.1}%
 \contentsline {subsection}{\numberline {10.5.2}Pragmas}{44}{subsection.10.5.2}%
-\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{45}{section.10.6}%
+\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{46}{section.10.6}%
 \contentsline {section}{\numberline {10.7}Random Numbers}{46}{section.10.7}%
 \contentsline {section}{\numberline {10.8}Other languages}{46}{section.10.8}%
 \contentsfinish 
