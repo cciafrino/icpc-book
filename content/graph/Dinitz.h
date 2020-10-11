@@ -9,7 +9,7 @@
  * for $u \subset B$, $lvl[u] = 0$.
  * Status: Tested, stress-tested
  */
-template<typename T = lint> struct Dinitz { ///start-hash
+template<typename T = int> struct Dinitz {
 	struct edge_t { int to, rev; T c, f; };
 	vector<vector<edge_t>> adj;
 	vector<int> lvl, ptr, q;
@@ -17,10 +17,10 @@ template<typename T = lint> struct Dinitz { ///start-hash
 	inline void addEdge(int a, int b, T c, T rcap = 0) {
 		adj[a].push_back({b, (int)adj[b].size(), c, 0});
 		adj[b].push_back({a, (int)adj[a].size() - 1, rcap, 0});
-	} ///end-hash
-	T dfs(int v, int t, T f) { ///start-hash
+	}
+	T dfs(int v, int t, T f) {
 		if (v == t || !f) return f;
-		for (int &i = ptr[v]; i < adj[v].size(); ++i) {
+		for (int &i = ptr[v]; i < int(adj[v].size()); ++i) {
 			edge_t &e = adj[v][i];
 			if (lvl[e.to] == lvl[v] + 1)
 				if (T p = dfs(e.to, t, min(f, e.c - e.f))) {
@@ -29,8 +29,8 @@ template<typename T = lint> struct Dinitz { ///start-hash
 				}
 		}
 		return 0;
-	} ///end-hash
-	T maxflow(int s, int t) { ///start-hash
+	}
+	T maxflow(int s, int t) { 
 		T flow = 0; q[0] = s;
 		for (int L = 0; L < 31; ++L) do { // 'int L=30' maybe faster for random data
 			lvl = ptr = vector<int>(q.size());
@@ -44,13 +44,13 @@ template<typename T = lint> struct Dinitz { ///start-hash
 			while (T p = dfs(s, t, numeric_limits<T>::max()/4)) flow += p;
 		} while (lvl[t]);
 		return flow;
-	} ///end-hash
+	} 
 	bool leftOfMinCut(int v) { return lvl[v] != 0; }
-	pair<T, vector<pair<int,int>>> minCut(int s, int t) { ///start-hash
+	pair<T, vector<pair<int,int>>> minCut(int s, int t) {
 		T cost = maxflow(s,t); 
 		vector<pair<int,int>> cut;		
-		for (int i = 0; i < adj.size(); i++) for(edge_t &e : adj[i])
+		for (int i = 0; i < int(adj.size()); i++) for(edge_t &e : adj[i])
 			if (lvl[i] && !lvl[e.to]) cut.push_back({i, e.to});
 		return {cost, cut};
-	} ///end-hash
+	} 
 };

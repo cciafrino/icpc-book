@@ -23,7 +23,7 @@ vector<pair<int,int>> compressTree(lca_t &lca, const vector<int>& subset) {
 	}
 	sort(li.begin(), li.end(), cmp);
 	li.erase(unique(li.begin(), li.end()), li.end());
-	for (int i = 0; i < li.size(); ++i) rev[li[i]] = i;
+	for (int i = 0; i < int(li.size()); ++i) rev[li[i]] = i;
 	vector<pair<int,int>> ret = {{0, li[0]}};
 	for (int i = 0; i < li.size()-1; ++i) {
 		int a = li[i], b = li[i+1];

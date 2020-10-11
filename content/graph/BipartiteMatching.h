@@ -23,7 +23,7 @@ struct Matching {
     }
     void shuffle_edges() { // useful to break some hairy tests
         mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
-        for (int i = 0; i < edges.size(); ++i)
+        for (int i = 0; i < int(edges.size()); ++i)
             shuffle(edges[i].begin(), edges[i].end(), rng);
     } 
     bool dfs(int v) {

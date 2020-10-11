@@ -7,16 +7,16 @@
  * Usage:       
  * Status: Tested
  */
-#include "MaxBipartiteMatching.h"
-vector<vector<int>> minPathCover(BipartiteMatcher &g) {
-    int how_many = g.edges.size() - g.maxMatching();
+#include "BipartiteMatching.h"
+vector<vector<int>> minPathCover(Matching& g, int N) {
+    int how_many = int(g.edges.size()) - g.solve();
     vector<vector<int>> paths;
-    for (int i = 0; i < g.edges.size(); ++i) 
-        if (g.R[i] == -1) {
+    for (int i = 0; i < N; ++i) 
+        if (g.match[i + N] == -1) {
             vector<int> path = {i};
             int cur = i;
-            while (g.L[cur] >= 0) {
-                cur = g.L[cur];
+            while (g.match[cur] >= 0) {
+                cur = g.match[cur] - N;
                 path.push_back(cur);
             }
             paths.push_back(path);

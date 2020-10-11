@@ -22,17 +22,15 @@ bool dfs(int a, int L, const vector<vi> &g, vi &btoa, vi &A, vi &B) { /// start-
             return btoa[b] = a, 1;
     }
     return 0;
-}/// end-hash
+}
 int hopcroftKarp(const vector<vi> &g, vi &btoa) { /// start-hash
     int res = 0;
-    vector<int> A(g.size()), B(btoa.size()), cur, next;
+    vector<int> A(g.size()), B(int(btoa.size())), cur, next;
     for (;;) {
         fill(A.begin(), A.end(), 0), fill(B.begin(), B.end(), 0);
-        /// Find the starting nodes for BFS (i.e. layer 0).
         cur.clear();
         for(auto &a : btoa) if (a != -1) A[a] = -1;
         for (int a = 0; a < g.size(); ++a) if (A[a] == 0) cur.push_back(a);
-        /// Find all layers using bfs.
         for (int lay = 1;; ++lay) { 
             bool islast = 0; next.clear();
             for(auto &a : cur) for(auto &b : g[a]) {
@@ -45,8 +43,7 @@ int hopcroftKarp(const vector<vi> &g, vi &btoa) { /// start-hash
             for(auto &a : next) A[a] = lay;
             cur.swap(next);
         }
-        /// Use DFS to scan for augmenting paths.
-        for(int a = 0; a < g.size(); ++a) 
+        for(int a = 0; a < int(g.size()); ++a) 
             res += dfs(a, 0, g, btoa, A, B);
     }
 } /// end-hash

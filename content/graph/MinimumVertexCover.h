@@ -7,23 +7,24 @@
  *  the complement is a maximum independent set.
  * Status: stress-tested
  */
-#include "MaxBipartiteMatching.h"
-vector<int> cover(BipartiteMatcher& B, int n, int m) {
-    int res = B.maxMatching();
-    vector<bool> lfound(n, true), seen(m);
-    for(int &it : B.R) if (it != -1) lfound[it] = false;
+#include "BipartiteMatching.h"
+vector<int> cover(Matching& B, int N, int M) {
+    int ma = B.solve();
+    vector<bool> lfound(N, true), seen(N+M);
+    for (int i = N; i < N+M; ++i) if (B.match[i] != -1) 
+        lfound[B.match[i]] = false;
     vector<int> q, cover;
-    for(int i = 0; i < n; ++i) if (lfound[i]) q.push_back(i);
-    for(int i = 0; i < q.size(); ++i) {
-        int v = q[i];
+    for (int i = 0; i < N; ++i) if (lfound[i]) q.push_back(i);
+    while (!q.empty()) {
+        int v = q.back(); q.pop_back();
         lfound[v] = true;
-        for (int e : B.edges[v]) if (!seen[e] && B.R[e] != -1) {
+        for(int e : B.edges[v]) if (!seen[e] && B.match[e] != -1) {
             seen[e] = true;
-            q.push_back(B.R[e]);
+            q.push_back(B.match[e]);
         }
     }
-    for(int i = 0; i < n; ++i) if (!lfound[i]) cover.push_back(i);
-    for(int i = 0; i < m; ++i) if (seen[i]) cover.push_back(n+i);
-    assert(cover.size() == res);
+    for (int i = 0; i < N; ++i) if (!lfound[i]) cover.push_back(i);
+    for (int i = N; i < N+M; ++i) if (seen[i]) cover.push_back(i);
+    assert(cover.size() == ma);
     return cover;
 }

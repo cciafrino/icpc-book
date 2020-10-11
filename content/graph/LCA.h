@@ -14,8 +14,8 @@ struct lca_t {
     int T = 0;
     vector<int> time, path, walk, depth;
     rmq_t<int> rmq;
-    lca_t(vector<vector<int>> &edges) : time(edges.size()), 
-    depth(edges.size()), rmq((dfs(edges,0,-1), walk)) {}
+    lca_t(vector<vector<int>> &edges) : time(int(edges.size())), 
+    depth(time), rmq((dfs(edges,0,-1), walk)) {}
     void dfs(vector<vector<int>> &edges, int v, int p) {
         time[v] = T++;
         for(int u : edges[v]) {
