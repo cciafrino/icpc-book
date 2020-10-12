@@ -8,13 +8,13 @@
  * set by finding a clique of the complement graph.
  * Time: Runs in about 1s for n=155 and worst case random graphs (p=.90). Runs
  * faster for sparse graphs.
- * Status: fuzz-tested
+ * Status: stress-tested
  */
-typedef vector<bitset<200>> vb;
+using vb = vector<bitset<40>>;
 struct Maxclique {
 	double limit = 0.025, pk = 0;
 	struct Vertex { int i, d = 0; };
-	typedef vector<Vertex> vv;
+	using vv = vector<Vertex>;
 	vb e;
 	vv V;
 	vector<vector<int>> C;
@@ -24,19 +24,19 @@ struct Maxclique {
 		for(auto& v : r) for(auto& j : r) v.d += e[v.i][j.i];
 		sort(r.begin(), r.end(), [](auto a, auto b) { return a.d > b.d; });
 		int mxD = r[0].d;
-		for(int i = 0; i < r.size(); ++i) r[i].d = min(i, mxD) + 1;
+		for(int i = 0; i < int(r.size()); ++i) r[i].d = min(i, mxD) + 1;
 	}
 	void expand(vv& R, int lev = 1) {
 		S[lev] += S[lev - 1] - old[lev];
 		old[lev] = S[lev - 1];
-		while (R.size()) {
-			if (q.size() + R.back().d <= qmax.size()) return;
+		while (int(R.size())) {
+			if (int(q.size()) + R.back().d <= int(qmax.size())) return;
 			q.push_back(R.back().i);
 			vv T;
 			for(auto& v : R) if (e[R.back().i][v.i]) T.push_back({v.i});
-			if (T.size()) {
+			if (int(T.size())) {
 				if (S[lev]++ / ++pk < limit) init(T);
-				int j = 0, mxk = 1, mnk = max(qmax.size() - q.size() + 1, 1);
+				int j = 0, mxk = 1, mnk = max(int(qmax.size()) - int(q.size()) + 1, 1);
 				C[1].clear(), C[2].clear();
 				for(auto& v : T) {
 					int k = 1;
@@ -47,15 +47,15 @@ struct Maxclique {
 					C[k].push_back(v.i);
 				}
 				if (j > 0) T[j - 1].d = 0;
-				for(int k = mnk; k <= mxk; ++k) for(auto& i : C[k])
+				for(int k = mnk; k <= mxk; ++k) for(int i : C[k])
 					T[j].i = i, T[j++].d = k;
 				expand(T, lev + 1);
-			} else if (q.size() > qmax.size()) qmax = q;
+			} else if (int(q.size()) > int(qmax.size())) qmax = q;
 			q.pop_back(), R.pop_back();
 		}
 	}
 	vector<int> maxClique() { init(V), expand(V); return qmax; }
-	Maxclique(vb conn) : e(conn), C(sz(e)+1), S(C.size()), old(S) {
-		for(int i = 0; i < e.size(); ++i) V.push_back({i});
+	Maxclique(vb conn) : e(conn), C(int(e.size())+1), S(int(C.size())), old(S) {
+		for(int i = 0; i < int(e.size()); ++i) V.push_back({i});
 	}
 };
