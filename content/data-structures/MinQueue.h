@@ -6,28 +6,22 @@
  * Status: fuzz-tested
  * Time: $O(1)$ 
  */
-
-template<typename T> 
-struct minQueue {
-	int lx, rx, sum;
+template<typename T> struct minQueue {
+	int L, R, S;
 	deque<pair<T, T>> q;
-	minQueue() { lx = 1; rx = 0; sum = 0; }
-	void clear() { lx = 1, rx = 0, sum = 0; q.clear(); }
+	minQueue() { L = 1; R = 0; S = 0; }
+	void clear() { L = 1, R = 0, S = 0; q.clear(); }
 	void push(T delta) {
 	   // q.back().first + sum <= delta for a maxQueue
-		while(!q.empty() && q.back().first + sum >= delta)
+	    while(!q.empty() && q.back().first + S >= delta)
 			q.pop_back();
-		q.emplace_back(delta - sum, ++rx);
+	    q.emplace_back(delta - S, ++R);
 	}
 	void pop() {
-		if (!q.empty() && q.front().second == lx++)
-			q.pop_front();
+	    if (!q.empty() && q.front().second == L++)
+		q.pop_front();
 	}
-	void add(T delta) { 
-		sum += delta; 
-	}
-	T getMin() {
-		return q.front().first + sum;
-	}
-	int size() { return rx-lx+1; }
+	void add(T delta) { S += delta; }
+	T getMin() { return q.front().first + S; }
+	int size() { return R - L + 1; }
 };

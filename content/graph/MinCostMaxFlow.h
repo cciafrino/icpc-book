@@ -6,10 +6,9 @@
  * Status: Working on kattis Minimum Cost Maximum Flow and Spoj Greedy
  * Time: Approximately O(E^2) faster than Kactl's on practice
  */
- 
 #include<bits/extc++.h> // don't forget!
 template <typename flow_t = int, typename cost_t = long long>
-struct MCMF_SSPA { ///start-hash
+struct MCMF_SSPA {
 	int N;
 	vector<vector<int>> adj;
 	struct edge_t { int dest; flow_t cap; cost_t cost; };
@@ -20,6 +19,7 @@ struct MCMF_SSPA { ///start-hash
 	explicit MCMF_SSPA(int N_) : N(N_), adj(N), pi(N, 0), prv(N) {}
 	void addEdge(int from, int to, flow_t cap, cost_t cost) {
 		assert(cap >= 0);
+		assert(cost >= 0);
 		int e = int(edges.size());
 		edges.emplace_back(edge_t{to, cap, cost});
 		edges.emplace_back(edge_t{from, 0, -cost});
@@ -31,8 +31,7 @@ struct MCMF_SSPA { ///start-hash
 	vector<cost_t> dist;
 	__gnu_pbds::priority_queue<pair<cost_t, int>> q;
 	vector<typename decltype(q)::point_iterator> its;
-	///end-hash
-	void path(int s) { ///start-hash
+	void path(int s) { 
 		dist.assign(N, INF_COST);
 		dist[s] = 0;
 		its.assign(N, q.end());
@@ -54,8 +53,8 @@ struct MCMF_SSPA { ///start-hash
 			}
 		}
 		swap(pi, dist);
-	}///end-hash
-	pair<flow_t, cost_t> maxflow(int s, int t) { ///start-hash
+	}
+	pair<flow_t, cost_t> maxflow(int s, int t) {
 		assert(s != t);
 		flow_t totFlow = 0; cost_t totCost = 0;
 		while (path(s), pi[t] < INF_COST) {
@@ -77,5 +76,5 @@ struct MCMF_SSPA { ///start-hash
 			}
 		}
 		return {totFlow, totCost};
-	} ///end-hash
+	}
 };

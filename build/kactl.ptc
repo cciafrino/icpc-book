@@ -218,8 +218,8 @@
 \contentsline {section}{\numberline {7.4}DFS algorithms}{24}{section.7.4}%
 \contentsline {subsection}{\texttt {DFSTree.h}\hspace {0.2em}}{24}{section.7.4}%
 \contentsline {subsection}{\texttt {CentroidDecomposition.h}\hspace {0.2em}}{25}{lstnumber.7.22.51}%
-\contentsline {subsection}{\texttt {Tarjan.h}\hspace {0.2em}}{25}{lstnumber.7.23.57}%
-\contentsline {subsection}{\texttt {BiconnectedComponents.h}\hspace {0.2em}}{25}{lstnumber.7.24.27}%
+\contentsline {subsection}{\texttt {SCC.h}\hspace {0.2em}}{25}{lstnumber.7.23.57}%
+\contentsline {subsection}{\texttt {BiconnectedComponents.h}\hspace {0.2em}}{25}{lstnumber.7.24.24}%
 \contentsline {subsection}{\texttt {2sat.h}\hspace {0.2em}}{25}{lstnumber.7.25.31}%
 \contentsline {subsection}{\texttt {Cycles.h}\hspace {0.2em}}{26}{lstnumber.7.26.49}%
 \contentsline {section}{\numberline {7.5}Heuristics}{26}{section.7.5}%
@@ -240,8 +240,8 @@
 \contentsline {subsection}{\texttt {MatrixTreeMST.h}\hspace {0.2em}}{29}{section.7.8}%
 \contentsline {subsection}{\texttt {ManhattanMST.h}\hspace {0.2em}}{29}{lstnumber.7.38.85}%
 \contentsline {subsection}{\texttt {ErdosGallai.h}\hspace {0.2em}}{30}{lstnumber.7.39.28}%
-\contentsline {subsection}{\texttt {DirectedMST.cpp}\hspace {0.2em}}{30}{lstnumber.7.40.15}%
-\contentsline {subsection}{\texttt {NegCycle.h}\hspace {0.2em}}{30}{lstnumber.7.41.47}%
+\contentsline {subsection}{\texttt {DirectedMST.h}\hspace {0.2em}}{30}{lstnumber.7.40.15}%
+\contentsline {subsection}{\texttt {NegCycle.h}\hspace {0.2em}}{30}{lstnumber.7.41.59}%
 \contentsline {section}{\numberline {7.9}Theorems}{30}{section.7.9}%
 \contentsline {subsection}{\numberline {7.9.1}Landau}{30}{subsection.7.9.1}%
 \contentsline {subsection}{\numberline {7.9.2}Euler's theorem}{30}{subsection.7.9.2}%
@@ -252,7 +252,7 @@
 \contentsline {subsection}{\numberline {7.9.6}Maximum Weighted Independent Set in a Bipartite Graph}{30}{subsection.7.9.6}%
 \contentsline {subsection}{\numberline {7.9.7}Tutte-Berge formula}{30}{subsection.7.9.7}%
 \contentsline {subsection}{\numberline {7.9.8}Tutte's theorem}{30}{subsection.7.9.8}%
-\contentsline {subsection}{\numberline {7.9.9}Number of Spanning Trees}{30}{subsection.7.9.9}%
+\contentsline {subsection}{\numberline {7.9.9}Number of Spanning Trees}{31}{subsection.7.9.9}%
 \contentsline {subsection}{\numberline {7.9.10}Tutte Matrix}{31}{subsection.7.9.10}%
 \contentsline {subsection}{\numberline {7.9.11}Menger's theorem}{31}{subsection.7.9.11}%
 \contentsline {chapter}{\numberline {8}Geometry}{31}{chapter.8}%

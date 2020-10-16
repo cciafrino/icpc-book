@@ -4,7 +4,7 @@
 // #include "mcmf4.h"
 // #include "mcmfold.h"
 // #include "mcmfnew.h"
-#include <bits/extc++.h>
+//#include <bits/extc++.h>
 #define setpi dummy(){} bool setpi
 #undef assert
 #define assert(x) return x
@@ -125,7 +125,7 @@ ll MinCostMatching(const vector<vd>& cost, vi& L, vi& R) {
 void testPerf() {
 	srand(2);
 	int N = 500, E = 10000, CAPS = 100, COSTS = 100000;
-	MCMF mcmf(N);
+	MCMF_SSPA<ll, ll> mcmf(N+10);
 	int s = 0, t = 1;
 	rep(i,0,E) {
 		int a = rand() % N;
@@ -142,7 +142,7 @@ void testPerf() {
 }
 
 void testMatching() {
-	rep(it,0,100000) {
+	rep(it,0,1000000) {
 		size_t last = ::i;
 		int N = rand() % 10, M = rand() % 10;
 		int NM = max(N, M);
@@ -151,7 +151,7 @@ void testMatching() {
 		vi L, R;
 		ll v = MinCostMatching(co, L, R);
 		int S = N+M, T = N+M+1;
-		MCMF mcmf(N+M+2);
+		MCMF_SSPA<ll, ll> mcmf(N+M+20);
 		rep(i,0,N) mcmf.addEdge(S, i, 1, 0);
 		rep(i,0,M) mcmf.addEdge(N+i, T, 1, 0);
 		rep(i,0,N) rep(j,0,M) mcmf.addEdge(i, N+j, 1, co[i][j] - 2);
@@ -161,6 +161,7 @@ void testMatching() {
 		assert(pa.second == v - 2 * pa.first);
 		::i = last;
 	}
+	cout << "Tests passed!" << endl;
 }
 
 void testNeg() {
@@ -170,8 +171,8 @@ void testNeg() {
 		int N = rand() % 7 + 2;
 		int M = rand() % 17;
 		int S = 0, T = 1;
-		MCMF mcmf(N);
-		MCMF2 mcmf2(N);
+		MCMF_SSPA<ll, ll> mcmf(N+10);
+		MCMF2 mcmf2(N+10);
 		rep(i,0,N) rep(j,0,N) ed[i][j] = 0;
 		rep(eid,0,M) {
 			int i = rand() % N, j = rand() % N;
@@ -194,6 +195,7 @@ void testNeg() {
 }
 
 int main() {
+	//testPerf();
 	testMatching();
-	testNeg();
+	//testNeg();
 }
