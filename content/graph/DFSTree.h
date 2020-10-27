@@ -1,56 +1,50 @@
 /**
- * Author: Chris
- * Description: Builds dfs tree. Find cut vertices and bridges.
+ * Author: Chris and LeticiaFCS
+ * Description: Find cut vertices and bridges.
  * Usage: Call solve right after build the graph
  */
 struct tree_t {
-    int timer, n;
-    vector<vector<int>> edges;
-    vector<pair<int,int>> bridges;
-    vector<int> depth, mindepth, parent, st, cut, children;
-    tree_t(int n) : n(n), timer(0), edges(n), parent(n,-1),
-        mindepth(n,-1), depth(n,-1), st(n,-1) {}
-    void addEdge(int a, int b) { 
-        edges[a].push_back(b); edges[b].push_back(a);
+	struct ed{
+		int pos, from, to;
+	};
+	int timer, n, m;
+	vector<bool> art, bridges;
+	vector<int> pre, low;
+    vector<vector<int>> g;
+	vector<ed> edges;
+	tree_t(int n): n(n), art(n), pre(n), low(n), g(n), timer(1), m(0){ }
+	void addEdge(int u, int v) { 
+		edges.push_back({m, u, v});
+        g[u].push_back(m++);
+        edges.push_back({m, v, u});
+        g[v].push_back(m++);
     }
-    void dfs(int v) {
-        st[v] = timer;
-        mindepth[v] = depth[v];
-        for (int u : edges[v]) {
-            if (u == parent[v]) continue;
-            if (st[u] == timer) {
-                mindepth[v] = min(mindepth[v], depth[u]);
-                continue;
-            }
-            depth[u] = 1 + depth[v];
-            parent[u] = v;
-            dfs(u);
-            mindepth[v] = min(mindepth[v], mindepth[u]);
-        }
+    array<int, 2> getEdge(int id){
+    	return { edges[id].from, edges[id].to };
     }
-    vector<pair<int,int>> find_bridges() {
-        for (int i = 0; i < n; ++i) 
-            if (parent[i] != -1 && mindepth[i] == depth[i]) 
-                bridges.push_back({parent[i], i});c
-        return bridges;
-    }
-    vector<bool> find_cut() {
-        cut.resize(n), children.resize(n);
-        for (int i = 0; i < n; ++i) 
-            if (parent[i] != -1 && mindepth[i] >= depth[parent[i]]) 
-                cut[parent[i]] = 1;
-        for (int i = 0; i < n; ++i) 
-            if (parent[i] != -1) child[parent[i]]++;
-        for (int i = 0; i < n; ++i) 
-            if (parent[i] == -1 && child[i] < 2) cut[i] = 0;
-        return cut;
-    }
-    void solve() {
-        for (int i = 0; i < n; ++i) 
-            if (depth[i] == -1) {
-                depth[i] = 0; parent[i] = -1;
-                ++timer;
-                dfs(i);
-            }
-    }
+	int dfs(int u, int p){
+		low[u] = pre[u] = timer++;
+		int ch = 0;
+		for(auto &pos:g[u]){
+			int v = edges[pos].to;
+			if(v == p) continue;
+			if(pre[v]) low[u] = min(low[u], pre[v]);
+			else{
+				dfs(v, u); ch++;
+				if(low[v] >= pre[u] && p != -1)
+					art[u] = true;
+				if(low[v] > pre[u]){
+					bridges[pos] = bridges[pos^1] = true;
+				}
+				low[u] = min(low[u], low[v]);
+			}
+		}
+		return ch;
+	}
+	void solve(){
+		bridges.resize(m);
+		for(int u=0; u<n; u++)
+			if(!pre[u]) art[u] = dfs(u, -1) > 1;
+	}		
 };
+ 
