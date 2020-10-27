@@ -12,10 +12,8 @@ struct tree_t {
 	vector<ed> edges;
 	tree_t(int n): n(n), art(n), pre(n), low(n), g(n), timer(1), m(0){ }
 	void addEdge(int u, int v) { 
-		edges.push_back({m, u, v});
-		g[u].push_back(m++);
-		edges.push_back({m, v, u});
-		g[v].push_back(m++);
+		edges.push_back({m, u, v}); g[u].push_back(m++);
+		edges.push_back({m, v, u}); g[v].push_back(m++);
 	}
 	array<int, 2> getEdge(int id){
 		return { edges[id].from, edges[id].to };
