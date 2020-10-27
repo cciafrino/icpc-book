@@ -4,24 +4,22 @@
  * Usage: Call solve right after build the graph
  */
 struct tree_t {
-	struct ed{
-		int pos, from, to;
-	};
+	struct ed{ int pos, from, to; };
 	int timer, n, m;
 	vector<bool> art, bridges;
 	vector<int> pre, low;
-    vector<vector<int>> g;
+    	vector<vector<int>> g;
 	vector<ed> edges;
 	tree_t(int n): n(n), art(n), pre(n), low(n), g(n), timer(1), m(0){ }
 	void addEdge(int u, int v) { 
 		edges.push_back({m, u, v});
-        g[u].push_back(m++);
-        edges.push_back({m, v, u});
-        g[v].push_back(m++);
-    }
-    array<int, 2> getEdge(int id){
-    	return { edges[id].from, edges[id].to };
-    }
+		g[u].push_back(m++);
+		edges.push_back({m, v, u});
+		g[v].push_back(m++);
+	}
+	array<int, 2> getEdge(int id){
+		return { edges[id].from, edges[id].to };
+	}
 	int dfs(int u, int p){
 		low[u] = pre[u] = timer++;
 		int ch = 0;
