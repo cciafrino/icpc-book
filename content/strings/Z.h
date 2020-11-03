@@ -8,16 +8,16 @@
 vector<int> Z(string& S) {
     vector<int> z(S.size());
     int l = -1, r = -1;
-    for(int i = 1; i < S.size(); ++i) {
+    for(int i = 1; i < int(S.size()); ++i) {
         z[i] = i >= r ? 0 : min(r - i, z[i - l]);
-        while (i + z[i] < S.size() && S[i + z[i]] == S[z[i]])
+        while (i + z[i] < int(S.size()) && S[i + z[i]] == S[z[i]])
             z[i]++;
         if (i + z[i] > r) l = i, r = i + z[i];
     }
     return z;
 }
-vector<int> get_prefix(string a, string b) { /// start-hash
+vector<int> get_prefix(string a, string b) { 
     string str = a + '@' + b;
     vector<int> k = z(str);
-    return vector<int>(k.begin()+a.size()+1, k.end());
-} /// end-hash
+    return vector<int>(k.begin() + int(a.size())+1, k.end());
+}

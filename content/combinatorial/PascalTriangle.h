@@ -1,6 +1,6 @@
 /**
  * Author: Chris
- * Date: 
+ * Date: 2020
  * License: CC0
  * Source: 
  * Status: 
@@ -8,13 +8,10 @@
  * Usage:
  * Time: $O(N^2)$
  */
-
-void init() {
-	c[0][0] = 1;
-	for (int i = 0; i < n; ++i) {
-	    c[i][0] = c[i][i] = 1;
-	    for (int j = 1; j < i; ++j)
-	        c[i][j] = c[i-1][j-1] + c[i-1][j];
-	}	
+ll C[1010][1010];
+for (int n = 0; n <= 1000; ++n) {
+	C[n][0] = C[n][n] = 1;
+	for (int k = 1; k < n; ++k) {
+		C[n][k] = (C[n - 1][k - 1] + C[n - 1][k]) % mod;
+	}
 }
-
