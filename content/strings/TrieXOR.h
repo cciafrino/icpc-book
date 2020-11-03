@@ -1,36 +1,37 @@
 /**
- * Author: BenQ
- * Source: 
- * Description: Query max xor with some int in the xor trie
+ * Author: Chris
+ * Source: bqi343
+ * Description: Query get the maximum possible xor between an integer X and every possible 
+ * subarray.
+ * Just insert zero and for each prefix xor, insert it in the trie and query for max xor. 
+ * The answer is the maximum possible value for each prefix query. 
  * Time: 
- * Status: Fuzz-tested
+ * Status: tested in CSES1655 and DCPC2015E
  * Usage:
  */
- 
-template<int MX, int MXBIT> 
-struct xorTrie {
-    int nxt[MX][2], sz[MX];// num is last node in trie
-    int num = 0;
+template<int SZ, int MXBIT> struct Trie {
+    int nxt[SZ][2], num = 0; // num is last node in trie
+    unordered_map<int, int> nodes; 
     // change 2 to 26 for lowercase letters
-    xorTrie() { memset(nxt, 0, sizeof nxt), memset(sz, 0, sizeof sz); }
-    // add or delete
-    void add(lint x, int a = 1) { 
-        int cur = 0; sz[cur] += a; 
-        for(int i = MXBIT-1; i >= 0; --i) {
-            int t = (x & (1 << i)) >> i;
-            if (!nxt[cur][t]) nxt[cur][t] = ++num;
-            sz[cur = nxt[cur][t]] += a;
-        }
-    }
-    // compute max xor
-    lint query(lint x) {
-        if (sz[0] == 0) return INT_MIN; // no elements in trie
+    Trie() { memset(nxt,0,sizeof nxt); }
+    void add(int x) { 
         int cur = 0;
         for(int i = MXBIT-1; i >= 0; --i) {
-            int t = ((x & (1 << i)) >> i) ^ 1;
-            if (!nxt[cur][t] || !sz[nxt[cur][t]]) t ^= 1;
-            cur = nxt[cur][t]; if (t) x ^= 1lint<<i;
+            int t = (x >> i) & 1;
+            if (!nxt[cur][t]) nxt[cur][t] = ++num;
+            cur = nxt[cur][t];
         }
-        return x;
+        nodes[cur] = x; // leaf value
+    }
+    int query(int x) { 
+        int cur = 0, ma = 0;
+        for (int i = MXBIT-1; i >= 0; --i) {
+            int t = ((x >> i) & 1) ^ 1;
+            if (!nxt[cur][t]) t ^= 1;
+            cur = nxt[cur][t];
+            ma <<= 1; ma |= t;
+        }
+        // or return ma for max xor with one value instead of subarray
+        return x ^ nodes[cur]; 
     }
 };
