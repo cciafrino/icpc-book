@@ -1,58 +1,54 @@
 /**
  * Author: Chris
- * Description: Operators for modular arithmetic. You need to set 
- * {\tt mod} to some number first and then you can use the structure.
+ * Source: hos.lyric
+ * Description: Operators for modular arithmetic. 
  */
-template<int MOD_>  struct modnum {
-private:
-	using ll = long long; ll v;
-	static int minv(int a, int m) {
-		a %= m; assert(a);
-		return a == 1 ? 1 : int(m - ll(minv(m, a)) * ll(m) / a);
-	}
-public:
-	static constexpr int MOD = MOD_;
-	modnum() : v(0) {}
-	modnum(ll v_) : v(int(v_ % MOD)) { if (v < 0) v += MOD; }
-	explicit operator int() const { return v; }
-	friend std::ostream &operator<<(std::ostream& out, const modnum& n) { return out << int(n); }
-	friend std::istream &operator>>(std::istream& in, modnum& n) { ll v_; in >> v_; n = modnum(v_); return in; }
-	friend bool operator==(const modnum& a, const modnum& b) { return a.v == b.v; }
-	friend bool operator!=(const modnum& a, const modnum& b) { return a.v != b.v; }
-	modnum inv() const {
-		modnum res;
-		res.v = minv(v, MOD);
-		return res;
-	}
-	modnum neg() const {
-		modnum res;
-		res.v = v ? MOD-v : 0;
-		return res;
-	}
-	modnum operator-() const { return neg(); }
-	modnum operator+() const { return modnum(*this); }
-	modnum& operator+=(const modnum& o) {
-		v -= MOD - o.v;
-		v = (v < 0) ? v + MOD : v;
-		return *this;
-	}
-	modnum& operator-=(const modnum& o) {
-		v -= o.v;
-		v = (v < 0) ? v + MOD : v;
-		return *this;
-	}
-	modnum& operator*=(const modnum& o) {
-		v = int(ll(v) * ll(o.v) % MOD);
-		return *this;
-	}
-	modnum& operator/=(const modnum& o) { return *this *= o.inv(); }
-	friend modnum operator+(const modnum& a, const modnum& b) { return modnum(a) += b; }
-	friend modnum operator-(const modnum& a, const modnum& b) { return modnum(a) -= b; }
-	friend modnum operator*(const modnum& a, const modnum& b) { return modnum(a) *= b; }
-	friend modnum operator/(const modnum& a, const modnum& b) { return modnum(a) /= b; }
+
+template<int M_> struct modnum {
+    static constexpr int M = M_;
+    using ll = long long; int x;
+    constexpr modnum() : x(0) {}
+    constexpr modnum(ll x_) : x(x_ % M) { if (x < 0) x += M; }
+    explicit operator int() const { return x; }
+    modnum& operator+=(const modnum& a) { x += a.x; if (x >= M) x -= M; return *this; }
+    modnum& operator-=(const modnum& a) { x -= a.x; if (x < 0) x += M; return *this; }
+    modnum& operator*=(const modnum& a) { x = static_cast<int>((static_cast<ll>(x) * a.x) % M); return *this; }
+    modnum& operator/=(const modnum& a) { return (*this *= a.inv()); }
+    modnum operator+(const modnum& a) const { return (modnum(*this) += a); }
+    modnum operator-(const modnum& a) const { return (modnum(*this) -= a); }
+    modnum operator*(const modnum& a) const { return (modnum(*this) *= a); }
+    modnum operator/(const modnum& a) const { return (modnum(*this) /= a); }
+    modnum operator-() const { return modnum(-x); }
+    modnum pow(ll e) const {
+        if (e < 0) return inv().pow(-e);
+        modnum x2 = x, xe = 1;
+        for (; e; e >>= 1) {
+            if (e & 1) xe *= x2;
+            x2 *= x2;
+        }
+        return xe;
+    }
+    modnum inv() const {
+        int a = x, b = M, y = 1, z = 0, t;
+        for (;;) {
+            t = a / b; a -= t * b;
+            if (a == 0) {
+                assert(b == 1 || b == -1);
+                return modnum(b * z);
+            }
+            y -= t * z;
+            t = b / a; b -= t * a;
+            if (b == 0) {
+                assert(a == 1 || a == -1);
+                return modnum(a * y);
+            }
+            z -= t * y;
+        }
+    }
+    friend modnum operator+(long long a, const modnum& b) { return (modnum(a) += b); }
+    friend modnum operator-(long long a, const modnum& b) { return (modnum(a) -= b); }
+    friend modnum operator*(long long a, const modnum& b) { return (modnum(a) *= b); }
+    friend ostream &operator<<(ostream& os, const modnum& a) { return os << a.x; }
+    friend istream &operator>>(istream& in, modnum& n) { ll v_; in >> v_; n = modnum(v_); return in; }
 };
-template <typename T> T pow(T a, long long b) {
-	assert(b >= 0);
-	T r = 1; while (b) { if (b & 1) r *= a; b >>= 1; a *= a; } return r;
-}
-using num = modnum<int(1e9)+7>;
+
