@@ -1,5 +1,4 @@
- 
-/**
+ /**
  * Author: chilli, SJTU, pajenegod
  * Date: 2020-03-04
  * License: CC0
@@ -54,7 +53,7 @@ vector<ull> factor(ull n) {
 	if (n == 1) return {};
 	if (isPrime(n)) return {n};
 	ull x = pollard(n);
-	auto l = factor(x), r = factor(n/x);
+	auto l = factor(x), r = factor(n / x);
 	l.insert(l.end(), r.begin(), r.end());
 	return l;
 }

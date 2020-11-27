@@ -3,34 +3,32 @@
  * Date: 
  * License: CC0
  * Source: Felipe Abella
- * Status: Tested at Spoj RMQ
+ * Status: Tested several times
  * Description: Range Minimum/Maximum Queries on an array. Returns
  * min(V[a], V[a + 1], ... V[b - 1]) in constant time. Returns a pair that holds the answer, first element is the value and the second is the index.
  * Usage:
- *  rmq_t<int> rmq(values);
+ *  rmq_t<pair<int, int>> rmq(values); // values is a vector of pairs {val(i), index(i)}
  *  rmq.query(inclusive, inclusive); 
- *  rmq_t<int, greater<pair<int,int>>> rmq(values) //max query
- * Time: $O(|V| \log |V| + Q)$
+ *  rmq_t<pair<int, int>, greater<pair<int, int>>> rmq(values) //max query
+ *  Time: $O(|V| \log |V| + Q)$
  */
-
-// change cmp for max query or similar
-template<typename T, typename Cmp=less<pair<T, int>>>
-struct rmq_t {
-    Cmp cmp; vector<vector<pair<T, int>>> table; 
+template<typename T, typename Cmp=less<T>>
+struct rmq_t : private Cmp {
+    int N = 0;
+    vector<vector<T>> table; 
+    const T& min(const T& a, const T& b) const { return Cmp::operator()(a, b) ? a : b; }
     rmq_t() {}
-    rmq_t(const vector<T> &values) {
-        int n = values.size();
-        table.resize(__lg(n)+1);
-        table[0].resize(n);
-        for (int i = 0; i < n; ++i) table[0][i] = {values[i], i};
-        for (int l = 1; l < (int)table.size(); ++l) {
-            table[l].resize(n - (1<<l) + 1);
-            for (int i = 0; i + (1<<l) <= n; ++i) 
-                table[l][i] = min(table[l-1][i], table[l-1][i+(1<<(l-1))], cmp); 
+    rmq_t(const vector<T>& values) : N(int(values.size())), table(__lg(N) + 1) {
+        table[0].resize(N);
+        for (int i = 0; i < N; ++i) table[0][i] = values[i];
+        for (int a = 1; a < int(table.size()); ++a) {
+            table[a].resize(N - (1 << a) + 1);
+            for (int b = 0; b + (1 << a) <= N; ++b) 
+                table[a][b] = min(table[a-1][b], table[a-1][b + (1 << (a-1))]); 
         }
     }
-    pair<T, int> query(int a, int b) { 
-        int l = __lg(b-a+1);
-        return min(table[l][a], table[l][b-(1<<l)+1], cmp);
+    T query(int a, int b) const { 
+        int lg = __lg(b - a + 1);
+        return min(table[lg][a], table[lg][b - (1 << lg) + 1]);
     }
 };
