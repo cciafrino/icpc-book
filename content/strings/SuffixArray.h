@@ -54,7 +54,8 @@ struct suffix_array_t {
     pair<int, int> rmq_query(int a, int b) { return RMQ.query(a, b); } 
     int get_lcp(int a, int b) { 
         if (a == b) return N - a;
-        int ia = invsa[a], ib = invsa[b];
-        return rmq_query(min(ia, ib) + 1, max(ia, ib)).first;
+        int ia = invsa[a], ib = invsa[b], x, y; 
+        tie(x, y) = minmax(ia, ib); 
+        return rmq_query(x + 1, y).first;
     } 
 };

@@ -8,7 +8,7 @@ template<int M_> struct modnum {
     static constexpr int M = M_;
     using ll = long long; int x;
     constexpr modnum() : x(0) {}
-    constexpr modnum(ll x_) : x(x_ % M) { if (x < 0) x += M; }
+    constexpr modnum(ll x_) : x(int(x_ % M)) { if (x < 0) x += M; }
     explicit operator int() const { return x; }
     modnum& operator+=(const modnum& a) { x += a.x; if (x >= M) x -= M; return *this; }
     modnum& operator-=(const modnum& a) { x -= a.x; if (x < 0) x += M; return *this; }
@@ -45,9 +45,13 @@ template<int M_> struct modnum {
             z -= t * y;
         }
     }
-    friend modnum operator+(long long a, const modnum& b) { return (modnum(a) += b); }
-    friend modnum operator-(long long a, const modnum& b) { return (modnum(a) -= b); }
-    friend modnum operator*(long long a, const modnum& b) { return (modnum(a) *= b); }
+    friend modnum inv(const modnum& a) { return a.inv(); }
+    friend modnum operator+(ll a, const modnum& b) { return (modnum(a) += b); }
+    friend modnum operator-(ll a, const modnum& b) { return (modnum(a) -= b); }
+    friend modnum operator*(ll a, const modnum& b) { return (modnum(a) *= b); }
+    friend modnum operator/(ll a, const modnum& b) { return (modnum(a) /= b); }
+    friend bool operator==(const modnum& a, const modnum& b) { a.x == b.x; }
+    friend bool operator!=(const modnum& a, const modnum& b) { a.x != b.x; }
     friend ostream &operator<<(ostream& os, const modnum& a) { return os << a.x; }
     friend istream &operator>>(istream& in, modnum& n) { ll v_; in >> v_; n = modnum(v_); return in; }
 };
