@@ -3,7 +3,7 @@
  * Description: Builds suffix array for a string. 
  * The {\tt lcp} function calculates longest
  * common prefixes for neighbouring strings in suffix array.
- * The returned vector is of size $n+1$, and $ret[0] = 0$.
+ * The returned vector is of size $n+1$. 
  * Time: $O(N \log N)$ where $N$ is the length of the string
  * for creation of the SA. $O(N)$ for longest common prefixes.
  */
@@ -29,7 +29,7 @@ struct suffix_array_t {
     } 
     suffix_array_t() {} 
     template<typename I>
-    suffix_array_t(I begin, I end): N(end - begin), sa(N) {
+    suffix_array_t(I begin, I end): N(int(end - begin)), sa(N) {
         vector<int> v(begin, end); v.push_back(INT_MIN);
         invsa = v; iota(sa.begin(), sa.end(), 0);
         H = 0; ternary_sort(0, N);
@@ -51,11 +51,12 @@ struct suffix_array_t {
         for (int i = 0; i < N; ++i) lcp_index[i] = {lcp[i], 1 + i};
         RMQ = rmq_t<pair<int, int>>(move(lcp_index));
     } 
-    pair<int, int> rmq_query(int a, int b) { return RMQ.query(a, b); } 
-    int get_lcp(int a, int b) { 
+    pair<int, int> rmq_query(int a, int b) const { return RMQ.query(a, b); } 
+    pair<int, int> get_split(int a, int b) const { return RMQ.query(a, b-2); }
+    int get_lcp(int a, int b) const { 
         if (a == b) return N - a;
-        int ia = invsa[a], ib = invsa[b], x, y; 
-        tie(x, y) = minmax(ia, ib); 
-        return rmq_query(x + 1, y).first;
+        a = invsa[a], b = invsa[b];
+        if (a > b) swap(a, b);
+        return rmq_query(a + 1, b).first;
     } 
 };
