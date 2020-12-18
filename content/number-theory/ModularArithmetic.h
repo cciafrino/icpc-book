@@ -50,8 +50,8 @@ template<int M_> struct modnum {
     friend modnum operator-(ll a, const modnum& b) { return (modnum(a) -= b); }
     friend modnum operator*(ll a, const modnum& b) { return (modnum(a) *= b); }
     friend modnum operator/(ll a, const modnum& b) { return (modnum(a) /= b); }
-    friend bool operator==(const modnum& a, const modnum& b) { a.x == b.x; }
-    friend bool operator!=(const modnum& a, const modnum& b) { a.x != b.x; }
+    friend bool operator==(const modnum& a, const modnum& b) { return a.x == b.x; }
+    friend bool operator!=(const modnum& a, const modnum& b) { return a.x != b.x; }
     friend ostream &operator<<(ostream& os, const modnum& a) { return os << a.x; }
     friend istream &operator>>(istream& in, modnum& n) { ll v_; in >> v_; n = modnum(v_); return in; }
 };
