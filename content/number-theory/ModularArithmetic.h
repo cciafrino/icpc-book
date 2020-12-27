@@ -55,4 +55,3 @@ template<int M_> struct modnum {
     friend ostream &operator<<(ostream& os, const modnum& a) { return os << a.x; }
     friend istream &operator>>(istream& in, modnum& n) { ll v_; in >> v_; n = modnum(v_); return in; }
 };
-

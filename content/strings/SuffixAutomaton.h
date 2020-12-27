@@ -1,199 +1,119 @@
 /**
- * Author: 
- * Date: 
- * License: Unknown
- * Source: 
- * Description: 
- * Time: 
- * Status: 
+ * Author: Chris
+ * Date: 2020-12-26
+ * Description: Suffix automaton
+ * Status: slightly-tested
  */
-template<typename T> struct SuffixAutomaton {
-    typedef typename T::value_type Char;
+struct suffix_automaton_t {
     struct node_t {
-        int len = 0, link = -1, stpos = -1;
-        bool isclone = false;
-        map<Char, int> next;
-        vector<int> invlink;
-        int cnt = -1;
+        node_t* link; // parent state 
+        int len, id; // length of the longest string in id'th class
+        bool cloned;
+        map<char, node_t*> next; // transitions (consider using an array instead)
+        node_t() {}
+        node_t(node_t* lnk, int t, int i, bool c) : link(lnk), len(t), 
+            id(i), cloned(c) {}
+        int get_longest() const { return len; }
+        int get_shortest() const { return (link == nullptr ? 0 : 1 + link->len); }
+        void set_next(char c, node_t* nxt) { next[c] = nxt; }
+        bool has_next(char c) { return next.count(c); }
+        node_t* get_next(char c) { return has_next(c) ? next[c] : nullptr; }
+        vector<pair<char, node_t*>> get_transitions() {
+            vector<pair<char, node_t*>> locs;
+            for (auto x : next) locs.push_back(x);
+            return locs;
+        }
     };
-    vector<node_t> state = vector<node_t>(1);
-    int last = 0;int64_t how_many = 0;
-    SuffixAutomaton() {
-        state = vector<node_t>(1);
-        last = how_many = 0;
+
+    int size;
+    node_t* top;
+    vector<node_t*> nodes;
+
+    suffix_automaton_t(const int N) : size(0), nodes(2 * N) {
+        top = nodes.front() = make_node(0, false);
     }
-    SuffixAutomaton(const T &s){
-        state.reserve(s.size());
-        for(auto c: s) insert(c);
-    }
-    void insert(Char c){
-        int cur = state.size();
-        state.push_back({state[last].len + 1, -1, state[last].len});
-        int p = last;
-        how_many += state[cur].len;
-        while (p != -1 && !state[p].next.count(c)){
-            state[p].next[c] = cur;
-            p = state[p].link;
+
+    suffix_automaton_t(const string& S) : size(0), nodes(2 * int(S.size())) {
+        top = nodes.front() = make_node(0, false);
+        for (char c : S) {
+            add(c);
         }
-        if (p == -1) state[cur].link = 0;
-        else {
-            int q = state[p].next[c];
-            if (state[p].len + 1 == state[q].len) state[cur].link = q;
-            else {
-                int clone = state.size();
-                state.push_back({state[p].len + 1, state[q].link, state[q].stpos, true, state[q].next});
-                how_many += state[clone].len;
-                while (p != -1 && state[p].next[c] == q) {
-                    state[p].next[c] = clone;
-                    p = state[p].link;
-                }
-                how_many += state[state[q].link].len;
-                state[q].link = state[cur].link = clone;
-                how_many -= state[state[clone].link].len;
-                how_many -= state[state[q].link].len;
-            }
+        topo_sort();
+    }
+
+    node_t* make_node(int len, bool is_clone) {
+        nodes[size] = new node_t(nullptr, len, size, is_clone);
+        return nodes[size++];
+    }
+
+    void add(char c) {
+        node_t* cur = make_node(1 + top->len, false);
+        node_t* par;
+
+        for (par = top; par && !par->has_next(c); par = par->link) {
+            par->set_next(c, cur);
         }
-        how_many -= state[state[cur].link].len;
-        last = cur;
-    }
-    pair<int, int> match(const T &s) { // (Length of the longest prefix of s, state)
-        int u = 0;
-        for (int i = 0; i < s.size(); ++i) {
-            if (!state[u].next.count(s[i])) return {i, u};
-            u = state[u].next[s[i]];
-        }
-        return {s.size(), u};
-    }
-    int64_t cnt() {
-        return how_many;
-    }
-    vector<int64_t> substr_cnt() { // distinct!!
-        vector<int64_t> dp(state.size());
-        y_combinator([&](auto self, int u) -> int64_t {
-            if (dp[u]) return dp[u];
-            dp[u] = 1;
-            for(auto [c, v]: state[u].next) dp[u] += self(v);
-            return dp[u];
-        })(0);
-        return dp;
-    }
-    vector<int64_t> substr_len() { // distinct!!
-        vector<int64_t> res(state.size()), dp(state.size());
-        y_combinator([&](auto self, int u) -> int64_t {
-            if (dp[u]) return res[u];
-            dp[u] = 1;
-            for(auto [c, v]: state[u].next){
-                res[u] += self(v) + dp[v];
-                dp[u] += dp[v];
-            }
-            return res[u];
-        })(0);
-        return res;
-    }
-    pair<T, int> kth_substr(int64_t k) {
-        vector<int64_t> dp(substr_cnt());
-        assert(dp[0] >= k && k);
-        T res;
-        int u = 0;
-        for (; --k; ) for (auto [c, v]: state[u].next) {
-            if (k > dp[v]) k -= dp[v];
-            else {
-                res.push_back(c);
-                u = v;
-                break;
+
+        if (par == nullptr) {
+            cur->link = nodes[0];
+        } else {
+            node_t* Q = par->get_next(c);
+            if (1 + par->len == Q->len) {
+                cur->link = Q;
+            } else {
+                node_t* clone = make_node(1 + par->len, true);
+                clone->next = Q->next;
+                clone->link = Q->link;
+
+                for (; par != nullptr && par->get_next(c) == Q; par = par->link) 
+                    par->set_next(c, clone);
+
+                Q->link = cur->link = clone;
             }
         }
-        return {res, u};
+        top = cur;
     }
-    pair<T, int> smallest_substr(int length) {
-        T res;
-        int u = 0;
-        for(; length--;) {
-            assert(!state[u].next.empty());
-            auto it = state[u].next.begin();
-            res.push_back(it->first);
-            u = it->second;
-        }
-        return {res, u};
-    }
-    pair<int, int> find_first(const T &s) { // length, pos
-        auto [l, u] = match(s);
-        return {l, state[u].stpos - int(s.size()) + 1};
-    }
-    void build_invlink() {
-        for (int u = 1; u < int(state.size()); ++ u) state[state[u].link].invlink.push_back(u);
-    }
-    vector<int> findAll(const T &s, bool invlink_init = false) {
-        auto [l, u] = match(s);
-        if (l < int(s.size())) return {};
-        vector<int> res;
-        if (!invlink_init) build_invlink();
-        y_combinator([&](auto self, int u) -> void {
-            if (!state[u].isclone) res.push_back(state[u].stpos);
-            for (auto v: state[u].invlink) self(v);
-        })(u);
-        for (auto &x: res) x += 1 - int(s.size());
-        sort(res.begin(), res.end());
-        return res;
-    }
-    T LCS(const T &s){
-        int u = 0, l = 0, best = 0, bestpos = 0;
-        for(int i = 0; i < int(s.size()); ++ i){
-            while(u && !state[u].next.count(s[i])){
-                u = state[u].link;
-                l = state[u].len;
-            }
-            if(state[u].next.count(s[i])){
-                u = state[u].next[s[i]];
-                ++l;
-            }
-            if(l > best){
-                best = l;
-                bestpos = i;
+
+    void topo_sort() {
+        vector<int> indeg(size);
+        vector<node_t*> order(size);
+        for (int v = 0; v < size; ++v) {
+            auto trans = nodes[v]->get_transitions();
+            for (auto x : trans) {
+                ++indeg[x.second->id];
             }
         }
-        return {s.begin() + bestpos - best + 1, s.begin() + bestpos + 1};
-    }
-    vector<int> build_LCS(const T &s){ // list of length ending at the pos
-        int u = 0, l = 0;
-        vector<int> res(s.size());
-        for (int i = 0; i < int(s.size()); ++i){
-            while (u && !state[u].next.count(s[i])){
-                u = state[u].link;
-                l = state[u].len;
+        
+        order[0] = nodes[0];
+        int cur = 1;
+
+        for (int v = 0; v < size; ++v) {
+            node_t* r = order[v];
+            auto trans = nodes[r->id]->get_transitions();
+            for (auto x : trans) {
+                if (--indeg[x.second->id] == 0)
+                    order[cur++] = x.second;
             }
-            if (state[u].next.count(s[i])){
-                u = state[u].next[s[i]];
-                ++l;
-            }
-            res[i] = l;
         }
-        return res;
+
+        nodes = order;
+        for (int v = 0; v < size; ++v)
+            nodes[v]->id = v;
     }
-    void build_CNT(bool invlink_init = false){
-        for(int u = 0; u < int(state.size()); ++ u) state[u].cnt = (!state[u].isclone && u);
-        if(!invlink_init) build_invlink();
-        y_combinator([&](auto self, int u) -> void {
-            for (auto v: state[u].invlink){
-                self(v);
-                state[u].cnt += state[v].cnt;
-            }
-        })(0);
+
+    vector<int> get_terminals() {
+        vector<int> terminals;
+        for (auto par = top; par; par = par->link)
+            terminals.push_back(par->id);
+        return terminals;
     }
-    int count(const string &s){
-        assert(state[0].cnt != -1);
-        return state[match(s).second].cnt;
+
+    int get_distinct() {
+        int cnt = 0;
+        for (int v = 0; v < size; ++v) {
+            cnt += nodes[v]->len - (nodes[v]->link == nullptr ? 0 : nodes[v]->link->len);
+        }
+        return cnt;
     }
 };
-template<typename Str>
-Str lcs(vector<Str> a){
-    swap(a[0], *min_element(a.begin(), a.end(), [](const Str &s, const Str &t){ return s.size() < t.size(); }));
-    vector<int> res(a[0].size());
-    iota(res.begin(), res.end(), 1);
-    for(int i = 1; i < a.size(); ++ i){
-        auto t = suffix_automaton(a[i]).process_lcs(a[0]);
-        for(int j = 0; j < int(a[0].size()); ++ j) ctmin(res[j], t[j]);
-    }
-    int i = max_element(res.begin(), res.end()) - res.begin();
-    return {a[0].begin() + i + 1 - res[i], a[0].begin() + i + 1};
-}
+
