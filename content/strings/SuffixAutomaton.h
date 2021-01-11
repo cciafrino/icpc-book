@@ -2,7 +2,7 @@
  * Author: Chris
  * Date: 2020-12-26
  * Description: Suffix automaton
- * Status: slightly-tested
+ * Status: tested 
  */
 struct suffix_automaton_t {
     struct node_t {
@@ -26,6 +26,7 @@ struct suffix_automaton_t {
     };
 
     int size;
+    int64_t cnt = 0;
     node_t* top;
     vector<node_t*> nodes;
 
@@ -40,7 +41,8 @@ struct suffix_automaton_t {
         }
         topo_sort();
     }
-
+    ~suffix_automaton_t() { for (auto a : nodes) delete a; }
+    
     node_t* make_node(int len, bool is_clone) {
         nodes[size] = new node_t(nullptr, len, size, is_clone);
         return nodes[size++];
@@ -49,6 +51,8 @@ struct suffix_automaton_t {
     void add(char c) {
         node_t* cur = make_node(1 + top->len, false);
         node_t* par;
+        
+        cnt += nodes[cur->id]->len;
 
         for (par = top; par && !par->has_next(c); par = par->link) {
             par->set_next(c, cur);
@@ -64,13 +68,17 @@ struct suffix_automaton_t {
                 node_t* clone = make_node(1 + par->len, true);
                 clone->next = Q->next;
                 clone->link = Q->link;
-
-                for (; par != nullptr && par->get_next(c) == Q; par = par->link) 
+                cnt += nodes[clone->id]->len;
+                for (; par != nullptr && par->get_next(c) == Q; par = par->link) {
                     par->set_next(c, clone);
-
+                }
+                cnt += nodes[nodes[Q->id]->link->id]->len;
                 Q->link = cur->link = clone;
+                cnt -= nodes[nodes[clone->id]->link->id]->len;
+                cnt -= nodes[nodes[Q->id]->link->id]->len;
             }
         }
+        cnt -= nodes[nodes[cur->id]->link->id]->len;
         top = cur;
     }
 
@@ -99,6 +107,10 @@ struct suffix_automaton_t {
         nodes = order;
         for (int v = 0; v < size; ++v)
             nodes[v]->id = v;
+    }
+    
+    int64_t cur_distinct() {
+        return cnt;
     }
 
     vector<int> get_terminals() {
