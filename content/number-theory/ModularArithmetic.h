@@ -3,11 +3,11 @@
  * Source: hos.lyric
  * Description: Operators for modular arithmetic. 
  */
-
 template<int M_> struct modnum {
     static constexpr int M = M_;
     using ll = long long; int x;
     constexpr modnum() : x(0) {}
+    constexpr modnum(int x_) : x(int(x_ % M)) { if (x < 0) x += M; }
     constexpr modnum(ll x_) : x(int(x_ % M)) { if (x < 0) x += M; }
     explicit operator int() const { return x; }
     modnum& operator+=(const modnum& a) { x += a.x; if (x >= M) x -= M; return *this; }
@@ -21,29 +21,14 @@ template<int M_> struct modnum {
     modnum operator-() const { return modnum(-x); }
     modnum pow(ll e) const {
         if (e < 0) return inv().pow(-e);
-        modnum x2 = x, xe = 1;
-        for (; e; e >>= 1) {
-            if (e & 1) xe *= x2;
-            x2 *= x2;
-        }
-        return xe;
+        modnum a = *this, b = 1; for (; e; e /= 2) { if (e & 1) b *= a; a *= a; } return b;
     }
     modnum inv() const {
-        int a = x, b = M, y = 1, z = 0, t;
-        for (;;) {
-            t = a / b; a -= t * b;
-            if (a == 0) {
-                assert(b == 1 || b == -1);
-                return modnum(b * z);
-            }
-            y -= t * z;
-            t = b / a; b -= t * a;
-            if (b == 0) {
-                assert(a == 1 || a == -1);
-                return modnum(a * y);
-            }
-            z -= t * y;
-        }
+        int a = x, b = M, y = 1, z = 0;
+        while (a) { 
+            const int q = b / a, c = b - q * a; b = a; a = c; 
+            const int w = z - static_cast<int>(q) * y; z = y; y = w; 
+        } assert(b == 1); return modnum(z);
     }
     friend modnum inv(const modnum& a) { return a.inv(); }
     friend modnum operator+(ll a, const modnum& b) { return (modnum(a) += b); }
