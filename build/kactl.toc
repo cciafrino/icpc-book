@@ -92,9 +92,9 @@
 \contentsline {section}{\numberline {7.4}DFS algorithms}{25}{section.7.4}%
 \contentsline {section}{\numberline {7.5}Heuristics}{26}{section.7.5}%
 \contentsline {section}{\numberline {7.6}Trees}{27}{section.7.6}%
-\contentsline {subsection}{\numberline {7.6.1}Sqrt Decomposition}{28}{subsection.7.6.1}%
+\contentsline {subsection}{\numberline {7.6.1}Sqrt Decomposition}{29}{subsection.7.6.1}%
 \contentsline {section}{\numberline {7.7}Functional Graphs}{29}{section.7.7}%
-\contentsline {section}{\numberline {7.8}Other}{29}{section.7.8}%
+\contentsline {section}{\numberline {7.8}Other}{30}{section.7.8}%
 \contentsline {section}{\numberline {7.9}Theorems}{31}{section.7.9}%
 \contentsline {subsection}{\numberline {7.9.1}Landau}{31}{subsection.7.9.1}%
 \contentsline {subsection}{\numberline {7.9.2}Euler's theorem}{31}{subsection.7.9.2}%
@@ -123,7 +123,7 @@
 \contentsline {section}{\numberline {10.5}Optimization tricks}{46}{section.10.5}%
 \contentsline {subsection}{\numberline {10.5.1}Bit hacks}{46}{subsection.10.5.1}%
 \contentsline {subsection}{\numberline {10.5.2}Pragmas}{46}{subsection.10.5.2}%
-\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{47}{section.10.6}%
+\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{48}{section.10.6}%
 \contentsline {section}{\numberline {10.7}Random Numbers}{48}{section.10.7}%
 \contentsline {section}{\numberline {10.8}Other languages}{48}{section.10.8}%
 \contentsfinish 

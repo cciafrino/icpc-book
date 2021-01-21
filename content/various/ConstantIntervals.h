@@ -22,7 +22,7 @@ void rec(int from, int to, F& f, G& g, int& i, T& p, T q) {
 	}
 }
 template<class F, class G>
-void constantIntervals(int from, int to, F& f, G& g) {
+void constantIntervals(int from, int to, F f, G g) {
 	if (to <= from) return;
 	int i = from; auto p = f(i), q = f(to-1);
 	rec(from, to-1, f, g, i, p, q);
