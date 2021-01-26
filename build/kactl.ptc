@@ -93,7 +93,7 @@
 \ttl@starttoc {chapters@5}
 \contentsline {section}{\numberline {5.1}Modular arithmetic}{13}{section.5.1}%
 \contentsline {subsection}{\texttt {ModularArithmetic.h}\hspace {0.2em}}{13}{section.5.1}%
-\contentsline {subsection}{\texttt {PairNumTemplate.h}\hspace {0.2em}}{14}{lstnumber.5.1.37}%
+\contentsline {subsection}{\texttt {PairNumTemplate.h}\hspace {0.2em}}{14}{lstnumber.5.1.36}%
 \contentsline {subsection}{\texttt {ModInv.h}\hspace {0.2em}}{14}{lstnumber.5.2.42}%
 \contentsline {subsection}{\texttt {Modpow.h}\hspace {0.2em}}{14}{lstnumber.5.3.13}%
 \contentsline {subsection}{\texttt {ModSum.h}\hspace {0.2em}}{14}{lstnumber.5.4.11}%
@@ -104,14 +104,14 @@
 \contentsline {subsection}{\texttt {Quadratic.h}\hspace {0.2em}}{15}{lstnumber.5.9.16}%
 \contentsline {section}{\numberline {5.2}Primality}{15}{section.5.2}%
 \contentsline {subsection}{\texttt {Sieve.h}\hspace {0.2em}}{15}{section.5.2}%
-\contentsline {subsection}{\texttt {SegmentedSieve.h}\hspace {0.2em}}{15}{lstnumber.5.11.14}%
+\contentsline {subsection}{\texttt {SegmentedSieve.h}\hspace {0.2em}}{15}{lstnumber.5.11.24}%
 \contentsline {subsection}{\texttt {Mobius.h}\hspace {0.2em}}{15}{lstnumber.5.12.20}%
 \contentsline {subsection}{\texttt {MillerRabin.h}\hspace {0.2em}}{15}{lstnumber.5.13.10}%
 \contentsline {subsection}{\texttt {Factorize.h}\hspace {0.2em}}{15}{lstnumber.5.14.12}%
 \contentsline {subsection}{\texttt {PollardRho.h}\hspace {0.2em}}{15}{lstnumber.5.15.17}%
 \contentsline {section}{\numberline {5.3}Divisibility}{15}{section.5.3}%
 \contentsline {subsection}{\texttt {ExtendedEuclidean.h}\hspace {0.2em}}{15}{section.5.3}%
-\contentsline {subsection}{\texttt {DiophantineEquation.h}\hspace {0.2em}}{15}{lstnumber.5.17.10}%
+\contentsline {subsection}{\texttt {DiophantineEquation.h}\hspace {0.2em}}{16}{lstnumber.5.17.10}%
 \contentsline {subsection}{\texttt {Divisors.h}\hspace {0.2em}}{16}{lstnumber.5.18.34}%
 \contentsline {subsection}{\texttt {DivisionLemma.h}\hspace {0.2em}}{16}{lstnumber.5.19.9}%
 \contentsline {subsection}{\texttt {Pell.h}\hspace {0.2em}}{16}{lstnumber.5.20.10}%
@@ -120,7 +120,7 @@
 \contentsline {subsection}{\texttt {SumDiv.h}\hspace {0.2em}}{16}{lstnumber.5.23.15}%
 \contentsline {subsection}{\texttt {Bezout.h}\hspace {0.2em}}{16}{lstnumber.5.24.13}%
 \contentsline {subsection}{\texttt {phiFunction.h}\hspace {0.2em}}{16}{lstnumber.5.25.5}%
-\contentsline {subsection}{\texttt {DiscreteLogarithm.h}\hspace {0.2em}}{16}{lstnumber.5.26.22}%
+\contentsline {subsection}{\texttt {DiscreteLogarithm.h}\hspace {0.2em}}{17}{lstnumber.5.26.22}%
 \contentsline {subsection}{\texttt {GroupOrder.h}\hspace {0.2em}}{17}{lstnumber.5.27.11}%
 \contentsline {subsection}{\texttt {PrimitiveRoots.h}\hspace {0.2em}}{17}{lstnumber.5.28.6}%
 \contentsline {subsection}{\texttt {PrimeCounting.h}\hspace {0.2em}}{17}{lstnumber.5.29.6}%
