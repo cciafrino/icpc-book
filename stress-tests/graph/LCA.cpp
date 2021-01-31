@@ -3,7 +3,6 @@
 
 #include "../../content/graph/LCA.h"
 #include "../../content/graph/BinaryLifting.h"
-#include "../../content/data-structures/RMQ.h"
 
 namespace old {
 typedef vector<pii> vpi;
@@ -12,7 +11,7 @@ typedef vector<vpi> graph;
 struct LCA {
     vi time;
     vector<ll> dist;
-    RMQ<pii> rmq;
+    rmq_t<pii> rmq;
 
     LCA(graph& C) : time(sz(C), -99), dist(sz(C)), rmq(dfs(C)) {}
 
@@ -35,7 +34,7 @@ struct LCA {
     int query(int a, int b) {
         if (a == b) return a;
         a = time[a], b = time[b];
-        return rmq.query(min(a, b), max(a, b)).second;
+        return rmq.query(min(a, b), max(a, b)).first;
     }
     ll distance(int a, int b) {
         int lca = query(a, b);
@@ -66,14 +65,11 @@ void test_n(int n, int num) {
         vector<int> par(n), depth(n);
         getPars(tree, 0, 0, 0, par, depth);
         vector<vi> tbl = treeJump(par);
-        LCA new_lca(tree);
-        old::LCA old_lca(oldTree);
+        lca_t new_lca(tree);
         for (int i=0; i<100; i++) {
             int a = rand()%n, b = rand()%n;
             int binLca = lca(tbl, depth, a, b);
             int newLca = new_lca.lca(a,b);
-            int oldLca = old_lca.query(a,b);
-            assert(oldLca == newLca);
             assert(binLca == newLca);
         }
     }

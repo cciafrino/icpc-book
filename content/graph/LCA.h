@@ -28,6 +28,6 @@ struct lca_t {
     int lca(int a, int b) {
         if (a == b) return a;
         tie(a, b) = minmax(time[a], time[b]);
-        return path[rmq.query(a, b-1).first];
+        return path[rmq.query(a, b - 1)];
     }
 };
