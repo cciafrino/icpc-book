@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.1.14)  26 JAN 2021 14:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.1.14)  31 JAN 2021 22:31
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -538,11 +538,10 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 11.
 LaTeX Info: Redefining \pageref on input line 11.
 LaTeX Info: Redefining \nameref on input line 11.
- (build//kactl.out) (build//kactl.out)
 \@outlinefile=\write3
 runsystem(rm -f build/header.tmp)...executed.
 
-<projeto.png, id=44, 323.96896pt x 153.26224pt>
+<projeto.png, id=4, 323.96896pt x 153.26224pt>
 File: projeto.png Graphic file (type png)
 <use projeto.png>
 Package pdftex.def Info: projeto.png  used on input line 12.
@@ -610,7 +609,7 @@ l.57 I
       nradius: $r=\dfrac{A}{p}$\\ [1
 
 ]
-<content/math/sphericalCoordinates.pdf, id=174, 42.67899pt x 42.67899pt>
+<content/math/sphericalCoordinates.pdf, id=144, 42.67899pt x 42.67899pt>
 File: content/math/sphericalCoordinates.pdf Graphic file (type pdf)
 <use content/math/sphericalCoordinates.pdf>
 Package pdftex.def Info: content/math/sphericalCoordinates.pdf  used on input line 77.
@@ -1045,11 +1044,6 @@ runsystem(python2 content/tex/preprocessor.py -i "content/number-theory/SumDiv.h
  (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
-runsystem(python2 content/tex/preprocessor.py -i "content/number-theory/Bezout.h" -o build/kactl.tmp )...executed.
-
- (./build/kactl.tmp)
-runsystem(rm -f build/kactl.tmp)...executed.
-
 runsystem(python2 content/tex/preprocessor.py -i "content/number-theory/phiFunction.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
@@ -1058,7 +1052,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/number-theory/DiscreteLogarithm.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-runsystem(python2 content/tex/preprocessor.py --print-header "phiFunction.h|DiscreteLogarithm.h" -o build/header2.tmp)...executed.
+runsystem(python2 content/tex/preprocessor.py --print-header "DiscreteLogarithm.h|DiscreteLogarithm.h" -o build/header2.tmp)...executed.
 
  (./build/header2.tmp) [16])
 runsystem(rm -f build/kactl.tmp)...executed.
@@ -1095,10 +1089,10 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/number-theory/FracBinarySearch.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
+ (./build/kactl.tmp)
 runsystem(python2 content/tex/preprocessor.py --print-header "FracBinarySearch.h|FracBinarySearch.h" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [17])) (./content/combinatorial/chapter.tex
+ (./build/header2.tmp) [17]) (./content/combinatorial/chapter.tex
 Chapter 6.
 (./content/combinatorial/factorial.tex)
 runsystem(rm -f build/kactl.tmp)...executed.
@@ -1116,14 +1110,14 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/combinatorial/PascalTriangle.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
-runsystem(python2 content/tex/preprocessor.py --print-header "PascalTriangle.h|PascalTriangle.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [18]
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/combinatorial/nCr.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
+runsystem(python2 content/tex/preprocessor.py --print-header "PascalTriangle.h|nCr.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [18]
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/combinatorial/RollingBinomial.h" -o build/kactl.tmp )...executed.
@@ -1657,7 +1651,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/geometry/LineDistance.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/lineDistance.pdf, id=4690, 42.67899pt x 42.67899pt>
+<content/geometry/lineDistance.pdf, id=4653, 42.67899pt x 42.67899pt>
 File: content/geometry/lineDistance.pdf Graphic file (type pdf)
 <use content/geometry/lineDistance.pdf>
 Package pdftex.def Info: content/geometry/lineDistance.pdf  used on input line 11.
@@ -1668,7 +1662,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/geometry/SegmentDistance.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/SegmentDistance.pdf, id=4691, 42.67899pt x 42.67899pt>
+<content/geometry/SegmentDistance.pdf, id=4654, 42.67899pt x 42.67899pt>
 File: content/geometry/SegmentDistance.pdf Graphic file (type pdf)
 <use content/geometry/SegmentDistance.pdf>
 Package pdftex.def Info: content/geometry/SegmentDistance.pdf  used on input line 14.
@@ -1684,7 +1678,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/geometry/SegmentIntersection.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/SegmentIntersection.pdf, id=4692, 42.67899pt x 42.67899pt>
+<content/geometry/SegmentIntersection.pdf, id=4655, 42.67899pt x 42.67899pt>
 File: content/geometry/SegmentIntersection.pdf Graphic file (type pdf)
 <use content/geometry/SegmentIntersection.pdf>
 Package pdftex.def Info: content/geometry/SegmentIntersection.pdf  used on input line 17.
@@ -1700,7 +1694,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/geometry/LineIntersection.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/lineIntersection.pdf, id=4693, 42.67899pt x 42.67899pt>
+<content/geometry/lineIntersection.pdf, id=4656, 42.67899pt x 42.67899pt>
 File: content/geometry/lineIntersection.pdf Graphic file (type pdf)
 <use content/geometry/lineIntersection.pdf>
 Package pdftex.def Info: content/geometry/lineIntersection.pdf  used on input line 17.
@@ -1729,7 +1723,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/geometry/LinearTransformation.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/linearTransformation.pdf, id=4963, 42.67899pt x 42.67899pt>
+<content/geometry/linearTransformation.pdf, id=4926, 42.67899pt x 42.67899pt>
 File: content/geometry/linearTransformation.pdf Graphic file (type pdf)
 <use content/geometry/linearTransformation.pdf>
 Package pdftex.def Info: content/geometry/linearTransformation.pdf  used on input line 13.
@@ -1770,7 +1764,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/geometry/Circumcircle.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/circumcircle.pdf, id=4964, 42.67899pt x 42.67899pt>
+<content/geometry/circumcircle.pdf, id=4927, 42.67899pt x 42.67899pt>
 File: content/geometry/circumcircle.pdf Graphic file (type pdf)
 <use content/geometry/circumcircle.pdf>
 Package pdftex.def Info: content/geometry/circumcircle.pdf  used on input line 12.
@@ -1827,7 +1821,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/geometry/PolygonCut.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/PolygonCut.pdf, id=5336, 42.67899pt x 42.67899pt>
+<content/geometry/PolygonCut.pdf, id=5300, 42.67899pt x 42.67899pt>
 File: content/geometry/PolygonCut.pdf Graphic file (type pdf)
 <use content/geometry/PolygonCut.pdf>
 Package pdftex.def Info: content/geometry/PolygonCut.pdf  used on input line 15.
@@ -1838,7 +1832,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/geometry/ConvexHull.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/ConvexHull.pdf, id=5337, 42.67899pt x 42.67899pt>
+<content/geometry/ConvexHull.pdf, id=5301, 42.67899pt x 42.67899pt>
 File: content/geometry/ConvexHull.pdf Graphic file (type pdf)
 <use content/geometry/ConvexHull.pdf>
 Package pdftex.def Info: content/geometry/ConvexHull.pdf  used on input line 14.
@@ -2330,22 +2324,28 @@ runsystem(rm -f build/header2.tmp)...executed.
 runsystem(rm -f build/kactl.tmp)...executed.
 
  (build//kactl.aux)
-Package rerunfilecheck Info: File `kactl.out' has not changed.
-(rerunfilecheck)             Checksum: 875AE55064A3EF9F9FF5F9B937597EE5;447.
+
+Package rerunfilecheck Warning: File `kactl.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `kactl.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  875AE55064A3EF9F9FF5F9B937597EE5;447.
  ) 
 Here is how much of TeX's memory you used:
- 21839 strings out of 479383
- 323010 string characters out of 5875830
- 2143107 words of memory out of 5000000
- 31114 multiletter control sequences out of 15000+600000
+ 21812 strings out of 479383
+ 322652 string characters out of 5875830
+ 2142005 words of memory out of 5000000
+ 31099 multiletter control sequences out of 15000+600000
  421068 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  80i,16n,85p,665b,2231s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti0700.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on build//kactl.pdf (49 pages, 2586549 bytes).
+Output written on build//kactl.pdf (49 pages, 2586000 bytes).
 PDF statistics:
- 9223 PDF objects out of 10688 (max. 8388607)
- 8883 compressed objects within 89 object streams
- 6955 named destinations out of 7423 (max. 500000)
- 131 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 9185 PDF objects out of 10688 (max. 8388607)
+ 8845 compressed objects within 89 object streams
+ 6949 named destinations out of 7423 (max. 500000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
