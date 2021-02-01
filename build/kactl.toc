@@ -33,7 +33,7 @@
 \contentsline {chapter}{\numberline {5}Number theory}{13}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Modular arithmetic}{13}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Primality}{15}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Divisibility}{15}{section.5.3}%
+\contentsline {section}{\numberline {5.3}Divisibility}{16}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Chinese remainder theorem}{17}{section.5.4}%
 \contentsline {section}{\numberline {5.5}Fractions}{17}{section.5.5}%
 \contentsline {subsection}{\numberline {5.5.1}Bézout's identity}{18}{subsection.5.5.1}%
@@ -78,7 +78,7 @@
 \contentsline {section}{\numberline {6.6}Game Theory}{20}{section.6.6}%
 \contentsline {subsection}{\numberline {6.6.1}Nim}{20}{subsection.6.6.1}%
 \contentsline {subsection}{\numberline {6.6.2}Mis\`{e}re Nim}{20}{subsection.6.6.2}%
-\contentsline {subsection}{\numberline {6.6.3}Staircase Nim}{20}{subsection.6.6.3}%
+\contentsline {subsection}{\numberline {6.6.3}Staircase Nim}{21}{subsection.6.6.3}%
 \contentsline {subsection}{\numberline {6.6.4}Moore's Nim$_k$}{21}{subsection.6.6.4}%
 \contentsline {subsection}{\numberline {6.6.5}Dim$^+$}{21}{subsection.6.6.5}%
 \contentsline {subsection}{\numberline {6.6.6}Aliquot Game}{21}{subsection.6.6.6}%
