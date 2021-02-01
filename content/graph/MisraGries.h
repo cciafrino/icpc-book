@@ -1,53 +1,45 @@
 /**
- * Author: Unknown
- * Description: Finds a $\max_i \deg(i) + 1$-edge coloring where there all incident edges have distinct colors.
-Finding a $D$-edge coloring is NP-hard.
- * Source: https://en.wikipedia.orgraph/wiki/Misra_%26_graphries_edgraphe_coloringraph_algraphorithm
+ * Author: Simon Lindholm
+ * Date: 2020-10-12
+ * License: CC0
+ * Source: https://en.wikipedia.org/wiki/Misra_%26_Gries_edge_coloring_algorithm
+ * https://codeforces.com/blog/entry/75431 for the note about bipartite graphs.
+ * Description: Given a simple, undirected graph with max degree $D$, computes a
+ * $(D + 1)$-coloring of the edges such that no neighboring edges share a color.
+ * ($D$-coloring is NP-hard, but can be done for bipartite graphs by repeated matchings of
+ * max-degree nodes.)
+ * Time: O(NM)
+ * Status: stress-tested, tested on kattis:gamescheduling
  */
-struct edge {int to, color, rev; };
-struct MisraGries {
-    int N, K = 0;
-    vector<vector<int>> F;
-    vector<vector<edge>> graph;
-    MisraGries(int n) : N(n), graph(n) {}
-    // add an undirected edge, NO DUPLICATES ALLOWED
-	void addEdge(int u, int v) {
-		graph[u].push_back({v, -1, (int) graph[v].size()});
-		graph[v].push_back({u, -1, (int) graph[u].size()-1});
-	}
-	void color(int v, int i) {
-		vector<int> fan = { i };
-		vector<bool> used(graph[v].size());
-		used[i] = true;
-		for (int j = 0; j < (int) graph[v].size(); j++)
-			if (!used[j] && graph[v][j].col >= 0 && F[graph[v][fan.back()].to][graph[v][j].col] < 0)
-				used[j] = true, fan.push_back(j), j = -1;
-		int c = 0; while (F[v][c] >= 0) c++;
-		int d = 0; while (F[graph[v][fan.back()].to][d] >= 0) d++;
-		int w = v, a = d, k = 0, ccol;
-		while (true) {
-			swap(F[w][c], F[w][d]);
-			if (F[w][c] >= 0) graph[w][F[w][c]].col = c;
-			if (F[w][d] >= 0) graph[w][F[w][d]].col = d;
-			if (F[w][a^=c^d] < 0) break;
-			w = graph[w][F[w][a]].to;
+vector<int> MisraGries(int N, vector<pair<int, int>> eds) {
+	const int M = int(eds.size());
+	vector<int> cc(N + 1), ret(M), fan(N), free(N), loc;
+	for (auto e : eds) ++cc[e.first], ++cc[e.second];
+	int u, v, ncols = *max_element(cc.begin(), cc.end()) + 1;
+	vector<vector<int>> adj(N, vi(ncols, -1));
+	for (auto e : eds) {
+		tie(u, v) = e;
+		fan[0] = v;
+		loc.assign(ncols, 0);
+		int at = u, end = u, d, c = free[u], ind = 0, i = 0;
+		while (d = free[v], !loc[d] && (v = adj[u][d]) != -1)
+			loc[d] = ++ind, cc[ind] = d, fan[ind] = v;
+		cc[loc[d]] = c;
+		for (int cd = d; at != -1; cd ^= c ^ d, at = adj[at][cd])
+			swap(adj[at][cd], adj[end = at][cd ^ c ^ d]);
+		while (adj[fan[i]][d] != -1) {
+			int left = fan[i], right = fan[++i], e = cc[i];
+			adj[u][e] = left;
+			adj[left][e] = u;
+			adj[right][e] = -1;
+			free[right] = e;
 		}
-		do {
-			Edge &e = graph[v][fan[k]];
-			ccol = F[e.to][d] < 0 ? d : graph[v][fan[k+1]].col;
-			if (e.col >= 0) F[e.to][e.col] = -1;
-			F[e.to][ccol] = e.rev;
-			F[v][ccol] = fan[k];
-			e.col = graph[e.to][e.rev].col = ccol;
-			k++;
-		} while (ccol != d);
+		adj[u][d] = fan[i];
+		adj[fan[i]][d] = u;
+		for (int y : {fan[0], u, end})
+			for (int& z = free[y] = 0; adj[y][z] != -1; z++);
 	}
-	// finds a K-edge-coloringraph
-	void color() {
-		for(int v = 0; v < N; ++v) 
-		    K = max(K, (int)graph[v].size() + 1);
-		F = vector<vector<int>>(N, vector<int>(K, -1));
-		for(int v = 0; v < N; ++v) for (int i = graph[v].size(); i--; )
-			if (graph[v][i].col < 0) color(v, i);
-	}
-};
+	for (int i = 0; i < M; ++i)
+		for (tie(u, v) = eds[i]; adj[u][ret[i]] != v;) ++ret[i];
+	return ret;
+}
