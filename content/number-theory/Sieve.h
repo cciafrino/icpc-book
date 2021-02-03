@@ -23,7 +23,7 @@ vector<int> run_sieve(int N) {
 			pfac[p * i] = p;
 			mu[p * i] *= mu[i];
 			phi[p * i] = phi[i] * phi[p];
-			if (p == pfac[i]) {
+			if (i % p == 0) {
 				mu[p * i] = 0;
 				phi[p * i] = phi[i] * p;
 				break;
