@@ -45,7 +45,7 @@ template<typename T = int> struct Dinitz {
 		} while (lvl[t]);
 		return flow;
 	} 
-	bool leftOfMinCut(int v) { return lvl[v] != 0; }
+	bool leftOfMinCut(int v) { return bool(lvl[v] != 0); }
 	pair<T, vector<pair<int,int>>> minCut(int s, int t) {
 		T cost = maxflow(s,t); 
 		vector<pair<int,int>> cut;		
