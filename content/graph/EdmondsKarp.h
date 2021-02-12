@@ -4,7 +4,7 @@
  * License: CC0
  * Source: N/A
  * Description: Flow algorithm with guaranteed complexity $O(VE^2)$. To get edge flow values, compare
- * capacities before and after, and take the positive values only.
+ * capacities before and after, and take the positive values only. Doesn't allow multiedges.
  * Usage: unordered_map<int, T> graph; 
  *        graph[a][b] += c; //adds edge from a to b with capacity c, use "+=" NOT "="
  * Status: Working
@@ -41,4 +41,3 @@ out:
 		}
 	}
 };
-
