@@ -48,5 +48,5 @@ template<typename flow_t = int> struct PushRelabel {
 				else ++cur[u];
 		}
 	}
-	bool leftOfMinCut(int a) { return H[a] >= g.size(); }
+	bool leftOfMinCut(int a) { return H[a] >= int(g.size()); }
 };
