@@ -16,21 +16,22 @@
  */
 using doublex = complex<long double>;
 struct FFT {
+    using i64 = int64_t;
     vector<doublex> fft(vector<doublex> y, bool invert = false) {
-        const int N = y.size(); assert(N == (N&-N));
-        vector<lint> rev(N);
+        const int N = int(y.size()); assert(N == (N&-N));
+        vector<i64> rev(N);
         for (int i = 1; i < N; ++i) {
             rev[i] = (rev[i>>1]>>1) | (i&1 ? N>>1 : 0);
             if (rev[i] < i) swap(y[i], y[rev[i]]);
         }
         vector<doublex> rootni(N/2);
-        for (lint n = 2; n <= N; n *= 2) {
+        for (int n = 2; n <= N; n *= 2) {
             const doublex rootn = polar(1.0, (invert ? +1.0 : -1.0) * 2.0*acos(-1.0)/n);
             rootni[0] = 1.0;
-            for (lint i = 1; i < n/2; ++i) rootni[i] = rootni[i-1] * rootn;
-            for (lint left = 0; left != N; left += n) {
-                const lint mid = left + n/2;
-                for (lint i = 0; i < n/2; ++i) {
+            for (int i = 1; i < n/2; ++i) rootni[i] = rootni[i-1] * rootn;
+            for (int left = 0; left != N; left += n) {
+                const int mid = left + n/2;
+                for (int i = 0; i < n/2; ++i) {
                     const doublex temp = rootni[i] * y[mid + i];
                     y[mid + i] = y[left + i] - temp; y[left + i] += temp;
                 }
@@ -38,12 +39,12 @@ struct FFT {
         } if (invert) for (auto &v : y) v /= (doublex)N;
         return move(y);
     }
-    uint nextpow2(uint v) { return v ? 1 << __lg(2*v-1) : 1; }
+    uint32_t nextpow2(uint32_t v) { return v ? 1 << __lg(2*v-1) : 1; }
     vector<doublex> convolution(vector<doublex> a, vector<doublex> b) {
-        const lint n = max((int)a.size()+(int)b.size()-1, 0), n2 = nextpow2(n);
+        const i64 n = max(int(a.size()) + int(b.size()-1), 0), n2 = nextpow2(n);
         a.resize(n2); b.resize(n2);
         vector<doublex> fa = fft(move(a)), fb = fft(move(b)), &fc = fa;
-        for (lint i = 0; i < n2; ++i) fc[i] = fc[i] * fb[i];
+        for (int i = 0; i < n2; ++i) fc[i] = fc[i] * fb[i];
         vector<doublex> c = fft(move(fc), true);
         c.resize(n);
         return move(c);
