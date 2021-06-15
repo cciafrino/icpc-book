@@ -3,7 +3,7 @@
  * Description: Find all prime factors of $n$.
  * Time: $O(log(n))$
  */
-#include "Sieve.h"
+#include "sieve.h"
 
 template<typename T>
 vector<pair<T, int>> prime_factorize(T n) {

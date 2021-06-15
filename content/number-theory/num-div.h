@@ -3,8 +3,7 @@
  * Description: Count the number of divisors of $n$. Requires having run Sieve up to at least sqrt(n).
  * Time: $O(log(N))$
  */
-#include "Sieve.h"
-
+#include "sieve.h"
 template<typename T> T numDiv(T n) {
     T how_many = 1, prime_factors = 0;
     while(n != 1) {

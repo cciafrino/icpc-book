@@ -10,10 +10,7 @@
  * m.sum(0, 0, 2, 2); // top left 4 elements
  * Time: O(N^2 + Q)
  */
-#pragma once
-
-template<class T>
-struct SubMatrix {
+template<class T> struct SubMatrix {
 	vector<vector<T>> p;
 	SubMatrix(vector<vector<T>>& v) {
 		int R = v.size(), C = v[0].size();

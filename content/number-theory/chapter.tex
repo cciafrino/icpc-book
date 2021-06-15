@@ -1,16 +1,14 @@
 \chapter{Number theory}
 
 \section{Modular arithmetic}
-	\kactlimport{ModularArithmetic.h}
-	\kactlimport{PairNumTemplate.h}
-	\kactlimport{ModInv.h}
-	\kactlimport{Modpow.h}
-	\kactlimport{ModSum.h}
-	\kactlimport{ModMul.cpp}
-	\kactlimport{ModMulLL.h}
-	\kactlimport{ModSqrt.h}
-	\kactlimport{MulOrder.h}
-	\kactlimport{Quadratic.h}
+	\kactlimport{modular-arithmetic.h}
+	\kactlimport{pairnum-template.h}
+	\kactlimport{mod-inv.h}
+	\kactlimport{mod-pow.h}
+	\kactlimport{mod-sum.h}
+	\kactlimport{mod-mul.h}
+	\kactlimport{mod-sqrt.h}
+	\kactlimport{mul-order.h}
 
 \section{Primality}
 	% https://blog.csdn.net/skywalkert/article/details/50500009
@@ -28,36 +26,31 @@
  %    $S(n)=\sum f(i) = \sum_{i\leq n}\left[F(i)-\sum_{j|i,j\neq i}f(j)\right]=\sum F(i) - \sum_{i/j=d=2}^n\sum_{dj\leq n}f(j)$ \\
  %    $S(n)=\sum if(i) = \sum_{i\leq n}i\left[F(i)-\sum_{j|i,j\neq i}f(j)\right]=\sum iF(i) - \sum_{i/j=d=2}^n\sum_{dj\leq n}djf(j)$ \\
  %    $\sum_{d\vert n}\varphi (d)=n\hspace{0.1cm}\sum_{d\vert n}\mu (d)=\text{if } (n > 1) \text{ then } 0 \text{ else } 1\hspace{0.1cm}\sum_{d\vert n}(\mu (\frac{n}{d})\sum_{e\vert d}f(e))=f(n)$ \\
-	\kactlimport{Sieve.h}
-	\kactlimport{SegmentedSieve.h}
-	\kactlimport{Mobius.h}
-	\kactlimport{MillerRabin.h}
-	\kactlimport{Factorize.h}
-	\kactlimport{PollardRho.h}
+	\kactlimport{sieve.h}
+	\kactlimport{segmented-sieve.h}
+	\kactlimport{mobius.h}
+	\kactlimport{miller-rabin.h}
+	\kactlimport{pollard-rho.h}
 
 \section{Divisibility}
-	\kactlimport{ExtendedEuclidean.h}
-	\kactlimport{DiophantineEquation.h}
-	\kactlimport{Divisors.h}
-	\kactlimport{DivisionLemma.h}
-	\kactlimport{Pell.h}
-	\kactlimport{PrimeFactors.h}
-	\kactlimport{NumDiv.h}
-	\kactlimport{SumDiv.h}
-	\kactlimport{phiFunction.h}
-	\kactlimport{DiscreteLogarithm.h}
-	%\kactlimport{Legendre.h} 
-	\kactlimport{GroupOrder.h} 	
-	\kactlimport{PrimitiveRoots.h}
-	\kactlimport{PrimeCounting.h}
+	\kactlimport{extended-euclid.h}
+	\kactlimport{division-lemma.h}
+	\kactlimport{prime-factors.h}
+	\kactlimport{num-div.h}
+	\kactlimport{sum-div.h}
+	\kactlimport{phi-function.h}
+	\kactlimport{discrete-log.h}
+	\kactlimport{group-order.h} 	
+	\kactlimport{primitive-roots.h}
+	\kactlimport{prime-counting.h}
 
 \section{Chinese remainder theorem}
-	\kactlimport{ChineseRemainder.h}
+	\kactlimport{chinese-remainder.h}
 
 \section{Fractions}
-	\kactlimport{Fractions.h}
-	\kactlimport{ContinuedFractions.h}
-	\kactlimport{FracBinarySearch.h}
+	\kactlimport{fractions.h}
+	\kactlimport{continued-fractions.h}
+	\kactlimport{frac-binary-search.h}
 
 \
 

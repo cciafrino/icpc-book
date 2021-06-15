@@ -6,7 +6,7 @@
  * Description: 2D Segment Tree. 
  * Status: Tested on URI 1511 & 2656
  */
-#include "SparseSegtree.h"
+#include "sparse_seg_tree.h"
 template<class T> struct Node {
     node_t<T> seg; Node* c[2];
     Node() { c[0] = c[1] = nullptr; }

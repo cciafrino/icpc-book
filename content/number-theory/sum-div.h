@@ -4,8 +4,8 @@
  * Time: O(log(N))
  * Status: stress-tested until n = 100'000'000
  */
-#include "Sieve.h"
-#include "Modpow.h"
+#include "sieve.h"
+#include "mod-pow.h"
 
 template<typename T> T divSum(T n) {
     T sum = 1;

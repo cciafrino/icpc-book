@@ -9,9 +9,9 @@
  * Status: 
  * Time: $O(log(N))$
  */
-#include<Sieve.h>
-#include<PrimeFactors.h>
-#include<Modpow.h>
+#include<sieve.h>
+#include<prime-factors.h>
+#include<mod-pow.h>
 
 template<typename T> bool is_primitive(T a, T m) {
     vector<pair<T, T>> D = prime_factorize(m-1);

@@ -1,7 +1,7 @@
 #include "../utilities/template.h"
 
 #include "../../content/graph/PushRelabel.h"
-#include "../../content/graph/Dinic.h"
+#include "../../content/graph/Dinitz.h"
 #include "../../content/graph/EdmondsKarp.h"
 
 // Bump allocator, to speed the test up and get rid of malloc performance noise
@@ -13,6 +13,61 @@ void* operator new(size_t s) {
 }
 void operator delete(void*) {}
 
+using Int = long long;
+ 
+template <class T1, class T2> ostream &operator<<(ostream &os, const pair<T1, T2> &a) { return os << "(" << a.first << ", " << a.second << ")"; };
+template <class T> void pv(T a, T b) { for (T i = a; i != b; ++i) cerr << *i << " "; cerr << endl; }
+template <class T> bool chmin(T &t, const T &f) { if (t > f) { t = f; return true; } return false; }
+template <class T> bool chmax(T &t, const T &f) { if (t < f) { t = f; return true; } return false; }
+ 
+ 
+namespace MF {
+	const int LIM_N = 5001001;
+	const int LIM_M = 5001001;
+	typedef int wint;
+	const wint wEPS = 0;
+	const wint wINF = 1001001001;
+	int n, m, ptr[LIM_N], nxt[LIM_M * 2], zu[LIM_M * 2];
+	wint capa[LIM_M * 2], tof;
+	int lev[LIM_N], see[LIM_N], que[LIM_N], *qb, *qe;
+	void init(int _n) {
+		n = _n; m = 0; fill(ptr, ptr + n, -1);
+	}
+	void ae(int u, int v, wint w0, wint w1 = 0) {
+		nxt[m] = ptr[u]; ptr[u] = m; zu[m] = v; capa[m] = w0; ++m;
+		nxt[m] = ptr[v]; ptr[v] = m; zu[m] = u; capa[m] = w1; ++m;
+	}
+	wint augment(int src, int ink, wint flo) {
+		if (src == ink) return flo;
+		for (int &i = see[src]; ~i; i = nxt[i]) if (capa[i] > wEPS && lev[src] < lev[zu[i]]) {
+			const wint f = augment(zu[i], ink, min(flo, capa[i]));
+			if (f > wEPS) {
+				capa[i] -= f; capa[i ^ 1] += f; return f;
+			}
+		}
+		return 0;
+	}
+	bool solve(int src, int ink, wint flo = wINF) {
+		for (tof = 0; tof + wEPS < flo; ) {
+			qb = qe = que; fill(lev, lev + n, -1);
+			for (lev[*qe++ = src] = 0, see[src] = ptr[src]; qb != qe; ) {
+				const int u = *qb++;
+				for (int i = ptr[u]; ~i; i = nxt[i]) if (capa[i] > wEPS) {
+					const int v = zu[i];
+					if (lev[v] == -1) {
+						lev[*qe++ = v] = lev[u] + 1; see[v] = ptr[v];
+						if (v == ink) goto au;
+					}
+				}
+			}
+			return false;
+		au:	for (wint f; (f = augment(src, ink, flo - tof)) > wEPS; tof += f);
+		}
+		return true;
+	}
+}
+
+
 int main() {
 	rep(it,0,1000000) {
 		bufi = sizeof buf;
@@ -20,8 +75,8 @@ int main() {
 		int s = rand() % n;
 		int t = rand() % (n - 1);
 		if (t >= s) t++;
-		PushRelabel pr(n);
-		Dinic dinic(n);
+		PushRelabel<int> pr(n);
+		Dinitz<int> dinic(n);
 		vector<unordered_map<int, int>> ek(n);
 
 		int m = rand() % 40;
@@ -36,11 +91,11 @@ int main() {
 			ek[b][a] += d;
 		}
 		auto origEk = ek;
-
-		ll flow = pr.calc(s, t);
+		
+		ll flow = pr.maxflow(s, t);
 
 		// PushRelabel matches Dinic
-		ll dinicFlow = dinic.calc(s, t);
+		ll dinicFlow = dinic.maxflow(s, t);
 		assert(flow == dinicFlow);
 
 		// PushRelabel matches EdmondsKarp
@@ -61,9 +116,9 @@ int main() {
 		// Conservation of flow for Dinic
 		vector<ll> dinicFlows(n);
 		rep(i,0,n) for(auto &e: dinic.adj[i]) {
-			assert(e.flow() <= e.oc);
-			dinicFlows[i] += e.flow();
-			dinicFlows[e.to] -= e.flow();
+			assert(e.c >= 0);
+			dinicFlows[i] += e.f;
+			dinicFlows[e.to] -= e.f;
 		}
 		assert(flows == dinicFlows);
 

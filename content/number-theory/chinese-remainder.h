@@ -7,7 +7,7 @@
  * Status: tested on kattis
  * Time: $O(n\log(LCM(m)))$
  */
-#include "ExtendedEuclidean.h"
+#include "extended-euclid.h"
 template<typename T>
 pair<T, T> crt(const vector<T>& a, const vector<T>& m) {
     int N = int(a.size());

@@ -2,17 +2,16 @@
 \newcommand{\stirlingfirst}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}}
 \newcommand{\stirlingsecond}[2]{\genfrac{\{}{\}}{0pt}{}{#1}{#2}}
 
+\pagebreak
+
 \chapter{Combinatorial}
 
 \section{Permutations}
 	\subsection{Factorial}
 		\import{factorial.tex} 
-		\kactlimport{Factorial.h}
-		\kactlimport{numPerm.h}
+		\kactlimport{IntPerm.h}
 
 \subsection{Binomials}
-	\kactlimport{PascalTriangle.h}
-
 	\begin{itemize}
 	\item Sum of every element in the $n$-th row of pascal triangle is $2^n$.
 	\item The product of the elements in each row is $\frac{(n + 1)^n}{n!}$
@@ -317,14 +316,8 @@ Players may alternatively split a pile into two new non-empty piles. $g(4k+1) = 
 \subsection{Hackenbush on Trees}
 A tree with stalks $(x_i)_{i=1}^n$ may be replaced with a single stalk with length $\bigoplus_{i=1}^n x_i$.
 
-
 \
 
-
-%\kactlimport{Grundy.h}
-%\kactlimport{Nim.cpp}
 \kactlimport{Nim-Product.cpp}
-%\kactlimport{Schreier-Sims.cpp}
-%\kactlimport{RandomWalk.h}
 \kactlimport{Partitions.cpp}
 	

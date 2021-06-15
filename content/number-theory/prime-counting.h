@@ -9,7 +9,7 @@
  * Status: lightly-tested
  * Time:  $O(n^{3/4}/\log n)$
  */
-#include<Sieve.h>
+#include<sieve.h>
 const int N = 1e5, K = 50, T = 10000000; // T <= 1e17 is fine for N <= 10^11
 vector<int> primes_until;
 vector<vector<uint16_t>> dp(N+1, vector<uint16_t>(K+1)); // use 32-bit integer if N >= 2^17

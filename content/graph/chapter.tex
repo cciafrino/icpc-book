@@ -1,59 +1,54 @@
 \chapter{Graph}
 
 \section{Fundamentals}
-    \kactlimport{BellmanFord.h}
-    \kactlimport{FloydWarshall.h}
-    \kactlimport{TopoSort.h}
-    \kactlimport{Dijkstra.h}
-    \kactlimport{Prim.h}
-    \kactlimport{Kruskal.h}
+    \kactlimport{bellman-ford.h}
+    \kactlimport{floyd-warshall.h}
+    \kactlimport{topo-sort.h}
+    \kactlimport{dijkstra.h}
     %\kactlimport{SPFA.h}
-    \kactlimport{EulerWalk.h}
+    \kactlimport{euler-walk.h}
 
 \section{Network flow}
-	\kactlimport{PushRelabel.h}
-	\kactlimport{Dinitz.h}
+	\kactlimport{push-relabel.h}
+	\kactlimport{dinitz.h}
 	%\kactlimport{HLPP.h}
-	\kactlimport{EdmondsKarp.h}
 	%\kactlimport{MinCut.h}
-	\kactlimport{MinCostMaxFlow.h}
+	\kactlimport{min-cost-max-flow.h}
 	%\kactlimport{StoerWagner.h}
-	\kactlimport{GomoryHu.h}
   
 \section{Matching}
-	\kactlimport{HopcroftKarp.h}
-	\kactlimport{BipartiteMatching.h}
-        \kactlimport{WeightedMatching.h}
-	\kactlimport{GeneralMatchingDFS.h}
-	\kactlimport{GeneralMatching.h}
-	\kactlimport{MaximumIndependentSet.h}
-	\kactlimport{MinimumVertexCover.h}
-	\kactlimport{MinimumEdgeCover.h}
-	\kactlimport{MinimumPathCover.h}
+	\kactlimport{hopcroft-karp.h}
+	\kactlimport{bipartite-matching.h}
+        \kactlimport{weighted-matching.h}
+	\kactlimport{general-matching-dfs.h}
+	\kactlimport{general-matching.h}
+	\kactlimport{max-independent-set.h}
+	\kactlimport{min-vertex-cover.h}
+	\kactlimport{min-edge-cover.h}
+	\kactlimport{min-path-cover.h}
 
 \section{DFS algorithms}
-	\kactlimport{DFSTree.h}
-	\kactlimport{CentroidDecomposition.h}
-	\kactlimport{SCC.h}
-	%\kactlimport{Kosaraju.h}
-	\kactlimport{BiconnectedComponents.h}
-	\kactlimport{2sat.h}
-	\kactlimport{Cycles.h}
-
+	\kactlimport{dfs-tree.h}
+	\kactlimport{centroid-decomposition.h}
+	\kactlimport{tarjan.h}
+	\kactlimport{kosaraju.h}
+	\kactlimport{bcc.h}
+	%\kactlimport{2sat.h}
 
 \section{Heuristics}
-	\kactlimport{MaximalCliques.h}
-	\kactlimport{MaximumClique.h}
-	\kactlimport{ChromaticNumber.h}
-	\kactlimport{CycleCounting.cpp}
+	\kactlimport{maximal-cliques.h}
+	\kactlimport{maximum-clique.h}
+	\kactlimport{chromatic-number.h}
+	\kactlimport{cycle-counting.cpp}
+	\kactlimport{edge-coloring.h}
 
 \section{Trees}
     %\kactlimport{Tree.h}
-    \kactlimport{LCA.cpp}
-    \kactlimport{LCA.h}
-    \kactlimport{CompressTree.h}
-    \kactlimport{Heavylight.h}
-    \kactlimport{TreeIsomorphism.h}
+    \kactlimport{lca-binary-lifting.h}
+    \kactlimport{lca-euler-tour.h}
+    \kactlimport{compress-tree.h}
+    \kactlimport{heavylight.h}
+    \kactlimport{tree-isomorphism.h}
     %\kactlimport{LineTree.h}
 
     \subsection{Sqrt Decomposition}
@@ -74,17 +69,15 @@
 		\end{itemize}
     
 \section{Functional Graphs}
-    \kactlimport{Lumberjack.h}
-    \kactlimport{Lumberjack2.h}
+    \kactlimport{functional-graph.h}
+    \kactlimport{functional-digraph.h}
 \section{Other}
-    %\kactlimport{kthShortestPath.h}
-    \kactlimport{MatrixTreeMST.h}
-    \kactlimport{ManhattanMST.h}
+    %\kactlimport{MatrixTreeMST.h}
+    %\kactlimport{ManhattanMST.h}
     %\kactlimport{Pruefer.cpp}    
-    \kactlimport{ErdosGallai.h}
+    \kactlimport{erdos-gallai.h}
     %\kactlimport{MisraGries.h}
-    \kactlimport{DirectedMST.h}
-    \kactlimport{NegCycle.h}
+    \kactlimport{directed-mst.h}
 
 \section{Theorems}
 
@@ -139,20 +132,20 @@ minimum $S,T$-cut is the answer. Vertices adjacent to a cut edge are
 in the vertex cover.
 
 \subsection{Tutte-Berge formula}
-The theorem states that the size of a maximum matching of a graph $G=(V,E)$ equals ${\frac {1}{2}}\min _{U\subseteq V}\left(|U|- \texttt{odd}(G-U)+|V|\right)\,,$ where \texttt{odd}(H) counts how many of the connected components of the graph $H$ have an odd number of vertices.
+The theorem states that the size of a maximum matching of a graph $G=(V,E)$ equals ${\frac {1}{2}}\min_{U\subseteq V}\left(|U|- \texttt{odd}(G-U)+|V|\right)\,,$ where \texttt{odd}(H) counts how many of the connected components of the graph $H$ have an odd number of vertices.
 
 \subsection{Tutte's theorem}
 A graph $G = (V, A)$ has a perfect matching iff for all subset $U$ of $V$, the induced subgraph by $V \setminus U$ has at most $|U|$ connected components with odd number of vertices.
 
 %\subsection{Erdős–Gallai theorem}
-%% Source: https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gallai_theorem
+%% Source: https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gallai-theorem
 %% Test: stress-tests/graph/matrix-tree.cpp
-%A simple graph with node degrees $d_1 \ge \dots \ge d_n$ exists iff $d_1 + \dots + d_n$ is even and for every $k = 1\dots n$,
-%\[ \sum _{i=1}^{k}d_{i}\leq k(k-1)+\sum _{i=k+1}^{n}\min(d_{i},k). \]
+%A simple graph with node degrees $d-1 \ge \dots \ge d-n$ exists iff $d-1 + \dots + d-n$ is even and for every $k = 1\dots n$,
+%\[ \sum -{i=1}^{k}d-{i}\leq k(k-1)+\sum -{i=k+1}^{n}\min(d-{i},k). \]
 
 \subsection{Number of Spanning Trees}
 		% I.e. matrix-tree theorem.
-		% Source: https://en.wikipedia.org/wiki/Kirchhoff%27s_theorem
+		% Source: https://en.wikipedia.org/wiki/Kirchhoff%27s-theorem
 		% Test: stress-tests/graph/matrix-tree.cpp
 		Define Laplacian Matrix as $L = D - A$, $D$ being a Diagonal Matrix with $D_{i,i} = deg(i)$ and $A$ an Adjacency Matrix.
 		Create an $N\times N$ Laplacian matrix \texttt{mat}, and for each edge $a \rightarrow b \in G$, do
@@ -175,7 +168,7 @@ $k$ internally disjoint paths.
 A graph is called $k$-edge-connected if the removal of at least $k$ edges of the graph keeps it connected. A graph is $k$-edge-connected iff for all pairwise vertices $u$ and $v$, exist $k$ paths which link $u$ to $v$ without sharing an edge.
 
 % \subsection{Matroid Intersection theorem}
-% Let~$M_1 = (E, I_1)$ e~$M_2 = (E, I_2)$ be matroids. Then
-% $ \max\limits_{S \in I_1 \cap I_2}{|S|} = \min\limits_{U \subseteq E}{r_1(U) + r_2(E \setminus U)}.$
+% Let~$M-1 = (E, I-1)$ e~$M-2 = (E, I-2)$ be matroids. Then
+% $ \max\limits-{S \in I-1 \cap I-2}{|S|} = \min\limits-{U \subseteq E}{r-1(U) + r-2(E \setminus U)}.$
 
 

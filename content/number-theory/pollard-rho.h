@@ -37,8 +37,8 @@
  *   t starts off as 30 to make the first gcd check come earlier, as an
  *   optimization for small numbers.
  */
-#include "ModMulLL.h"
-#include "MillerRabin.h"
+#include "mod-mul.h"
+#include "miller-rabin.h"
 ull pollard(ull n) {
 	auto f = [n](ull x) { return modmul(x, x, n) + 1; };
 	ull x = 0, y = 0, t = 30, prd = 2, i = 1, q;

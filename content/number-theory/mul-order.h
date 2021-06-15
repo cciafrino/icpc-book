@@ -5,10 +5,9 @@
  * Time: close to $O(log(N))$
  * Status: yet to be stress tested 
  */
-#include<Sieve.h>
-#include<Divisors.h>
-#include<PrimeFactors.h>
-#include<Modpow.h>
+#include<sieve.h>
+#include<prime-factors.h>
+#include<mod-pow.h>
 
 template<typename T> T mulOrder(T a, T m) {
     auto pf = prime_factorize(m);
@@ -16,7 +15,7 @@ template<typename T> T mulOrder(T a, T m) {
     for (auto &[p, e] : pf) {
     	T k = 0, q = Pow(p, e);
     	T t = q / p * (p - 1);
-    	auto factors = divisors(t);
+    	auto factors = divisors(t); // get all divisors of t
     	for (auto &pr : factors) 
 	        if (modpow(a, pr, m) == 1) {
 	        	k = pr;

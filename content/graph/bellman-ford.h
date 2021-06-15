@@ -8,10 +8,16 @@
  * Assumes $V^2 \max |w_i| < \tilde{} 2^{63}$.
  * Time: $O(VE)$
  * Status: Tested on kattis:shortestpath3
+ * Details: If we follow the links back from u.b then we must always enter a cycle. 
+ * Otherwise, this would contradict the assumption that there exists a shorter
+ * path to u.b when considering paths of arbitrary length than those of 
+ * length at most n-1. The sum of the edge weights along this path is
+ * non-positive, and it cant be zero because then it would have no origin...
  */
 const lint inf = LLONG_MAX;
 struct edge_t { int a, b, w, s() { return a < b ? a : -a; }};
 struct node_t { lint dist = inf; int prev = -1; };
+
 void bellmanFord(vector<node_t>& nodes, vector<edge_t>& eds, int s) {
 	nodes[s].dist = 0;
 	sort(eds.begin(), eds.end(), [](edge_t a, edge_t b) { return a.s() < b.s(); });
@@ -27,4 +33,22 @@ void bellmanFord(vector<node_t>& nodes, vector<edge_t>& eds, int s) {
 	}
 	for(int i = 0; i < lim; ++i) for(auto &e : eds) 
 		if (nodes[e.a].dist == -inf) nodes[e.b].dist = -inf;
+}
+
+vector<int> negCyc(int n, vector<edge_t>& edges) {
+    vector<int64_t> d(n); vector<int> p(n);
+    int v = -1;
+    for (int i = 0; i < n; ++i) {
+        v = -1; 
+        for (edge_t &u : edges)
+            if (d[u.b] > d[u.a] + u.w) {
+                d[u.b] = d[u.a] + u.w;
+                p[u.b] = u.a, v = u.b;
+            }
+        if (v == -1) return {};
+    }
+    for (int i = 0; i < n; ++i) v = p[v]; // enter cycle
+    vector<int> cycle = {v}; 
+    while (p[cycle.back()] != v) cycle.push_back(p[cycle.back()]);
+    return {cycle.rbegin(), cycle.rend()};
 }

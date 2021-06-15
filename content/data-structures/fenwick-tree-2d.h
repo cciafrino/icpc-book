@@ -7,9 +7,7 @@
  *  Requires that the elements to be updated are known in advance (call fakeUpdate() before init()).
  * Time: $O(\log^2 N)$. (Use persistent segment trees for $O(\log N)$.)
  */
-#pragma once
-
-#include "FenwickTree.h"
+#include "fenwick_tree.h"
 
 template<typename T> struct FT2 {
 	vector<vector<int>> ys; vector<FT<T>> ft;

@@ -9,10 +9,10 @@
  * Time: $O(\log^2 N)$
  */
 
-struct MergeSortTree {
+struct merge_sort_tree {
     vector<int> v, id; 
     vector<vector<int>> tree;
-    MergeSortTree(vector<int> &v) : v(v), tree(4*(v.size()+1)) {
+    merge_sort_tree(vector<int> &v) : v(v), tree(4*(v.size()+1)) {
         for(int i = 0; i < v.size(); ++i) id.push_back(i);
         sort(id.begin(), id.end(), [&v](int i, int j) { return v[i] < v[j]; });
         build(1, 0, v.size()-1);

@@ -7,10 +7,9 @@
  * Status: Works
  * Time: $O(sqrt(n)log(n))$
  */
-#include"Divisors.h"
 template<typename T> T order(T a, T n) {
-    vector<T> d = divisors(phi(n));
-    for (int i : v) 
+    vector<T> d = divisors(phi(n)); // divisors returns vector
+    for (int i : v)                 // with all divisors of phi(n)
         if (modpow(a, i, n) == 1) return i;
     return -1;
 }

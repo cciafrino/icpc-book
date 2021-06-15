@@ -10,6 +10,9 @@ int cmp_double(double a, double b = 0, double eps = 1e-9) {
     return a + eps > b ? b + eps > a ? 0 : 1 : -1;
 }
 
+array<int, 4> dx = {-1, 0, 1, 0};
+array<int, 4> dy = {0, 1, 0, -1};
+
 int main() {
     cin.tie(0)->sync_with_stdio(0);
 	cin.exceptions(cin.failbit);
