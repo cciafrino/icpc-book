@@ -4,11 +4,11 @@
  * Can be used to find all occurrences of a pattern in a text.
  * Time: O(n)
  */
+// TODO: combine with KMP Automaton 
 template<typename T> struct kmp_t {
-    vector<T> word;
-    vector<int> failure;
-    kmp_t(const vector<T> &_word): word(_word) { /// start-hash
-        int n = word.size();
+    vector<T> word; vector<int> failure;
+    kmp_t(const vector<T> &_word): word(_word) { 
+        int n = int(size(word));
         failure.resize(n+1, 0);
         for (int s = 2; s <= n; ++s) {
             failure[s] = failure[s-1];
@@ -16,19 +16,17 @@ template<typename T> struct kmp_t {
                 failure[s] = failure[failure[s]];
             if (word[failure[s]] == word[s-1]) failure[s] += 1;
         }
-    }/// end-hash
-    vector<int> matches_in(const vector<T> &text) { /// start-hash
-        vector<int> result;
-        int s = 0;
-        for (int i = 0; i < (int)text.size(); ++i) {
-            while (s > 0 && word[s] != text[i])
-                s = failure[s];
+    }
+    vector<int> matches_in(const vector<T> &text) {
+        vector<int> result; int s = 0;
+        for (int i = 0; i < int(size(text)); ++i) {
+            while (s > 0 && word[s] != text[i]) s = failure[s];
             if (word[s] == text[i]) s += 1;
             if (s == (int)word.size()) {
-                result.push_back(i-(int)word.size()+1);
+                result.push_back(i-int(size(word))+1);
                 s = failure[s];
             }
         }
         return result;
-    }/// end-hash
+    }
 };

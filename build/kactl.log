@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.5.25)  17 JUN 2021 22:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.5.25)  18 JUN 2021 18:38
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1823,63 +1823,60 @@ runsystem(python2 content/tex/preprocessor.py --print-header "SphericalDistance.
 Chapter 9.
 runsystem(rm -f build/kactl.tmp)...executed.
 
-runsystem(python2 content/tex/preprocessor.py -i "content/strings/KMP.cpp" -o build/kactl.tmp )...executed.
+runsystem(python2 content/tex/preprocessor.py -i "content/strings/kmp.h" -o build/kactl.tmp )...executed.
 
 (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
-runsystem(python2 content/tex/preprocessor.py -i "content/strings/Duval.h" -o build/kactl.tmp )...executed.
+runsystem(python2 content/tex/preprocessor.py -i "content/strings/duval.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
-runsystem(python2 content/tex/preprocessor.py -i "content/strings/Z.h" -o build/kactl.tmp )...executed.
+runsystem(python2 content/tex/preprocessor.py -i "content/strings/z-algorithm.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
-runsystem(python2 content/tex/preprocessor.py -i "content/strings/Manacher.h" -o build/kactl.tmp )...executed.
+runsystem(python2 content/tex/preprocessor.py -i "content/strings/manacher.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
-runsystem(python2 content/tex/preprocessor.py -i "content/strings/MinRotation.h" -o build/kactl.tmp )...executed.
+runsystem(python2 content/tex/preprocessor.py -i "content/strings/min-rotation.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
-runsystem(python2 content/tex/preprocessor.py -i "content/strings/TrieXOR.h" -o build/kactl.tmp )...executed.
+runsystem(python2 content/tex/preprocessor.py -i "content/strings/xor-trie.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
-runsystem(python2 content/tex/preprocessor.py -i "content/strings/Hashing.h" -o build/kactl.tmp )...executed.
+runsystem(python2 content/tex/preprocessor.py -i "content/strings/hashing.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-runsystem(python2 content/tex/preprocessor.py --print-header "Hashing.h|Hashing.h" -o build/header2.tmp)...executed.
+runsystem(python2 content/tex/preprocessor.py --print-header "hashing.h|hashing.h" -o build/header2.tmp)...executed.
 
  (./build/header2.tmp) [36])
 runsystem(rm -f build/kactl.tmp)...executed.
 
-runsystem(python2 content/tex/preprocessor.py -i "content/strings/AhoCorasick.h" -o build/kactl.tmp )...executed.
+runsystem(python2 content/tex/preprocessor.py -i "content/strings/aho-corasick.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-runsystem(python2 content/tex/preprocessor.py --print-header "|AhoCorasick.h" -o build/header2.tmp)...executed.
+runsystem(python2 content/tex/preprocessor.py --print-header "|aho-corasick.h" -o build/header2.tmp)...executed.
 
  (./build/header2.tmp) [37])
 runsystem(rm -f build/kactl.tmp)...executed.
 
-runsystem(python2 content/tex/preprocessor.py -i "content/strings/SuffixArray.h" -o build/kactl.tmp )...executed.
+runsystem(python2 content/tex/preprocessor.py -i "content/strings/suffix-array.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
-runsystem(python2 content/tex/preprocessor.py -i "content/strings/SuffixAutomaton.h" -o build/kactl.tmp )...executed.
+runsystem(python2 content/tex/preprocessor.py -i "content/strings/suffix-automaton.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python2 content/tex/preprocessor.py --print-header "|SuffixAutomaton.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [38])) (./content/various/chapter.tex
+ (./build/kactl.tmp)) (./content/various/chapter.tex
 Chapter 10.
 runsystem(rm -f build/kactl.tmp)...executed.
 
@@ -1900,7 +1897,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--7
 \OT1/cmr/bx/n/7 Usage: \OT1/pcr/m/n/7 constantIntervals(0, sz(v), [&](int x)\OMS/cmsy/m/n/7 f\OT1/pcr/m/n/7 return v[x];\OMS/cmsy/m/n/7 g\OT1/pcr/m/n/7 ,
  []
 
-)
+runsystem(python2 content/tex/preprocessor.py --print-header "ConstantIntervals.h|ConstantIntervals.h" -o build/header2.tmp)...executed.
+
+(./build/header2.tmp) [38])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/TernarySearch.h" -o build/kactl.tmp )...executed.
@@ -1925,10 +1924,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/RadixSort.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python2 content/tex/preprocessor.py --print-header "RadixSort.h|RadixSort.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [39])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/CoordCompression.h" -o build/kactl.tmp )...executed.
@@ -1943,7 +1939,10 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/Karatsuba.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python2 content/tex/preprocessor.py --print-header "Karatsuba.h|Karatsuba.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [39])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/CountInversions.h" -o build/kactl.tmp )...executed.
@@ -1973,10 +1972,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/DateManipulation.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python2 content/tex/preprocessor.py --print-header "DateManipulation.h|DateManipulation.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [40])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/NQueens.cpp" -o build/kactl.tmp )...executed.
@@ -1986,7 +1982,10 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/SudokuSolver.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python2 content/tex/preprocessor.py --print-header "SudokuSolver.h|SudokuSolver.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [40])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/FloydCycle.h" -o build/kactl.tmp )...executed.
@@ -2007,9 +2006,6 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/various/KnuthDP.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
-runsystem(python2 content/tex/preprocessor.py --print-header "KnuthDP.h|KnuthDP.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [41]
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/ConvexHullTrick.h" -o build/kactl.tmp )...executed.
@@ -2034,7 +2030,10 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/LIS.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python2 content/tex/preprocessor.py --print-header "LIS.h|LIS.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [41])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/LIS2.h" -o build/kactl.tmp )...executed.
@@ -2060,9 +2059,6 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/various/LargeKnapsack.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
-runsystem(python2 content/tex/preprocessor.py --print-header "LargeKnapsack.h|LargeKnapsack.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [42]
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/KnapsackUnbounded.h" -o build/kactl.tmp )...executed.
@@ -2087,7 +2083,10 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/TSP.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python2 content/tex/preprocessor.py --print-header "KnapsackBitset.h|TSP.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [42])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/TwoMaxEqualSumDS.h" -o build/kactl.tmp )...executed.
@@ -2102,10 +2101,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/CircularLCS.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python2 content/tex/preprocessor.py --print-header "CircularLCS.h|CircularLCS.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [43])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/MaxZeroSubmatrix.h" -o build/kactl.tmp )...executed.
@@ -2117,7 +2113,10 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/FastInput.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python2 content/tex/preprocessor.py --print-header "FastInput.h|FastInput.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [43])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/BumpAllocator.h" -o build/kactl.tmp )...executed.
@@ -2147,10 +2146,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/SIMD.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python2 content/tex/preprocessor.py --print-header "SIMD.h|SIMD.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [44])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/FastMod.h" -o build/kactl.tmp )...executed.
@@ -2165,7 +2161,10 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/CustomComparator.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python2 content/tex/preprocessor.py --print-header "LinkedList.h|CustomComparator.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [44])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/Floor.h" -o build/kactl.tmp )...executed.
@@ -2185,10 +2184,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/RandomNumbers.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python2 content/tex/preprocessor.py --print-header "Bitset.h|RandomNumbers.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [45])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python2 content/tex/preprocessor.py -i "content/various/MiscJava.java" -o build/kactl.tmp )...executed.
@@ -2198,7 +2194,7 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 )))
 runsystem(python2 content/tex/preprocessor.py --print-header "|MiscJava.java" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [46]
+ (./build/header2.tmp) [45]
 \tf@ptc=\write5
 \openout5 = `kactl.ptc'.
 
@@ -2213,18 +2209,18 @@ Package rerunfilecheck Info: File `kactl.out' has not changed.
 (rerunfilecheck)             Checksum: FCACB60EE8B76FB3C1742DA3FA07FD79;913.
  ) 
 Here is how much of TeX's memory you used:
- 24022 strings out of 478994
- 351394 string characters out of 5864751
- 2098289 words of memory out of 5000000
- 34092 multiletter control sequences out of 15000+600000
+ 23912 strings out of 478994
+ 349564 string characters out of 5864751
+ 2112121 words of memory out of 5000000
+ 34074 multiletter control sequences out of 15000+600000
  421068 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 86i,16n,88p,665b,2280s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 86i,16n,88p,665b,2278s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti0700.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on build//kactl.pdf (47 pages, 2577364 bytes).
+Output written on build//kactl.pdf (46 pages, 2572781 bytes).
 PDF statistics:
- 8769 PDF objects out of 8907 (max. 8388607)
- 8434 compressed objects within 85 object streams
- 6583 named destinations out of 7423 (max. 500000)
+ 8658 PDF objects out of 8907 (max. 8388607)
+ 8325 compressed objects within 84 object streams
+ 6493 named destinations out of 7423 (max. 500000)
  131 words of extra memory for PDF output out of 10000 (max. 10000000)
 
