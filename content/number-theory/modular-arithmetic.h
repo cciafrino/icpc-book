@@ -6,8 +6,8 @@
 template<unsigned M_> struct modnum {
     static constexpr unsigned M = M_;
     using ll = long long; using ull = unsigned long long; unsigned x;
-    constexpr modnum() : x(0) {}
-    constexpr modnum(unsigned x_) : x(x_ % M) { if (x < 0) x += M; }
+    constexpr modnum() : x(0U) {}
+    constexpr modnum(unsigned x_) : x(x_ % M) {}
     constexpr modnum(int x_) : x(((x_ %= static_cast<int>(M)) < 0) ? (x_ + static_cast<int>(M)) : x_) {}
     constexpr modnum(ull x_) : x(x_ % M) {}
     constexpr modnum(ll x_) : x(((x_ %= static_cast<ll>(M)) < 0) ? (x_ + static_cast<ll>(M)) : x_) {}
@@ -20,10 +20,11 @@ template<unsigned M_> struct modnum {
     modnum operator-(const modnum& a) const { return (modnum(*this) -= a); }
     modnum operator*(const modnum& a) const { return (modnum(*this) *= a); }
     modnum operator/(const modnum& a) const { return (modnum(*this) /= a); }
-    modnum operator-() const { return modnum(-x); }
+    modnum operator+() const { return *this; }
+    modnum operator-() const { modnum a; a.x = x ? (M - x) : 0U; return a; }
     modnum pow(ll e) const {
         if (e < 0) return inv().pow(-e);
-        modnum x2 = x, xe = 1;
+        modnum x2 = x, xe = 1U;
         for (; e; e >>= 1) {
             if (e & 1) xe *= x2;
             x2 *= x2;
@@ -36,7 +37,7 @@ template<unsigned M_> struct modnum {
             const unsigned q = (b/a), c = (b - q*a); 
             b = a, a = c; const int w = z - static_cast<int>(q) * y;
             z = y, y = w;
-        } assert(b == 1); return modnum(z);
+        } assert(b == 1U); return modnum(z);
     }
     friend modnum inv(const modnum& a) { return a.inv(); }
     template<typename T> friend modnum operator+(T a, const modnum& b) { return (modnum(a) += b); }

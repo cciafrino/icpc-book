@@ -1,24 +1,20 @@
 \chapter{Numerical}
-\kactlimport{GoldenSectionSearch.h}
 \kactlimport{Polynomial.h}
 \kactlimport{PolyRoots.h}
 \kactlimport{PolyInterpolate.h}
-\kactlimport{Lagrange.h}
-\kactlimport{BerlekampMassey.h}
-\kactlimport{LinearRecurrence.h}
-\kactlimport{HillClimbing.h}
-\kactlimport{Integrate.h}
-\kactlimport{IntegrateAdaptive.h}
-\kactlimport{Determinant.h}
-\kactlimport{Elimination.h}
-\kactlimport{CharPoly.h}
-%\kactlimport{Simplex.h}
-\kactlimport{Math-Simplex.cpp}
-\kactlimport{SolveLinear.h}
-\kactlimport{SolveLinear2.h}
-\kactlimport{SolveLinearBinary.h}
-\kactlimport{MatrixInverse.h}
-\kactlimport{Tridiagonal.h}
+\kactlimport{lagrange.h}
+\kactlimport{berlekamp-massey.h}
+\kactlimport{linear-recurrence.h}
+\kactlimport{hill-climbing.h}
+\kactlimport{integrate.h}
+\kactlimport{integrate-adaptive.h}
+\kactlimport{determinant.h}
+\kactlimport{linear-solver.h}
+\kactlimport{matrix-inverse.h}
+\kactlimport{linear-solver-z2.h}
+\kactlimport{char-poly.h}
+\kactlimport{simplex.h}
+\kactlimport{tridiagonal.h}
 %\kactlimport{NewtonMethod.h}
 %\kactlimport{NewtonSQRT.h}
 %\kactlimport{MarkovChain.cpp}
@@ -26,9 +22,8 @@
 \section{Fourier transforms}
 %\kactlimport{fft.cpp}
 %\kactlimport{poly-exp-log.cpp}
-\kactlimport{FastFourierTransform.h}
-\kactlimport{FastFourierTransformMod.h}	
-\kactlimport{NumberTheoreticTransform.h}
+\kactlimport{fast-fourier-transform.h}
+\kactlimport{finite-field-fft.h}	
 % \kactlimport{FastSubsetTransform.h}
 %\kactlimport{Zeta.h}
 %\kactlimport{ZetaDor.h}
@@ -69,7 +64,7 @@
     $(0,1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\ldots)$ & $\ln \frac{1}{1-z}$ \\ \hline
   \end{tabular}
 
-\
+\columnbreak
 
 A neat manipulation trick is:
 \begin{equation*}
@@ -87,3 +82,4 @@ A neat manipulation trick is:
         fixed&6&19&63&216&760&2.725&9.910&36.446 \\ \hline
       \end{tabular}
       }
+

@@ -1,8 +1,15 @@
-#include "../utilities/template.h"
-#include "../../content/number-theory/modular-arithmetic.h"
+/**
+ * Author: Yui Hosaka
+ * Date: 2021
+ * License: CC0
+ * Source: libra
+ * Description: radix 3 FFT, can be used for convolutions modulo arbitrary integers
+ * Inputs must be in $[0, \text{mod})$.
+ * Time: O(N \log N), where $N = |A|+|B|$ (twice as slow as NTT or FFT)
+ * Status: stress-tested
+ */
+#include "../number-theory/modular-arithmetic.h"
 
-using mnum = modnum<998244353>;
- 
 // M: prime, G: primitive root, 2^K | M - 1
 template<unsigned M_, unsigned G_, int K_ > struct FFT {
     static_assert(2U <= M_, "Fft: 2 <= M must hold.");
@@ -25,8 +32,7 @@ template<unsigned M_, unsigned G_, int K_ > struct FFT {
         for (int k = 0; k <= K - 2; ++k) {
             FFT_RATIOS[k] = -g.pow(3U * ((M - 1U) >> (k + 2)));
             INV_FFT_RATIOS[k] = FFT_RATIOS[k].inv();
-        }
-        assert(FFT_ROOTS[1] == M - 1U);
+        } assert(FFT_ROOTS[1] == M - 1U);
     }
     // as[rev(i)] <- \sum_j \zeta^(ij) as[j]
     void fft(modnum<M>* as, int n) const {
@@ -150,113 +156,3 @@ template<unsigned M_, unsigned G_, int K_ > struct FFT {
 };
 
 const FFT<998244353, 3, 22> fft_data;
-
-template<class T>
-vector<T> convolute(const vector<T> &a, const vector<T> &b) {
-    if (empty(a) || empty(b)) return {};
-    return fft_data.convolve(a, b);
-}
-
-template<class T>
-vector<T> convolute_all(vector<vector<T>> polys, int begin, int end) {
-    if (end - begin == 0) return {1};
-    else if (end - begin == 1) return polys[begin];
-    else {
-        int mid = begin + (end - begin) / 2;
-        return convolute(convolute_all(polys, begin, mid), convolute_all(polys, mid, end));
-    }
-}
-
-template<class T>
-vector<T> convolute_all(vector<vector<T>>& polys) {
-    return convolute_all(polys, 0, size(polys));
-}
-
-
-vector<mnum> simpleConv(vector<mnum> a, vector<mnum> b) {
-	if (a.empty() || b.empty()) return {};
-	int s = size(a) + size(b) - 1;
-	vector<mnum> c(s);
-	rep(i,0,size(a)) rep(j,0,size(b))
-		c[i+j] = (c[i+j] + a[i] * b[j]);
-	return c;
-}
-
-int ra() {
-	static unsigned X;
-	X *= 123671231;
-	X += 1238713;
-	X ^= 1237618;
-	return (X >> 1);
-}
-
-using lint = long long;
-const lint mod = (119 << 23) + 1, root = 3; // = 998244353
-// For p < 2^30 there is also e.g. 5 << 25, 7 << 26, 479 << 21
-// and 483 << 21 (same root). The last two are > 10^9.
-
-lint modpow(lint b, lint e) {
-	lint ret = 1;
-	for (int i = 1; i <= e; i *= 2, b = b * b % mod)
-		if (i & e) ret = ret * b % mod;
-	return ret;
-}
-
-typedef vector<lint> vl;
-void ntt(vl& a, vl& rt, vl& rev, int n) {
-	for(int i = 0; i < n; ++i) if (i < rev[i]) swap(a[i], a[rev[i]]);
-	for (int k = 1; k < n; k *= 2)
-		for (int i = 0; i < n; i += 2 * k) for(int j = 0; j < k; ++j) {
-				lint z = rt[j + k] * a[i + j + k] % mod, &ai = a[i + j];
-				a[i + j + k] = (z > ai ? ai - z + mod : ai - z);
-				ai += (ai + z >= mod ? z - mod : z);
-	}
-}
-
-vl conv(const vl& a, const vl& b) {
-	if (a.empty() || b.empty())
-		return {};
-	int s = a.size()+b.size()-1, B = 32 - __builtin_clz(s), n = 1 << B;
-	vl L(a), R(b), out(n), rt(n, 1), rev(n);
-	L.resize(n), R.resize(n);
-	for(int i = 0; i < n; ++i) rev[i] = (rev[i / 2] | (i & 1) << B) / 2;
-	lint curL = mod / 2, inv = modpow(n, mod - 2);
-	for (int k = 2; k < n; k *= 2) {
-		lint z[] = {1, modpow(root, curL /= 2)};
-		for(int i = k; i < 2*k; ++i) rt[i] = rt[i / 2] * z[i & 1] % mod;
-	}
-	ntt(L, rt, rev, n); ntt(R, rt, rev, n);
-	for(int i = 0; i <n; ++i) out[-i & (n-1)] = L[i] * R[i] % mod * inv % mod;
-	ntt(out, rt, rev, n);
-	return {out.begin(), out.begin() + s};
-}
-
-int main() {
-	vector<mnum> a, b;
-	rep(it,0,6) {
-		a.resize(ra() % 1000000);
-		b.resize(ra() % 1000000);
-		for(auto &x: a) x = ra();
-		for(auto &x: b) x = ra();
-                vl a1(size(a)), b1(size(b));
-                for (int i = 0; i < size(a); ++i) a1[i] = int(a[i]);
-                for (int i = 0; i < size(b); ++i) b1[i] = int(b[i]);
-		const auto timerBegin = std::chrono::high_resolution_clock::now();
-		auto v2 = conv(a1, b1);
-		const auto timerEnd = std::chrono::high_resolution_clock::now();
-		cerr << std::chrono::duration_cast<std::chrono::milliseconds>(
-      timerEnd - timerBegin).count() << " msec" << endl;
-
-                vector<vector<mnum>> poly(2);
-                poly[0] = a;
-                poly[1] = b;
-		const auto timerBegin2 = std::chrono::high_resolution_clock::now();
-		auto v1 = convolute_all(poly);
-		const auto timerEnd2 = std::chrono::high_resolution_clock::now();
-		cerr << std::chrono::duration_cast<std::chrono::milliseconds>(
-      timerEnd2 - timerBegin2).count() << " msec" << endl;
-		for(int i = 0; i < size(v2); ++i) assert(v1[i] == v2[i]);
-		cout << endl;
-	}
-	cout<<"Tests passed!"<<endl;
-}
