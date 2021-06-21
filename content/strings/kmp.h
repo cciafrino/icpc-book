@@ -6,8 +6,8 @@
  */
 template<typename T> struct kmp_t {
     vector<T> word; vector<int> failure;
-	template<typename I> kmp_t(I begin, I end) { 
-		for (I iter = begin; iter != end; ++iter) word.push_back(*iter);
+    template<typename I> kmp_t(I begin, I end) { 
+	for (I iter = begin; iter != end; ++iter) word.push_back(*iter);
         int n = int(size(word)); failure.resize(n+1, 0);
         for (int s = 2; s <= n; ++s) {
             failure[s] = failure[s-1];
