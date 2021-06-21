@@ -28,11 +28,11 @@ template<typename T> struct kmp_t {
         }
         return result;
     }
-	template<int K = 26, char offset = 'a'>
-	auto build_automaton() {
-	    word.push_back(offset + K);
-	    vector<array<int, K>> table(size(word));
-	    for (int a = 0; a < int(size(word)); ++a) {
+    template<int K = 26, char offset = 'a'>
+    auto build_automaton() {
+	word.push_back(offset + K);
+	vector<array<int, K>> table(size(word));
+	for (int a = 0; a < int(size(word)); ++a) {
             for (int b = 0; b < K; ++b) {
                 if (a > 0 && offset + b != word[a]) 
                     table[a][b] = table[failure[a]][b];
@@ -40,7 +40,7 @@ template<typename T> struct kmp_t {
                     table[a][b] = a + (offset + b == word[a]);
                 }
             }
-	    }
-	    return table;
 	}
+	return table;
+    }
 };
