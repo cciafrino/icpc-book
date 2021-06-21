@@ -1,7 +1,32 @@
 #include "../utilities/template.h"
-#include "../../content/strings/AhoCorasick.h"
 
 #define trav(a, x) for (auto& a : x)
+
+template<int K = 26, char A = 'a'> struct aho_corasick {
+	vector<array<int, K>> trie;
+	vector<vector<int>> end_loc;
+	vector<int> failure;
+	vector<int> top_failure;
+	vector<bool> is_end;
+	aho_corasick() : trie(1) { trie.back().fill(-1); }
+	
+	void build() {
+		vector<int> bfs = {0};
+		failure[0] = top_failure[0] = -1;
+		for (int z = 0; z < size(bfs); ++z) {
+			int cur = bfs[z];
+			if (z) top_failure[cur] = is_end[failure[cur]] ? failure[cur] : top_failure[failure[cur]];
+			for (int c = 0; c < A; ++c) {
+				if (trie[cur][c] == -1) {
+					trie[cur][c] = (z ? trie[failure[cur]][c] : 0);
+				} else {
+					failure[trie[cur][c]] = (z ? trie[failure[cur]][c] : 0);
+					bfs.push_back(trie[cur][c]);
+				}
+			}
+		}
+	}
+};
 
 template<class F>
 void gen(string& s, int at, int alpha, F f) {
@@ -28,7 +53,7 @@ void test(const string& s) {
 	string hay = cur;
 	trav(x, pats) if (x.empty()) return;
 
-	AhoCorasick ac(pats);
+	Aho ac(pats);
 	vector<vi> positions = ac.findAll(pats, hay);
 
 	vi ord;
