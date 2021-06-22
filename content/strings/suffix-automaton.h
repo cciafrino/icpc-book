@@ -4,11 +4,11 @@
  * Description: Suffix automaton
  * Status: stress-tested 
  */
-struct array_state {
+template<int offset = 'a'> struct array_state {
     array<int, 26> as;
     array_state() { fill(begin(as), end(as), ~0); }
-    int& operator[](char c) { return as[c - 'a']; }
-    int count(char c) { return (~as[c - 'a'] ? 1 : 0); }
+    int& operator[](char c) { return as[c - offset]; }
+    int count(char c) { return (~as[c - offset] ? 1 : 0); }
 };
 
 template<typename Char, typename state = map<Char, int>> struct suffix_automaton {
