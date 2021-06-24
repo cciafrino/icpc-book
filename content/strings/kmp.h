@@ -21,7 +21,7 @@ template<typename T> struct kmp_t {
         for (int i = 0; i < int(size(text)); ++i) {
             while (s > 0 && word[s] != text[i]) s = failure[s];
             if (word[s] == text[i]) s += 1;
-            if (s == int(size(word)) {
+            if (s == int(size(word))) {
                 result.push_back(i-int(size(word))+1);
                 s = failure[s];
             }
