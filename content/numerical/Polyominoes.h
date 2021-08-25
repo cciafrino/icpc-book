@@ -25,6 +25,7 @@ void generate(int n = LIM){
 					pii m = min(om[0], {x, y});
 					pii new_cell(x - m.first, y - m.second);
 					vector<pii> norm;
+					norm.reserve(i);
 					bool new_in = false;
 					for(pii &c : om) {
 						pii cur(c.first - m.first, c.second - m.second);
