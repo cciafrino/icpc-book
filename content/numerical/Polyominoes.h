@@ -12,7 +12,7 @@ vector<int> diri = {0, 1, 0, -1};
 vector<int> dirj = {1, 0, -1, 0};
 vector<vector<pii>> poly[LIM];
 void generate(int n){
-	poly[1] = {{{0 , 0}}};
+	poly[1] = { { { 0 , 0 } } };
 	for(int i = 2 ; i <= n; i++) {
 		set<vector<pii>> cur_om;
 		for(auto &om : poly[i-1]) {
@@ -34,7 +34,7 @@ void generate(int n){
 							norm.push_back(cur);
 						}
 						if(!new_in) norm.push_back(new_cell);
-						if(!cur_om.count(norm)) cur_om.insert(norm);
+						cur_om.insert(norm);
 					}
 				}
 		}
