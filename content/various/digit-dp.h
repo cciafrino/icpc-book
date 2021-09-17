@@ -16,7 +16,7 @@ template<typename T, class F> T digit_dp(string& S, int K, F& L) {
 	const int len = int(S.size());
 
 	vector<bool> w(base);
-	vector<vector<T>> dp(len + 1, vector<T>(base + 1));
+	vector<vector<T>> dp(len + 1, vector<T>(base + 2));
 	
 	int cnt = 0;
 	for (int d = 0; d < len; ++d) {
@@ -38,4 +38,3 @@ template<typename T, class F> T digit_dp(string& S, int K, F& L) {
 	dp[len][cnt] += 1;
 	return dp[len][K];
 }
-
