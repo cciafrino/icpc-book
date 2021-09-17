@@ -75,7 +75,7 @@
 \contentsline {subsection}{\numberline {6.3.12}Triangles}{18}{subsection.6.3.12}%
 \contentsline {section}{\numberline {6.4}Fibonacci}{18}{section.6.4}%
 \contentsline {section}{\numberline {6.5}Linear Recurrences}{18}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Game Theory}{18}{section.6.6}%
+\contentsline {section}{\numberline {6.6}Game Theory}{19}{section.6.6}%
 \contentsline {subsection}{\numberline {6.6.1}Nim}{19}{subsection.6.6.1}%
 \contentsline {subsection}{\numberline {6.6.2}Mis\`{e}re Nim}{19}{subsection.6.6.2}%
 \contentsline {subsection}{\numberline {6.6.3}Staircase Nim}{19}{subsection.6.6.3}%
@@ -119,10 +119,10 @@
 \contentsline {section}{\numberline {10.1}Intervals}{38}{section.10.1}%
 \contentsline {section}{\numberline {10.2}Misc. algorithms}{39}{section.10.2}%
 \contentsline {section}{\numberline {10.3}Dynamic programming}{41}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Debugging tricks}{43}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Optimization tricks}{43}{section.10.5}%
-\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{43}{subsection.10.5.1}%
-\contentsline {subsection}{\numberline {10.5.2}Pragmas}{43}{subsection.10.5.2}%
+\contentsline {section}{\numberline {10.4}Debugging tricks}{44}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Optimization tricks}{44}{section.10.5}%
+\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{44}{subsection.10.5.1}%
+\contentsline {subsection}{\numberline {10.5.2}Pragmas}{44}{subsection.10.5.2}%
 \contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{45}{section.10.6}%
 \contentsline {section}{\numberline {10.7}Random Numbers}{45}{section.10.7}%
 \contentsline {section}{\numberline {10.8}Other languages}{45}{section.10.8}%

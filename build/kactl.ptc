@@ -161,7 +161,7 @@
 \contentsline {subsection}{\numberline {6.3.12}Triangles}{18}{subsection.6.3.12}%
 \contentsline {section}{\numberline {6.4}Fibonacci}{18}{section.6.4}%
 \contentsline {section}{\numberline {6.5}Linear Recurrences}{18}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Game Theory}{18}{section.6.6}%
+\contentsline {section}{\numberline {6.6}Game Theory}{19}{section.6.6}%
 \contentsline {subsection}{\numberline {6.6.1}Nim}{19}{subsection.6.6.1}%
 \contentsline {subsection}{\numberline {6.6.2}Mis\`{e}re Nim}{19}{subsection.6.6.2}%
 \contentsline {subsection}{\numberline {6.6.3}Staircase Nim}{19}{subsection.6.6.3}%
@@ -172,14 +172,14 @@
 \contentsline {subsection}{\numberline {6.6.8}Lasker's Nim}{19}{subsection.6.6.8}%
 \contentsline {subsection}{\numberline {6.6.9}Hackenbush on Trees}{19}{subsection.6.6.9}%
 \contentsline {subsection}{\texttt {nim-product.cpp}\hspace {0.2em}}{19}{subsection.6.6.9}%
-\contentsline {subsection}{\texttt {partitions.cpp}\hspace {0.2em}}{19}{lstnumber.6.6.27}%
+\contentsline {subsection}{\texttt {partitions.h}\hspace {0.2em}}{19}{lstnumber.6.6.27}%
 \contentsline {chapter}{\numberline {7}Graph}{19}{chapter.7}%
 \ttl@stoptoc {chapters@6}
 \ttl@starttoc {chapters@7}
 \contentsline {section}{\numberline {7.1}Fundamentals}{19}{section.7.1}%
 \contentsline {subsection}{\texttt {bellman-ford.h}\hspace {0.2em}}{19}{section.7.1}%
 \contentsline {subsection}{\texttt {floyd-warshall.h}\hspace {0.2em}}{19}{lstnumber.7.1.38}%
-\contentsline {subsection}{\texttt {topo-sort.h}\hspace {0.2em}}{19}{lstnumber.7.2.16}%
+\contentsline {subsection}{\texttt {topo-sort.h}\hspace {0.2em}}{20}{lstnumber.7.2.16}%
 \contentsline {subsection}{\texttt {dijkstra.h}\hspace {0.2em}}{20}{lstnumber.7.3.12}%
 \contentsline {subsection}{\texttt {euler-walk.h}\hspace {0.2em}}{20}{lstnumber.7.4.31}%
 \contentsline {section}{\numberline {7.2}Network flow}{20}{section.7.2}%
@@ -328,37 +328,38 @@
 \contentsline {subsection}{\texttt {EditDistance.h}\hspace {0.2em}}{41}{lstnumber.10.22.7}%
 \contentsline {subsection}{\texttt {LIS.h}\hspace {0.2em}}{42}{lstnumber.10.23.32}%
 \contentsline {subsection}{\texttt {LIS2.h}\hspace {0.2em}}{42}{lstnumber.10.24.17}%
-\contentsline {subsection}{\texttt {LCS.h}\hspace {0.2em}}{42}{lstnumber.10.25.9}%
-\contentsline {subsection}{\texttt {Knapsack.h}\hspace {0.2em}}{42}{lstnumber.10.26.14}%
-\contentsline {subsection}{\texttt {01Knapsack.h}\hspace {0.2em}}{42}{lstnumber.10.27.16}%
-\contentsline {subsection}{\texttt {LargeKnapsack.h}\hspace {0.2em}}{42}{lstnumber.10.28.12}%
-\contentsline {subsection}{\texttt {KnapsackUnbounded.h}\hspace {0.2em}}{42}{lstnumber.10.29.9}%
-\contentsline {subsection}{\texttt {KnapsackBounded.h}\hspace {0.2em}}{42}{lstnumber.10.30.10}%
-\contentsline {subsection}{\texttt {KnapsackBoundedCosts.h}\hspace {0.2em}}{42}{lstnumber.10.31.15}%
-\contentsline {subsection}{\texttt {KnapsackBitset.h}\hspace {0.2em}}{42}{lstnumber.10.32.28}%
-\contentsline {subsection}{\texttt {TSP.h}\hspace {0.2em}}{43}{lstnumber.10.33.11}%
-\contentsline {subsection}{\texttt {TwoMaxEqualSumDS.h}\hspace {0.2em}}{43}{lstnumber.10.34.17}%
-\contentsline {subsection}{\texttt {DistinctSubsequences.h}\hspace {0.2em}}{43}{lstnumber.10.35.15}%
-\contentsline {subsection}{\texttt {CircularLCS.h}\hspace {0.2em}}{43}{lstnumber.10.36.7}%
-\contentsline {subsection}{\texttt {MaxZeroSubmatrix.h}\hspace {0.2em}}{43}{lstnumber.10.37.48}%
-\contentsline {section}{\numberline {10.4}Debugging tricks}{43}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Optimization tricks}{43}{section.10.5}%
-\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{43}{subsection.10.5.1}%
-\contentsline {subsection}{\numberline {10.5.2}Pragmas}{43}{subsection.10.5.2}%
+\contentsline {subsection}{\texttt {digit-dp.h}\hspace {0.2em}}{42}{lstnumber.10.25.9}%
+\contentsline {subsection}{\texttt {LCS.h}\hspace {0.2em}}{42}{lstnumber.10.26.27}%
+\contentsline {subsection}{\texttt {Knapsack.h}\hspace {0.2em}}{42}{lstnumber.10.27.14}%
+\contentsline {subsection}{\texttt {01Knapsack.h}\hspace {0.2em}}{42}{lstnumber.10.28.16}%
+\contentsline {subsection}{\texttt {LargeKnapsack.h}\hspace {0.2em}}{42}{lstnumber.10.29.12}%
+\contentsline {subsection}{\texttt {KnapsackUnbounded.h}\hspace {0.2em}}{42}{lstnumber.10.30.9}%
+\contentsline {subsection}{\texttt {KnapsackBounded.h}\hspace {0.2em}}{42}{lstnumber.10.31.10}%
+\contentsline {subsection}{\texttt {KnapsackBoundedCosts.h}\hspace {0.2em}}{42}{lstnumber.10.32.15}%
+\contentsline {subsection}{\texttt {KnapsackBitset.h}\hspace {0.2em}}{43}{lstnumber.10.33.28}%
+\contentsline {subsection}{\texttt {TSP.h}\hspace {0.2em}}{43}{lstnumber.10.34.11}%
+\contentsline {subsection}{\texttt {TwoMaxEqualSumDS.h}\hspace {0.2em}}{43}{lstnumber.10.35.17}%
+\contentsline {subsection}{\texttt {DistinctSubsequences.h}\hspace {0.2em}}{43}{lstnumber.10.36.15}%
+\contentsline {subsection}{\texttt {CircularLCS.h}\hspace {0.2em}}{43}{lstnumber.10.37.7}%
+\contentsline {subsection}{\texttt {MaxZeroSubmatrix.h}\hspace {0.2em}}{43}{lstnumber.10.38.48}%
+\contentsline {section}{\numberline {10.4}Debugging tricks}{44}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Optimization tricks}{44}{section.10.5}%
+\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{44}{subsection.10.5.1}%
+\contentsline {subsection}{\numberline {10.5.2}Pragmas}{44}{subsection.10.5.2}%
 \contentsline {subsection}{\texttt {FastInput.h}\hspace {0.2em}}{44}{subsection.10.5.2}%
-\contentsline {subsection}{\texttt {BumpAllocator.h}\hspace {0.2em}}{44}{lstnumber.10.39.18}%
-\contentsline {subsection}{\texttt {SmallPtr.h}\hspace {0.2em}}{44}{lstnumber.10.40.8}%
-\contentsline {subsection}{\texttt {BumpAllocatorSTL.h}\hspace {0.2em}}{44}{lstnumber.10.41.10}%
-\contentsline {subsection}{\texttt {Hashmap.h}\hspace {0.2em}}{44}{lstnumber.10.42.14}%
-\contentsline {subsection}{\texttt {Unrolling.h}\hspace {0.2em}}{44}{lstnumber.10.43.19}%
-\contentsline {subsection}{\texttt {SIMD.h}\hspace {0.2em}}{44}{lstnumber.10.44.5}%
-\contentsline {subsection}{\texttt {FastMod.h}\hspace {0.2em}}{44}{lstnumber.10.45.43}%
-\contentsline {subsection}{\texttt {LinkedList.h}\hspace {0.2em}}{44}{lstnumber.10.46.10}%
-\contentsline {subsection}{\texttt {CustomComparator.h}\hspace {0.2em}}{45}{lstnumber.10.47.35}%
-\contentsline {subsection}{\texttt {Floor.h}\hspace {0.2em}}{45}{lstnumber.10.48.6}%
+\contentsline {subsection}{\texttt {BumpAllocator.h}\hspace {0.2em}}{44}{lstnumber.10.40.18}%
+\contentsline {subsection}{\texttt {SmallPtr.h}\hspace {0.2em}}{44}{lstnumber.10.41.8}%
+\contentsline {subsection}{\texttt {BumpAllocatorSTL.h}\hspace {0.2em}}{44}{lstnumber.10.42.10}%
+\contentsline {subsection}{\texttt {Hashmap.h}\hspace {0.2em}}{44}{lstnumber.10.43.14}%
+\contentsline {subsection}{\texttt {Unrolling.h}\hspace {0.2em}}{44}{lstnumber.10.44.19}%
+\contentsline {subsection}{\texttt {SIMD.h}\hspace {0.2em}}{44}{lstnumber.10.45.5}%
+\contentsline {subsection}{\texttt {FastMod.h}\hspace {0.2em}}{45}{lstnumber.10.46.43}%
+\contentsline {subsection}{\texttt {LinkedList.h}\hspace {0.2em}}{45}{lstnumber.10.47.10}%
+\contentsline {subsection}{\texttt {CustomComparator.h}\hspace {0.2em}}{45}{lstnumber.10.48.35}%
+\contentsline {subsection}{\texttt {Floor.h}\hspace {0.2em}}{45}{lstnumber.10.49.6}%
 \contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{45}{section.10.6}%
 \contentsline {subsection}{\texttt {Hacks.h}\hspace {0.2em}}{45}{section.10.6}%
-\contentsline {subsection}{\texttt {Bitset.h}\hspace {0.2em}}{45}{lstnumber.10.50.51}%
+\contentsline {subsection}{\texttt {Bitset.h}\hspace {0.2em}}{45}{lstnumber.10.51.51}%
 \contentsline {section}{\numberline {10.7}Random Numbers}{45}{section.10.7}%
 \contentsline {subsection}{\texttt {RandomNumbers.h}\hspace {0.2em}}{45}{section.10.7}%
 \contentsline {section}{\numberline {10.8}Other languages}{45}{section.10.8}%
