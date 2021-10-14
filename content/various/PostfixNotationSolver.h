@@ -4,7 +4,7 @@
  * License: CC0
  * Description: Solves postfix (Reverse Polish) notation equation
  * to solve prefix notation equation reverse $e$ and change (i) and (ii)  
- * Time: $O((\log N)^2)$
+ * Time: $O(N)$
  * Status: Tested on leetcode 150, NOT tested for prefix equation
  */
 template<typename T, typename P, typename F>
