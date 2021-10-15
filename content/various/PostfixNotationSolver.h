@@ -20,15 +20,6 @@ T postfixSolver(const vector<P> &e, const set<P> &ops, F ptot){
 				T a = stk.back(); //(ii) T b = stk.back();
 				stk.pop_back();
 				c = a + b;
-				// if notation is prefix:
-				/*
-				T a = stk.back();
-				stk.pop_back();
-				T b = stk.back();
-				stk.pop_back();
-				c = a + b;				
-				*/
-				
 			}
 			else if(cur == "NOT"){
 				T a = stk.back();
