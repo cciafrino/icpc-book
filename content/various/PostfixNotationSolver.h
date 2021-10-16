@@ -14,12 +14,12 @@ T postfixSolver(const vector<P> &e, const set<P> &ops, F ptot){
 		if(ops.count(cur)){
 			T c;
 			//operations:
-			if(cur == "+"){
+			if(cur == "-"){
 				T b = stk.back(); // (i) T a = stk.back();
 				stk.pop_back();
 				T a = stk.back(); //(ii) T b = stk.back();
 				stk.pop_back();
-				c = a + b;
+				c = a - b;
 			}
 			else if(cur == "NOT"){
 				T a = stk.back();
@@ -33,9 +33,9 @@ T postfixSolver(const vector<P> &e, const set<P> &ops, F ptot){
 	return stk.back();
 }
 //example postfix:
-vector<string> e = {"13", "14", "+", "NOT"};
-int ans = postfixSolver<int>( e, {"+", "NOT"}, [](const string &s){ return stoi(s); } ); 
+vector<string> e = {"13", "14", "-", "NOT"};
+int ans = postfixSolver<int>( e, {"-", "NOT"}, [](const string &s){ return stoi(s); } ); 
 //example prefix:
-vector<string> e = {"NOT", "+", "13", "14"};
+vector<string> e = {"NOT", "-", "13", "14"};
 reverse(e.begin(), e.end()); // DON'T FORGET!!!!!
-int ans = postfixSolver<int>( e, {"+", "NOT"}, [](const string &s){ return stoi(s); } ); 
+int ans = postfixSolver<int>( e, {"-", "NOT"}, [](const string &s){ return stoi(s); } ); 
