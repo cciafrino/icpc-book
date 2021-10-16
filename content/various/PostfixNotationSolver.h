@@ -10,7 +10,7 @@
 template<typename T, typename P, typename F>
 T postfixSolver(const vector<P> &e, const set<P> &ops, F ptot){
 	vector<T> stk;
-	for(auto cur: e){
+	for(auto cur: e)
 		if(ops.count(cur)){
 			T c;
 			//operations:
@@ -29,7 +29,6 @@ T postfixSolver(const vector<P> &e, const set<P> &ops, F ptot){
 			stk.push_back(c);			
 		} else 
 			stk.push_back(ptot(cur));		 
-	}
 	return stk.back();
 }
 //example postfix:
