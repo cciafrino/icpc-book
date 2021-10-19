@@ -35,44 +35,31 @@ struct segtree_lz {
   T query(int a, int b, const NZ& x) {
     return query(1, 0, N, a, b, x);
   }
-  T query(int v, int l, int r, int a, int b, const NZ& x) {
-    if (a < l) a = l;
-    if (b > r) b = r;
+  T query(int v, int l, int r, int a, int b, const NZ& x) { //(A)
+    if (a < l) a = l; // (B)
+    if (b > r) b = r; // (C)
     if (a >= b) return id_t;
     if (a == l && b == r) {
-      //if (x.v != id_t)
+      //if (x.v != id_t) // (D)
       {
-      	tree[v] = s(x, tree[v], r - l);
-      	lazy[v] = y(x, lazy[v]);
+      	tree[v] = s(x, tree[v], r - l); // (E)
+      	lazy[v] = y(x, lazy[v]); // (F)
       }
       return tree[v];
     }
     const int vL = 2 * v, vR = 2 * v + 1;
     const int md = (l + r) / 2;
-    //if (lazy[v].v != id_z.v)
+    //if (lazy[v].v != id_z.v) // (G)
     {
-      tree[vL] = s(lazy[v], tree[vL], md - l);
-      tree[vR] = s(lazy[v], tree[vR], r - md);
-      lazy[vL] = y(lazy[v], lazy[vL]);
-      lazy[vR] = y(lazy[v], lazy[vR]);
+      tree[vL] = s(lazy[v], tree[vL], md - l); // (H)
+      tree[vR] = s(lazy[v], tree[vR], r - md); // (I)
+      lazy[vL] = y(lazy[v], lazy[vL]); // (J)
+      lazy[vR] = y(lazy[v], lazy[vR]); // (K)
       lazy[v] = id_z;
     }
     const T lhs = query(vL, l, md, a, b, x);
     const T rhs = query(vR, md, r, a, b, x);
-    tree[v] = f(tree[vL], tree[vR]);
+    tree[v] = f(tree[vL], tree[vR]); // (L)
     return f(lhs, rhs);
   }
 };
-//Example (sum query, add update):
-using T = int;
-struct node_lazy{ T v; };
-const auto F = [](const T& a, const T& b) {
-    return a + b;
-};
-const auto US = [](const node_lazy& lazy, const T& cur, int len) {
-	return lazy.v * len + cur;
-};
-const auto UY = [](const node_lazy& lazyPar, const node_lazy& lazyCh) {
-    return node_lazy{lazyPar.v + lazyCh.v};
-};
-segtree_lz<decltype(F),decltype(US), decltype(UY), node_lazy, T> seg(n, F, US, UY, {0}, 0);
