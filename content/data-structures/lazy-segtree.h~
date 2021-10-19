@@ -63,7 +63,7 @@ struct segtree_lz {
     return f(lhs, rhs);
   }
 };
-//Example (sum query, add update):
+//Example(sum query, add update):
 using T = int;
 struct node_lazy{ T v; };
 const auto F = [](const T& a, const T& b) {
