@@ -60,6 +60,6 @@ struct segtree_lz {
     const T lhs = query(vL, l, md, a, b, x);
     const T rhs = query(vR, md, r, a, b, x);
     tree[v] = f(tree[vL], tree[vR]); // (L)
-    return f(lhs, rhs);
+    return f(lhs, rhs); //(M)
   }
 };
