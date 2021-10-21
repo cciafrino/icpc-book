@@ -40,7 +40,7 @@ struct segtree_lz {
     if (b > r) b = r; // (C)
     if (a >= b) return id_t;
     if (a == l && b == r) {
-      //if (x.v != id_t) // (D)
+      //if (x != id_t) // (D)
       {
       	tree[v] = s(x, tree[v], r - l); // (E)
       	lazy[v] = y(x, lazy[v]); // (F)
@@ -49,7 +49,7 @@ struct segtree_lz {
     }
     const int vL = 2 * v, vR = 2 * v + 1;
     const int md = (l + r) / 2;
-    //if (lazy[v].v != id_z.v) // (G)
+    //if (lazy[v] != id_z) // (G)
     {
       tree[vL] = s(lazy[v], tree[vL], md - l); // (H)
       tree[vR] = s(lazy[v], tree[vR], r - md); // (I)
