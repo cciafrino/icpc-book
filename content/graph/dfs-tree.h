@@ -31,7 +31,7 @@ struct tree_t {
     vector<pair<int,int>> find_bridges() {
         for (int i = 0; i < n; ++i) 
             if (parent[i] != -1 && mindepth[i] == depth[i]) 
-                bridges.push_back({parent[i], i});c
+                bridges.push_back({parent[i], i});
         return bridges;
     }
     vector<bool> find_cut() {
