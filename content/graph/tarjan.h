@@ -37,4 +37,17 @@ template<class G, class F> void scc(G& g, F f) {
 	Time = ncomps = 0;
 	for(int i = 0; i < n; ++i) if (comp[i] < 0) dfs(i, g, f);
 }
-
+pair<G, G> make_scc_dag(G &g){
+	G vertOfComp;
+	scc(g, [&](const vector<int> &vert){
+		vertOfComp.push_back(vert);
+	} );	
+	G dag(ncomps);
+	for(int u=0; u < int(g.size()); u++)
+		for(int v:g[u])
+			if(comp[u] != comp[v])
+				dag[ comp[u] ].push_back(comp[v]);
+	for(int u=0; u<ncomps; u++)
+		dag[u].resize( distance( dag[u].begin(), unique(dag[u].begin(), dag[u].end()) ) );
+	return { dag, vertOfComp };
+}
