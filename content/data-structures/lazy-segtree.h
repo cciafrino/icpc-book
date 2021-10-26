@@ -1,42 +1,66 @@
+
 /**
  * Author: Chris
  * Date: 
- * License: 
- * Source: BenQ
- * Description: Segment Tree with Lazy update. Can be extended to max/min/product/gcd, pay attention 
- * to propagate, f and update functions when extending. Be careful with each initialization aswell.
- * Status: Tested on USACO 2015 December Contest (Platinum) P3 - Counting Haybales.
+ * License: CC0 
+ * Source: 
+ * Description: Segment Tree with Lazy update (half-open interval). 
+ * T, NZ := monoid
+ * F := T * T -> T
+ * US := NZ * T * int -> T 
+ * UY := NZ * NZ -> NZ
+ * Status: 
  * Time: $O(\lg(N)*Q)$
- * Status: stress-tested
  */
-
-template<class T, int N> struct segtree_t {
-    static_assert(__builtin_popcount(N) == 1); // N must be power of 2
-    const T unit = 0; T f(T a, T b) { return (a + b); }
-    vector<T> seg, lazy; 
-    segtree_t() : seg(2*N, unit), lazy(2*N) {}
-    segtree_t(const vector<T>& other) : seg(2*N, unit), lazy(2*N) {
-        for (int a = 0; a < int(other.size()); ++a) seg[a + N] = other[a];
-        for (int a = N-1; a; --a) pull(a);
+template<class F, class US, class UY, class NZ, class T>
+struct segtree_lz {
+  const F f;
+  const US s;
+  const UY y;
+  const NZ id_z;
+  const T id_t;
+  int N;
+  vector<T> tree;
+  vector<NZ> lazy;
+  segtree_lz(int n, const F ff, const US ss, const UY yy, const NZ& idz={}, const T& idt={}) :
+    f(ff), s(ss), y(yy), id_z(idz), id_t(idt) {
+    for (N = 1; N < n; N *= 2) {}
+    tree.assign(2 * N, id_t);
+    lazy.assign(2 * N, id_z);
+  }
+  T& at(int a){ return tree[N + a]; }
+  void build() {
+    for (int a = N; --a; )
+      tree[a] = f(tree[2 * a], tree[2 * a + 1]);
+  }
+  T query(int a, int b, const NZ& x) {
+    return query(1, 0, N, a, b, x);
+  }
+  T query(int v, int l, int r, int a, int b, const NZ& x) { //(A)
+    if (a < l) a = l; // (B)
+    if (b > r) b = r; // (C)
+    if (a >= b) return id_t;
+    if (a == l && b == r) {
+      //if (x != id_t) // (D)
+      {
+      	tree[v] = s(x, tree[v], r - l); // (E)
+      	lazy[v] = y(x, lazy[v]); // (F)
+      }
+      return tree[v];
     }
-    void push(int v, int L, int R) { 
-	seg[v] += (R - L + 1) * lazy[v]; // dependent on operation
-    	if (L != R) for(int i = 0; i < 2; ++i) lazy[2*v+i] += lazy[v]; /// prop to children
-	lazy[v] = 0; 
-    } // recalc values for current node
-    void pull(int v) { seg[v] = f(seg[2*v], seg[2*v+1]); }
-    void build() { for(int i = N-1; i > 0; --i) pull(i); }
-    void upd(int mi,int ma,T delta,int v = 1,int L = 0, int R = N-1) {
-    	push(v,L,R); if (ma < L || R < mi) return;
-    	if (mi <= L && R <= ma) { 
-	    lazy[v] = delta; push(v,L,R); return; }
-	int M = (L+R)/2; upd(mi,ma,delta,2*v,L,M); 
-    	upd(mi,ma,delta,2*v+1,M+1,R); pull(v);
+    const int vL = 2 * v, vR = 2 * v + 1;
+    const int md = (l + r) / 2;
+    //if (lazy[v] != id_z) // (G)
+    {
+      tree[vL] = s(lazy[v], tree[vL], md - l); // (H)
+      tree[vR] = s(lazy[v], tree[vR], r - md); // (I)
+      lazy[vL] = y(lazy[v], lazy[vL]); // (J)
+      lazy[vR] = y(lazy[v], lazy[vR]); // (K)
+      lazy[v] = id_z;
     }
-    T query(int mi, int ma, int v = 1, int L = 0, int R = N-1) {
-    	push(v,L,R); if (mi > R || L > ma) return unit;
-	if (mi <= L && R <= ma) return seg[v];
-    	int M = (L+R)/2; 
-	return f(query(mi,ma,2*v,L,M),query(mi,ma,2*v+1,M+1,R));
-    }
+    const T lhs = query(vL, l, md, a, b, x);
+    const T rhs = query(vR, md, r, a, b, x);
+    tree[v] = f(tree[vL], tree[vR]); // (L)
+    return f(lhs, rhs); //(M)
+  }
 };
