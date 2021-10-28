@@ -12,7 +12,7 @@
  * Time: $O((\log N)^2)$
  * Status: Tested on codeforces 101908L and 101807J
  */
-#include "../data-structures/LazySegmentTree.h" 
+#include "../data-structures/lazy-segtree.h" 
 using G = vector<vector<pair<int,int>>>;
 template<typename T, bool USE_EDGES> struct heavylight_t {
 	int t, n;
