@@ -1,138 +1,101 @@
 /**
- * Author: Celio Passos
+ * Author: Yui Hosaka
  * Date: Unknown
- * Source: Codeforces
+ * Source: AtCoder
  * Description: Min-cost max-flow. 
  * Status: Working on kattis Minimum Cost Maximum Flow and Spoj Greedy
  * Time: O(F(V + E) log V), being F the amount of flow.
  */
-template<typename Cap, typename Cost>
-struct mcf_graph {
-    inline static const Cap infcap = numeric_limits<Cap>::max();
-    inline static const Cost infcost = numeric_limits<Cost>::max();
-    struct Edge {
-        int from, to;
-        Cap cap, flow;
-        Cost cost;
-        Cap free() const { return cap - flow; }
-    };
-    struct Slope {
-        Cap flow;
-        Cost cost, slope;
-    };
-    // returns the minimum cost of 'flow' units of flow
-    static Cost compute_cost(const vector<Slope>& slopes, Cap flow) {
-        auto iter = lower_bound(slopes.begin(), slopes.end(), flow, [](Slope sl, Cap f) { return sl.flow < f; });
-        if (iter == slopes.end()) return infcost;
-        return iter->cost - (iter->flow - flow) * iter->slope;
-    };
-    int N, M = 0;
-    vector<Edge> edges;
-    vector<vector<int>> E;
-    mcf_graph(int N) : N(N), E(N) {}
-    bool negative_cost = false;
-    int add_edge(int u, int v, Cap cap, Cost cost) {
-        if (cost < 0) negative_cost = true;
-        edges.push_back({u, v, cap, 0, cost});
-        edges.push_back({v, u, 0, 0, -cost});
-        E[u].push_back(M++);
-        E[v].push_back(M++);
-        return M - 2;
+// Minimum cost flow by successive shortest paths.
+// Assumes that there exists no negative-cost cycle.
+// TODO: Check the range of intermediate values.
+template<class flow_t, class cost_t> struct min_cost {
+  // Watch out when using types other than int and long long.
+  static constexpr flow_t FLOW_EPS = 1e-10L;
+  static constexpr flow_t FLOW_INF = std::numeric_limits<flow_t>::max();
+  static constexpr cost_t COST_EPS = 1e-10L;
+  static constexpr cost_t COST_INF = std::numeric_limits<cost_t>::max();
+
+  int n, m;
+  vector<int> ptr, nxt, zu;
+  vector<flow_t> capa;
+  vector<cost_t> cost;
+
+  explicit min_cost(int n_) : n(n_), m(0), ptr(n_, -1) {}
+  void add_edge(int u, int v, flow_t w, cost_t c) {
+    assert(0 <= u); assert(u < n);
+    assert(0 <= v); assert(v < n);
+    assert(0 <= w);
+    nxt.push_back(ptr[u]); zu.push_back(v); capa.push_back(w); cost.push_back( c); ptr[u] = m++;
+    nxt.push_back(ptr[v]); zu.push_back(u); capa.push_back(0); cost.push_back(-c); ptr[v] = m++;
+  }
+
+  vector<cost_t> pot, dist;
+  vector<bool> vis;
+  vector<int> pari;
+
+  // Finds a shortest path from s to t in the residual graph.
+  // O((n + m) log m) time.
+  //   Assumes that the members above are set.
+  //   The distance to a vertex might not be determined if it is >= dist[t].
+  //   You can pass t = -1 to find a shortest path to each vertex.
+  void shortest(int s, int t) {
+    using Entry = pair<cost_t, int>;
+    priority_queue<Entry, vector<Entry>, std::greater<Entry>> que;
+    for (int u = 0; u < n; ++u) { dist[u] = COST_INF; vis[u] = false; }
+    for (que.emplace(dist[s] = 0, s); !que.empty(); ) {
+      const cost_t c = que.top().first;
+      const int u = que.top().second;
+      que.pop();
+      if (vis[u]) continue;
+      vis[u] = true;
+      if (u == t) return;
+      for (int i = ptr[u]; ~i; i = nxt[i]) if (capa[i] > FLOW_EPS) {
+        const int v = zu[i];
+        const cost_t cc = c + cost[i] + pot[u] - pot[v];
+        if (dist[v] > cc) { que.emplace(dist[v] = cc, v); pari[v] = i; }
+      }
     }
-    vector<Cost> dual_feasible(int s) const {
-        if (not negative_cost) return vector<Cost>(N);
-        vector<Cost> d(N, infcost);
-        vector<bool> on(N);
-        queue<int> q;
-        q.push(s);
-        on[s] = true;
-        d[s] = 0;
-        while (not q.empty()) {
-            int u = q.front();
-            q.pop();
-            on[u] = false;
-            for (auto j : E[u]) {
-                if (edges[j].cap == 0) continue;
-                int v = edges[j].to;
-                Cost nd = d[u] + edges[j].cost;
-                if (nd < d[v]) {
-                    d[v] = nd;
-                    if (not on[v]) {
-                        q.push(v);
-                        on[v] = true;
-                    }
-                }
-            }
-        }
-        return d;
+  }
+
+  // Finds a minimum cost flow from s to t of amount min{(max flow), limFlow}.
+  //   Bellman-Ford takes O(n m) time, or O(m) time if there is no negative-cost
+  //   edge, or cannot stop if there exists a negative-cost cycle.
+  //   min{(max flow), limFlow} shortest paths if Flow is an integral type.
+  pair<flow_t, cost_t> run(int s, int t, flow_t limFlow = FLOW_INF) {
+    assert(0 <= s); assert(s < n);
+    assert(0 <= t); assert(t < n);
+    assert(s != t);
+    assert(0 <= limFlow);
+    pot.assign(n, 0);
+    for (; ; ) {
+      bool upd = false;
+      for (int i = 0; i < m; ++i) if (capa[i] > FLOW_EPS) {
+        const int u = zu[i ^ 1], v = zu[i];
+        const cost_t cc = pot[u] + cost[i];
+        if (pot[v] > cc + COST_EPS) { pot[v] = cc; upd = true; }
+      }
+      if (!upd) break;
     }
-    // returns slope changing points and dual optimum
-    pair<vector<Slope>, vector<Cost>> slope(int s, int t, vector<Cost> dual = {}) {
-        if (dual.empty()) dual = dual_feasible(s);
-        for (int j = 0; j < M; ++j) {
-            edges[j].flow = 0;
-        }
-        vector<Cost> dist(N);
-        vector<bool> vis(N);
-        vector<int> p(N);
-        vector<pair<Cost, int>> heap;
-        heap.reserve(M);
-        auto dijkstra = [&]() {
-            fill(dist.begin(), dist.end(), infcost);
-            fill(vis.begin(), vis.end(), false);
-            heap.emplace_back(dist[s] = 0, s);
-            while (not heap.empty()) {
-                int u = heap[0].second;
-                pop_heap(heap.begin(), heap.end());
-                heap.pop_back();
-                if (vis[u]) continue;
-                vis[u] = true;
-                if (u == t) break;
-                for (auto j : E[u]) {
-                    if (edges[j].free() == 0) continue;
-                    int v = edges[j].to;
-                    Cost nd = dist[u] + dual[u] - dual[v] + edges[j].cost;
-                    if (nd < dist[v]) {
-                        p[v] = j;
-                        dist[v] = nd;
-                        heap.emplace_back(-dist[v], v);
-                        push_heap(heap.begin(), heap.end());
-                    }
-                }
-            }
-            heap.clear();
-            if (not vis[t]) return false;
-            for (int u = 0; u < N; ++u) {
-                if (not vis[u]) continue;
-                dual[u] += dist[u] - dist[t];
-            }
-            return true;
-        };
-        vector<Slope> result = {{0, 0, -infcost}};
-        Cap flow = 0;
-        Cost cost = 0;
-        while (dijkstra()) {
-            Cap f = infcap;
-            for (int u = t; u != s; u = edges[p[u]].from) {
-                f = min(f, edges[p[u]].free());
-            }
-            for (int u = t; u != s; u = edges[p[u]].from) {
-                edges[p[u]].flow += f;
-                edges[p[u] ^ 1].flow -= f;
-            }
-            Cost d = dual[t] - dual[s];
-            if (d == result.back().slope) {
-                result.pop_back();
-            }
-            flow += f;
-            cost += f * d;
-            result.push_back({flow, cost, d});
-        }
-        return {result, dual};
+    dist.resize(n);
+    vis.resize(n);
+    pari.resize(n);
+    flow_t flow = 0;
+    cost_t cost = 0;
+    for (; flow < limFlow; ) {
+      shortest(s, t);
+      if (!vis[t]) break;
+      for (int u = 0; u < n; ++u) pot[u] += min(dist[u], dist[t]);
+      flow_t f = limFlow - flow;
+      for (int v = t; v != s; ) {
+        const int i = pari[v]; if (f > capa[i]) { f = capa[i]; } v = zu[i ^ 1];
+      }
+      for (int v = t; v != s; ) {
+        const int i = pari[v]; capa[i] -= f; capa[i ^ 1] += f; v = zu[i ^ 1];
+      }
+      flow += f;
+      cost += f * (pot[t] - pot[s]);
     }
-    // returns maximum flow, cost and dual optimum
-    tuple<Cap, Cost, vector<Cost>> mincostflow(int s, int t, vector<Cost> dual_init = {}) {
-        auto [slopes, dual] = slope(s, t, dual_init);
-        return {slopes.back().flow, slopes.back().cost, dual};
-    }
+    return make_pair(flow, cost);
+  }
 };
