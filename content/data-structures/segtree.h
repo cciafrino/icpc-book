@@ -15,13 +15,7 @@ template<class T, class F> struct segtree_t {
 		for (n = 1; n < _n; n *= 2) {}
 		s.assign(2 * n, id_t);
 	}
-	segtree_t(const vector<T>& tr, const F _f, const T _id) : f(_f), id_t(_id) {
-		const int _n = int(tr.size());
-		for (n = 1; n < _n; n *= 2) {}
-		s.assign(2 * n, id_t);
-		for (int a = 0; a < _n; ++a) s[a + n] = tr[a];
-		build();
-	}
+	T& at(int a) { return s[a + n]; }
 	void build() {
 		for (int a = n; --a;) s[a] = f(s[2 * a], s[2 * a + 1]);
 	}
