@@ -7,7 +7,7 @@
  *  note that during this processing time we go through all the childrens
  * of v before reaching a vertex v, therefore we can compute some
  * infos about the children, like subtree of a given vertex
- * Usage: Lumberjack<10010> g; g.init(N); (Be careful with the size of cyles when declared locally!)
+ * Usage: Lumberjack<10010> g; g.init(par, indeg); (Be careful with the size of cyles when declared locally!)
  * Status: Tested on CodeForces 22E - Scheme
  */
 template<int T> struct Lumberjack {
