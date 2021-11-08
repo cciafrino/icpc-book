@@ -34,6 +34,10 @@ template<class flow_t, class cost_t> struct min_cost {
   vector<bool> vis;
   vector<int> pari;
 
+  // cost slopes[j] per flow when flows[j] <= flow <= flows[j + 1]
+  vector<flow_t> flows;
+  vector<cost_t> slopes;
+
   // Finds a shortest path from s to t in the residual graph.
   // O((n + m) log m) time.
   //   Assumes that the members above are set.
@@ -80,6 +84,8 @@ template<class flow_t, class cost_t> struct min_cost {
     dist.resize(n);
     vis.resize(n);
     pari.resize(n);
+    flows.clear(); flows.push_back(0);
+    slopes.clear();
     flow_t flow = 0;
     cost_t cost = 0;
     for (; flow < limFlow; ) {
@@ -95,6 +101,7 @@ template<class flow_t, class cost_t> struct min_cost {
       }
       flow += f;
       cost += f * (pot[t] - pot[s]);
+      flows.push_back(flow); slopes.push_back(pot[t] - pot[s]);
     }
     return make_pair(flow, cost);
   }
