@@ -1,32 +1,43 @@
 /**
  * Description: Examples of Segment Tree with Lazy update
  */
-//	Range sum query - { 'n', 0 }
-//	Range add update - { 'a', x } 
-//	Range set update - { 's', x }
-// if (x.type != id_z.type) // (D)
-// if (lazy[v].type != id_z.type) // (G)
-namespace range_sum_range_add_range_set{
-	using T = int64_t;
-	struct node{
-		char type;
-		T v;
-	};
-	auto F = [](const T &a, const T &b){
-		return a + b;
-	};
-	auto US = [](const node &lazy, const T &num, T len = 0){
-		T v = lazy.v * len;
-		if(lazy.type == 'a') v += num;
-		return v;
-	};
-	auto UY = [](const node &par, const node &ch){
-		if(par.type == 's') return par;
-		T v = ch.v + par.v;
-		if(ch.type == 'n') return node{ 'a', v }; 
-		return node{ ch.type, v };
-	};
-}
+
+// query sum a[l, r)
+// update range a[i] <- !a[i]
+// update range a[i] <- 1
+struct seg_node {
+	int sz, lz; int64_t sum;
+	seg_node() : sz(0), sum(0), lz(-1) {}
+	seg_node(int64_t val) : sz(1), sum(val), lz(-1) {}
+	void push(const seg_node& l, const seg_node& r) {
+		if (lz == 2) {
+			l.flip(lz); 
+			r.flip(lz);
+		} else if (lz != -1) {
+			l.assign(lz);
+			r.assign(lz);
+		}
+		lz = -1;
+	}
+	void merge(const seg_node& l, const seg_node& r) {
+		sz = l.sz + r.sz;
+		sum = l.sum + r.sum;
+	}
+	void assign(int val) {
+		sum = sz * val;
+		lz = val;
+	}
+	void flip(int val) {
+		sum = sz - sum;
+		if (lz == -1) lz = 2;
+		else if (lz == 0) lz = 1;
+		else if (lz == 1) lz = 0;
+		else lz = -1;
+	}
+	int64_t get_sum() const { return sum; }
+};
+
+/*
 // BE CAREFULL!! The first term will be a0 + d NOT a0
 //	Range sum query - { 'n', 0, 0 }
 //	Range add arithmetic progression update - { 'a', a0, d } 
@@ -61,3 +72,4 @@ namespace range_sum_range_addAP_range_setAP{
 		return node{ ch.type, a, r };
 	};
 }
+*/
