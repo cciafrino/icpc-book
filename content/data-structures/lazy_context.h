@@ -7,7 +7,7 @@
 // update range a[i] <- 1
 struct seg_node {
 	int sz, lz; int64_t sum;
-	seg_node() : sz(0), sum(0), lz(-1) {}
+	seg_node() : sz(1), sum(0), lz(-1) {}
 	seg_node(int64_t val) : sz(1), sum(val), lz(-1) {}
 	void push(const seg_node& l, const seg_node& r) {
 		if (lz == 2) {
