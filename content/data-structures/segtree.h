@@ -7,80 +7,86 @@
  * Time: O(\log N)
  * Status: stress-tested
  */
-template<class T, class F> struct segtree_t {
-	const F f;
-	const T id_t;
-	vector<T> s; int n;
-	segtree_t(int _n, const F _f, const T& _id) : f(_f), id_t(_id) {
-		for (n = 1; n < _n; n *= 2) {}
-		s.assign(2 * n, id_t);
+
+template<class T> struct segtree {
+    int H, N;
+    vector<T> ts;
+    segtree() {}
+    explicit segtree(int N_) {
+	for (H = 0, N = 1; N < N_; ++H, N *= 2) {}
+	ts.resize(2*N);
+    }
+    template<class Q> explicit segtree(const vector<Q>& qs) {
+	const int N_ = int(qs.size());
+	for (H = 1, N = 1; N < N_; ++H, N *= 2) {}
+	ts.resize(2*N);
+	for (int i = 0; i < N_; ++i) at(i) = T(qs[i]);
+	build();
+    }
+    T& at(int a) { return ts[a + N]; }
+    void build() { for (int a = N; --a; ) merge(a); }
+    inline void merge(int a) { ts[a].merge(ts[2*a], ts[2*a+1]); }
+    template<class S> void update(int a, const S& v) {
+	assert(0 <= a && a < N);
+	ts[a += N] = T(v);
+	for (; a /= 2;) merge(a);
+    }
+    template<class F, class... Args> void update(int a, F f, Args &&... args) {
+	assert(0 <= a && a < N);
+	(ts[a += N].*f)(args...);
+	for (; a /= 2;) merge(a);
+    }
+    T query(int a, int b) {
+	if (a == b) return T();
+	a += N; b += N;
+	T lhs, rhs, t;
+	for (int l = a, r = b; l < r; l /= 2, r /= 2) {
+	    if (l & 1) { t.merge(lhs, ts[l++]); lhs = t; }
+	    if (r & 1) { t.merge(ts[--r], rhs); rhs = t; }
 	}
-	T& at(int a) { return s[a + n]; }
-	void build() {
-		for (int a = n; --a;) s[a] = f(s[2 * a], s[2 * a + 1]);
+	t.merge(lhs, rhs); return t;
+    }
+    template<class Op, class E, class F, class... Args> 
+    auto query(int a, int b, Op op, E e, F f, Args&&... args) {
+	if (a == b) return e();
+	a += N; b += N;
+	auto lhs = e(), rhs = e();
+	for (int l = a, r = b; l < r; l /= 2, r /= 2) {
+	    if (l & 1) lhs = op(lhs, (ts[l++].*f)(args...));
+	    if (r & 1) rhs = op((ts[--r].*f)(args...), rhs);
 	}
-	void set(int pos, T val) {
-		for (s[pos += n] = val; pos /= 2;)
-			s[pos] = f(s[pos * 2], s[pos * 2 + 1]);
-	}
-	void add_left(int a, T val) {
-		set(a, f(val, s[a + n]));
-	}
-	void add_right(int a, T val) {
-		set(a, f(s[a + n], val));
-	}
-	T query(int b, int e) { // query [b, e)
-		T ra = id_t, rb = id_t;
-		for (b += n, e += n; b < e; b /= 2, e /= 2) {
-			if (b % 2) ra = f(ra, s[b++]);
-			if (e % 2) rb = f(s[--e], rb);
+	return op(lhs, rhs);
+    }
+    template<class F, class... Args> int min_right(int a, F f, Args &&... args) {
+	assert(0 <= a && a < N);
+	if ((T().*f)(args...)) return a;
+	if (a == N) return 1 + N;
+	a += N;
+	for (; ; a /= 2) if (a & 1) {
+	    if ((ts[a].*f)) {
+		for (; a < N; ) {
+		    if (!(ts[a <<= 1].*f)(args...)) ++a;
 		}
-		return f(ra, rb);
+		return a - N + 1;
+	    }
+	    ++a;
+	    if (!(a & (a - 1))) return N + 1;
 	}
-	// min b s.t. pred(prod of [a, b)) (or n + 1 if no such b)
-	//   0 <= a <= n
-	//   assume pred(prod of [a, b)) is non-decreasing in b
-	template<class P> int bsearch_r(int a, P pred) const {
-		if (pred(id_t)) return a;
-		if (a == n) return n + 1;
-		T prod = id_t;
-		for (a += n; ; a /= 2) {
-			if (a & 1) {
-				if (pred(f(prod, s[a]))) {
-					while (a < n) {
-						a *= 2;
-						if (!pred(f(prod, s[a]))) {
-							prod = f(prod, s[a++]);
-						}
-					}
-					return (a - n + 1);
-				}
-				prod = f(prod, s[a++]);
-				if (!(a & (a - 1))) return n + 1;
-			}
+    } 
+    template<class F, class... Args> int max_left(int a, F f, Args &&... args) {
+	assert(0 <= a && a < N);
+	if ((T().*f)(args...)) return a;
+	if (a == 0) return -1;
+	a += N;
+	for (; ; a /= 2) if ((a & 1) || a == 2) {
+	    if ((ts[a - 1].*f)) {
+		for (; a <= N; ) {
+		    if (!(ts[(a <<= 1) - 1].*f)(args...)) --a;
 		}
+		return a - N + 1;
+	    }
+	    --a;
+	    if (!(a & (a - 1))) return -1;
 	}
-	// max a s.t. pred(prod of [a, b)) (or -1 if no such a)
-	//   0 <= b <= n
-	//   assume pred(prod of [a, b)) is non-increasing in a
-	template<class P> int bsearch_l(int b, P pred) const {
-		if (pred(id_t)) return b;
-		if (b == 0) return -1;
-		T prod = id_t;
-		for (b += n; ; b /= 2) {
-			if ((b & 1) || b == 2) {
-				if (pred(f(prod, s[b - 1]))) {
-					while (b <= n) {
-						b *= 2;
-						if (!pred(f(prod, s[b - 1]))) {
-							prod = f(prod, s[--b]);
-						}
-					}
-					return (b - n - 1);
-				}
-				prod = f(prod, s[--b]);
-				if (!(b & (b - 1))) return -1;
-			}
-		}
-	}
+    }
 };
