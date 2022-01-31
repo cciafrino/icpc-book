@@ -60,30 +60,27 @@ template<typename T, bool USE_EDGES> struct heavylight_t {
 
 template<typename T, bool USE_EDGES> struct hld_solver {
 	heavylight_t<T, USE_EDGES> h;
-	segtree_lz<decltype(F), decltype(US),decltype(UY), node, T> seg;
-	hld_solver(const heavylight_t<T, USE_EDGES> &g) : h(g),
-	seg(h.val.size(), F, US, UY, {'n', 0}, 0) {
-		for(int i=0; i < int(h.val.size()); i++)
-			seg.at(i) = h.val[i];
-		seg.build();
+	segtree_range<seg_node<T> > seg;
+	hld_solver(const heavylight_t<T, USE_EDGES> &g) : h(g) {
+		seg = segtree_range<seg_node<T> >(h.val);
 	}
 	void updatePath(int u, int v, T value) {
-		h.path(u, v, [&](int a,int b) { seg.query(a, b+1, {'a', value}); });
+		h.path(u, v, [&](int a,int b) { seg.update(a, b+1, &seg_node<T>::add, value); });
 	}
 	T queryPath(int u, int v) { 
 		T ans = 0;
-		h.path(u, v, [&](int a,int b) { ans += seg.query(a, b+1, {'n', 0}); });
+		h.path(u, v, [&](int a,int b) { ans += seg.query(a, b+1).get_sum(); });
 		return ans;
 	}
 	void updateEdge(int u, int v, T value) {
 		int pos = h.timer[h.dep[u] < h.dep[v] ? v : u];
-		seg.query(pos, pos+1, {'a', value});
+		seg.update(pos, pos+1, &seg_node<T>::add, value);
 	}
 	T querySubtree(int v) { 
-		return seg.query(h.timer[v] + USE_EDGES, h.timer[v] + h.sz[v], {'n', 0});
+		return seg.query(h.timer[v] + USE_EDGES, h.timer[v] + h.sz[v]).get_sum();;
 	}
 	void updateSubtree(int v, T value) {
-		seg.query(h.timer[v] + USE_EDGES, h.timer[v] + h.sz[v], {'a', value});
+		seg.update(h.timer[v] + USE_EDGES, h.timer[v] + h.sz[v], &seg_node<T>::add, value);
 	}
 };
 
