@@ -37,6 +37,46 @@ struct seg_node {
 	int64_t get_sum() const { return sum; }
 };
 
+// query sum a[l, r)
+// update range a[i] <- v
+// update range a[i] <- a[i] + v
+
+template<typename T = int64_t>
+struct seg_node {
+     T val, lz_add, lz_set;
+     int sz;
+     bool to_set;
+     seg_node(T n = 0) : val(n), lz_add(0), lz_set(0), sz(1), to_set(0) {}
+     void push(seg_node& l, seg_node& r) {
+        if (to_set) {
+           l.assign(lz_set);
+           r.assign(lz_set);
+           lz_set = 0;
+           to_set = false;
+        }
+        if (lz_add != 0) {
+           l.add(lz_add);
+           r.add(lz_add);
+           lz_add = 0;
+        } 
+     }
+     void merge(const seg_node& l, const seg_node& r) {
+            sz = l.sz + r.sz;
+            val = l.val + r.val;
+     }
+     void add(T v) {
+            val += v * sz;
+            lz_add += v;
+     }
+     void assign(T v) {
+            val = v * sz;
+            lz_add = 0;
+            lz_set = v;
+            to_set = true;
+     }
+     T get_sum() const { return val; }
+};
+
 /*
 // BE CAREFULL!! The first term will be a0 + d NOT a0
 //	Range sum query - { 'n', 0, 0 }
