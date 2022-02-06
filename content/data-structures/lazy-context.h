@@ -40,9 +40,7 @@ struct seg_node {
 // query sum a[l, r)
 // update range a[i] <- v
 // update range a[i] <- a[i] + v
-
-template<typename T = int64_t>
-struct seg_node {
+template<typename T = int64_t> struct seg_node {
      T val, lz_add, lz_set;
      int sz;
      bool to_set;
@@ -77,39 +75,29 @@ struct seg_node {
      T get_sum() const { return val; }
 };
 
-/*
-// BE CAREFULL!! The first term will be a0 + d NOT a0
-//	Range sum query - { 'n', 0, 0 }
-//	Range add arithmetic progression update - { 'a', a0, d } 
-//	Range set arithmetic progression update - { 's', a0, d } 
-// T query(int v, int l, int r, int a, int b, NZ x) { //(A)
-// if (a < l) x.a += (l-a) * x.r, a = l; // (B)
-// if (x.type != id_z.type) // (D)
-// if (lazy[v].type != id_z.type) // (G)
-// tree[vR] = s(lazy[v], tree[vR], r - md, md - l); // (I)
-// lazy[vR] = y(lazy[v], lazy[vR], md - l); // (K)
-namespace range_sum_range_addAP_range_setAP{
-	using T = int64_t;
-	struct node{
-		char type;
-		T a, r;
-	};
-	const auto F = [](const T& a, const T& b) {
-		return a + b;
-	};
-	const auto US = [](const node& lazy, const T& num, T len, T left = 0) {
-		T v = ( (len + left + 1) * (len + left)/2 - (left + 1) * left/2 ) * lazy.r + len * lazy.a;
-		if(lazy.type == 'a') v += num;
-		return v;
-	};
-	const auto UY = [](const node& par, const node& ch, T left = 0) {
-		T a = par.a + par.r * left;
-		T r = par.r;
-		if(par.type == 's') return node{ 's', a, r };
-		a += ch.a;
-		r += ch.r;
-		if(ch.type == 'n') return node{ 'a', a, r };
-		return node{ ch.type, a, r };
-	};
-}
-*/
+// update range a[i] <- a[i] + b * (i - s) + c
+// assuming b and c are non zero, be careful
+// get sum a[l, r)
+template<typename T = int64_t> struct seg_node {
+     T sum, lzB, lzC;
+     int sz, idx;
+     seg_node(int id = 0, T v = 0, int s = 0, T b = 0, T c = 0) : 
+         sum(v), lzB(b), lzC(c - s * b), idx(id), sz(1) {}
+     void push(seg_node& l, seg_node& r) {
+         l.add(lzB, lzC);
+         r.add(lzB, lzC);
+         lzB = lzC = 0;
+     }
+     void merge(const seg_node& l, const seg_node& r) {
+         idx = min(l.idx, r.idx);
+         sz = l.sz + r.sz;
+         sum = l.sum + r.sum;
+     }  
+     T sum_idx(T n) const { return n * (n + 1) / 2; }
+     void add(T b, T c) {
+         sum += b * (sum_idx(idx + sz) - sum_idx(idx)) + sz * c;
+         lzB += b;
+         lzC += c;
+     }
+     T get_sum() const { return sum; }
+};
