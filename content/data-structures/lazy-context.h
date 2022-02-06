@@ -101,3 +101,31 @@ template<typename T = int64_t> struct seg_node {
      }
      T get_sum() const { return sum; }
 };
+
+// update range a[i] <- b * a[i] + c
+// get sum a[l, r)
+struct seg_node {
+	int sz; i64 sum, lzB, lzC;
+	seg_node() : sz(1), sum(0), lzB(1), lzC(0) {}
+	seg_node(i64 v) : sz(1), sum(v), lzB(1), lzC(0) {}
+	void push(seg_node& l, seg_node& r) {
+		l.add(lzB, lzC);
+		r.add(lzB, lzC);
+		lzB = 1, lzC = 0;
+	}
+	void merge(const seg_node& l, const seg_node& r) {
+		sz = l.sz + r.sz;
+		sum = l.sum + r.sum;
+	}
+	void add(i64 b, i64 c) {
+		sum = (b * sum + c * sz);
+		lzB = (lzB * b);
+		lzC = (lzC * b + c);
+	}
+	i64 get_sum() const { return sum; }
+};
+
+auto get_sum = [&](segtree_range<seg_node>& st, int a, int b) {
+	return st.query(a, b, [&](auto l, auto r) -> i64 { return l + r; },
+		[&]() -> i64 { return 0; }, &seg_node::get_sum);
+};

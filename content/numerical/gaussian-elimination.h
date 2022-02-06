@@ -4,7 +4,7 @@
  * License: 
  * Source: https://github.com/celiopassos/competitive-programming
  * Description: 
- * Status: tested
+ * Status: tested on yosupo
  * Usage:
  * Time: 
  */

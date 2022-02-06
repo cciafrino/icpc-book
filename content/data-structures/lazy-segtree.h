@@ -7,6 +7,7 @@
  * Status: 
  * Time: $O(\lg(N)*Q)$
  */
+
 template<class T> struct segtree_range {
     int H, N;
     vector<T> ts;
@@ -26,9 +27,7 @@ template<class T> struct segtree_range {
     void build() { for (int a = N; --a; ) merge(a); }
     inline void push(int a) { ts[a].push(ts[2 * a], ts[2 * a + 1]); }
     inline void merge(int a) { ts[a].merge(ts[2*a], ts[2*a+1]); }
-    template<class F, class... Args> void update(int a, int b, F f, Args&&... args) {
-        if (a == b) return;
-        a += N; b += N;
+    void for_parents_down(int a, int b) {
         for (int h = H; h; --h) {
             const int l = (a >> h), r = (b >> h);
             if (l == r) {
@@ -38,10 +37,8 @@ template<class T> struct segtree_range {
                 if ((r << h) != b) push(r);
             }
         }
-        for (int l = a, r = b; l < r; l /= 2, r /= 2) {
-            if (l & 1) (ts[l++].*f)(args...);
-            if (r & 1) (ts[--r].*f)(args...);
-        }
+    }
+    void for_parents_up(int a, int b) {
         for (int h = 1; h <= H; ++h) {
             const int l = (a >> h), r = (b >> h);
             if (l == r) {
@@ -52,18 +49,20 @@ template<class T> struct segtree_range {
             }
         }
     }
+    template<class F, class... Args> void update(int a, int b, F f, Args&&... args) {
+        if (a == b) return;
+        a += N; b += N;
+        for_parents_down(a, b);
+        for (int l = a, r = b; l < r; l /= 2, r /= 2) {
+            if (l & 1) (ts[l++].*f)(args...);
+            if (r & 1) (ts[--r].*f)(args...);
+        }
+        for_parents_up(a, b);
+    }
     T query(int a, int b) {
         if (a == b) return T();
         a += N; b += N;
-        for (int h = H; h; --h) {
-            const int l = (a >> h), r = (b >> h);
-            if (l == r) {
-                if ((l << h) != a || (r << h) != b) push(l);
-            } else {
-                if ((l << h) != a) push(l);
-                if ((r << h) != b) push(r);
-            }
-        }
+        for_parents_down(a, b);
         T lhs, rhs, t;
         for (int l = a, r = b; l < r; l /= 2, r /= 2) {
             if (l & 1) { t.merge(lhs, ts[l++]); lhs = t; }
@@ -75,15 +74,7 @@ template<class T> struct segtree_range {
         auto query(int a, int b, Op op, E e, F f, Args&&... args) {
         if (a == b) return e();
         a += N; b += N;
-        for (int h = H; h; --h) {
-          const int l = (a >> h), r = (b >> h);
-            if (l == r) {
-                if ((l << h) != a || (r << h) != b) push(l);
-            } else {
-                if ((l << h) != a) push(l);
-                if ((r << h) != b) push(r);
-            }
-        }
+        for_parents_down(a, b);
         auto lhs = e(), rhs = e();
         for (int l = a, r = b; l < r; l /= 2, r /= 2) {
             if (l & 1) lhs = op(lhs, (ts[l++].*f)(args...));

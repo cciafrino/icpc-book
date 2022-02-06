@@ -5,7 +5,7 @@
  * Source: Yosupo
  * Description: Basic operations on square matrices.
  * Usage: Matrix<int> A(N, vector<int>(N));
- * Status: tested
+ * Status: tested extensively
  */
 template <typename T> struct Matrix : vector<vector<T>> {
     using vector<vector<T>>::vector;
@@ -24,7 +24,6 @@ template <typename T> struct Matrix : vector<vector<T>> {
         }
         return res;
     }
-    Matrix& operator*=(const Matrix& r) { return *this = *this * r; }
     friend vector<T> operator*(const Matrix<T>& A, const vector<T>& b) {
         int N = int(A.size()), M = int(A[0].size());
         vector<T> y(N);
@@ -35,6 +34,7 @@ template <typename T> struct Matrix : vector<vector<T>> {
         }
         return y;
     }
+    Matrix& operator*=(const Matrix& r) { return *this = *this * r; }
     Matrix pow(int n) const {
         assert(h() == w());
         Matrix x = *this, r(h(), vector<T>(w()));
