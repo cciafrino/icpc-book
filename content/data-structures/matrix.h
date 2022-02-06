@@ -25,6 +25,16 @@ template <typename T> struct Matrix : vector<vector<T>> {
         return res;
     }
     Matrix& operator*=(const Matrix& r) { return *this = *this * r; }
+    friend vector<T> operator*(const Matrix<T>& A, const vector<T>& b) {
+        int N = int(A.size()), M = int(A[0].size());
+        vector<T> y(N);
+        for (int i = 0; i < N; ++i) {
+            for (int j = 0; j < M; ++j) {
+                y[i] += A[i][j] * b[j];
+            }
+        }
+        return y;
+    }
     Matrix pow(int n) const {
         assert(h() == w());
         Matrix x = *this, r(h(), vector<T>(w()));
@@ -37,3 +47,4 @@ template <typename T> struct Matrix : vector<vector<T>> {
         return r;
     }
 };
+

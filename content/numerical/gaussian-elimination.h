@@ -26,7 +26,7 @@ template<typename T> struct gaussian_elimination {
         for (int col = 0, row = 0; col < M && row < N; ++col) {
             int sel = -1;
             for (int i = row; i < N; ++i) {
-                if (A[i][col] != T(0)) {
+                if (A[i][col] != 0) {
                     sel = i;
                     break;
                 }
@@ -54,13 +54,7 @@ template<typename T> struct gaussian_elimination {
     pair<bool, vector<T>> solve(vector<T> b, bool reduced = false) const {
         assert(N == b.size());
         if (reduced == false) {
-            vector<T> y(N);
-            for (int i = 0; i < N; ++i) {
-                for (int j = 0; j < M; ++j) {
-                    y[i] += E[i][j] * b[j];
-                }
-            }
-            b = std::move(y);
+            b = E * b;
         }
         vector<T> x(M);
         for (int j = 0; j < M; ++j) {
@@ -69,7 +63,7 @@ template<typename T> struct gaussian_elimination {
             b[pivot[j]] = 0;
         }
         for (int i = 0; i < N; ++i) {
-            if (b[i] != T(0)) return {false, x};
+            if (b[i] != 0) return {false, x};
         }
         return {true, x};
     }
