@@ -5,7 +5,7 @@
  * Time: O(n)
  * Status: stress-tested
  */
-vector<int> Z(string& S) {
+vector<int> Z(const string& S) {
     vector<int> z(S.size());
     int l = -1, r = -1;
     for(int i = 1; i < int(S.size()); ++i) {
