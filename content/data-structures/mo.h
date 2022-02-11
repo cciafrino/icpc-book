@@ -18,7 +18,7 @@ vector<int> mo(vector<pair<int, int>> Q) {
 	int L = 0, R = 0, blk = 350; // ~N/sqrt(Q)
 	vector<int> s(int(Q.size())), res = s;
 #define K(x) pair<int, int>(x.first/blk, x.second ^ -(x.first/blk & 1))
-	iota(s.begin(), S.end(), 0);
+	iota(s.begin(), s.end(), 0);
 	sort(s.begin(), s.end(), [&](int s, int t){ return K(Q[s]) < K(Q[t]); });
 	for (int qi : s) {
 		auto q = Q[qi];
