@@ -19,9 +19,14 @@ struct lichao_t{
         line li;
         node *left, *right;
         node( line _li = {0, inf}): li(_li), left(nullptr), right(nullptr){}
+        ~node(){
+        	delete left;
+        	delete right;
+        }
     };
     node *root;
     lichao_t( line li = {0, inf} ): root ( new node(li) ) {}
+    ~lichao_t(){ delete root; }
     T query( T x , node *cur , T l, T r){
         if(cur == nullptr) return inf;
         if(x < l || x > r) return inf;
