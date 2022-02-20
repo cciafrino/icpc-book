@@ -12,7 +12,7 @@ template<class T> struct segtree_range {
     int H, N;
     vector<T> ts;
     segtree_range() {}
-    explicit segtree_range(int N_=0) {
+    explicit segtree_range(int N_) {
 	for (H = 0, N = 1; N < N_; ++H, N *= 2) {}
         ts.resize(2*N);
     }
