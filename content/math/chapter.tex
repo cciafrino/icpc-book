@@ -21,14 +21,6 @@ If $a_n = c_1 a_{n-1} + \dots + c_k a_{n-k}$, and $r_1, \dots, r_k$ are distinct
 \[a_n = d_1r_1^n + \dots + d_kr_k^n. \]
 Non-distinct roots $r$ become polynomial factors, e.g. $a_n = (d_1n + d_2)r^n$.
 
-\section{Master theorem}
-Given a recurrence of the form $T(n) = aT(\frac{n}{b}) + f(n)$ where $a \geq 1$, $b > 1$.
-
-1) If $f(n) = \mathcal{O}(n^{\log_{b} a - \varepsilon})$ for some $\varepsilon > 0$, then \[T(n) = \Theta(n^{\log_{b} a})\]
-2) If $f(n) = \Theta(n^{\log_{b} a})$, then \[T(n) = \Theta(n^{\log_{b} a} \log n)\]
-3) If $f(n) = \Omega(n^{\log_{b} a + \varepsilon})$ for some $\varepsilon > 0$ (and $af(\frac{n}{b}) \leq cf(n)$ for some $c < 1$ for all $n$ sufficiently large), then \[T(n) = \Theta(f(n))\]
-
-
 \section{Trigonometry}
 \begin{align*}
 \sin(v+w)&{}=\sin v\cos w+\cos v\sin w\\
@@ -97,6 +89,7 @@ Integration by parts:
 
 
 \subsection{XOR sum} 
+
 \begin{align*}
 \bigoplus_{x=0}^{n - 1} x = \{0, n - 1, 1, n\}[n \, \mathrm{mod} \, 4] \\
 \bigoplus_{x=l}^{r - 1} x = \bigoplus_{a=0}^{r - 1} a \oplus \bigoplus_{b=0}^{l - 1} b\\
