@@ -1,4 +1,5 @@
 /**
+ * Author: Chris
  * Description: Examples of Segment Tree with Lazy update
  */
 

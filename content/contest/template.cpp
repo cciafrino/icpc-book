@@ -22,10 +22,10 @@ int main() {
 /*
 [  ]Leu o problema certo???
 [  ]Ver se precisa de long long
-[  ]Viu o limite dos fors (é n? é m?)
-[  ]Tamanho do vetor, será que é 2e5 em vez de 1e5??
+[  ]Viu o limite dos fors (e n? e m?)
+[  ]Tamanho do vetor, sera que e 2e5 em vez de 1e5??
 [  ]Testar sample
 [  ]Testar casos de  borda
 [  ]1LL no 1LL << i
-[  ]Testar mod (é 1e9+7, mesmo?, será que o mod não ficou negativo?)
+[  ]Testar mod (e 1e9+7, mesmo?, sera que o mod nao ficou negativo?)
 */

@@ -64,6 +64,10 @@ template<typename T, bool USE_EDGES> struct hld_solver {
 	hld_solver(const heavylight_t<T, USE_EDGES> &g) : h(g) {
 		seg = segtree_range<seg_node<T> >(h.val);
 	}
+	hld_solver(const heavylight_t<T, false> &g, const vector<T> &vertVal) : h(g) {
+		for( int i = 0; i < h.n; ++i ) h.val[ h.timer[i] ] = vertVal[i];
+		seg = segtree_range<seg_node<T> >(h.val);
+	}
 	void updatePath(int u, int v, T value) {
 		h.path(u, v, [&](int a,int b) { seg.update(a, b+1, &seg_node<T>::add, value); });
 	}
