@@ -1,7 +1,7 @@
 /**
- * Author: Ludo Pulles, chilli, Simon Lindholm
- * Date: 2019-01-09
- * License: CC0
+ * Author: Célio Passos
+ * Date: 2022
+ * License: 
  * Source: http://neerc.ifmo.ru/trains/toulouse/2017/fft2.pdf (do read, it's excellent)
    Accuracy bound from http://www.daemonology.net/papers/fft.pdf
  * Description: fft(a) computes $\hat f(k) = \sum_x a[x] \exp(2\pi i \cdot k x / N)$ for all $k$. N must be a power of 2.
@@ -15,40 +15,55 @@
  * Time: O(N \log N) with $N = |A|+|B|$ ($\tilde 1s$ for $N=2^{22}$)
  * Status: somewhat tested
  */
-typedef complex<double> C;
-typedef vector<double> vd;
-void fft(vector<C> &a) {
-	int n = a.size(), L = 31 - __builtin_clz(n);
-	static vector<complex<long double>> R(2, 1);
-	static vector<C> rt(2, 1);  // (^ 10% faster if double)
-	for (static int k = 2; k < n; k <<= 1) {
-		R.resize(n); rt.resize(n);
-		auto x = polar(1.0L, acos(-1.0L) / k); // M_PI, lower-case L
-		for(int i = k; i < 2*k; ++i) rt[i] = R[i] = i&1 ? R[i>>1] * x : R[i>>1];
-	}
-	vector<int> rev(n);
-	for(int i = 0; i < n; ++i) rev[i] = (rev[i>>1] | (i & 1) << L) >> 1;
-	for(int i = 0; i < n; ++i) if (i < rev[i]) swap(a[i], a[rev[i]]);
-	for (int k = 1; k < n; k <<= 1)
-		for (int i = 0; i < n; i += (k << 1)) 	for(int j = 0; j < k; ++j) {
-			// C z = rt[j+k] * a[i+j+k]; // (25% faster if hand-rolled)  /// include-line
-			auto x = (double *)&rt[j+k], y = (double *)&a[i+j+k];        /// exclude-line
-			C z(x[0]*y[0] - x[1]*y[1], x[0]*y[1] + x[1]*y[0]);           /// exclude-line
-			a[i + j + k] = a[i + j] - z;
-			a[i + j] += z;
-		}
+template<typename T> struct root_of_unity {
+    T operator()(int N) const = delete; // not implemented
+};
+template<typename T>
+struct root_of_unity<std::complex<T>> {
+    inline static const T PI = std::acos(-1);
+    std::complex<T> operator()(int N) const {
+        return std::polar<T>(1, 2 * PI / N);
+    }
+};
+
+template<typename T>
+vector<T> fft(std::vector<T> p, bool inverse) {
+    int N = p.size();
+    vector<T> q(N);
+    for (int i = 0; i < N; ++i) {
+        int rev = 0;
+        for (int b = 1; b < N; b <<= 1) {
+            rev = (rev << 1) | !!(i & b);
+        }
+        q[rev] = p[i];
+    }
+    swap(p, q);
+    root_of_unity<T> rt;
+    for (int b = 1; b < N; b <<= 1) {
+        T w = rt(b << 1);
+        if (inverse) w = T(1) / w;
+        for (auto [i, x] = std::pair(0, T(1)); i < N; ++i, x *= w) {
+            q[i] = p[i & ~b] + x * p[i | b];
+        }
+        swap(p, q);
+    }
+    if (inverse) {
+        T inv = T(1) / T(N);
+        for (int i = 0; i < N; ++i) p[i] *= inv;
+    }
+    return p;
 }
-vd conv(const vd& a, const vd& b) {
-	if (a.empty() || b.empty()) return {};
-	vd res(a.size() + b.size() - 1);
-	int L = 32 - __builtin_clz(res.size()), n = 1 << L;
-	vector<C> in(n), out(n);
-	copy(a.begin(), a.end(), begin(in));
-	for(int i = 0; i < (int)b.size(); ++i) in[i].imag(b[i]);
-	fft(in);
-	for(C &x : in) x *= x;
-	for(int i = 0; i < n; ++i) out[i] = in[-i & (n - 1)] - conj(in[i]);
-	fft(out);
-	for(int i = 0; i < (int)res.size(); ++i) res[i] = imag(out[i]) / (4 * n);
-	return res;
+
+template<typename T>
+vector<T> operator*(vector<T> p, vector<T> q) {
+    int N = p.size() + q.size() - 1, M = 1;
+    while (M < N) M <<= 1;
+    p.resize(M), q.resize(M);
+    auto phat = fft(p, false), qhat = fft(q, false);
+    for (int i = 0; i < M; ++i) {
+        phat[i] *= qhat[i];
+    }
+    auto r = fft(phat, true);
+    r.resize(N);
+    return r;
 }
