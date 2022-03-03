@@ -9,6 +9,10 @@
  * Status: Tested on CSES and Project Euler
  */
 
+// floor(N/a) = K
+// <=> K <= N/a < K + 1
+// <=> K/(K+1) < a <= N/K
+// <=> floor(N/(K+1)) < a <= floor(N/K)
 int res = 0;
 for (int a = 1, b; a <= N; a = b + 1) {
     b = N / (N / a);
@@ -18,4 +22,17 @@ for (int a = 1, b; a <= N; a = b + 1) {
     if (l & 1) r /= 2;
     else l /= 2;
     res += l * r * (N / a);
-} 
+}
+
+// ceil(N/a) = K
+// <=> K-1 < N/a <= K
+// <=> N/K <= a < N/(K-1)
+// <=> ceil(N/K) <= a < ceil(N/(K-1))
+// ceil(N/a) = floor((N-1)/a) + 1
+
+// [1, N), need to deal with case where a = N separately
+for (int a = 1, b; a < N; a = b + 1) {
+    const int k = (N - 1) / a + 1; // quotient k 
+    b = (N - 1) / (k - 1);
+    int cnt = b - a + 1; // occur cnt times on interval [a, b]
+}
