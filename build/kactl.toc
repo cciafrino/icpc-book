@@ -32,15 +32,15 @@
 \contentsline {chapter}{\numberline {5}Number theory}{14}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Modular arithmetic}{14}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Primality}{15}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Divisibility}{15}{section.5.3}%
+\contentsline {section}{\numberline {5.3}Divisibility}{16}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Chinese remainder theorem}{17}{section.5.4}%
 \contentsline {section}{\numberline {5.5}Fractions}{17}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Bézout's identity}{17}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}Pythagorean Triples}{17}{subsection.5.5.2}%
-\contentsline {subsection}{\numberline {5.5.3}Primitive Roots}{17}{subsection.5.5.3}%
-\contentsline {subsection}{\numberline {5.5.4}Chicken McNugget theorem}{17}{subsection.5.5.4}%
-\contentsline {section}{\numberline {5.6}Primes}{17}{section.5.6}%
-\contentsline {subsection}{\numberline {5.6.1}Sum of primes}{17}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.5.1}Bézout's identity}{18}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Pythagorean Triples}{18}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}Primitive Roots}{18}{subsection.5.5.3}%
+\contentsline {subsection}{\numberline {5.5.4}Chicken McNugget theorem}{18}{subsection.5.5.4}%
+\contentsline {section}{\numberline {5.6}Primes}{18}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Sum of primes}{18}{subsection.5.6.1}%
 \contentsline {subsection}{\numberline {5.6.2}Moebius Function}{18}{subsection.5.6.2}%
 \contentsline {subsection}{\numberline {5.6.3}Dirichlet Convolution}{18}{subsection.5.6.3}%
 \contentsline {subsection}{\numberline {5.6.4}Wilson's theorem}{18}{subsection.5.6.4}%
@@ -50,7 +50,7 @@
 \contentsline {chapter}{\numberline {6}Combinatorial}{18}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Permutations}{18}{section.6.1}%
 \contentsline {subsection}{\numberline {6.1.1}Factorial}{18}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Binomials}{18}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.2}Binomials}{19}{subsection.6.1.2}%
 \contentsline {subsection}{\numberline {6.1.3}Involutions}{19}{subsection.6.1.3}%
 \contentsline {subsection}{\numberline {6.1.4}Cycles}{19}{subsection.6.1.4}%
 \contentsline {subsection}{\numberline {6.1.5}Inclusion-Exclusion Principle}{19}{subsection.6.1.5}%
@@ -62,10 +62,10 @@
 \contentsline {section}{\numberline {6.3}General purpose numbers}{19}{section.6.3}%
 \contentsline {subsection}{\numberline {6.3.1}Bernoulli numbers}{19}{subsection.6.3.1}%
 \contentsline {subsection}{\numberline {6.3.2}Stirling numbers of the first kind}{19}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Eulerian numbers}{19}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.3.4}Stirling numbers of the second kind}{19}{subsection.6.3.4}%
-\contentsline {subsection}{\numberline {6.3.5}Bell numbers}{19}{subsection.6.3.5}%
-\contentsline {subsection}{\numberline {6.3.6}Labeled unrooted trees}{19}{subsection.6.3.6}%
+\contentsline {subsection}{\numberline {6.3.3}Eulerian numbers}{20}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Stirling numbers of the second kind}{20}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}Bell numbers}{20}{subsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.3.6}Labeled unrooted trees}{20}{subsection.6.3.6}%
 \contentsline {subsection}{\numberline {6.3.7}Catalan numbers}{20}{subsection.6.3.7}%
 \contentsline {subsection}{\numberline {6.3.8}Super Catalan numbers}{20}{subsection.6.3.8}%
 \contentsline {subsection}{\numberline {6.3.9}Motzkin numbers}{20}{subsection.6.3.9}%
@@ -75,25 +75,25 @@
 \contentsline {section}{\numberline {6.4}Fibonacci}{20}{section.6.4}%
 \contentsline {section}{\numberline {6.5}Linear Recurrences}{20}{section.6.5}%
 \contentsline {section}{\numberline {6.6}Game Theory}{20}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Nim}{20}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}Mis\`{e}re Nim}{20}{subsection.6.6.2}%
-\contentsline {subsection}{\numberline {6.6.3}Staircase Nim}{20}{subsection.6.6.3}%
-\contentsline {subsection}{\numberline {6.6.4}Moore's Nim$_k$}{20}{subsection.6.6.4}%
-\contentsline {subsection}{\numberline {6.6.5}Dim$^+$}{20}{subsection.6.6.5}%
-\contentsline {subsection}{\numberline {6.6.6}Aliquot Game}{20}{subsection.6.6.6}%
-\contentsline {subsection}{\numberline {6.6.7}Nim (at most half)}{20}{subsection.6.6.7}%
-\contentsline {subsection}{\numberline {6.6.8}Lasker's Nim}{20}{subsection.6.6.8}%
-\contentsline {subsection}{\numberline {6.6.9}Hackenbush on Trees}{20}{subsection.6.6.9}%
+\contentsline {subsection}{\numberline {6.6.1}Nim}{21}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Mis\`{e}re Nim}{21}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.3}Staircase Nim}{21}{subsection.6.6.3}%
+\contentsline {subsection}{\numberline {6.6.4}Moore's Nim$_k$}{21}{subsection.6.6.4}%
+\contentsline {subsection}{\numberline {6.6.5}Dim$^+$}{21}{subsection.6.6.5}%
+\contentsline {subsection}{\numberline {6.6.6}Aliquot Game}{21}{subsection.6.6.6}%
+\contentsline {subsection}{\numberline {6.6.7}Nim (at most half)}{21}{subsection.6.6.7}%
+\contentsline {subsection}{\numberline {6.6.8}Lasker's Nim}{21}{subsection.6.6.8}%
+\contentsline {subsection}{\numberline {6.6.9}Hackenbush on Trees}{21}{subsection.6.6.9}%
 \contentsline {chapter}{\numberline {7}Graph}{21}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Fundamentals}{21}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Network flow}{22}{section.7.2}%
 \contentsline {section}{\numberline {7.3}Matching}{23}{section.7.3}%
-\contentsline {section}{\numberline {7.4}DFS algorithms}{24}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Heuristics}{26}{section.7.5}%
-\contentsline {section}{\numberline {7.6}Trees}{27}{section.7.6}%
+\contentsline {section}{\numberline {7.4}DFS algorithms}{25}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Heuristics}{27}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Trees}{28}{section.7.6}%
 \contentsline {subsection}{\numberline {7.6.1}Sqrt Decomposition}{30}{subsection.7.6.1}%
 \contentsline {section}{\numberline {7.7}Functional Graphs}{30}{section.7.7}%
-\contentsline {section}{\numberline {7.8}Other}{30}{section.7.8}%
+\contentsline {section}{\numberline {7.8}Other}{31}{section.7.8}%
 \contentsline {section}{\numberline {7.9}Theorems}{31}{section.7.9}%
 \contentsline {subsection}{\numberline {7.9.1}Landau}{31}{subsection.7.9.1}%
 \contentsline {subsection}{\numberline {7.9.2}Euler's theorem}{31}{subsection.7.9.2}%
@@ -104,25 +104,25 @@
 \contentsline {subsection}{\numberline {7.9.6}Maximum Weighted Independent Set in a Bipartite Graph}{31}{subsection.7.9.6}%
 \contentsline {subsection}{\numberline {7.9.7}Tutte-Berge formula}{31}{subsection.7.9.7}%
 \contentsline {subsection}{\numberline {7.9.8}Tutte's theorem}{31}{subsection.7.9.8}%
-\contentsline {subsection}{\numberline {7.9.9}Number of Spanning Trees}{31}{subsection.7.9.9}%
-\contentsline {subsection}{\numberline {7.9.10}Tutte Matrix}{31}{subsection.7.9.10}%
-\contentsline {subsection}{\numberline {7.9.11}Menger's theorem}{31}{subsection.7.9.11}%
-\contentsline {chapter}{\numberline {8}Geometry}{31}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Geometric primitives}{31}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Circles}{33}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Polygons}{34}{section.8.3}%
+\contentsline {subsection}{\numberline {7.9.9}Number of Spanning Trees}{32}{subsection.7.9.9}%
+\contentsline {subsection}{\numberline {7.9.10}Tutte Matrix}{32}{subsection.7.9.10}%
+\contentsline {subsection}{\numberline {7.9.11}Menger's theorem}{32}{subsection.7.9.11}%
+\contentsline {chapter}{\numberline {8}Geometry}{32}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Geometric primitives}{32}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Circles}{34}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Polygons}{35}{section.8.3}%
 \contentsline {section}{\numberline {8.4}Misc. Point Set Problems}{36}{section.8.4}%
-\contentsline {section}{\numberline {8.5}3D}{37}{section.8.5}%
+\contentsline {section}{\numberline {8.5}3D}{38}{section.8.5}%
 \contentsline {chapter}{\numberline {9}Strings}{38}{chapter.9}%
 \contentsline {chapter}{\numberline {10}Various}{41}{chapter.10}%
 \contentsline {section}{\numberline {10.1}Intervals}{41}{section.10.1}%
 \contentsline {section}{\numberline {10.2}Misc. algorithms}{41}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Dynamic programming}{43}{section.10.3}%
+\contentsline {section}{\numberline {10.3}Dynamic programming}{44}{section.10.3}%
 \contentsline {section}{\numberline {10.4}Debugging tricks}{46}{section.10.4}%
 \contentsline {section}{\numberline {10.5}Optimization tricks}{46}{section.10.5}%
 \contentsline {subsection}{\numberline {10.5.1}Bit hacks}{46}{subsection.10.5.1}%
 \contentsline {subsection}{\numberline {10.5.2}Pragmas}{46}{subsection.10.5.2}%
-\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{47}{section.10.6}%
+\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{48}{section.10.6}%
 \contentsline {section}{\numberline {10.7}Random Numbers}{48}{section.10.7}%
 \contentsline {section}{\numberline {10.8}Other languages}{48}{section.10.8}%
 \contentsfinish 

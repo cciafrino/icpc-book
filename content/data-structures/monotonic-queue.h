@@ -6,22 +6,56 @@
  * Status: Tested
  * Time: $O(1)$ 
  */
-template <typename T, typename Comp> struct monotonic_queue {
-	vector<pair<T, int>> q;
-	int lo, hi;
-	monotonic_queue(int max_sz) : q(max_sz), lo(0), hi(0) {}
-	size_t size() const { return hi - lo + 1; }
-	void push(T val, int idx) {
-		while (hi > lo && Comp()(val, q[hi-1].first)) --hi;
-		q[hi++] = {val, idx};
-	}
-	void pop(int idx) {
-		if (lo < hi && q[lo].second == idx) lo++;
-	}
-	T get_val() const {
-		assert(lo < hi);
-		return q[lo].first;
-	}
+template<typename T, T (*op)(const T&, const T&)> struct monotonic_queue {
+    vector<T> as, aas;
+    vector<T> bs, bbs;
+    void reserve(int N) {
+        as.reserve(N); aas.reserve(N);
+        bs.reserve(N); bbs.reserve(N);
+    }
+    void reduce() {
+        while (!bs.empty()) {
+            as.push_back(bs.back());
+            aas.push_back(aas.empty() ? bs.back() : op(bs.back(), aas.back()));
+            bs.pop_back(); bbs.pop_back();
+        }
+    }
+    T get() {
+        if (as.empty()) reduce();
+        return (bbs.empty() ? aas.back() : op(aas.back(), bbs.back()));
+    }
+    bool empty() const { return (as.empty() && bs.empty()); }
+    int size() const { return int(as.size()) + int(bs.size()); }
+    T front() {
+        if (as.empty()) reduce();
+        return as.back();
+    }
+    void push(const T& val) {
+        bs.push_back(val);
+        bbs.push_back(bbs.empty() ? val : op(bbs.back(), val));
+    }
+    void pop() {
+        if (as.empty()) reduce();
+        as.pop_back();
+        aas.pop_back();
+    }
 };
+
+// max or min
 template<typename T> using min_monotonic_queue = monotonic_queue<T, std::less<T>>;
 template<typename T> using max_monotonic_queue = monotonic_queue<T, std::greater<T>>;
+
+// gcd 
+template<typename T> T mapping(const T& a, const T& b) {
+	return __gcd(a, b);
+}
+template<typename T> using gcd_monotonic_queue = monotonic_queue<T, mapping>;
+
+// affine function
+template<typename T> struct affine_t {
+	T b, c;
+};
+template<typename T> T mapping(const T& lhs, const T& rhs) {
+	return {(rhs.b * lhs.b), (rhs.b * lhs.c + rhs.c)};
+}
+template<typename T> using affine_monotonic_queue = monotonic_queue<T, mapping>;
