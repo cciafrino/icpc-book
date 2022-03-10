@@ -41,21 +41,22 @@ template<typename T, T (*op)(const T&, const T&)> struct monotonic_queue {
     }
 };
 
-// max or min
-template<typename T> using min_monotonic_queue = monotonic_queue<T, std::less<T>>;
-template<typename T> using max_monotonic_queue = monotonic_queue<T, std::greater<T>>;
-
+// min/max
+template<typename T> T mapping_min(const T& a, const T& b) {
+	return min(a, b);
+}
+template<typename T> using min_monotonic_queue = monotonic_queue<T, mapping_min>;
 // gcd 
-template<typename T> T mapping(const T& a, const T& b) {
+template<typename T> T mapping_gcd(const T& a, const T& b) {
 	return __gcd(a, b);
 }
-template<typename T> using gcd_monotonic_queue = monotonic_queue<T, mapping>;
+template<typename T> using gcd_monotonic_queue = monotonic_queue<T, mapping_gcd>;
 
 // affine function
 template<typename T> struct affine_t {
 	T b, c;
 };
-template<typename T> T mapping(const T& lhs, const T& rhs) {
+template<typename T> T mapping_affine(const T& lhs, const T& rhs) {
 	return {(rhs.b * lhs.b), (rhs.b * lhs.c + rhs.c)};
 }
-template<typename T> using affine_monotonic_queue = monotonic_queue<T, mapping>;
+template<typename T> using affine_monotonic_queue = monotonic_queue<T, mapping_affine>;
