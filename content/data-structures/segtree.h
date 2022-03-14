@@ -57,13 +57,13 @@ template<class T> struct segtree {
 	}
 	return op(lhs, rhs);
     }
-    template<class F, class... Args> int min_right(int a, F f, Args &&... args) {
+    template<class F, class... Args> int find_right(int a, F f, Args &&... args) {
 	assert(0 <= a && a < N);
 	if ((T().*f)(args...)) return a;
 	if (a == N) return 1 + N;
 	a += N;
 	for (; ; a /= 2) if (a & 1) {
-	    if ((ts[a].*f)) {
+	    if ((ts[a].*f)(args...)) {
 		for (; a < N; ) {
 		    if (!(ts[a <<= 1].*f)(args...)) ++a;
 		}
@@ -73,17 +73,17 @@ template<class T> struct segtree {
 	    if (!(a & (a - 1))) return N + 1;
 	}
     } 
-    template<class F, class... Args> int max_left(int a, F f, Args &&... args) {
+    template<class F, class... Args> int find_left(int a, F f, Args &&... args) {
 	assert(0 <= a && a < N);
 	if ((T().*f)(args...)) return a;
 	if (a == 0) return -1;
 	a += N;
 	for (; ; a /= 2) if ((a & 1) || a == 2) {
-	    if ((ts[a - 1].*f)) {
+	    if ((ts[a - 1].*f)(args...)) {
 		for (; a <= N; ) {
 		    if (!(ts[(a <<= 1) - 1].*f)(args...)) --a;
 		}
-		return a - N + 1;
+		return a - N - 1;
 	    }
 	    --a;
 	    if (!(a & (a - 1))) return -1;
