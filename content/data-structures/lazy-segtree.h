@@ -82,5 +82,42 @@ template<class T> struct segtree_range {
         }
         return op(lhs, rhs);
     }
-    // TODO: add binary search
+    // find min i s.t. T::f(args...) returns true in [a, i) from left to right
+    template<class F, class... Args> int find_right(int a, F f, Args &&... args) {
+	assert(0 <= a && a < N);
+	if ((T().*f)(args...)) return a;
+	if (a == N) return 1 + N;
+	a += N;
+        for (int h = H; h; --h) push(a >> h);
+	for (; ; a /= 2) if (a & 1) {
+	    if ((ts[a].*f)(args...)) {
+		for (; a < N; ) {
+                    push(a);
+		    if (!(ts[a <<= 1].*f)(args...)) ++a;
+		}
+		return a - N + 1;
+	    }
+	    ++a;
+	    if (!(a & (a - 1))) return N + 1;
+	}
+    } 
+    // find max i s.t. T::f(args...) returns true in [i, a) from right to left
+    template<class F, class... Args> int find_left(int a, F f, Args &&... args) {
+	assert(0 <= a && a < N);
+	if ((T().*f)(args...)) return a;
+	if (a == 0) return -1;
+	a += N;
+        for (int h = H; h; --h) push((a - 1) >> h);
+	for (; ; a /= 2) if ((a & 1) || a == 2) {
+	    if ((ts[a - 1].*f)(args...)) {
+		for (; a <= N; ) {
+                    push(a - 1);
+		    if (!(ts[(a <<= 1) - 1].*f)(args...)) --a;
+		}
+		return a - N - 1;
+	    }
+	    --a;
+	    if (!(a & (a - 1))) return -1;
+	}
+    }
 };
