@@ -84,7 +84,7 @@ template<class T> struct segtree_range {
     }
     // find min i s.t. T::f(args...) returns true in [a, i) from left to right
     template<class F, class... Args> int find_right(int a, F f, Args &&... args) {
-	assert(0 <= a && a < N);
+	assert(0 <= a && a <= N);
 	if ((T().*f)(args...)) return a;
 	if (a == N) return 1 + N;
 	a += N;
@@ -103,7 +103,7 @@ template<class T> struct segtree_range {
     } 
     // find max i s.t. T::f(args...) returns true in [i, a) from right to left
     template<class F, class... Args> int find_left(int a, F f, Args &&... args) {
-	assert(0 <= a && a < N);
+	assert(0 <= a && a <= N);
 	if ((T().*f)(args...)) return a;
 	if (a == 0) return -1;
 	a += N;

@@ -58,7 +58,7 @@ template<class T> struct segtree {
 	return op(lhs, rhs);
     }
     template<class F, class... Args> int find_right(int a, F f, Args &&... args) {
-	assert(0 <= a && a < N);
+	assert(0 <= a && a <= N);
 	if ((T().*f)(args...)) return a;
 	if (a == N) return 1 + N;
 	a += N;
@@ -74,7 +74,7 @@ template<class T> struct segtree {
 	}
     } 
     template<class F, class... Args> int find_left(int a, F f, Args &&... args) {
-	assert(0 <= a && a < N);
+	assert(0 <= a && a <= N);
 	if ((T().*f)(args...)) return a;
 	if (a == 0) return -1;
 	a += N;
