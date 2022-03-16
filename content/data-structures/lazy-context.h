@@ -147,6 +147,8 @@ struct seg_node {
 		l.maximize(lz1);
 		r.minimize(lz0);
 		r.maximize(lz1);
+		lz0 = INT_MAX;
+		lz1 = INT_MIN;
 	}
 	void merge(const seg_node& l, const seg_node& r) {
 		mn = min(l.mn, r.mn);
