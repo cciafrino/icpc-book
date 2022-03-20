@@ -16,16 +16,16 @@
 using G = vector<vector<pair<int,int>>>;
 template<typename T, bool USE_EDGES> struct heavylight_t {
 	int t, n;
-	vector<int> timer, preorder;
 	vector<int> chain, par;
+	vector<int> timer, preorder;
 	vector<int> dep, sz;
 	vector<T> val;
 	heavylight_t() {}
-	heavylight_t(G &g, int r = 0) : t(0), n(g.size()), par(n, -1), chain(n, -1), 
-	dep(n), timer(n), sz(n),  val(n), preorder(n) { par[r] = chain[r] = r;
-		dfs_sz(g, r), dfs_hld(g, r);  
+	heavylight_t(G &g, int r = 0) : t(0), n(g.size()), chain(n, -1), par(n, -1),
+	timer(n), preorder(n), dep(n), sz(n), val(n) { par[r] = chain[r] = r;
+		dfs_sz(g, r), dfs_hld(g, r);
 	}
-	int dfs_sz(G &g, int u) { 
+	int dfs_sz(G &g, int u) {
 		int subtree = 1;
 		for(auto &e : g[u]) {
 			int v = e.first;
@@ -47,14 +47,15 @@ template<typename T, bool USE_EDGES> struct heavylight_t {
 		}
 	}
 	template<class F> void path(int u, int v, F op) {
-		if (u == v) return op(timer[u], timer[u]); 
+		if (u == v) return op(timer[u], timer[u], 0);
+		int cnt = 0;
 		for(int e, p; chain[u] != chain[v]; u = p) {
-			if (dep[chain[u]] < dep[chain[v]]) swap(u,v);
+			if (dep[chain[u]] < dep[chain[v]]) swap(u,v), cnt++;
 			u == (p = chain[u]) ? e = 0, p = par[u] : e = 1;
-			op(timer[chain[u]] + e, timer[u]);
+			op(timer[chain[u]] + e, timer[u], cnt&1);
 		}
-		if (timer[u] > timer[v]) swap(u, v);
-		op(timer[u] + USE_EDGES, timer[v]);
+		if (timer[u] > timer[v]) swap(u, v), cnt++;
+		op(timer[u] + USE_EDGES, timer[v], (++cnt)&1);
 	}
 };
 
@@ -69,24 +70,30 @@ template<typename T, bool USE_EDGES> struct hld_solver {
 		seg = segtree_range<seg_node<T> >(h.val);
 	}
 	void updatePath(int u, int v, T value) {
-		h.path(u, v, [&](int a,int b) { seg.update(a, b+1, &seg_node<T>::add, value); });
+		h.path(u, v, [&](int a,int b, int cur) { seg.update(a, b+1, &seg_node<T>::add, value); });
 	}
-	T queryPath(int u, int v) { 
-		T ans = 0;
-		h.path(u, v, [&](int a,int b) { ans += seg.query(a, b+1).get_sum(); });
-		return ans;
+	T queryPath(int u, int v) {
+		seg_node<T> lhs, t, rhs;
+		lhs = rhs = t = seg_node<T>();
+		h.path(u, v, [&](int a,int b, int cur) {
+			if(cur){ t.merge(seg.query(a, b+1), rhs); rhs = t; }
+			else{ t.merge(seg.query(a, b+1), lhs); lhs = t; }
+		});
+		t.merge(lhs, rhs); // need other merge if non commutative function
+		return t.get_sum();
 	}
 	void updateEdge(int u, int v, T value) {
 		int pos = h.timer[h.dep[u] < h.dep[v] ? v : u];
 		seg.update(pos, pos+1, &seg_node<T>::add, value);
 	}
-	T querySubtree(int v) { 
+	T querySubtree(int v) {
 		return seg.query(h.timer[v] + USE_EDGES, h.timer[v] + h.sz[v]).get_sum();;
 	}
 	void updateSubtree(int v, T value) {
 		seg.update(h.timer[v] + USE_EDGES, h.timer[v] + h.sz[v], &seg_node<T>::add, value);
 	}
 };
+
 
 template<typename T, bool USE_EDGES> struct lca_t { // lca operations using hld
 	heavylight_t<T, USE_EDGES> h;
