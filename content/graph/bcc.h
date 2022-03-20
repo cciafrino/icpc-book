@@ -20,11 +20,13 @@
  *    ed[b].emplace_back(a, eid++); }
  *  bicomps([\&](const vi\& edgelist) {...});
  */
-vector<int> num, st;
+vector<int> num, st, stk;
+vector<vector<int>> two_edge_cc; // two-edge-connected components
 vector<vector<pii>> ed;
 int Time;
 template<class F> int dfs(int at, int par, F& f) {
 	int me = num[at] = ++Time, e, y, top = me;
+	stk.push_back(at);
 	for(auto &pa : ed[at]) if (pa.second != par) {
 		tie(y, e) = pa;
 		if (num[y]) {
@@ -42,6 +44,16 @@ template<class F> int dfs(int at, int par, F& f) {
 			else if (up < me) st.push_back(e);
 			else { /* e is a bridge */ }
 		}
+	}
+	if (top >= num[at]) {
+		vector<int> cur_two_edge_cc;
+		while (stk.back() != at) {
+			cur_two_edge_cc.push_back(stk.back());
+			stk.pop_back();
+		}
+		cur_two_edge_cc.push_back(stk.back());
+		stk.pop_back();
+		two_edge_cc.push_back(cur_two_edge_cc);
 	}
 	return top;
 }
