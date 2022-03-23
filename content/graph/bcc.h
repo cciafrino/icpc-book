@@ -24,7 +24,7 @@ vector<int> num, st, stk;
 vector<vector<int>> two_edge_cc; // two-edge-connected components
 vector<vector<pii>> ed;
 int Time;
-template<class F> int dfs(int at, int par, F& f) {
+template<class F> int dfs(int at, int par, F& f) { // ba3883
 	int me = num[at] = ++Time, e, y, top = me;
 	stk.push_back(at);
 	for(auto &pa : ed[at]) if (pa.second != par) {
@@ -58,7 +58,7 @@ template<class F> int dfs(int at, int par, F& f) {
 	return top;
 }
 
-template<class F> void bicomps(F f) {
+template<class F> void bicomps(F f) { // c44d89
 	Time = 0;
 	st.resize(0);
 	num.assign(ed.size(), 0);
@@ -67,7 +67,7 @@ template<class F> void bicomps(F f) {
 }
 
 using vvi = vector<vector<int>>;
-tuple<vvi, vvi, vector<int>> make_bcc_tree(const vector<pii> &edges){
+tuple<vvi, vvi, vector<int>> make_bcc_tree(const vector<pii> &edges){ // c6742c
 	int nart = 0, ncomp = 0, n = int(ed.size());
 	vector<int> inv(n);
 	vvi comps;
