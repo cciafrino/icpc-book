@@ -204,7 +204,7 @@
 \contentsline {subsection}{\texttt {tarjan.h}\hspace {0.2em}}{27}{lstnumber.7.19.57}%
 \contentsline {subsection}{\texttt {kosaraju.h}\hspace {0.2em}}{27}{lstnumber.7.20.38}%
 \contentsline {subsection}{\texttt {bcc.h}\hspace {0.2em}}{27}{lstnumber.7.21.35}%
-\contentsline {subsection}{\texttt {2sat.h}\hspace {0.2em}}{28}{lstnumber.7.22.76}%
+\contentsline {subsection}{\texttt {2sat.h}\hspace {0.2em}}{28}{lstnumber.7.22.78}%
 \contentsline {section}{\numberline {7.5}Heuristics}{28}{section.7.5}%
 \contentsline {subsection}{\texttt {maximal-cliques.h}\hspace {0.2em}}{28}{section.7.5}%
 \contentsline {subsection}{\texttt {maximum-clique.h}\hspace {0.2em}}{28}{lstnumber.7.24.12}%
@@ -216,7 +216,7 @@
 \contentsline {subsection}{\texttt {lca-euler-tour.h}\hspace {0.2em}}{30}{lstnumber.7.29.53}%
 \contentsline {subsection}{\texttt {compress-tree.h}\hspace {0.2em}}{31}{lstnumber.7.30.164}%
 \contentsline {subsection}{\texttt {heavylight.h}\hspace {0.2em}}{31}{lstnumber.7.31.20}%
-\contentsline {subsection}{\texttt {tree-isomorphism.h}\hspace {0.2em}}{31}{lstnumber.7.32.107}%
+\contentsline {subsection}{\texttt {tree-isomorphism.h}\hspace {0.2em}}{31}{lstnumber.7.32.108}%
 \contentsline {subsection}{\numberline {7.6.1}Sqrt Decomposition}{32}{subsection.7.6.1}%
 \contentsline {section}{\numberline {7.7}Functional Graphs}{32}{section.7.7}%
 \contentsline {subsection}{\texttt {functional-graph.h}\hspace {0.2em}}{32}{section.7.7}%
