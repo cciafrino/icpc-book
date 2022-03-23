@@ -13,8 +13,10 @@
  * Status: Tested on codeforces 101908L and 101807J
  */
 #include "../data-structures/lazy-segtree.h" 
-using G = vector<vector<pair<int,int>>>;
-template<typename T, bool USE_EDGES> struct heavylight_t {
+
+using G = vector<vector<pair<int,int>>>; 
+
+template<typename T, bool USE_EDGES> struct heavylight_t { // b60237
 	int t, n;
 	vector<int> chain, par;
 	vector<int> timer, preorder;
@@ -59,7 +61,7 @@ template<typename T, bool USE_EDGES> struct heavylight_t {
 	}
 };
 
-template<typename T, bool USE_EDGES> struct hld_solver {
+template<typename T, bool USE_EDGES> struct hld_solver { // a21ccc
 	heavylight_t<T, USE_EDGES> h;
 	segtree_range<seg_node<T> > seg;
 	hld_solver(const heavylight_t<T, USE_EDGES> &g) : h(g) {
@@ -95,7 +97,7 @@ template<typename T, bool USE_EDGES> struct hld_solver {
 };
 
 
-template<typename T, bool USE_EDGES> struct lca_t { // lca operations using hld
+template<typename T, bool USE_EDGES> struct lca_t { // f2a4ad
 	heavylight_t<T, USE_EDGES> h;
 	lca_t(const heavylight_t<T, USE_EDGES> &g) : h(g) {}
 	int kth_ancestor(int u, int k) const {	
