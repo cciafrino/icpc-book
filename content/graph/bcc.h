@@ -42,7 +42,7 @@ template<class F> int dfs(int at, int par, F& f) {
 				st.resize(si);
 			}
 			else if (up < me) st.push_back(e);
-			else { /* e is a bridge */ }
+			else { f({e}); /* e is a bridge */ }
 		}
 	}
 	if (top >= num[at]) {
@@ -67,11 +67,11 @@ template<class F> void bicomps(F f) {
 }
 
 using vvi = vector<vector<int>>;
-tuple<vvi, vvi, vector<int>> make_bcc_tree(const G &ed, const vector<pair<int,int>> &edges){
+tuple<vvi, vvi, vector<int>> make_bcc_tree(const vector<pii> &edges){
 	int nart = 0, ncomp = 0, n = int(ed.size());
 	vector<int> inv(n);
 	vvi comps;
-	bicomps(ed, [&](const vector<int> &eid){
+	bicomps([&](const vector<int> &eid){
 		ncomp++;
 		set<int> cur;
 		for(int e: eid){			
@@ -79,7 +79,8 @@ tuple<vvi, vvi, vector<int>> make_bcc_tree(const G &ed, const vector<pair<int,in
 			cur.insert(edges[e].second);	
 		}
 		comps.push_back(vector<int>(cur.begin(), cur.end()));
-		for(int v: cur) inv[v]++;
+		for(int v: cur)
+			inv[v]++;
 	} );
 	vector<int> art;
 	for(int u = 0; u < n; u++)
@@ -94,5 +95,6 @@ tuple<vvi, vvi, vector<int>> make_bcc_tree(const G &ed, const vector<pair<int,in
 				tree[ c ].push_back( ncomp + inv[u] );
 				tree[ ncomp + inv[u] ].push_back( c );
 			}
+	
 	return {tree, comps, art};
 }
