@@ -205,27 +205,6 @@ template <unsigned M> vector<modnum<M>> convolve(const vector<modnum<M>> &as, co
   }
   return cs;
 }
-template <unsigned M> vector<modnum<M>> square(const vector<modnum<M>> &as) {
-  static constexpr unsigned M0 = decltype(FFT0)::M;
-  static constexpr unsigned M1 = decltype(FFT1)::M;
-  static constexpr unsigned M2 = decltype(FFT2)::M;
-  if (as.empty()) return {};
-  const int asLen = int(as.size());
-  vector<modnum<M0>> as0(asLen);
-  for (int i = 0; i < asLen; ++i) as0[i] = as[i].x;
-  const vector<modnum<M0>> cs0 = FFT0.square(as0);
-  vector<modnum<M1>> as1(asLen);
-  for (int i = 0; i < asLen; ++i) as1[i] = as[i].x;
-  const vector<modnum<M1>> cs1 = FFT1.square(as1);
-  vector<modnum<M2>> as2(asLen);
-  for (int i = 0; i < asLen; ++i) as2[i] = as[i].x;
-  const vector<modnum<M2>> cs2 = FFT2.square(as2);
-  vector<modnum<M>> cs(asLen + asLen - 1);
-  for (int i = 0; i < asLen + asLen - 1; ++i) {
-    cs[i] = garner<modnum<M>>(cs0[i], cs1[i], cs2[i]);
-  }
-  return cs;
-}
 
 // mod 2^64
 vector<unsigned long long> convolve(const vector<unsigned long long> &as, const vector<unsigned long long> &bs) {
@@ -295,4 +274,4 @@ vector<long long> convolveSmall3(const vector<long long> &as, const vector<long 
   return cs;
 }
 
-const FFT<998244353, 3, 22> fft_data;
+const FFT<998244353U, 3, 22> fft_data;

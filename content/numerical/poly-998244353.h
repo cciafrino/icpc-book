@@ -218,7 +218,9 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
   }
   Poly bernoulli(int N) const {
       Poly fs(N);
-      for (int x = 0; x < N; ++x) fs[x] = invFac[x + 1];
+      fs[1] = 1;
+      fs = fs.exp(); 
+      copy(fs.begin()+1, fs.end(), fs.begin());
       fs = fs.inv();
       for (int x = 0; x < N; ++x) fs[x] *= fac[x];
       return fs;
