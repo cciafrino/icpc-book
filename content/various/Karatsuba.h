@@ -11,7 +11,7 @@
  * Status: tested
  */
  
- int size(int s) { return s > 1 ? 32-__builtin_clz(s-1) : 0; }
+int size(int s) { return s > 1 ? 32-__builtin_clz(s-1) : 0; }
 
 void karatsuba(lint *a, lint *b, lint *c, lint *t, int n) {
     int ca = 0, cb = 0; 
@@ -19,7 +19,7 @@ void karatsuba(lint *a, lint *b, lint *c, lint *t, int n) {
     if (min(ca, cb) <= 1500/n) { // few numbers to multiply
         if (ca > cb) swap(a, b);
         for(int i = 0; i < n; ++i) 
-            if (a[i]) F0R(j,n) c[i+j] += a[i]*b[j];
+            if (a[i]) for(int j = 0; j < n; ++j) c[i+j] += a[i]*b[j];
     } 
     else {
         int h = n >> 1;
