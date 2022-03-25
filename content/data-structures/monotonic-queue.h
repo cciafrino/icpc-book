@@ -6,7 +6,7 @@
  * Status: Tested
  * Time: $O(1)$ 
  */
-template<typename T, T (*op)(const T&, const T&)> struct monotonic_queue {
+template<typename T, T (*op)(const T&, const T&)> struct monotonic_queue { // 665a29
     vector<T> as, aas;
     vector<T> bs, bbs;
     void reserve(int N) {
