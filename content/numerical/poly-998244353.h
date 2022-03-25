@@ -4,7 +4,7 @@
  * Description:
  */
 #include "finite-field-fft.h"
-
+#include "../number-theory/mod-sqrt.h"
 using num = modnum<998244353U>;
 
 FFT<998244353U, 3U, 23> fft_data;
@@ -30,8 +30,8 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
   Poly(std::initializer_list<modnum<M>> il) : vector<modnum<M>>(il) {}
   int size() const { return vector<modnum<M>>::size(); }
   num at(long long k) const { return (0 <= k && k < size()) ? (*this)[k] : 0U; }
-  int ord() const { for (int i = 0; i < size(); ++i) if ((*this)[i]) return i; return -1; }
-  int deg() const { for (int i = size(); --i >= 0;) if ((*this)[i]) return i; return -1; }
+  int ord() const { for (int i = 0; i < size(); ++i) if (int((*this)[i])) return i; return -1; }
+  int deg() const { for (int i = size(); --i >= 0;) if (int((*this)[i])) return i; return -1; }
   Poly mod(int n) const { return Poly(vector<modnum<M>>(this->data(), this->data() + min(n, size()))); }
   friend std::ostream &operator<<(std::ostream &os, const Poly &fs) {
     os << "[";
@@ -153,6 +153,22 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
       }
       return b;
   }
+  Poly sqrt(int N) const { 
+      if (!size()) return {};
+      if (deg() == -1) return Poly(N);
+      int p = 0;
+      while (at(p) == 0 && p < size()) ++p;
+      if (p >= N) return {0};
+      Poly fs(2*N);
+      copy(this->begin() + p, this->end(), fs.begin());
+      auto v = mod_sqrt(fs.at(0).x, M);
+      if (p & 1 || v.empty()) return {};
+      fs.resize(size() - p/2);
+      fs *= fs.front().inv();
+      fs = v[0] * (fs.log() / 2).exp();
+      fs.insert(fs.begin(), p/2, 0);
+      return fs;
+  }
   Poly operator+() const { return *this; }
   Poly operator-() const {
     Poly fs(size());
@@ -167,7 +183,6 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
   Poly operator*(const num &a) const { return (Poly(*this) *= a); }
   Poly operator/(const num &a) const { return (Poly(*this) /= a); }
   friend Poly operator*(const num &a, const Poly &fs) { return fs * a; }
-
   // multipoint evaluation/interpolation
   friend Poly eval(const Poly& fs, const Poly& qs) {
       int N = int(qs.size());
@@ -242,3 +257,4 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
       return P * Q;
   }
 };
+

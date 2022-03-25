@@ -44,6 +44,7 @@ template<unsigned M_> struct modnum {
     template<typename T> friend modnum operator-(T a, const modnum& b) { return (modnum(a) -= b); }
     template<typename T> friend modnum operator*(T a, const modnum& b) { return (modnum(a) *= b); }
     template<typename T> friend modnum operator/(T a, const modnum& b) { return (modnum(a) /= b); }
+    explicit operator bool() const { return x; }
     friend bool operator==(const modnum& a, const modnum& b) { return a.x == b.x; }
     friend bool operator!=(const modnum& a, const modnum& b) { return a.x != b.x; }
     friend ostream &operator<<(ostream& os, const modnum& a) { return os << a.x; }

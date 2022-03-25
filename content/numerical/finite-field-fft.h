@@ -12,138 +12,138 @@
 
 // M: prime, G: primitive root, 2^K | M - 1
 template<unsigned M_, unsigned G_, int K_ > struct FFT {
-    static_assert(2U <= M_, "Fft: 2 <= M must hold.");
-    static_assert(M_ < 1U << 30, "Fft: M < 2^30 must hold.");
-    static_assert(1 <= K_, "Fft: 1 <= K must hold.");
-    static_assert(K_ < 30, "Fft: K < 30 must hold.");
-    static_assert(!((M_ - 1U) & ((1U << K_) - 1U)), "Fft: 2^K | M - 1 must hold.");
-    static constexpr unsigned M = M_, M2 = 2U * M_, G = G_;
-    static constexpr int K = K_;
-    modnum<M> roots[K + 1], inv_roots[K + 1];
-    modnum<M> ratios[K], inv_ratios[K];
-    constexpr FFT() {
-        const modnum<M> g(G);
-        for (int k = 0; k <= K; ++k) {
-            roots[k] = g.pow((M - 1U) >> k);
-            inv_roots[k] = roots[k].inv();
-        }
-        for (int k = 0; k <= K - 2; ++k) {
-            ratios[k] = -g.pow(3U * ((M - 1U) >> (k + 2)));
-            inv_ratios[k] = ratios[k].inv();
-        } assert(roots[1] == M - 1U);
+  static_assert(2U <= M_, "Fft: 2 <= M must hold.");
+  static_assert(M_ < 1U << 30, "Fft: M < 2^30 must hold.");
+  static_assert(1 <= K_, "Fft: 1 <= K must hold.");
+  static_assert(K_ < 30, "Fft: K < 30 must hold.");
+  static_assert(!((M_ - 1U) & ((1U << K_) - 1U)), "Fft: 2^K | M - 1 must hold.");
+  static constexpr unsigned M = M_, M2 = 2U * M_, G = G_;
+  static constexpr int K = K_;
+  modnum<M> roots[K + 1], inv_roots[K + 1];
+  modnum<M> ratios[K], inv_ratios[K];
+  constexpr FFT() {
+    const modnum<M> g(G);
+    for (int k = 0; k <= K; ++k) {
+      roots[k] = g.pow((M - 1U) >> k);
+      inv_roots[k] = roots[k].inv();
     }
-    void fft(modnum<M>* as, int n) const {
-        assert(!(n & (n - 1))); assert(1 <= n); assert(n <= 1 << K);
-        int m = n;
-        if (m >>= 1) {
-            for (int i = 0; i < m; ++i) {
-                const unsigned x = as[i + m].x;
-                as[i + m].x = as[i].x + M - x;
-                as[i].x += x;
-            }
+    for (int k = 0; k <= K - 2; ++k) {
+      ratios[k] = -g.pow(3U * ((M - 1U) >> (k + 2)));
+      inv_ratios[k] = ratios[k].inv();
+    } assert(roots[1] == M - 1U);
+  }
+  void fft(modnum<M>* as, int n) const {
+    assert(!(n & (n - 1))); assert(1 <= n); assert(n <= 1 << K);
+    int m = n;
+    if (m >>= 1) {
+      for (int i = 0; i < m; ++i) {
+        const unsigned x = as[i + m].x;
+        as[i + m].x = as[i].x + M - x;
+        as[i].x += x;
+      }
+    }
+    if (m >>= 1) {
+      modnum<M> prod = 1U;
+      for (int h = 0, i0 = 0; i0 < n; i0 += (m << 1)) {
+        for (int i = i0; i < i0 + m; ++i) {
+          const unsigned x = (prod * as[i + m]).x;
+          as[i + m].x = as[i].x + M - x;
+          as[i].x += x;
         }
-        if (m >>= 1) {
-            modnum<M> prod = 1U;
-            for (int h = 0, i0 = 0; i0 < n; i0 += (m << 1)) {
-                for (int i = i0; i < i0 + m; ++i) {
-                    const unsigned x = (prod * as[i + m]).x;
-                    as[i + m].x = as[i].x + M - x;
-                    as[i].x += x;
-                }
-                prod *= ratios[__builtin_ctz(++h)];
-            }
+        prod *= ratios[__builtin_ctz(++h)];
+      }
+    }
+    for (; m;) {
+      if (m >>= 1) {
+        modnum<M> prod = 1U;
+        for (int h = 0, i0 = 0; i0 < n; i0 += (m << 1)) {
+          for (int i = i0; i < i0 + m; ++i) {
+            const unsigned x = (prod * as[i + m]).x; 
+            as[i + m].x = as[i].x + M - x; 
+            as[i].x += x;
+          }
+          prod *= ratios[__builtin_ctz(++h)];
         }
-        for (; m;) {
-            if (m >>= 1) {
-                modnum<M> prod = 1U;
-                for (int h = 0, i0 = 0; i0 < n; i0 += (m << 1)) {
-                    for (int i = i0; i < i0 + m; ++i) {
-                        const unsigned x = (prod * as[i + m]).x; 
-                        as[i + m].x = as[i].x + M - x; 
-                        as[i].x += x;
-                    }
-                    prod *= ratios[__builtin_ctz(++h)];
-                }
-            }
-            if (m >>= 1) {
-                modnum<M> prod = 1U;
-                for (int h = 0, i0 = 0; i0 < n; i0 += (m << 1)) {
-                    for (int i = i0; i < i0 + m; ++i) {
-                        const unsigned x = (prod * as[i + m]).x; 
-                        as[i].x = (as[i].x >= M2) ? (as[i].x - M2) : as[i].x; 
-                        as[i + m].x = as[i].x + M - x;
-                        as[i].x += x; 
-                    }
-                    prod *= ratios[__builtin_ctz(++h)];
-                }
-            }
-        }
-        for (int i = 0; i < n; ++i) {
+      }
+      if (m >>= 1) {
+        modnum<M> prod = 1U;
+        for (int h = 0, i0 = 0; i0 < n; i0 += (m << 1)) {
+          for (int i = i0; i < i0 + m; ++i) {
+            const unsigned x = (prod * as[i + m]).x; 
             as[i].x = (as[i].x >= M2) ? (as[i].x - M2) : as[i].x; 
-            as[i].x = (as[i].x >= M) ? (as[i].x - M) : as[i].x; 
+            as[i + m].x = as[i].x + M - x;
+            as[i].x += x; 
+          }
+          prod *= ratios[__builtin_ctz(++h)];
         }
+      }
     }
-    void inverse_fft(modnum<M>* as, int n) const {
-        assert(!(n & (n - 1))); assert(1 <= n); assert(n <= 1 << K);
-        int m = 1;
-        if (m < n >> 1) {
-            modnum<M> prod = 1U;
-            for (int h = 0, i0 = 0; i0 < n; i0 += (m << 1)) {
-                for (int i = i0; i < i0 + m; ++i) {
-                    const unsigned long long y = as[i].x + M - as[i + m].x; 
-                    as[i].x += as[i + m].x; 
-                    as[i + m].x = (prod.x * y) % M; 
-                }
-                prod *= inv_ratios[__builtin_ctz(++h)];
-            }
-            m <<= 1;
+    for (int i = 0; i < n; ++i) {
+      as[i].x = (as[i].x >= M2) ? (as[i].x - M2) : as[i].x; 
+      as[i].x = (as[i].x >= M) ? (as[i].x - M) : as[i].x; 
+    }
+  }
+  void inverse_fft(modnum<M>* as, int n) const {
+    assert(!(n & (n - 1))); assert(1 <= n); assert(n <= 1 << K);
+    int m = 1;
+    if (m < n >> 1) {
+      modnum<M> prod = 1U;
+      for (int h = 0, i0 = 0; i0 < n; i0 += (m << 1)) {
+        for (int i = i0; i < i0 + m; ++i) {
+          const unsigned long long y = as[i].x + M - as[i + m].x; 
+          as[i].x += as[i + m].x; 
+          as[i + m].x = (prod.x * y) % M; 
         }
-        for (; m < n >> 1; m <<= 1) {
-            modnum<M> prod = 1U;
-            for (int h = 0, i0 = 0; i0 < n; i0 += (m << 1)) {
-                for (int i = i0; i < i0 + (m >> 1); ++i) {
-                    const unsigned long long y = as[i].x + M2 - as[i + m].x; 
-                    as[i].x += as[i + m].x; 
-                    as[i].x = (as[i].x >= M2) ? (as[i].x - M2) : as[i].x; 
-                    as[i + m].x = (prod.x * y) % M; 
-                }
-                for (int i = i0 + (m >> 1); i < i0 + m; ++i) {
-                    const unsigned long long y = as[i].x + M - as[i + m].x; 
-                    as[i].x += as[i + m].x; 
-                    as[i + m].x = (prod.x * y) % M;
-                }
-                prod *= inv_ratios[__builtin_ctz(++h)];
-            }
+        prod *= inv_ratios[__builtin_ctz(++h)];
+      }
+      m <<= 1;
+    }
+    for (; m < n >> 1; m <<= 1) {
+      modnum<M> prod = 1U;
+      for (int h = 0, i0 = 0; i0 < n; i0 += (m << 1)) {
+        for (int i = i0; i < i0 + (m >> 1); ++i) {
+          const unsigned long long y = as[i].x + M2 - as[i + m].x; 
+          as[i].x += as[i + m].x; 
+          as[i].x = (as[i].x >= M2) ? (as[i].x - M2) : as[i].x; 
+          as[i + m].x = (prod.x * y) % M; 
         }
-        if (m < n) {
-            for (int i = 0; i < m; ++i) {
-                const unsigned y = as[i].x + M2 - as[i + m].x; 
-                as[i].x += as[i + m].x;
-                as[i + m].x = y; 
-            }
+        for (int i = i0 + (m >> 1); i < i0 + m; ++i) {
+          const unsigned long long y = as[i].x + M - as[i + m].x; 
+          as[i].x += as[i + m].x; 
+          as[i + m].x = (prod.x * y) % M;
         }
-        const modnum<M> invN = modnum<M>(n).inv();
-        for (int i = 0; i < n; ++i) as[i] *= invN;
+        prod *= inv_ratios[__builtin_ctz(++h)];
+      }
     }
-    void fft(vector<modnum<M>>& as) const { fft(as.data(), int(as.size())); }
-    void inverse_fft(vector<modnum<M>>& as) const { inverse_fft(as.data(), int(as.size())); }
-    vector<modnum<M>> convolve(vector<modnum<M>> as, vector<modnum<M>> bs) const {
-        if (as.empty() || bs.empty()) return {};
-        const int len = int(as.size()) + int(bs.size()) - 1;
-        int n = 1; for (; n < len; n <<= 1) {}
-        as.resize(n); fft(as);
-        bs.resize(n); fft(bs);
-        for (int i = 0; i < n; ++i) as[i] *= bs[i];
-        inverse_fft(as); as.resize(len); return as;
+    if (m < n) {
+      for (int i = 0; i < m; ++i) {
+        const unsigned y = as[i].x + M2 - as[i + m].x; 
+        as[i].x += as[i + m].x;
+        as[i + m].x = y; 
+      }
     }
-    vector<modnum<M>> square(vector<modnum<M>> as) const {
-        if (as.empty()) return {};
-        const int len = int(as.size()) + int(as.size()) - 1;
-        int n = 1; for (; n < len; n <<= 1) {}
-        as.resize(n); fft(as);
-        for (int i = 0; i < n; ++i) as[i] *= as[i];
-        inverse_fft(as); as.resize(len); return as;
-    }
+    const modnum<M> invN = modnum<M>(n).inv();
+    for (int i = 0; i < n; ++i) as[i] *= invN;
+  }
+  void fft(vector<modnum<M>>& as) const { fft(as.data(), int(as.size())); }
+  void inverse_fft(vector<modnum<M>>& as) const { inverse_fft(as.data(), int(as.size())); }
+  vector<modnum<M>> convolve(vector<modnum<M>> as, vector<modnum<M>> bs) const {
+    if (as.empty() || bs.empty()) return {};
+    const int len = int(as.size()) + int(bs.size()) - 1;
+    int n = 1; for (; n < len; n <<= 1) {}
+    as.resize(n); fft(as);
+    bs.resize(n); fft(bs);
+    for (int i = 0; i < n; ++i) as[i] *= bs[i];
+    inverse_fft(as); as.resize(len); return as;
+  }
+  vector<modnum<M>> square(vector<modnum<M>> as) const {
+    if (as.empty()) return {};
+    const int len = int(as.size()) + int(as.size()) - 1;
+    int n = 1; for (; n < len; n <<= 1) {}
+    as.resize(n); fft(as);
+    for (int i = 0; i < n; ++i) as[i] *= as[i];
+    inverse_fft(as); as.resize(len); return as;
+  }
 };
 
 // M0 M1 M2 = 789204840662082423367925761 (> 7.892 * 10^26, > 2^89)

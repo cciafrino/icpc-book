@@ -2,22 +2,23 @@
  * Author: Chris
  * Date: 2020
  * Source: hos.lyric
- * Description: Calculates the characteristic polynomial of a matrix.
+ * Description: Calculates the characteristic polynomial of a matrix. 
+ * $\sum_{k=0}^n p(k) (-1)^{n-k}$
  * Time: $O(N^3)$ and div-free is $O(N^4)$
  * Status: stress-tested
  */
 // det(x I + a)
-template<class T> vector<T> charPoly(const vector<vector<T>>& a) {
+template<class T> vector<T> char_poly(const vector<vector<T>>& a) {
     const int N = int(a.size()); auto b = a;
     for (int j = 0; j < N - 2; ++j) {
         for (int i = j + 1; i < N; ++i) {
-            if (T(b[i][j])) {
+            if (b[i][j]) {
                 swap(b[j + 1], b[i]);
                 for (int k = 0; k < N; ++k) swap(b[k][j + 1], b[k][i]);
                 break;
             }
         }
-        if (T(b[j + 1][j])) {
+        if (b[j + 1][j]) {
             const T r = 1 / b[j + 1][j];
             for (int i = j + 2; i < N; ++i) {
                 const T s = r * b[i][j];
@@ -43,7 +44,7 @@ template<class T> vector<T> charPoly(const vector<vector<T>>& a) {
     return fss[N];
 }
 // det(x I + a), division free
-template<class T> vector<T> charPolyDivFree(const vector<vector<T>>& a) {
+template<class T> vector<T> char_poly_div_free(const vector<vector<T>>& a) {
     const int N = int(a.size());
     vector<T> ps(N + 1, 0);
     ps[N] = 1;
