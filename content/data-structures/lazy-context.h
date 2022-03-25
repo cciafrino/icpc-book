@@ -3,7 +3,7 @@
  * Description: Examples of Segment Tree with Lazy update
  */
 
-namespace range_flip_range_sum {
+namespace range_flip_range_sum { //4a7f6d
 // query sum a[l, r)
 // update range a[i] <- !a[i]
 // update range a[i] <- 1
@@ -40,7 +40,7 @@ struct seg_node {
 };
 }
 
-namespace range_add_range_sum {
+namespace range_add_range_sum { // d9640e
 // query sum a[l, r)
 // update range a[i] <- v
 // update range a[i] <- a[i] + v
@@ -80,7 +80,7 @@ template<typename T = int64_t> struct seg_node {
 };
 }
 
-namespace range_add_linear_range_sum {
+namespace range_add_linear_range_sum { // a922ef
 // update range a[i] <- a[i] + b * (i - s) + c
 // assuming b and c are non zero, be careful
 // get sum a[l, r)
@@ -109,7 +109,7 @@ template<typename T = int64_t> struct seg_node {
 };
 }
 
-namespace range_affine_range_sum {
+namespace range_affine_range_sum { // 61a09f
 // update range a[i] <- b * a[i] + c
 // get sum a[l, r)
 struct seg_node {
@@ -134,7 +134,7 @@ struct seg_node {
 };
 }
 
-namespace range_chmin_chmax_point_query {
+namespace range_chmin_chmax_point_query { // 8bab55
 // update range a[i] <- min(a[i], b);
 // update range a[i] <- max(a[i], b);
 // get val a[i]
