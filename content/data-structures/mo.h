@@ -14,7 +14,7 @@ void add(int ind, int end) { ... } // add a[ind] (end = 0 or 1)
 void del(int ind, int end) { ... } // remove a[ind]
 int calc() { ... } // compute current answer
 
-vector<int> mo(vector<pair<int, int>> Q) {
+vector<int> mo(vector<pair<int, int>> Q) { // d9247c
 	int L = 0, R = 0, blk = 350; // ~N/sqrt(Q)
 	vector<int> s(int(Q.size())), res = s;
 #define K(x) pair<int, int>(x.first/blk, x.second ^ -(x.first/blk & 1))
@@ -31,7 +31,7 @@ vector<int> mo(vector<pair<int, int>> Q) {
 	return res;
 }
 
-vector<int> moTree(vector<array<int, 2>> Q, vector<vector<int>>& ed, int root=0){
+vector<int> moTree(vector<array<int, 2>> Q, vector<vector<int>>& ed, int root=0){ // bbf891
     int N = int(ed.size()), pos[2] = {}, blk = 350; // ~N/sqrt(Q)
     vector<int> s(int(Q.size())), res = s, I(N), L(N), R(N), in(N), par(N);
     add(0, 0), in[0] = 1;
