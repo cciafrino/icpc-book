@@ -6,7 +6,7 @@
  * Description: Segment tree on values instead of indices.
  * Time: $O(\log(n))$
  */
-struct wavelet_t {
+struct wavelet_t { // b26328
     struct BitVector { // space: 32N bits
         vector<int> _rank = {0};
         BitVector(vector<char> v = vector<char>()) {
@@ -115,7 +115,7 @@ struct wavelet_t {
     }
 };
 
-struct CompressWavelet {
+struct CompressWavelet { // 2447db
     wavelet_t wt;
     vector<int> v, vidx;
     int zip(int x) {
