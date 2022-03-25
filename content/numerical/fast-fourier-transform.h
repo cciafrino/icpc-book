@@ -27,7 +27,7 @@ struct root_of_unity<std::complex<T>> {
 };
 
 template<typename T>
-vector<T> fft(std::vector<T> p, bool inverse) {
+vector<T> fft(std::vector<T> p, bool inverse) { // df3434
     int N = p.size();
     vector<T> q(N);
     for (int i = 0; i < N; ++i) {
