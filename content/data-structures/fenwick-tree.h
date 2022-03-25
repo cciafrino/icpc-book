@@ -8,7 +8,7 @@
  * Time: Both operations are $O(\log N)$.
  * Status: Stress-tested
  */
-template<typename T> struct FT { 
+template<typename T> struct FT { // 8b7639
 	vector<T> s;
 	FT(int n) : s(n) {}
 	FT(const vector<T>& A) : s(int(A.size())) {
@@ -39,7 +39,7 @@ template<typename T> struct FT {
 	}
 };
 
-template<typename T> struct range_layout {
+template<typename T> struct range_layout { // fd83ef
 	FT<T> lhs, rhs;
 	range_layout(int N = 0) : lhs(N), rhs(N) {}
 	range_layout(const vector<T>& A) : lhs(A), rhs(int(A.size())) {}
