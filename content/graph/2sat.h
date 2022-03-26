@@ -48,8 +48,8 @@
 		values.assign(N, -1);
 		for (int i = 0; i < N; ++i) if (comp[2*i] == comp[2*i+1]) return 0;
 		for (int i = 0; i < N; ++i){
-			if (comp[2*i] < comp[2*i+1]) values[i] = true;
-			else values[i] = false;
+			if (comp[2*i] < comp[2*i+1]) values[i] = false;
+			else values[i] = true;
 		}
 		// to minimize (to maximize change < to >) number of variables true (need graph to be symmetric if a => b then ~a => ~b) 
 		/*
