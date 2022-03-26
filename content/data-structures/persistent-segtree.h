@@ -1,6 +1,6 @@
 /**
  * Author: Chris
- * Source: Zhou + some blog on cf
+ * Source: Zhou 
  * Description: Persistent implementation of a segment tree. This one compute the kth smallest element in a subarray $[a, b]$. 
  * Time: 
  */
@@ -26,7 +26,7 @@ struct segtree_t {
 	tree[id] = snapshot(tree[lx].cnt + tree[rx].cnt, lx, rx);
 	return id++;
     }
-    int query(int a, int b, int l, int r, int k) {
+    int query(int a, int b, int l, int r, int k) { // kth
 	if (l == r) return l;
 	int m = (l + r) >> 1;
 	int cnt = tree[tree[b].linkl].cnt - tree[tree[a].linkl].cnt;
