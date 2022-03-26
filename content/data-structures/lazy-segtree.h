@@ -18,7 +18,7 @@ template<class T> struct segtree_range {
     }
     template<class Q> explicit segtree_range(const vector<Q>& qs) {
         const int N_ = int(qs.size());
-        for (H = 1, N = 1; N < N_; ++H, N *= 2) {}
+        for (H = 0, N = 1; N < N_; ++H, N *= 2) {}
         ts.resize(2*N);
         for (int i = 0; i < N_; ++i) at(i) = T(qs[i]);
         build();
