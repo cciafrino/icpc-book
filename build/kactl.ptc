@@ -116,7 +116,7 @@
 \contentsline {subsection}{\texttt {chinese-remainder.h}\hspace {0.2em}}{21}{section.5.4}%
 \contentsline {section}{\numberline {5.5}Fractions}{21}{section.5.5}%
 \contentsline {subsection}{\texttt {fractions.h}\hspace {0.2em}}{21}{section.5.5}%
-\contentsline {subsection}{\texttt {continued-fractions.h}\hspace {0.2em}}{21}{lstnumber.5.25.31}%
+\contentsline {subsection}{\texttt {continued-fractions.h}\hspace {0.2em}}{22}{lstnumber.5.25.31}%
 \contentsline {subsection}{\texttt {frac-binary-search.h}\hspace {0.2em}}{22}{lstnumber.5.26.21}%
 \contentsline {subsection}{\numberline {5.5.1}Bézout's identity}{22}{subsection.5.5.1}%
 \contentsline {subsection}{\numberline {5.5.2}Pythagorean Triples}{22}{subsection.5.5.2}%
@@ -127,7 +127,7 @@
 \contentsline {subsection}{\numberline {5.6.2}Moebius Function}{22}{subsection.5.6.2}%
 \contentsline {subsection}{\numberline {5.6.3}Dirichlet Convolution}{22}{subsection.5.6.3}%
 \contentsline {subsection}{\texttt {dirichlet-convolution.h}\hspace {0.2em}}{22}{Item.2}%
-\contentsline {subsection}{\numberline {5.6.4}Wilson's theorem}{22}{subsection.5.6.4}%
+\contentsline {subsection}{\numberline {5.6.4}Wilson's theorem}{23}{subsection.5.6.4}%
 \contentsline {subsection}{\numberline {5.6.5}Wolstenholme's theorem}{23}{subsection.5.6.5}%
 \contentsline {subsection}{\numberline {5.6.6}Estimates}{23}{subsection.5.6.6}%
 \contentsline {subsection}{\numberline {5.6.7}Prime counting function ($\pi (x)$)}{23}{subsection.5.6.7}%
