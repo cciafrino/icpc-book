@@ -114,14 +114,14 @@
 \contentsline {section}{\numberline {8.4}Misc. Point Set Problems}{40}{section.8.4}%
 \contentsline {section}{\numberline {8.5}3D}{42}{section.8.5}%
 \contentsline {chapter}{\numberline {9}Strings}{42}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Various}{45}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Intervals}{45}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Misc. algorithms}{46}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Dynamic programming}{48}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Debugging tricks}{50}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Optimization tricks}{50}{section.10.5}%
-\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{50}{subsection.10.5.1}%
-\contentsline {subsection}{\numberline {10.5.2}Pragmas}{50}{subsection.10.5.2}%
-\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{51}{section.10.6}%
+\contentsline {chapter}{\numberline {10}Various}{44}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Intervals}{44}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Misc. algorithms}{45}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Dynamic programming}{47}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Debugging tricks}{49}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Optimization tricks}{49}{section.10.5}%
+\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{49}{subsection.10.5.1}%
+\contentsline {subsection}{\numberline {10.5.2}Pragmas}{49}{subsection.10.5.2}%
+\contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{50}{section.10.6}%
 \contentsline {section}{\numberline {10.7}Random Numbers}{51}{section.10.7}%
 \contentsfinish 
