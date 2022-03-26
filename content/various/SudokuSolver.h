@@ -3,6 +3,7 @@
  * Date: 2018
  * License: CC0
  * Source: me
+ * Status: Tested on UVA 989
  * Description: 
  */
 int N,m; // N = n*n, m = n; where n equal number of rows or columns
