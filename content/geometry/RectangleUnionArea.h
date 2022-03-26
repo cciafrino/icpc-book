@@ -1,5 +1,5 @@
 /**
- * Author: BenQ
+ * Author: Felipe Chen
  * Date: 
  * License: CC0
  * Source: 
@@ -7,62 +7,54 @@
  * Usage: Create vector with both $x$ coordinates and $y$ coordinates of each rectangle.//vector<pair<int,int>,pair<int,int>> rectangles;// rectangles.push_back({{x1, x2}, {y1, y2}});// lint result = area(rectangles);
  * Status: tested
  */
-pair<int,int> operator+(const pair<int,int>& l, const pair<int,int>& r) {
-    if (l.first != r.first) return min(l,r);
-    return {l.first, l.second + r.second};
-}
-struct segtree_t { // stores min + # of mins
-    int n;
-    vector<int> lazy;
-    vector<pair<int,int>> tree; // set n to a power of two
-    segtree_t(int _n) : n(_n), tree(2*n, {0,0}), lazy(2*n, 0) { }
-    void build() {
-        for(int i = n-1; i >= 1; --i) 
-            tree[i] = tree[i<<1] + tree[i<<1|1]; }
-    void push(int v, int lx, int rx) {
-        tree[v].first += lazy[v];
-        if (lx != rx) {
-            lazy[v<<1] += lazy[v];
-            lazy[v<<1|1] += lazy[v];
-        }
-        lazy[v] = 0;
-    }
-    void update(int a, int b, int delta) { update(1,0,n-1,a,b,delta); }
-    void update(int v, int lx, int rx, int a, int b, int delta) {
-        push(v, lx, rx);
-        if (b < lx || rx < a) return;
-        if (a <= lx && rx <= b) {
-            lazy[v] = delta; push(v, lx, rx);
-        }
-        else {
-            int m = lx + (rx - lx)/2;
-            update(v<<1, lx, m, a, b, delta);
-            update(v<<1|1, m+1, rx, a, b, delta);
-            tree[v] = (tree[v<<1] + tree[v<<1|1]);
-        }
-    }
+struct seg_node{
+	int val, cnt, lz;
+	seg_node(int n = INT_MAX, int c = 0): val(n), cnt(c), lz(0) {}
+	void push(seg_node& l, seg_node& r){
+		if(lz){
+			l.add(lz);
+			r.add(lz);
+			lz = 0;
+		}
+	}
+	void merge(const seg_node& l, const seg_node& r){
+		if(l.val < r.val) val = l.val, cnt = l.cnt;
+		else if(l.val > r.val) val = r.val, cnt = r.cnt;
+		else val = l.val, cnt = l.cnt + r.cnt;
+	}
+	void add(int n){
+		val += n;
+		lz += n;
+	}
+	int get_sum(){ return (val ? 0 : cnt); }
 };
-lint area(vector<pair<pair<int,int>,pair<int,int>>> v) { // area of union of rectangles
-    const int n = 1<<18;
-    segtree_t tree(n);
-    vector<int> y; for(auto &t : v) y.push_back(t.second.first), y.push_back(t.second.second);
-    sort(y.begin(), y.end()); y.erase(unique(y.begin(), y.end()),y.end());
-    for(int i = 0; i < y.size()-1; ++i) tree.tree[n+i].second = y[i+1]-y[i]; // compress coordinates
-    tree.build();
-    vector<array<int,4>> ev; // sweep line
-    for(auto &t : v) {
-        t.second.first = lower_bound(y.begin(), y.end(),t.second.first)-begin(y);
-        t.second.second = lower_bound(y.begin(), y.end(),t.second.second)-begin(y)-1;
-        ev.push_back({t.first.first,1,t.second.first,t.second.second});
-        ev.push_back({t.first.second,-1,t.second.first,t.second.second});
-    }
-    sort(ev.begin(), ev.end());
-    lint ans = 0;
-    for(int i = 0; i < ev.size()-1; ++i) {
-        const auto& t = ev[i];
-        tree.update(t[2],t[3],t[1]);
-        int len = y.back()-y.front()-tree.tree[1].second; // tree.mn[0].firstshould equal 0
-        ans += (lint)(ev[i+1][0]-t[0])*len;
-    }
-    return ans;
+// x1 y1 x2 y2
+lint solve(const vector<array<int, 4>>&v){
+	vector<int>ys;
+	for(auto& [a, b, c, d] : v){
+		ys.push_back(b);
+		ys.push_back(d);
+	}
+	sort(ys.begin(), ys.end());
+	ys.erase(unique(ys.begin(), ys.end()), ys.end());
+	vector<array<int, 4>>e;
+	for(auto [a, b, c, d] : v){
+		b = int(lower_bound(ys.begin(), ys.end(), b) - ys.begin());
+		d = int(lower_bound(ys.begin(), ys.end(), d) - ys.begin());
+		e.push_back({a, b, d, 1});
+		e.push_back({c, b, d, -1});
+	}
+	sort(e.begin(), e.end());
+	int m = (int)ys.size();
+	segtree_range<seg_node>seg(m-1);
+	for(int i=0;i<m-1;i++) seg.at(i) = seg_node(0, ys[i+1] - ys[i]);
+	seg.build();
+	int last = INT_MIN, total = ys[m-1] - ys[0];
+	lint ans = 0;
+	for(auto [x, y1, y2, c] : e){
+		ans += (lint)(total - seg.query(0, m-1).get_sum()) * (x - last);
+		last = x;
+		seg.update(y1, y2, &seg_node::add, c);
+	}
+	return ans;
 }

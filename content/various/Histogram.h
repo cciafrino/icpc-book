@@ -1,11 +1,13 @@
 /**
  * Author: Chris
- * Date: 2020
+ * Date: 2022
  * License: CC0
  * Source: 
- * Time: 
+ * Description:
+ * Time: O(N)
+ * Status: tested
  */
-#include<../data-structures/rmq.h>
+#include"../data-structures/rmq.h"
 
 template<typename T> struct MaxArea {
     rmq_t<T> rmq;
