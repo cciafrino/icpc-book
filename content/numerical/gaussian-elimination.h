@@ -13,7 +13,7 @@ template<typename T> struct gaussian_elimination {
     int N, M;
     Matrix<T> A, E;
     vector<int> pivot;
-    int rank, nullity;
+    int rank, nullity, sgn;
     // O(std::min(N, M)NM)
     gaussian_elimination(const Matrix<T>& A_) : A(A_) {
         N = A.size(), M = A[0].size();
@@ -21,7 +21,7 @@ template<typename T> struct gaussian_elimination {
         for (int i = 0; i < N; ++i) {
             E[i][i] = 1;
         }
-        rank = 0, nullity = M;
+        rank = 0, nullity = M, sgn = 0;
         pivot.assign(M, -1);
         for (int col = 0, row = 0; col < M && row < N; ++col) {
             int sel = -1;
@@ -33,6 +33,7 @@ template<typename T> struct gaussian_elimination {
             }
             if (sel == -1) continue;
             if (sel != row) {
+                sgn += 1;
                 swap(A[sel], A[row]);
                 swap(E[sel], E[row]);
             }
