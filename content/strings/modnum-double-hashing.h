@@ -17,9 +17,9 @@ struct hash_t {
     int n;
     string str;
     vector<hsh> hash, basePow;
-    hash_t(const string& s) : n(s.size()), str(s), hash(n+1), basePow(n) {
+    hash_t(const string& s) : n(s.size()), str(s), hash(n+1), basePow(n+1) {
         basePow[0] = 1;
-        for (int i = 1; i < n; ++i) basePow[i] = basePow[i-1] * BASE;
+        for (int i = 1; i <= n; ++i) basePow[i] = basePow[i-1] * BASE;
         for (int i = 0; i < n; ++i) 
             hash[i+1] = hash[i] * BASE + hsh(s[i]);
     }

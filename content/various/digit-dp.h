@@ -11,7 +11,7 @@
 *  digit_dp<modnum<int(1e9) + 7>, hex_to_dec>(N, K);
  * Time: O(NK)
  */
-template<typename T, class F> T digit_dp(string& S, int K, F& L) {
+template<typename T, class F> T digit_dp(const string& S, int K, F& L) {
 	const int base = 16;
 	const int len = int(S.size());
 

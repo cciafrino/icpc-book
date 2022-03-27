@@ -9,27 +9,3 @@
 		of a value related to i. Everything else related to j will become constant.
  * Status: tested on https://codeforces.com/contest/319/problem/C
  */
-#include<LineContainer.h>
-
-array<lint, 112345> dyn, a, b;
-
-int main() {
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; ++i) cin >> a[i];
-    for (int i = 0; i < n; ++i) cin >> b[i];
-    dyn[0] = 0;
-    LineContainer cht;
-    cht.add(-b[0], 0);
-    for (int i = 1; i < n; ++i) {
-        dyn[i] = cht.query(a[i]);
-        cht.add(-b[i], dyn[i]);
-    }
-    // Original DP O(n^2).
-	// for (int i = 1; i < n; i++) {
-	// 	dyn[i] = INF;
-	// 	for (int j = 0; j < i; j++)
-	// 		dyn[i] = min(dyn[i], dyn[j] + a[i] * b[j]);
-	// }
-	cout << -dyn[n-1] << '\n';
-}

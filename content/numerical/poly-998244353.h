@@ -5,6 +5,8 @@
  */
 #include "finite-field-fft.h"
 #include "../number-theory/mod-sqrt.h"
+#include "../number-theory/preparator.h"
+
 using num = modnum<998244353U>;
 
 FFT<998244353U, 3U, 23> fft_data;

@@ -13,30 +13,19 @@
 \kactlimport{char-poly.h}
 \kactlimport{simplex.h}
 \kactlimport{tridiagonal.h}
-%\kactlimport{NewtonMethod.h}
-%\kactlimport{NewtonSQRT.h}
-%\kactlimport{MarkovChain.cpp}
 \kactlimport{polyominoes.h}
 \section{Fourier transforms}
-%\kactlimport{fft.cpp}
-%\kactlimport{poly-exp-log.cpp}
 \kactlimport{fast-fourier-transform.h}
+\kactlimport{fast-subset-transform.h}
 \kactlimport{finite-field-fft.h}	
 \kactlimport{poly-998244353.h}
-\kactlimport{fast-subset-transform.h}
 \kactlimport{sum-of-powers.h}
-%\kactlimport{ZetaDor.h}
-\iffalse
+
 \subsection{General linear recurrences}
-  If $a_n = \sum_{k=0}^{n-1} a_k b_{n-k}$, then $A(x) = \frac{a_0}{1-B(x)}$.
+  If $a_n = \sum_{k=0}^{n-1} a_k b_{n-k}$, then 
+  $A(x) = \frac{a_0}{1-B(x)}$.
 
-\subsection{Inverse polynomial modulo $x^l$}
-  Given $A(x)$, find $B(x)$ such that $A(x)B(x) = 1 + x^l Q(x)$ for some $Q(x)$.
-
-  Step 1: Start with $B_0(x) = 1/a_0$
-
-  Step 2: $B_{k+1}(x) = (-B_k(x)^2 A(x) + 2 B_k(x)) \mod x^{2^{k+1}}$.
-
+\iffalse
 \subsection{Fast subset convolution}
   Given array $a_i$ of size $2^k$ calculate $b_i = \sum_{j \BitAnd i = i} a_j$.
 \fi
@@ -62,8 +51,6 @@
     $(1,c,c^2, c^3, \ldots)$ & $\frac{1}{1-cz}$ \\ \hline
     $(0,1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\ldots)$ & $\ln \frac{1}{1-z}$ \\ \hline
   \end{tabular}
-
-\columnbreak
 
 A neat manipulation trick is:
 \begin{equation*}

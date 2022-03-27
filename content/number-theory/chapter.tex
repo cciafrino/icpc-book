@@ -3,8 +3,8 @@
 \section{Modular arithmetic}
 	\kactlimport{modular-arithmetic.h}
 	\kactlimport{pairnum-template.h}
+	\kactlimport{preparator.h}
 	\kactlimport{mod-inv.h}
-	\kactlimport{mod-pow.h}
 	\kactlimport{mod-sum.h}
 	\kactlimport{mod-mul.h}
 	\kactlimport{mod-sqrt.h}
@@ -28,7 +28,6 @@
  %    $\sum_{d\vert n}\varphi (d)=n\hspace{0.1cm}\sum_{d\vert n}\mu (d)=\text{if } (n > 1) \text{ then } 0 \text{ else } 1\hspace{0.1cm}\sum_{d\vert n}(\mu (\frac{n}{d})\sum_{e\vert d}f(e))=f(n)$ \\
 	\kactlimport{sieve.h}
 	\kactlimport{segmented-sieve.h}
-	\kactlimport{mobius.h}
 	\kactlimport{miller-rabin.h}
 	\kactlimport{pollard-rho.h}
 
@@ -51,9 +50,6 @@
 	\kactlimport{fractions.h}
 	\kactlimport{continued-fractions.h}
 	\kactlimport{frac-binary-search.h}
-
-\
-
 
 \subsection{Bézout's identity}
 For $a \neq $, $b \neq 0$, then $d=gcd(a,b)$ is the smallest positive integer for which there are integer solutions to
@@ -126,9 +122,8 @@ $$\left(x+\frac{kb}{\gcd(a,b)}, y-\frac{ka}{\gcd(a,b)}\right), \quad k\in\mathbb
 	% $$s(n)=\frac{n(n+1)}{2}-\sum_{i=2}^ns\left(\left\lfloor\frac{n}{i}\right\rfloor\right)$$
 	% can be computed in faster than $\Theta(n)$.
 
-
 \subsection{Wilson's theorem}
-Let~$n > 1$. Then~$n|(n-1)!+1$ iff~$n$ is prime.
+Let~$n > 1$. Then~$n|(n-1)!+1$ iff~$n$ is prime.\\
 
 \subsection{Wolstenholme's theorem}
 Let~$p > 3$ be a prime number. Then its numerator $ 1 + \frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{p-1} $
