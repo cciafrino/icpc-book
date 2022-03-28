@@ -21,7 +21,7 @@ template<unsigned M_, unsigned G_, int K_ > struct FFT {
   static constexpr int K = K_;
   modnum<M> roots[K + 1], inv_roots[K + 1];
   modnum<M> ratios[K], inv_ratios[K];
-  constexpr FFT() {
+  constexpr FFT() { // 4ae38
     const modnum<M> g(G);
     for (int k = 0; k <= K; ++k) {
       roots[k] = g.pow((M - 1U) >> k);
@@ -32,17 +32,17 @@ template<unsigned M_, unsigned G_, int K_ > struct FFT {
       inv_ratios[k] = ratios[k].inv();
     } assert(roots[1] == M - 1U);
   }
-  void fft(modnum<M>* as, int n) const {
+  void fft(modnum<M>* as, int n) const { // 9bd68
     assert(!(n & (n - 1))); assert(1 <= n); assert(n <= 1 << K);
     int m = n;
-    if (m >>= 1) {
+    if (m >>= 1) { // 7d6b0
       for (int i = 0; i < m; ++i) {
         const unsigned x = as[i + m].x;
         as[i + m].x = as[i].x + M - x;
         as[i].x += x;
       }
     }
-    if (m >>= 1) {
+    if (m >>= 1) { // e1efd
       modnum<M> prod = 1U;
       for (int h = 0, i0 = 0; i0 < n; i0 += (m << 1)) {
         for (int i = i0; i < i0 + m; ++i) {
@@ -53,8 +53,8 @@ template<unsigned M_, unsigned G_, int K_ > struct FFT {
         prod *= ratios[__builtin_ctz(++h)];
       }
     }
-    for (; m;) {
-      if (m >>= 1) {
+    for (; m;) { 
+      if (m >>= 1) { // e1efd
         modnum<M> prod = 1U;
         for (int h = 0, i0 = 0; i0 < n; i0 += (m << 1)) {
           for (int i = i0; i < i0 + m; ++i) {
@@ -65,7 +65,7 @@ template<unsigned M_, unsigned G_, int K_ > struct FFT {
           prod *= ratios[__builtin_ctz(++h)];
         }
       }
-      if (m >>= 1) {
+      if (m >>= 1) { // 4cdae
         modnum<M> prod = 1U;
         for (int h = 0, i0 = 0; i0 < n; i0 += (m << 1)) {
           for (int i = i0; i < i0 + m; ++i) {
@@ -83,10 +83,10 @@ template<unsigned M_, unsigned G_, int K_ > struct FFT {
       as[i].x = (as[i].x >= M) ? (as[i].x - M) : as[i].x; 
     }
   }
-  void inverse_fft(modnum<M>* as, int n) const {
+  void inverse_fft(modnum<M>* as, int n) const { // 3dc51
     assert(!(n & (n - 1))); assert(1 <= n); assert(n <= 1 << K);
     int m = 1;
-    if (m < n >> 1) {
+    if (m < n >> 1) { // e27aa
       modnum<M> prod = 1U;
       for (int h = 0, i0 = 0; i0 < n; i0 += (m << 1)) {
         for (int i = i0; i < i0 + m; ++i) {
@@ -98,7 +98,7 @@ template<unsigned M_, unsigned G_, int K_ > struct FFT {
       }
       m <<= 1;
     }
-    for (; m < n >> 1; m <<= 1) {
+    for (; m < n >> 1; m <<= 1) { // 01cb5
       modnum<M> prod = 1U;
       for (int h = 0, i0 = 0; i0 < n; i0 += (m << 1)) {
         for (int i = i0; i < i0 + (m >> 1); ++i) {
@@ -115,7 +115,7 @@ template<unsigned M_, unsigned G_, int K_ > struct FFT {
         prod *= inv_ratios[__builtin_ctz(++h)];
       }
     }
-    if (m < n) {
+    if (m < n) { // 5dcee
       for (int i = 0; i < m; ++i) {
         const unsigned y = as[i].x + M2 - as[i + m].x; 
         as[i].x += as[i + m].x;
@@ -157,6 +157,7 @@ const FFT<935329793U, 3U, 22> FFT5;
 const FFT<918552577U, 5U, 22> FFT6;
 
 // T = unsigned, unsigned long long, modnum<M>
+// 667bd
 template <class T, unsigned M0, unsigned M1, unsigned M2>
 T garner(modnum<M0> a0, modnum<M1> a1, modnum<M2> a2) {
   static const modnum<M1> INV_M0_M1 = modnum<M1>(M0).inv();
@@ -165,6 +166,7 @@ T garner(modnum<M0> a0, modnum<M1> a1, modnum<M2> a2) {
   const modnum<M2> b2 = INV_M0M1_M2 * (a2 - (modnum<M2>(b1.x) * M0 + a0.x));
   return (T(b2.x) * M1 + b1.x) * M0 + a0.x;
 }
+//560d5
 template <class T, unsigned M0, unsigned M1, unsigned M2, unsigned M3, unsigned M4>
 T garner(modnum<M0> a0, modnum<M1> a1, modnum<M2> a2, modnum<M3> a3, modnum<M4> a4) {
   static const modnum<M1> INV_M0_M1 = modnum<M1>(M0).inv();
@@ -181,6 +183,7 @@ T garner(modnum<M0> a0, modnum<M1> a1, modnum<M2> a2, modnum<M3> a3, modnum<M4> 
 // if you plan to square instead of convolve, just 
 // remove each occurence of bs vector and change every 
 // convolve call for a square. 
+// f12a0d
 template <unsigned M> vector<modnum<M>> convolve(const vector<modnum<M>> &as, const vector<modnum<M>> &bs) {
   static constexpr unsigned M0 = decltype(FFT0)::M;
   static constexpr unsigned M1 = decltype(FFT1)::M;
@@ -207,6 +210,7 @@ template <unsigned M> vector<modnum<M>> convolve(const vector<modnum<M>> &as, co
 }
 
 // mod 2^64
+// 363b35
 vector<unsigned long long> convolve(const vector<unsigned long long> &as, const vector<unsigned long long> &bs) {
   static constexpr unsigned M0 = decltype(FFT0)::M;
   static constexpr unsigned M3 = decltype(FFT3)::M;
@@ -243,6 +247,7 @@ vector<unsigned long long> convolve(const vector<unsigned long long> &as, const 
 }
 
 // Results must be in [-2^63, 2^63).
+// 920fee
 vector<long long> convolveSmall3(const vector<long long> &as, const vector<long long> &bs) {
   static constexpr unsigned M0 = decltype(FFT0)::M;
   static constexpr unsigned M1 = decltype(FFT1)::M;
