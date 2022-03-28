@@ -15,10 +15,10 @@ struct DP { // Modify at will:
 		if (L >= R) return;
 		int mid = (L + R) >> 1;
 		pair<lint, int> best(LLONG_MAX, LO);
-		for(int k = max(LO,lo(mid)); k <= min(HI,hi(mid)); ++k)
+		for(int k = max(LO,lo(mid)); k < min(HI,hi(mid)); ++k)
 			best = min(best, make_pair(f(mid, k), k));
 		store(mid, best.second, best.first);
-		rec(L, mid, LO, best.second);
+		rec(L, mid, LO, best.second+1);
 		rec(mid+1, R, best.second, HI);
 	}
 	void solve(int L, int R) { rec(L, R, INT_MIN, INT_MAX); }
