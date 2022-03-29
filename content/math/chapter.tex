@@ -87,6 +87,23 @@ z = r\cos\theta & \phi = \textrm{atan2}(y,x)
 Integration by parts:
 \[\int_a^bf(x)g(x)dx = [F(x)g(x)]_a^b-\int_a^bF(x)g'(x)dx\]
 
+Green's theorem:\\
+Let $C$ be a positive, smooth, simple curve. $D$ is a region bounded by $C$.
+\[ \oint_{C} (P dx + Q dy) = \int \int_D (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}) \]
+
+To calculate area, $\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = 1$,
+usually, picking $Q = \frac{1}{2} x$ and $P = -\frac{1}{2}y$ suffice.
+
+Then we have 
+\[  \frac{1}{2} \oint_C x dy - \frac{1}{2} \oint_C y dx\]
+
+Line integral:\\
+$C$ given by $x = x(t), y = y(t), t \in [a, b]$, then
+
+\[  \oint_C f(x, y) ds = \int_{a}^b f(x(t), y(t)) ds\]
+
+where, $ds =  \sqrt{(\frac{dx}{dt})^2 + (\frac{dy}{dt})^2}dt$ 
+or $\sqrt{(1 + (\frac{dy}{dx})^2}dx$
 
 \subsection{XOR sum} 
 

@@ -21,32 +21,18 @@
 \kactlimport{poly-998244353.h}
 \kactlimport{sum-of-powers.h}
 
+\iffalse
 \subsection{General linear recurrences}
   If $a_n = \sum_{k=0}^{n-1} a_k b_{n-k}$, then 
   $A(x) = \frac{a_0}{1-B(x)}$.
 
-\iffalse
 \subsection{Fast subset convolution}
   Given array $a_i$ of size $2^k$ calculate $b_i = \sum_{j \BitAnd i = i} a_j$.
 \fi
-\subsection{Polyominoes} How many free (rotation, reflection), one-sided (rotation) and fixed $n$-ominoes are there?
-      
-\
-
-      \resizebox{\columnwidth}{!}{%
-       \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-        \hline
-        n&3&4&5&6&7&8&9&10 \\ \hline
-        free&2&5&12&35&108&369&1.285&4.655 \\ \hline
-        one-sided&2&7&18&60&196&704&2.500&9.189 \\ \hline
-        fixed&6&19&63&216&760&2.725&9.910&36.446 \\ \hline
-      \end{tabular}
-      }
 
 \subsection{Generating functions}
   A list of generating functions for useful sequences:
 
-  \
 
   \begin{tabular}{|c|c|}
     \hline
@@ -66,6 +52,18 @@ A neat manipulation trick is:
 \begin{equation*}
   \frac{1}{1-z}G(z) = \sum_{n}\sum_{k\leq n}g_kz^n
 \end{equation*}
+
+\subsection{Polyominoes} How many free (rotation, reflection), one-sided (rotation) and fixed $n$-ominoes are there?
+    
+      \resizebox{\columnwidth}{!}{%
+       \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+        \hline
+        n&3&4&5&6&7&8&9&10 \\ \hline
+        free&2&5&12&35&108&369&1.285&4.655 \\ \hline
+        one-sided&2&7&18&60&196&704&2.500&9.189 \\ \hline
+        fixed&6&19&63&216&760&2.725&9.910&36.446 \\ \hline
+      \end{tabular}
+      }
 
 
 \subsection{Duality}

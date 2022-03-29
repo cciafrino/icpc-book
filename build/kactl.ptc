@@ -27,7 +27,7 @@
 \contentsline {subsection}{\numberline {2.8.2}Continuous distributions}{2}{subsection.2.8.2}%
 \contentsline {subsubsection}{Uniform distribution}{2}{section*.4}%
 \contentsline {subsubsection}{Exponential distribution}{2}{section*.5}%
-\contentsline {subsubsection}{Normal distribution}{2}{section*.6}%
+\contentsline {subsubsection}{Normal distribution}{3}{section*.6}%
 \contentsline {section}{\numberline {2.9}Markov chains}{3}{section.2.9}%
 \contentsline {chapter}{\numberline {3}Data Structures}{3}{chapter.3}%
 \ttl@stoptoc {chapters@2}
@@ -39,12 +39,12 @@
 \contentsline {section}{\texttt {monotonic-queue.h}\hspace {0.2em}}{3}{lstnumber.3.4.21}%
 \contentsline {section}{\texttt {segtree.h}\hspace {0.2em}}{4}{lstnumber.3.5.54}%
 \contentsline {section}{\texttt {point-context.h}\hspace {0.2em}}{4}{lstnumber.3.6.85}%
-\contentsline {section}{\texttt {lazy-segtree.h}\hspace {0.2em}}{4}{lstnumber.3.7.62}%
+\contentsline {section}{\texttt {lazy-segtree.h}\hspace {0.2em}}{5}{lstnumber.3.7.62}%
 \contentsline {section}{\texttt {lazy-context.h}\hspace {0.2em}}{5}{lstnumber.3.8.119}%
 \contentsline {section}{\texttt {sparse-segtree.h}\hspace {0.2em}}{6}{lstnumber.3.9.167}%
 \contentsline {section}{\texttt {segtree-2d.h}\hspace {0.2em}}{6}{lstnumber.3.10.39}%
 \contentsline {section}{\texttt {persistent-segtree.h}\hspace {0.2em}}{6}{lstnumber.3.11.25}%
-\contentsline {section}{\texttt {merge-sort-tree.h}\hspace {0.2em}}{6}{lstnumber.3.12.31}%
+\contentsline {section}{\texttt {merge-sort-tree.h}\hspace {0.2em}}{7}{lstnumber.3.12.31}%
 \contentsline {section}{\texttt {rmq.h}\hspace {0.2em}}{7}{lstnumber.3.13.36}%
 \contentsline {section}{\texttt {fenwick-tree.h}\hspace {0.2em}}{7}{lstnumber.3.14.19}%
 \contentsline {section}{\texttt {fenwick-tree-2d.h}\hspace {0.2em}}{7}{lstnumber.3.15.51}%
@@ -56,7 +56,7 @@
 \contentsline {section}{\texttt {matrix.h}\hspace {0.2em}}{9}{lstnumber.3.21.120}%
 \contentsline {section}{\texttt {submatrix.h}\hspace {0.2em}}{10}{lstnumber.3.22.40}%
 \contentsline {section}{\texttt {wavelet.h}\hspace {0.2em}}{10}{lstnumber.3.23.13}%
-\contentsline {section}{\texttt {segtree-beats.h}\hspace {0.2em}}{10}{lstnumber.3.24.130}%
+\contentsline {section}{\texttt {segtree-beats.h}\hspace {0.2em}}{11}{lstnumber.3.24.130}%
 \contentsline {section}{\texttt {range-color.h}\hspace {0.2em}}{12}{lstnumber.3.25.256}%
 \contentsline {section}{\texttt {implicit-treap.h}\hspace {0.2em}}{12}{lstnumber.3.26.53}%
 \contentsline {section}{\texttt {treap.h}\hspace {0.2em}}{13}{lstnumber.3.27.96}%
@@ -66,7 +66,7 @@
 \contentsline {section}{\texttt {polynomial.h}\hspace {0.2em}}{13}{chapter.4}%
 \contentsline {section}{\texttt {poly-roots.h}\hspace {0.2em}}{13}{lstnumber.4.1.17}%
 \contentsline {section}{\texttt {poly-interpolate.h}\hspace {0.2em}}{13}{lstnumber.4.2.23}%
-\contentsline {section}{\texttt {lagrange.h}\hspace {0.2em}}{13}{lstnumber.4.3.13}%
+\contentsline {section}{\texttt {lagrange.h}\hspace {0.2em}}{14}{lstnumber.4.3.13}%
 \contentsline {section}{\texttt {berlekamp-massey.h}\hspace {0.2em}}{14}{lstnumber.4.4.31}%
 \contentsline {section}{\texttt {linear-recurrence.h}\hspace {0.2em}}{14}{lstnumber.4.5.19}%
 \contentsline {section}{\texttt {integrate.h}\hspace {0.2em}}{14}{lstnumber.4.6.22}%
@@ -83,11 +83,10 @@
 \contentsline {subsection}{\texttt {finite-field-fft.h}\hspace {0.2em}}{16}{lstnumber.4.16.16}%
 \contentsline {subsection}{\texttt {poly-998244353.h}\hspace {0.2em}}{17}{lstnumber.4.17.200}%
 \contentsline {subsection}{\texttt {sum-of-powers.h}\hspace {0.2em}}{19}{lstnumber.4.18.242}%
-\contentsline {subsection}{\numberline {4.1.1}General linear recurrences}{19}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.1}Generating functions}{19}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Polyominoes}{19}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Generating functions}{19}{subsection.4.1.3}%
-\contentsline {subsection}{\numberline {4.1.4}Duality}{19}{subsection.4.1.4}%
-\contentsline {subsection}{\numberline {4.1.5}Strong duality}{19}{subsection.4.1.5}%
+\contentsline {subsection}{\numberline {4.1.3}Duality}{19}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Strong duality}{19}{subsection.4.1.4}%
 \contentsline {chapter}{\numberline {5}Number theory}{19}{chapter.5}%
 \ttl@stoptoc {chapters@4}
 \ttl@starttoc {chapters@5}
