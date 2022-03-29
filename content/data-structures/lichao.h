@@ -3,7 +3,8 @@
  * Source: radoslav11, https://codeforces.com/blog/entry/86731
  * Description: Line Segments Li Chao Tree. Allows line add, segment add and point query.
  * Status: Tested on yosupo
- * Time: $O(\log^2 N)$ for segment add, $O(\log N)$ for other operations
+ * Time: $O(\log^2 N)$ for segment add
+ * $O(\log N)$ for other operations
  */
 template<typename T, T L, T R>
 struct lichao_t{

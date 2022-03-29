@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.2.4)  29 MAR 2022 18:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.2.4)  29 MAR 2022 19:41
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -540,12 +540,13 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 11.
 LaTeX Info: Redefining \pageref on input line 11.
 LaTeX Info: Redefining \nameref on input line 11.
+ (build//kactl.out) (build//kactl.out)
 \@outlinefile=\write3
 \openout3 = `kactl.out'.
 
 runsystem(rm -f build/header.tmp)...executed.
 
-<projeto.png, id=4, 323.96896pt x 153.26224pt>
+<projeto.png, id=44, 323.96896pt x 153.26224pt>
 File: projeto.png Graphic file (type png)
 <use projeto.png>
 Package pdftex.def Info: projeto.png  used on input line 12.
@@ -616,7 +617,7 @@ LaTeX Font Info:    Trying to load font information for T1+pcr on input line 8.
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ))) (./content/math/chapter.tex
 Chapter 2.
-<content/math/sphericalCoordinates.pdf, id=24, 42.67899pt x 42.67899pt>
+<content/math/sphericalCoordinates.pdf, id=64, 42.67899pt x 42.67899pt>
 File: content/math/sphericalCoordinates.pdf Graphic file (type pdf)
 <use content/math/sphericalCoordinates.pdf>
 Package pdftex.def Info: content/math/sphericalCoordinates.pdf  used on input line 69.
@@ -1551,7 +1552,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/geometry/LineDistance.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/lineDistance.pdf, id=5888, 42.67899pt x 42.67899pt>
+<content/geometry/lineDistance.pdf, id=5919, 42.67899pt x 42.67899pt>
 File: content/geometry/lineDistance.pdf Graphic file (type pdf)
 <use content/geometry/lineDistance.pdf>
 Package pdftex.def Info: content/geometry/lineDistance.pdf  used on input line 11.
@@ -1562,7 +1563,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/geometry/SegmentDistance.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/SegmentDistance.pdf, id=5889, 42.67899pt x 42.67899pt>
+<content/geometry/SegmentDistance.pdf, id=5920, 42.67899pt x 42.67899pt>
 File: content/geometry/SegmentDistance.pdf Graphic file (type pdf)
 <use content/geometry/SegmentDistance.pdf>
 Package pdftex.def Info: content/geometry/SegmentDistance.pdf  used on input line 14.
@@ -1578,7 +1579,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/geometry/SegmentIntersection.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/SegmentIntersection.pdf, id=5890, 42.67899pt x 42.67899pt>
+<content/geometry/SegmentIntersection.pdf, id=5921, 42.67899pt x 42.67899pt>
 File: content/geometry/SegmentIntersection.pdf Graphic file (type pdf)
 <use content/geometry/SegmentIntersection.pdf>
 Package pdftex.def Info: content/geometry/SegmentIntersection.pdf  used on input line 17.
@@ -1594,7 +1595,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/geometry/LineIntersection.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/lineIntersection.pdf, id=5891, 42.67899pt x 42.67899pt>
+<content/geometry/lineIntersection.pdf, id=5922, 42.67899pt x 42.67899pt>
 File: content/geometry/lineIntersection.pdf Graphic file (type pdf)
 <use content/geometry/lineIntersection.pdf>
 Package pdftex.def Info: content/geometry/lineIntersection.pdf  used on input line 17.
@@ -1623,7 +1624,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/geometry/LinearTransformation.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/linearTransformation.pdf, id=6159, 42.67899pt x 42.67899pt>
+<content/geometry/linearTransformation.pdf, id=6189, 42.67899pt x 42.67899pt>
 File: content/geometry/linearTransformation.pdf Graphic file (type pdf)
 <use content/geometry/linearTransformation.pdf>
 Package pdftex.def Info: content/geometry/linearTransformation.pdf  used on input line 13.
@@ -1664,7 +1665,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/geometry/Circumcircle.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/circumcircle.pdf, id=6160, 42.67899pt x 42.67899pt>
+<content/geometry/circumcircle.pdf, id=6190, 42.67899pt x 42.67899pt>
 File: content/geometry/circumcircle.pdf Graphic file (type pdf)
 <use content/geometry/circumcircle.pdf>
 Package pdftex.def Info: content/geometry/circumcircle.pdf  used on input line 12.
@@ -1721,7 +1722,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/geometry/PolygonCut.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/PolygonCut.pdf, id=6528, 42.67899pt x 42.67899pt>
+<content/geometry/PolygonCut.pdf, id=6558, 42.67899pt x 42.67899pt>
 File: content/geometry/PolygonCut.pdf Graphic file (type pdf)
 <use content/geometry/PolygonCut.pdf>
 Package pdftex.def Info: content/geometry/PolygonCut.pdf  used on input line 15.
@@ -1732,7 +1733,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python2 content/tex/preprocessor.py -i "content/geometry/ConvexHull.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/ConvexHull.pdf, id=6529, 42.67899pt x 42.67899pt>
+<content/geometry/ConvexHull.pdf, id=6559, 42.67899pt x 42.67899pt>
 File: content/geometry/ConvexHull.pdf Graphic file (type pdf)
 <use content/geometry/ConvexHull.pdf>
 Package pdftex.def Info: content/geometry/ConvexHull.pdf  used on input line 14.
@@ -2191,18 +2192,18 @@ Package rerunfilecheck Info: File `kactl.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 22460 strings out of 483107
- 334401 string characters out of 5964631
- 1585668 words of memory out of 5000000
- 28969 multiletter control sequences out of 15000+600000
+ 22474 strings out of 483107
+ 334565 string characters out of 5964631
+ 1585669 words of memory out of 5000000
+ 28979 multiletter control sequences out of 15000+600000
  550269 words of font info for 91 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  44i,16n,64p,832b,2203s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/letfcs/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0700.600pk> </home/letfcs/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0900.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/letfcs/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcti0700.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on build//kactl.pdf (53 pages, 2604914 bytes).
+Output written on build//kactl.pdf (53 pages, 2606346 bytes).
 PDF statistics:
- 10090 PDF objects out of 10688 (max. 8388607)
- 9737 compressed objects within 98 object streams
+ 10121 PDF objects out of 10688 (max. 8388607)
+ 9768 compressed objects within 98 object streams
  7686 named destinations out of 8907 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
 
