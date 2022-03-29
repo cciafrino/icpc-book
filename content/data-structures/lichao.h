@@ -27,7 +27,7 @@ struct lichao_t{
     node *root;
     lichao_t( line li = {0, inf} ): root ( new node(li) ) {}
     ~lichao_t(){ delete root; }
-    T query( T x , node *cur , T l, T r){
+    T query( T x , node *cur , T l, T r){ // c1cea
         if(cur == nullptr) return inf;
         if(x < l || x > r) return inf;
         T mid = ( l + r ) / 2;   
@@ -37,7 +37,7 @@ struct lichao_t{
         return ans;
     }
     T query( T x ){ return query( x, root, 0, N ); }
-    void add( line li, node *&cur, T l, T r){
+    void add( line li, node *&cur, T l, T r){ // 02eee
         if(cur == nullptr){ 
             cur = new node(li);
             return;
@@ -51,6 +51,7 @@ struct lichao_t{
             add(li, cur->right, mid + 1, r);
     }
     void add( T m, T b ){ add( {m, b}, root, 0, N ); }
+    // 0a172
     void addSegment( line li, node *&cur, T l, T r, T lseg, T rseg){
         if(r < lseg || l > rseg) return;
         if(cur == nullptr) cur =  new node;
