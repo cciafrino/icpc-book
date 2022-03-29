@@ -1,3 +1,5 @@
-# Hashes a file, ignoring all whitespace and comments. Use for
+# Hashes a file, ignoring all whitespace, comments and defines. Use for
 # verifying that code was correctly typed.
-cpp -dD -P -fpreprocessed | tr -d '[:space:]'| md5sum |cut -c-6
+# First do: chmod +x ./startup.sh
+# ./hash.sh *.cpp start end
+sed -n $2','$3' p' $1 | sed '/^#w/d' | cpp -dD -P -fpreprocessed | tr -d '[:space:]' | md5sum |cut -c-6

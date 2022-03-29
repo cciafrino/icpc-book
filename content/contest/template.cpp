@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-#define st first
-#define nd second
 using lint = int64_t;
 constexpr int MOD = int(1e9) + 7;
 constexpr int INF = 0x3f3f3f3f;

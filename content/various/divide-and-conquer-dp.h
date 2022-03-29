@@ -23,3 +23,45 @@ struct DP { // Modify at will:
 	}
 	void solve(int L, int R) { rec(L, R, INT_MIN, INT_MAX); }
 };
+
+struct DP { 
+    vector<int>a, freq;
+    vector<lint>old, cur;
+    lint cnt;
+    DP(const vector<int>&_a, int n): a(_a), freq(n), old(n, linf), cur(n, linf), cnt(0) {}
+    int lo(int ind) { return 0; }
+    int hi(int ind) { return ind; }
+    lint f(int ind, int k) { return old[k] + cnt; }
+    void add(int ind, int k){ cnt += freq[a[k]]++; }
+    void del(int ind, int k){ cnt -= --freq[a[k]]; }
+    void store(int ind, int k, lint v) { cur[ind] = v; }
+    void rec(int L, int R, int LO, int HI, int lastl, int lastr) {
+        if (L >= R) return;
+        int mid = (L + R) >> 1;
+        pair<lint, int> best(LLONG_MAX, LO);
+        int left = max(LO,lo(mid)), right = min(HI,hi(mid));
+        if(lastl != -1){
+            for(int k = lastr; k > mid; --k) del(mid, k);
+            for(int k = lastr+1; k <= mid; ++k) add(mid, k);
+            
+            for(int k = lastl; k <= right; ++k) del(mid, k);
+            for(int k = lastl; k > right; --k) add(mid, k);    
+        }
+        for(int k = right; k >= left; --k){    
+            best = min(best, make_pair(f(mid, k), k));
+            add(mid, k);
+        }
+        store(mid, best.second, best.first);
+        rec(L, mid, LO, best.second, left, mid);
+        rec(mid+1, R, best.second, HI, left, mid);
+        for(int k = right; k >= left; --k) del(mid, k);        
+        if(lastl != -1){
+            for(int k = lastr; k > mid; --k) add(mid, k);
+            for(int k = lastr+1; k <= mid; ++k) del(mid, k);
+            
+            for(int k = lastl; k <= right; ++k) add(mid, k);
+            for(int k = lastl; k > right; --k) del(mid, k);
+        }    
+    }
+    //void solve(int L, int R) { rec(L, R, INT_MIN, INT_MAX); }
+};
