@@ -220,12 +220,14 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
     }
   }
   Poly bernoulli(int N) const { // 145ab7
+    N += 5;
     Poly fs(N);
     fs[1] = 1;
     fs = fs.exp(); 
     copy(fs.begin()+1, fs.end(), fs.begin());
     fs = fs.inv();
     for (int x = 0; x < N; ++x) fs[x] *= fac[x];
+    fs.resize(N - 5);
     return fs;
   }
   // x(x - 1)(x - 2)...(x - N + 1)
@@ -240,9 +242,10 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
     Poly P(N), Q(N);
     for (int x = 0; x < N; ++x) {
       P[x] = (x & 1 ? -1 : 1) * invFac[x];
-      Q[x] = num(x).pow(N) * invFac[x];
+      Q[x] = num(x).pow(N-1) * invFac[x];
     }
-    return P * Q;
+    P *= Q;
+    P.resize(N);
+    return P;
   }
 };
-
