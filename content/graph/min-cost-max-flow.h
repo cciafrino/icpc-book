@@ -22,7 +22,7 @@ template<class flow_t, class cost_t> struct min_cost {
   vector<cost_t> cost;
 
   explicit min_cost(int n_) : n(n_), m(0), ptr(n_, -1) {}
-  void add_edge(int u, int v, flow_t w, cost_t c) {
+  void add_edge(int u, int v, flow_t w, cost_t c) { // d482f5
     assert(0 <= u); assert(u < n);
     assert(0 <= v); assert(v < n);
     assert(0 <= w);
@@ -43,7 +43,7 @@ template<class flow_t, class cost_t> struct min_cost {
   //   Assumes that the members above are set.
   //   The distance to a vertex might not be determined if it is >= dist[t].
   //   You can pass t = -1 to find a shortest path to each vertex.
-  void shortest(int s, int t) {
+  void shortest(int s, int t) { // e9bb0d
     using Entry = pair<cost_t, int>;
     priority_queue<Entry, vector<Entry>, std::greater<Entry>> que;
     for (int u = 0; u < n; ++u) { dist[u] = COST_INF; vis[u] = false; }
@@ -66,6 +66,7 @@ template<class flow_t, class cost_t> struct min_cost {
   //   Bellman-Ford takes O(n m) time, or O(m) time if there is no negative-cost
   //   edge, or cannot stop if there exists a negative-cost cycle.
   //   min{(max flow), limFlow} shortest paths if Flow is an integral type.
+  // d9868f
   pair<flow_t, cost_t> run(int s, int t, flow_t limFlow = FLOW_INF) {
     assert(0 <= s); assert(s < n);
     assert(0 <= t); assert(t < n);

@@ -16,7 +16,7 @@ struct suffix_array_t {
     vector<int> lcp;
     rmq_t<pair<int, int>> RMQ;
     bool cmp(int a, int b) { return invsa[a + H] < invsa[b + H]; }
-    void ternary_sort(int a, int b) {
+    void ternary_sort(int a, int b) { // 262db8
         if (a == b) return;
         int pivot = sa[a + rng() % (b - a)];
         int left = a, right = b;
@@ -29,7 +29,7 @@ struct suffix_array_t {
     } 
     suffix_array_t() {} 
     template<typename I>
-    suffix_array_t(I begin, I end): N(int(end - begin)), sa(N) {
+    suffix_array_t(I begin, I end): N(int(end - begin)), sa(N) { // b7f703
         vector<int> v(begin, end); v.push_back(INT_MIN);
         invsa = v; iota(sa.begin(), sa.end(), 0);
         H = 0; ternary_sort(0, N);
@@ -53,10 +53,11 @@ struct suffix_array_t {
     } 
     pair<int, int> rmq_query(int a, int b) const { return RMQ.query(a, b); } 
     pair<int, int> get_split(int a, int b) const { return RMQ.query(a, b-2); }
-    int get_lcp(int a, int b) const { 
+    int get_lcp(int a, int b) const { // cde9bf
         if (a == b) return N - a;
         a = invsa[a], b = invsa[b];
         if (a > b) swap(a, b);
         return rmq_query(a + 1, b).first;
     } 
 };
+

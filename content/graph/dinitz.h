@@ -14,11 +14,11 @@ template<typename T = int> struct Dinitz {
 	vector<vector<edge_t>> adj;
 	vector<int> lvl, ptr, q;
 	Dinitz(int n) : lvl(n), ptr(n), q(n), adj(n) {}
-	inline void addEdge(int a, int b, T c, T rcap = 0) {
+	inline void addEdge(int a, int b, T c, T rcap = 0) { // 694aae
 		adj[a].push_back({b, (int)adj[b].size(), c, 0});
 		adj[b].push_back({a, (int)adj[a].size() - 1, rcap, 0});
 	}
-	T dfs(int v, int t, T f) {
+	T dfs(int v, int t, T f) { // 8ffe6b
 		if (v == t || !f) return f;
 		for (int &i = ptr[v]; i < int(adj[v].size()); ++i) {
 			edge_t &e = adj[v][i];
@@ -30,7 +30,7 @@ template<typename T = int> struct Dinitz {
 		}
 		return 0;
 	}
-	T maxflow(int s, int t) { 
+	T maxflow(int s, int t) { // db2141
 		T flow = 0; q[0] = s;
 		for (int L = 0; L < 31; ++L) do { // 'int L=30' maybe faster for random data
 			lvl = ptr = vector<int>(q.size());
@@ -46,7 +46,7 @@ template<typename T = int> struct Dinitz {
 		return flow;
 	} 
 	bool leftOfMinCut(int v) { return bool(lvl[v] != 0); }
-	pair<T, vector<pair<int,int>>> minCut(int s, int t) {
+	pair<T, vector<pair<int,int>>> minCut(int s, int t) { // 727b22
 		T cost = maxflow(s,t); 
 		vector<pair<int,int>> cut;		
 		for (int i = 0; i < int(adj.size()); i++) for(edge_t &e : adj[i])

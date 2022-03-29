@@ -13,21 +13,21 @@ using hsh = pairnum<num, num>;
 const hsh BASE(163, 311);
 // uniform_int_distribution<int> MULT_DIST(0.1*MOD,0.9*MOD); 
 // constexpr hsh BASE(MULT_DIST(rng), MULT_DIST(rng));
-struct hash_t {
+struct hash_t { // c9d6c0
     int n;
     string str;
     vector<hsh> hash, basePow;
-    hash_t(const string& s) : n(s.size()), str(s), hash(n+1), basePow(n+1) {
+    hash_t(const string& s) : n(s.size()), str(s), hash(n+1), basePow(n+1) { // dd1f3f
         basePow[0] = 1;
         for (int i = 1; i <= n; ++i) basePow[i] = basePow[i-1] * BASE;
         for (int i = 0; i < n; ++i) 
             hash[i+1] = hash[i] * BASE + hsh(s[i]);
     }
-    hsh get_hash(int left, int right) {
+    hsh get_hash(int left, int right) { // 302ee0
         assert(left <= right);
         return hash[right] - hash[left] * basePow[right - left];
     }
-    int lcp(hash_t &other) { // need some testing
+    int lcp(hash_t &other) { // 5eb9e2
         int left = 0, right = min(str.size(), other.str.size());
         while (left < right) {
             int mid = (left + right + 1)/2;
@@ -37,7 +37,7 @@ struct hash_t {
         return left;
     }
 };
-vector<int> rabinkarp(string t, string p) {
+vector<int> rabinkarp(string t, string p) { // c11cfc
     vector<int> matches;
     hsh h(0, 0);
     for (int i = 0; i < p.size(); ++i) 

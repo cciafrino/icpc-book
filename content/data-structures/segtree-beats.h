@@ -9,7 +9,7 @@
  */
 
 class segment_tree_beats {
-  struct data_t {
+  struct data_t { // 9ed1a4
     int64_t max;
     int64_t max_second;
     int max_count;
@@ -24,12 +24,12 @@ class segment_tree_beats {
   vector<data_t> a;
 public:
   segment_tree_beats() = default;
-  segment_tree_beats(int n_) {
+  segment_tree_beats(int n_) { // 4439d7
     n = 1; while (n < n_) n *= 2;
     a.resize(2 * n - 1);
     tag<UPDATE>(0, 0);
   }
-  segment_tree_beats(vector<long long>& A) {
+  segment_tree_beats(vector<long long>& A) { // 14e0e9
     int n_ = int(A.size());
     n = 1; while (n < n_) n *= 2;
     a.resize(2 * n - 1);
@@ -41,7 +41,7 @@ public:
     }
     for (int i = n - 2; i >= 0; --i) update(i);
   }
-
+  // begin d6c8fd
   void range_chmin(int l, int r, int64_t value) {  // 0-based, [l, r)
     assert (0 <= l and l <= r and r <= n);
     range_apply<CHMIN>(0, 0, n, l, r, value);
@@ -58,7 +58,9 @@ public:
     assert (0 <= l and l <= r and r <= n);
     range_apply<UPDATE>(0, 0, n, l, r, value);
   }
-
+  // end d6c8fd
+  
+  // begin 1ebfc6
   int64_t range_min(int l, int r) {  // 0-based, [l, r)
     assert (0 <= l and l <= r and r <= n);
     return range_get<MIN>(0, 0, n, l, r);
@@ -71,8 +73,10 @@ public:
     assert (0 <= l and l <= r and r <= n);
     return range_get<SUM>(0, 0, n, l, r);
   }
+  // end 1ebfc6
 
 private:
+  // begin 810f38
   static constexpr char CHMIN = 0;
   static constexpr char CHMAX = 1;
   static constexpr char ADD = 2;
@@ -80,9 +84,10 @@ private:
   static constexpr char MIN = 10;
   static constexpr char MAX = 11;
   static constexpr char SUM = 12;
+  // end 810f38
 
   template <char TYPE>
-    void range_apply(int i, int il, int ir, int l, int r, int64_t g) {
+    void range_apply(int i, int il, int ir, int l, int r, int64_t g) { // 5d0787
       if (ir <= l or r <= il or break_condition<TYPE>(i, g)) {
         // break
       } else if (l <= il and ir <= r and tag_condition<TYPE>(i, g)) {
@@ -95,7 +100,7 @@ private:
       }
     }
   template <char TYPE>
-    inline bool break_condition(int i, int64_t g) {
+    inline bool break_condition(int i, int64_t g) { // ac9336
       switch (TYPE) {
         case CHMIN: return a[i].max <= g;
         case CHMAX: return g <= a[i].min;
@@ -105,7 +110,7 @@ private:
       }
     }
   template <char TYPE>
-    inline bool tag_condition(int i, int64_t g) {
+    inline bool tag_condition(int i, int64_t g) { // 9d0086
       switch (TYPE) {
         case CHMIN: return a[i].max_second < g and g < a[i].max;
         case CHMAX: return a[i].min < g and g < a[i].min_second;
@@ -115,7 +120,7 @@ private:
       }
     }
   template <char TYPE>
-    inline void tag(int i, int64_t g) {
+    inline void tag(int i, int64_t g) { // 01118f
       int length = n >> (32 - __builtin_clz(i + 1) - 1);
       if (TYPE == CHMIN) {
         if (a[i].max == a[i].min or g <= a[i].min) {
@@ -177,7 +182,7 @@ private:
         assert (false);
       }
     }
-  void pushdown(int i) {
+  void pushdown(int i) { // 18fe9b
     int l = 2 * i + 1;
     int r = 2 * i + 2;
     // update
@@ -208,7 +213,7 @@ private:
       tag<CHMAX>(r, a[i].min);
     }
   }
-  void update(int i) {
+  void update(int i) { // 1ac2aa
     int l = 2 * i + 1;
     int r = 2 * i + 2;
     // chmin
@@ -234,7 +239,7 @@ private:
   }
 
   template <char TYPE>
-    int64_t range_get(int i, int il, int ir, int l, int r) {
+    int64_t range_get(int i, int il, int ir, int l, int r) { // 51b088
       if (ir <= l or r <= il) {
         return 0;
       } else if (l <= il and ir <= r) {
@@ -259,4 +264,3 @@ private:
       }
     }
 };
-

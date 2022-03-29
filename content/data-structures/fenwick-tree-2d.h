@@ -8,7 +8,6 @@
  * Time: $O(\log^2 N)$. (Use persistent segment trees for $O(\log N)$.)
  */
 #include "fenwick_tree.h"
-
 template<typename T> struct FT2 {
 	vector<vector<int>> ys; vector<FT<T>> ft;
 	FT2(int limx) : ys(limx) {}
@@ -16,7 +15,11 @@ template<typename T> struct FT2 {
 		for (; x < (int)ys.size(); x |= x + 1) ys[x].push_back(y);
 	}
 	void init() {
-		for(auto v : ys) sort(v.begin(), v.end()), ft.emplace_back(v.size());
+		for(auto &v : ys){
+			sort(v.begin(), v.end());
+			v.resize(unique(v.begin(),v.end()) - v.begin());
+			ft.emplace_back(v.size());
+		}
 	}
 	int ind(int x, int y) {
 		return (int)(lower_bound(ys[x].begin(), ys[x].end(), y) - ys[x].begin()); }
@@ -30,3 +33,4 @@ template<typename T> struct FT2 {
 		return sum;
 	}
 };
+

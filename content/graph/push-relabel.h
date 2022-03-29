@@ -15,18 +15,18 @@ template<typename flow_t = int> struct PushRelabel {
 	vector<edge_t*> cur;
 	vector<vector<int>> hs; vector<int> H;
 	PushRelabel(int n) : g(n), ec(n), cur(n), hs(2*n), H(n) {}
-	void addEdge(int s, int t, flow_t cap, flow_t rcap = 0) {
+	void addEdge(int s, int t, flow_t cap, flow_t rcap = 0) { // d58501
 		if (s == t) return;
 		g[s].push_back({t, (int)g[t].size(), 0, cap});
 		g[t].push_back({s, (int)g[s].size()-1, 0, rcap});
 	}
-	void addFlow(edge_t& e, flow_t f) {
+	void addFlow(edge_t& e, flow_t f) { // 2f7969
 		edge_t &back = g[e.dest][e.back];
 		if (!ec[e.dest] && f) hs[H[e.dest]].push_back(e.dest);
 		e.f += f; e.c -= f; ec[e.dest] += f;
 		back.f -= f; back.c += f; ec[back.dest] -= f;
 	}
-	flow_t maxflow(int s, int t) {
+	flow_t maxflow(int s, int t) { // 21100c
 		int v = int(g.size()); H[s] = v; ec[t] = 1;
 		vector<int> co(2*v); co[0] = v-1;
 		for(int i = 0; i < v; ++i) cur[i] = g[i].data();
@@ -50,3 +50,4 @@ template<typename flow_t = int> struct PushRelabel {
 	}
 	bool leftOfMinCut(int a) { return H[a] >= int(g.size()); }
 };
+

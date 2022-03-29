@@ -11,7 +11,7 @@ struct lichao_lazy{
     static const T inf = -numeric_limits<T>::max() / 2;
     bool first_best( T a, T b ){ return a > b; }
     T get_best( T a, T b ){  return first_best(a, b) ? a : b;  }
-    struct line{ 
+    struct line{ // 88f949
         T m, b;
         T operator()( T x ){ return m*x + b; } 
         void apply(line other){
@@ -19,7 +19,7 @@ struct lichao_lazy{
             b += other.b;
         }
     };
-    struct node{
+    struct node{ // e6c99b
         line li, lazy;
         node *left, *right;
         node( line _li = {0, inf}): li(_li), lazy({0,0}), left(nullptr), right(nullptr){} 
@@ -27,10 +27,15 @@ struct lichao_lazy{
             li.apply(other);
             lazy.apply(other);
         }
+        ~node(){
+        	delete left;
+        	delete right;
+        }
     };
     node *root;
     lichao_lazy( line li = {0, inf} ): root ( new node(li) ) {}
-    void propagateLazy(node *&cur){
+    ~lichao_lazy(){ delete root; }
+    void propagateLazy(node *&cur){ // f09e7a
         if(cur == nullptr) return;
         if(cur->left == nullptr) cur->left = new node;
         if(cur->right == nullptr) cur->right = new node;
@@ -38,7 +43,7 @@ struct lichao_lazy{
         cur->right->apply( cur-> lazy);
         cur->lazy = {0, 0};
     }
-    T query( T x , node *cur , T l, T r){
+    T query( T x , node *cur , T l, T r){ // d7beed
         if(x < l || x > r || l > r) return inf;
         if(cur == nullptr) return inf;
         T mid = ( l + r ) / 2;
@@ -49,7 +54,7 @@ struct lichao_lazy{
         return ans;
     }
     T query( T x ){ return query( x, root, 0, N ); }
-    void add( line li, node *&cur, T l, T r){
+    void add( line li, node *&cur, T l, T r){ // 7c380d
         if(cur == nullptr){ 
             cur = new node(li);
             return;
@@ -64,14 +69,14 @@ struct lichao_lazy{
             add(li, cur->right, mid + 1, r);
     }
     void add( T m, T b ){ add( {m, b}, root, 0, N ); }
-    void propagateLine(node *&cur, T l, T r){
+    void propagateLine(node *&cur, T l, T r){ // 3eb90d
         if(cur == nullptr) return;
         T mid = ( l + r ) / 2;
         add(cur->li, cur->left, l, mid);
         add(cur->li, cur->right, mid+1, r);
         cur->li = {0, inf};
     }
-    void addSegment( line li, node *&cur, T l, T r, T lseg, T rseg){
+    void addSegment( line li, node *&cur, T l, T r, T lseg, T rseg){ // fb0606
         if(r < lseg || l > rseg) return;
         if(cur == nullptr) cur =  new node;
         if(lseg <= l && r <= rseg){
@@ -88,7 +93,7 @@ struct lichao_lazy{
     void addSegment( T m, T b, T left, T right){
         addSegment( {m, b}, root, 0, N, left, right);
     }
-    void updateSegment( line li, node *&cur, T l, T r, T lseg, T rseg){
+    void updateSegment( line li, node *&cur, T l, T r, T lseg, T rseg){ // d07e69
         if(r < lseg || l > rseg) return;
         if(cur == nullptr) cur =  new node;
         if(lseg <= l && r <= rseg){
@@ -105,3 +110,4 @@ struct lichao_lazy{
         updateSegment( {m, b}, root, 0, N, left, right);
     }
 };
+

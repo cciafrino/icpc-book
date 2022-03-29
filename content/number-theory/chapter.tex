@@ -9,6 +9,7 @@
 	\kactlimport{mod-mul.h}
 	\kactlimport{mod-sqrt.h}
 	\kactlimport{mul-order.h}
+	\kactlimport{mod-range.h}
 
 \section{Primality}
 	% https://blog.csdn.net/skywalkert/article/details/50500009
@@ -123,11 +124,16 @@ $$\left(x+\frac{kb}{\gcd(a,b)}, y-\frac{ka}{\gcd(a,b)}\right), \quad k\in\mathbb
 	% can be computed in faster than $\Theta(n)$.
 
 \subsection{Wilson's theorem}
-Let~$n > 1$. Then~$n|(n-1)!+1$ iff~$n$ is prime.\\
+Let~$n > 1$. Then~$n|(n-1)!+1$ iff~$n$ is prime.
+
+\
 
 \subsection{Wolstenholme's theorem}
 Let~$p > 3$ be a prime number. Then its numerator $ 1 + \frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{p-1} $
 is divisible by~$p^2$.
+
+\
+
 
 \subsection{Estimates}
 \[

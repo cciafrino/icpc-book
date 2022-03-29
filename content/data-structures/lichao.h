@@ -68,3 +68,4 @@ struct lichao_t{
         addSegment( {m, b}, root, 0, N, left, right);
     }
 };
+
