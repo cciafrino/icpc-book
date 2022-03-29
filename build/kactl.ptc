@@ -337,7 +337,7 @@
 \contentsline {subsection}{\texttt {floyd-cycle.h}\hspace {0.2em}}{49}{lstnumber.10.16.41}%
 \contentsline {section}{\numberline {10.3}Dynamic programming}{49}{section.10.3}%
 \contentsline {subsection}{\texttt {divide-and-conquer-dp.h}\hspace {0.2em}}{49}{section.10.3}%
-\contentsline {subsection}{\texttt {knuth-dp.h}\hspace {0.2em}}{49}{lstnumber.10.18.59}%
+\contentsline {subsection}{\texttt {knuth-dp.h}\hspace {0.2em}}{49}{lstnumber.10.18.50}%
 \contentsline {subsection}{\texttt {cht-dp.h}\hspace {0.2em}}{49}{lstnumber.10.19.1}%
 \contentsline {subsection}{\texttt {edit-distance.h}\hspace {0.2em}}{49}{lstnumber.10.20.1}%
 \contentsline {subsection}{\texttt {LIS.h}\hspace {0.2em}}{49}{lstnumber.10.21.32}%
@@ -352,7 +352,7 @@
 \contentsline {section}{\numberline {10.4}Debugging tricks}{50}{section.10.4}%
 \contentsline {section}{\numberline {10.5}Optimization tricks}{50}{section.10.5}%
 \contentsline {subsection}{\numberline {10.5.1}Bit hacks}{50}{subsection.10.5.1}%
-\contentsline {subsection}{\numberline {10.5.2}Pragmas}{51}{subsection.10.5.2}%
+\contentsline {subsection}{\numberline {10.5.2}Pragmas}{50}{subsection.10.5.2}%
 \contentsline {subsection}{\texttt {fast-input.h}\hspace {0.2em}}{51}{subsection.10.5.2}%
 \contentsline {subsection}{\texttt {bump-allocator.h}\hspace {0.2em}}{51}{lstnumber.10.31.18}%
 \contentsline {subsection}{\texttt {bump-allocator-stl.h}\hspace {0.2em}}{51}{lstnumber.10.32.8}%

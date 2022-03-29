@@ -129,7 +129,7 @@
 \contentsline {section}{\numberline {10.4}Debugging tricks}{50}{section.10.4}%
 \contentsline {section}{\numberline {10.5}Optimization tricks}{50}{section.10.5}%
 \contentsline {subsection}{\numberline {10.5.1}Bit hacks}{50}{subsection.10.5.1}%
-\contentsline {subsection}{\numberline {10.5.2}Pragmas}{51}{subsection.10.5.2}%
+\contentsline {subsection}{\numberline {10.5.2}Pragmas}{50}{subsection.10.5.2}%
 \contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{51}{section.10.6}%
 \contentsline {section}{\numberline {10.7}Random Numbers}{52}{section.10.7}%
 \contentsfinish 
