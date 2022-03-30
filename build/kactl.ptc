@@ -128,14 +128,14 @@
 \contentsline {subsection}{\numberline {5.5.3}Primitive Roots}{23}{subsection.5.5.3}%
 \contentsline {subsection}{\numberline {5.5.4}Chicken McNugget theorem}{23}{subsection.5.5.4}%
 \contentsline {section}{\numberline {5.6}Primes}{23}{section.5.6}%
-\contentsline {subsection}{\numberline {5.6.1}Sum of primes}{23}{subsection.5.6.1}%
-\contentsline {subsection}{\numberline {5.6.2}Moebius Function}{24}{subsection.5.6.2}%
-\contentsline {subsection}{\numberline {5.6.3}Dirichlet Convolution}{24}{subsection.5.6.3}%
+\contentsline {subsection}{\numberline {5.6.1}Wilson's theorem}{23}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6.2}Wolstenholme's theorem}{23}{subsection.5.6.2}%
+\contentsline {subsection}{\numberline {5.6.3}Prime counting function ($\pi (x)$)}{23}{subsection.5.6.3}%
+\contentsline {subsection}{\numberline {5.6.4}Sum of primes}{24}{subsection.5.6.4}%
+\contentsline {subsection}{\numberline {5.6.5}Moebius Function}{24}{subsection.5.6.5}%
+\contentsline {subsection}{\numberline {5.6.6}Dirichlet Convolution}{24}{subsection.5.6.6}%
 \contentsline {subsection}{\texttt {dirichlet-convolution.h}\hspace {0.2em}}{24}{Item.2}%
-\contentsline {subsection}{\numberline {5.6.4}Wilson's theorem}{24}{subsection.5.6.4}%
-\contentsline {subsection}{\numberline {5.6.5}Wolstenholme's theorem}{24}{subsection.5.6.5}%
-\contentsline {subsection}{\numberline {5.6.6}Estimates}{24}{subsection.5.6.6}%
-\contentsline {subsection}{\numberline {5.6.7}Prime counting function ($\pi (x)$)}{24}{subsection.5.6.7}%
+\contentsline {subsection}{\numberline {5.6.7}Estimates}{24}{subsection.5.6.7}%
 \contentsline {chapter}{\numberline {6}Combinatorial}{24}{chapter.6}%
 \ttl@stoptoc {chapters@5}
 \ttl@starttoc {chapters@6}
@@ -192,13 +192,13 @@
 \contentsline {section}{\numberline {7.2}Network flow}{27}{section.7.2}%
 \contentsline {subsection}{\texttt {push-relabel.h}\hspace {0.2em}}{27}{section.7.2}%
 \contentsline {subsection}{\texttt {dinitz.h}\hspace {0.2em}}{28}{lstnumber.7.5.42}%
-\contentsline {subsection}{\texttt {min-cost-max-flow.h}\hspace {0.2em}}{28}{lstnumber.7.6.45}%
+\contentsline {subsection}{\texttt {min-cost-max-flow.h}\hspace {0.2em}}{28}{lstnumber.7.6.75}%
 \contentsline {section}{\numberline {7.3}Matching}{29}{section.7.3}%
 \contentsline {subsection}{\texttt {hopcroft-karp.h}\hspace {0.2em}}{29}{section.7.3}%
 \contentsline {subsection}{\texttt {bipartite-matching.h}\hspace {0.2em}}{29}{lstnumber.7.8.35}%
 \contentsline {subsection}{\texttt {weighted-matching.h}\hspace {0.2em}}{29}{lstnumber.7.9.42}%
 \contentsline {subsection}{\texttt {general-matching-dfs.h}\hspace {0.2em}}{29}{lstnumber.7.10.31}%
-\contentsline {subsection}{\texttt {general-matching.h}\hspace {0.2em}}{29}{lstnumber.7.11.44}%
+\contentsline {subsection}{\texttt {general-matching.h}\hspace {0.2em}}{30}{lstnumber.7.11.44}%
 \contentsline {subsection}{\texttt {max-independent-set.h}\hspace {0.2em}}{30}{lstnumber.7.12.68}%
 \contentsline {subsection}{\texttt {min-vertex-cover.h}\hspace {0.2em}}{30}{lstnumber.7.13.1}%
 \contentsline {subsection}{\texttt {min-edge-cover.h}\hspace {0.2em}}{30}{lstnumber.7.14.20}%
@@ -219,7 +219,7 @@
 \contentsline {section}{\numberline {7.6}Trees}{33}{section.7.6}%
 \contentsline {subsection}{\texttt {lca-binary-lifting.h}\hspace {0.2em}}{33}{section.7.6}%
 \contentsline {subsection}{\texttt {lca-euler-tour.h}\hspace {0.2em}}{34}{lstnumber.7.28.53}%
-\contentsline {subsection}{\texttt {compress-tree.h}\hspace {0.2em}}{34}{lstnumber.7.29.164}%
+\contentsline {subsection}{\texttt {compress-tree.h}\hspace {0.2em}}{35}{lstnumber.7.29.164}%
 \contentsline {subsection}{\texttt {heavylight.h}\hspace {0.2em}}{35}{lstnumber.7.30.20}%
 \contentsline {subsection}{\texttt {tree-isomorphism.h}\hspace {0.2em}}{35}{lstnumber.7.31.108}%
 \contentsline {subsection}{\numberline {7.6.1}Sqrt Decomposition}{36}{subsection.7.6.1}%
@@ -246,7 +246,7 @@
 \ttl@starttoc {chapters@8}
 \contentsline {section}{\numberline {8.1}Geometric primitives}{37}{section.8.1}%
 \contentsline {subsection}{\texttt {Point.h}\hspace {0.2em}}{37}{section.8.1}%
-\contentsline {subsection}{\texttt {Complex.h}\hspace {0.2em}}{37}{lstnumber.8.1.27}%
+\contentsline {subsection}{\texttt {Complex.h}\hspace {0.2em}}{38}{lstnumber.8.1.27}%
 \contentsline {subsection}{\texttt {LineDistance.h}\hspace {0.2em}}{38}{lstnumber.8.2.63}%
 \contentsline {subsection}{\texttt {SegmentDistance.h}\hspace {0.2em}}{38}{lstnumber.8.3.4}%
 \contentsline {subsection}{\texttt {SegmentClosestPoint.h}\hspace {0.2em}}{38}{lstnumber.8.4.5}%
@@ -254,7 +254,7 @@
 \contentsline {subsection}{\texttt {SegmentIntersectionQ.h}\hspace {0.2em}}{38}{lstnumber.8.6.13}%
 \contentsline {subsection}{\texttt {LineIntersection.h}\hspace {0.2em}}{38}{lstnumber.8.7.16}%
 \contentsline {subsection}{\texttt {LineProjectionReflection.h}\hspace {0.2em}}{38}{lstnumber.8.8.8}%
-\contentsline {subsection}{\texttt {SideOf.h}\hspace {0.2em}}{38}{lstnumber.8.9.5}%
+\contentsline {subsection}{\texttt {SideOf.h}\hspace {0.2em}}{39}{lstnumber.8.9.5}%
 \contentsline {subsection}{\texttt {OnSegment.h}\hspace {0.2em}}{39}{lstnumber.8.10.9}%
 \contentsline {subsection}{\texttt {LinearTransformation.h}\hspace {0.2em}}{39}{lstnumber.8.11.3}%
 \contentsline {subsection}{\texttt {Angle.h}\hspace {0.2em}}{39}{lstnumber.8.12.6}%
@@ -265,7 +265,7 @@
 \contentsline {subsection}{\texttt {CircleTangents.h}\hspace {0.2em}}{39}{lstnumber.8.16.10}%
 \contentsline {subsection}{\texttt {Circumcircle.h}\hspace {0.2em}}{39}{lstnumber.8.17.13}%
 \contentsline {subsection}{\texttt {MinimumEnclosingCircle.h}\hspace {0.2em}}{39}{lstnumber.8.18.8}%
-\contentsline {subsection}{\texttt {CircleUnion.h}\hspace {0.2em}}{39}{lstnumber.8.19.19}%
+\contentsline {subsection}{\texttt {CircleUnion.h}\hspace {0.2em}}{40}{lstnumber.8.19.19}%
 \contentsline {subsection}{\texttt {CircleLine.h}\hspace {0.2em}}{40}{lstnumber.8.20.86}%
 \contentsline {subsection}{\texttt {CircleCircleArea.h}\hspace {0.2em}}{40}{lstnumber.8.21.8}%
 \contentsline {subsection}{\texttt {CirclePolygonIntersection.h}\hspace {0.2em}}{40}{lstnumber.8.22.12}%
@@ -279,7 +279,7 @@
 \contentsline {subsection}{\texttt {PointInsideHull.h}\hspace {0.2em}}{41}{lstnumber.8.29.11}%
 \contentsline {subsection}{\texttt {PolyUnion.h}\hspace {0.2em}}{41}{lstnumber.8.30.12}%
 \contentsline {subsection}{\texttt {LineHullIntersection.h}\hspace {0.2em}}{41}{lstnumber.8.31.33}%
-\contentsline {subsection}{\texttt {HalfPlane.h}\hspace {0.2em}}{41}{lstnumber.8.32.39}%
+\contentsline {subsection}{\texttt {HalfPlane.h}\hspace {0.2em}}{42}{lstnumber.8.32.39}%
 \contentsline {section}{\numberline {8.4}Misc. Point Set Problems}{42}{section.8.4}%
 \contentsline {subsection}{\texttt {ClosestPair.h}\hspace {0.2em}}{42}{section.8.4}%
 \contentsline {subsection}{\texttt {KdTree.h}\hspace {0.2em}}{42}{lstnumber.8.34.16}%
@@ -304,7 +304,7 @@
 \contentsline {section}{\texttt {modnum-double-hashing.h}\hspace {0.2em}}{45}{lstnumber.9.7.39}%
 \contentsline {section}{\texttt {aho-corasick.h}\hspace {0.2em}}{45}{lstnumber.9.8.40}%
 \contentsline {section}{\texttt {suffix-array.h}\hspace {0.2em}}{45}{lstnumber.9.9.18}%
-\contentsline {section}{\texttt {suffix-automaton.h}\hspace {0.2em}}{45}{lstnumber.9.10.51}%
+\contentsline {section}{\texttt {suffix-automaton.h}\hspace {0.2em}}{46}{lstnumber.9.10.51}%
 \contentsline {section}{\numberline {9.1}Suffix Automaton}{46}{section.9.1}%
 \contentsline {subsection}{\numberline {9.1.1}Number of different substrings}{46}{subsection.9.1.1}%
 \contentsline {subsection}{\numberline {9.1.2}Total lenght of different substrings}{46}{subsection.9.1.2}%
@@ -320,20 +320,20 @@
 \contentsline {subsection}{\texttt {interval-container.h}\hspace {0.2em}}{46}{section.10.1}%
 \contentsline {subsection}{\texttt {interval-cover.h}\hspace {0.2em}}{46}{lstnumber.10.1.23}%
 \contentsline {subsection}{\texttt {constant-intervals.h}\hspace {0.2em}}{46}{lstnumber.10.2.19}%
-\contentsline {section}{\numberline {10.2}Misc. algorithms}{46}{section.10.2}%
-\contentsline {subsection}{\texttt {floor.h}\hspace {0.2em}}{46}{section.10.2}%
-\contentsline {subsection}{\texttt {basis-manager.h}\hspace {0.2em}}{46}{lstnumber.10.4.7}%
+\contentsline {section}{\numberline {10.2}Misc. algorithms}{47}{section.10.2}%
+\contentsline {subsection}{\texttt {floor.h}\hspace {0.2em}}{47}{section.10.2}%
+\contentsline {subsection}{\texttt {basis-manager.h}\hspace {0.2em}}{47}{lstnumber.10.4.7}%
 \contentsline {subsection}{\texttt {ternary-search.h}\hspace {0.2em}}{47}{lstnumber.10.5.48}%
 \contentsline {subsection}{\texttt {merge-sort.h}\hspace {0.2em}}{47}{lstnumber.10.6.12}%
 \contentsline {subsection}{\texttt {radix-sort.h}\hspace {0.2em}}{47}{lstnumber.10.7.25}%
 \contentsline {subsection}{\texttt {postfix-notation-solver.h}\hspace {0.2em}}{47}{lstnumber.10.8.54}%
-\contentsline {subsection}{\texttt {count-triangles.h}\hspace {0.2em}}{47}{lstnumber.10.9.31}%
+\contentsline {subsection}{\texttt {count-triangles.h}\hspace {0.2em}}{48}{lstnumber.10.9.31}%
 \contentsline {subsection}{\texttt {karatsuba.h}\hspace {0.2em}}{48}{lstnumber.10.10.8}%
 \contentsline {subsection}{\texttt {count-inversions.h}\hspace {0.2em}}{48}{lstnumber.10.11.30}%
 \contentsline {subsection}{\texttt {histogram.h}\hspace {0.2em}}{48}{lstnumber.10.12.6}%
 \contentsline {subsection}{\texttt {date-manipulation.h}\hspace {0.2em}}{48}{lstnumber.10.13.17}%
 \contentsline {subsection}{\texttt {n-queens.h}\hspace {0.2em}}{48}{lstnumber.10.14.42}%
-\contentsline {subsection}{\texttt {sudoku-solver.h}\hspace {0.2em}}{48}{lstnumber.10.15.43}%
+\contentsline {subsection}{\texttt {sudoku-solver.h}\hspace {0.2em}}{49}{lstnumber.10.15.43}%
 \contentsline {subsection}{\texttt {floyd-cycle.h}\hspace {0.2em}}{49}{lstnumber.10.16.41}%
 \contentsline {section}{\numberline {10.3}Dynamic programming}{49}{section.10.3}%
 \contentsline {subsection}{\texttt {divide-and-conquer-dp.h}\hspace {0.2em}}{49}{section.10.3}%
@@ -341,7 +341,7 @@
 \contentsline {subsection}{\texttt {cht-dp.h}\hspace {0.2em}}{49}{lstnumber.10.19.1}%
 \contentsline {subsection}{\texttt {edit-distance.h}\hspace {0.2em}}{49}{lstnumber.10.20.1}%
 \contentsline {subsection}{\texttt {LIS.h}\hspace {0.2em}}{49}{lstnumber.10.21.32}%
-\contentsline {subsection}{\texttt {digit-dp.h}\hspace {0.2em}}{49}{lstnumber.10.22.17}%
+\contentsline {subsection}{\texttt {digit-dp.h}\hspace {0.2em}}{50}{lstnumber.10.22.17}%
 \contentsline {subsection}{\texttt {LCS.h}\hspace {0.2em}}{50}{lstnumber.10.23.32}%
 \contentsline {subsection}{\texttt {knapsack-unbounded.h}\hspace {0.2em}}{50}{lstnumber.10.24.14}%
 \contentsline {subsection}{\texttt {knapsack-bounded.h}\hspace {0.2em}}{50}{lstnumber.10.25.10}%
@@ -349,9 +349,9 @@
 \contentsline {subsection}{\texttt {knapsack-bitset.h}\hspace {0.2em}}{50}{lstnumber.10.27.28}%
 \contentsline {subsection}{\texttt {two-max-equal-sum.h}\hspace {0.2em}}{50}{lstnumber.10.28.11}%
 \contentsline {subsection}{\texttt {max-zero-submatrix.h}\hspace {0.2em}}{50}{lstnumber.10.29.15}%
-\contentsline {section}{\numberline {10.4}Debugging tricks}{50}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Optimization tricks}{50}{section.10.5}%
-\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{50}{subsection.10.5.1}%
+\contentsline {section}{\numberline {10.4}Debugging tricks}{51}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Optimization tricks}{51}{section.10.5}%
+\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{51}{subsection.10.5.1}%
 \contentsline {subsection}{\numberline {10.5.2}Pragmas}{51}{subsection.10.5.2}%
 \contentsline {subsection}{\texttt {fast-input.h}\hspace {0.2em}}{51}{subsection.10.5.2}%
 \contentsline {subsection}{\texttt {bump-allocator.h}\hspace {0.2em}}{51}{lstnumber.10.31.18}%
@@ -362,7 +362,7 @@
 \contentsline {subsection}{\texttt {custom-comparator.h}\hspace {0.2em}}{51}{lstnumber.10.36.10}%
 \contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{51}{section.10.6}%
 \contentsline {subsection}{\texttt {hacks.h}\hspace {0.2em}}{51}{section.10.6}%
-\contentsline {subsection}{\texttt {bitset.h}\hspace {0.2em}}{51}{lstnumber.10.38.51}%
+\contentsline {subsection}{\texttt {bitset.h}\hspace {0.2em}}{52}{lstnumber.10.38.51}%
 \contentsline {section}{\numberline {10.7}Random Numbers}{52}{section.10.7}%
 \contentsline {subsection}{\texttt {random-numbers.h}\hspace {0.2em}}{52}{section.10.7}%
 \contentsfinish 

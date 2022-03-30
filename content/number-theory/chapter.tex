@@ -52,8 +52,6 @@
 	\kactlimport{continued-fractions.h}
 	\kactlimport{frac-binary-search.h}
 
-\
-
 \subsection{Bézout's identity}
 For $a \neq $, $b \neq 0$, then $d=gcd(a,b)$ is the smallest positive integer for which there are integer solutions to
 $$ax+by=d$$
@@ -89,8 +87,23 @@ $$\left(x+\frac{kb}{\gcd(a,b)}, y-\frac{ka}{\gcd(a,b)}\right), \quad k\in\mathbb
 	Primitive roots exist modulo any prime power $p^a$, except for $p = 2, a > 2$, and there are $\phi(\phi(p^a))$ many.
 	For $p = 2, a > 2$, the group $\mathbb Z_{2^a}^\times$ is instead isomorphic to $\mathbb Z_2 \times \mathbb Z_{2^{a-2}}$.
 
+\subsection{Wilson's theorem}
+Let~$n > 1$. Then~$n|(n-1)!+1$ iff~$n$ is prime.
 
 
+\subsection{Wolstenholme's theorem}
+Let~$p > 3$ be a prime number. Then its numerator $ 1 + \frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{p-1} $
+is divisible by~$p^2$.
+
+\subsection{Prime counting function ($\pi(x)$)} The prime counting function is asymptotic to $\frac{x}{\log x}$, by the prime number theorem.
+      
+\resizebox{\columnwidth}{!}{%
+     \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+      x&10&$10^2$&$10^3$&$10^4$&$10^5$&$10^6$&$10^7$&$10^8$\\ \hline
+      $\pi(x)$&4&25&168&1.229&9.592&78.498&664.579&5.761.455\\ \hline
+  \end{tabular}
+}
 \subsection{Sum of primes} For any multiplicative $f$:
                 \[ S(n,p) = S(n, p-1) - f(p) \cdot (S(n/p,p-1) - S(p-1,p-1))\]
 
@@ -135,15 +148,6 @@ $$\left(x+\frac{kb}{\gcd(a,b)}, y-\frac{ka}{\gcd(a,b)}\right), \quad k\in\mathbb
 	% $$s(n)=\frac{n(n+1)}{2}-\sum_{i=2}^ns\left(\left\lfloor\frac{n}{i}\right\rfloor\right)$$
 	% can be computed in faster than $\Theta(n)$.
 
-\subsection{Wilson's theorem}
-Let~$n > 1$. Then~$n|(n-1)!+1$ iff~$n$ is prime.
-
-\
-
-\subsection{Wolstenholme's theorem}
-Let~$p > 3$ be a prime number. Then its numerator $ 1 + \frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{p-1} $
-is divisible by~$p^2$.
-
 
 \subsection{Estimates}
 \[
@@ -152,7 +156,6 @@ is divisible by~$p^2$.
 	The number of divisors of $n$ is at most around 100 for $n < 5e4$, 500 for $n < 1e7$, 2000 for $n < 1e10$, 200\,000 for $n < 1e19$.
 
 	
-\subsection{Prime counting function ($\pi(x)$)} The prime counting function is asymptotic to $\frac{x}{\log x}$, by the prime number theorem.
 
 \iffalse
 \subsection{Polya Enumeration theorem}
@@ -167,11 +170,3 @@ $$F(t_{1},\ldots )=Z_{G}(f(t_{1},\ldots ),f(t_{1}^{2},\ldots ),f(t_{1}^{3},\ldot
 
 For instance, when seperating the graphs with the number of edges, we let $f(t)=1+t$, and examine the coefficient of $t^i$ for a graph with $i$ edges, and when seperating the necklaces with the number of beads with three different colors, we let $f(x,y,z)=x+y+z$, and examine the coefficient of $x^iy^jz^k$.
 \fi
-      
-\resizebox{\columnwidth}{!}{%
-     \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-    \hline
-      x&10&$10^2$&$10^3$&$10^4$&$10^5$&$10^6$&$10^7$&$10^8$\\ \hline
-      $\pi(x)$&4&25&168&1.229&9.592&78.498&664.579&5.761.455\\ \hline
-  \end{tabular}
-}
