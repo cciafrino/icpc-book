@@ -3,7 +3,7 @@
  * Source: radoslav11, https://codeforces.com/blog/entry/86731
  * Description: Lazy Li Chao Tree. Allows line add, segment add, segment update and point query.
  * Status: Stress tested
- * Time: $O(\log^2 N)$ for segment add, $O(\log N)$ for other operations
+ * Time: $O(\log N)$ except for segment add $O(\log^2 N)$
  */
 template<typename T, T L, T R>
 struct lichao_lazy{

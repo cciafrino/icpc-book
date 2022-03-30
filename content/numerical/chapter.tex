@@ -30,7 +30,27 @@
   Given array $a_i$ of size $2^k$ calculate $b_i = \sum_{j \BitAnd i = i} a_j$.
 \fi
 
-\
+\subsection{Duality}
+  max $c^Tx$ sjt to $Ax \leq b$. Dual problem is min $b^Tx$ sjt to $A^Tx \geq c$. By strong duality, min max value coincides.
+
+  \subsection{Strong duality}
+  Given a linear problem $\Pi_{1}$: minimize $c^t x$, sjt to $Ax \leq b$, $x \geq 0$ we can define the linear problem dual standard $\Pi_{2}$ like the following: minimize $-b^t y$, sjt to $A^t y \geq c$. If $\Pi_{1}$ is satisfied then $\Pi_{2}$ is also satisfied and $c^t x = b^t y$. If $\Pi_{1}$ is not satisfied and unbounded, then $\Pi_{2}$ is not satisfied and unbounded. (OBS: Can't be both unbounded!)
+
+
+
+
+\subsection{Polyominoes} How many free (rotation, reflection), one-sided (rotation) and fixed $n$-ominoes are there?
+    
+      \resizebox{\columnwidth}{!}{%
+       \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+        \hline
+        n&3&4&5&6&7&8&9&10 \\ \hline
+        free&2&5&12&35&108&369&1.285&4.655 \\ \hline
+        one-sided&2&7&18&60&196&704&2.500&9.189 \\ \hline
+        fixed&6&19&63&216&760&2.725&9.910&36.446 \\ \hline
+      \end{tabular}
+      }
+
 
 \subsection{Generating functions}
   A list of generating functions for useful sequences:
@@ -54,26 +74,5 @@ A neat manipulation trick is:
 \begin{equation*}
   \frac{1}{1-z}G(z) = \sum_{n}\sum_{k\leq n}g_kz^n
 \end{equation*}
-
-\subsection{Polyominoes} How many free (rotation, reflection), one-sided (rotation) and fixed $n$-ominoes are there?
-    
-      \resizebox{\columnwidth}{!}{%
-       \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-        \hline
-        n&3&4&5&6&7&8&9&10 \\ \hline
-        free&2&5&12&35&108&369&1.285&4.655 \\ \hline
-        one-sided&2&7&18&60&196&704&2.500&9.189 \\ \hline
-        fixed&6&19&63&216&760&2.725&9.910&36.446 \\ \hline
-      \end{tabular}
-      }
-
-
-\subsection{Duality}
-  max $c^Tx$ sjt to $Ax \leq b$. Dual problem is min $b^Tx$ sjt to $A^Tx \geq c$. By strong duality, min max value coincides.
-
-  \subsection{Strong duality}
-  Given a linear problem $\Pi_{1}$: minimize $c^t x$, sjt to $Ax \leq b$, $x \geq 0$ we can define the linear problem dual standard $\Pi_{2}$ like the following: minimize $-b^t y$, sjt to $A^t y \geq c$. If $\Pi_{1}$ is satisfied then $\Pi_{2}$ is also satisfied and $c^t x = b^t y$. If $\Pi_{1}$ is not satisfied and unbounded, then $\Pi_{2}$ is not satisfied and unbounded. (OBS: Can't be both unbounded!)
-
-
 
 

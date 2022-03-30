@@ -3,7 +3,7 @@
  * Source: radoslav11, https://codeforces.com/blog/entry/86731
  * Description: Lazy Li Chao Tree. Allows line add, segment add, segment update (only linear coeficient) and range query.
  * Status: Tested on atcoder 177F
- * Time: $O(\log^2 N)$ for segment add, $O(\log N)$ for other operations
+ * Time: $O(\log N)$ except for segment add $O(\log^2 N)$
  */
 template<typename T, T L, T R>
 struct lichao_range{

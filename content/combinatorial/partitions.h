@@ -4,7 +4,7 @@
  * License: 
  * Source: Hos
  * Status: 
- * Description: Fills array with partition function $p(n)$  $\forall 0 \leq i leq n$
+ * Description:
  * Usage:
  * Time: 
  */
