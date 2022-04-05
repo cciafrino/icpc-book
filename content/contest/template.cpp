@@ -11,7 +11,6 @@ int cmp_double(double a, double b = 0, double eps = 1e-9) {
 }
 using namespace std;
 
-
 int main() {
     cin.tie(nullptr)->sync_with_stdio(false);
 
