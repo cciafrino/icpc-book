@@ -1,7 +1,7 @@
 /**
- * Author: Célio Passos
+ * Author: Chris
  * Description: Lagrange interpolation over a finite field and some combo stuff 
- * Source: 
+ * Source: Célio Passos
  * Time: $O(N)$
  */
 #include "../number-theory/modular-arithmetic.h"
