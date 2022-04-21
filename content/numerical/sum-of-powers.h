@@ -27,23 +27,23 @@ vector<num> get_monomials(int N, long long d) {
     return pw;
 }
 
-num sum_of_powers_limit(num r, int d, const vector<num>& fs) {
+num sum_of_power_limit(num r, int d, const vector<num>& fs) {
     Combinatorics<num> M(d + 2);
     vector<num> qs(d + 1); qs[0] = 1;
     for (int x = 1; x <= d; ++x) qs[x] = qs[x - 1] * r;
     num ans = 0, cur_sum = 0;
     for (int x = 0; x <= d; ++x) {
         cur_sum += qs[x] * fs[x];
-        ans += cur_sum * M.inv[d - x] * M.inv[x + 1] * (((d - x) & 1) ? -1 : +1) * qs[d - x];
+        ans += cur_sum * invFac[d - x] * invFac[x + 1] * (((d - x) & 1) ? -1 : +1) * qs[d - x];
     }
     // ans is equivalent to invFac(d + 1) * dp(d+1), where
     // for all x in [0, d], dp(x + 1) := E(d, d-x) + dp(x) * r, dp(0) = 0.
     // with E being the eulerian number. Works in O(d^2).
-    ans *= (1 - r).pow(-(d + 1)) * M.f[d + 1];
+    ans *= (1 - r).pow(-(d + 1)) * fac[d + 1];
     return ans;
 }
 
-num sum_of_powers(num r, int d, const vector<num>& fs, long long N) {
+num sum_of_power(num r, int d, const vector<num>& fs, long long N) {
     if (r == 0) return (0 < N) ? fs[0] : 0;
     Combinatorics<num> M(d + 10);
     vector<num> gs(d + 2); gs[0] = 0;
@@ -53,7 +53,7 @@ num sum_of_powers(num r, int d, const vector<num>& fs, long long N) {
         rr *= r;
     }
     if (r == 1) return M.interpolate(gs, N);
-    const num c = sum_of_powers_limit(r, d, fs);
+    const num c = sum_of_power_limit(r, d, fs);
     const num r_inv = r.inv();
     num rr_inv = 1;
     for (int x = 0; x <= d + 1; ++x) {
@@ -62,4 +62,3 @@ num sum_of_powers(num r, int d, const vector<num>& fs, long long N) {
     }
     return c + r.pow(N) * M.interpolate(gs, N);
 }
-

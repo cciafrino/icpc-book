@@ -7,10 +7,9 @@
  * Description: $\binom{n}{k} \pmod{m}$ in time proportional to the difference between (n, k) and the previous (n, k).
  * Source: 
  */
-cusing i64 = int64_t;
+#include "../number-theory/preparator.h"
+using i64 = int64_t;
 const int mod = int(1e9) + 7;
-i64 invs[200015];
- 
 struct Bin {
 	int N = 0,  K = 0; i64 r = 1;
 	void m(int a, int b) { r = r * a % mod * invs[b] % mod; }

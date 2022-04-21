@@ -1,8 +1,8 @@
 /**
- * Author: Yuhao Du, Chris
+ * Author: Chris
  * Date: 2020-03-18
  * License: 
- * Source: Chinese Paper
+ * Source: Yuhao Du
  * Description: Highest label preflow push algorithm. This implementation use Global labeling, Gap labeling, and Freeze Operation heuristics. Use it only if you really need the fastest maxflow algo. One limitation of the HLPP implementation is that you can't 
  * recover the weights for the full flow - use Dinic's for this.
  * Time: $O(V^2\sqrt E)$. Faster than Dinic with scaling(in practice). 

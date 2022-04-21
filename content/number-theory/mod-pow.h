@@ -1,5 +1,5 @@
 /**
- * Author: Simon Lindholm, Chris
+ * Author: Chris
  * Date: 2016-09-10
  * License: CC0
  * Source: folklore

@@ -1,16 +1,16 @@
 /**
- * Author: Yui Hosaka
- * Date: 2021
+ * Author: Chris
+ * Date: 2022
  * License: CC0
- * Source: libra
- * Description: radix 3 FFT, can be used for convolutions modulo arbitrary integers
+ * Source: Yui
+ * Description: can be used for convolutions modulo arbitrary integers
  * Inputs must be in $[0, \text{mod})$.
  * Time: O(N \log N), where $N = |A|+|B|$ (twice as slow as NTT or FFT)
  * Status: stress-tested
  */
 #include "../number-theory/modular-arithmetic.h"
 
-// M: prime, G: primitive root
+// M: prime, G: primitive root, 2^K | M - 1
 template <unsigned M_, unsigned G_, unsigned K_> struct FFT {
   static constexpr unsigned M = M_, M2 = 2U * M_, G = G_;
   static constexpr int K = K_;

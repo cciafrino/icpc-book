@@ -1,5 +1,5 @@
 /**
- * Author: Chris
+ * Author:
  * Date: 
  * License: 
  * Source: UFMG & https://www.slideshare.net/KuoE0/acmicpc-tree-isomorphism

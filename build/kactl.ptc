@@ -1,7 +1,7 @@
 \contentsline {chapter}{\numberline {1}Contest}{1}{chapter.1}%
 \ttl@starttoc {chapters@1}
 \contentsline {section}{\texttt {template.cpp}\hspace {0.2em}}{1}{chapter.1}%
-\contentsline {section}{\texttt {Makefile}\hspace {0.2em}}{1}{lstnumber.1.1.29}%
+\contentsline {section}{\texttt {Makefile}\hspace {0.2em}}{1}{lstnumber.1.1.28}%
 \contentsline {section}{\texttt {.vimrc}\hspace {0.2em}}{1}{lstnumber.1.2.8}%
 \contentsline {section}{\texttt {hash.sh}\hspace {0.2em}}{1}{lstnumber.1.3.8}%
 \contentsline {section}{\texttt {hash-cpp.sh}\hspace {0.2em}}{1}{lstnumber.1.4.3}%
@@ -68,7 +68,7 @@
 \contentsline {section}{\texttt {poly-roots.h}\hspace {0.2em}}{13}{lstnumber.4.1.17}%
 \contentsline {section}{\texttt {poly-interpolate.h}\hspace {0.2em}}{14}{lstnumber.4.2.23}%
 \contentsline {section}{\texttt {lagrange.h}\hspace {0.2em}}{14}{lstnumber.4.3.13}%
-\contentsline {section}{\texttt {berlekamp-massey.h}\hspace {0.2em}}{14}{lstnumber.4.4.31}%
+\contentsline {section}{\texttt {berlekamp-massey.h}\hspace {0.2em}}{14}{lstnumber.4.4.25}%
 \contentsline {section}{\texttt {linear-recurrence.h}\hspace {0.2em}}{14}{lstnumber.4.5.19}%
 \contentsline {section}{\texttt {integrate.h}\hspace {0.2em}}{14}{lstnumber.4.6.22}%
 \contentsline {section}{\texttt {integrate-adaptive.h}\hspace {0.2em}}{14}{lstnumber.4.7.7}%
@@ -76,7 +76,7 @@
 \contentsline {section}{\texttt {linear-solver-z2.h}\hspace {0.2em}}{15}{lstnumber.4.9.88}%
 \contentsline {section}{\texttt {char-poly.h}\hspace {0.2em}}{15}{lstnumber.4.10.26}%
 \contentsline {section}{\texttt {simplex.h}\hspace {0.2em}}{15}{lstnumber.4.11.55}%
-\contentsline {section}{\texttt {tridiagonal.h}\hspace {0.2em}}{16}{lstnumber.4.12.39}%
+\contentsline {section}{\texttt {tridiagonal.h}\hspace {0.2em}}{15}{lstnumber.4.12.39}%
 \contentsline {section}{\texttt {polyominoes.h}\hspace {0.2em}}{16}{lstnumber.4.13.26}%
 \contentsline {section}{\numberline {4.1}Fourier transforms}{16}{section.4.1}%
 \contentsline {subsection}{\texttt {fast-fourier-transform.h}\hspace {0.2em}}{16}{section.4.1}%
@@ -131,7 +131,7 @@
 \contentsline {subsection}{\numberline {5.6.1}Wilson's theorem}{23}{subsection.5.6.1}%
 \contentsline {subsection}{\numberline {5.6.2}Wolstenholme's theorem}{23}{subsection.5.6.2}%
 \contentsline {subsection}{\numberline {5.6.3}Prime counting function ($\pi (x)$)}{23}{subsection.5.6.3}%
-\contentsline {subsection}{\numberline {5.6.4}Sum of primes}{24}{subsection.5.6.4}%
+\contentsline {subsection}{\numberline {5.6.4}Sum of primes}{23}{subsection.5.6.4}%
 \contentsline {subsection}{\numberline {5.6.5}Moebius Function}{24}{subsection.5.6.5}%
 \contentsline {subsection}{\numberline {5.6.6}Dirichlet Convolution}{24}{subsection.5.6.6}%
 \contentsline {subsection}{\texttt {dirichlet-convolution.h}\hspace {0.2em}}{24}{Item.2}%
@@ -144,9 +144,9 @@
 \contentsline {subsection}{\texttt {int-perm.h}\hspace {0.2em}}{24}{subsection.6.1.1}%
 \contentsline {subsection}{\numberline {6.1.2}Binomials}{24}{subsection.6.1.2}%
 \contentsline {subsection}{\texttt {rolling-binomial.h}\hspace {0.2em}}{24}{subsection.6.1.2}%
-\contentsline {subsection}{\texttt {lucas.h}\hspace {0.2em}}{24}{lstnumber.6.2.16}%
+\contentsline {subsection}{\texttt {lucas.h}\hspace {0.2em}}{24}{lstnumber.6.2.14}%
 \contentsline {subsection}{\texttt {multinomial.h}\hspace {0.2em}}{24}{lstnumber.6.3.10}%
-\contentsline {subsection}{\numberline {6.1.3}Involutions}{25}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.3}Involutions}{24}{subsection.6.1.3}%
 \contentsline {subsection}{\numberline {6.1.4}Cycles}{25}{subsection.6.1.4}%
 \contentsline {subsection}{\numberline {6.1.5}Inclusion-Exclusion Principle}{25}{subsection.6.1.5}%
 \contentsline {subsection}{\numberline {6.1.6}The twelvefold way (from Stanley)}{25}{subsection.6.1.6}%
@@ -162,7 +162,7 @@
 \contentsline {subsection}{\numberline {6.3.5}Bell numbers}{25}{subsection.6.3.5}%
 \contentsline {subsection}{\numberline {6.3.6}Labeled unrooted trees}{25}{subsection.6.3.6}%
 \contentsline {subsection}{\numberline {6.3.7}Catalan numbers}{25}{subsection.6.3.7}%
-\contentsline {subsection}{\numberline {6.3.8}Super Catalan numbers}{26}{subsection.6.3.8}%
+\contentsline {subsection}{\numberline {6.3.8}Super Catalan numbers}{25}{subsection.6.3.8}%
 \contentsline {subsection}{\numberline {6.3.9}Motzkin numbers}{26}{subsection.6.3.9}%
 \contentsline {subsection}{\numberline {6.3.10}Narayana numbers}{26}{subsection.6.3.10}%
 \contentsline {subsection}{\numberline {6.3.11}Schroder numbers}{26}{subsection.6.3.11}%
@@ -180,7 +180,7 @@
 \contentsline {subsection}{\numberline {6.6.8}Lasker's Nim}{26}{subsection.6.6.8}%
 \contentsline {subsection}{\numberline {6.6.9}Hackenbush on Trees}{26}{subsection.6.6.9}%
 \contentsline {subsection}{\texttt {nim-product.cpp}\hspace {0.2em}}{26}{subsection.6.6.9}%
-\contentsline {subsection}{\texttt {partitions.h}\hspace {0.2em}}{27}{lstnumber.6.5.28}%
+\contentsline {subsection}{\texttt {partitions.h}\hspace {0.2em}}{26}{lstnumber.6.5.28}%
 \contentsline {chapter}{\numberline {7}Graph}{27}{chapter.7}%
 \ttl@stoptoc {chapters@6}
 \ttl@starttoc {chapters@7}
@@ -246,7 +246,7 @@
 \ttl@starttoc {chapters@8}
 \contentsline {section}{\numberline {8.1}Geometric primitives}{37}{section.8.1}%
 \contentsline {subsection}{\texttt {Point.h}\hspace {0.2em}}{37}{section.8.1}%
-\contentsline {subsection}{\texttt {Complex.h}\hspace {0.2em}}{38}{lstnumber.8.1.27}%
+\contentsline {subsection}{\texttt {Complex.h}\hspace {0.2em}}{37}{lstnumber.8.1.27}%
 \contentsline {subsection}{\texttt {LineDistance.h}\hspace {0.2em}}{38}{lstnumber.8.2.63}%
 \contentsline {subsection}{\texttt {SegmentDistance.h}\hspace {0.2em}}{38}{lstnumber.8.3.4}%
 \contentsline {subsection}{\texttt {SegmentClosestPoint.h}\hspace {0.2em}}{38}{lstnumber.8.4.5}%

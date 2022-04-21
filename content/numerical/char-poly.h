@@ -1,7 +1,7 @@
 /**
  * Author: Chris
  * Date: 2020
- * Source: hos.lyric
+ * Source: Yui
  * Description: Calculates the characteristic polynomial of a matrix. 
  * $\sum_{k=0}^n p(k) (-1)^{n-k}$
  * Time: $O(N^3)$ and div-free is $O(N^4)$

@@ -2,7 +2,7 @@
  * Author: Chris
  * Date: 
  * License:
- * Source: Yuhao Du and Chinese Paper.
+ * Source: Yuhao Du
  * Description: Prime sieve for generating all primes up to a certain limit. $pfac[i]$ is the lowest prime factor of $i$.
  * Also useful if you need to compute any multiplicative function.
  * Status: stress-tested

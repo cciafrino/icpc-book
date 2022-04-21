@@ -6,8 +6,8 @@
  * Description: Simple, short and efficient hashing using pairs to reduce load factor.
  * Status: not tested
  */
-#include<ModTemplate.h>
-#include<PairNumTemplate.h>
+#include"../number-theory/modular-arithmetic.h"
+#include"../number-theory/pairnum-template.h"
 using num = modnum<int(1e9)+7>;
 using hsh = pairnum<num, num>;
 const hsh BASE(163, 311);

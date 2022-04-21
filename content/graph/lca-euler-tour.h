@@ -1,5 +1,5 @@
 /**
- * Author: Chris
+ * Author: 
  * Date: 2021-02-19
  * License: 
  * Source: 
@@ -10,7 +10,7 @@
  * Time: $O(N \log N + Q + Q \log)$
  */
 
-struct lca_t { // compact way!
+struct lca_t {
     int T = 0;
     vector<int> time, path, walk, depth;
     rmq_t<int> rmq;
