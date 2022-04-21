@@ -7,11 +7,7 @@ int ra() {
 	return RA >> 1;
 }
 
-namespace maximum {
-
-#include "../../content/data-structures/SegmentTree.h"
-
-}
+#include "../../content/data-structures/segtree.h"
 
 namespace nonabelian {
 
@@ -25,44 +21,47 @@ const int lut[6][6] = {
 	{5, 2, 3, 1, 0, 4}
 };
 
-struct Tree {
-	typedef int T;
-	const T unit = 0;
-	T f(T a, T b) { return lut[a][b]; }
-	vector<T> s; int n;
-	Tree(int n = 0, T def = 0) : s(2*n, def), n(n) {}
-	void update(int pos, T val) {
-		for (s[pos += n] = val; pos > 1; pos /= 2)
-			s[pos / 2] = f(s[pos & ~1], s[pos | 1]);
+}
+
+struct nonabelian_node {
+	int val;
+	nonabelian_node() : val(0) {}
+	nonabelian_node(int x) : val(x) {}
+	void merge(const nonabelian_node& l, const nonabelian_node& r) {
+		val = nonabelian::lut[l.val][r.val];
 	}
-	T query(int b, int e) { // query [b, e)
-		T ra = unit, rb = unit;
-		for (b += n, e += n; b < e; b /= 2, e /= 2) {
-			if (b % 2) ra = f(ra, s[b++]);
-			if (e % 2) rb = f(s[--e], rb);
-		}
-		return f(ra, rb);
+	void update(int x) {
+		val = x;
 	}
 };
 
-}
+struct seg_node { 
+	int val;
+	int mi, ma;
+	seg_node() : mi(INT_MAX), ma(INT_MIN), val(0) {}
+	seg_node(int x) : mi(x), ma(x), val(x) {}
+	void merge(const seg_node& l, const seg_node& r) {
+	    val = l.val + r.val;
+	    mi = min(l.mi, r.mi);
+	    ma = max(l.ma, r.ma);
+	}
+	void update(int x) {
+	    mi = ma = val = x;
+	}
+};
 
 int main() {
-	{
-		maximum::Tree t(0);
-		assert(t.query(0, 0) == t.unit);
-	}
 
 	if (0) {
 		const int N = 10000;
-		maximum::Tree tr(N);
+		segtree<seg_node> tr(N);
 		ll sum = 0;
 		rep(it,0,1000000) {
 			tr.update(ra() % N, ra());
 			int i = ra() % N;
 			int j = ra() % N;
 			if (i > j) swap(i, j);
-			int v = tr.query(i, j+1);
+			auto v = tr.query(i, j+1).ma;
 			sum += v;
 		}
 		cout << sum << endl;
@@ -70,17 +69,17 @@ int main() {
 	}
 
 	rep(n,1,10) {
-		maximum::Tree tr(n);
-		vi v(n, maximum::Tree::unit);
+		segtree<seg_node> tr(n);
+		vi v(n, INT_MIN);
 		rep(it,0,1000000) {
 			int i = rand() % (n+1), j = rand() % (n+1);
 			int x = rand() % (n+2);
 
 			int r = rand() % 100;
 			if (r < 30) {
-				int ma = tr.unit;
+				int ma = INT_MIN;
 				rep(k,i,j) ma = max(ma, v[k]);
-				assert(ma == tr.query(i,j));
+				assert(ma == tr.query(i,j).ma);
 			}
 			else {
 				i = min(i, n-1);
@@ -91,7 +90,7 @@ int main() {
 	}
 
 	rep(n,1,10) {
-		nonabelian::Tree tr(n);
+		segtree<nonabelian_node> tr(n);
 		vi v(n);
 		rep(it,0,1000000) {
 			int i = rand() % (n+1), j = rand() % (n+1);
@@ -99,9 +98,9 @@ int main() {
 
 			int r = rand() % 100;
 			if (r < 30) {
-				int ma = tr.unit;
+				int ma = 0;
 				rep(k,i,j) ma = nonabelian::lut[ma][v[k]];
-				assert(ma == tr.query(i,j));
+				assert(ma == tr.query(i,j).val);
 			}
 			else {
 				i = min(i, n-1);

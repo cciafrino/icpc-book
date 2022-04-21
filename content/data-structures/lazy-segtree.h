@@ -81,8 +81,8 @@ template<class T> struct segtree_range {
       for_parents_down(a, b);
       auto lhs = e(), rhs = e();
       for (int l = a, r = b; l < r; l /= 2, r /= 2) {
-        if (l & 1) { lhs = op(lhs, (ts[l++].*f)(args...)) };
-        if (r & 1) { rhs = op((ts[--r].*f)(args...), rhs) };
+        if (l & 1) { lhs = op(lhs, (ts[l++].*f)(args...)); };
+        if (r & 1) { rhs = op((ts[--r].*f)(args...), rhs); };
       }
       return op(lhs, rhs);
     }

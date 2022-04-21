@@ -1,10 +1,10 @@
 #include "../utilities/template.h"
 
-#include "../../content/data-structures/FenwickTree2d.h"
+#include "../../content/data-structures/fenwick-tree-2d.h"
 
 int main() {
 	rep(it,0,1000000) {
-		FT2 ft(12);
+		FT2<int> ft(12);
 		vector<tuple<int, int, int>> upd;
 		int c = rand() % 20;
 		rep(i,0,c) {

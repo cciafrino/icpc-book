@@ -1,11 +1,11 @@
 #include "../utilities/template.h"
 
-#include "../../content/data-structures/FenwickTree.h"
+#include "../../content/data-structures/fenwick-tree.h"
 
 int main() {
 	rep(it,0,100000) {
 		int N = rand() % 10;
-		FT fw(N);
+		FT<int> fw(N);
 		vi t(N);
 		rep(i,0,N) {
 			int v = rand() % 3;

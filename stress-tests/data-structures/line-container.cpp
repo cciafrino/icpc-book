@@ -1,6 +1,7 @@
 #include "../utilities/template.h"
 
-#include "../../content/data-structures/LineContainer.h"
+using lint = int64_t;
+#include "../../content/data-structures/line-container.h"
 
 namespace other {
 // source: https://github.com/niklasb/contest-algos/blob/master/convex_hull/dynamic.cpp

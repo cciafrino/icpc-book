@@ -2,7 +2,7 @@
 #define MAXN 40000
 using namespace std;
 
-#include "../../content/data-structures/RangeColor.h"
+#include "../../content/data-structures/range-color.h"
 
 using lint = int64_t;
 
