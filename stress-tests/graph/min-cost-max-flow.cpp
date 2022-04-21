@@ -5,12 +5,12 @@
 // #include "mcmfold.h"
 // #include "mcmfnew.h"
 //#include <bits/extc++.h>
-#define setpi dummy(){} bool setpi
-#undef assert
-#define assert(x) return x
-#include "../../content/graph/MinCostMaxFlow.h"
-#undef assert
-#undef setpi
+// #define setpi dummy(){} bool setpi
+// #undef assert
+// #define assert(x) return x
+#include "../../content/graph/min-cost-max-flow.h"
+// #undef assert
+// #undef setpi
 #include <cassert>
 #include "MinCostMaxFlow2.h"
 
@@ -122,10 +122,29 @@ ll MinCostMatching(const vector<vd>& cost, vi& L, vi& R) {
 	return value;
 }
 
+struct edge_t { int a, b, w, s() { return (a < b ? a : -a); }};
+vector<int> negCyc(int n, vector<edge_t>& edges) {
+    vector<int64_t> d(n); vector<int> p(n);
+    int v = -1;
+    for (int i = 0; i < n; ++i) {
+        v = -1; 
+        for (edge_t &u : edges)
+            if (d[u.b] > d[u.a] + u.w) {
+                d[u.b] = d[u.a] + u.w;
+                p[u.b] = u.a, v = u.b;
+            }
+        if (v == -1) return {};
+    }
+    for (int i = 0; i < n; ++i) v = p[v]; // enter cycle
+    vector<int> cycle = {v}; 
+    while (p[cycle.back()] != v) cycle.push_back(p[cycle.back()]);
+    return {cycle.rbegin(), cycle.rend()};
+}
+
 void testPerf() {
 	srand(2);
 	int N = 500, E = 10000, CAPS = 100, COSTS = 100000;
-	MCMF_SSPA<ll, ll> mcmf(N+10);
+	min_cost<ll, ll> mcmf(N+10);
 	int s = 0, t = 1;
 	rep(i,0,E) {
 		int a = rand() % N;
@@ -133,16 +152,16 @@ void testPerf() {
 		int cap = rand() % CAPS;
 		int cost = rand() % COSTS;
 		if (a == b) continue;
-		mcmf.addEdge(a, b, cap, cost);
+		mcmf.add_edge(a, b, cap, cost);
 		// ::cap[a][b] = cap;
 		// ::cost[a][b] = cost;
 	}
-	auto pa = mcmf.maxflow(s, t);
+	auto pa = mcmf.run(s, t);
 	cout << pa.first << ' ' << pa.second << endl;
 }
 
 void testMatching() {
-	rep(it,0,1000000) {
+	rep(it,0,100000) {
 		size_t last = ::i;
 		int N = rand() % 10, M = rand() % 10;
 		int NM = max(N, M);
@@ -151,12 +170,11 @@ void testMatching() {
 		vi L, R;
 		ll v = MinCostMatching(co, L, R);
 		int S = N+M, T = N+M+1;
-		MCMF_SSPA<ll, ll> mcmf(N+M+20);
-		rep(i,0,N) mcmf.addEdge(S, i, 1, 0);
-		rep(i,0,M) mcmf.addEdge(N+i, T, 1, 0);
-		rep(i,0,N) rep(j,0,M) mcmf.addEdge(i, N+j, 1, co[i][j] - 2);
-		mcmf.setpi(S);
-		auto pa = mcmf.maxflow(S, T);
+		min_cost<ll, ll> mcmf(N+M+20);
+		rep(i,0,N) mcmf.add_edge(S, i, 1, 0);
+		rep(i,0,M) mcmf.add_edge(N+i, T, 1, 0);
+		rep(i,0,N) rep(j,0,M) mcmf.add_edge(i, N+j, 1, co[i][j] - 2);
+		auto pa = mcmf.run(S, T);
 		assert(pa.first == min(N, M));
 		assert(pa.second == v - 2 * pa.first);
 		::i = last;
@@ -171,22 +189,24 @@ void testNeg() {
 		int N = rand() % 7 + 2;
 		int M = rand() % 17;
 		int S = 0, T = 1;
-		MCMF_SSPA<ll, ll> mcmf(N+10);
+		min_cost<ll, ll> mcmf(N+10);
 		MCMF2 mcmf2(N+10);
 		rep(i,0,N) rep(j,0,N) ed[i][j] = 0;
+		vector<edge_t> edges; edges.reserve(M);
 		rep(eid,0,M) {
 			int i = rand() % N, j = rand() % N;
 			if (i != j && !ed[i][j]) {
 				ed[i][j] = 1;
 				int fl = rand() % 50;
 				int co = rand() % 11 - 3;
-				mcmf.addEdge(i, j, fl, co);
+				mcmf.add_edge(i, j, fl, co);
 				mcmf2.addEdge(i, j, fl, co);
+				edges.push_back({i, j, co});
 			}
 		}
-		if (!mcmf.setpi(S))  // has negative loops
-			continue;
-		auto pa = mcmf.maxflow(S, T);
+
+		if (!negCyc(N, edges).empty()) continue;
+		auto pa = mcmf.run(S, T);
 		auto pa2 = mcmf2.maxflow(S, T);
 		assert(pa == pa2);
 		::i = lasti;
@@ -195,7 +215,6 @@ void testNeg() {
 }
 
 int main() {
-	//testPerf();
 	testMatching();
-	//testNeg();
+	testNeg();
 }

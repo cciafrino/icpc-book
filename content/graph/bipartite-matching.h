@@ -11,13 +11,13 @@
  * Usage: 
  * Status: stress-tested
  */
-struct Matching {
+struct BM {
     int N, M, T;
     vector<vector<int>> edges;
     vector<int> match, seen;
-    Matching(int a, int b) : N(a), M(a + b), edges(M), 
+    BM(int a, int b) : N(a), M(a + b), edges(M), 
             match(M, -1), seen(M, -1), T(0) {}
-    void addEdge(int a, int b) {
+    void add_edge(int a, int b) {
         assert(0 <= a && a < N && b + N < M && N <= b + N);
         edges[a].push_back(b + N);
     }

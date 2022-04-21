@@ -1,8 +1,14 @@
 #include "../utilities/template.h"
 #include "../utilities/genTree.h"
 
-#include "../../content/graph/LCA.h"
-#include "../../content/graph/BinaryLifting.h"
+#include "../../content/data-structures/rmq.h"
+namespace euler_tour {
+#include "../../content/graph/lca-euler-tour.h"
+}
+
+namespace binary_lifting {
+#include "../../content/graph/lca-binary-lifting.h"
+}
 
 namespace old {
 typedef vector<pii> vpi;
@@ -13,7 +19,7 @@ struct LCA {
     vector<ll> dist;
     rmq_t<pii> rmq;
 
-    LCA(graph& C) : time(sz(C), -99), dist(sz(C)), rmq(dfs(C)) {}
+    LCA(graph& C) : time(int(C.size()), -99), dist(int(C.size())), rmq(dfs(C)) {}
 
     vpi dfs(graph& C) {
         vector<tuple<int, int, int, ll>> q(1);
@@ -64,13 +70,25 @@ void test_n(int n, int num) {
         }
         vector<int> par(n), depth(n);
         getPars(tree, 0, 0, 0, par, depth);
-        vector<vi> tbl = treeJump(par);
-        lca_t new_lca(tree);
+        binary_lifting::lca_t bl_lca(n, tree);
+        euler_tour::lca_t rmq_lca(tree);
         for (int i=0; i<100; i++) {
             int a = rand()%n, b = rand()%n;
-            int binLca = lca(tbl, depth, a, b);
-            int newLca = new_lca.lca(a,b);
+            int k = max(1, rand()) % max(1, rmq_lca.dist(a, b));
+            int k2 = max(1, rand()) % max(1, bl_lca.height[a] - 1);
+            int binLca = bl_lca.query(a, b);
+            int newLca = rmq_lca.query(a,b);
             assert(binLca == newLca);
+            assert(bl_lca.dist(a, b) == rmq_lca.dist(a, b));
+            assert(bl_lca.get_kth_on_path(a, b, k) == rmq_lca.get_kth_node_on_path(a, b, k));
+
+            int jmp_la = bl_lca.climb(a, k);
+            int jmp_lb = rmq_lca.get_kth_ancestor(a, k);
+            assert(jmp_la == (jmp_lb == -1 ? jmp_lb+1 : jmp_lb));
+           
+            int jmp_ra = bl_lca.climb(a, k);
+            int jmp_rb = rmq_lca.get_kth_ancestor(a, k);
+            assert(jmp_ra == (jmp_rb == -1 ? jmp_rb+1 : jmp_rb));
         }
     }
 }

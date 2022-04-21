@@ -1,7 +1,7 @@
 #include "../utilities/template.h"
 
-#include "../../content/graph/MinimumVertexCover.h"
-#include "../../content/graph/hopcroftKarp.h"
+#include "../../content/graph/min-vertex-cover.h"
+#include "../../content/graph/hopcroft-karp.h"
 
 vi coverHK(vector<vi>& g, int n, int m) {
 	vi match(m, -1);
@@ -30,8 +30,10 @@ int main() {
 		int prop = rand();
 		vector<vi> gr(N);
 		vi left(N), right(M);
+		BM flower(N, M);
 		rep(i,0,N) rep(j,0,M) if (rand() < prop) {
 			gr[i].push_back(j);
+			flower.add_edge(i, j);
 		}
 		auto verify = [&](vi& cover) {
 			for(auto &x: cover) {
@@ -49,7 +51,7 @@ int main() {
 				} */
 			}
 		};
-		vi cover1 = cover(gr, N, M);
+		vi cover1 = cover(flower, N, M);
 		vi cover2 = coverHK(gr, N, M);
 		assert(sz(cover1) == sz(cover2));
 		verify(cover1);

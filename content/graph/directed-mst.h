@@ -8,7 +8,7 @@
  * Time: O(E \log V)
  * Status: Stress-tested, also tested on NWERC 2018 fastestspeedrun
  */
-#include "../data-structures/UnionFind.h"
+#include "../data-structures/dsu-rollback.h"
 struct Edge { int a, b; ll w; };
 struct Node { /// lazy skew heap node
 	Edge key;

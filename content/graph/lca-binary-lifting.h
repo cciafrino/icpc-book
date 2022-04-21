@@ -40,7 +40,7 @@ struct lca_t {
                 a = jump[a][l], b = jump[b][l];
         return jump[a][0];
     } 
-    T dist(int a, int b) {
+    int dist(int a, int b) {
         return height[a] + height[b] - 2 * height[query(a,b)];
     }
     bool is_parent(int p, int v) { 

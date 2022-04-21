@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/graph/EulerWalk.h"
+#include "../../content/graph/euler-walk.h"
 
 struct UF {
 	vi v;

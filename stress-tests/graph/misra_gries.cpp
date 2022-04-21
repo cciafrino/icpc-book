@@ -3,16 +3,16 @@
 #include "../utilities/random.h"
 #include "../utilities/genGraph.h"
 
-#include "../../content/graph/MisraGries.h"
+#include "../../content/graph/edge-coloring.h"
 
 void test(int n, const vector<pii>& ed) {
 	vi deg(n);
 	for (pii e : ed) ++deg[e.first], ++deg[e.second];
 	int maxdeg = n == 0 ? 0 : *max_element(all(deg));
-	vi cols = MisraGries(n, ed);
-	assert(sz(cols) == sz(ed));
+	vi cols = misra_gries(n, ed);
+	assert(int(cols.size()) == int(ed.size()));
 	vector<vector<bool>> usedCols(n, vector<bool>(maxdeg+1));
-	rep(i,0,sz(cols)) {
+	rep(i,0,int(cols.size())) {
 		int col = cols[i];
 		assert(cols[i] <= maxdeg);
 		for (int x : {ed[i].first, ed[i].second}) {
@@ -32,11 +32,11 @@ void testCorrect() {
 					ed.push_back({i, j});
 				}
 			}
-			if (n <= 4 || n + sz(ed) <= 9) {
+			if (n <= 4 || n + int(ed.size()) <= 9) {
 				// test all k!*2^k input orders
 				sort(all(ed));
 				if (n != 0) do {
-					rep(bi,0,(1 << sz(ed))) {
+					rep(bi,0,(1 << int(ed.size()))) {
 						if (bi) {
 							int ind = __builtin_ctz(bi);
 							swap(ed[ind].first, ed[ind].second);
@@ -72,7 +72,7 @@ void testPerfRandom() {
 		int n = 1000;
 		int m = 20000;
 		auto ed = randomSimpleGraphAsEdgeList(n, m);
-		MisraGries(n, ed);
+		misra_gries(n, ed);
 	}
 }
 
@@ -81,7 +81,7 @@ void testPerfRegular() {
 	int k = 30;
 	// m = 45000
 	vector<pii> ed = randomRegularGraphAsEdgeList(n, k);
-	rep(i,0,100) MisraGries(n, ed);
+	rep(i,0,100) misra_gries(n, ed);
 }
 
 int main(int argc, char** argv) {

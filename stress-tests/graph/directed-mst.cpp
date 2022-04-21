@@ -21,7 +21,7 @@ struct Bumpalloc {
 #ifndef TEST_PERF
 #define new bumpalloc =
 #endif
-#include "../../content/graph/DirectedMST.h"
+#include "../../content/graph/directed-mst.h"
 #ifndef TEST_PERF
 #undef new
 #endif
@@ -119,7 +119,7 @@ int main() {
 				adj[i][j] = weight;
 			}
 		ll ans1 = mit::Directed_MST(r, n, cnt);
-		ll ans2 = dmst(n, r, edges);
+		ll ans2 = dmst(n, r, edges).first;
 		assert(ans1 == ans2);
 		// For verifying a reconstruction:
 		/*

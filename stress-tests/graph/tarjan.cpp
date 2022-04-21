@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/graph/SCC.h"
+#include "../../content/graph/tarjan.h"
 
 namespace old {
 vi orig, low, comp, z;

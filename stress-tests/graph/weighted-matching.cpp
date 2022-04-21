@@ -2,33 +2,29 @@
 #include "../utilities/utils.h"
 #include "../utilities/random.h"
 
-#include "../../content/graph/WeightedMatching.h"
-#include <bits/extc++.h> /// include-line, keep-include
-#include "../../content/graph/MinCostMaxFlow.h"
+#include "../../content/graph/weighted-matching.h"
+#include "../../content/graph/min-cost-max-flow.h"
 
 void test(int N, int mxCost, int iters) {
     for (int it = 0; it < iters; it++) {
         int n = randRange(0, N), m = randRange(0, N);
-        if (n > m)
-            swap(n, m);
-
-        MCMF mcmf(n + m + 2);
+        if (n > m) swap(n, m);
+        min_cost<ll, ll> mcmf(n + m + 2);
         int s = 0;
         int t = 1;
         for (int i = 0; i < n; i++)
-            mcmf.addEdge(s, i + 2, 1, 0);
+            mcmf.add_edge(s, i + 2, 1, 0);
         for (int i = 0; i < m; i++)
-            mcmf.addEdge(2 + n + i, t, 1, 0);
+            mcmf.add_edge(2 + n + i, t, 1, 0);
 
         vector<vi> cost(n, vi(m));
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 cost[i][j] = randRange(-mxCost, mxCost);
-                mcmf.addEdge(i + 2, 2 + n + j, 1, cost[i][j]);
+                mcmf.add_edge(i + 2, 2 + n + j, 1, cost[i][j]);
             }
         }
-        mcmf.setpi(s);
-        auto maxflow = mcmf.maxflow(s, t);
+        auto maxflow = mcmf.run(s, t);
         auto matching = hungarian(cost);
         assert(maxflow.first == n);
         assert(maxflow.second == matching.first);

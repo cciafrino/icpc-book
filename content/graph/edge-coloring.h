@@ -11,7 +11,7 @@
  * Time: O(NM)
  * Status: stress-tested, tested on kattis:gamescheduling
  */
-vector<int> MisraGries(int N, vector<pair<int, int>> eds) {
+vector<int> misra_gries(int N, vector<pair<int, int>> eds) {
 	const int M = int(eds.size());
 	vector<int> cc(N + 1), ret(M), fan(N), free(N), loc;
 	for (auto e : eds) ++cc[e.first], ++cc[e.second];
