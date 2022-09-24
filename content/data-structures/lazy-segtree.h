@@ -15,6 +15,7 @@ template<class T> struct segtree_range {
   explicit segtree_range(int N_) {
     for (H = 0, N = 1; N < N_; ++H, N *= 2) {}
     ts.resize(2*N);
+    build();
   }
   template<class Q> explicit segtree_range(const vector<Q>& qs) {
     const int N_ = int(qs.size());
