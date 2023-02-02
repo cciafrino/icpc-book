@@ -115,6 +115,24 @@ is divisible by~$p^2$.
   \[ g(n) = \sum_{d|n} f(d) \Leftrightarrow f(n) = \sum_{d|n} \mu(d)g(n/d) \]
   Other useful formulas/forms:
 
+  $ \sum_{d|n} \phi(d) = n $
+  
+  $\sum_{\substack{i<n\\ \gcd(i,n)=1}} i = n \frac{\phi(n)}{2} $
+
+$ \sum_{a=1}^n \sum_{b=1}^n [ \gcd(a, b) = 1] = \sum_{d=1}^n \mu(d) {\lfloor \frac{n}{d} \rfloor}^2 $
+
+$ \sum_{a=1}^n \sum_{b=1}^n \gcd(a, b) = \sum_{d=1}^n d \sum_{d|x}^n {\lfloor \frac{n}{x} \rfloor}^2 \mu{(\frac{x}{d})} $
+
+$ \sum_{a=1}^n \sum_{b=a}^n \gcd(a, b) = \sum_{d=1}^n \sum_{d|x}^n \phi{(\frac{x}{d})} d $
+
+$ \sum_{a=1}^n \sum_{b=1}^n \text{lcm}(a, b) = \sum_{d=1}^n \mu(d) d  \sum_{d|x}^n x \binom{{\lfloor \frac{n}{x} \rfloor} + 1}{2}^2 $
+
+$ \sum_{a=1}^n \sum_{b=a+1}^n \text{lcm}(a, b) = \sum_{d=1}^n \sum_{d|x}^n \phi{(\frac{x}{d})} \frac{x^2}{2d} $
+
+$ \sum_{a \in S} \sum_{b \in S} \gcd(a, b) = \sum_{d=1}^n (\sum_{x|d} \frac{d}{x} \mu(x)) (\sum_{d|v} \text{freq[v]})^2 $
+
+$ \sum_{a \in S} \sum_{b \in S} \text{lcm}(a, b) = \sum_{d=1}^n (\sum_{x|d} \frac{x}{d} \mu(x)) (\sum_{v \in S, d|v} v)^2 $
+
   $ \sum_{d | n} \mu(d) = [ n = 1] $ (very useful)
 
   $ g(n) = \sum_{n|d} f(d) \Leftrightarrow f(n) = \sum_{n|d} \mu(d/n)g(d)$
@@ -122,11 +140,12 @@ is divisible by~$p^2$.
  $ g(n) = \sum_{1 \leq m \leq n} f(\left\lfloor\frac{n}{m}\right \rfloor ) \Leftrightarrow f(n) = \sum_{1\leq m\leq n} \mu(m)g(\left\lfloor\frac{n}{m}\right\rfloor)$
 
 
-\subsection{Dirichlet Convolution} Given a function $f(x)$, let 
+\subsection{Dirichlet Convolution} 
+	Given a function $f(x)$, let 
 
 	$$(f*g)(x)=\sum_{d|x}g(d)f(x/d)$$
 
-	If the partial sums $s_{f*g}(n),s_g(n)$ can be computed in $O(1)$ and $s_f(1\ldots n^{2/3})$ can be computed in $O\left(n^{2/3}\right)$ then all $s_f\left(\frac{n}{d}\right)$ can as well. Use
+	If the partial sums $s_{f*g}(n),s_g(n)$ can be computed in $O(1)$ and $s_f(1\ldots n^{2/3})$  can be computed in $O\left(n^{2/3}\right)$ then all $s_f\left(\frac{n}{d}\right)$ can as well. Use
 
 	$$s_{f*g}(n)=\sum_{d=1}^ng(d)s_f(n/d).$$ 
 

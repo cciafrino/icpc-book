@@ -1,9 +1,10 @@
 /**
  * Author: Chris
  * Date: 
- * License:
+ * License: CC0
  * Source: Yuhao Du and Chinese Paper.
- * Description: Dirichlet convolution. Change f, gs and fgs accordingly. This example calculates phi(N).
+ * Description: Dirichlet convolution. Change $f$, $gs$ and $fgs$ accordingly. 
+ *  This example calculates $\phi(N)$.
  * Status: tested on yosupo
  * Time: $O(N^{\frac{2}{3}})$
  */

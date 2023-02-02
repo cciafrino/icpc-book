@@ -4,7 +4,8 @@
  * License: CC0
  * Source: 
  * Status: 
- * Description: $\binom{n}{k} \pmod{m}$ in time proportional to the difference between (n, k) and the previous (n, k).
+ * Description: $\binom{n}{k} \pmod{m}$ in time proportional to 
+ *		the difference between $(n, k)$ and the previous $(n, k)$.
  * Source: 
  */
 #include "../number-theory/preparator.h"

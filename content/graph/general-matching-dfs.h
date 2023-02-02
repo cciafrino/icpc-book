@@ -3,7 +3,8 @@
  * Description: Maximum Matching for general graphs (undirected and non bipartite) using 
  * a crazy chinese heuristic(Yet to find any counter case). one-indexed based implementation, 
  * be careful. $it$ represents how many iterations you wanna try, something between [5, 500] suffice. 
- * Usage:GeneralMatching G(N+1); G.addEdge(a+1, b+1); int max_matching = G.solve(5);
+ * Usage:GeneralMatching G(N+1); G.addEdge(a+1, b+1); 
+ *		int max_matching = G.solve(5);
  * Status: tested for $n \leq 1000$
  * Time: $O(EV)$ 
  */

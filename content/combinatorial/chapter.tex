@@ -18,6 +18,15 @@
 	\item To count odd terms in row $n$, convert $n$ to binary. Let $x$ be the number of 1s in the binary representation. Then the number of odd terms will be $2^x$
 	\item Every entry in row $2^n - 1$ is odd
 	\end{itemize}
+	
+		\begin{tabular}{c@{\ }c@{\ }c@{\ }}
+		$\binom{n}{k} = \frac{n}{k}\binom{n-1}{k-1}$ & $\binom{n}{k} \binom{n - k}{v} = \binom{n}{v}\binom{n-v}{k}$\\
+		$\sum_{k=0}^{n} \binom{n}{k} k = n 2^{n-1}$ & $\sum_{j=0}^k \binom{m}{j} \binom{n-m}{k-j} = \binom{n}{k}$\\
+		$\sum_{m=0}^n \binom{m}{j} \binom{n-m}{k-j} = \binom{n+1}{k+1}$ & $\sum_{r=0}{m} \binom{n+r}{r} = \binom{n+m+1}{m}$\\
+		$(x + y)^n = \sum_{k=0}^n \binom{n}{k} x^{n-k} y^k$ & $\sum_{m=k}^n \binom{m}{k} = \binom{n+1}{k+1}$\\
+	$\sum_{j=0}^{m} \binom{m}{j}^2 = \binom{2m}{m}$ &\\
+	$2 \sum_{i=L}^R \binom{n}{i} - \binom{n}{L} - \binom{n}{R} = \sum_{i=L+1}^R \binom{n+1}{i}$ &
+		\end{tabular}
 
 	\kactlimport{rolling-binomial.h}
 	\kactlimport{lucas.h}
@@ -39,9 +48,11 @@
 
 \subsection{Inclusion-Exclusion Principle}
 	Let $A_1, A_2, ..., A_n$ be finite sets. Then  $A_1 \cup A_2 \cup ... \cup A_n$ is
-	\[ \left| \bigcup^n_{i = 1} A_i \right|  = \sum_{\substack{I \subseteq \{1, 2, ..., n\}\\ I \neq \emptyset}}^{} (-1)^{\left| I \right| +1} \left| \bigcap\limits_{i\in I} A_i \right| \]
+	\[ \left| \bigcup^n_{i = 1} A_i \right|  = \sum_{\substack{I \subseteq \{1, 2, ..., n\}\\ I 
+	\neq \emptyset}}^{} (-1)^{\left| I \right| +1} \left| \bigcap\limits_{i\in I} A_i \right| \]
 
-\subsection{The twelvefold way (from Stanley)} How many functions $f \colon N \rightarrow X$ are there?
+\subsection{The twelvefold way (from Stanley)} 
+How many functions $f \colon N \rightarrow X$ are there?
 
 \resizebox{\columnwidth}{!}{%
   \begin{tabular}{|c|c|c|c|c|}
@@ -215,9 +226,7 @@ $ \sum_{i=0}^{n} \Fib(i)^3 = \frac{\Fib(n)\Fib(n+1)^2 - (-1)^n\Fib(n-1) + 1}{2}$
 \begin{enumerate}[label=(\roman*)]
   \item $F_n = F_{n-1} + F_{n-2}$\\
 
-
-  $$
-  \begin{bmatrix}
+$\begin{bmatrix}
   0 & 1\\
   1 & 1
   \end{bmatrix} 
@@ -228,14 +237,14 @@ $ \sum_{i=0}^{n} \Fib(i)^3 = \frac{\Fib(n)\Fib(n+1)^2 - (-1)^n\Fib(n-1) + 1}{2}$
   \begin{bmatrix}
     F_1\\
     F_2
-  \end{bmatrix}
-  $$
+  \end{bmatrix}$
+
 \item $F_i = \sum_{j=1}^{K} C_j F_{i-j}$\\
 
 
 {   
   \scriptsize
-  \begin{bmatrix}
+  $\begin{bmatrix}
     0 & 1 & 0 & 0 & . & 0\\
     0 & 0 & 1 & 0 & . & 0\\
     0 & 0 & 0 & 1 & . & 0\\
@@ -255,14 +264,14 @@ $ \sum_{i=0}^{n} \Fib(i)^3 = \frac{\Fib(n)\Fib(n+1)^2 - (-1)^n\Fib(n-1) + 1}{2}$
     F_3\\
     .\\
     F_K
-\end{bmatrix}
+\end{bmatrix}$
 }
 
 \item $F_i = \sum_{j=1}^{K} C_j F_{i-j} + D$\\
 
     {
   \scriptsize
-  \begin{bmatrix}
+  $\begin{bmatrix}
     0 & 1 & 0 & 0 & . & 0 & 0\\
     0 & 0 & 1 & 0 & . & 0 & 0\\
     0 & 0 & 0 & 1 & . & 0 & 0\\
@@ -285,7 +294,7 @@ $ \sum_{i=0}^{n} \Fib(i)^3 = \frac{\Fib(n)\Fib(n+1)^2 - (-1)^n\Fib(n-1) + 1}{2}$
     .\\
     F_K\\
     D
-  \end{bmatrix}
+  \end{bmatrix}$
 }
 \end{enumerate}
 \section{Game Theory}

@@ -2,11 +2,11 @@
  * Author: Felipe Chen
  * License: CC0
  * Source: 
- * Description: Compute how many # between 1 and N have K distinct digits in the base L without leading zeros;
+ * Description: Compute how many \# between 1 and $N$ have $K$ distinct digits in the base $L$ without leading zeros;
  * Status: tested on https://atcoder.jp/contests/abc194/tasks/abc194_f
  * Usage: 
-*  auto hex_to_dec = [&](char c) -> int { 
-*	   return ('A' <= c && c <= 'F' ? (10 + c - 'A') : (c - '0')); 
+*  auto hex_to_dec = [\&](char c) -> int { 
+*	   return ('A' <= c \&\& c <= 'F' ? (10 + c - 'A') : (c - '0')); 
 *  };
 *  digit_dp<modnum<int(1e9) + 7>, hex_to_dec>(N, K);
  * Time: O(NK)

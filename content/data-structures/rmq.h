@@ -7,9 +7,11 @@
  * Description: Range Minimum/Maximum Queries on an array. Returns
  * min(V[a], V[a + 1], ... V[b - 1]) in constant time. Returns a pair that holds the answer, first element is the value and the second is the index.
  * Usage:
- *  rmq_t<pair<int, int>> rmq(values); // values is a vector of pairs {val(i), index(i)}
+ *  rmq_t<pair<int, int>> rmq(values); 
+ *  // values is a vector of pairs {val(i), index(i)}
  *  rmq.query(inclusive, inclusive); 
- *  rmq_t<pair<int, int>, greater<pair<int, int>>> rmq(values) //max query
+ *  rmq_t<pair<int, int>, greater<pair<int, int>>> rmq(values) 
+ *  //max query
  *  Time: $O(|V| \log |V| + Q)$
  */
 template<typename T, typename Cmp=less<T>>

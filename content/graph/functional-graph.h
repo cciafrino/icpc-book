@@ -1,7 +1,8 @@
 /**
  * Author: LeticiaFCS
- * Description: finds the directions of the edges of given functional graph, returns pair of $parent$ and $indegree$ of each vertex.
- * Useful together with functional-digraph.h.
+ * Description: finds the directions of the edges of given functional graph, 
+ *		returns pair of $parent$ and $indegree$ of each vertex.
+ *		Useful together with functional-digraph.h.
  * Status: NOT tested
  */
 pair<vector<int>, vector<int>> make_functional_digraph(const vector<vector<int>> &g, vector<int> deg){

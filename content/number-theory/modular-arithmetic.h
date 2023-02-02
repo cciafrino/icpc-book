@@ -1,7 +1,11 @@
 /**
  * Author: Chris
- * Source: hos.lyric
+ * Date: 2021
+ * License: CC0
+ * Source: Yui Hosaka
  * Description: Operators for modular arithmetic. 
+ * Time:
+ * Status: extensively used.
  */
 template<unsigned M_> struct modnum {
     static constexpr unsigned M = M_;

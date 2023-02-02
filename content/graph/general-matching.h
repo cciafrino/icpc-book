@@ -1,6 +1,7 @@
 /**
  * Author: Koosaga
- * Description: Maximum Matching for general graphs (undirected and non bipartite) using Edmond's Blossom Algorithm.
+ * Description: Maximum Matching for general graphs 
+ * (undirected and non bipartite) using Edmond's Blossom Algorithm.
  * Time: $O(EV^2)$ 
  */
 

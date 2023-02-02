@@ -4,7 +4,9 @@
  * License: CC0
  * Source: 
  * Description: Sweep line algorithm that calculates area of union of rectangles in the form $[x1,x2) \times [y1,y2)$
- * Usage: Create vector with both $x$ coordinates and $y$ coordinates of each rectangle.//vector<pair<int,int>,pair<int,int>> rectangles;// rectangles.push_back({{x1, x2}, {y1, y2}});// lint result = area(rectangles);
+ * Usage: vector<pair<int,int>, pair<int,int>> rectangles;
+ *		 rectangles.push_back({{x1, x2}, {y1, y2}});
+ *		 lint result = area(rectangles);
  * Status: tested
  */
 struct seg_node{
