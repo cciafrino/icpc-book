@@ -38,16 +38,17 @@
  *   optimization for small numbers.
  */
 #include "mod-mul.h"
+#include "extended-euclid.h"
 #include "miller-rabin.h"
 ull pollard(ull n) {
-	auto f = [n](ull x) { return modmul(x, x, n) + 1; };
+	auto f = [n](ull x, ull k) { return modmul(x, x, n) + k; };
 	ull x = 0, y = 0, t = 30, prd = 2, i = 1, q;
-	while (t++ % 40 || __gcd(prd, n) == 1) {
-		if (x == y) x = ++i, y = f(x);
+	while (t++ % 40 || gcd(prd, n) == 1) {
+		if (x == y) x = ++i, y = f(x, i);
 		if ((q = modmul(prd, max(x,y) - min(x,y), n))) prd = q;
-		x = f(x), y = f(f(y));
+		x = f(x, i), y = f(f(y, i), i);
 	}
-	return __gcd(prd, n);
+	return gcd(prd, n);
 }
 vector<ull> factor(ull n) {
 	if (n == 1) return {};
