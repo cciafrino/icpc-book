@@ -1,13 +1,13 @@
 /**
- * Author: Bjorn Martinsson
- * Date: 2020-06-03
+ * Author: Bjorn Martinsson / Chrs
+ * Date: 2022
  * License: CC0
  * Source: own work
- * Description:  Returns the smallest $x > 0$ s.t. $a^x = b \pmod m$, or
+ * Description:  Returns the smallest $x >= 0$ s.t. $a^x = b \pmod m$, or
  * $-1$ if no such $x$ exists. modLog(a,1,m) can be used calculate the order
- * of $a$.
+ * of $a$. Assumes that $0^0 = 1$.
  * Time: $O(\sqrt m)$
- * Status: tested for all 0 <= a,x < 500 and 0 < m < 500.
+ * Status: tested on yosupo and stress-tested.
  *
  * Details: This algorithm uses the baby-step giant-step method to
  * find (i,j) such that a^(n * i) = b * a^j (mod m), where n > sqrt(m)
@@ -30,14 +30,22 @@
  * exponents of a that are <= n, and then handling the non-tricky cases by
  * a simple gcd(a^n,m) == gcd(b,m) check.
  */
-lint modLog(lint a, lint b, lint m) { // Careful with b = 1 case
-	lint n = (lint)sqrt(m) + 1, e = 1, f = 1, j = 1;
-	unordered_map<lint, lint> A; 
-	while (j <= n && (e = f = e * a % m) != b % m)
-		A[e * b % m] = j++;
-	if (e == b % m) return j;
-	if (__gcd(m, e) == __gcd(m, b)) 
-		for(int i = 2; i <= n+1; ++i) if (A.count(e = e * f % m))
-			return n * i - A[e];
+#include "extended-euclid.h"
+template<typename T> T modLog(T a, T b, T m) { 
+	T k = 1, it = 0, g;
+	while ((g = gcd(a, m)) != 1) {
+		if (b == k) return it;
+		if (b % g) return -1;
+		b /= g; m /= g; ++it;
+		k = k * a / g % m;
+	}
+	T n = sqrtl(m) + 1, f = 1, j = 1;
+	unordered_map<T, T> A; 
+	while (j <= n) {
+		f = f * a % m;
+		A[f * b % m] = j++;
+	}
+	for(int i = 1; i <= n; ++i) if (A.count(k = k * f % m))
+		return n * i - A[k] + it;
 	return -1;
 }

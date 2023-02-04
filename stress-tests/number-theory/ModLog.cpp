@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/number-theory/ModLog.h"
+#include "../../content/number-theory/discrete-log.h"
 
 int main() {
 	const int lim = 100;
@@ -12,6 +12,9 @@ int main() {
 				if (ans[b] == -1) ans[b] = x;
 				b = b * a % m;
 			}
+			// special case this because our algorithm considers 0^0 = 1
+			ans[1] = 0;
+			if (m == 1) ans[0] = 0;
 			rep(b,0,m) {
 				ll res = modLog(a, b, m);
 				if (ans[b] != res) {
