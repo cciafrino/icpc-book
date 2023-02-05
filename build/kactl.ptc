@@ -102,7 +102,7 @@
 \contentsline {subsection}{\texttt {mod-mul.h}\hspace {0.2em}}{21}{lstnumber.5.5.17}%
 \contentsline {subsection}{\texttt {mod-sqrt.h}\hspace {0.2em}}{21}{lstnumber.5.6.11}%
 \contentsline {subsection}{\texttt {mul-order.h}\hspace {0.2em}}{21}{lstnumber.5.7.50}%
-\contentsline {subsection}{\texttt {mod-range.h}\hspace {0.2em}}{21}{lstnumber.5.8.16}%
+\contentsline {subsection}{\texttt {mod-range.h}\hspace {0.2em}}{21}{lstnumber.5.8.12}%
 \contentsline {section}{\numberline {5.2}Primality}{21}{section.5.2}%
 \contentsline {subsection}{\texttt {sieve.h}\hspace {0.2em}}{21}{section.5.2}%
 \contentsline {subsection}{\texttt {segmented-sieve.h}\hspace {0.2em}}{21}{lstnumber.5.10.24}%
@@ -112,12 +112,12 @@
 \contentsline {subsection}{\texttt {extended-euclid.h}\hspace {0.2em}}{22}{section.5.3}%
 \contentsline {subsection}{\texttt {division-lemma.h}\hspace {0.2em}}{22}{lstnumber.5.14.24}%
 \contentsline {subsection}{\texttt {prime-factors.h}\hspace {0.2em}}{22}{lstnumber.5.15.27}%
-\contentsline {subsection}{\texttt {num-div.h}\hspace {0.2em}}{22}{lstnumber.5.16.25}%
-\contentsline {subsection}{\texttt {sum-div.h}\hspace {0.2em}}{22}{lstnumber.5.17.15}%
-\contentsline {subsection}{\texttt {phi-function.h}\hspace {0.2em}}{22}{lstnumber.5.18.13}%
-\contentsline {subsection}{\texttt {discrete-log.h}\hspace {0.2em}}{22}{lstnumber.5.19.22}%
-\contentsline {subsection}{\texttt {group-order.h}\hspace {0.2em}}{23}{lstnumber.5.20.18}%
-\contentsline {subsection}{\texttt {primitive-roots.h}\hspace {0.2em}}{23}{lstnumber.5.21.6}%
+\contentsline {subsection}{\texttt {divisors.h}\hspace {0.2em}}{22}{lstnumber.5.16.25}%
+\contentsline {subsection}{\texttt {num-div.h}\hspace {0.2em}}{22}{lstnumber.5.17.15}%
+\contentsline {subsection}{\texttt {sum-div.h}\hspace {0.2em}}{22}{lstnumber.5.18.15}%
+\contentsline {subsection}{\texttt {phi-function.h}\hspace {0.2em}}{22}{lstnumber.5.19.13}%
+\contentsline {subsection}{\texttt {discrete-log.h}\hspace {0.2em}}{23}{lstnumber.5.20.16}%
+\contentsline {subsection}{\texttt {primitive-roots.h}\hspace {0.2em}}{23}{lstnumber.5.21.18}%
 \contentsline {subsection}{\texttt {prime-counting.h}\hspace {0.2em}}{23}{lstnumber.5.22.6}%
 \contentsline {section}{\numberline {5.4}Chinese remainder theorem}{23}{section.5.4}%
 \contentsline {subsection}{\texttt {chinese-remainder.h}\hspace {0.2em}}{23}{section.5.4}%

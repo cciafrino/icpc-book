@@ -2,14 +2,14 @@
  * Author: Chris
  * Description: Find all prime factors of $n$.
  * Time: $O(log(n))$
+ * Status: stress tested
  */
 #include "sieve.h"
-
 template<typename T>
 vector<pair<T, int>> prime_factorize(T n) {
     vector<pair<T, int>> factors;
     while(n != 1) {
-        T p = lp[n];
+        T p = pfac[n];
         int exp = 0;
         do {
             n /= p;

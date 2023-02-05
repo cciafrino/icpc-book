@@ -2,26 +2,20 @@
  * Author: Chris
  * Description: Find the smallest integer $k$ such that $a^k$
  * (mod $m$) $= 1$. $0 < k < m$.
- * Time: close to $O(log(N))$
- * Status: yet to be stress tested 
+ * Time: $O(log(N))$
+ * Status: stress-tested 
  */
-#include<sieve.h>
-#include<prime-factors.h>
-#include<mod-pow.h>
-
-template<typename T> T mulOrder(T a, T m) {
-    auto pf = prime_factorize(m);
+#include "prime-factors.h"
+#include "mod-pow.h"
+template<typename T> T mul_order(T a, T m) {
+    if (__gcd(a, m) != 1) return 0;
+    auto N = phi(m);
+    auto primes = prime_factorize(N);
     T res = 1;
-    for (auto &[p, e] : pf) {
-    	T k = 0, q = Pow(p, e);
-    	T t = q / p * (p - 1);
-    	auto factors = divisors(t); // get all divisors of t
-    	for (auto &pr : factors) 
-	        if (modpow(a, pr, m) == 1) {
-	        	k = pr;
-	        	break;
-	        }
-    	res = res/__gcd(res, k) * k;
+    for (auto &[p, e] : primes) {
+		while (N % p == 0 && modpow(a, N/p, m) == 1) {
+			N /= p;
+		} 
     }
-    return res;
+    return N;
 }

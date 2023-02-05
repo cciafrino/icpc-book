@@ -7,7 +7,7 @@
  * If $a$ and $b$ are coprime, then $x$ is the inverse of $a \pmod{b}$.
  */
 template<typename T> T gcd(T a, T b) {
-	if (a < 0) a = -a; // binary gcd
+	if (a < 0) a = -a; 
 	if (b < 0) b = -b;
 	if (a == 0) return b;
 	if (b == 0) return a;
