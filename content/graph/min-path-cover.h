@@ -7,9 +7,9 @@
  * Usage:       
  * Status: Tested
  */
-#include "BipartiteMatching.h"
-vector<vector<int>> minPathCover(Matching& g, int N) {
-    int how_many = int(g.edges.size()) - g.solve();
+#include "bipartite-matching.h"
+vector<vector<int>> minPathCover(bipartite_matching& g, int N) {
+    int how_many = int(g.adj.size()) - g.solve();
     vector<vector<int>> paths;
     for (int i = 0; i < N; ++i) 
         if (g.match[i + N] == -1) {

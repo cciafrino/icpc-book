@@ -9,14 +9,14 @@
           auto cover = minEdgeCover(g, mark, n, m);
  * Status: Tested
  */
-#include "BipartiteMatching.h"
-vector<pair<int,int>> minEdgeCover(Matching& g, vector<int>& mark, int N, int M) {
+#include "bipartite-matching.h"
+vector<pair<int,int>> minEdgeCover(bipartite_matching& g, vector<int>& mark, int N, int M) {
     int ma = g.solve();
     vector<pair<int,int>> cover;
     for (int i = 0; i < N; ++i) {
         if (g.match[i] >= 0) cover.push_back({i, g.match[i]-N});
-        else if (int(g.edges[i].size())) 
-            cover.push_back({i, g.edges[i][0] - N});
+        else if (int(g.adj[i].size())) 
+            cover.push_back({i, g.adj[i][0] - N});
     }
     for (int i = N; i < N + M; ++i) 
         if (g.match[i] == -1 && mark[i] >= 0) 
