@@ -5,11 +5,11 @@
  * Source: Felipe Abella
  * Status: Tested several times
  * Description: Range Minimum/Maximum Queries on an array. Returns
- * min(V[a], V[a + 1], ... V[b - 1]) in constant time. Returns a pair that holds the answer, first element is the value and the second is the index.
+ * min(V[a], V[a + 1], ... V[b]) in constant time. Returns a pair that holds the answer, first element is the value and the second is the index.
  * Usage:
  *  rmq_t<pair<int, int>> rmq(values); 
  *  // values is a vector of pairs {val(i), index(i)}
- *  rmq.query(inclusive, inclusive); 
+ *  rmq.query(inclusive, exclusive); 
  *  rmq_t<pair<int, int>, greater<pair<int, int>>> rmq(values) 
  *  //max query
  *  Time: $O(|V| \log |V| + Q)$
@@ -29,7 +29,7 @@ struct rmq_t : private Cmp {
         }
     }
     T query(int a, int b) const { 
-        int lg = __lg(b - a + 1);
-        return min(table[lg][a], table[lg][b - (1 << lg) + 1]);
+        int lg = __lg(b - a);
+        return min(table[lg][a], table[lg][b - (1 << lg) ]);
     }
 };

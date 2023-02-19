@@ -1,4 +1,5 @@
 #include "../utilities/template.h"
+#undef sz
 #include "../utilities/genTree.h"
 
 #include "../../content/data-structures/rmq.h"
