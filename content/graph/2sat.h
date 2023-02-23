@@ -30,6 +30,7 @@
 		gr[f].push_back(j^1);
 		gr[j].push_back(f^1);
 	}
+	void implies(int f, int j) { either(~f, j); }
 	void set_value(int x) { either(x, x); }
 	void at_most_one(const vector<int>& li) { // (optional)
 		if (int(li.size()) <= 1) return;
