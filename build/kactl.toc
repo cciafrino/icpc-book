@@ -28,7 +28,7 @@
 \contentsline {subsection}{\numberline {4.1.1}Duality}{19}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Strong duality}{19}{subsection.4.1.2}%
 \contentsline {subsection}{\numberline {4.1.3}Polyominoes}{19}{subsection.4.1.3}%
-\contentsline {subsection}{\numberline {4.1.4}Generating functions}{19}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.1.4}Generating functions}{20}{subsection.4.1.4}%
 \contentsline {chapter}{\numberline {5}Number theory}{20}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Modular arithmetic}{20}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Primality}{21}{section.5.2}%
@@ -56,9 +56,9 @@
 \contentsline {subsection}{\numberline {6.1.5}Inclusion-Exclusion Principle}{25}{subsection.6.1.5}%
 \contentsline {subsection}{\numberline {6.1.6}The twelvefold way (from Stanley)}{25}{subsection.6.1.6}%
 \contentsline {subsection}{\numberline {6.1.7}Burnside}{25}{subsection.6.1.7}%
-\contentsline {subsection}{\numberline {6.1.8}Derangements}{25}{subsection.6.1.8}%
-\contentsline {section}{\numberline {6.2}Partitions and subsets}{25}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Partition function}{25}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.1.8}Derangements}{26}{subsection.6.1.8}%
+\contentsline {section}{\numberline {6.2}Partitions and subsets}{26}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Partition function}{26}{subsection.6.2.1}%
 \contentsline {section}{\numberline {6.3}General purpose numbers}{26}{section.6.3}%
 \contentsline {subsection}{\numberline {6.3.1}Bernoulli numbers}{26}{subsection.6.3.1}%
 \contentsline {subsection}{\numberline {6.3.2}Stirling numbers of the first kind}{26}{subsection.6.3.2}%
@@ -72,7 +72,7 @@
 \contentsline {subsection}{\numberline {6.3.10}Narayana numbers}{26}{subsection.6.3.10}%
 \contentsline {subsection}{\numberline {6.3.11}Schroder numbers}{26}{subsection.6.3.11}%
 \contentsline {subsection}{\numberline {6.3.12}Triangles}{26}{subsection.6.3.12}%
-\contentsline {section}{\numberline {6.4}Fibonacci}{26}{section.6.4}%
+\contentsline {section}{\numberline {6.4}Fibonacci}{27}{section.6.4}%
 \contentsline {section}{\numberline {6.5}Linear Recurrences}{27}{section.6.5}%
 \contentsline {section}{\numberline {6.6}Game Theory}{27}{section.6.6}%
 \contentsline {subsection}{\numberline {6.6.1}Nim}{27}{subsection.6.6.1}%
@@ -97,7 +97,7 @@
 \contentsline {section}{\numberline {7.9}Theorems}{37}{section.7.9}%
 \contentsline {subsection}{\numberline {7.9.1}Landau}{37}{subsection.7.9.1}%
 \contentsline {subsection}{\numberline {7.9.2}Euler's theorem}{37}{subsection.7.9.2}%
-\contentsline {subsection}{\numberline {7.9.3}Eulerian Cycles}{37}{subsection.7.9.3}%
+\contentsline {subsection}{\numberline {7.9.3}Eulerian Cycles}{38}{subsection.7.9.3}%
 \contentsline {subsection}{\numberline {7.9.4}Dilworth's theorem}{38}{subsection.7.9.4}%
 \contentsline {subsection}{\numberline {7.9.5}König-Egervary theorem}{38}{subsection.7.9.5}%
 \contentsline {subsubsection}{Maximum Weight Closure}{38}{section*.7}%
