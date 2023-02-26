@@ -1,20 +1,54 @@
 #include "../utilities/template.h"
 
-#include "../../content/number-theory/ModularArithmetic.h"
+#include "../../content/number-theory/modular-arithmetic.h"
+
+const int mod = int(1e9 + 7);
+using num = modnum<mod>;
 
 int main() {
-	rep(a,0,mod) rep(b,1,mod) {
-		Mod ma(a);
-		Mod mb(b);
-		Mod mc = ma / mb;
-		assert((mc * mb).x == a);
-	}
-	Mod a = 2;
-	ll cur=1;
-	rep(i, 0, 17) {
-		assert((a ^ i).x == cur);
-		cur = (cur * 2) % mod;
-		// cout << i << ": " << (a ^ i).x << endl;
-	}
+	num a, b;
+
+	a = 128383336, b = 1981514107;
+	assert((a + b) == 109897429);
+	a = 1179960689, b = 2015666432;
+	assert((a + b) == 195627100);
+	a = 1100809439, b = 228928653;
+	assert((a + b) == 329738085);
+
+	a = 73772737, b = 324161268;
+	assert((a - b) == 749611476);
+	a = 1011300387, b = 978831065;
+	assert((a - b) == 32469322);
+	a = 1480329399, b = 2113020041;
+	assert((a - b) == 367309365);
+
+	a = 1079711113, b = 211921301;
+	assert((a * b) == 169421539);
+	a = 411190773, b = 1130264774;
+	assert((a * b) == 862449208);
+	a = 53502854, b = 829906347;
+	assert((a * b) == 806397839);
+
+	a = 9206109587148604926LL, b = 8380926769772424443LL;
+	assert((a + b) == 811775738);
+	a = 6740789896075395431LL, b = 2877836284507961699LL;
+	assert((a + b) == 252974339);
+	a = 6850870096411434622LL, b = 1973763754769733539LL;
+	assert((a + b) == 408731638);
+
+	a = 625087559324336455LL, b = 8090897426940612863LL;
+	assert((a - b) == 644392304);
+	a = 1076462940427778168LL, b = 7102774914942006382LL;
+	assert((a - b) == 669955317);
+	a = 4378365811078042533LL, b = 7815648907787175730LL;
+	assert((a - b) == 351848314);
+
+	a = 8114884406821175239LL, b = 1448966562800136720LL;
+	assert((a * b) == 205752249);
+	a = 7268369464284409290LL, b = 4007164215090690777LL;
+	assert((a * b) == 229041000);
+	a = 2125868618934955094LL, b = 3233011738162675699LL;
+	assert((a * b) == 830218238);
+
 	cout<<"Tests passed!"<<endl;
 }
