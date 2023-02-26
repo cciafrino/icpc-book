@@ -10,22 +10,32 @@
 template<unsigned M_> struct modnum {
     static constexpr unsigned M = M_;
     using ll = long long; using ull = unsigned long long; unsigned x;
+
+    // ec131c
     constexpr modnum() : x(0U) {}
-    constexpr modnum(unsigned x_) : x(x_ % M) {}
-    constexpr modnum(int x_) : x(((x_ %= static_cast<int>(M)) < 0) ? (x_ + static_cast<int>(M)) : x_) {}
-    constexpr modnum(ull x_) : x(x_ % M) {}
-    constexpr modnum(ll x_) : x(((x_ %= static_cast<ll>(M)) < 0) ? (x_ + static_cast<ll>(M)) : x_) {}
+    constexpr modnum(unsigned a) : x(a % M) {}
+    constexpr modnum(ull a) : x(a % M) {}
+    constexpr modnum(int a) : x(((a %= static_cast<int>(M)) < 0) ? (a + static_cast<int>(M)) : a) {}
+    constexpr modnum(ll a) : x(((a %= static_cast<ll>(M)) < 0) ? (a + static_cast<ll>(M)) : a) {}
+    // da738b
     explicit operator int() const { return x; }
     modnum& operator+=(const modnum& a) { x = ((x += a.x) >= M) ? (x - M) : x; return *this; }
     modnum& operator-=(const modnum& a) { x = ((x -= a.x) >= M) ? (x + M) : x; return *this; }
     modnum& operator*=(const modnum& a) { x = unsigned((static_cast<ull>(x) * a.x) % M); return *this; }
     modnum& operator/=(const modnum& a) { return (*this *= a.inv()); }
+    // ef603f
     modnum operator+(const modnum& a) const { return (modnum(*this) += a); }
     modnum operator-(const modnum& a) const { return (modnum(*this) -= a); }
     modnum operator*(const modnum& a) const { return (modnum(*this) *= a); }
     modnum operator/(const modnum& a) const { return (modnum(*this) /= a); }
     modnum operator+() const { return *this; }
     modnum operator-() const { modnum a; a.x = x ? (M - x) : 0U; return a; }
+    // b8b96c
+    template<typename T> friend modnum operator+(T a, const modnum& b) { return (modnum(a) += b); }
+    template<typename T> friend modnum operator-(T a, const modnum& b) { return (modnum(a) -= b); }
+    template<typename T> friend modnum operator*(T a, const modnum& b) { return (modnum(a) *= b); }
+    template<typename T> friend modnum operator/(T a, const modnum& b) { return (modnum(a) /= b); }
+
     modnum pow(ll e) const {
         if (e < 0) return inv().pow(-e);
         modnum x2 = x, xe = 1U;
@@ -44,10 +54,7 @@ template<unsigned M_> struct modnum {
         } assert(b == 1U); return modnum(z);
     }
     friend modnum inv(const modnum& a) { return a.inv(); }
-    template<typename T> friend modnum operator+(T a, const modnum& b) { return (modnum(a) += b); }
-    template<typename T> friend modnum operator-(T a, const modnum& b) { return (modnum(a) -= b); }
-    template<typename T> friend modnum operator*(T a, const modnum& b) { return (modnum(a) *= b); }
-    template<typename T> friend modnum operator/(T a, const modnum& b) { return (modnum(a) /= b); }
+
     explicit operator bool() const { return x; }
     friend bool operator==(const modnum& a, const modnum& b) { return a.x == b.x; }
     friend bool operator!=(const modnum& a, const modnum& b) { return a.x != b.x; }
