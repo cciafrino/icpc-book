@@ -8,6 +8,9 @@
  * To reverse which of the sides allows non-strict inequalities, change the < marked with (A) to <=, and reverse 
  * the loop at (B).
  * To minimize $f$, change it to >, also at (B).
+ * If you are dealing with real numbers, you'll need to pick $m_1 = (2a + b)/3.0$ and $m_2 = (a + 2b)/3.0$. 
+ * Consider setting a constant number of iterations for the search, usually $[200,300]$ iterations are sufficient
+ * for problems with error limit as $10^{-6}$.
  * Status: tested
  * Usage: int ind = ternSearch(0,n-1,[\&](int i){return a[i];});
  * Time: O(\log(b-a))
