@@ -2,7 +2,7 @@
  * Author: LeticiaFCS
  * Date: 2020-04-01
  * License: CC0
- * Description: Generate all free polyominoes with at most n squares.
+ * Description: Generate all fixed polyominoes with at most n squares.
  * poly[x] gives the polyominoes with x squares.
  * Takes less than a sec if $n < 10$, around 2s if $n = 10$
  * and around 6s if $n = 11$.
