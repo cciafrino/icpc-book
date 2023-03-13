@@ -15,14 +15,34 @@
  * Time: O(N \log N) with $N = |A|+|B|$ ($\tilde 1s$ for $N=2^{22}$)
  * Status: somewhat tested
  */
-template<typename T> struct root_of_unity {
-    T operator()(int N) const = delete; // not implemented
+inline int nxt_pow2(int s) { return 1 << (s > 1 ? 32 - __builtin_clz(s-1) : 0); }
+template<typename dbl> struct cplx {
+    dbl x, y;
+    cplx(dbl x_ = 0, dbl y_ = 0) : x(x_), y(y_) { }
+    friend cplx operator+(cplx a, cplx b) { return cplx(a.x + b.x, a.y + b.y); }
+    friend cplx operator-(cplx a, cplx b) { return cplx(a.x - b.x, a.y - b.y); }
+    friend cplx operator*(cplx a, cplx b) { return cplx(a.x * b.x - a.y * b.y, a.x * b.y + a.y * b.x); }
+    friend cplx conj(cplx a) { return cplx(a.x, -a.y); }
+    friend cplx inv(cplx a) { dbl n = (a.x*a.x+a.y*a.y); return cplx(a.x/n,-a.y/n); }
 };
+
 template<typename T>
-struct root_of_unity<std::complex<T>> {
-    inline static const T PI = std::acos(-1);
-    std::complex<T> operator()(int N) const {
-        return std::polar<T>(1, 2 * PI / N);
+struct root_of_unity {};
+
+template<typename dbl> struct root_of_unity<cplx<dbl>> {
+    static cplx<dbl> f(int k) {
+        static const dbl PI = acos(-1);
+        dbl a = 2*PI/k;
+        return cplx<dbl>(cos(a),sin(a));
+    }
+};
+
+constexpr int MOD = 998244353;
+template<> struct root_of_unity<modnum<MOD>> {
+    static constexpr modnum<MOD> g = modnum<MOD>(3);
+    static modnum<MOD> f(int k) {
+        assert((MOD-1)%k == 0);
+        return g.pow((MOD-1)/k);
     }
 };
 
@@ -38,32 +58,41 @@ vector<T> fft(vector<T> p, bool inverse) { // df3434
         q[rev] = p[i];
     }
     swap(p, q);
-    root_of_unity<T> rt;
     for (int b = 1; b < N; b <<= 1) {
-        T w = rt(b << 1);
-        if (inverse) w = T(1) / w;
-        for (auto [i, x] = std::pair(0, T(1)); i < N; ++i, x *= w) {
+        T w = root_of_unity<T>::f(2*b);
+        if (inverse) w = T(1) * inv(T(w));
+        for (auto [i, x] = std::pair(0, T(1)); i < N; ++i, x = x * w) {
             q[i] = p[i & ~b] + x * p[i | b];
         }
         swap(p, q);
     }
     if (inverse) {
-        T inv = T(1) / T(N);
-        for (int i = 0; i < N; ++i) p[i] *= inv;
+        auto v = T(N), iv = inv(v);
+        T inv = T(1) * iv;
+        for (int i = 0; i < N; ++i) p[i] = p[i] * inv;
     }
     return p;
 }
 
+constexpr int threshold = 64;
 template<typename T>
 vector<T> operator*(vector<T> p, vector<T> q) {
-    int N = p.size() + q.size() - 1, M = 1;
-    while (M < N) M <<= 1;
-    p.resize(M), q.resize(M);
-    auto phat = fft(p, false), qhat = fft(q, false);
-    for (int i = 0; i < M; ++i) {
-        phat[i] *= qhat[i];
+    int N = p.size(), M = q.size();
+    int K = N + M - 1, S = nxt_pow2(K);
+    vector<T> res(K);
+    if (min(N, M) <= threshold) {
+        for (int a = 0; a < N; ++a) 
+            for (int b = 0; b < M; ++b) 
+                res[a + b] = res[a + b] + p[a] * q[b];
+    } else {
+        p.resize(S), q.resize(S);
+        auto phat = fft(std::move(p), false);
+        auto qhat = fft(std::move(q), false);
+        for (int i = 0; i < S; ++i) {
+            phat[i] = phat[i] * qhat[i];
+        }
+        res = fft(std::move(phat), true);
+        res.resize(K);
     }
-    auto r = fft(phat, true);
-    r.resize(N);
-    return r;
+    return res;
 }

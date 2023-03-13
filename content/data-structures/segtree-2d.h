@@ -5,6 +5,7 @@
  * Source: tfg
  * Description: 2D Segment Tree. 
  * Status: Tested on URI 1511 & 2656
+ * Time: $O(N\log^2 N)$ of memory, $O(\log^2 N)$ per query
  */
 #include "sparse_seg_tree.h"
 template<class T> struct Node {
