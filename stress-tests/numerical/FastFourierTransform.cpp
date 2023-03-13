@@ -33,57 +33,69 @@ template<> struct root_of_unity<modnum<MOD>> {
     }
 };
 
-template<typename T>
-vector<T> fft(vector<T> p, bool inverse) { // df3434
-    int N = p.size();
-    vector<T> q(N);
-    for (int i = 0; i < N; ++i) {
-        int rev = 0;
-        for (int b = 1; b < N; b <<= 1) {
-            rev = (rev << 1) | !!(i & b);
+template<typename T> struct FFT {
+    vector<T> rt;
+    vector<int> rev;
+    FFT(int N) : rt(2, T(1)) {
+        if (N > int(rt.size())) {
+            rev.resize(N);
+            for (int a = 0; a < N; ++a) {
+                rev[a] = (rev[a>>1] | ((a&1)*N)) >> 1;
+            }
+            rt.reserve(N);
+            for (int k = int(rt.size()); k < N; k *= 2) {
+                rt.resize(2*k);
+                T z = root_of_unity<T>::f(2*k);
+                for (int a = k/2; a < k; ++a) {
+                    rt[2*a] = rt[a];
+                    rt[2*a+1] = rt[a] * z;
+                }
+            }
         }
-        q[rev] = p[i];
     }
-    swap(p, q);
-    for (int b = 1; b < N; b <<= 1) {
-        T w = root_of_unity<T>::f(2*b);
-        if (inverse) w = T(1) * inv(T(w));
-        for (auto [i, x] = std::pair(0, T(1)); i < N; ++i, x = x * w) {
-            q[i] = p[i & ~b] + x * p[i | b];
+    void fft(vector<T>& xs, bool inverse) const {
+        int N = int(xs.size());
+        int s = __builtin_ctz(int(rev.size())/N);
+        if (inverse) reverse(xs.begin() + 1, xs.end());
+        for (int a = 0; a < N; ++a) {
+            if (a < (rev[a] >> s))
+                swap(xs[a], xs[rev[a] >> s]);
         }
-        swap(p, q);
+        for (int k = 1; k < N; k *= 2) {
+            for (int a = 0; a < N; a += 2*k) {
+                int u = a, v = u + k;
+                for (int b = 0; b < k; ++b, ++u, ++v) {
+                    T z = rt[b + k] * xs[v];
+                    xs[v] = xs[u] - z;
+                    xs[u] = xs[u] + z;
+                }
+            }
+        }
+        if (inverse) {
+            for (int a = 0; a < N; ++a)
+                xs[a] = xs[a] * inv(T(N));
+        }
     }
-    if (inverse) {
-        auto v = T(N), iv = inv(v);
-        T inv = T(1) * iv;
-        for (int i = 0; i < N; ++i) p[i] = p[i] * inv;
+    vector<T> convolve(vector<T> as, vector<T> bs) const {
+        int N = int(as.size()), M = int(bs.size());
+        int K = N + M - 1, S = nxt_pow2(K);
+        if (min(N, M) <= 64) {
+            vector<T> res(K);
+            for (int u = 0; u < N; ++u)
+                for (int v = 0; v < M; ++v)
+                    res[u + v] = res[u + v] + as[u] * bs[v];
+            return res;
+        } else {
+            as.resize(S), bs.resize(S);
+            fft(as, false); fft(bs, false);
+            for (int i = 0; i < S; ++i) as[i] = as[i] * bs[i];
+            fft(as, true);
+            as.resize(K);
+            return as;
+        }
     }
-    return p;
-}
+};
 
-constexpr int threshold = 64;
-
-template<typename T>
-vector<T> operator*(vector<T> p, vector<T> q) {
-    int N = p.size(), M = q.size();
-    int K = N + M - 1, S = nxt_pow2(K);
-    vector<T> res(K);
-    if (min(N, M) <= threshold) {
-        for (int a = 0; a < N; ++a) 
-            for (int b = 0; b < M; ++b) 
-                res[a + b] = res[a + b] + p[a] * q[b];
-    } else {
-        p.resize(S), q.resize(S);
-        auto phat = fft(std::move(p), false);
-        auto qhat = fft(std::move(q), false);
-        for (int i = 0; i < S; ++i) {
-            phat[i] = phat[i] * qhat[i];
-        }
-        res = fft(std::move(phat), true);
-        res.resize(K);
-    }
-    return res;
-}
 using vd = vector<double>;
 
 int ra() {
@@ -101,6 +113,8 @@ int main() {
     std::uniform_real_distribution<> dis(-5000, 5000);
     // over reals
     {
+
+        const FFT<cplx<double>> fft_data(1 << 20);
         vector<cplx<double>> a, b;
         rep(it,0,6000) {
             a.resize(ra() % 100);
@@ -108,7 +122,7 @@ int main() {
             for(auto &x: a) x = dis(rng) / (5000 + 1.0) * 10 - 5;
             for(auto &x: b) x = dis(rng) / (5000 + 1.0) * 10 - 5;
             
-            auto res = a * b;
+            auto res = fft_data.convolve(a, b);
 
             rep(i,0,a.size() + b.size() - 1) {
                 cplx<double> sum;
@@ -123,6 +137,8 @@ int main() {
     }
     // over a finite field
     {
+
+        const FFT<modnum<998244353>> fft_data(1 << 20);
         vector<num> a, b;
         rep(it,0,6000) {
             a.resize(ra() % 100);
@@ -130,7 +146,7 @@ int main() {
             for(auto &x: a) x = ra();
             for(auto &x: b) x = ra();
             
-            auto res = a * b;
+            auto res = fft_data.convolve(a, b);
 
             rep(i,0,a.size() + b.size() - 1) {
                 num sum;
