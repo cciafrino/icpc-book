@@ -48,6 +48,7 @@ template<typename T> struct FFT {
     vector<T> rt;
     vector<int> rev;
     FFT(int N) : rt(2, T(1)) {
+        N = nxt_pow2(N);
         if (N > int(rt.size())) {
             rev.resize(N);
             for (int a = 0; a < N; ++a) {
