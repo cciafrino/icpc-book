@@ -124,9 +124,9 @@
 \contentsline {subsection}{\numberline {9.1.7}All occurence positions}{47}{subsection.9.1.7}%
 \contentsline {chapter}{\numberline {10}Various}{47}{chapter.10}%
 \contentsline {section}{\numberline {10.1}Intervals}{47}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Misc. algorithms}{48}{section.10.2}%
+\contentsline {section}{\numberline {10.2}Misc. algorithms}{47}{section.10.2}%
 \contentsline {section}{\numberline {10.3}Dynamic programming}{50}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Debugging tricks}{52}{section.10.4}%
+\contentsline {section}{\numberline {10.4}Debugging tricks}{51}{section.10.4}%
 \contentsline {section}{\numberline {10.5}Optimization tricks}{52}{section.10.5}%
 \contentsline {subsection}{\numberline {10.5.1}Bit hacks}{52}{subsection.10.5.1}%
 \contentsline {subsection}{\numberline {10.5.2}Pragmas}{52}{subsection.10.5.2}%
