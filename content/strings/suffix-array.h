@@ -52,7 +52,7 @@ struct suffix_array_t {
         RMQ = rmq_t<pair<int, int>>(move(lcp_index));
     } 
     pair<int, int> rmq_query(int a, int b) const { return RMQ.query(a, b); } 
-    pair<int, int> get_split(int a, int b) const { return RMQ.query(a, b-2); }
+    pair<int, int> get_split(int a, int b) const { return RMQ.query(a, b-1); }
     int get_lcp(int a, int b) const { // cde9bf
         if (a == b) return N - a;
         a = invsa[a], b = invsa[b];
