@@ -38,7 +38,6 @@ struct suffix_array_t {
                 } 
                 else { j = invsa[sa[i]] + 1; ternary_sort(i, j); } 
         for (int i = 0; i < N; ++i) sa[invsa[i]] = i;
-
         lcp.resize(N); int K = 0;
         for (int i = 0; i < N; ++i) {
             if (invsa[i] > 0) while (v[i + K] == v[sa[invsa[i] - 1] + K]) ++K;
