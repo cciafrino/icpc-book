@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.6.18)  18 JUN 2023 00:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.6.19)  19 JUN 2023 20:36
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1711,14 +1711,14 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python3 content/tex/preprocessor.py -i "content/strings/suffix-array.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
-runsystem(python3 content/tex/preprocessor.py --print-header "suffix-array.h|suffix-array.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [46]
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/strings/suffix-automaton.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)) (./content/various/chapter.tex
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "suffix-array.h|suffix-automaton.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [46])) (./content/various/chapter.tex
 Chapter 10.
 runsystem(rm -f build/kactl.tmp)...executed.
 
@@ -1957,18 +1957,18 @@ Package rerunfilecheck Info: File `kactl.out' has not changed.
 (rerunfilecheck)             Checksum: FCACB60EE8B76FB3C1742DA3FA07FD79;913.
  ) 
 Here is how much of TeX's memory you used:
- 26132 strings out of 480247
- 401856 string characters out of 5896151
+ 26127 strings out of 480247
+ 401789 string characters out of 5896151
  2488607 words of memory out of 5000000
- 35350 multiletter control sequences out of 15000+600000
+ 35348 multiletter control sequences out of 15000+600000
  487190 words of font info for 95 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,16n,77p,665b,2246s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/runner/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0700.600pk> </home/runner/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0900.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/runner/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcti0700.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on build//kactl.pdf (54 pages, 2733007 bytes).
+Output written on build//kactl.pdf (54 pages, 2733040 bytes).
 PDF statistics:
- 10405 PDF objects out of 10688 (max. 8388607)
- 10012 compressed objects within 101 object streams
- 7883 named destinations out of 8907 (max. 500000)
+ 10402 PDF objects out of 10688 (max. 8388607)
+ 10009 compressed objects within 101 object streams
+ 7880 named destinations out of 8907 (max. 500000)
  131 words of extra memory for PDF output out of 10000 (max. 10000000)
 

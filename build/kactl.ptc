@@ -306,7 +306,7 @@
 \contentsline {section}{\texttt {modnum-double-hashing.h}\hspace {0.2em}}{46}{lstnumber.9.7.39}%
 \contentsline {section}{\texttt {aho-corasick.h}\hspace {0.2em}}{46}{lstnumber.9.8.40}%
 \contentsline {section}{\texttt {suffix-array.h}\hspace {0.2em}}{46}{lstnumber.9.9.41}%
-\contentsline {section}{\texttt {suffix-automaton.h}\hspace {0.2em}}{47}{lstnumber.9.10.51}%
+\contentsline {section}{\texttt {suffix-automaton.h}\hspace {0.2em}}{47}{lstnumber.9.10.48}%
 \contentsline {section}{\numberline {9.1}Suffix Automaton}{47}{section.9.1}%
 \contentsline {subsection}{\numberline {9.1.1}Number of different substrings}{47}{subsection.9.1.1}%
 \contentsline {subsection}{\numberline {9.1.2}Total lenght of different substrings}{47}{subsection.9.1.2}%
