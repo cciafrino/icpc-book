@@ -7,38 +7,38 @@
  * Time: $O(1)$ 
  */
 template<typename T, T (*op)(const T&, const T&)> struct monotonic_queue { // 665a29
-    vector<T> as, aas;
-    vector<T> bs, bbs;
-    void reserve(int N) {
-        as.reserve(N); aas.reserve(N);
-        bs.reserve(N); bbs.reserve(N);
-    }
-    void reduce() {
-        while (!bs.empty()) {
-            as.push_back(bs.back());
-            aas.push_back(aas.empty() ? bs.back() : op(bs.back(), aas.back()));
-            bs.pop_back(); bbs.pop_back();
-        }
-    }
-    T get() {
-        if (as.empty()) reduce();
-        return (bbs.empty() ? aas.back() : op(aas.back(), bbs.back()));
-    }
-    bool empty() const { return (as.empty() && bs.empty()); }
-    int size() const { return int(as.size()) + int(bs.size()); }
-    T front() {
-        if (as.empty()) reduce();
-        return as.back();
-    }
-    void push(const T& val) {
-        bs.push_back(val);
-        bbs.push_back(bbs.empty() ? val : op(bbs.back(), val));
-    }
-    void pop() {
-        if (as.empty()) reduce();
-        as.pop_back();
-        aas.pop_back();
-    }
+	vector<T> as, aas;
+	vector<T> bs, bbs;
+	void reserve(int N) {
+		as.reserve(N); aas.reserve(N);
+		bs.reserve(N); bbs.reserve(N);
+	}
+	void reduce() {
+		while (!bs.empty()) {
+			as.push_back(bs.back());
+			aas.push_back(aas.empty() ? bs.back() : op(bs.back(), aas.back()));
+			bs.pop_back(); bbs.pop_back();
+		}
+	}
+	T get() {
+		if (as.empty()) reduce();
+		return (bbs.empty() ? aas.back() : op(aas.back(), bbs.back()));
+	}
+	bool empty() const { return (as.empty() && bs.empty()); }
+	int size() const { return int(as.size()) + int(bs.size()); }
+	T front() {
+		if (as.empty()) reduce();
+		return as.back();
+	}
+	void push(const T& val) {
+		bs.push_back(val);
+		bbs.push_back(bbs.empty() ? val : op(bbs.back(), val));
+	}
+	void pop() {
+		if (as.empty()) reduce();
+		as.pop_back();
+		aas.pop_back();
+	}
 };
 
 // min/max

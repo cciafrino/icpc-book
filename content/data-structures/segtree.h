@@ -46,7 +46,7 @@ template<class T> struct segtree {
 		}
 		t.merge(lhs, rhs); return t;
 	}
-  // da1cd
+	// da1cd
 	template<class Op, class E, class F, class... Args> 
 		auto query(int a, int b, Op op, E e, F f, Args&&... args) {
 			if (a == b) return e();
@@ -58,7 +58,7 @@ template<class T> struct segtree {
 			}
 			return op(lhs, rhs);
 		}
-  // 1edda
+	// 1edda
 	template<class F, class... Args> int find_right(int a, F f, Args &&... args) {
 		assert(0 <= a && a <= N);
 		if ((T().*f)(args...)) return a;
@@ -75,7 +75,7 @@ template<class T> struct segtree {
 			if (!(a & (a - 1))) return N + 1;
 		}
 	} 
-  // 76b20
+	// 76b20
 	template<class F, class... Args> int find_left(int a, F f, Args &&... args) {
 		assert(0 <= a && a <= N);
 		if ((T().*f)(args...)) return a;

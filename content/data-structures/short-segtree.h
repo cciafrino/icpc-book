@@ -11,12 +11,12 @@ template<typename T> struct segtree_t {
 	static constexpr T unit = INT_MIN;
 	T f(T a, T b) { return max(a, b); } // (any associative fn)
 	vector<T> s; int n;
-    segtree_t(int n = 0, T def = unit) : s(2*n, def), n(n) {}
+	segtree_t(int n = 0, T def = unit) : s(2*n, def), n(n) {}
 	void update(int pos, T val) {
-        for (s[pos += n] = val; pos /= 2;)
+		for (s[pos += n] = val; pos /= 2;)
 			s[pos] = f(s[pos * 2], s[pos * 2 + 1]);
 	}
-    T query(int b, int e) { // query [b, e)
+	T query(int b, int e) { // query [b, e)
 		T ra = unit, rb = unit;
 		for (b += n, e += n; b < e; b /= 2, e /= 2) {
 			if (b % 2) ra = f(ra, s[b++]);
