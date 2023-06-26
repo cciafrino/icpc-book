@@ -95,6 +95,6 @@ tuple<vvi, vvi, vector<int>> make_bcc_tree(const vector<pii> &edges){ // c6742c
 				tree[ c ].push_back( ncomp + inv[u] );
 				tree[ ncomp + inv[u] ].push_back( c );
 			}
-	
+
 	return {tree, comps, art};
 }

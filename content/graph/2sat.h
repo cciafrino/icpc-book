@@ -13,8 +13,8 @@
  *  ts.values[0..N-1] holds the assigned values to the vars
  * Time: O(N+E), where N is the number of boolean variables, and E is the number of clauses.
  */
- #include "tarjan.h"
- struct TwoSat {
+#include "tarjan.h"
+struct TwoSat {
 	int N;
 	vector<vector<int>> gr;
 	vector<int> values; // 0 = false, 1 = true
@@ -54,22 +54,22 @@
 		}
 		// to minimize (to maximize change < to >) number of variables true (need graph to be symmetric if a => b then ~a => ~b) 
 		/*
-		vector<pair<int, int>>cnt(2*N);
-		for (int i = 0; i < N; ++i){
-			if (comp[2*i] < comp[2*i+1]) cnt[comp[2*i]].st++;
-			else cnt[comp[2*i+1]].nd++;
-		}
-		for (int i = 0; i < N; ++i){
-			if (comp[2*i] < comp[2*i+1]){
-				if( cnt[comp[2*i]].st < cnt[comp[2*i]].nd ) values[i] = true; //change here
-				else values[i] = false;
-			}
-			else{
-				if( cnt[comp[2*i+1]].st < cnt[comp[2*i+1]].nd ) values[i] = false; //change here
-				else values[i] = true;
-			}
-		}
-		*/
+		   vector<pair<int, int>>cnt(2*N);
+		   for (int i = 0; i < N; ++i){
+		   if (comp[2*i] < comp[2*i+1]) cnt[comp[2*i]].st++;
+		   else cnt[comp[2*i+1]].nd++;
+		   }
+		   for (int i = 0; i < N; ++i){
+		   if (comp[2*i] < comp[2*i+1]){
+		   if( cnt[comp[2*i]].st < cnt[comp[2*i]].nd ) values[i] = true; //change here
+		   else values[i] = false;
+		   }
+		   else{
+		   if( cnt[comp[2*i+1]].st < cnt[comp[2*i+1]].nd ) values[i] = false; //change here
+		   else values[i] = true;
+		   }
+		   }
+		   */
 		return 1;
 	}
 };

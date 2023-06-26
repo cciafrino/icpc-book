@@ -67,7 +67,7 @@ struct flow_demand_t {
 	}
 	int get_flow() {
 		const int INF = std::numeric_limits<int>::max():
-		int x = 0, y = 0;
+			int x = 0, y = 0;
 		flower.add_edge(N, N-1, INF);
 		for (int i = 0; i <= N; ++i) {
 			if (d[i] < 0) {

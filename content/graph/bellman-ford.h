@@ -36,19 +36,19 @@ void bellmanFord(vector<node_t>& nodes, vector<edge_t>& eds, int s) {
 }
 
 vector<int> negCyc(int n, vector<edge_t>& edges) {
-    vector<int64_t> d(n); vector<int> p(n);
-    int v = -1;
-    for (int i = 0; i < n; ++i) {
-        v = -1; 
-        for (edge_t &u : edges)
-            if (d[u.b] > d[u.a] + u.w) {
-                d[u.b] = d[u.a] + u.w;
-                p[u.b] = u.a, v = u.b;
-            }
-        if (v == -1) return {};
-    }
-    for (int i = 0; i < n; ++i) v = p[v]; // enter cycle
-    vector<int> cycle = {v}; 
-    while (p[cycle.back()] != v) cycle.push_back(p[cycle.back()]);
-    return {cycle.rbegin(), cycle.rend()};
+	vector<int64_t> d(n); vector<int> p(n);
+	int v = -1;
+	for (int i = 0; i < n; ++i) {
+		v = -1; 
+		for (edge_t &u : edges)
+			if (d[u.b] > d[u.a] + u.w) {
+				d[u.b] = d[u.a] + u.w;
+				p[u.b] = u.a, v = u.b;
+			}
+		if (v == -1) return {};
+	}
+	for (int i = 0; i < n; ++i) v = p[v]; // enter cycle
+	vector<int> cycle = {v}; 
+	while (p[cycle.back()] != v) cycle.push_back(p[cycle.back()]);
+	return {cycle.rbegin(), cycle.rend()};
 }

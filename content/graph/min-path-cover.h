@@ -9,17 +9,17 @@
  */
 #include "bipartite-matching.h"
 vector<vector<int>> minPathCover(bipartite_matching& g, int N) {
-    int how_many = int(g.adj.size()) - g.solve();
-    vector<vector<int>> paths;
-    for (int i = 0; i < N; ++i) 
-        if (g.match[i + N] == -1) {
-            vector<int> path = {i};
-            int cur = i;
-            while (g.match[cur] >= 0) {
-                cur = g.match[cur] - N;
-                path.push_back(cur);
-            }
-            paths.push_back(path);
-        }
-    return paths;
+	int how_many = int(g.adj.size()) - g.solve();
+	vector<vector<int>> paths;
+	for (int i = 0; i < N; ++i) 
+		if (g.match[i + N] == -1) {
+			vector<int> path = {i};
+			int cur = i;
+			while (g.match[cur] >= 0) {
+				cur = g.match[cur] - N;
+				path.push_back(cur);
+			}
+			paths.push_back(path);
+		}
+	return paths;
 }

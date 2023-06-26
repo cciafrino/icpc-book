@@ -14,14 +14,14 @@ void floydWarshall(vector<vector<lint>>& m) {
 	int n = m.size();
 	for (int i = 0; i < n; ++i) m[i][i] = min(m[i][i], {});
 	for (int k = 0; k < n; ++k) 
-	    for (int i = 0; i < n; ++i) 
-	        for (int j = 0; j < n; ++j)
-		        if (m[i][k] != inf && m[k][j] != inf) {
-			        auto newDist = max(m[i][k] + m[k][j], -inf);
-			        m[i][j] = min(m[i][j], newDist);
-		        }
+		for (int i = 0; i < n; ++i) 
+			for (int j = 0; j < n; ++j)
+				if (m[i][k] != inf && m[k][j] != inf) {
+					auto newDist = max(m[i][k] + m[k][j], -inf);
+					m[i][j] = min(m[i][j], newDist);
+				}
 	for (int k = 0; k < n; ++k) if (m[k][k] < 0) 
-    	for (int i = 0; i < n; ++i) 
-    	    for (int j = 0; j < n; ++j)
-		        if (m[i][k] != inf && m[k][j] != inf) m[i][j] = -inf;
+		for (int i = 0; i < n; ++i) 
+			for (int j = 0; j < n; ++j)
+				if (m[i][k] != inf && m[k][j] != inf) m[i][j] = -inf;
 }
