@@ -35,7 +35,7 @@ struct seg_node { // bbfc07
 	}
 };
 
-// min of [a, N) <= x
+// 1 + min of [a, N) <= x
 auto find_min_right = [&](segtree<seg_node>& sg, int a, int x) -> int {
 	int acc = INT_MAX;
 	return sg.find_right(a, &seg_node::acc_min, acc, x);
@@ -47,7 +47,7 @@ auto find_min_left = [&](segtree<seg_node>& sg, int a, int x) -> int {
 	return sg.find_left(a, &seg_node::acc_min, acc, x);
 };
 
-// max of [a, N) >= x
+// 1 + max of [a, N) >= x
 auto find_max_right = [&](segtree<seg_node>& sg, int a, int x) -> int {
 	int acc = INT_MIN;
 	return sg.find_right(a, &seg_node::acc_max, acc, x);
