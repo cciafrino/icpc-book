@@ -14,8 +14,8 @@
 #include<mod-pow.h>
 
 template<typename T> bool is_primitive(T a, T m) {
-    vector<pair<T, T>> D = prime_factorize(m-1);
-    for (auto p : D) 
-        if (modpow(a, (m-1)/p.first, m) == 1) return false;
-    return true;
+	vector<pair<T, T>> D = prime_factorize(m-1);
+	for (auto p : D) 
+		if (modpow(a, (m-1)/p.first, m) == 1) return false;
+	return true;
 }

@@ -10,15 +10,15 @@
 #include "extended-euclid.h"
 template<typename T>
 pair<T, T> crt(const vector<T>& a, const vector<T>& m) {
-    int N = int(a.size());
-    T r = 0, md = 1, x, y;
-    for (int i = 0; i < N; ++i) {
-        T g = egcd(md, m[i], x = 0, y = 0);
-        T im = x;
-        if ((a[i] - r) % g) return {0, -1};
-        T tmp = (a[i] - r) / g * im % (m[i] / g);
-        r += md * tmp;
-        md *= m[i] / g;
-    }
-    return {(r % md + md) % md, md};
+	int N = int(a.size());
+	T r = 0, md = 1, x, y;
+	for (int i = 0; i < N; ++i) {
+		T g = egcd(md, m[i], x = 0, y = 0);
+		T im = x;
+		if ((a[i] - r) % g) return {0, -1};
+		T tmp = (a[i] - r) / g * im % (m[i] / g);
+		r += md * tmp;
+		md *= m[i] / g;
+	}
+	return {(r % md + md) % md, md};
 }

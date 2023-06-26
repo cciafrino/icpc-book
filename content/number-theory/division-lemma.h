@@ -15,13 +15,13 @@
 // <=> floor(N/(K+1)) < a <= floor(N/K)
 int res = 0;
 for (int a = 1, b; a <= N; a = b + 1) {
-    b = N / (N / a);
-    // for all i in [a, b] since they all have the same quotient (N / a)
-    // and there are (b - a + 1) elements in this interval
-    int l = b - a + 1, r = a + b; // l * r / 2 = sum(i, j)
-    if (l & 1) r /= 2;
-    else l /= 2;
-    res += l * r * (N / a);
+	b = N / (N / a);
+	// for all i in [a, b] since they all have the same quotient (N / a)
+	// and there are (b - a + 1) elements in this interval
+	int l = b - a + 1, r = a + b; // l * r / 2 = sum(i, j)
+	if (l & 1) r /= 2;
+	else l /= 2;
+	res += l * r * (N / a);
 }
 
 // ceil(N/a) = K
@@ -32,7 +32,7 @@ for (int a = 1, b; a <= N; a = b + 1) {
 
 // [1, N), need to deal with case where a = N separately
 for (int a = 1, b; a < N; a = b + 1) {
-    const int k = (N - 1) / a + 1; // quotient k 
-    b = (N - 1) / (k - 1);
-    int cnt = b - a + 1; // occur cnt times on interval [a, b]
+	const int k = (N - 1) / a + 1; // quotient k 
+	b = (N - 1) / (k - 1);
+	int cnt = b - a + 1; // occur cnt times on interval [a, b]
 }
