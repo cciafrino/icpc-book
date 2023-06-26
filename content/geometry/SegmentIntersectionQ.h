@@ -19,7 +19,7 @@ bool segmentIntersectionQ(P s1, P e1, P s2, P e2) {
 	auto a = v1.cross(v2), a1 = d.cross(v1), a2 = d.cross(v2);
 	if (a == 0) { // parallel
 		auto b1 = s1.dot(v1), c1 = e1.dot(v1),
-		     b2 = s2.dot(v1), c2 = e2.dot(v1);
+			 b2 = s2.dot(v1), c2 = e2.dot(v1);
 		return !a1 && max(b1,min(b2,c2)) <= min(c1,max(b2,c2));
 	}
 	if (a < 0) { a = -a; a1 = -a1; a2 = -a2; }

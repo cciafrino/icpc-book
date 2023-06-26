@@ -32,31 +32,31 @@ P proj(P a, P v) { return v * dot(a, v) / dot(v, v); }
 P closest(P p, line l) { return l.p + proj(p - l.p, l.v); }
 double dist(P p, line l) { return fabs(p - closest(p, l)); }
 P reflect(P p, P v, P w) {
-    P z = p - v; P q = w - v;
-    return conj(z/q) * q + v;
+	P z = p - v; P q = w - v;
+	return conj(z/q) * q + v;
 }
 P intersection(line a, line b) { // undefined if parallel
-    T d1 = cross(b.p - a.p, a.v - a.p);
-    T d2 = cross(b.v - a.p, a.v - a.p);
-    return (d1 * b.v - d2 * b.p)/(d1 - d2);
+	T d1 = cross(b.p - a.p, a.v - a.p);
+	T d2 = cross(b.v - a.p, a.v - a.p);
+	return (d1 * b.v - d2 * b.p)/(d1 - d2);
 }
 vector<P> convex_hull(vector<P> points) {
-    if (points.size() <= 1) return points;
+	if (points.size() <= 1) return points;
 	sort(points.begin(), points.end(), [](P a, P b) { 
 		return real(a)==real(b) ? imag(a)<imag(b) : real(a)<real(b); });
 	vector<P> hull(points.size()+1);
 	int s = 0, k = 0;
 	for (int it = 2; it--; s = --k, reverse(points.begin(), points.end()))
-	    for (P p : points) {
-	        while(k >= s+2 && cross(hull[k-2], hull[k-1], p) <= 0) k--;
-	        hull[k++] = p;
-	    }
+		for (P p : points) {
+			while(k >= s+2 && cross(hull[k-2], hull[k-1], p) <= 0) k--;
+			hull[k++] = p;
+		}
 	return {hull.begin(), hull.begin() + k - (k == 2 && hull[0] == hull[1])};
 }
 P p{4, 3};
 // get the absolute value and angle in [-pi, pi]
 cout << abs(p) << ' ' << arg(p) << '\n'; // 5 - 0.643501
-// make a point in polar form
+										 // make a point in polar form
 cout << polar(2.0, -M_PI/2) << '\n'; // (1.41421, -1.41421)
 P v{1, 0};
 cout << rotate(v, -M_PI/2) << '\n';

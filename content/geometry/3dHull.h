@@ -36,7 +36,7 @@ vector<F> hull3d(const vector<P3>& A) {///start-hash
 	};
 	for(int i=0;i<4;i++) for(int j=i+1;j<4;j++) for(k=j+1;k<4;k++)
 		mf(i, j, k, 6 - i - j - k);
-    ///end-hash
+	///end-hash
 	for(int i=4; i<A.size();++i) { ///start-hash
 		for(int j=0;j<FS.size();++j) {
 			F f = FS[j];
@@ -56,6 +56,6 @@ vector<F> hull3d(const vector<P3>& A) {///start-hash
 		}
 	}
 	for(auto &it: FS) if ((A[it.b] - A[it.a]).cross(
-		A[it.c] - A[it.a]).dot(it.q) <= 0) swap(it.c, it.b);
+			A[it.c] - A[it.a]).dot(it.q) <= 0) swap(it.c, it.b);
 	return FS;
 };///end-hash
