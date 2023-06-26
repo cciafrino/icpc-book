@@ -25,27 +25,27 @@ struct suffix_array_t {
 	}
 	suffix_array_t() {}
 	template<typename I>
-		suffix_array_t(I begin, I end): N(int(end - begin)+1), sa(N) {
-			vector<int> v(begin, end); v.push_back(INT_MIN);
-			invsa = v; iota(sa.begin(), sa.end(), 0);
-			H = 0; ternary_sort(0, N);
-			for (H = 1; H <= N; H *= 2)
-				for (int j = 0, i = j; i != N; i = j)
-					if (sa[i] < 0) {
-						while (j < N && sa[j] < 0) j += -sa[j];
-						sa[i] = -(j - i);
-					}
-					else { j = invsa[sa[i]] + 1; ternary_sort(i, j); }
-			for (int i = 0; i < N; ++i) sa[invsa[i]] = i;
-			lcp.resize(N-1); int K = 0;
-			for (int i = 0; i < N-1; ++i) {
-				if (invsa[i] > 0) while (v[i + K] == v[sa[invsa[i] - 1] + K]) ++K;
-				lcp[invsa[i]-1] = K; K = max(K - 1, 0);
-			}
-			vector<pair<int, int>> lcp_index(N-1);
-			for (int i = 0; i < N-1; ++i) lcp_index[i] = {lcp[i], 1 + i};
-			rmq = rmq_t<pair<int, int>>(std::move(lcp_index));
-		} 
+	suffix_array_t(I begin, I end): N(int(end - begin)+1), sa(N) {
+		vector<int> v(begin, end); v.push_back(INT_MIN);
+		invsa = v; iota(sa.begin(), sa.end(), 0);
+		H = 0; ternary_sort(0, N);
+		for (H = 1; H <= N; H *= 2)
+			for (int j = 0, i = j; i != N; i = j)
+				if (sa[i] < 0) {
+					while (j < N && sa[j] < 0) j += -sa[j];
+					sa[i] = -(j - i);
+				}
+				else { j = invsa[sa[i]] + 1; ternary_sort(i, j); }
+		for (int i = 0; i < N; ++i) sa[invsa[i]] = i;
+		lcp.resize(N-1); int K = 0;
+		for (int i = 0; i < N-1; ++i) {
+			if (invsa[i] > 0) while (v[i + K] == v[sa[invsa[i] - 1] + K]) ++K;
+			lcp[invsa[i]-1] = K; K = max(K - 1, 0);
+		}
+		vector<pair<int, int>> lcp_index(N-1);
+		for (int i = 0; i < N-1; ++i) lcp_index[i] = {lcp[i], 1 + i};
+		rmq = rmq_t<pair<int, int>>(std::move(lcp_index));
+	} 
 	pair<int, int> rmq_query(int a, int b) const { return rmq.query(a, b); }
 	pair<int, int> get_split(int a, int b) const { return rmq.query(a, b-1); }
 	int get_lcp(int a, int b) const {
