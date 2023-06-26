@@ -91,7 +91,7 @@
 \contentsline {section}{\numberline {7.4}DFS algorithms}{31}{section.7.4}%
 \contentsline {section}{\numberline {7.5}Heuristics}{33}{section.7.5}%
 \contentsline {section}{\numberline {7.6}Trees}{34}{section.7.6}%
-\contentsline {subsection}{\numberline {7.6.1}Sqrt Decomposition}{37}{subsection.7.6.1}%
+\contentsline {subsection}{\numberline {7.6.1}Sqrt Decomposition}{36}{subsection.7.6.1}%
 \contentsline {section}{\numberline {7.7}Functional Graphs}{37}{section.7.7}%
 \contentsline {section}{\numberline {7.8}Other}{37}{section.7.8}%
 \contentsline {section}{\numberline {7.9}Theorems}{38}{section.7.9}%
