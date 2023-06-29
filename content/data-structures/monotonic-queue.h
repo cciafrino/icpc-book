@@ -6,7 +6,7 @@
  * Status: Tested
  * Time: $O(1)$ 
  */
-template<typename T, T (*op)(const T&, const T&)> struct monotonic_queue { // 665a29
+template<typename T> struct monotonic_queue {
 	vector<T> as, aas;
 	vector<T> bs, bbs;
 	void reserve(int N) {
@@ -16,13 +16,13 @@ template<typename T, T (*op)(const T&, const T&)> struct monotonic_queue { // 66
 	void reduce() {
 		while (!bs.empty()) {
 			as.push_back(bs.back());
-			aas.push_back(aas.empty() ? bs.back() : op(bs.back(), aas.back()));
+			aas.push_back(aas.empty() ? bs.back() : (bs.back() * aas.back()));
 			bs.pop_back(); bbs.pop_back();
 		}
 	}
 	T get() {
 		if (as.empty()) reduce();
-		return (bbs.empty() ? aas.back() : op(aas.back(), bbs.back()));
+		return (bbs.empty() ? aas.back() : (aas.back() * bbs.back()));
 	}
 	bool empty() const { return (as.empty() && bs.empty()); }
 	int size() const { return int(as.size()) + int(bs.size()); }
@@ -32,7 +32,7 @@ template<typename T, T (*op)(const T&, const T&)> struct monotonic_queue { // 66
 	}
 	void push(const T& val) {
 		bs.push_back(val);
-		bbs.push_back(bbs.empty() ? val : op(bbs.back(), val));
+		bbs.push_back(bbs.empty() ? val : (bbs.back() * val));
 	}
 	void pop() {
 		if (as.empty()) reduce();
@@ -41,22 +41,9 @@ template<typename T, T (*op)(const T&, const T&)> struct monotonic_queue { // 66
 	}
 };
 
-// min/max
-template<typename T> T mapping_min(const T& a, const T& b) {
-	return min(a, b);
-}
-template<typename T> using min_monotonic_queue = monotonic_queue<T, mapping_min>;
-// gcd 
-template<typename T> T mapping_gcd(const T& a, const T& b) {
-	return __gcd(a, b);
-}
-template<typename T> using gcd_monotonic_queue = monotonic_queue<T, mapping_gcd>;
-
-// affine function
-template<typename T> struct affine_t {
-	T b, c;
+struct affine_t {
+	int64_t b, c;
+	affine_t operator*(affine_t rhs) {
+		return {(rhs.b * b) % M, (rhs.b * c + rhs.c) % M};
+	}
 };
-template<typename T> T mapping_affine(const T& lhs, const T& rhs) {
-	return {(rhs.b * lhs.b), (rhs.b * lhs.c + rhs.c)};
-}
-template<typename T> using affine_monotonic_queue = monotonic_queue<T, mapping_affine>;
