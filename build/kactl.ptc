@@ -217,7 +217,7 @@
 \contentsline {subsection}{\texttt {maximum-clique.h}\hspace {0.2em}}{33}{lstnumber.7.23.12}%
 \contentsline {subsection}{\texttt {chromatic-number.h}\hspace {0.2em}}{33}{lstnumber.7.24.49}%
 \contentsline {subsection}{\texttt {cycle-counting.cpp}\hspace {0.2em}}{34}{lstnumber.7.25.33}%
-\contentsline {subsection}{\texttt {edge-coloring.h}\hspace {0.2em}}{34}{lstnumber.7.26.49}%
+\contentsline {subsection}{\texttt {edge-coloring.h}\hspace {0.2em}}{34}{lstnumber.7.26.47}%
 \contentsline {section}{\numberline {7.6}Trees}{34}{section.7.6}%
 \contentsline {subsection}{\texttt {lca-binary-lifting.h}\hspace {0.2em}}{34}{section.7.6}%
 \contentsline {subsection}{\texttt {lca-euler-tour.h}\hspace {0.2em}}{34}{lstnumber.7.28.53}%
