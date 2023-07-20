@@ -1,9 +1,11 @@
 /**
  * Author:
  * Description: Counts 3 and 4 cycles
+ * Time: O(E \sqrt E)
  * Status: Tested on library-checker and gcpc-2022F
+
  */
-int count_cycles(vector<vector<int>>& adj, vector<int>& deg) {
+int count_cycles(const vector<vector<int>>& adj, const vector<int>& deg) {
 	const int N = int(adj.size());
 	vector<int> idx(N), loc(N);
 	iota(idx.begin(), idx.end(), 0);
