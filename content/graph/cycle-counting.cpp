@@ -1,54 +1,52 @@
 /**
  * Author:
  * Description: Counts 3 and 4 cycles
- * Status: working
+ * Status: Tested on library-checker and gcpc-2022F
  */
-#define P 1000000007
-#define N 110000
-int n, m;
-vector<int> go[N], lk[N];
-int w[N], deg[N], pos[N], id[N];
-int circle3(){ /// start-hash
-	int ans=0;
-	for (int i = 1; i <= n; i++) w[i] = 0;
-	for (int x = 1; x <= n; x++) {
-		for(int y : lk[x]) w[y] = 1;
-		for(int y:lk[x]) for(int z:lk[y]) if(w[z]){
-			ans=(ans+go[x].size()+go[y].size()+go[z].size()-6)%P;
+int count_cycles(vector<vector<int>>& adj, vector<int>& deg) {
+	const int N = int(adj.size());
+	vector<int> idx(N), loc(N);
+	iota(idx.begin(), idx.end(), 0);
+	sort(idx.begin(), idx.end(), [&](const int& a, const int& b) { return deg[a] < deg[b]; });
+	for (int i = 0; i < N; ++i) loc[idx[i]] = i;
+
+	vector<vector<int>> gr(N);
+	for (int a = 0; a < N; ++a) {
+		for (int b : adj[a]) {
+			if (loc[a] < loc[b]) gr[a].push_back(b);
 		}
-		for(int y:lk[x])w[y]=0;
 	}
-	return ans;
-} /// end-hash
-int circle4(){ /// start-hash
-	for (int i = 1; i <= n; i++) w[i]=0;
-	int ans=0;
-	for (int x = 1; x <= n; x++) {
-		for(int y:go[x])for(int z:lk[y])if(pos[z]>pos[x]){
-			ans=(ans+w[z])%P;
-			w[z]++;
+	
+	int cycle3 = 0;
+	{
+		vector<bool> seen(N, false);
+		for (int a = 0; a < N; ++a) {
+			for (int b : gr[a]) seen[b] = true;
+			for (int b : gr[a]) {
+				for (int c : gr[b]) {
+					if (seen[c]) {
+						cycle3 += 1;
+					}
+				}
+			}
+			for (int b : gr[a]) seen[b] = false;
 		}
-		for(int y:go[x])for(int z:lk[y])w[z]=0;
 	}
-	return ans;
-} /// end-hash
-inline bool cmp(const int &x,const int &y){
-	return deg[x]<deg[y];
-}
-void init() {
-	scanf("%d%d", &n, &m);
-	for (int i = 1; i <= n; i++)
-		deg[i] = 0, go[i].clear(), lk[i].clear();;
-	while (m--) {
-		int a,b;
-		scanf("%d%d",&a,&b);
-		deg[a]++;deg[b]++;
-		go[a].push_back(b);go[b].push_back(a);
+	int cycle4 = 0;
+	{
+		vector<int> cnt(N);
+		for (int a = 0; a < N; ++a) {
+			for (int b : adj[a]) {
+				for (int c : gr[b]) {
+					if (loc[a] < loc[c]) {
+						cycle4 += 1;
+						cnt[c]++;
+					}
+				}
+			}
+			for (int b : adj[a]) for (int c : gr[b]) cnt[c] = 0;
+		}
 	}
-	for (int i = 1; i <= n; i++) id[i] = i;
-	sort(id+1,id+1+n,cmp);
-	for (int i = 1; i <= n; i++) pos[id[i]]=i;
-	for (int x = 1; x <= n; x++)
-		for(int y:go[x])
-			if(pos[y]>pos[x])lk[x].push_back(y);
+
+	return cycle3;
 }
