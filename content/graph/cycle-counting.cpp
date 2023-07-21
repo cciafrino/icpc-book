@@ -41,7 +41,7 @@ int count_cycles(const vector<vector<int>>& adj, const vector<int>& deg) {
 			for (int b : adj[a]) {
 				for (int c : gr[b]) {
 					if (loc[a] < loc[c]) {
-						cycle4 += 1;
+						cycle4 += cnt[c];
 						cnt[c]++;
 					}
 				}
