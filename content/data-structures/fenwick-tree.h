@@ -11,12 +11,10 @@
 template<typename T> struct FT { // 8b7639
 	vector<T> s;
 	FT(int n) : s(n) {}
-	FT(const vector<T>& A) : s(int(A.size())) {
-		const int N = int(A.size());
-		for (int pos = 0; pos < N; ++pos) {
-			s[pos] += A[pos];
-			int nxt = (pos | (pos + 1));
-			if (nxt < N) s[nxt] += s[pos];
+	FT(const vector<T>& A) : s(A) {
+		const int N = int(s.size());
+		for (int a = 0; a < N; ++a) {
+			if ((a | (a + 1)) < N) s[a | (a + 1)] += s[a];
 		}
 	}
 	void update(int pos, T dif) { // a[pos] += dif
