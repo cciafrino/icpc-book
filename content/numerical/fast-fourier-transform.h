@@ -44,17 +44,17 @@ using M4 = modnum<943718401U>; // g = 7
 using M5 = modnum<935329793U>; // g = 3
 using M6 = modnum<918552577U>; // g = 5
 
+constexpr unsigned primitive_root(unsigned M) {
+	if (M == 880803841U) return 26U;
+	else if (M == 943718401U) return 7U;
+	else if (M == 918552577U) return 5U;
+	else return 3U;
+}
 template<unsigned MOD> struct root_of_unity<modnum<MOD>> {
-	static constexpr modnum<MOD> g0 = modnum<MOD>(3);
-	static constexpr modnum<MOD> g1 = modnum<MOD>(26);
-	static constexpr modnum<MOD> g2 = modnum<MOD>(7);
-	static constexpr modnum<MOD> g3 = modnum<MOD>(5);
-	static modnum<MOD> f(int k) {
-		assert((MOD-1)%k == 0);
-		if (MOD == M2::M) return g1.pow((MOD-1)/k);
-		else if (MOD == M4::M) return g2.pow((MOD-1)/k);
-		else if (MOD == M6::M) return g3.pow((MOD-1)/k);
-		else return g0.pow((MOD-1)/k);
+	static constexpr modnum<MOD> g0 = primitive_root(MOD);
+	static modnum<MOD> f(int K) {
+		assert((MOD-1)%K == 0);
+		return g0.pow((MOD-1)/K);
 	}
 };
 
