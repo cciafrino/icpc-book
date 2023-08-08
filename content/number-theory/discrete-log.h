@@ -40,7 +40,7 @@ template<typename T> T modLog(T a, T b, T m) {
 		k = k * a / g % m;
 	}
 	T n = sqrtl(m) + 1, f = 1, j = 1;
-	unordered_map<T, T> A; 
+	unordered_map<T, T> A;
 	while (j <= n) {
 		f = f * a % m;
 		A[f * b % m] = j++;

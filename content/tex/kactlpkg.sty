@@ -203,7 +203,7 @@
 	\begin{center}
 		\strut % Magic
 		\vspace{3cm}\\
-		\includegraphics[width=6cm]{\@unilogo}\\
+		\includegraphics[width=18cm]{\@unilogo}\\
 		{\fontsize{25}{30}\selectfont \@unilong\\}
 		{\fontsize{60}{60}\selectfont \@teamname\\}
 		\vspace{0.5cm}
@@ -272,6 +272,11 @@
 	\def\@kactldir{\@kactlbasedir}
 }
 
+\newcommand{\kactlchapterwf}[1]{
+	\def\@kactldir{\@kactlbasedir/#1}
+	\input{"\@kactldir/chapter-wf.tex"}
+	\def\@kactldir{\@kactlbasedir}
+}
 \newcommand{\kactlerror}[1]{
 	\PackageError{kactlpkg}{#1}{}
 }

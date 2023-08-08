@@ -54,9 +54,7 @@ template<typename T> struct gaussian_elimination {
 	// O(N^2 + M)
 	pair<bool, vector<T>> solve(vector<T> b, bool reduced = false) const {
 		assert(N == b.size());
-		if (reduced == false) {
-			b = E * b;
-		}
+		if (reduced == false) b = E * b;
 		vector<T> x(M);
 		for (int j = 0; j < M; ++j) {
 			if (pivot[j] == -1) continue;

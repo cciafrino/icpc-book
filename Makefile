@@ -19,11 +19,15 @@ help:
 
 fast: | build
 	$(LATEXCMD) content/kactl.tex </dev/null
+	$(LATEXCMD) content/kactl-wf.tex </dev/null
 	cp build/kactl.pdf kactl.pdf
+	cp build/kactl-wf.pdf kactl-wf.pdf
 
 kactl: test-session.pdf | build
 	$(LATEXCMD) content/kactl.tex && $(LATEXCMD) content/kactl.tex
 	cp build/kactl.pdf kactl.pdf
+	$(LATEXCMD) content/kactl-wf.tex && $(LATEXCMD) content/kactl-wf.tex
+	cp build/kactl-wf.pdf kactl-wf.pdf
 
 clean:
 	cd build && rm -f kactl.aux kactl.log kactl.tmp kactl.toc kactl.pdf kactl.ptc

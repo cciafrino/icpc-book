@@ -14,7 +14,7 @@ vector<int> run_sieve(int N) {
 	vector<int> mu(N + 1, -1); mu[1] = 1;
 	vector<int> phi(N + 1); phi[1] = 1;
 	for (int i = 2; i <= N; ++i) {
-		if (!pfac[i]) { 
+		if (!pfac[i]) {
 			pfac[i] = i; primes.push_back(i); 
 			phi[i] = i - 1;
 		}

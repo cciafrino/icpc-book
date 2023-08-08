@@ -22,12 +22,3 @@ void calculatePhi() {
 	for(int i = 3; i < n; i += 2) if (phi[i] == i)
 		for(int j = i; j < n; j += i) phi[j] -= phi[j]/i;
 }
-template<typename T> T phi(T N){
-	T s = N;
-	for (int p = 2; p*p <= N; ++p) if (N % p == 0) {
-		s = s / p * (p - 1);
-		while (N % p == 0) N /= p;
-	}
-	if (N > 1) s = s / N * (N - 1);
-	return s;
-}

@@ -10,7 +10,7 @@
  * Time: O(N log N)
  * Status: Fuzz-tested and tested on Kattis - Grid MST
  */
-#include<UnionFind.h>
+#include<dsu.h>
 typedef Point<int> P;
 pair<vector<array<int, 3>>, int> manhattanMST(vector<P> ps) {
 	vector<int> id(ps.size());
