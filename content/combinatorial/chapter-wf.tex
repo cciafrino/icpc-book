@@ -19,26 +19,27 @@
 	\item Every entry in row $2^n - 1$ is odd
 	\end{itemize}
 	
-		\begin{tabular}{c@{\ }c@{\ }c@{\ }}
-		$\binom{n}{k} = \frac{n}{k}\binom{n-1}{k-1}$ & $\binom{n}{k} \binom{n - k}{v} = \binom{n}{v}\binom{n-v}{k}$\\
-		$\sum_{k=0}^{n} \binom{n}{k} k = n 2^{n-1}$ & $\sum_{j=0}^k \binom{m}{j} \binom{n-m}{k-j} = \binom{n}{k}$\\
-		$\sum_{m=0}^n \binom{m}{j} \binom{n-m}{k-j} = \binom{n+1}{k+1}$ & $\sum_{r=0}{m} \binom{n+r}{r} = \binom{n+m+1}{m}$\\
-		$(x + y)^n = \sum_{k=0}^n \binom{n}{k} x^{n-k} y^k$ & $\sum_{m=k}^n \binom{m}{k} = \binom{n+1}{k+1}$\\
+	\kactlimport{lucas.h}
+	\kactlimport{rolling-binomial.h}
+	\kactlimport{multinomial.h}
+	
+	\begin{flushleft}
+	\begin{tabular}{c@{\ }c@{\ }c@{\ }}
+	$\binom{n}{k} = \frac{n}{k}\binom{n-1}{k-1}$ & $\binom{n}{k} \binom{n - k}{v} = \binom{n}{v}\binom{n-v}{k}$\\
+	$\sum_{k=0}^{n} \binom{n}{k} k = n 2^{n-1}$ & $\sum_{j=0}^k \binom{m}{j} \binom{n-m}{k-j} = \binom{n}{k}$\\
+	$\sum_{m=0}^n \binom{m}{j} \binom{n-m}{k-j} = \binom{n+1}{k+1}$ & $\sum_{r=0}{m} \binom{n+r}{r} = \binom{n+m+1}{m}$\\
+	$(x + y)^n = \sum_{k=0}^n \binom{n}{k} x^{n-k} y^k$ & $\sum_{m=k}^n \binom{m}{k} = \binom{n+1}{k+1}$\\
 	$\sum_{j=0}^{m} \binom{m}{j}^2 = \binom{2m}{m}$ &\\
 	$2 \sum_{i=L}^R \binom{n}{i} - \binom{n}{L} - \binom{n}{R} = \sum_{i=L+1}^R \binom{n+1}{i}$ &
-		\end{tabular}
-
-	\kactlimport{rolling-binomial.h}
-	\kactlimport{lucas.h}
-	\kactlimport{multinomial.h}
-
+	\end{tabular}\\
+	\end{flushleft}
 
 
 \subsection{Involutions}
     An involution is a permutation with maximum cycle length 2, and it is its own inverse. 
-    $$a(n) = a(n-1) + (n-1)a(n-2)$$
-    $$a(0) = a(1) = 1$$
-    1, 1, 2, 4, 10, 26, 76, 232, 764, 2620, 9496, 35696, 140152\\
+    $a(n) = a(n-1) + (n-1)a(n-2), a(0) = a(1) = 1$.\\
+    $1, 1, 2, 4, 10, 26, 76, 232, 764, 2620, 9496, 35696, 140152$
+
 
 \subsection{Cycles}
 		Let the number of $n$-permutations whose cycle lenghts all belong to the set $S$ be denoted by $g_S (n)$
@@ -46,10 +47,10 @@
 		$$\sum_{n=0} ^\infty g_S(n) \frac{x^n}{n!} = \exp\left(\sum_{n\in S} \frac{x^n}{n} \right)$$
 		\normalsize
 
-\subsection{Inclusion-Exclusion Principle}
-	Let $A_1, A_2, ..., A_n$ be finite sets. Then  $A_1 \cup A_2 \cup ... \cup A_n$ is
-	\[ \left| \bigcup^n_{i = 1} A_i \right|  = \sum_{\substack{I \subseteq \{1, 2, ..., n\}\\ I 
-	\neq \emptyset}}^{} (-1)^{\left| I \right| +1} \left| \bigcap\limits_{i\in I} A_i \right| \]
+%\subsection{Inclusion-Exclusion Principle}
+%	Let $A_1, A_2, ..., A_n$ be finite sets. Then  $A_1 \cup A_2 \cup ... \cup A_n$ is
+%	\[ \left| \bigcup^n_{i = 1} A_i \right|  = \sum_{\substack{I \subseteq \{1, 2, ..., n\}\\ I 
+%	\neq \emptyset}}^{} (-1)^{\left| I \right| +1} \left| \bigcap\limits_{i\in I} A_i \right| \]
 
 \subsection{The twelvefold way (from Stanley)} 
 How many functions $f \colon N \rightarrow X$ are there?
@@ -98,6 +99,8 @@ Permutations of a set such that none of the elements appear in their original po
 	\end{tabular}
 	\end{center}
 	\normalsize
+
+\kactlimport{partitions.h}
 
 \section{General purpose numbers}
 
@@ -223,7 +226,7 @@ $ \sum_{i=0}^{n} \Fib(i)^2 = \Fib(n)\Fib(n+1)$
 $ \sum_{i=0}^{n} \Fib(i)^3 = \frac{\Fib(n)\Fib(n+1)^2 - (-1)^n\Fib(n-1) + 1}{2}$
 
 \section{Linear Recurrences}
-\begin{enumerate}[label=(\roman*)]
+\iffalse
   \item $F_n = F_{n-1} + F_{n-2}$\\
 
 $\begin{bmatrix}
@@ -266,10 +269,11 @@ $\begin{bmatrix}
     F_K
 \end{bmatrix}$
 }
+\fi
 
-\item $F_i = \sum_{j=1}^{K} C_j F_{i-j} + D$\\
+$F_i = \sum_{j=1}^{K} C_j F_{i-j} + D$\\
 
-    {
+{   
   \scriptsize
   $\begin{bmatrix}
     0 & 1 & 0 & 0 & . & 0 & 0\\
@@ -296,7 +300,10 @@ $\begin{bmatrix}
     D
   \end{bmatrix}$
 }
-\end{enumerate}
+
+\
+
+
 \section{Game Theory}
 A game can be reduced to Nim if it is a finite impartial game.
 Nim and its variants include:
@@ -310,6 +317,8 @@ Nim and its variants include:
 \subsection{Staircase Nim}
 Stones are moved down a staircase and only removed from the last pile. $(x_i)_{i=1}^n$ is an $L$-position if $(x_{2i-1})_{i=1}^{n/2}$ is (i.e. only look at odd-numbered piles).
 
+\kactlimport{nim-product.cpp}
+\iffalse
 \subsection{Moore's Nim$_k$}
 The player may remove from at most $k$ piles (Nim $=$ Nim$_1$). Expand the piles in base $2$, do a carry-less addition in base $k+1$ (i.e. the number of ones in each column should be divisible by $k+1$).
 
@@ -327,9 +336,7 @@ Players may alternatively split a pile into two new non-empty piles. $g(4k+1) = 
 
 \subsection{Hackenbush on Trees}
 A tree with stalks $(x_i)_{i=1}^n$ may be replaced with a single stalk with length $\bigoplus_{i=1}^n x_i$.
+\fi
 
-\
 
-\kactlimport{nim-product.cpp}
-\kactlimport{partitions.h}
 	

@@ -58,13 +58,13 @@
 
 		\textbf{Block Tree:} Use a DFS to split edges into contiguous groups of size $\sqrt N$ to $2\sqrt N.$
 
-		\textbf{Mo's Algorithm for Tree Paths:} Maintain an array of vertices where each one appears twice, once when a DFS enters the vertex (\texttt{st}) and one when the DFS exists (\texttt{en}). For a tree path $u\leftrightarrow v$ such that \texttt{st[u]<st[v]},
+		%\textbf{Mo's Algorithm for Tree Paths:} Maintain an array of vertices where each one appears twice, once when a DFS enters the vertex (\texttt{st}) and one when the DFS exists (\texttt{en}). For a tree path $u\leftrightarrow v$ such that \texttt{st[u]<st[v]},
 
-		\begin{itemize}
-		\item If $u$ is an ancestor of $v,$ query \texttt{[st[u],st[v]]}.
+		%\begin{itemize}
+		%\item If $u$ is an ancestor of $v,$ query \texttt{[st[u],st[v]]}.
 
-		\item Otherwise, query $\texttt{[en[u],st[v]]}$ and consider $lca(u,v)$ separately.
-		\end{itemize}
+		%\item Otherwise, query $\texttt{[en[u],st[v]]}$ and consider $lca(u,v)$ separately.
+		%\end{itemize}
 
 %\section{Functional Graphs}
 %    \kactlimport{functional-graph.h}
@@ -79,6 +79,7 @@
 
 \section{Theorems}
 
+\iffalse
 \subsection{Landau}
 There are a tournament with outdegree~$d_1 \leq d_2 \leq \ldots \leq d_n$ iff:
 \begin{itemize}
@@ -87,29 +88,18 @@ There are a tournament with outdegree~$d_1 \leq d_2 \leq \ldots \leq d_n$ iff:
 \item $d_1 + d_2 + \ldots + d_k \geq \binom{k}{2} \quad \forall 1 \leq k \leq n.$
 \end{itemize}
 In order to build, lets make~1 point to~$2, 3, \ldots, d_1 + 1$ and we follow recursively
-
-\
+\fi
 
 \subsection{Euler's theorem}
 Let~$V$,~$A$ and~$F$ be the number of vertices, edges and faces of connected planar graph, $V - A + F = 2$
 
-
-\
-
 \subsection{Eulerian Cycles}
-The number of Eulerian cycles in a \emph{directed} graph $G$ is:
-\begin{equation*}
-	t_w(G) \prod_{v \in G} (\deg v - 1)!,
-\end{equation*}
+The number of Eulerian cycles in a \emph{directed} graph $G$ is: $t_w(G) \prod_{v \in G} (\deg v - 1)!$,
 where $t_w(G)$ is the number of arborescences (``directed spanning'' tree) rooted at $w$
 (Check Number of Spanning Trees)
 
-\
-
 \subsection{Dilworth's theorem}
 For any partially ordered set, the sizes of the max antichain and of the min chain decomposition are equal. Equivalent to Konig's theorem on the bipartite graph $(U,V,E)$ where $U=V=S$ and $(u,v)$ is an edge when $u<v$. Those vertices outside the min vertex cover in both $U$ and $V$ form a max antichain
-
-\
 
 \subsection{König-Egervary theorem}
 For Bipartite Graphs, the number of edges in the maximum matching is greater than or equal the number of vertices in the minimum cover
@@ -131,11 +121,11 @@ $(v,T,w(v))$ for $v\in R$ and $(u,v,\infty)$ for $(u,v)\in E$. The
 minimum $S,T$-cut is the answer. Vertices adjacent to a cut edge are
 in the vertex cover.Num
 
-\subsection{Tutte-Berge formula}
-The theorem states that the size of a maximum matching of a graph $G=(V,E)$ equals ${\frac{1}{2}}\min_{U\subseteq V}\left(|U|- \texttt{odd}(G-U)+|V|\right)\,,$ where \texttt{odd}(H) counts how many of the connected components of the graph $H$ have an odd number of vertices.
+%\subsection{Tutte-Berge formula}
+%The theorem states that the size of a maximum matching of a graph $G=(V,E)$ equals ${\frac{1}{2}}\min_{U\subseteq V}\left(|U|- \texttt{odd}(G-U)+|V|\right)\,,$ where \texttt{odd}(H) counts how many of the connected components of the graph $H$ have an odd number of vertices.
 
-\subsection{Tutte's theorem}
-A graph $G = (V, A)$ has a perfect matching iff for all subset $U$ of $V$, the induced subgraph by $V \setminus U$ has at most $|U|$ connected components with odd number of vertices.
+% \subsection{Tutte's theorem}
+%A graph $G = (V, A)$ has a perfect matching iff for all subset $U$ of $V$, the induced subgraph by $V \setminus U$ has at most $|U|$ connected components with odd number of vertices.
 
 %\subsection{Erdős–Gallai theorem}
 %% Source: https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gallai-theorem
