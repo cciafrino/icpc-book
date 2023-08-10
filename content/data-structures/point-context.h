@@ -25,42 +25,16 @@ struct seg_node { // bbfc07
 		if (acc < ma) acc = ma;
 		return false;
 	}
-	bool go(int& acc, int& k) const {
-		if (val <= k) {
-			k -= val;
-			acc += val;
-			return false;
-		} 
-		return true;
-	}
 };
 
 // 1 + min of [a, N) <= x
 auto find_min_right = [&](segtree<seg_node>& sg, int a, int x) -> int {
 	int acc = INT_MAX;
-	return sg.find_right(a, &seg_node::acc_min, acc, x);
-};
-
-// min of [0, a) <= x
-auto find_min_left = [&](segtree<seg_node>& sg, int a, int x) -> int {
-	int acc = INT_MAX;
-	return sg.find_left(a, &seg_node::acc_min, acc, x);
-};
-
-// 1 + max of [a, N) >= x
-auto find_max_right = [&](segtree<seg_node>& sg, int a, int x) -> int {
-	int acc = INT_MIN;
-	return sg.find_right(a, &seg_node::acc_max, acc, x);
+	return sg.find_first(a, N, &seg_node::acc_min, acc, x);
 };
 
 // max of [0, a) >= x
 auto find_max_left = [&](segtree<seg_node>& sg, int a, int x) -> int {
 	int acc = INT_MIN;
-	return sg.find_left(a, &seg_node::acc_max, acc, x);
-};
-
-// kth one of [a, N)
-auto find_kth = [&](segtree<seg_node>& sg, int a, int x) -> int {
-	int acc = 0;
-	return sg.find_right(a, &seg_node::go, acc, x);
+	return sg.find_last(0, a, &seg_node::acc_max, acc, x);
 };

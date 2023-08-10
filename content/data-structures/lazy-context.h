@@ -2,11 +2,6 @@
  * Author: Chris
  * Description: Examples of Segment Tree with Lazy update
  */
-
-namespace range_flip_range_sum { //4a7f6d
-// query sum a[l, r)
-// update range a[i] <- !a[i]
-// update range a[i] <- 1
 struct seg_node {
 	int sz, lz; int64_t sum;
 	seg_node() : sz(1), sum(0), lz(-1) {}
@@ -25,25 +20,20 @@ struct seg_node {
 		sz = l.sz + r.sz;
 		sum = l.sum + r.sum;
 	}
-	void assign(int val) {
+	void assign(int val) { // range a[i] <- val
 		sum = sz * val;
 		lz = val;
 	}
-	void flip(int val) {
+	void flip(int val) {  // range a[i] <- !a[i]
 		sum = sz - sum;
 		if (lz == -1) lz = 2;
 		else if (lz == 0) lz = 1;
 		else if (lz == 1) lz = 0;
 		else lz = -1;
 	}
-	int64_t get_sum() const { return sum; }
+	int64_t get_sum() const { return sum; } // sum a[l, r)
 };
-}
 
-namespace range_add_range_sum { // d9640e
-// query sum a[l, r)
-// update range a[i] <- v
-// update range a[i] <- a[i] + v
 template<typename T = int64_t> struct seg_node {
 	T val, lz_add, lz_set;
 	int sz;
@@ -66,21 +56,19 @@ template<typename T = int64_t> struct seg_node {
 		sz = l.sz + r.sz;
 		val = l.val + r.val;
 	}
-	void add(T v) {
+	void add(T v) {  // update range a[i] <- a[i] + v
 		val += v * sz;
 		lz_add += v;
 	}
-	void assign(T v) {
+	void assign(T v) {   // update range a[i] <- v
 		val = v * sz;
 		lz_add = 0;
 		lz_set = v;
 		to_set = true;
 	}
-	T get_sum() const { return val; }
+	T get_sum() const { return val; } // sum a[l, r)
 };
-}
 
-namespace range_add_linear_range_sum { // a922ef
 // update range a[i] <- a[i] + b * (i - s) + c
 // assuming b and c are non zero, be careful
 // get sum a[l, r)
@@ -107,9 +95,7 @@ template<typename T = int64_t> struct seg_node {
 	}
 	T get_sum() const { return sum; }
 };
-}
 
-namespace range_affine_range_sum { // 61a09f
 // update range a[i] <- b * a[i] + c
 // get sum a[l, r)
 struct seg_node {
@@ -132,9 +118,7 @@ struct seg_node {
 	}
 	i64 get_sum() const { return sum; }
 };
-}
 
-namespace range_chmin_chmax_point_query { // 8bab55
 // update range a[i] <- min(a[i], b);
 // update range a[i] <- max(a[i], b);
 // get val a[i]
@@ -163,10 +147,4 @@ struct seg_node {
 		mn = lz0 = max(lz0, lz1);
 	}
 	pair<int, int> get() const { return {mx, mn}; }
-};
-}
-
-auto get_sum = [&](segtree_range<seg_node>& st, int a, int b) {
-	return st.query(a, b, [&](auto l, auto r) -> i64 { return l + r; },
-		[&]() -> i64 { return 0; }, &seg_node::get_sum);
 };

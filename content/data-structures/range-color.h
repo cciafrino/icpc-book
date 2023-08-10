@@ -9,30 +9,23 @@
  * Time: $O(\lg(L)*Q)$
  * Status: stress-tested
  */
-
 template<class T = int64_t, class C = int32_t> struct RangeColor{
-
 	struct Node{
-		T left, right;
-		C color;
+		T left, right; C color;
 		bool operator < (const Node &n) const{ return right < n.right; }
 	};
-
 	C minInf;
 	set<Node> st;
 	vector<T> freq;
-
 	RangeColor(T first, T last, C maxColor, C iniColor = C(0)): minInf(first - T(1)), freq(maxColor + 1) {
 		freq[iniColor] = last - first + T(1);
 		st.insert({first, last, iniColor});
 	}
-	//get color in position i
-	C query(T i){
+	C query(T i) { //get color in position i
 		auto p = st.upper_bound({T(0), i - T(1), minInf});
 		return p->color;
 	}
-	//set newColor in [a, b]
-	void upd(T a, T b, C newColor){
+	void upd(T a, T b, C newColor) { //set newColor in [a, b]
 		auto p = st.upper_bound({T(0), a - T(1), minInf});
 		assert(p != st.end());
 		T left = p->left, right = p->right;

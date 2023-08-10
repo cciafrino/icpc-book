@@ -36,24 +36,3 @@ template<typename T> struct FT { // 8b7639
 		return pos;
 	}
 };
-
-template<typename T> struct range_layout { // fd83ef
-	FT<T> lhs, rhs;
-	range_layout(int N = 0) : lhs(N), rhs(N) {}
-	range_layout(const vector<T>& A) : lhs(A), rhs(int(A.size())) {}
-	void update(int pos, T dif) {
-		rhs.update(0, dif);
-		rhs.update(pos, -dif);
-		lhs.update(pos, (pos - 1) * dif);
-	}
-	void update(int a, int b, T dif) {
-		update(a, -dif);
-		update(b + 1, dif);
-	}
-	T query(int pos) {
-		return rhs.query(pos + 1) * pos + lhs.query(pos + 1);
-	}
-	T query(int a, int b) {
-		return query(b) - query(a - 1);
-	}
-};

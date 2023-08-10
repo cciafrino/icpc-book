@@ -6,7 +6,7 @@
  * Description: 
  * Status: tested on yosupo
  * Usage:
- * Time: 
+ * Time: $\mathcal{O}(\min{(N, M)}NM)$
  */
 #include"../data-structures/matrix.h"
 template<typename T> struct gaussian_elimination {
@@ -14,13 +14,10 @@ template<typename T> struct gaussian_elimination {
 	Matrix<T> A, E;
 	vector<int> pivot;
 	int rank, nullity, sgn;
-	// O(std::min(N, M)NM)
 	gaussian_elimination(const Matrix<T>& A_) : A(A_) {
 		N = A.size(), M = A[0].size();
 		E = Matrix<T>(N, vector<T>(N));
-		for (int i = 0; i < N; ++i) {
-			E[i][i] = 1;
-		}
+		for (int i = 0; i < N; ++i) E[i][i] = 1;
 		rank = 0, nullity = M, sgn = 0;
 		pivot.assign(M, -1);
 		for (int col = 0, row = 0; col < M && row < N; ++col) {
@@ -40,20 +37,16 @@ template<typename T> struct gaussian_elimination {
 			for (int i = 0; i < N; ++i) {
 				if (i == row) continue;
 				T c = A[i][col] / A[row][col];
-				for (int j = col; j < M; ++j) {
+				for (int j = col; j < M; ++j)
 					A[i][j] -= c * A[row][j];
-				}
-				for (int j = 0; j < N; ++j) {
+				for (int j = 0; j < N; ++j)
 					E[i][j] -= c * E[row][j];
-				}
 			}
 			pivot[col] = row++;
 			++rank, --nullity;
 		}
 	}
-	// O(N^2 + M)
 	pair<bool, vector<T>> solve(vector<T> b, bool reduced = false) const {
-		assert(N == b.size());
 		if (reduced == false) b = E * b;
 		vector<T> x(M);
 		for (int j = 0; j < M; ++j) {
@@ -61,12 +54,10 @@ template<typename T> struct gaussian_elimination {
 			x[j] = b[pivot[j]] / A[pivot[j]][j];
 			b[pivot[j]] = 0;
 		}
-		for (int i = 0; i < N; ++i) {
+		for (int i = 0; i < N; ++i) 
 			if (b[i] != 0) return {false, x};
-		}
 		return {true, x};
 	}
-	// O(nullity * NM)
 	vector<vector<T>> kernel_basis() const {
 		vector<vector<T>> basis;
 		vector<T> e(M);
@@ -79,7 +70,6 @@ template<typename T> struct gaussian_elimination {
 		}
 		return basis;
 	}
-	// O(N^3)
 	Matrix<T> inverse() const {
 		assert(N == M); assert(rank == N);
 		Matrix<T> res(N, vector<T>(N));
@@ -87,9 +77,8 @@ template<typename T> struct gaussian_elimination {
 		for (int i = 0; i < N; ++i) {
 			e[i] = 1;
 			auto x = solve(e).second;
-			for (int j = 0; j < N; ++j) {
+			for (int j = 0; j < N; ++j)
 				res[j][i] = x[j];
-			}
 			e[i] = 0;
 		}
 		return res;
