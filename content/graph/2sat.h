@@ -45,8 +45,8 @@ struct TwoSat {
 		either(cur, ~li[1]);
 	}
 	bool solve() {
-        scc_t s(gr);
-        s.solve([](const vector<int> &v){ return; } );
+        	scc_t s(gr);
+        	s.solve([](const vector<int> &v){ return; } );
 		values.assign(N, -1);
 		for (int i = 0; i < N; ++i) if (s.cc_id[2*i] == s.cc_id[2*i+1]) return 0;
 		for (int i = 0; i < N; ++i){
