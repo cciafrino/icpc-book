@@ -7,14 +7,7 @@
  * Time: O(\log^2 p) worst case, O(\log p) for most $p$
  * Status: Tested for all a,p <= 10000
  */
-uint xrand() {
-	static uint x = 314159265, y = 358979323, z = 846264338, w = 327950288;
-	uint t = x ^ x << 11; x = y; y = z; z = w; return w = w ^ w >> 19 ^ t ^ t >> 8;
-}
-
-// Jacobi symbol (a/m)
-//   m > 0, m: odd
-int jacobi(int64_t a, int64_t m) {
+int jacobi(int64_t a, int64_t m) { // Jacobi symbol (a/m)
 	int s = 1;
 	if (a < 0) a = a % m + m;
 	for (; m > 1; ) {
@@ -28,17 +21,13 @@ int jacobi(int64_t a, int64_t m) {
 	}
 	return s;
 }
-
-// sqrt(a) (mod p)
-//   p: prime, p < 2^31, -p^2 <= a <= P^2
-//   (b + sqrt(b^2 - a))^((p+1)/2) in F_p(sqrt(b^2 - a))
 vector<int64_t> mod_sqrt(int64_t a, int64_t p) {
 	if (p == 2) return {a & 1};
 	const int j = jacobi(a, p);
 	if (j == 0) return {0};
 	if (j == -1) return {};
 	int64_t b, d;
-	for (; ; ) {
+	while (true) {
 		b = xrand() % p;
 		d = (b * b - a) % p;
 		if (d < 0) d += p;
@@ -57,4 +46,3 @@ vector<int64_t> mod_sqrt(int64_t a, int64_t p) {
 	}
 	return (g0 < p - g0) ? vector<int64_t>{g0, p - g0} : vector<int64_t>{p - g0, g0};
 }
-

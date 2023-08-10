@@ -37,10 +37,10 @@
 \contentsline {subsection}{\numberline {5.5.1}Bézout's identity}{23}{subsection.5.5.1}%
 \contentsline {subsection}{\numberline {5.5.2}Pythagorean Triples}{23}{subsection.5.5.2}%
 \contentsline {subsection}{\numberline {5.5.3}Primitive Roots}{23}{subsection.5.5.3}%
-\contentsline {subsection}{\numberline {5.5.4}Chicken McNugget theorem}{24}{subsection.5.5.4}%
-\contentsline {section}{\numberline {5.6}Primes}{24}{section.5.6}%
-\contentsline {subsection}{\numberline {5.6.1}Wilson's theorem}{24}{subsection.5.6.1}%
-\contentsline {subsection}{\numberline {5.6.2}Wolstenholme's theorem}{24}{subsection.5.6.2}%
+\contentsline {subsection}{\numberline {5.5.4}Chicken McNugget theorem}{23}{subsection.5.5.4}%
+\contentsline {section}{\numberline {5.6}Primes}{23}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Wilson's theorem}{23}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6.2}Wolstenholme's theorem}{23}{subsection.5.6.2}%
 \contentsline {subsection}{\numberline {5.6.3}Prime counting function ($\pi (x)$)}{24}{subsection.5.6.3}%
 \contentsline {subsection}{\numberline {5.6.4}Sum of primes}{24}{subsection.5.6.4}%
 \contentsline {subsection}{\numberline {5.6.5}Moebius Function}{24}{subsection.5.6.5}%
@@ -63,7 +63,7 @@
 \contentsline {subsection}{\numberline {6.3.2}Stirling numbers of the first kind}{25}{subsection.6.3.2}%
 \contentsline {subsection}{\numberline {6.3.3}Eulerian numbers}{25}{subsection.6.3.3}%
 \contentsline {subsection}{\numberline {6.3.4}Stirling numbers of the second kind}{25}{subsection.6.3.4}%
-\contentsline {subsection}{\numberline {6.3.5}Bell numbers}{26}{subsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.3.5}Bell numbers}{25}{subsection.6.3.5}%
 \contentsline {subsection}{\numberline {6.3.6}Labeled unrooted trees}{26}{subsection.6.3.6}%
 \contentsline {subsection}{\numberline {6.3.7}Catalan numbers}{26}{subsection.6.3.7}%
 \contentsline {subsection}{\numberline {6.3.8}Super Catalan numbers}{26}{subsection.6.3.8}%
@@ -80,22 +80,22 @@
 \contentsline {subsection}{\numberline {6.6.4}Moore's Nim$_k$}{26}{subsection.6.6.4}%
 \contentsline {subsection}{\numberline {6.6.5}Dim$^+$}{26}{subsection.6.6.5}%
 \contentsline {subsection}{\numberline {6.6.6}Aliquot Game}{26}{subsection.6.6.6}%
-\contentsline {subsection}{\numberline {6.6.7}Nim (at most half)}{27}{subsection.6.6.7}%
-\contentsline {subsection}{\numberline {6.6.8}Lasker's Nim}{27}{subsection.6.6.8}%
-\contentsline {subsection}{\numberline {6.6.9}Hackenbush on Trees}{27}{subsection.6.6.9}%
+\contentsline {subsection}{\numberline {6.6.7}Nim (at most half)}{26}{subsection.6.6.7}%
+\contentsline {subsection}{\numberline {6.6.8}Lasker's Nim}{26}{subsection.6.6.8}%
+\contentsline {subsection}{\numberline {6.6.9}Hackenbush on Trees}{26}{subsection.6.6.9}%
 \contentsline {chapter}{\numberline {7}Graph}{27}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Fundamentals}{27}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Network flow}{28}{section.7.2}%
 \contentsline {section}{\numberline {7.3}Matching}{29}{section.7.3}%
-\contentsline {section}{\numberline {7.4}DFS algorithms}{31}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Heuristics}{33}{section.7.5}%
-\contentsline {section}{\numberline {7.6}Trees}{34}{section.7.6}%
-\contentsline {subsection}{\numberline {7.6.1}Sqrt Decomposition}{36}{subsection.7.6.1}%
-\contentsline {section}{\numberline {7.7}Functional Graphs}{36}{section.7.7}%
+\contentsline {section}{\numberline {7.4}DFS algorithms}{30}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Heuristics}{32}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Trees}{33}{section.7.6}%
+\contentsline {subsection}{\numberline {7.6.1}Sqrt Decomposition}{35}{subsection.7.6.1}%
+\contentsline {section}{\numberline {7.7}Functional Graphs}{35}{section.7.7}%
 \contentsline {section}{\numberline {7.8}Other}{36}{section.7.8}%
-\contentsline {section}{\numberline {7.9}Theorems}{37}{section.7.9}%
-\contentsline {subsection}{\numberline {7.9.1}Landau}{37}{subsection.7.9.1}%
-\contentsline {subsection}{\numberline {7.9.2}Euler's theorem}{37}{subsection.7.9.2}%
+\contentsline {section}{\numberline {7.9}Theorems}{36}{section.7.9}%
+\contentsline {subsection}{\numberline {7.9.1}Landau}{36}{subsection.7.9.1}%
+\contentsline {subsection}{\numberline {7.9.2}Euler's theorem}{36}{subsection.7.9.2}%
 \contentsline {subsection}{\numberline {7.9.3}Eulerian Cycles}{37}{subsection.7.9.3}%
 \contentsline {subsection}{\numberline {7.9.4}Dilworth's theorem}{37}{subsection.7.9.4}%
 \contentsline {subsection}{\numberline {7.9.5}König-Egervary theorem}{37}{subsection.7.9.5}%
@@ -112,7 +112,7 @@
 \contentsline {section}{\numberline {8.3}Polygons}{40}{section.8.3}%
 \contentsline {section}{\numberline {8.4}Misc. Point Set Problems}{42}{section.8.4}%
 \contentsline {section}{\numberline {8.5}3D}{43}{section.8.5}%
-\contentsline {chapter}{\numberline {9}Strings}{44}{chapter.9}%
+\contentsline {chapter}{\numberline {9}Strings}{43}{chapter.9}%
 \contentsline {section}{\numberline {9.1}Suffix Automaton}{46}{section.9.1}%
 \contentsline {subsection}{\numberline {9.1.1}Number of different substrings}{46}{subsection.9.1.1}%
 \contentsline {subsection}{\numberline {9.1.2}Total lenght of different substrings}{46}{subsection.9.1.2}%
@@ -123,12 +123,12 @@
 \contentsline {subsection}{\numberline {9.1.7}All occurence positions}{46}{subsection.9.1.7}%
 \contentsline {chapter}{\numberline {10}Various}{46}{chapter.10}%
 \contentsline {section}{\numberline {10.1}Intervals}{46}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Misc. algorithms}{47}{section.10.2}%
+\contentsline {section}{\numberline {10.2}Misc. algorithms}{46}{section.10.2}%
 \contentsline {section}{\numberline {10.3}Dynamic programming}{49}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Debugging tricks}{51}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Optimization tricks}{51}{section.10.5}%
-\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{51}{subsection.10.5.1}%
-\contentsline {subsection}{\numberline {10.5.2}Pragmas}{51}{subsection.10.5.2}%
+\contentsline {section}{\numberline {10.4}Debugging tricks}{50}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Optimization tricks}{50}{section.10.5}%
+\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{50}{subsection.10.5.1}%
+\contentsline {subsection}{\numberline {10.5.2}Pragmas}{50}{subsection.10.5.2}%
 \contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{51}{section.10.6}%
-\contentsline {section}{\numberline {10.7}Random Numbers}{52}{section.10.7}%
+\contentsline {section}{\numberline {10.7}Random Numbers}{51}{section.10.7}%
 \contentsfinish 
