@@ -15,44 +15,44 @@
  */
 #include "tarjan.h"
 struct TwoSat {
-	int N;
-	vector<vector<int>> gr;
-	vector<int> values; // 0 = false, 1 = true
-	TwoSat(int n = 0) : N(n), gr(2*n) {}
-	int add_var() { // (optional)
-		gr.emplace_back();
-		gr.emplace_back();
-		return N++;
-	}
-	void either(int f, int j) {
-		f = max(2*f, -1-2*f);
-		j = max(2*j, -1-2*j);
-		gr[f].push_back(j^1);
-		gr[j].push_back(f^1);
-	}
-	void implies(int f, int j) { either(~f, j); }
-	void set_value(int x) { either(x, x); }
-	void at_most_one(const vector<int>& li) { // (optional)
-		if (int(li.size()) <= 1) return;
-		int cur = ~li[0];
-		for (int i = 2; i < int(li.size()); ++i) {
-			int next = add_var();
-			either(cur, ~li[i]);
-			either(cur, next);
-			either(~li[i], next);
-			cur = ~next;
-		}
-		either(cur, ~li[1]);
-	}
-	bool solve() {
-        	scc_t s(gr);
-        	s.solve([](const vector<int> &v){ return; } );
-		values.assign(N, -1);
-		for (int i = 0; i < N; ++i) if (s.cc_id[2*i] == s.cc_id[2*i+1]) return 0;
-		for (int i = 0; i < N; ++i){
-			if (s.cc_id[2*i] < s.cc_id[2*i+1]) values[i] = false;
-			else values[i] = true;
-		}
-		return 1;
-	}
+    int N;
+    vector<vector<int>> gr;
+    vector<int> values; // 0 = false, 1 = true
+    TwoSat(int n = 0) : N(n), gr(2*n) {}
+    int add_var() { // (optional)
+        gr.emplace_back();
+        gr.emplace_back();
+        return N++;
+    }
+    void either(int f, int j) {
+        f = max(2*f, -1-2*f);
+        j = max(2*j, -1-2*j);
+        gr[f].push_back(j^1);
+        gr[j].push_back(f^1);
+    }
+    void implies(int f, int j) { either(~f, j); }
+    void set_value(int x) { either(x, x); }
+    void at_most_one(const vector<int>& li) { // (optional)
+        if (int(li.size()) <= 1) return;
+        int cur = ~li[0];
+        for (int i = 2; i < int(li.size()); ++i) {
+            int next = add_var();
+            either(cur, ~li[i]);
+            either(cur, next);
+            either(~li[i], next);
+            cur = ~next;
+        }
+        either(cur, ~li[1]);
+    }
+    bool solve() {
+        scc_t s(gr);
+        s.solve([](const vector<int> &v){ return; } );
+        values.assign(N, -1);
+        for (int i = 0; i < N; ++i) if (s.cc_id[2*i] == s.cc_id[2*i+1]) return 0;
+        for (int i = 0; i < N; ++i){
+            if (s.cc_id[2*i] < s.cc_id[2*i+1]) values[i] = false;
+            else values[i] = true;
+        }
+        return 1;
+    }
 };
