@@ -11,7 +11,8 @@ struct scc_t {
 	int n, t, scc_num;
 	vector<vector<int>> adj;
 	vector<int> low, id, stk, in_stk, cc_id;
-	scc_t(const vector<vector<int>>& g) : n(int(g.size())), t(0), scc_num(0),
+	scc_t(const vector<vector<int>>& g) : 
+	n(int(g.size())), t(0), scc_num(0),	
 	adj(g), low(n,-1), id(n,-1), in_stk(n, false), cc_id(n) {}
 	template<class F> void dfs(int cur, F f) {
 		id[cur] = low[cur] = t++;

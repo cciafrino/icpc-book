@@ -208,7 +208,7 @@
 \contentsline {subsection}{\texttt {dfs-tree.h}\hspace {0.2em}}{30}{section.7.4}%
 \contentsline {subsection}{\texttt {centroid-decomposition.h}\hspace {0.2em}}{31}{lstnumber.7.17.52}%
 \contentsline {subsection}{\texttt {tarjan.h}\hspace {0.2em}}{31}{lstnumber.7.18.75}%
-\contentsline {subsection}{\texttt {kosaraju.h}\hspace {0.2em}}{31}{lstnumber.7.19.35}%
+\contentsline {subsection}{\texttt {kosaraju.h}\hspace {0.2em}}{31}{lstnumber.7.19.36}%
 \contentsline {subsection}{\texttt {bcc.h}\hspace {0.2em}}{31}{lstnumber.7.20.35}%
 \contentsline {subsection}{\texttt {2sat.h}\hspace {0.2em}}{32}{lstnumber.7.21.62}%
 \contentsline {section}{\numberline {7.5}Heuristics}{32}{section.7.5}%
