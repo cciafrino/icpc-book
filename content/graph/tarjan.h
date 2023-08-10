@@ -1,53 +1,44 @@
 /**
- * Author: Lukas Polacek
- * Date: 2009-10-28
+ * Author: Chris Ciafrino
  * License: CC0
- * Source: Czech graph algorithms book, by Demel. (Tarjan's algorithm)
- * Description: Finds strongly connected components in a
- * directed graph. If vertices $u, v$ belong to the same component,
- * we can reach $u$ from $v$ and vice versa.
+ * Description: Finds all strongly connected components in a directed graph.
  * Time: O(E + V)
- * Status: Bruteforce-tested for N <= 5
- * Usage: scc(graph, [\&](vi\& v) { ... }) visits all components
- * in reverse topological order. comp[i] holds the component
- * index of a node (a component only has edges to components with
- * lower index). ncomps will contain the number of components.
+ * Status: tested on Yosupo
+ * Usage: scc_t s(g); s.solve([\&](const vector<int>\& cc) {...}); 
+ * visits all components in reverse topological order.
  */
-using G = vector<vector<int>>;
-vector<int> val, comp, z, cont;
-int Time, ncomps;
-template<class G, class F> int dfs(int j, G& g, F& f) {
-	int low = val[j] = ++Time, x; z.push_back(j);
-	for (auto e : g[j]) if (comp[e] < 0)
-		low = min(low, val[e] ?: dfs(e,g,f));
-	if (low == val[j]) {
-		do {
-			x = z.back(); z.pop_back();
-			comp[x] = ncomps;
-			cont.push_back(x);
-		} while (x != j);
-		f(cont); cont.clear();
-		ncomps++;
+struct scc_t {
+	int n, t, scc_num;
+	vector<vector<int>> adj;
+	vector<int> low, id, stk, in_stk, cc_id;
+	scc_t(const vector<vector<int>>& g) : n(int(g.size())), t(0), scc_num(0),
+	adj(g), low(n,-1), id(n,-1), in_stk(n, false), cc_id(n) {}
+	template<class F> void dfs(int cur, F f) {
+		id[cur] = low[cur] = t++;
+		stk.push_back(cur);
+		in_stk[cur] = true;
+		for (int nxt : adj[cur]) {
+			if (id[nxt] == -1) {
+				dfs(nxt, f);
+				low[cur] = min(low[cur], low[nxt]);
+			} else if (in_stk[nxt]) {
+				low[cur] = min(low[cur], id[nxt]);
+			}
+		}
+		if (low[cur] == id[cur]) {
+			vector<int> cc; cc.reserve(stk.size());
+			while (true) {
+				int v = stk.back(); stk.pop_back();
+				in_stk[v] = false;
+				cc.push_back(v);
+				cc_id[v] = scc_num;
+				if (v == cur) break;
+			} f(cc); scc_num ++;
+		}
 	}
-	return val[j] = low;
-}
-template<class G, class F> void scc(G& g, F f) {
-	int n = int(g.size());
-	val.assign(n, 0); comp.assign(n, -1);
-	Time = ncomps = 0;
-	for(int i = 0; i < n; ++i) if (comp[i] < 0) dfs(i, g, f);
-}
-pair<G, G> make_scc_dag(G &g){
-	G vertOfComp;
-	scc(g, [&](const vector<int> &vert){
-		vertOfComp.push_back(vert);
-	} );	
-	G dag(ncomps);
-	for(int u=0; u < int(g.size()); u++)
-		for(int v:g[u])
-			if(comp[u] != comp[v])
-				dag[ comp[u] ].push_back(comp[v]);
-	for(int u=0; u<ncomps; u++)
-		dag[u].resize( distance( dag[u].begin(), unique(dag[u].begin(), dag[u].end()) ) );
-	return { dag, vertOfComp };
-}
+	template<class F> void solve(F f) {
+		stk.reserve(n);
+		for (int r = 0; r < n; ++r)
+			if (id[r] == -1) dfs(r, f);
+	}
+};

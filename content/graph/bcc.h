@@ -1,100 +1,80 @@
 /**
- * Author: Simon Lindholm
- * Date: 2017-04-17
+ * Author: Chris Ciafrino, LeticiaFCS
  * License: CC0
- * Source: folklore
- * Description: Finds all biconnected components in an undirected graph, and
- *  runs a callback for the edges in each. In a biconnected component there
- *  are at least two distinct paths between any two nodes. Note that a node can
- *  be in several components. An edge which is not in a component is a bridge,
- *  i.e., not part of any cycle.
- *  $make_bcc_tree$ constructs the block cut tree of given graph. The first
- *  $comps.size()$ nodes represents the blocks, the others represents the
- *  cut vertices.
+ * Description: Finds all biconnected components in an undirected graph.
+ *  In a biconnected component there are at least two distinct paths 
+ *  between any two nodes or the component is a bridge. 
+ *  Note that a node can be in several components. $blockcut$ constructs 
+ *  the block cut tree of given graph. The first nodes represents the 
+ *  blocks, the others represents the articulation points.
  * Time: O(E + V)
- * Status: tested during MIPT ICPC Workshop 2017, make_bcc_tree is not well tested
+ * Status: tested on Yosupo, $blockcut$ tested on Baekjoon - Blockade
  * Usage:
- *  int eid = 0; ed.resize(N);
+ *  int e_id = 0; vector<pair<int, int>> g(N);
  *  for each edge (a,b) {
- *    ed[a].emplace_back(b, eid);
- *    ed[b].emplace_back(a, eid++); }
- *  bicomps([\&](const vi\& edgelist) {...});
+ *    g[a].emplace_back(b, e_id);
+ *    g[b].emplace_back(a, e_id++); }
+ *  bcc_t b(g); b.solve([\&](const vector<int>\& edges) {...});
  */
-vector<int> num, st, stk;
-vector<vector<int>> two_edge_cc; // two-edge-connected components
-vector<vector<pii>> ed;
-int Time;
-template<class F> int dfs(int at, int par, F& f) { // ba3883
-	int me = num[at] = ++Time, e, y, top = me;
-	stk.push_back(at);
-	for(auto &pa : ed[at]) if (pa.second != par) {
-		tie(y, e) = pa;
-		if (num[y]) {
-			top = min(top, num[y]);
-			if (num[y] < me) st.push_back(e);
-		} else {
-			int si = int(st.size());
-			int up = dfs(y, e, f);
-			top = min(top, up);
-			if (up == me) {
-				st.push_back(e);
-				f(vector<int>(st.begin() + si, st.end()));
-				st.resize(si);
+struct bcc_t{
+	using pii = pair<int, int>; // v, e_id
+	int n, t;
+	vector<vector<pii>> adj;
+	vector<int> low, id, stk, is_art;
+	bcc_t(const vector<vector<pii>> &g) : n(int(g.size())), t(0), 
+	adj(g), low(n,-1), id(n,-1), is_art(n) {}
+	template<class F> void dfs(int cur, int e_par, F f){
+		id[cur] = low[cur] = t++;
+		stk.push_back(e_par);
+		int c = 0;
+		for (auto [nxt, e_id] : adj[cur]) if (e_id != e_par) {
+			if (id[nxt] == -1) {
+				dfs(nxt, e_id, f);
+				low[cur] = min(low[cur], low[nxt]);
+				c ++;
+				if (low[nxt] >= id[cur]) {
+					is_art[cur] = true;
+					auto top = find(stk.rbegin(), stk.rend(), e_id);
+					vector<int> cc(stk.rbegin(), next(top));
+					f(cc);
+					stk.resize(stk.size() - cc.size());
+				}
+			}			
+			else {
+				low[cur] = min(low[cur], id[nxt]);
+				if (id[nxt] < id[cur]) stk.push_back(e_id);
 			}
-			else if (up < me) st.push_back(e);
-			else { f({e}); /* e is a bridge */ }
 		}
+		if(e_par == -1) is_art[cur] = (c > 1) ? true : false;
 	}
-	if (top >= num[at]) {
-		vector<int> cur_two_edge_cc;
-		while (stk.back() != at) {
-			cur_two_edge_cc.push_back(stk.back());
-			stk.pop_back();
-		}
-		cur_two_edge_cc.push_back(stk.back());
-		stk.pop_back();
-		two_edge_cc.push_back(cur_two_edge_cc);
+	template<class F> void solve(F f) {
+		stk.reserve(n);
+		for (int r = 0; r < n; ++r)
+			if (id[r] == -1) dfs(r, -1, f);
 	}
-	return top;
-}
-
-template<class F> void bicomps(F f) { // c44d89
-	Time = 0;
-	st.resize(0);
-	num.assign(ed.size(), 0);
-	for(int i = 0; i < int(ed.size()); ++i) 
-		if (!num[i]) dfs(i, -1, f);
-}
-
-using vvi = vector<vector<int>>;
-tuple<vvi, vvi, vector<int>> make_bcc_tree(const vector<pii> &edges){ // c6742c
-	int nart = 0, ncomp = 0, n = int(ed.size());
-	vector<int> inv(n);
-	vvi comps;
-	bicomps([&](const vector<int> &eid){
-		ncomp++;
-		set<int> cur;
-		for(int e: eid){			
-			cur.insert(edges[e].first);
-			cur.insert(edges[e].second);	
-		}
-		comps.push_back(vector<int>(cur.begin(), cur.end()));
-		for(int v: cur)
-			inv[v]++;
-	} );
-	vector<int> art;
-	for(int u = 0; u < n; u++)
-		if(inv[u] > 1){
-			inv[u] = nart++;
-			art.push_back(u);
-		} else inv[u] = -1;
-	vvi tree(ncomp + nart);
-	for(int c = 0; c < ncomp; c++)
-		for(int u: comps[c])
-			if(inv[u] != -1){
-				tree[ c ].push_back( ncomp + inv[u] );
-				tree[ ncomp + inv[u] ].push_back( c );
+	auto blockcut(const vector<pii> &edges){
+		vector<vector<int>> cc;
+		vector<int> cc_id(n);
+		solve( [&](const vector<int> &c) {
+			set<int> vc;
+			for(int e : c){            
+				auto [a, b] = edges[e];
+				cc_id[a] = cc_id[b] = int(cc.size());
+				vc.insert(a);
+				vc.insert(b);
 			}
-
-	return {tree, comps, art};
-}
+			cc.emplace_back(vc.begin(), vc.end());
+		} );
+		for(int a = 0; a < n; a++) if(is_art[a]) {
+			cc_id[a] = int(cc.size());
+			cc.push_back({a});
+		}
+		vector<vector<int>> tree(cc.size());
+		for(int c = 0; c < int(tree.size()) && 1 < int(cc[c].size()); ++c)
+			for(int a : cc[c]) if(is_art[a]) {
+				tree[c].push_back(cc_id[a]);
+				tree[cc_id[a]].push_back(c);
+			}
+		return make_tuple(cc_id, cc, tree);
+	}
+};
