@@ -5,20 +5,13 @@
  * If $|a| < m$ and $|b| < n$, $x$ will obey $0 \le x < \text{lcm}(m, n)$.
  * Assumes $mn < 2^{62}$.
  * Status: tested on kattis
- * Time: $O(n\log(LCM(m)))$
+ * Time: $O(\log(LCM(m)))$
  */
 #include "extended-euclid.h"
-template<typename T>
-pair<T, T> crt(const vector<T>& a, const vector<T>& m) {
-	int N = int(a.size());
-	T r = 0, md = 1, x, y;
-	for (int i = 0; i < N; ++i) {
-		T g = egcd(md, m[i], x = 0, y = 0);
-		T im = x;
-		if ((a[i] - r) % g) return {0, -1};
-		T tmp = (a[i] - r) / g * im % (m[i] / g);
-		r += md * tmp;
-		md *= m[i] / g;
-	}
-	return {(r % md + md) % md, md};
+pair<ll, ll> crt(ll a, ll m, ll b, ll n) {
+	if (n > m) swap(a, b), swap(m, n);
+	ll x, y, g = egcd(m, n, x, y);
+	if ((a - b) % g != 0) return {0, -1};
+	x = (b - a) % n * x % n / g * m + a;
+	return {x + (x < 0 ? m*n/g : 0), m*n/g};
 }
