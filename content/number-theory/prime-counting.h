@@ -1,65 +1,33 @@
 /**
- * Author: Maksim1744
- * Date: 
+ * Author: Maksim1744 / Radewoosh
+ * Date:
  * License:
  * Source: https://en.wikipedia.org/wiki/Meissel%E2%80%93Lehmer_algorithm,
 https://www.topcoder.com/single-round-match-741-editorials/,
 https://blog.csdn.net/bestFy/article/details/80100244
- * Description: Count the number of primes up to $x$. Also useful for sum of primes.
- * Status: lightly-tested
- * Time:  $O(n^{3/4}/\log n)$
+ * Description: Count the number of primes up to $N$. Also useful for sum of primes.
+ * Status: tested on library-checker
+ * Time:  $\mathcal{O}(N^{3/4}/\log N)$
  */
-using ll = int64_t;
-int isqrt(ll n) {
-	return sqrtl(n);
-}
-
-ll count_primes(const ll N) {
-	if (N <= 1) return 0;
-	if (N == 2) return 1;
-	const int v = isqrt(N);
-	int s = (v + 1) / 2;
-	vector<int> smalls(s);
-	for (int i = 1; i < s; i++) smalls[i] = i;
-	vector<int> roughs(s);
-	for (int i = 0; i < s; i++) roughs[i] = 2 * i + 1;
-	vector<ll> larges(s);
-	for (int i = 0; i < s; i++) larges[i] = (N / (2 * i + 1) - 1) / 2;
-	vector<bool> skip(v + 1);
-	const auto divide = [](ll n, ll d) -> int { return (double)n / d;};
-	const auto half = [](int n) -> int { return (n - 1) >> 1;};
-	int pc = 0;
-	for (int p = 3; p <= v; p += 2) if (!skip[p]) {
-		int q = p * p;
-		if ((ll)q * q > N) break;
-		skip[p] = true;
-		for (int i = q; i <= v; i += 2 * p) skip[i] = true;
-		int ns = 0;
-		for (int k = 0; k < s; k++) {
-			int i = roughs[k];
-			if (skip[i]) continue;
-			ll d = (ll)i * p;
-			larges[ns] = larges[k] - (d <= v ? larges[smalls[d >> 1] - pc] : smalls[half(divide(N, d))]) + pc;
-			roughs[ns++] = i;
+struct primes_t {
+	vector<ll> dp, w;
+	ll pi(ll N) {
+		const int sqrtN = int(sqrt(N));
+		for (ll a = 1, b; a <= N; a = b+1) {
+			b = N / (N / a);
+			w.push_back(N/a);
 		}
-		s = ns;
-		for (int i = half(v), j = ((v / p) - 1) | 1; j >= p; j -= 2) {
-			int c = smalls[j >> 1] - pc;
-			for (int e = (j * p) >> 1; i >= e; i--) smalls[i] -= c;
+		auto get = [&](ll x) {
+			if (x <= sqrtN) return int(x-1);
+			return int(w.size() - N/x);
+		};
+		reverse(w.begin(), w.end()); dp.reserve(w.size());
+		for (auto& x : w) dp.push_back(x-1);
+		for (ll i = 2; i*i <= N; ++i) {
+			if (dp[i-1] == dp[i-2]) continue;
+			for (int j = int(w.size())-1; w[j] >= i*i; --j)
+				dp[j] -= dp[get(w[j]/i)] - dp[i-2];
 		}
-		pc++;
+		return dp.back();
 	}
-	larges[0] += (ll)(s + 2 * (pc - 1)) * (s - 1) / 2;
-	for (int k = 1; k < s; k++) larges[0] -= larges[k];
-	for (int l = 1; l < s; l++) {
-		ll q = roughs[l];
-		ll M = N / q;
-		int e = smalls[half(M / q)] - pc;
-		if (e < l + 1) break;
-		ll t = 0;
-		for (int k = l + 1; k <= e; k++)
-			t += smalls[half(divide(M, roughs[k]))];
-		larges[0] += t - (ll)(e - l) * (pc + l - 1);
-	}
-	return larges[0] + 1;
-}
+};

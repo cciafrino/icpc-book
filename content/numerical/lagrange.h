@@ -12,8 +12,8 @@ template<typename T> struct interpolator_t {
 	T interpolate(const vector<T>& y, T x) {
 		int N = int(y.size()); T res = 0;
 		pref[0] = suff[N - 1] = 1;
-		for (int i = 0; i+1 < N; ++i) pref[i+1] = pref[i] * (x - i);
-		for (int i = N-1; i > 0; --i) suff[i-1] = suff[i] * (x - i);
+		for (int i = 0; i+1 < N; ++i) pref[i+1] = pref[i] * (x-i);
+		for (int i = N-1; i > 0; --i) suff[i-1] = suff[i] * (x-i);
 		for (int i = 0, sgn = (N & 1 ? +1 : -1); i < N; ++i, sgn *= -1) {
 			res += y[i] * sgn * pref[i] * suff[i] * invFac[i] * invFac[N-1-i];
 		}
