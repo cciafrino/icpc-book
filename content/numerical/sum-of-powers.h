@@ -3,8 +3,8 @@
  * Description: Computes monomials and sum of powers product certain 
  * polynomials. Check "General purpose numbers" section for more info.
  * (Monomials) $\displaystyle pw(x) = x^d$ for a fixed $d$.
- * (Sum of power limit) $\displaystyle \sum_{x=0}^{\infty} r^x f(x)$. (degree of $f \leq d$).
- * (Sum of powers til n) $\displaystyle \sum_{x=0}^{N} r^x f(x)$. (degree of $f \leq d$).
+ * $\displaystyle \sum_{x=0}^{\infty} r^x f(x)$. (degree of $f \leq d$).
+ * $\displaystyle \sum_{x=0}^{N-1} r^x f(x)$. (degree of $f \leq d$).
  * Source: library-checker
  */
 #include "../number-theory/modular-arithmetic.h"
