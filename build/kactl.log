@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.8.14)  17 AUG 2023 23:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.8.14)  19 AUG 2023 21:38
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -557,14 +557,19 @@ Package hyperref Info: Link coloring OFF on input line 12.
 
 runsystem(rm -f build/header.tmp)...executed.
 
-<projeto4.png, id=44, 1016.79875pt x 372.39125pt>
-File: projeto4.png Graphic file (type png)
-<use projeto4.png>
-Package pdftex.def Info: projeto4.png  used on input line 13.
-(pdftex.def)             Requested size: 512.1496pt x 187.57594pt.
+<projeto.png, id=44, 323.96896pt x 153.26224pt>
+File: projeto.png Graphic file (type png)
+<use projeto.png>
+Package pdftex.def Info: projeto.png  used on input line 13.
+(pdftex.def)             Requested size: 227.62204pt x 107.6874pt.
+<everybody-hates-chris.png, id=46, 903.375pt x 507.8975pt>
+File: everybody-hates-chris.png Graphic file (type png)
+<use everybody-hates-chris.png>
+Package pdftex.def Info: everybody-hates-chris.png  used on input line 13.
+(pdftex.def)             Requested size: 227.62204pt x 127.9738pt.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <content/tex/projeto4.png>] (build//kactl.toc
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <content/tex/projeto.png> <content/tex/everybody-hates-chris.png>] (build//kactl.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 1.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -581,7 +586,7 @@ Chapter 1.
 \c@ttl@toc@chapters=\count318
 runsystem(rm -f build/kactl.tmp)...executed.
 
-runsystem(python3 content/tex/preprocessor.py -i "content/contest/template.cpp" -o build/kactl.tmp -l rawcpp)...executed.
+runsystem(python3 content/tex/preprocessor.py -i "content/contest/Makefile" -o build/kactl.tmp -l raw)...executed.
 
 (./build/kactl.tmp
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 3.
@@ -589,27 +594,10 @@ LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 3.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-LaTeX Font Info:    Trying to load font information for OML+cmr on input line 11.
- (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
-File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <7> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 11.
-)
-runsystem(rm -f build/kactl.tmp)...executed.
-
-runsystem(python3 content/tex/preprocessor.py -i "content/contest/Makefile" -o build/kactl.tmp -l raw)...executed.
-
- (./build/kactl.tmp
 LaTeX Font Info:    Trying to load font information for TS1+pcr on input line 9.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pcr.fd
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
 ))
-runsystem(rm -f build/kactl.tmp)...executed.
-
-runsystem(python3 content/tex/preprocessor.py -i "content/contest/.vimrc" -o build/kactl.tmp -l raw)...executed.
-
- (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/contest/hash.sh" -o build/kactl.tmp -l sh)...executed.
@@ -629,7 +617,7 @@ LaTeX Font Info:    Trying to load font information for T1+pcr on input line 8.
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ))) (./content/math/chapter.tex
 Chapter 2.
-<content/math/sphericalCoordinates.pdf, id=64, 42.67899pt x 42.67899pt>
+<content/math/sphericalCoordinates.pdf, id=66, 42.67899pt x 42.67899pt>
 File: content/math/sphericalCoordinates.pdf Graphic file (type pdf)
 <use content/math/sphericalCoordinates.pdf>
 Package pdftex.def Info: content/math/sphericalCoordinates.pdf  used on input line 69.
@@ -638,19 +626,26 @@ Package pdftex.def Info: content/math/sphericalCoordinates.pdf  used on input li
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.70 \end{center}
-                  [1
+l.97 T
+      hen we have [1
 
-]
+ <./content/math/sphericalCoordinates.pdf>]
 runsystem(python3 content/tex/preprocessor.py --print-header "|hash-cpp.sh" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [2 <./content/math/sphericalCoordinates.pdf>]) (./content/data-structures/chapter.tex
+ (./build/header2.tmp) [2]) (./content/data-structures/chapter.tex
 Chapter 3.
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/order-statistic-tree.h" -o build/kactl.tmp )...executed.
 
-(./build/kactl.tmp)
+(./build/kactl.tmp
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 25.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <7> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 25.
+)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/dsu.h" -o build/kactl.tmp )...executed.
@@ -670,36 +665,18 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/monotonic-queue.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
+ (./build/kactl.tmp)
 runsystem(python3 content/tex/preprocessor.py --print-header "monotonic-queue.h|monotonic-queue.h" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [3])
-runsystem(rm -f build/kactl.tmp)...executed.
-
-runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/short-segtree.h" -o build/kactl.tmp )...executed.
-
- (./build/kactl.tmp)
-runsystem(rm -f build/kactl.tmp)...executed.
-
-runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/short-lazy-segtree.h" -o build/kactl.tmp )...executed.
-
- (./build/kactl.tmp)
-runsystem(rm -f build/kactl.tmp)...executed.
-
-runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/segtree.h" -o build/kactl.tmp )...executed.
-
- (./build/kactl.tmp)
+ (./build/header2.tmp) [3]
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/point-context.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "|point-context.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [4])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
-runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/lazy-segtree.h" -o build/kactl.tmp )...executed.
+runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/rec-lazy-segtree.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
@@ -707,9 +684,9 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/lazy-context.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "lazy-context.h|lazy-context.h" -o build/header2.tmp)...executed.
+runsystem(python3 content/tex/preprocessor.py --print-header "|lazy-context.h" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [5])
+ (./build/header2.tmp) [4])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/sparse-segtree.h" -o build/kactl.tmp )...executed.
@@ -724,15 +701,15 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/persistent-segtree.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "persistent-segtree.h|persistent-segtree.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [6])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/merge-sort-tree.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "merge-sort-tree.h|merge-sort-tree.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [5])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/rmq.h" -o build/kactl.tmp )...executed.
@@ -759,15 +736,15 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/mo.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "mo.h|mo.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [7])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/line-container.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "line-container.h|line-container.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [6])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/lichao.h" -o build/kactl.tmp )...executed.
@@ -777,10 +754,10 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/lichao-lazy.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "lichao-lazy.h|lichao-lazy.h" -o build/header2.tmp)...executed.
+ (./build/kactl.tmp)
+runsystem(python3 content/tex/preprocessor.py --print-header "|lichao-lazy.h" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [8])
+ (./build/header2.tmp) [7]
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/lichao-range.h" -o build/kactl.tmp )...executed.
@@ -790,10 +767,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/matrix.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "matrix.h|matrix.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [9])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/submatrix.h" -o build/kactl.tmp )...executed.
@@ -804,6 +778,9 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/wavelet.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "wavelet.h|wavelet.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [8]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 17.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
@@ -818,10 +795,10 @@ runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/segtre
  (./build/kactl.tmp
 runsystem(python3 content/tex/preprocessor.py --print-header "segtree-beats.h|segtree-beats.h" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [10]
+ (./build/header2.tmp) [9])
 runsystem(python3 content/tex/preprocessor.py --print-header "|segtree-beats.h" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [11])
+ (./build/header2.tmp) [10]
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/range-color.h" -o build/kactl.tmp )...executed.
@@ -830,14 +807,6 @@ runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/range-
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/implicit-treap.h" -o build/kactl.tmp )...executed.
-
- (./build/kactl.tmp)
-runsystem(python3 content/tex/preprocessor.py --print-header "|implicit-treap.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [12]
-runsystem(rm -f build/kactl.tmp)...executed.
-
-runsystem(python3 content/tex/preprocessor.py -i "content/data-structures/treap.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)) (./content/numerical/chapter.tex
 Chapter 4.
@@ -850,7 +819,10 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/numerical/poly-roots.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "poly-roots.h|poly-roots.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [11])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/numerical/poly-interpolate.h" -o build/kactl.tmp )...executed.
@@ -865,10 +837,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/numerical/berlekamp-massey.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "lagrange.h|berlekamp-massey.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [13])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/numerical/linear-recurrence.h" -o build/kactl.tmp )...executed.
@@ -888,7 +857,10 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/numerical/gaussian-elimination.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "gaussian-elimination.h|gaussian-elimination.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [12])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/numerical/linear-solver-z2.h" -o build/kactl.tmp )...executed.
@@ -898,10 +870,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/numerical/char-poly.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "linear-solver-z2.h|char-poly.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [14])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/numerical/simplex.h" -o build/kactl.tmp )...executed.
@@ -911,15 +880,15 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/numerical/tridiagonal.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "tridiagonal.h|tridiagonal.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [13])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/numerical/polyominoes.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
-runsystem(python3 content/tex/preprocessor.py --print-header "polyominoes.h|polyominoes.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [15]
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/numerical/fast-fourier-transform.h" -o build/kactl.tmp )...executed.
@@ -927,23 +896,14 @@ runsystem(python3 content/tex/preprocessor.py -i "content/numerical/fast-fourier
  (./build/kactl.tmp
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 122.
-)
+runsystem(python3 content/tex/preprocessor.py --print-header "|fast-fourier-transform.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [14])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/numerical/fast-subset-transform.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "fast-subset-transform.h|fast-subset-transform.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [16])
-runsystem(rm -f build/kactl.tmp)...executed.
-
-runsystem(python3 content/tex/preprocessor.py -i "content/numerical/finite-field-fft.h" -o build/kactl.tmp )...executed.
-
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "|finite-field-fft.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [17])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/numerical/poly-998244353.h" -o build/kactl.tmp )...executed.
@@ -951,7 +911,7 @@ runsystem(python3 content/tex/preprocessor.py -i "content/numerical/poly-9982443
  (./build/kactl.tmp
 runsystem(python3 content/tex/preprocessor.py --print-header "|poly-998244353.h" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [18])
+ (./build/header2.tmp) [15])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/numerical/sum-of-powers.h" -o build/kactl.tmp )...executed.
@@ -961,16 +921,15 @@ Overfull \hbox (30.01614pt too wide) in paragraph at lines 43--52
 [][]  
  []
 
-) (./content/number-theory/chapter.tex
-Chapter 5.
 runsystem(python3 content/tex/preprocessor.py --print-header "|sum-of-powers.h" -o build/header2.tmp)...executed.
 
-(./build/header2.tmp) [19]
+(./build/header2.tmp) [16]) (./content/number-theory/chapter.tex
+Chapter 5.
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/number-theory/modular-arithmetic.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+(./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/number-theory/pairnum-template.h" -o build/kactl.tmp )...executed.
@@ -1001,9 +960,9 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python3 content/tex/preprocessor.py -i "content/number-theory/mod-sqrt.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "mod-sqrt.h|mod-sqrt.h" -o build/header2.tmp)...executed.
+runsystem(python3 content/tex/preprocessor.py --print-header "mod-mul.h|mod-sqrt.h" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [20])
+ (./build/header2.tmp) [17])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/number-theory/mul-order.h" -o build/kactl.tmp )...executed.
@@ -1046,15 +1005,15 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/number-theory/division-lemma.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "division-lemma.h|division-lemma.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [18])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/number-theory/prime-factors.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "prime-factors.h|prime-factors.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [21])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/number-theory/divisors.h" -o build/kactl.tmp )...executed.
@@ -1095,14 +1054,14 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python3 content/tex/preprocessor.py -i "content/number-theory/chinese-remainder.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
+runsystem(python3 content/tex/preprocessor.py --print-header "chinese-remainder.h|chinese-remainder.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [19]
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/number-theory/fractions.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "fractions.h|fractions.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [22])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/number-theory/continued-fractions.h" -o build/kactl.tmp )...executed.
@@ -1119,7 +1078,7 @@ Overfull \hbox (29.99857pt too wide) in paragraph at lines 100--107
 
 runsystem(python3 content/tex/preprocessor.py --print-header "|frac-binary-search.h" -o build/header2.tmp)...executed.
 
-(./build/header2.tmp) [23]
+(./build/header2.tmp) [20]
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/number-theory/dirichlet-convolution.h" -o build/kactl.tmp )...executed.
@@ -1151,16 +1110,16 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python3 content/tex/preprocessor.py -i "content/combinatorial/multinomial.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
+runsystem(python3 content/tex/preprocessor.py --print-header "multinomial.h|multinomial.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [21]
 Overfull \hbox (30.00566pt too wide) in paragraph at lines 57--67
 [][]  
  []
 
-runsystem(python3 content/tex/preprocessor.py --print-header "multinomial.h|multinomial.h" -o build/header2.tmp)...executed.
-
-(./build/header2.tmp) [24]
 runsystem(python3 content/tex/preprocessor.py --print-header "|multinomial.h" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [25]
+(./build/header2.tmp) [22]
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/combinatorial/nim-product.cpp" -o build/kactl.tmp )...executed.
@@ -1170,16 +1129,16 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/combinatorial/partitions.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)) (./content/graph/chapter.tex
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "partitions.h|partitions.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [23])) (./content/graph/chapter.tex
 Chapter 7.
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/graph/bellman-ford.h" -o build/kactl.tmp )...executed.
 
-(./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "bellman-ford.h|bellman-ford.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [26])
+(./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/graph/floyd-warshall.h" -o build/kactl.tmp )...executed.
@@ -1205,9 +1164,9 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python3 content/tex/preprocessor.py -i "content/graph/dinitz.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "dinitz.h|dinitz.h" -o build/header2.tmp)...executed.
+runsystem(python3 content/tex/preprocessor.py --print-header "push-relabel.h|dinitz.h" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [27])
+ (./build/header2.tmp) [24])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/graph/min-cost-max-flow.h" -o build/kactl.tmp )...executed.
@@ -1220,7 +1179,7 @@ runsystem(python3 content/tex/preprocessor.py -i "content/graph/hopcroft-karp.h"
  (./build/kactl.tmp
 runsystem(python3 content/tex/preprocessor.py --print-header "hopcroft-karp.h|hopcroft-karp.h" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [28])
+ (./build/header2.tmp) [25])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/graph/bipartite-matching.h" -o build/kactl.tmp )...executed.
@@ -1243,7 +1202,7 @@ runsystem(python3 content/tex/preprocessor.py -i "content/graph/general-matching
  (./build/kactl.tmp
 runsystem(python3 content/tex/preprocessor.py --print-header "general-matching.h|general-matching.h" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [29])
+ (./build/header2.tmp) [26])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/graph/max-independent-set.h" -o build/kactl.tmp )...executed.
@@ -1276,7 +1235,7 @@ runsystem(python3 content/tex/preprocessor.py -i "content/graph/centroid-decompo
  (./build/kactl.tmp
 runsystem(python3 content/tex/preprocessor.py --print-header "centroid-decomposition.h|centroid-decomposition.h" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [30])
+ (./build/header2.tmp) [27])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/graph/tarjan.h" -o build/kactl.tmp )...executed.
@@ -1291,15 +1250,15 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/graph/bcc.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "bcc.h|bcc.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [28])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/graph/2sat.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "2sat.h|2sat.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [31])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/graph/maximal-cliques.h" -o build/kactl.tmp )...executed.
@@ -1322,7 +1281,7 @@ runsystem(python3 content/tex/preprocessor.py -i "content/graph/cycle-counting.c
  (./build/kactl.tmp
 runsystem(python3 content/tex/preprocessor.py --print-header "cycle-counting.cpp|cycle-counting.cpp" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [32])
+ (./build/header2.tmp) [29])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/graph/edge-coloring.h" -o build/kactl.tmp )...executed.
@@ -1338,9 +1297,9 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python3 content/tex/preprocessor.py -i "content/graph/lca-euler-tour.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "|lca-euler-tour.h" -o build/header2.tmp)...executed.
+runsystem(python3 content/tex/preprocessor.py --print-header "lca-euler-tour.h|lca-euler-tour.h" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [33])
+ (./build/header2.tmp) [30])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/graph/compress-tree.h" -o build/kactl.tmp )...executed.
@@ -1353,7 +1312,7 @@ runsystem(python3 content/tex/preprocessor.py -i "content/graph/heavylight.h" -o
  (./build/kactl.tmp
 runsystem(python3 content/tex/preprocessor.py --print-header "heavylight.h|heavylight.h" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [34])
+ (./build/header2.tmp) [31])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/graph/tree-isomorphism.h" -o build/kactl.tmp )...executed.
@@ -1371,7 +1330,7 @@ runsystem(python3 content/tex/preprocessor.py -i "content/graph/functional-digra
  (./build/kactl.tmp
 runsystem(python3 content/tex/preprocessor.py --print-header "functional-digraph.h|functional-digraph.h" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [35])
+ (./build/header2.tmp) [32])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/graph/directed-mst.h" -o build/kactl.tmp )...executed.
@@ -1379,7 +1338,7 @@ runsystem(python3 content/tex/preprocessor.py -i "content/graph/directed-mst.h" 
  (./build/kactl.tmp)
 runsystem(python3 content/tex/preprocessor.py --print-header "|directed-mst.h" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [36]) (./content/geometry/chapter.tex
+ (./build/header2.tmp) [33]) (./content/geometry/chapter.tex
 Chapter 8.
 runsystem(rm -f build/kactl.tmp)...executed.
 
@@ -1388,15 +1347,10 @@ runsystem(python3 content/tex/preprocessor.py -i "content/geometry/Point.h" -o b
 (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
-runsystem(python3 content/tex/preprocessor.py -i "content/geometry/Complex.h" -o build/kactl.tmp )...executed.
-
- (./build/kactl.tmp)
-runsystem(rm -f build/kactl.tmp)...executed.
-
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/LineDistance.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/lineDistance.pdf, id=5743, 42.67899pt x 42.67899pt>
+<content/geometry/lineDistance.pdf, id=5199, 42.67899pt x 42.67899pt>
 File: content/geometry/lineDistance.pdf Graphic file (type pdf)
 <use content/geometry/lineDistance.pdf>
 Package pdftex.def Info: content/geometry/lineDistance.pdf  used on input line 11.
@@ -1407,7 +1361,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/SegmentDistance.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/SegmentDistance.pdf, id=5744, 42.67899pt x 42.67899pt>
+<content/geometry/SegmentDistance.pdf, id=5200, 42.67899pt x 42.67899pt>
 File: content/geometry/SegmentDistance.pdf Graphic file (type pdf)
 <use content/geometry/SegmentDistance.pdf>
 Package pdftex.def Info: content/geometry/SegmentDistance.pdf  used on input line 14.
@@ -1415,15 +1369,10 @@ Package pdftex.def Info: content/geometry/SegmentDistance.pdf  used on input lin
 )
 runsystem(rm -f build/kactl.tmp)...executed.
 
-runsystem(python3 content/tex/preprocessor.py -i "content/geometry/SegmentClosestPoint.h" -o build/kactl.tmp )...executed.
-
- (./build/kactl.tmp)
-runsystem(rm -f build/kactl.tmp)...executed.
-
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/SegmentIntersection.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/SegmentIntersection.pdf, id=5745, 42.67899pt x 42.67899pt>
+<content/geometry/SegmentIntersection.pdf, id=5201, 42.67899pt x 42.67899pt>
 File: content/geometry/SegmentIntersection.pdf Graphic file (type pdf)
 <use content/geometry/SegmentIntersection.pdf>
 Package pdftex.def Info: content/geometry/SegmentIntersection.pdf  used on input line 17.
@@ -1433,16 +1382,13 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/SegmentIntersectionQ.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "SegmentIntersectionQ.h|SegmentIntersectionQ.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [37 <./content/geometry/lineDistance.pdf> <./content/geometry/SegmentDistance.pdf> <./content/geometry/SegmentIntersection.pdf>])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/LineIntersection.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/lineIntersection.pdf, id=5988, 42.67899pt x 42.67899pt>
+<content/geometry/lineIntersection.pdf, id=5202, 42.67899pt x 42.67899pt>
 File: content/geometry/lineIntersection.pdf Graphic file (type pdf)
 <use content/geometry/lineIntersection.pdf>
 Package pdftex.def Info: content/geometry/lineIntersection.pdf  used on input line 17.
@@ -1462,13 +1408,16 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/OnSegment.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "SideOf.h|OnSegment.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [34 <./content/geometry/lineDistance.pdf> <./content/geometry/SegmentDistance.pdf> <./content/geometry/SegmentIntersection.pdf> <./content/geometry/lineIntersection.pdf>])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/LinearTransformation.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/linearTransformation.pdf, id=5989, 42.67899pt x 42.67899pt>
+<content/geometry/linearTransformation.pdf, id=5439, 42.67899pt x 42.67899pt>
 File: content/geometry/linearTransformation.pdf Graphic file (type pdf)
 <use content/geometry/linearTransformation.pdf>
 Package pdftex.def Info: content/geometry/linearTransformation.pdf  used on input line 13.
@@ -1486,11 +1435,6 @@ runsystem(python3 content/tex/preprocessor.py -i "content/geometry/AngleCmp.h" -
  (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
-runsystem(python3 content/tex/preprocessor.py -i "content/geometry/LinearSolver.h" -o build/kactl.tmp )...executed.
-
- (./build/kactl.tmp)
-runsystem(rm -f build/kactl.tmp)...executed.
-
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/CircleIntersection.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
@@ -1498,16 +1442,13 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/CircleTangents.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "CircleTangents.h|CircleTangents.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [38 <./content/geometry/lineIntersection.pdf> <./content/geometry/linearTransformation.pdf>])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/Circumcircle.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/circumcircle.pdf, id=6196, 42.67899pt x 42.67899pt>
+<content/geometry/circumcircle.pdf, id=5440, 42.67899pt x 42.67899pt>
 File: content/geometry/circumcircle.pdf Graphic file (type pdf)
 <use content/geometry/circumcircle.pdf>
 Package pdftex.def Info: content/geometry/circumcircle.pdf  used on input line 12.
@@ -1522,7 +1463,10 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/CircleUnion.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "CircleUnion.h|CircleUnion.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [35 <./content/geometry/linearTransformation.pdf> <./content/geometry/circumcircle.pdf>])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/CircleLine.h" -o build/kactl.tmp )...executed.
@@ -1537,10 +1481,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/CirclePolygonIntersection.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "CircleCircleArea.h|CirclePolygonIntersection.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [39 <./content/geometry/circumcircle.pdf>])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/InsidePolygon.h" -o build/kactl.tmp )...executed.
@@ -1561,18 +1502,20 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/PolygonCut.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/PolygonCut.pdf, id=6385, 42.67899pt x 42.67899pt>
+<content/geometry/PolygonCut.pdf, id=5661, 42.67899pt x 42.67899pt>
 File: content/geometry/PolygonCut.pdf Graphic file (type pdf)
 <use content/geometry/PolygonCut.pdf>
 Package pdftex.def Info: content/geometry/PolygonCut.pdf  used on input line 15.
 (pdftex.def)             Requested size: 42.67912pt x 42.68211pt.
-)
+runsystem(python3 content/tex/preprocessor.py --print-header "PolygonCut.h|PolygonCut.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [36 <./content/geometry/PolygonCut.pdf>])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/ConvexHull.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp
-<content/geometry/ConvexHull.pdf, id=6386, 42.67899pt x 42.67899pt>
+<content/geometry/ConvexHull.pdf, id=5849, 42.67899pt x 42.67899pt>
 File: content/geometry/ConvexHull.pdf Graphic file (type pdf)
 <use content/geometry/ConvexHull.pdf>
 Package pdftex.def Info: content/geometry/ConvexHull.pdf  used on input line 14.
@@ -1590,6 +1533,11 @@ runsystem(python3 content/tex/preprocessor.py -i "content/geometry/PointInsideHu
  (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
+runsystem(python3 content/tex/preprocessor.py -i "content/geometry/minkowski-sum.h" -o build/kactl.tmp )...executed.
+
+ (./build/kactl.tmp)
+runsystem(rm -f build/kactl.tmp)...executed.
+
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/PolyUnion.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
@@ -1597,15 +1545,15 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/LineHullIntersection.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "LineHullIntersection.h|LineHullIntersection.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [40 <./content/geometry/PolygonCut.pdf> <./content/geometry/ConvexHull.pdf>])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/HalfPlane.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "HalfPlane.h|HalfPlane.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [37 <./content/geometry/ConvexHull.pdf>])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/ClosestPair.h" -o build/kactl.tmp )...executed.
@@ -1615,10 +1563,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/KdTree.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "KdTree.h|KdTree.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [41])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/DelaunayTriangulation.h" -o build/kactl.tmp )...executed.
@@ -1628,7 +1573,10 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/FastDelaunay.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "FastDelaunay.h|FastDelaunay.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [38])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/RectangleUnionArea.h" -o build/kactl.tmp )...executed.
@@ -1639,9 +1587,6 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/PolyhedronVolume.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
-runsystem(python3 content/tex/preprocessor.py --print-header "PolyhedronVolume.h|PolyhedronVolume.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [42]
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/Point3D.h" -o build/kactl.tmp )...executed.
@@ -1651,7 +1596,10 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/3dHull.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "3dHull.h|3dHull.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [39])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/SphericalDistance.h" -o build/kactl.tmp )...executed.
@@ -1678,9 +1626,6 @@ runsystem(rm -f build/kactl.tmp)...executed.
 runsystem(python3 content/tex/preprocessor.py -i "content/strings/manacher.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)
-runsystem(python3 content/tex/preprocessor.py --print-header "manacher.h|manacher.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [43]
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/strings/min-rotation.h" -o build/kactl.tmp )...executed.
@@ -1695,7 +1640,10 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/strings/hashing.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "hashing.h|hashing.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [40])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/strings/modnum-double-hashing.h" -o build/kactl.tmp )...executed.
@@ -1710,29 +1658,26 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/strings/suffix-array.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "suffix-array.h|suffix-array.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [44])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/strings/suffix-tree.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "suffix-tree.h|suffix-tree.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [41])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/strings/suffix-automaton.h" -o build/kactl.tmp )...executed.
 
  (./build/kactl.tmp)) (./content/various/chapter.tex
 Chapter 10.
-runsystem(python3 content/tex/preprocessor.py --print-header "|suffix-automaton.h" -o build/header2.tmp)...executed.
-
-(./build/header2.tmp) [45]
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/interval-container.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+(./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/interval-cover.h" -o build/kactl.tmp )...executed.
@@ -1742,7 +1687,10 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/constant-intervals.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "interval-cover.h|constant-intervals.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [42])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/floor.h" -o build/kactl.tmp )...executed.
@@ -1767,15 +1715,15 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/radix-sort.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "radix-sort.h|radix-sort.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [46])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/postfix-notation-solver.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "postfix-notation-solver.h|postfix-notation-solver.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [43])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/count-triangles.h" -o build/kactl.tmp )...executed.
@@ -1800,15 +1748,15 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/date-manipulation.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "date-manipulation.h|date-manipulation.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [47])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/n-queens.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "n-queens.h|n-queens.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [44])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/sudoku-solver.h" -o build/kactl.tmp )...executed.
@@ -1828,10 +1776,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/knuth-dp.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "divide-and-conquer-dp.h|knuth-dp.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [48])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/cht-dp.h" -o build/kactl.tmp )...executed.
@@ -1846,7 +1791,10 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/LIS.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "LIS.h|LIS.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [45])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/digit-dp.h" -o build/kactl.tmp )...executed.
@@ -1871,10 +1819,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/knapsack-bounded-costs.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "knapsack-bounded-costs.h|knapsack-bounded-costs.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [49])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/knapsack-bitset.h" -o build/kactl.tmp )...executed.
@@ -1889,7 +1834,10 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/max-zero-submatrix.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "max-zero-submatrix.h|max-zero-submatrix.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [46])
 LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 42.
 runsystem(rm -f build/kactl.tmp)...executed.
@@ -1916,10 +1864,7 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/unrolling.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp
-runsystem(python3 content/tex/preprocessor.py --print-header "hashmap.h|unrolling.h" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [50])
+ (./build/kactl.tmp)
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/fast-mod.h" -o build/kactl.tmp )...executed.
@@ -1939,7 +1884,10 @@ runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/bitset.h" -o build/kactl.tmp )...executed.
 
- (./build/kactl.tmp)
+ (./build/kactl.tmp
+runsystem(python3 content/tex/preprocessor.py --print-header "bitset.h|bitset.h" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [47])
 runsystem(rm -f build/kactl.tmp)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/random-numbers.h" -o build/kactl.tmp )...executed.
@@ -1947,7 +1895,7 @@ runsystem(python3 content/tex/preprocessor.py -i "content/various/random-numbers
  (./build/kactl.tmp))
 runsystem(python3 content/tex/preprocessor.py --print-header "|random-numbers.h" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [51]
+ (./build/header2.tmp) [48]
 \tf@ptc=\write5
 \openout5 = `kactl.ptc'.
 
@@ -1962,18 +1910,18 @@ Package rerunfilecheck Info: File `kactl.out' has not changed.
 (rerunfilecheck)             Checksum: FCACB60EE8B76FB3C1742DA3FA07FD79;913.
  ) 
 Here is how much of TeX's memory you used:
- 25803 strings out of 478091
- 397280 string characters out of 5841911
- 3658793 words of memory out of 6000000
- 37451 multiletter control sequences out of 15000+600000
+ 25016 strings out of 478091
+ 385208 string characters out of 5841911
+ 3418793 words of memory out of 6000000
+ 37287 multiletter control sequences out of 15000+600000
  530218 words of font info for 99 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
  75i,16n,81p,665b,2355s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfti0700.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on build//kactl.pdf (52 pages, 2736029 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfti0700.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
+Output written on build//kactl.pdf (49 pages, 2658226 bytes).
 PDF statistics:
- 10016 PDF objects out of 10688 (max. 8388607)
- 9627 compressed objects within 97 object streams
- 7568 named destinations out of 8907 (max. 500000)
- 131 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 9277 PDF objects out of 10688 (max. 8388607)
+ 8899 compressed objects within 89 object streams
+ 6969 named destinations out of 7423 (max. 500000)
+ 136 words of extra memory for PDF output out of 10000 (max. 10000000)
 
