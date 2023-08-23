@@ -50,10 +50,7 @@ template<class T> struct segtree_range {
 	T query(int a, int b) { return query(1, 0, N, a, b); }
 	template<class F, class... Args> void update(int v, int l, int r, int a, int b, F f, Args&&... args) {
 		if (l >= b || r <= a) return;
-		if (l >= a && r <= b) {
-			(ts[v].*f)(args...);
-			return;
-		}
+		if (l >= a && r <= b && (ts[v].*f)(args...)) return;
 		int m = (l + r)/2;
 		push(v);
 		update(2*v, l, m, a, b, f, args...);
