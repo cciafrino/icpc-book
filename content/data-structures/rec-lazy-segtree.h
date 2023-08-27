@@ -8,16 +8,12 @@
  * Time: $O(\lg(N)*Q)$
  */
 template<class T> struct segtree_range {
-	int N;
-	vector<T> ts;
+	int N; vector<T> ts;
 	segtree_range() {}
-	explicit segtree_range(int N_) : N(1 << __lg(2*N_-1)) {
-		ts.resize(2*N); build();
-	}
-	template<class Q> explicit segtree_range(const vector<Q>& A){
+	explicit segtree_range(int N_) : segtree_range(vector<T>(N_, T(0))) {}
+	template<class Q> explicit segtree_range(const vector<Q>& A) {
 		const int N_ = int(A.size());
-		N = (1 << __lg(2*N_-1));
-		ts.resize(2*N);
+		N = (1 << __lg(2*N_-1)); ts.resize(2*N);
 		for (int i = 0; i < N_; ++i) at(i) = T(A[i]);
 		build();
 	}
@@ -28,9 +24,7 @@ template<class T> struct segtree_range {
 	template<class Op, class E, class F, class... Args>
 	auto query(int v, int l, int r, int a, int b, Op op, E e, F f, Args&&... args) {
 		if (l >= b || r <= a) return e();
-		if (l >= a && r <= b) {
-			return (ts[v].*f)(args...);
-		}
+		if (l >= a && r <= b) return (ts[v].*f)(args...);
 		int m = (l + r)/2;
 		push(v);
 		return op(query(2*v, l, m, a, b, op, args...), query(2*v+1, m, r, a, b, op, args...));
@@ -70,7 +64,7 @@ template<class T> struct segtree_range {
 		if (cur == -1) cur = find_first(2*v+1, m, r, a, b, f, args...);
 		return cur;
 	}
-	template<class F, class... Args> 
+	template<class F, class... Args>
 	int find_first(int a, int b, F f, Args&&... args) {
 		return find_first(1, 0, N, a, b, f, args...);
 	}
