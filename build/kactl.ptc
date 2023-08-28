@@ -190,7 +190,7 @@
 \contentsline {section}{\numberline {7.3}Matching}{24}{section.7.3}%
 \contentsline {subsection}{\texttt {hopcroft-karp.h}\hspace {0.2em}}{24}{section.7.3}%
 \contentsline {subsection}{\texttt {bipartite-matching.h}\hspace {0.2em}}{25}{lstnumber.7.8.35}%
-\contentsline {subsection}{\texttt {weighted-matching.h}\hspace {0.2em}}{25}{lstnumber.7.9.42}%
+\contentsline {subsection}{\texttt {weighted-matching.h}\hspace {0.2em}}{25}{lstnumber.7.9.31}%
 \contentsline {subsection}{\texttt {general-matching-dfs.h}\hspace {0.2em}}{25}{lstnumber.7.10.31}%
 \contentsline {subsection}{\texttt {general-matching.h}\hspace {0.2em}}{25}{lstnumber.7.11.44}%
 \contentsline {subsection}{\texttt {max-independent-set.h}\hspace {0.2em}}{26}{lstnumber.7.12.68}%
@@ -232,7 +232,7 @@
 \contentsline {subsection}{\numberline {7.9.6}Maximum Weighted Independent Set in a Bipartite Graph}{32}{subsection.7.9.6}%
 \contentsline {subsection}{\numberline {7.9.7}Tutte-Berge formula}{32}{subsection.7.9.7}%
 \contentsline {subsection}{\numberline {7.9.8}Tutte's theorem}{32}{subsection.7.9.8}%
-\contentsline {subsection}{\numberline {7.9.9}Number of Spanning Trees}{33}{subsection.7.9.9}%
+\contentsline {subsection}{\numberline {7.9.9}Number of Spanning Trees}{32}{subsection.7.9.9}%
 \contentsline {subsection}{\numberline {7.9.10}Tutte Matrix}{33}{subsection.7.9.10}%
 \contentsline {subsection}{\numberline {7.9.11}Menger's theorem}{33}{subsection.7.9.11}%
 \contentsline {chapter}{\numberline {8}Geometry}{33}{chapter.8}%
@@ -247,8 +247,8 @@
 \contentsline {subsection}{\texttt {LineIntersection.h}\hspace {0.2em}}{33}{lstnumber.8.5.16}%
 \contentsline {subsection}{\texttt {LineProjectionReflection.h}\hspace {0.2em}}{33}{lstnumber.8.6.8}%
 \contentsline {subsection}{\texttt {SideOf.h}\hspace {0.2em}}{33}{lstnumber.8.7.5}%
-\contentsline {subsection}{\texttt {OnSegment.h}\hspace {0.2em}}{34}{lstnumber.8.8.9}%
-\contentsline {subsection}{\texttt {LinearTransformation.h}\hspace {0.2em}}{34}{lstnumber.8.9.3}%
+\contentsline {subsection}{\texttt {OnSegment.h}\hspace {0.2em}}{33}{lstnumber.8.8.9}%
+\contentsline {subsection}{\texttt {LinearTransformation.h}\hspace {0.2em}}{33}{lstnumber.8.9.3}%
 \contentsline {subsection}{\texttt {Angle.h}\hspace {0.2em}}{34}{lstnumber.8.10.6}%
 \contentsline {subsection}{\texttt {AngleCmp.h}\hspace {0.2em}}{34}{lstnumber.8.11.34}%
 \contentsline {section}{\numberline {8.2}Circles}{34}{section.8.2}%
@@ -265,7 +265,7 @@
 \contentsline {subsection}{\texttt {PolygonArea.h}\hspace {0.2em}}{35}{lstnumber.8.21.12}%
 \contentsline {subsection}{\texttt {PolygonCenter.h}\hspace {0.2em}}{35}{lstnumber.8.22.17}%
 \contentsline {subsection}{\texttt {PolygonCut.h}\hspace {0.2em}}{35}{lstnumber.8.23.8}%
-\contentsline {subsection}{\texttt {ConvexHull.h}\hspace {0.2em}}{36}{lstnumber.8.24.11}%
+\contentsline {subsection}{\texttt {ConvexHull.h}\hspace {0.2em}}{35}{lstnumber.8.24.11}%
 \contentsline {subsection}{\texttt {HullDiameter.h}\hspace {0.2em}}{36}{lstnumber.8.25.12}%
 \contentsline {subsection}{\texttt {PointInsideHull.h}\hspace {0.2em}}{36}{lstnumber.8.26.11}%
 \contentsline {subsection}{\texttt {minkowski-sum.h}\hspace {0.2em}}{36}{lstnumber.8.27.12}%
@@ -312,7 +312,7 @@
 \contentsline {section}{\numberline {10.1}Intervals}{41}{section.10.1}%
 \contentsline {subsection}{\texttt {interval-container.h}\hspace {0.2em}}{41}{section.10.1}%
 \contentsline {subsection}{\texttt {interval-cover.h}\hspace {0.2em}}{41}{lstnumber.10.1.22}%
-\contentsline {subsection}{\texttt {constant-intervals.h}\hspace {0.2em}}{42}{lstnumber.10.2.19}%
+\contentsline {subsection}{\texttt {constant-intervals.h}\hspace {0.2em}}{41}{lstnumber.10.2.19}%
 \contentsline {section}{\numberline {10.2}Misc. algorithms}{42}{section.10.2}%
 \contentsline {subsection}{\texttt {floor.h}\hspace {0.2em}}{42}{section.10.2}%
 \contentsline {subsection}{\texttt {basis-manager.h}\hspace {0.2em}}{42}{lstnumber.10.4.7}%

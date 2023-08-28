@@ -8,7 +8,7 @@
  * Status: stress-tested
  */
 #include "bipartite-matching.h"
-vector<int> cover(bipartite_matching& B, int N, int M) {
+vector<int> cover(bm_t& B, int N, int M) {
 	int ma = B.solve();
 	vector<bool> lfound(N, true), seen(N+M);
 	for (int i = N; i < N+M; ++i) if (B.match[i] != -1) 

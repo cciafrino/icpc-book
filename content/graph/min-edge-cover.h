@@ -10,7 +10,7 @@
  * Status: Tested
  */
 #include "bipartite-matching.h"
-vector<pair<int,int>> minEdgeCover(bipartite_matching& g, vector<int>& mark, int N, int M) {
+vector<pair<int,int>> minEdgeCover(bm_t& g, vector<int>& mark, int N, int M) {
 	int ma = g.solve();
 	vector<pair<int,int>> cover;
 	for (int i = 0; i < N; ++i) {
