@@ -52,6 +52,6 @@ struct suffix_array_t {
 		if (a == b) return N - a;
 		a = invsa[a], b = invsa[b];
 		if (a > b) swap(a, b);
-		return rmq_query(a + 1, b + 1).first;
+		return rmq_query(a, b).first;
 	}
 };
