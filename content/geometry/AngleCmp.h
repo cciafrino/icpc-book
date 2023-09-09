@@ -4,6 +4,7 @@
  * License: CC0
  * Description: Useful utilities for dealing with angles of rays from origin.
  * OK for integers, only uses cross product. Doesn't support (0,0).
+ * Status: https://szkopul.edu.pl/problemset/problem/NZSCUwz2ACePsBKuVCIVzrRt/site/?key=statement 
  */
 template <class P>
 bool sameDir(P s, P t) {
@@ -27,3 +28,7 @@ int angleBetween(P s, P t, P x) {
 	if (sameDir(x, s) || sameDir(x, t)) return 0;
 	return angleCmp(s, x, t) ? 1 : -1;
 }
+int half(P p) { return p.y != 0 ? sgn(p.y) : -sgn(p.x); }
+bool angle_cmp(P a, P b) { int A = half(a), B = half(b);
+	return A == B ? a.cross(b) > 0 : A < B; }
+
