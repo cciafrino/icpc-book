@@ -29,12 +29,12 @@
 \contentsline {subsection}{\numberline {4.1.3}Duality}{15}{subsection.4.1.3}%
 \contentsline {subsection}{\numberline {4.1.4}Strong duality}{15}{subsection.4.1.4}%
 \contentsline {subsection}{\numberline {4.1.5}Generating functions}{15}{subsection.4.1.5}%
-\contentsline {chapter}{\numberline {5}Number theory}{16}{chapter.5}%
+\contentsline {chapter}{\numberline {5}Number theory}{15}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Modular arithmetic}{16}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Primality}{17}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Divisibility}{17}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Chinese remainder theorem}{18}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Fractions}{19}{section.5.5}%
+\contentsline {section}{\numberline {5.5}Fractions}{18}{section.5.5}%
 \contentsline {subsection}{\numberline {5.5.1}Bézout's identity}{19}{subsection.5.5.1}%
 \contentsline {subsection}{\numberline {5.5.2}Pythagorean Triples}{19}{subsection.5.5.2}%
 \contentsline {subsection}{\numberline {5.5.3}Primitive Roots}{19}{subsection.5.5.3}%
@@ -45,15 +45,15 @@
 \contentsline {subsection}{\numberline {5.6.3}Prime counting function ($\pi (x)$)}{19}{subsection.5.6.3}%
 \contentsline {subsection}{\numberline {5.6.4}Sum of primes}{19}{subsection.5.6.4}%
 \contentsline {subsection}{\numberline {5.6.5}Moebius Function}{19}{subsection.5.6.5}%
-\contentsline {subsection}{\numberline {5.6.6}Dirichlet Convolution}{20}{subsection.5.6.6}%
+\contentsline {subsection}{\numberline {5.6.6}Dirichlet Convolution}{19}{subsection.5.6.6}%
 \contentsline {subsection}{\numberline {5.6.7}Estimates}{20}{subsection.5.6.7}%
 \contentsline {chapter}{\numberline {6}Combinatorial}{20}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Permutations}{20}{section.6.1}%
 \contentsline {subsection}{\numberline {6.1.1}Factorial}{20}{subsection.6.1.1}%
 \contentsline {subsection}{\numberline {6.1.2}Binomials}{20}{subsection.6.1.2}%
 \contentsline {subsection}{\numberline {6.1.3}Cycles}{20}{subsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.1.4}Involutions}{21}{subsection.6.1.4}%
-\contentsline {subsection}{\numberline {6.1.5}Inclusion-Exclusion Principle}{21}{subsection.6.1.5}%
+\contentsline {subsection}{\numberline {6.1.4}Involutions}{20}{subsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.1.5}Inclusion-Exclusion Principle}{20}{subsection.6.1.5}%
 \contentsline {subsection}{\numberline {6.1.6}The twelvefold way (from Stanley)}{21}{subsection.6.1.6}%
 \contentsline {subsection}{\numberline {6.1.7}Burnside}{21}{subsection.6.1.7}%
 \contentsline {subsection}{\numberline {6.1.8}Derangements}{21}{subsection.6.1.8}%
@@ -68,7 +68,7 @@
 \contentsline {subsection}{\numberline {6.3.6}Labeled unrooted trees}{21}{subsection.6.3.6}%
 \contentsline {subsection}{\numberline {6.3.7}Catalan numbers}{21}{subsection.6.3.7}%
 \contentsline {subsection}{\numberline {6.3.8}Super Catalan numbers}{21}{subsection.6.3.8}%
-\contentsline {subsection}{\numberline {6.3.9}Motzkin numbers}{22}{subsection.6.3.9}%
+\contentsline {subsection}{\numberline {6.3.9}Motzkin numbers}{21}{subsection.6.3.9}%
 \contentsline {subsection}{\numberline {6.3.10}Narayana numbers}{22}{subsection.6.3.10}%
 \contentsline {subsection}{\numberline {6.3.11}Schroder numbers}{22}{subsection.6.3.11}%
 \contentsline {subsection}{\numberline {6.3.12}Triangles}{22}{subsection.6.3.12}%
@@ -84,8 +84,8 @@
 \contentsline {subsection}{\numberline {6.6.7}Nim (at most half)}{22}{subsection.6.6.7}%
 \contentsline {subsection}{\numberline {6.6.8}Lasker's Nim}{22}{subsection.6.6.8}%
 \contentsline {subsection}{\numberline {6.6.9}Hackenbush on Trees}{22}{subsection.6.6.9}%
-\contentsline {chapter}{\numberline {7}Graph}{23}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Fundamentals}{23}{section.7.1}%
+\contentsline {chapter}{\numberline {7}Graph}{22}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Fundamentals}{22}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Network flow}{23}{section.7.2}%
 \contentsline {section}{\numberline {7.3}Matching}{24}{section.7.3}%
 \contentsline {section}{\numberline {7.4}DFS algorithms}{26}{section.7.4}%
@@ -105,8 +105,8 @@
 \contentsline {subsection}{\numberline {7.9.7}Tutte-Berge formula}{32}{subsection.7.9.7}%
 \contentsline {subsection}{\numberline {7.9.8}Tutte's theorem}{32}{subsection.7.9.8}%
 \contentsline {subsection}{\numberline {7.9.9}Number of Spanning Trees}{32}{subsection.7.9.9}%
-\contentsline {subsection}{\numberline {7.9.10}Tutte Matrix}{33}{subsection.7.9.10}%
-\contentsline {subsection}{\numberline {7.9.11}Menger's theorem}{33}{subsection.7.9.11}%
+\contentsline {subsection}{\numberline {7.9.10}Tutte Matrix}{32}{subsection.7.9.10}%
+\contentsline {subsection}{\numberline {7.9.11}Menger's theorem}{32}{subsection.7.9.11}%
 \contentsline {chapter}{\numberline {8}Geometry}{33}{chapter.8}%
 \contentsline {section}{\numberline {8.1}Geometric primitives}{33}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Circles}{34}{section.8.2}%
@@ -124,12 +124,12 @@
 \contentsline {subsection}{\numberline {9.1.7}All occurence positions}{41}{subsection.9.1.7}%
 \contentsline {chapter}{\numberline {10}Various}{41}{chapter.10}%
 \contentsline {section}{\numberline {10.1}Intervals}{41}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Misc. algorithms}{42}{section.10.2}%
+\contentsline {section}{\numberline {10.2}Misc. algorithms}{41}{section.10.2}%
 \contentsline {section}{\numberline {10.3}Dynamic programming}{44}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Debugging tricks}{46}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Optimization tricks}{46}{section.10.5}%
-\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{46}{subsection.10.5.1}%
+\contentsline {section}{\numberline {10.4}Debugging tricks}{45}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Optimization tricks}{45}{section.10.5}%
+\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{45}{subsection.10.5.1}%
 \contentsline {subsection}{\numberline {10.5.2}Pragmas}{46}{subsection.10.5.2}%
 \contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{46}{section.10.6}%
-\contentsline {section}{\numberline {10.7}Random Numbers}{47}{section.10.7}%
+\contentsline {section}{\numberline {10.7}Random Numbers}{46}{section.10.7}%
 \contentsfinish 
