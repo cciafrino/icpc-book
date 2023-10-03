@@ -11,15 +11,12 @@
 vector<double> poly_roots(Poly p, double xmin, double xmax) {
 	if ((p.a).size() == 2) { return {-p.a[0]/p.a[1]}; }
 	vector<double> ret;
-	Poly der = p;
-	der.diff();
+	Poly der = p; der.diff();
 	auto dr = poly_roots(der, xmin, xmax);
-	dr.push_back(xmin-1);
-	dr.push_back(xmax+1);
+	dr.push_back(xmin-1); dr.push_back(xmax+1);
 	sort(dr.begin(), dr.end());
 	for(int i = 0; i < dr.size()-1; ++i) {
-		double l = dr[i], h = dr[i+1];
-		bool sign = p(l) > 0;
+		double l = dr[i], h = dr[i+1]; bool sign = p(l) > 0;
 		if (sign^(p(h) > 0)) {
 			for(int it = 0; it < 60; ++it) { // while (h - l > 1e-8)
 				double m = (l + h) / 2, f = p(m);

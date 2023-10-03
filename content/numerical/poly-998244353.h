@@ -7,10 +7,7 @@
 #include "../number-theory/mod-sqrt.h"
 #include "../number-theory/preparator.h"
 
-using num = modnum<998244353U>;
-
-FFT<998244353U, 3U, 23> fft_data;
-
+using num = modnum<998244353U>; FFT<num> fft_data;
 template<unsigned M> struct Poly : public vector<modnum<M>> {
 	Poly() {}
 	explicit Poly(int n) : vector<modnum<M>>(n) {}
@@ -82,10 +79,10 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
 			if (int(fs.size()) < 2 * len) fs.resize(2 * len, 0);
 			fill(fs.begin(), fs.begin() + 2 * len, 0);
 			copy(this->begin(), this->begin() + min(len, int(this->size())), fs.begin());
-			fft_data.fft(b);
-			fft_data.fft(fs);
+			fft_data.fft(b, false);
+			fft_data.fft(fs, false);
 			for (int x = 0; x < 2*len; ++x) b[x] = b[x] * (2 - fs[x] * b[x]);
-			fft_data.inverse_fft(b);
+			fft_data.fft(b, true);
 			b.resize(len);
 		}
 		b.resize(this->size()); return b;
@@ -176,40 +173,32 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
 		int N = int(qs.size());
 		if (N == 0) return {};
 		vector<Poly> up(2 * N);
-		for (int x = 0; x < N; ++x) {
+		for (int x = 0; x < N; ++x)
 			up[x + N] = Poly({0-qs[x], 1});
-		}
-		for (int x = N-1; x >= 1; --x) {
+		for (int x = N-1; x >= 1; --x)
 			up[x] = up[2 * x] * up[2 * x + 1];
-		}
 		vector<Poly> down(2 * N);
 		down[1] = fs % up[1];
-		for (int x = 2; x < 2*N; ++x) {
-			down[x] = down[x / 2] % up[x];
-		}
-		Poly y(N); 
-		for (int x = 0; x < N; ++x) {
+		for (int x = 2; x < 2*N; ++x)
+			down[x] = down[x/2] % up[x];
+		Poly y(N);
+		for (int x = 0; x < N; ++x)
 			y[x] = (down[x + N].empty() ? 0 : down[x + N][0]);
-		}
 		return y;
 	}
 	friend Poly interpolate(const Poly& fs, const Poly& qs) { // 798982
 		int N = int(fs.size());
 		vector<Poly> up(2 * N);
-		for (int x = 0; x < N; ++x) {
+		for (int x = 0; x < N; ++x)
 			up[x + N] = Poly({0-fs[x], 1});
-		}
-		for (int x = N-1; x >= 1; --x) {
+		for (int x = N-1; x >= 1; --x)
 			up[x] = up[2 * x] * up[2 * x + 1];
-		}
 		Poly E = eval(up[1].differential(), fs);
 		vector<Poly> down(2 * N);
-		for (int x = 0; x < N; ++x) {
+		for (int x = 0; x < N; ++x)
 			down[x + N] = Poly({qs[x] * E[x].inv()});
-		}
-		for (int x = N-1; x >= 1; --x) {
+		for (int x = N-1; x >= 1; --x)
 			down[x] = down[2*x] * up[2*x+1] + down[2*x+1] * up[2*x];
-		}
 		return down[1];
 	}
 	friend Poly convolve_all(const vector<Poly>& fs, int l, int r) {
@@ -220,13 +209,11 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
 		}
 	}
 	Poly bernoulli(int N) const { // 145ab7
-		N += 5;
-		Poly fs(N);
-		fs[1] = 1;
-		fs = fs.exp(); 
+		N += 5; Poly fs(N); fs[1] = 1;
+		fs = fs.exp();
 		copy(fs.begin()+1, fs.end(), fs.begin());
 		fs = fs.inv();
-		for (int x = 0; x < N; ++x) fs[x] *= fac[x];
+		for (int x = 0; x < N; ++x) fs[x] *= fact[x];
 		fs.resize(N - 5);
 		return fs;
 	}
@@ -241,10 +228,20 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
 		if (N == 0) return {1};
 		Poly P(N), Q(N);
 		for (int x = 0; x < N; ++x) {
-			P[x] = (x & 1 ? -1 : 1) * invFac[x];
-			Q[x] = num(x).pow(N-1) * invFac[x];
+			P[x] = (x & 1 ? -1 : 1) * ifact[x];
+			Q[x] = num(x).pow(N-1) * ifact[x];
 		}
+		P *= Q; P.resize(N);
+		return P;
+	}
+	Poly taylor_shift(int N, int K) const {
+		Poly P(N), Q = *this; P[0] = 1;
+		for (int i = 1; i < N; ++i) P[i] += P[i-1] * K;
+		for (int i = 1; i < N; ++i) P[i] *= ifact[i];
+		reverse(P.begin(), P.end());
+		for (int i = 1; i < N; ++i) Q[i] *= fact[i];
 		P *= Q;
+		for (int i = 0; i < N; ++i) P[i] = P[N - 1 + i] * ifact[i];
 		P.resize(N);
 		return P;
 	}

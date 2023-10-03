@@ -13,9 +13,8 @@ template<typename T> struct FT { // 8b7639
 	FT(int n) : s(n) {}
 	FT(const vector<T>& A) : s(A) {
 		const int N = int(s.size());
-		for (int a = 0; a < N; ++a) {
+		for (int a = 0; a < N; ++a)
 			if ((a | (a + 1)) < N) s[a | (a + 1)] += s[a];
-		}
 	}
 	void update(int pos, T dif) { // a[pos] += dif
 		for (; pos < (int)s.size(); pos |= pos + 1) s[pos] += dif;
@@ -25,14 +24,13 @@ template<typename T> struct FT { // 8b7639
 		for (; pos > 0; pos &= pos - 1) res += s[pos-1];
 		return res;
 	}
-	int lower_bound(T sum) {// min pos st sum of [0, pos] >= sum
-		// Returns n if no sum is >= sum, or -1 if empty sum is.
+	// min pos st sum of [0, pos] >= sum. Returns n if no sum
+	int lower_bound(T sum) { //is >= sum, or -1 if empty sum is.
 		if (sum <= 0) return -1;
 		int pos = 0;
-		for (int pw = 1 << 25; pw; pw >>= 1) {
+		for (int pw = 1 << 25; pw; pw >>= 1)
 			if (pos + pw <= (int)s.size() && s[pos + pw-1] < sum)
 				pos += pw, sum -= s[pos-1];
-		}
 		return pos;
 	}
 };

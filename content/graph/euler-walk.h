@@ -12,7 +12,6 @@
  * Time: O(V + E)
  * Status: stress-tested
  */
-using pii = pair<int,int>;
 vector<int> eulerWalk(vector<vector<pii>>& gr, int nedges, int src=0) {
 	int n = gr.size();
 	vector<int> D(n), its(n), eu(nedges), ret, s = {src};
@@ -21,10 +20,9 @@ vector<int> eulerWalk(vector<vector<pii>>& gr, int nedges, int src=0) {
 		int x = s.back(), y, e, &it = its[x], end = int(gr[x].size());
 		if (it == end){ ret.push_back(x); s.pop_back(); continue; }
 		tie(y, e) = gr[x][it++];
-		if (!eu[e]) {
-			D[x]--, D[y]++;
-			eu[e] = 1; s.push_back(y);
-		}}
+		if (!eu[e])
+			D[x]--, D[y]++, eu[e] = 1, s.push_back(y);
+	}
 	for(auto &x : D) if (x < 0 || int(ret.size()) != nedges+1) return {};
 	return {ret.rbegin(), ret.rend()};
 }

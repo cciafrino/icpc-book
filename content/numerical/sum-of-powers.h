@@ -13,7 +13,7 @@ vector<num> get_monomials(int N, long long d) {
 	vector<int> pfac(N);
 	for (int i = 2; i < N; ++i) pfac[i] = i;
 	for (int p = 2; p < N; ++p) if (pfac[p] == p) {
-		for (int m = 2*p; m < N; m += p) if (pfac[m] > p) pfac[m] = p;
+		for(int m = 2*p; m < N; m += p) if(pfac[m] > p) pfac[m] = p;
 	}
 	vector<num> pw(N);
 	for (int i = 0; i < N; ++i) {
@@ -27,10 +27,8 @@ num sum_of_power_limit(num r, int d, const vector<num>& fs) {
 	for (int x = 0; x <= d; ++x, s *= r) gs[x] *= s;
 	num ans = 0, cur_sum = 0; s = 1;
 	for (int x = 0; x <= d; ++x, s *= -r) {
-		cur_sum += choose(d+1, x) * s;
-		ans += cur_sum * gs[d - x];
-	}
-	ans *= (1 - r).pow(-(d + 1));
+		cur_sum += choose(d+1, x) * s; ans += cur_sum * gs[d-x];
+	} ans *= (1 - r).pow(-(d + 1));
 	return ans;
 }
 num sum_of_power(num r, int d, vector<num>& fs, ll N) {

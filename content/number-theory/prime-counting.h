@@ -13,10 +13,8 @@ struct primes_t {
 	vector<ll> dp, w;
 	ll pi(ll N) {
 		const int sqrtN = int(sqrt(N));
-		for (ll a = 1, b; a <= N; a = b+1) {
-			b = N / (N / a);
-			w.push_back(N/a);
-		}
+		for (ll a = 1, b; a <= N; a = b+1)
+			b = N / (N / a), w.push_back(N/a);
 		auto get = [&](ll x) {
 			if (x <= sqrtN) return int(x-1);
 			return int(w.size() - N/x);

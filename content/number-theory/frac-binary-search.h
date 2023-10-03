@@ -10,14 +10,13 @@
  * Time: O(\log(N))
  * Status: fuzz-tested for n <= 300
  */
-struct Frac { lint p, q; };
-template<class F>
-Frac fracBS(F f, lint N) { /// start-hash
+struct Frac { ll p, q; };
+template<class F> Frac fracBS(F f, ll N) {
 	bool dir = 1, A = 1, B = 1;
-	Frac left{0, 1}, right{1, 1}; // Set right to 1/0 to search (0, N]
+	Frac left{0, 1}, right{1, 1};//right{1,0} to search (0,N]
 	assert(!f(left)); assert(f(right));
 	while (A || B) {
-		lint adv = 0, step = 1; // move right if dir, else left
+		ll adv = 0, step = 1; // move right if dir, else left
 		for (int si = 0; step; (step *= 2) >>= si) {
 			adv += step;
 			Frac mid{left.p * adv + right.p, left.q * adv + right.q};
@@ -25,11 +24,9 @@ Frac fracBS(F f, lint N) { /// start-hash
 				adv -= step; si = 2;
 			}
 		}
-		right.p += left.p * adv;
-		right.q += left.q * adv;
-		dir = !dir;
-		swap(left, right);
+		right.p += left.p * adv; right.q += left.q * adv;
+		dir = !dir; swap(left, right);
 		A = B; B = !!adv;
 	}
 	return dir ? right : left;
-} /// end-hash
+}

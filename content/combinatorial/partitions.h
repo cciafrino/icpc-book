@@ -8,7 +8,6 @@
  * Usage:
  * Time: 
  */
-const int M = 998244353;
 vector<int64_t> prep(int N) {
 	vector<int64_t> dp(N); dp[0] = 1;
 	for (int n = 1; n < N; ++n) {
@@ -21,6 +20,5 @@ vector<int64_t> prep(int N) {
 		}
 		if ((sum %= M) < 0) sum += M;
 		dp[n] = sum;
-	}
-	return dp;
+	} return dp;
 }

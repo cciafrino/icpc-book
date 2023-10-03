@@ -35,23 +35,6 @@
 	\end{flushleft}
 
 
-\subsection{Involutions}
-    An involution is a permutation with maximum cycle length 2, and it is its own inverse. 
-    $a(n) = a(n-1) + (n-1)a(n-2), a(0) = a(1) = 1$.\\
-    $1, 1, 2, 4, 10, 26, 76, 232, 764, 2620, 9496, 35696, 140152$
-
-
-\subsection{Cycles}
-		Let the number of $n$-permutations whose cycle lenghts all belong to the set $S$ be denoted by $g_S (n)$
-		\small
-		$$\sum_{n=0} ^\infty g_S(n) \frac{x^n}{n!} = \exp\left(\sum_{n\in S} \frac{x^n}{n} \right)$$
-		\normalsize
-
-%\subsection{Inclusion-Exclusion Principle}
-%	Let $A_1, A_2, ..., A_n$ be finite sets. Then  $A_1 \cup A_2 \cup ... \cup A_n$ is
-%	\[ \left| \bigcup^n_{i = 1} A_i \right|  = \sum_{\substack{I \subseteq \{1, 2, ..., n\}\\ I 
-%	\neq \emptyset}}^{} (-1)^{\left| I \right| +1} \left| \bigcap\limits_{i\in I} A_i \right| \]
-
 \subsection{The twelvefold way (from Stanley)} 
 How many functions $f \colon N \rightarrow X$ are there?
 
@@ -67,6 +50,20 @@ How many functions $f \colon N \rightarrow X$ are there?
 }
 
   Where $\binom{a}{b} = \frac{1}{b!}(a)_b $, $p_x(n)$ is the number of ways to partition the integer $n$ using $x$ summand and $\stirlingsecond{n}{x}$ is the number of ways to partition a set of $n$ elements into $x$ subsets (aka Stirling number of the second kind).
+\subsection{Cycles}
+		Let the number of $n$-permutations whose cycle lenghts all belong to the set $S$ be denoted by $g_S (n)$
+		\small
+		$$\sum_{n=0} ^\infty g_S(n) \frac{x^n}{n!} = \exp\left(\sum_{n\in S} \frac{x^n}{n} \right)$$\normalsize
+
+\subsection{Involutions}
+    An involution is a permutation with maximum cycle length 2, and it is its own inverse. 
+    $a(n) = a(n-1) + (n-1)a(n-2), a(0) = a(1) = 1$.\\
+    $1, 1, 2, 4, 10, 26, 76, 232, 764, 2620, 9496, 35696, 140152$
+%\subsection{Inclusion-Exclusion Principle}
+%	Let $A_1, A_2, ..., A_n$ be finite sets. Then  $A_1 \cup A_2 \cup ... \cup A_n$ is
+%	\[ \left| \bigcup^n_{i = 1} A_i \right|  = \sum_{\substack{I \subseteq \{1, 2, ..., n\}\\ I 
+%	\neq \emptyset}}^{} (-1)^{\left| I \right| +1} \left| \bigcap\limits_{i\in I} A_i \right| \]
+
 	
 \subsection{Burnside}
 Given a group $G$ of symmetries and a set $X$, the number of elements of $X$ \emph{up to symmetry} equals

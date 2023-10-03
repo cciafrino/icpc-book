@@ -3,36 +3,33 @@
  * Date: 
  * License: 
  * Source: 
- * Description: Template that helps deal with fractions.
+ * Description: Template that helps deal with frtions.
  */
-template<typename num = long long>
-struct frac { /// start-hash
-	num n, d;
-	frac() : n(0), d(1) { }
-	frac(num _n, num _d = 1): n(_n), d(_d){
-		num g = gcd(n, d); n /= g, d /= g;
-		if (d < 0) n *= -1, d *= -1;
-		assert(d != 0);
+template<typename num> struct fraction_t {
+	num p, q; using fr = fraction_t;
+	fraction_t() : p(0), q(1) { }
+	fraction_t(num _n, num _d = 1): p(_n), q(_d){
+		num g = gcd(p, q); p /= g, q /= g;
+		if (q < 0) p *= -1, q *= -1; assert(q != 0);
 	}
-	friend bool operator<(const frac& l, const frac& r) { return l.n * r.d < r.n * l.d; }
-	friend bool operator==(const frac& l, const frac& r) { return l.n == r.n && l.d == r.d; }
-	friend bool operator!=(const frac& l, const frac& r) { return !(l == r); }
-	friend frac operator+(const frac& l, const frac& r) { 
-		num g = gcd(l.d, r.d);
-		return frac( r.d / g * l.n + l.d / g * r.n, l.d / g * r.d);
+	friend bool operator<(const fr& l, const fr& r){
+		return l.p*r.q < r.p*l.q;}
+	friend bool operator==(const fr& l, const fr& r){return l.p == r.p && l.q == r.q;}
+	friend bool operator!=(const fr& l, const fr& r){return !(l == r);}
+	friend fr operator+(const fr& l, const fr& r){
+		num g = gcd(l.q, r.q);
+		return fr(r.q / g * l.p + l.q / g * r.p, l.q / g * r.q);
 	}
-	friend frac operator-(const frac& l, const frac& r) { 
-		num g = gcd(l.d, r.d);
-		return frac( r.d / g * l.n - l.d / g * r.n, l.d / g * r.d);
+	friend fr operator-(const fr& l, const fr& r) {
+		num g = gcd(l.q, r.q);
+		return fr( r.q / g * l.p - l.q / g * r.p, l.q / g * r.q);
 	}
-	friend frac operator*(const frac& l, const frac& r) { return frac(l.n * r.n, l.d * r.d); }
-	friend frac operator/(const frac& l, const frac& r) { return l * frac(r.d, r.n); }
-	friend frac& operator+=(frac& l, const frac& r) { return l = l+r; }
-	friend frac& operator-=(frac& l, const frac& r) { return l = l-r; }
-	template<class T> friend frac& operator*=(frac& l, const T& r) { return l = l*r; }
-	template<class T> friend frac& operator/=(frac& l, const T& r) { return l = l/r; }
-	friend ostream& operator<<(ostream& strm, const frac& a) {
-		strm << a.n << "/" << a.d;
-		return strm;
-	}
+	friend fr operator*(const fr& l, const fr& r){
+		return fr(l.p*r.p, l.q*r.q);}
+	friend fr operator/(const fr& l, const fr& r){
+		return l*fr(r.q,r.p);}
+	friend fr& operator+=(fr& l, const fr& r){return l=l+r;}
+	friend fr& operator-=(fr& l, const fr& r){return l=l-r;}
+	template<class T> friend fr& operator*=(fr& l, const T& r){return l=l*r;}
+	template<class T> friend fr& operator/=(fr& l, const T& r){return l=l/r;}
 };

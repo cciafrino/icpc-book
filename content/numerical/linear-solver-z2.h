@@ -19,10 +19,8 @@ bool gauss(vector<bs> a, bs& ans, int n) {
 		swap(a[c], a[i]);
 		i = c++; pos[j] = 0;
 		for (int k = 0; k < m; ++k)
-			if (a[k][j] && k != i)
-				a[k] ^= a[i];
-	}
-	ans = pos;
+			if (a[k][j] && k != i) a[k] ^= a[i];
+	} ans = pos;
 	for(int i = 0; i < m; ++i) {
 		int ac = 0;
 		for (int j = 0; j < n ; ++j) {

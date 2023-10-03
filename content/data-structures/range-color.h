@@ -9,50 +9,38 @@
  * Time: $O(\lg(L)*Q)$
  * Status: stress-tested
  */
-template<class T = int64_t, class C = int32_t> struct RangeColor{
+template<class T, class C> struct RangeColor {
 	struct Node{
-		T left, right; C color;
-		bool operator < (const Node &n) const{ return right < n.right; }
+		T lo, hi; C color;
+		bool operator<(const Node &n) const { return hi < n.hi; }
 	};
-	C minInf;
-	set<Node> st;
-	vector<T> freq;
+	C minInf; set<Node> st; vector<T> freq;
 	RangeColor(T first, T last, C maxColor, C iniColor = C(0)): minInf(first - T(1)), freq(maxColor + 1) {
 		freq[iniColor] = last - first + T(1);
 		st.insert({first, last, iniColor});
 	}
 	C query(T i) { //get color in position i
-		auto p = st.upper_bound({T(0), i - T(1), minInf});
-		return p->color;
+		return st.upper_bound({T(0), i - T(1), minInf})->color;
 	}
-	void upd(T a, T b, C newColor) { //set newColor in [a, b]
+	void upd(T a, T b, C x) { //set x in [a, b]
 		auto p = st.upper_bound({T(0), a - T(1), minInf});
 		assert(p != st.end());
-		T left = p->left, right = p->right;
-		C old = p->color;
-		freq[old] -= (right - left + T(1));
-		p = st.erase(p);
-		if (left < a){
-			freq[old] += (a - left);
-			st.insert({left, a - T(1), old});
-		}
-		if (b < right){
-			freq[old] += (right - b);
-			st.insert({b + T(1), right, old});
-		}
-		while ((p != st.end()) && (p->left <= b)){
-			left = p->left, right = p->right;
-			old = p->color;
-			freq[old] -= (right - left + T(1));
-			if (b < right){
-				freq[old] += (right - b);
-				st.erase(p);
-				st.insert({b + T(1), right, old});
+		T lo = p->lo, hi = p->hi; C old = p->color;
+		freq[old] -= (hi - lo + T(1)); p = st.erase(p);
+		if (lo < a)
+			freq[old] += (a-lo), st.insert({lo, a-T(1), old});
+		if (b < hi)
+			freq[old] += (hi-b), st.insert({b+T(1), hi, old});
+		while ((p != st.end()) && (p->lo <= b)) {
+			lo = p->lo, hi = p->hi; old = p->color;
+			freq[old] -= (hi - lo + T(1));
+			if (b < hi){
+				freq[old] += (hi - b); st.erase(p);
+				st.insert({b + T(1), hi, old});
 				break;
-			} else	p = st.erase(p);
+			} else p = st.erase(p);
 		}
-		freq[newColor] += (b - a + T(1));
-		st.insert({a, b, newColor});
+		freq[x] += (b - a + T(1)); st.insert({a, b, x});
 	}
 	T countColor(C x){ return freq[x]; }
 };

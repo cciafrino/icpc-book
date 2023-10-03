@@ -14,7 +14,6 @@
  * Time: $64^2$ xors per multiplication, memorize to speed up.
  * Status: Tested on Codeforces 102341L and ProjectEuler 459 and yosupo
  */
-using ull = uint64_t;
 ull nim_prod[64][64];
 ull nim_prod2(int i, int j) {
 	if (nim_prod[i][j]) return nim_prod[i][j];
@@ -22,17 +21,14 @@ ull nim_prod2(int i, int j) {
 	int a = (i&j) & -(i&j);
 	return nim_prod[i][j] = nim_prod2(i ^ a, j) ^ nim_prod2((i ^ a) | (a-1), (j ^ a) | (i & (a-1)));
 }
-
 void all_nim_prod() {
-	for (int i = 0; i < 64; i++) {
-		for (int j = 0; j < 64; j++) {
+	for (int i = 0; i < 64; i++)
+		for (int j = 0; j < 64; j++)
 			if ((i & j) == 0) nim_prod[i][j] = 1ull << (i|j);
 			else {
 				int a = (i&j) & -(i&j);
 				nim_prod[i][j] = nim_prod[i ^ a][j] ^ nim_prod[(i ^ a) | (a-1)][(j ^ a) | (i & (a-1))];
 			}
-		}
-	}
 }
 ull get_nim_prod(ull x, ull y) {
 	ull res = 0;

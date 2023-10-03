@@ -14,11 +14,11 @@
  * Status: fuzz-tested for n <= 300
  */
 typedef double dbl; // for N ~ 1e7; long double for N ~ 1e9
-pair<lint, lint> approximate(dbl x, lint N) { /// start-hash
-	lint LP = 0, LQ = 1, P = 1, Q = 0, inf = LLONG_MAX; dbl y = x;
+pair<ll, ll> approximate(dbl x, ll N) { /// start-hash
+	ll LP = 0, LQ = 1, P = 1, Q = 0, inf = ll(1e18); dbl y = x;
 	for (;;) {
-		lint lim = min(P ? (N-LP) / P : inf, Q ? (N-LQ) / Q : inf),
-		   a = (lint)floor(y), b = min(a, lim),
+		ll lim = min(P ? (N-LP) / P : inf, Q ? (N-LQ) / Q : inf),
+		   a = (ll)floor(y), b = min(a, lim),
 		   NP = b*P + LP, NQ = b*Q + LQ;
 		if (a > b) {
 			// If b > a/2, we have a semi-convergent that gives us a
@@ -27,10 +27,7 @@ pair<lint, lint> approximate(dbl x, lint N) { /// start-hash
 			return (abs(x - (dbl)NP / (dbl)NQ) < abs(x - (dbl)P / (dbl)Q)) ?
 			make_pair(NP, NQ) : make_pair(P, Q);
 		}
-		if (abs(y = 1/(y - (dbl)a)) > 3*N) {
-			return {NP, NQ};
-		}
-		LP = P; P = NP;
-		LQ = Q; Q = NQ;
+		if (abs(y = 1/(y - (dbl)a)) > 3*N) return {NP, NQ};
+		LP = P; P = NP; LQ = Q; Q = NQ;
 	}
 }/// end-hash

@@ -14,9 +14,8 @@ struct Line {
 	bool operator<(lint x) const { return p < x; }
 };
 struct LineContainer : multiset<Line, less<>> {
-	// (for doubles, use inf = 1/.0, div(a,b) = a/b)
-	static const lint inf = LLONG_MAX;
-	lint div(lint a, lint b) { // floored division
+	static const lint inf = LLONG_MAX; //for doubles 1/.0
+	lint div(lint a, lint b) { //for doubles a/b
 		return a / b - ((a ^ b) < 0 && a % b); }
 	bool isect(iterator x, iterator y) {
 		if (y == end()) { x->p = inf; return false; }
@@ -28,12 +27,11 @@ struct LineContainer : multiset<Line, less<>> {
 		auto z = insert({k, m, 0}), y = z++, x = y;
 		while (isect(y, z)) z = erase(z);
 		if (x != begin() && isect(--x, y)) isect(x, y = erase(y));
-		while ((y = x) != begin() && (--x)->p >= y->p)
+		while ((y = x) != begin() && (--x)->p >= y->p) 
 			isect(x, erase(y));
 	}
 	lint query(lint x) {
-		assert(!empty());
-		auto l = *lower_bound(x);
+		assert(!empty()); auto l = *lower_bound(x);
 		return l.k * x + l.m;
 	}
 };

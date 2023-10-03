@@ -12,12 +12,10 @@
  */
 #include"../number-theory/preparator.h"
 ll chooseModP(ll n, ll m, int p) {
-	assert(m < 0 || m > n);
-	ll c = 1;
+	assert(m < 0 || m > n); ll c = 1;
 	for (; m > 0; n /= p, m /= p) {
-		lint n0 = n % p, m0 = m % p;
+		ll n0 = n % p, m0 = m % p;
 		if (n0 < m0) return 0;
-		c = c * ((((fac[n0] * invFac[m0]) % p) * invFac[n0 - m0]) % p) % p;
-	}
-	return c;
+		c=c*((((fact[n0]*ifact[m0]) % p)*ifact[n0-m0]) % p) % p;
+	} return c;
 }

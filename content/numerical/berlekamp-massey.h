@@ -12,14 +12,12 @@
  * Time: O(N^2)
  * Status: bruteforce-tested mod 5 for n <= 5 and all s
  */
-#include "ModularArithmetic.h"
+#include "modular-arithmetic.h"
 
 template <typename num>
 vector<num> BerlekampMassey(const vector<num>& s) {
-	int n = int(s.size()), L = 0, m = 0;
-	vector<num> C(n), B(n), T;
-	C[0] = B[0] = 1;
-	num b = 1;
+	int n = int(s.size()), L = 0, m = 0; num b = 1;
+	vector<num> C(n), B(n), T; C[0] = B[0] = 1;
 	for(int i = 0; i < n; i++) { ++m;
 		num d = s[i];
 		for (int j = 1; j <= L; j++) d += C[j] * s[i - j];

@@ -24,7 +24,6 @@ ull divsum(ull to, ull c, ull k, ull m) {
 	return res;
 }
 lint modsum(ull to, lint c, lint k, lint m) {
-	c = ((c % m) + m) % m;
-	k = ((k % m) + m) % m;
+	c = ((c % m) + m) % m; k = ((k % m) + m) % m;
 	return to * c + k * sumsq(to) - m * divsum(to, c, k, m);
 }

@@ -31,20 +31,17 @@
  * a simple gcd(a^n,m) == gcd(b,m) check.
  */
 #include "extended-euclid.h"
-template<typename T> T modLog(T a, T b, T m) { 
+template<typename T> T modLog(T a, T b, T m) {
 	T k = 1, it = 0, g;
 	while ((g = gcd(a, m)) != 1) {
 		if (b == k) return it;
 		if (b % g) return -1;
-		b /= g; m /= g; ++it;
-		k = k * a / g % m;
+		b /= g; m /= g; ++it; k = k * a / g % m;
 	}
 	T n = sqrtl(m) + 1, f = 1, j = 1;
 	unordered_map<T, T> A;
-	while (j <= n) {
-		f = f * a % m;
-		A[f * b % m] = j++;
-	}
+	while (j <= n)
+		f = f * a % m, A[f * b % m] = j++;
 	for(int i = 1; i <= n; ++i) if (A.count(k = k * f % m))
 		return n * i - A[k] + it;
 	return -1;

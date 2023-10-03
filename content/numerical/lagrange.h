@@ -14,7 +14,7 @@ template<typename T> struct interpolator_t {
 		T res = 0, P = 1; S[N - 1] = 1;
 		for (int i = N-1; i > 0; --i) S[i-1] = S[i] * (x-i);
 		for (int i = 0; i < N; ++i, sgn *= -1, P *= (x - i + 1)) {
-			res += y[i] * sgn * P * S[i] * invFac[i] * invFac[N-1-i];
+			res += y[i] * sgn * P * S[i] * ifact[i] * ifact[N-1-i];
 		}
 		return res;
 	}

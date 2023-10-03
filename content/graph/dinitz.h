@@ -27,8 +27,7 @@ template<typename T = int> struct Dinitz {
 					e.f += p, adj[e.to][e.rev].f -= p;
 					return p;
 				}
-		}
-		return 0;
+		} return 0;
 	}
 	T maxflow(int s, int t) { // db2141
 		T flow = 0; q[0] = s;
@@ -52,34 +51,26 @@ template<typename T = int> struct Dinitz {
 		for (int i = 0; i < int(adj.size()); i++) for(edge_t &e : adj[i])
 			if (lvl[i] && !lvl[e.to]) cut.push_back({i, e.to});
 		return {cost, cut};
-	} 
+	}
 };
-
 struct flow_demand_t {
 	int src, sink;
-	vector<int> d;
-	Dinitz<int> flower;
+	vector<int> d; Dinitz<int> flower;
 	flow_demand_t(int N) : src(N + 1), sink(N + 2), d(N + 3), flower(N + 3) {}
 	void add_edge(int a, int b, int demand, int cap) {
-		d[a] -= demand;
-		d[b] += demand;
+		d[a] -= demand; d[b] += demand;
 		flower.addEdge(a, b, cap - demand);
 	}
 	int get_flow() {
-		const int INF = std::numeric_limits<int>::max():
-			int x = 0, y = 0;
-		flower.add_edge(N, N-1, INF);
+		int x = 0, y = 0;
+		flower.add_edge(N, N-1, numeric_limits<int>::max());
 		for (int i = 0; i <= N; ++i) {
-			if (d[i] < 0) {
-				flower.add_edge(i, sink, -d[i]);
-				x += -d[i];
-			}
-			if (d[i] > 0) {
-				flower.add_edge(src, i, d[i]);
-				y += d[i];
-			}
+			if (d[i] < 0)
+				flower.add_edge(i, sink, -d[i]), x += -d[i];
+			if (d[i] > 0)
+				flower.add_edge(src, i, d[i]), y += d[i];
 		}
-		bool has_circulation = (flower.maxflow(src, sink) == x && x == y);
+		bool has_circulation=(flower.maxflow(src,sink)==x && x==y);
 		if (!has_circulation) return -1;
 		return flower.maxflow(N-1, N);
 	}

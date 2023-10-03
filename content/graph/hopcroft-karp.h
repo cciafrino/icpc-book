@@ -13,7 +13,7 @@
  * Time: O(\sqrt{V}E)
  */
 using vi = vector<int>;
-bool dfs(int a, int L, const vector<vi> &g, vi &btoa, vi &A, vi &B) { /// start-hash
+bool dfs(int a, int L, const vector<vi> &g, vi &btoa, vi &A, vi &B) {
 	if (A[a] != L) return 0;
 	A[a] = -1;
 	for(auto &b : g[a]) if (B[b] == L + 1) {
@@ -23,7 +23,7 @@ bool dfs(int a, int L, const vector<vi> &g, vi &btoa, vi &A, vi &B) { /// start-
 	}
 	return 0;
 }
-int hopcroftKarp(const vector<vi> &g, vi &btoa) { /// start-hash
+int hopcroftKarp(const vector<vi> &g, vi &btoa) {
 	int res = 0;
 	vector<int> A(g.size()), B(int(btoa.size())), cur, next;
 	for (;;) {
@@ -35,7 +35,7 @@ int hopcroftKarp(const vector<vi> &g, vi &btoa) { /// start-hash
 			bool islast = 0; next.clear();
 			for(auto &a : cur) for(auto &b : g[a]) {
 				if (btoa[b] == -1) B[b] = lay, islast = 1;
-				else if (btoa[b] != a && !B[b]) 
+				else if (btoa[b] != a && !B[b])
 					B[b] = lay, next.push_back(btoa[b]);
 			}
 			if (islast) break;
@@ -43,7 +43,7 @@ int hopcroftKarp(const vector<vi> &g, vi &btoa) { /// start-hash
 			for(auto &a : next) A[a] = lay;
 			cur.swap(next);
 		}
-		for(int a = 0; a < int(g.size()); ++a) 
+		for(int a = 0; a < int(g.size()); ++a)
 			res += dfs(a, 0, g, btoa, A, B);
 	}
-} /// end-hash
+}
