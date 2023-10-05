@@ -4,7 +4,6 @@
  * (undirected and non bipartite) using Edmond's Blossom Algorithm.
  * Time: $O(EV^2)$ 
  */
-
 struct blossom_t {
 	int t, n; // 1-based indexing!!
 	vector<vector<int>> edges;
@@ -12,15 +11,14 @@ struct blossom_t {
 	blossom_t(int _n) : n(_n), edges(n+1), seen(n+1), 
 	parent(n+1), og(n+1), match(n+1), aux(n+10), t(0) {}
 	void addEdge(int u, int v) {
-		edges[u].push_back(v); 
+		edges[u].push_back(v);
 		edges[v].push_back(u);
 	}
 	void augment(int u, int v) {
 		int pv = v, nv; // flip states of edges on u-v path
 		do {
 			pv = parent[v]; nv = match[pv];
-			match[v] = pv; match[pv] = v;
-			v = nv;
+			match[v] = pv; match[pv] = v; v = nv;
 		} while(u != pv);
 	}
 	int lca(int v, int w) { // find LCA in O(dist)
@@ -29,8 +27,7 @@ struct blossom_t {
 			if (v) {
 				if (aux[v] == t) return v; aux[v] = t;
 				v = og[parent[match[v]]];
-			}
-			swap(v, w);
+			} swap(v, w);
 		}
 	}
 	void blossom(int v, int w, int a) {
@@ -46,30 +43,25 @@ struct blossom_t {
 		Q = vector<int>(); Q.push_back(u); seen[u] = 0;
 		for(int i = 0; i < Q.size(); ++i) {
 			int v = Q[i]; 
-			for(auto &x : edges[v]) {
-				if (seen[x] == -1) {
-					parent[x] = v; seen[x] = 1;
-					if (!match[x]) return augment(u, x), true;
-					Q.push_back(match[x]); seen[match[x]] = 0;
-				} else if (seen[x] == 0 && og[v] != og[x]) {
-					int a = lca(og[v], og[x]);
-					blossom(x, v, a); blossom(v, x, a);
-				}
+			for(auto &x : edges[v]) if (seen[x] == -1) {
+				parent[x] = v; seen[x] = 1;
+				if (!match[x]) return augment(u, x), true;
+				Q.push_back(match[x]); seen[match[x]] = 0;
+			} else if (seen[x] == 0 && og[v] != og[x]) {
+				int a = lca(og[v], og[x]);
+				blossom(x, v, a); blossom(v, x, a);
 			}
-		}
-		return false;
+		} return false;
 	}
 	int solve() {
-		int ans = 0; // find random matching (not necessary, 
-		vector<int> V(n-1); iota(V.begin(), V.end(), 1);// constant improvement)
+		int ans = 0; // find random matching (not necessary,
+		vector<int> V(n-1); iota(V.begin(), V.end(), 1);
 		shuffle(V.begin(), V.end(), mt19937(0x94949));
 		for(auto &x : V) if(!match[x]) 
 			for(auto &y : edges[x]) if (!match[y]) {
-				match[x] = y, match[y] = x;
-				++ans; break;
+				match[x] = y, match[y] = x; ++ans; break;
 			}
-		for (int i = 1; i <= n; ++i) 
-			if (!match[i] && bfs(i)) ++ans;
+		for(int i = 1; i <= n; ++i) if (!match[i] && bfs(i)) ++ans;
 		return ans;
 	}
 };

@@ -15,29 +15,25 @@ struct scc_t {
     adj(g), low(n,-1), id(n,-1), in_stk(n, false), cc_id(n) {}
     template<class F> void dfs(int cur, F f) {
         id[cur] = low[cur] = t++;
-        stk.push_back(cur);
-        in_stk[cur] = true;
-        for (int nxt : adj[cur]) {
+        stk.push_back(cur); in_stk[cur] = true;
+        for (int nxt : adj[cur])
             if (id[nxt] == -1) {
-                dfs(nxt, f);
-                low[cur] = min(low[cur], low[nxt]);
-            } else if (in_stk[nxt])
+                dfs(nxt, f); low[cur] = min(low[cur], low[nxt]);
+            } else if (in_stk[nxt]) {
                 low[cur] = min(low[cur], id[nxt]);
-        }
+            }
         if (low[cur] == id[cur]) {
             vector<int> cc; cc.reserve(stk.size());
             while (true) {
                 int v = stk.back(); stk.pop_back();
                 in_stk[v] = false;
-                cc.push_back(v);
-                cc_id[v] = scc_num;
+                cc.push_back(v); cc_id[v] = scc_num;
                 if (v == cur) break;
             } f(cc); scc_num ++;
         }
     }
     template<class F> void solve(F f) {
         stk.reserve(n);
-        for (int r = 0; r < n; ++r)
-            if (id[r] == -1) dfs(r, f);
+        for (int r = 0; r < n; ++r) if (id[r] == -1) dfs(r, f);
     }
 };

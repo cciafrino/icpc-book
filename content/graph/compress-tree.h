@@ -28,6 +28,5 @@ vector<pair<int,int>> compressTree(lca_t &lca, const vector<int>& subset) {
 	for (int i = 0; i < li.size()-1; ++i) {
 		int a = li[i], b = li[i+1];
 		ret.emplace_back(rev[lca.lca(a, b)], b);
-	}
-	return ret;
+	} return ret;
 }

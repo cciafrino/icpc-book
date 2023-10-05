@@ -12,8 +12,7 @@
 struct Edge { int a, b; ll w; };
 struct Node { /// lazy skew heap node
 	Edge key;
-	Node *l, *r;
-	ll delta;
+	Node *l, *r; ll delta;
 	void prop() {
 		key.w += delta;
 		if (l) l->delta += delta;
@@ -30,7 +29,6 @@ Node *merge(Node *a, Node *b) {
 	return a;
 }
 void pop(Node*& a) { a->prop(); a = merge(a->l, a->r); }
-
 pair<ll, vector<int>> dmst(int n, int r, vector<Edge>& g) {
 	RollbackUF uf(n);
 	vector<Node*> heap(n);
@@ -60,8 +58,7 @@ pair<ll, vector<int>> dmst(int n, int r, vector<Edge>& g) {
 		for(int i = 0; i < qi; ++i) in[uf.find(Q[i].b)] = Q[i];
 	}
 	for (auto& [u,t,comp] : cycs) { // restore sol (optional)
-		uf.rollback(t);
-		Edge inEdge = in[u];
+		uf.rollback(t); Edge inEdge = in[u];
 		for (auto& e : comp) in[uf.find(e.b)] = e;
 		in[uf.find(inEdge.b)] = inEdge;
 	}

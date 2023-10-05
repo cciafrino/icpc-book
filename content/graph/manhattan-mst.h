@@ -13,8 +13,7 @@
 #include<dsu.h>
 typedef Point<int> P;
 pair<vector<array<int, 3>>, int> manhattanMST(vector<P> ps) {
-	vector<int> id(ps.size());
-	iota(id.begin(), id.end(), 0);
+	vector<int> id(ps.size()); iota(id.begin(), id.end(), 0);
 	vector<array<int, 3>> edges;
 	for(int k = 0; k < 4; ++k) {
 		sort(id.begin(), id.end(), [&](int i, int j) {
@@ -23,19 +22,16 @@ pair<vector<array<int, 3>>, int> manhattanMST(vector<P> ps) {
 		for(auto& i : id) {
 			for (auto it = sweep.lower_bound(-ps[i].y);
 				it != sweep.end(); sweep.erase(it++)) {
-				int j = it->second;
-				P d = ps[i] - ps[j];
+				int j = it->second; P d = ps[i] - ps[j];
 				if (d.y > d.x) break;
 				edges.push_back({d.y + d.x, i, j});
-			}
-			sweep[-ps[i].y] = i;
+			} sweep[-ps[i].y] = i;
 		}
 		if (k & 1) for(auto& p : ps) p.x = -p.x;
 		else for(auto& p : ps) swap(p.x, p.y);
 	}
 	sort(edges.begin(), edges.end());
-	UF uf(ps.size());
-	int cost = 0;
+	UF uf(ps.size()); int cost = 0;
 	for (auto e: edges) if (uf.unite(e[1], e[2])) cost += e[0];
 	return {edges, cost};
 }

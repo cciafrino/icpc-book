@@ -1,6 +1,6 @@
 /**
- * Author: LeticiaFCS
- * Date: 2020-03-07
+ * Author: Chris
+ * Date: 2023
  * License: CC0
  * Source: https://codeforces.com/blog/entry/53170, KACTL
  * Description: Decomposes a tree into vertex disjoint heavy paths and light
@@ -18,13 +18,12 @@ template<bool use_edges> struct HLD_t {
 	vector<vector<int>> adj;
 	vector<int> sz, depth, chain, par, in, out, preorder;
 	HLD_t() {}
-	HLD_t(const vector<vector<int>>& G, int r = 0) : N(int(G.size())), adj(G),
-	sz(N), depth(N), chain(N), par(N, -1), in(N), out(N), preorder(N) {
-		dfs_sz(r); chain[r] = r; dfs_hld(r); }
+	HLD_t(const vector<vector<int>>& G, int r = 0) : N(int(G.size())), 
+	adj(G), sz(N), depth(N), chain(N), par(N, -1), in(N), out(N), 
+	preorder(N) { dfs_sz(r); chain[r] = r; dfs_hld(r); }
 	void dfs_sz(int cur) {
-		if (~par[cur]) {
+		if (~par[cur])
 			adj[cur].erase(find(adj[cur].begin(), adj[cur].end(), par[cur]));
-		}
 		sz[cur] = 1;
 		for (auto& nxt : adj[cur]) {
 			par[nxt] = cur; depth[nxt] = 1 + depth[cur];
@@ -33,20 +32,17 @@ template<bool use_edges> struct HLD_t {
 		}
 	}
 	void dfs_hld(int cur) {
-		in[cur] = T++;
-		preorder[in[cur]] = cur;
+		in[cur] = T++; preorder[in[cur]] = cur;
 		for (auto& nxt : adj[cur]) {
 			chain[nxt] = (nxt == adj[cur][0] ? chain[cur] : nxt);
 			dfs_hld(nxt);
-		}
-		out[cur] = T;
+		} out[cur] = T;
 	}
 	int lca(int a, int b) {
 		while (chain[a] != chain[b]) {
 			if (in[a] < in[b]) swap(a, b);
 			a = par[chain[a]];
-		}
-		return (in[a] < in[b] ? a : b);
+		} return (in[a] < in[b] ? a : b);
 	}
 	bool is_ancestor(int a, int b) { return in[a] <= in[b] && in[b] < out[a]; }
 	int climb(int a, int k) {
@@ -74,12 +70,10 @@ template<bool use_edges> struct HLD_t {
 				b = par[chain[b]];
 			}
 		}
-		if (depth[a] > depth[b]) {
+		if (depth[a] > depth[b])
 			L.push_back({true, in[b] + use_edges, in[a] + 1});
-		} else {
-			R.push_back({false, in[a] + use_edges, in[b] + 1});
-		}
+		else R.push_back({false, in[a] + use_edges, in[b] + 1});
 		L.insert(L.end(), R.rbegin(), R.rend());
 		return L;
 	}
-}; 
+};
