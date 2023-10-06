@@ -17,11 +17,10 @@ struct scc_t {
         id[cur] = low[cur] = t++;
         stk.push_back(cur); in_stk[cur] = true;
         for (int nxt : adj[cur])
-            if (id[nxt] == -1) {
-                dfs(nxt, f); low[cur] = min(low[cur], low[nxt]);
-            } else if (in_stk[nxt]) {
+            if (id[nxt] == -1)
+                dfs(nxt, f);low[cur] = min(low[cur], low[nxt]);
+            else if (in_stk[nxt])
                 low[cur] = min(low[cur], id[nxt]);
-            }
         if (low[cur] == id[cur]) {
             vector<int> cc; cc.reserve(stk.size());
             while (true) {
@@ -29,7 +28,7 @@ struct scc_t {
                 in_stk[v] = false;
                 cc.push_back(v); cc_id[v] = scc_num;
                 if (v == cur) break;
-            } f(cc); scc_num ++;
+            } f(cc); scc_num++;
         }
     }
     template<class F> void solve(F f) {

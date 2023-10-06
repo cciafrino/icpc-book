@@ -201,9 +201,9 @@
 \contentsline {subsection}{\texttt {dfs-tree.h}\hspace {0.2em}}{25}{section.7.4}%
 \contentsline {subsection}{\texttt {centroid-decomposition.h}\hspace {0.2em}}{25}{lstnumber.7.17.52}%
 \contentsline {subsection}{\texttt {tarjan.h}\hspace {0.2em}}{25}{lstnumber.7.18.65}%
-\contentsline {subsection}{\texttt {kosaraju.h}\hspace {0.2em}}{26}{lstnumber.7.19.30}%
+\contentsline {subsection}{\texttt {kosaraju.h}\hspace {0.2em}}{26}{lstnumber.7.19.29}%
 \contentsline {subsection}{\texttt {bcc.h}\hspace {0.2em}}{26}{lstnumber.7.20.35}%
-\contentsline {subsection}{\texttt {2sat.h}\hspace {0.2em}}{26}{lstnumber.7.21.53}%
+\contentsline {subsection}{\texttt {2sat.h}\hspace {0.2em}}{26}{lstnumber.7.21.52}%
 \contentsline {section}{\numberline {7.5}Heuristics}{26}{section.7.5}%
 \contentsline {subsection}{\texttt {maximal-cliques.h}\hspace {0.2em}}{26}{section.7.5}%
 \contentsline {subsection}{\texttt {maximum-clique.h}\hspace {0.2em}}{27}{lstnumber.7.23.11}%
@@ -215,7 +215,7 @@
 \contentsline {subsection}{\texttt {lca-euler-tour.h}\hspace {0.2em}}{28}{lstnumber.7.28.53}%
 \contentsline {subsection}{\texttt {compress-tree.h}\hspace {0.2em}}{29}{lstnumber.7.29.164}%
 \contentsline {subsection}{\texttt {heavylight.h}\hspace {0.2em}}{29}{lstnumber.7.30.19}%
-\contentsline {subsection}{\texttt {tree-isomorphism.h}\hspace {0.2em}}{29}{lstnumber.7.31.64}%
+\contentsline {subsection}{\texttt {tree-isomorphism.h}\hspace {0.2em}}{29}{lstnumber.7.31.62}%
 \contentsline {subsection}{\numberline {7.6.1}Sqrt Decomposition}{29}{subsection.7.6.1}%
 \contentsline {section}{\numberline {7.7}Functional Graphs}{29}{section.7.7}%
 \contentsline {subsection}{\texttt {functional-graph.h}\hspace {0.2em}}{29}{section.7.7}%
@@ -225,7 +225,7 @@
 \contentsline {section}{\numberline {7.9}Theorems}{30}{section.7.9}%
 \contentsline {subsection}{\numberline {7.9.1}Landau}{30}{subsection.7.9.1}%
 \contentsline {subsection}{\numberline {7.9.2}Euler's theorem}{30}{subsection.7.9.2}%
-\contentsline {subsection}{\numberline {7.9.3}Eulerian Cycles}{31}{subsection.7.9.3}%
+\contentsline {subsection}{\numberline {7.9.3}Eulerian Cycles}{30}{subsection.7.9.3}%
 \contentsline {subsection}{\numberline {7.9.4}Dilworth's theorem}{31}{subsection.7.9.4}%
 \contentsline {subsection}{\numberline {7.9.5}König-Egervary theorem}{31}{subsection.7.9.5}%
 \contentsline {subsubsection}{Maximum Weight Closure}{31}{section*.7}%

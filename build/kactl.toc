@@ -97,7 +97,7 @@
 \contentsline {section}{\numberline {7.9}Theorems}{30}{section.7.9}%
 \contentsline {subsection}{\numberline {7.9.1}Landau}{30}{subsection.7.9.1}%
 \contentsline {subsection}{\numberline {7.9.2}Euler's theorem}{30}{subsection.7.9.2}%
-\contentsline {subsection}{\numberline {7.9.3}Eulerian Cycles}{31}{subsection.7.9.3}%
+\contentsline {subsection}{\numberline {7.9.3}Eulerian Cycles}{30}{subsection.7.9.3}%
 \contentsline {subsection}{\numberline {7.9.4}Dilworth's theorem}{31}{subsection.7.9.4}%
 \contentsline {subsection}{\numberline {7.9.5}König-Egervary theorem}{31}{subsection.7.9.5}%
 \contentsline {subsubsection}{Maximum Weight Closure}{31}{section*.7}%

@@ -13,20 +13,19 @@
  * Status: Tested on codeforces 101908L and 101807J
  */
 #include "../data-structures/lazy-segtree.h" 
-template<bool use_edges> struct HLD_t {
+template<bool use_edges> struct hld_t {
 	int N, T{};
 	vector<vector<int>> adj;
 	vector<int> sz, depth, chain, par, in, out, preorder;
-	HLD_t() {}
-	HLD_t(const vector<vector<int>>& G, int r = 0) : N(int(G.size())), 
-	adj(G), sz(N), depth(N), chain(N), par(N, -1), in(N), out(N), 
+	hld_t() {}
+	hld_t(const vector<vector<int>>& G, int r = 0) : N(int(G.size())),
+	adj(G), sz(N), depth(N), chain(N), par(N), in(N), out(N),
 	preorder(N) { dfs_sz(r); chain[r] = r; dfs_hld(r); }
 	void dfs_sz(int cur) {
-		if (~par[cur])
-			adj[cur].erase(find(adj[cur].begin(), adj[cur].end(), par[cur]));
 		sz[cur] = 1;
 		for (auto& nxt : adj[cur]) {
 			par[nxt] = cur; depth[nxt] = 1 + depth[cur];
+			adj[nxt].erase(find(adj[nxt].begin(), adj[nxt].end(), cur));
 			dfs_sz(nxt); sz[cur] += sz[nxt];
 			if (sz[nxt] > sz[adj[cur][0]]) swap(nxt, adj[cur][0]);
 		}
@@ -60,8 +59,8 @@ template<bool use_edges> struct HLD_t {
 	// bool is true if path should be reversed (only for noncommutative operations)
 	const vector<tuple<bool, int, int>>& get_path(int a, int b) const {
 		static vector<tuple<bool, int, int>> L, R;
-		L.clear(); R.clear(); 
-		while (chain[a] != chain[b]) {
+		L.clear(); R.clear();
+		while (chain[a] != chain[b])
 			if (depth[chain[a]] > depth[chain[b]]) {
 				L.push_back({true, in[chain[a]], in[a] + 1});
 				a = par[chain[a]];
@@ -69,8 +68,7 @@ template<bool use_edges> struct HLD_t {
 				R.push_back({false, in[chain[b]], in[b] + 1});
 				b = par[chain[b]];
 			}
-		}
-		if (depth[a] > depth[b])
+		if (depth[a] > depth[b]) 
 			L.push_back({true, in[b] + use_edges, in[a] + 1});
 		else R.push_back({false, in[a] + use_edges, in[b] + 1});
 		L.insert(L.end(), R.rbegin(), R.rend());

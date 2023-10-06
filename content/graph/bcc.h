@@ -17,7 +17,6 @@
  *  bcc_t b(g); b.solve([\&](const vector<int>\& edges_id) {...});
  */
 struct bcc_t{
-    using pii = pair<int, int>; // v, e_id
     int n, t;
     vector<vector<pii>> adj;
     vector<int> low, id, stk, is_art;
@@ -32,7 +31,7 @@ struct bcc_t{
                 low[cur] = min(low[cur], low[nxt]); c++;
                 if (low[nxt] < id[cur]) continue;
                 is_art[cur] = true;
-                auto top = find(stk.rbegin(), stk.rend(), e_id);
+                auto top =find(stk.rbegin(), stk.rend(), e_id);
                 vector<int> cc(stk.rbegin(), next(top));
                 f(cc); stk.resize(stk.size()-cc.size());
             }
