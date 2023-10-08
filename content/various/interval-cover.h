@@ -11,9 +11,9 @@ template<class T>
 vector<int> cover(pair<T, T> G, vector<pair<T, T>> I) {
 	vector<int> S(I.size()), R;
 	iota(S.begin(), S.end(), 0);
-	sort(S.begin(), S.end(), [&](int a, int b) { return I[a] < I[b]; });
-	T cur = G.first;
-	int at = 0;
+	sort(S.begin(), S.end(), [&](int a, int b) { 
+		return I[a] < I[b]; });
+	T cur = G.first; int at = 0;
 	while (cur < G.second) { // (A)
 		pair<T, int> mx = {cur, -1};
 		while (at < I.size() && I[S[at]].first <= cur) {
@@ -21,8 +21,6 @@ vector<int> cover(pair<T, T> G, vector<pair<T, T>> I) {
 			at++;
 		}
 		if (mx.second == -1) return {};
-		cur = mx.first;
-		R.push_back(mx.second);
-	}
-	return R;
+		cur = mx.first; R.push_back(mx.second);
+	} return R;
 }

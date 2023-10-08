@@ -16,8 +16,7 @@ for (int i = 1; i <= n; ++i) {
 			int x = 1;
 			while (x <= how_many[i] && 
 				j + x*items[i] <= k && !dp[j + x*items[i]]) {
-				dp[j + x*items[i]] = 1;
-				++x;
+				dp[j + x*items[i]] = 1; ++x;
 			}
 		}
 	}

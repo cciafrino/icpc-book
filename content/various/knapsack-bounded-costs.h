@@ -1,39 +1,23 @@
 /**
  * Author: Chris
  * License: CC0
- * Description: You are given $n$ types of items, you have $e[i]$ items of $i$-th type, and each item of $i$-th type weight $w[i]$ and cost $c[i]$. What is the minimal cost you can get by picking some items weighing at most $W$ in total?
+ * Description: You are given $N$ types of items, you have $cnt[i]$ items of $i$-th type, and each item of $i$-th type $weight[i]$ and $cost[i]$. What is the maximal cost you can get by picking some items weighing exactly $X$ in total?
  * Status: tested
  * Source: https://petr-mitrichev.blogspot.com/2011/07/integral-bounded-knapsack-problem.html
- * Time: $O(Wn)$
+ * Time: $O(N \cdot W)$
  */
-
-#include <MinQueue.h>
-
-const int maxn = 1000;
-const int maxm = 100000;
-const int inf = 0x3f3f3f;
-
-minQueue<int> q[maxm];
-
-array<int, maxm> dp; // the minimum cost dp[i] I need to pay in order to fill the knapsack with total weight i
-int w[maxn], e[maxn], c[maxn]; // weight, number, cost
-
-int main() {
-	int n, m;
-	cin >> n >> m;
-	for (int i = 1; i <= n; i++) cin >> w[i] >> c[i] >> e[i];
-	for (int i = 1; i <= m; i++) dp[i] = inf;
-	for (int i = 1; i <= n; i++) {
-		for (int j = 0; j < w[i]; j++) q[j].clear();
-		for (int j = 0; j <= m; j++) {
-			minQueue<int> &mq = q[j % w[i]];
-			if (mq.size() > e[i]) mq.pop();
-			mq.add(c[i]);
-			mq.push(dp[j]);
-			dp[j] = mq.getMin();
+#include"../data-structures/monotonic-queue.h"
+auto solve(vi weight, vi cost, vi cnt, int X) {
+	vector<int> dp(X+1, 0); int N = int(weight.size());
+	vector<max_monotonic_queue<int>> M(X+1);
+	for (int i = 0; i < N; ++i) {
+		for (int j = 0; j < min(X+1, weight[i]); ++j) M[j] = max_monotonic_queue<int>();
+		for (int j = 0; j <= X; ++j) {
+			auto& que = ques[j % weight[i]];
+			if (cur_que.size() > cnt[i]) que.pop();
+			que.add(cost[i]);
+			que.push(dp[j]);
+			dp[j] = que.get_val();
 		}
-	}
-	cout << "Minimum value i can pay putting a total weight " << m << " is " << dp[m] << '\n'; 
-	for (int i = 0; i <= m; i++) cout << dp[i] << " " << i << '\n';
-	cout << "\n";
+	} return dp[X];
 }

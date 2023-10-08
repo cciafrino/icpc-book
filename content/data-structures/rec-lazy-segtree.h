@@ -10,8 +10,8 @@
 template<class T> struct segtree_range {
 	int N; vector<T> ts;
 	segtree_range() {}
-	explicit segtree_range(int N_) : segtree_range(vector<T>(N_, T(0))) {}
-	template<class Q> explicit segtree_range(const vector<Q>& A) {
+	segtree_range(int M) : segtree_range(vector<T>(M, T(0))) {}
+	template<class Q> segtree_range(const vector<Q>& A) {
 		const int N_ = int(A.size());
 		N = (1 << __lg(2*N_-1)); ts.resize(2*N);
 		for (int i = 0; i < N_; ++i) at(i) = T(A[i]);
@@ -61,7 +61,8 @@ template<class T> struct segtree_range {
 		int m = (l + r)/2;
 		push(v);
 		int cur = find_first(2*v, l, m, a, b, f, args...);
-		if (cur == -1) cur = find_first(2*v+1, m, r, a, b, f, args...);
+		if (cur == -1) 
+			cur = find_first(2*v+1, m, r, a, b, f, args...);
 		return cur;
 	}
 	template<class F, class... Args>

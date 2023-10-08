@@ -4,12 +4,8 @@
  * Description: A list of basis values sorted in decreasing order, where each value has a unique highest bit.
  * Status: tested on kattis
  */
-const int BITS = 60;
-
-template<typename T> struct xor_basis {
-	int N = 0;
-	array<T, BITS> basis;
-
+template<typename T, int BITS = 60> struct xor_basis {
+	int N = 0; array<T, BITS> basis;
 	T min_value(T start) const {
 		if (N == BITS) return 0;
 		for (int i = 0; i < N; ++i)
@@ -26,7 +22,6 @@ template<typename T> struct xor_basis {
 		x = min_value(x);
 		if (x == 0) return false;
 		basis[N++] = x;
-		// Insertion sort.
 		for (int k = N - 1; k > 0 && basis[k] > basis[k - 1]; k--)
 			swap(basis[k], basis[k - 1]);
 		return true;
@@ -37,11 +32,9 @@ template<typename T> struct xor_basis {
 	}
 	void merge(const xor_basis<T>& a, const xor_basis<T>& b) {
 		if (a.N > b.N) {
-			*this = a;
-			merge(b);
+			*this = a; merge(b);
 		} else {
-			*this = b;
-			merge(a);
+			*this = b; merge(a);
 		}
 	}
 };

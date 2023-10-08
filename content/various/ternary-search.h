@@ -15,8 +15,7 @@
  * Usage: int ind = ternSearch(0,n-1,[\&](int i){return a[i];});
  * Time: O(\log(b-a))
  */
-template<class F>
-int ternSearch(int a, int b, F f) {
+template<class F> int ternSearch(int a, int b, F f) {
 	assert(a <= b);
 	while (b - a >= 5) {
 		int mid = (a + b) / 2;

@@ -11,7 +11,7 @@
 template<class T> struct Node {
 	node_t<T> seg; Node* c[2];
 	Node() { c[0] = c[1] = nullptr; }
-	void upd(int x, int y, T v, int L = 0, int R = SZ-1) { // add v
+	void upd(int x, int y, T v, int L = 0, int R = SZ-1) {//add v
 		if (L == x && R == x) { seg.upd(y,v); return; }
 		int M = (L+R)>>1;
 		if (x <= M) {

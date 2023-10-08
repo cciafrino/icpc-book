@@ -4,39 +4,29 @@
  */
 template<typename T = int64_t> struct seg_node {
 	T val, lz_add, lz_set;
-	int sz;
-	bool to_set;
+	int sz; bool to_set;
 	seg_node(T n = 0) : val(n), lz_add(0), lz_set(0), sz(1), to_set(0) {}
 	void push(seg_node& l, seg_node& r) {
 		if (to_set) {
-			l.assign(lz_set);
-			r.assign(lz_set);
-			lz_set = 0;
-			to_set = false;
+			l.assign(lz_set), r.assign(lz_set);
+			lz_set = 0; to_set = false;
 		}
 		if (lz_add != 0) {
-			l.add(lz_add);
-			r.add(lz_add);
-			lz_add = 0;
-		} 
+			l.add(lz_add), r.add(lz_add), lz_add = 0;
+		}
 	}
 	void merge(const seg_node& l, const seg_node& r) {
-		sz = l.sz + r.sz;
-		val = l.val + r.val;
+		sz = l.sz + r.sz; val = l.val + r.val;
 	}
 	bool add(T v) {  // update range a[i] <- a[i] + v
-		val += v * sz;
-		lz_add += v; return true;
+		val += v * sz; lz_add += v; return true;
 	}
 	bool assign(T v) {   // update range a[i] <- v
-		val = v * sz;
-		lz_add = 0;
-		lz_set = v;
-		to_set = true; return true;
+		val = v * sz; lz_add = 0;
+		lz_set = v; to_set = true; return true;
 	}
 	T get_sum() const { return val; } // sum a[l, r)
 };
-
 // update range a[i] <- a[i] + b * (i - s) + c
 // assuming b and c are non zero, be careful
 // get sum a[l, r)
@@ -46,20 +36,17 @@ template<typename T = int64_t> struct seg_node {
 	seg_node(int id = 0, T v = 0, int s = 0, T b = 0, T c = 0) : 
 		sum(v), lzB(b), lzC(c - s * b), idx(id), sz(1) {}
 	void push(seg_node& l, seg_node& r) {
-		l.add(lzB, lzC);
-		r.add(lzB, lzC);
+		l.add(lzB, lzC), r.add(lzB, lzC);
 		lzB = lzC = 0;
 	}
 	void merge(const seg_node& l, const seg_node& r) {
-		idx = min(l.idx, r.idx);
-		sz = l.sz + r.sz;
+		idx = min(l.idx, r.idx), sz = l.sz + r.sz;
 		sum = l.sum + r.sum;
-	}  
+	}
 	T sum_idx(T n) const { return n * (n + 1) / 2; }
 	bool add(T b, T c) {
 		sum += b * (sum_idx(idx + sz) - sum_idx(idx)) + sz * c;
-		lzB += b;
-		lzC += c; return true;
+		lzB += b, lzC += c; return true;
 	}
 	T get_sum() const { return sum; }
 };
@@ -71,22 +58,18 @@ struct seg_node {
 	seg_node() : sz(1), sum(0), lzB(1), lzC(0) {}
 	seg_node(i64 v) : sz(1), sum(v), lzB(1), lzC(0) {}
 	void push(seg_node& l, seg_node& r) {
-		l.add(lzB, lzC);
-		r.add(lzB, lzC);
+		l.add(lzB, lzC), r.add(lzB, lzC);
 		lzB = 1, lzC = 0;
 	}
 	void merge(const seg_node& l, const seg_node& r) {
-		sz = l.sz + r.sz;
-		sum = l.sum + r.sum;
+		sz = l.sz + r.sz, sum = l.sum + r.sum;
 	}
 	bool add(i64 b, i64 c) {
-		sum = (b * sum + c * sz);
-		lzB = (lzB * b);
+		sum = (b * sum + c * sz), lzB = (lzB * b);
 		lzC = (lzC * b + c); return true;
 	}
 	i64 get_sum() const { return sum; }
 };
-
 // update range a[i] <- min(a[i], b);
 // update range a[i] <- max(a[i], b);
 // get val a[i]
@@ -95,16 +78,12 @@ struct seg_node {
 	int lz0, lz1;
 	seg_node() : mn(INT_MAX), mx(INT_MIN), lz0(INT_MAX), lz1(INT_MIN) {}
 	void push(seg_node& l, seg_node& r) {
-		l.minimize(lz0);
-		l.maximize(lz1);
-		r.minimize(lz0);
-		r.maximize(lz1);
-		lz0 = INT_MAX;
-		lz1 = INT_MIN;
+		l.minimize(lz0), l.maximize(lz1);
+		r.minimize(lz0), r.maximize(lz1);
+		lz0 = INT_MAX, lz1 = INT_MIN;
 	}
 	void merge(const seg_node& l, const seg_node& r) {
-		mn = min(l.mn, r.mn);
-		mx = max(l.mx, r.mx);
+		mn = min(l.mn, r.mn), mx = max(l.mx, r.mx);
 	}
 	bool minimize(int val) {
 		mn = lz0 = min(lz0, val);

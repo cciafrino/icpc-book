@@ -7,50 +7,29 @@
  * Time: O((N + (hi-lo)) \log N)
  */
 struct DP { // Modify at will:
-	int lo(int ind) { return 0; }
-	int hi(int ind) { return ind; }
-	lint f(int ind, int k) { return dp[ind][k]; }
-	void store(int ind, int k, lint v) { res[ind] = {k, v}; }
-	void rec(int L, int R, int LO, int HI) {
-		if (L >= R) return;
-		int mid = (L + R) >> 1;
-		pair<lint, int> best(LLONG_MAX, LO);
-		for(int k = max(LO,lo(mid)); k <= min(HI,hi(mid)); ++k)
-			best = min(best, make_pair(f(mid, k), k));
-		store(mid, best.second, best.first);
-		rec(L, mid, LO, best.second);
-		rec(mid+1, R, best.second, HI);
-	}
-	void solve(int L, int R) { rec(L, R, INT_MIN, INT_MAX); }
-};
-
-struct DP { // Modify at will:
 	vector<int>a, freq;
-	vector<lint>old, cur;
-	lint cnt;
-	int lcur, rcur;
+	vector<ll>old, cur;
+	ll cnt; int lcur, rcur;
 	DP(const vector<int>&_a, int n): a(_a), freq(n), old(n+1, linf), cur(n+1, linf), cnt(0), lcur(0), rcur(0){}
 	int lo(int ind) { return 0; }
 	int hi(int ind) { return ind; }
 	void add(int k, int c){ cnt += freq[a[k]]++; }
 	void del(int k, int c){ cnt -= --freq[a[k]]; }
-	lint C(int l, int r){
+	ll C(int l, int r){
 		while(lcur > l) add(--lcur, 0);
 		while(rcur < r) add(rcur++, 1);
 		while(lcur < l) del(lcur++, 0);
 		while(rcur > r) del(--rcur, 1);
 		return cnt;
 	}
-	lint f(int ind, int k) { return old[k] + C(k, ind); }
-
-	void store(int ind, int k, lint v) { cur[ind] = v; }
+	ll f(int ind, int k) { return old[k] + C(k, ind); }
+	void store(int ind, int k, ll v) { cur[ind] = v; }
 	void rec(int L, int R, int LO, int HI) {
 		if (L >= R) return;
 		int mid = (L + R) >> 1;
-		pair<lint, int> best(LLONG_MAX, LO);
-		for(int k = max(LO,lo(mid)); k <= min(HI,hi(mid)); ++k)    
+		pair<ll, int> best(LLONG_MAX, LO);
+		for(int k = max(LO,lo(mid)); k <= min(HI,hi(mid)); ++k)
 			best = min(best, make_pair(f(mid, k), k));
-
 		store(mid, best.second, best.first);
 		rec(L, mid, LO, best.second);
 		rec(mid+1, R, best.second, HI);
