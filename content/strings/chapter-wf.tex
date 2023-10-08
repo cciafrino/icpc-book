@@ -10,18 +10,18 @@
 % \kactlimport{modnum-double-hashing.h}
 \kactlimport{aho-corasick.h}
 \kactlimport{suffix-array.h}
-\kactlimport{suffix-tree.h}
+%\kactlimport{suffix-tree.h}
 \kactlimport{suffix-automaton.h}
 
 \section{Suffix Automaton}
 \subsection{Number of different substrings}
         Is the number of paths in the automaton starting at the root.
-        $$d(v) = 1 + \sum_{v \rightarrow w} d(w)$$
+        \[ \smash{d(v) = 1 + \sum_{v \rightarrow w} d(w)} \]
 
 \subsection{Total lenght of different substrings}
         Is the sum of children answers and paths starting 
         at each children.
-        $$ans(v) = \sum_{v \rightarrow w} d(w) + ans(w)$$
+        \[ \smash{ans(v) = \sum_{v \rightarrow w} d(w) + ans(w)}\]
 
 
 \subsection{Lexicographically $K$-th substring}
@@ -36,8 +36,7 @@
 \subsection{Number of occurrences}
         For each state not created by cloning, initialize $cnt(v) = 1$. 
         Then, just do a dfs to calculate $cnt(v)$
-        $$cnt(link(v)) += cnt(v)$$
-
+        \[ \smash{cnt(link(v)) += cnt(v)} \]
 \subsection{First occurence position}
         When we create a new state $cur$ do $first(pos) = len(cur) - 1$.
         When we clone $q$ as $clone$ do $first(clone) = first(q)$.

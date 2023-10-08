@@ -1,7 +1,7 @@
 \newcommand*{\Comb}[2]{{}^{#1}C_{#2}}%
 \newcommand{\stirlingfirst}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}}
 \newcommand{\stirlingsecond}[2]{\genfrac{\{}{\}}{0pt}{}{#1}{#2}}
-
+\def\arraystretch{0.50}
 \chapter{Combinatorial}
 
 \section{Permutations}
@@ -18,24 +18,23 @@
 	\item To count odd terms in row $n$, convert $n$ to binary. Let $x$ be the number of 1s in the binary representation. Then the number of odd terms will be $2^x$
 	\item Every entry in row $2^n - 1$ is odd
 	\end{itemize}
+\resizebox{\columnwidth}{!}{%
+	\begin{tabular}{@{}c c@{}}
+	$\binom{n}{k} = \frac{n}{k}\binom{n-1}{k-1}$ & $(x + y)^n = \sum_{k=0}^n \binom{n}{k} x^{n-k} y^k$\\
+	$\sum_{k=0}^{n} \binom{n}{k} k = n 2^{n-1}$ & $\sum_{j=0}^k \binom{m}{j} \binom{n-m}{k-j} = \binom{n}{k}$\\
+	$\sum_{m=0}^n \binom{m}{j} \binom{n-m}{k-j} = \binom{n+1}{k+1}$ & $\sum_{r=0}{m} \binom{n+r}{r} = \binom{n+m+1}{m}$\\
+	$\binom{n}{k} \binom{n - k}{v} = \binom{n}{v}\binom{n-v}{k}$ & $\sum_{m=k}^n \binom{m}{k} = \binom{n+1}{k+1}$\\
+	$\sum_{j=0}^{m} \binom{m}{j}^2 = \binom{2m}{m}$ &
+	$2 \sum_{i=L}^R \binom{n}{i} - \binom{n}{L} - \binom{n}{R} = \sum_{i=L+1}^R \binom{n+1}{i}$\\
+	\end{tabular}
+}
 	
 	\kactlimport{lucas.h}
 	\kactlimport{rolling-binomial.h}
 	\kactlimport{multinomial.h}
 	
-	\begin{flushleft}
-	\begin{tabular}{c@{\ }c@{\ }c@{\ }}
-	$\binom{n}{k} = \frac{n}{k}\binom{n-1}{k-1}$ & $\binom{n}{k} \binom{n - k}{v} = \binom{n}{v}\binom{n-v}{k}$\\
-	$\sum_{k=0}^{n} \binom{n}{k} k = n 2^{n-1}$ & $\sum_{j=0}^k \binom{m}{j} \binom{n-m}{k-j} = \binom{n}{k}$\\
-	$\sum_{m=0}^n \binom{m}{j} \binom{n-m}{k-j} = \binom{n+1}{k+1}$ & $\sum_{r=0}{m} \binom{n+r}{r} = \binom{n+m+1}{m}$\\
-	$(x + y)^n = \sum_{k=0}^n \binom{n}{k} x^{n-k} y^k$ & $\sum_{m=k}^n \binom{m}{k} = \binom{n+1}{k+1}$\\
-	$\sum_{j=0}^{m} \binom{m}{j}^2 = \binom{2m}{m}$ &\\
-	$2 \sum_{i=L}^R \binom{n}{i} - \binom{n}{L} - \binom{n}{R} = \sum_{i=L+1}^R \binom{n+1}{i}$ &
-	\end{tabular}\\
-	\end{flushleft}
 
-
-\subsection{The twelvefold way (from Stanley)} 
+\subsection{The twelvefold way (from Stanley)}
 How many functions $f \colon N \rightarrow X$ are there?
 
 \resizebox{\columnwidth}{!}{%
@@ -50,10 +49,12 @@ How many functions $f \colon N \rightarrow X$ are there?
 }
 
   Where $\binom{a}{b} = \frac{1}{b!}(a)_b $, $p_x(n)$ is the number of ways to partition the integer $n$ using $x$ summand and $\stirlingsecond{n}{x}$ is the number of ways to partition a set of $n$ elements into $x$ subsets (aka Stirling number of the second kind).
+
 \subsection{Cycles}
 		Let the number of $n$-permutations whose cycle lenghts all belong to the set $S$ be denoted by $g_S (n)$
 		\small
 		$$\sum_{n=0} ^\infty g_S(n) \frac{x^n}{n!} = \exp\left(\sum_{n\in S} \frac{x^n}{n} \right)$$\normalsize
+
 
 \subsection{Involutions}
     An involution is a permutation with maximum cycle length 2, and it is its own inverse. 
@@ -67,7 +68,7 @@ How many functions $f \colon N \rightarrow X$ are there?
 	
 \subsection{Burnside}
 Given a group $G$ of symmetries and a set $X$, the number of elements of $X$ \emph{up to symmetry} equals
-		 \[ {\frac {1}{|G|}}\sum _{{g\in G}}|X^{g}|, \]
+\[ \smash{{\frac {1}{|G|}}\sum _{{g\in G}}|X^{g}|,} \]
 		 where $X^{g}$ are the elements fixed by $g$ ($g.x = x$).
 
  If $f(n)$ counts ``configurations'' (of some sort) of length $n$, we can ignore rotational symmetry using $G = \mathbb Z_n$ to get

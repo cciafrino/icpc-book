@@ -203,7 +203,7 @@
 \contentsline {subsection}{\texttt {tarjan.h}\hspace {0.2em}}{25}{lstnumber.7.18.65}%
 \contentsline {subsection}{\texttt {kosaraju.h}\hspace {0.2em}}{25}{lstnumber.7.19.29}%
 \contentsline {subsection}{\texttt {bcc.h}\hspace {0.2em}}{26}{lstnumber.7.20.35}%
-\contentsline {subsection}{\texttt {2sat.h}\hspace {0.2em}}{26}{lstnumber.7.21.52}%
+\contentsline {subsection}{\texttt {2sat.h}\hspace {0.2em}}{26}{lstnumber.7.21.50}%
 \contentsline {section}{\numberline {7.5}Heuristics}{26}{section.7.5}%
 \contentsline {subsection}{\texttt {maximal-cliques.h}\hspace {0.2em}}{26}{section.7.5}%
 \contentsline {subsection}{\texttt {maximum-clique.h}\hspace {0.2em}}{26}{lstnumber.7.23.11}%

@@ -55,16 +55,14 @@ struct bcc_t{
                 vc.insert(a); vc.insert(b);
             } cc.emplace_back(vc.begin(), vc.end());
         } );
-        for(int a = 0; a < n; a++) if(is_art[a]) {
-            cc_id[a] = int(cc.size()); cc.push_back({a});
-        }
+        for(int a = 0; a < n; a++) if(is_art[a])
+            cc_id[a] = int(cc.size()), cc.push_back({a});
         int bcc_num = int(cc.size());
         vector<vector<int>> tree(bcc_num);
         for(int c = 0; c < bcc_num && 1<int(cc[c].size()); ++c)
             for(int a : cc[c]) if(is_art[a]) {
                 tree[c].push_back(cc_id[a]);
                 tree[cc_id[a]].push_back(c);
-            }
-        return make_tuple(cc_id, cc, tree);
+            } return make_tuple(cc_id, cc, tree);
     }
 };

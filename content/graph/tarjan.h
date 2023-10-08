@@ -2,7 +2,7 @@
  * Author: Chris Ciafrino
  * License: CC0
  * Description: Finds all strongly connected components in a directed graph.
- * Time: O(E + V)
+ * Time: $O(E + V)$
  * Status: tested on Yosupo
  * Usage: scc_t s(g); s.solve([\&](const vector<int>\& cc) {...}); 
  * visits all components in reverse topological order.
@@ -18,7 +18,7 @@ struct scc_t {
         stk.push_back(cur); in_stk[cur] = true;
         for (int nxt : adj[cur])
             if (id[nxt] == -1)
-                dfs(nxt, f);low[cur] = min(low[cur], low[nxt]);
+                dfs(nxt, f), low[cur] = min(low[cur], low[nxt]);
             else if (in_stk[nxt])
                 low[cur] = min(low[cur], id[nxt]);
         if (low[cur] == id[cur]) {
