@@ -24,9 +24,9 @@
 \contentsline {chapter}{\numberline {3}Data Structures}{3}{chapter.3}%
 \contentsline {chapter}{\numberline {4}Numerical}{10}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Fourier transforms}{12}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}General linear recurrences}{15}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Polyominoes}{15}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Duality}{15}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.1}General linear recurrences}{14}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Polyominoes}{14}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Duality}{14}{subsection.4.1.3}%
 \contentsline {subsection}{\numberline {4.1.4}Strong duality}{15}{subsection.4.1.4}%
 \contentsline {subsection}{\numberline {4.1.5}Generating functions}{15}{subsection.4.1.5}%
 \contentsline {chapter}{\numberline {5}Number theory}{15}{chapter.5}%
@@ -71,7 +71,7 @@
 \contentsline {subsection}{\numberline {6.3.9}Motzkin numbers}{20}{subsection.6.3.9}%
 \contentsline {subsection}{\numberline {6.3.10}Narayana numbers}{20}{subsection.6.3.10}%
 \contentsline {subsection}{\numberline {6.3.11}Schroder numbers}{20}{subsection.6.3.11}%
-\contentsline {subsection}{\numberline {6.3.12}Triangles}{21}{subsection.6.3.12}%
+\contentsline {subsection}{\numberline {6.3.12}Triangles}{20}{subsection.6.3.12}%
 \contentsline {section}{\numberline {6.4}Fibonacci}{21}{section.6.4}%
 \contentsline {section}{\numberline {6.5}Linear Recurrences}{21}{section.6.5}%
 \contentsline {section}{\numberline {6.6}Game Theory}{21}{section.6.6}%
@@ -104,7 +104,7 @@
 \contentsline {subsection}{\numberline {7.9.6}Maximum Weighted Independent Set in a Bipartite Graph}{30}{subsection.7.9.6}%
 \contentsline {subsection}{\numberline {7.9.7}Tutte-Berge formula}{30}{subsection.7.9.7}%
 \contentsline {subsection}{\numberline {7.9.8}Tutte's theorem}{30}{subsection.7.9.8}%
-\contentsline {subsection}{\numberline {7.9.9}Number of Spanning Trees}{31}{subsection.7.9.9}%
+\contentsline {subsection}{\numberline {7.9.9}Number of Spanning Trees}{30}{subsection.7.9.9}%
 \contentsline {subsection}{\numberline {7.9.10}Tutte Matrix}{31}{subsection.7.9.10}%
 \contentsline {subsection}{\numberline {7.9.11}Menger's theorem}{31}{subsection.7.9.11}%
 \contentsline {chapter}{\numberline {8}Geometry}{31}{chapter.8}%

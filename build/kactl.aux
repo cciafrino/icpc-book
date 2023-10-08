@@ -2,10 +2,13 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
 \HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
 \global\let\oldnewlabel\newlabel
 \gdef\newlabel#1#2{\newlabelxx{#1}#2}
 \gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
 \AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
 \let\newlabel\oldnewlabel
 \fi}
 \fi}
@@ -66,7 +69,7 @@
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {3.5}monotonic-queue.h}{3}{lstlisting.3.5}\protected@file@percent }
 \@writefile{ptc}{\contentsline {section}{\texttt  {point-context.h}\hspace  {0.2em}}{3}{lstnumber.3.5.18}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {3.6}point-context.h}{3}{lstlisting.3.6}\protected@file@percent }
-\@writefile{ptc}{\contentsline {section}{\texttt  {rec-lazy-segtree.h}\hspace  {0.2em}}{4}{lstnumber.3.6.36}\protected@file@percent }
+\@writefile{ptc}{\contentsline {section}{\texttt  {rec-lazy-segtree.h}\hspace  {0.2em}}{4}{lstnumber.3.6.32}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {3.7}rec-lazy-segtree.h}{4}{lstlisting.3.7}\protected@file@percent }
 \@writefile{ptc}{\contentsline {section}{\texttt  {lazy-context.h}\hspace  {0.2em}}{4}{lstnumber.3.7.63}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {3.8}lazy-context.h}{4}{lstlisting.3.8}\protected@file@percent }
@@ -121,8 +124,8 @@
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {4.5}berlekamp-massey.h}{10}{lstlisting.4.5}\protected@file@percent }
 \@writefile{ptc}{\contentsline {section}{\texttt  {linear-recurrence.h}\hspace  {0.2em}}{10}{lstnumber.4.5.17}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {4.6}linear-recurrence.h}{10}{lstlisting.4.6}\protected@file@percent }
-\@writefile{ptc}{\contentsline {section}{\texttt  {integrate.h}\hspace  {0.2em}}{11}{lstnumber.4.6.16}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.7}integrate.h}{11}{lstlisting.4.7}\protected@file@percent }
+\@writefile{ptc}{\contentsline {section}{\texttt  {integrate.h}\hspace  {0.2em}}{10}{lstnumber.4.6.16}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.7}integrate.h}{10}{lstlisting.4.7}\protected@file@percent }
 \@writefile{ptc}{\contentsline {section}{\texttt  {integrate-adaptive.h}\hspace  {0.2em}}{11}{lstnumber.4.7.7}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {4.8}integrate-adaptive.h}{11}{lstlisting.4.8}\protected@file@percent }
 \@writefile{ptc}{\contentsline {section}{\texttt  {gaussian-elimination.h}\hspace  {0.2em}}{11}{lstnumber.4.8.13}\protected@file@percent }
@@ -131,8 +134,8 @@
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {4.10}linear-solver-z2.h}{11}{lstlisting.4.10}\protected@file@percent }
 \@writefile{ptc}{\contentsline {section}{\texttt  {char-poly.h}\hspace  {0.2em}}{11}{lstnumber.4.10.24}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {4.11}char-poly.h}{11}{lstlisting.4.11}\protected@file@percent }
-\@writefile{ptc}{\contentsline {section}{\texttt  {simplex.h}\hspace  {0.2em}}{12}{lstnumber.4.11.55}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.12}simplex.h}{12}{lstlisting.4.12}\protected@file@percent }
+\@writefile{ptc}{\contentsline {section}{\texttt  {simplex.h}\hspace  {0.2em}}{11}{lstnumber.4.11.55}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.12}simplex.h}{11}{lstlisting.4.12}\protected@file@percent }
 \@writefile{ptc}{\contentsline {section}{\texttt  {tridiagonal.h}\hspace  {0.2em}}{12}{lstnumber.4.12.39}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {4.13}tridiagonal.h}{12}{lstlisting.4.13}\protected@file@percent }
 \@writefile{ptc}{\contentsline {section}{\texttt  {polyominoes.h}\hspace  {0.2em}}{12}{lstnumber.4.13.23}\protected@file@percent }
@@ -146,9 +149,9 @@
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {4.17}poly-998244353.h}{13}{lstlisting.4.17}\protected@file@percent }
 \@writefile{ptc}{\contentsline {subsection}{\texttt  {sum-of-powers.h}\hspace  {0.2em}}{14}{lstnumber.4.17.239}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {4.18}sum-of-powers.h}{14}{lstlisting.4.18}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}General linear recurrences}{15}{subsection.4.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Polyominoes}{15}{subsection.4.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}Duality}{15}{subsection.4.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}General linear recurrences}{14}{subsection.4.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Polyominoes}{14}{subsection.4.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}Duality}{14}{subsection.4.1.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.4}Strong duality}{15}{subsection.4.1.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.5}Generating functions}{15}{subsection.4.1.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {5}Number theory}{15}{chapter.5}\protected@file@percent }
@@ -167,10 +170,10 @@
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {5.4}mod-inv.h}{15}{lstlisting.5.4}\protected@file@percent }
 \@writefile{ptc}{\contentsline {subsection}{\texttt  {mod-sum.h}\hspace  {0.2em}}{15}{lstnumber.5.4.4}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {5.5}mod-sum.h}{15}{lstlisting.5.5}\protected@file@percent }
-\@writefile{ptc}{\contentsline {subsection}{\texttt  {mod-mul.h}\hspace  {0.2em}}{16}{lstnumber.5.5.16}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.6}mod-mul.h}{16}{lstlisting.5.6}\protected@file@percent }
-\@writefile{ptc}{\contentsline {subsection}{\texttt  {mod-sqrt.h}\hspace  {0.2em}}{16}{lstnumber.5.6.11}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.7}mod-sqrt.h}{16}{lstlisting.5.7}\protected@file@percent }
+\@writefile{ptc}{\contentsline {subsection}{\texttt  {mod-mul.h}\hspace  {0.2em}}{15}{lstnumber.5.5.16}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.6}mod-mul.h}{15}{lstlisting.5.6}\protected@file@percent }
+\@writefile{ptc}{\contentsline {subsection}{\texttt  {mod-sqrt.h}\hspace  {0.2em}}{15}{lstnumber.5.6.11}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.7}mod-sqrt.h}{15}{lstlisting.5.7}\protected@file@percent }
 \@writefile{ptc}{\contentsline {subsection}{\texttt  {mul-order.h}\hspace  {0.2em}}{16}{lstnumber.5.7.33}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {5.8}mul-order.h}{16}{lstlisting.5.8}\protected@file@percent }
 \@writefile{ptc}{\contentsline {subsection}{\texttt  {mod-range.h}\hspace  {0.2em}}{16}{lstnumber.5.8.12}\protected@file@percent }
@@ -189,8 +192,8 @@
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {5.14}extended-euclid.h}{16}{lstlisting.5.14}\protected@file@percent }
 \@writefile{ptc}{\contentsline {subsection}{\texttt  {division-lemma.h}\hspace  {0.2em}}{16}{lstnumber.5.14.6}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {5.15}division-lemma.h}{16}{lstlisting.5.15}\protected@file@percent }
-\@writefile{ptc}{\contentsline {subsection}{\texttt  {prime-factors.h}\hspace  {0.2em}}{17}{lstnumber.5.15.15}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.16}prime-factors.h}{17}{lstlisting.5.16}\protected@file@percent }
+\@writefile{ptc}{\contentsline {subsection}{\texttt  {prime-factors.h}\hspace  {0.2em}}{16}{lstnumber.5.15.15}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.16}prime-factors.h}{16}{lstlisting.5.16}\protected@file@percent }
 \@writefile{ptc}{\contentsline {subsection}{\texttt  {divisors.h}\hspace  {0.2em}}{17}{lstnumber.5.16.25}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {5.17}divisors.h}{17}{lstlisting.5.17}\protected@file@percent }
 \@writefile{ptc}{\contentsline {subsection}{\texttt  {num-div.h}\hspace  {0.2em}}{17}{lstnumber.5.17.14}\protected@file@percent }
@@ -265,7 +268,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3.9}Motzkin numbers}{20}{subsection.6.3.9}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3.10}Narayana numbers}{20}{subsection.6.3.10}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3.11}Schroder numbers}{20}{subsection.6.3.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.12}Triangles}{21}{subsection.6.3.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.12}Triangles}{20}{subsection.6.3.12}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6.4}Fibonacci}{21}{section.6.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6.5}Linear Recurrences}{21}{section.6.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6.6}Game Theory}{21}{section.6.6}\protected@file@percent }
@@ -376,7 +379,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.9.6}Maximum Weighted Independent Set in a Bipartite Graph}{30}{subsection.7.9.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.9.7}Tutte-Berge formula}{30}{subsection.7.9.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.9.8}Tutte's theorem}{30}{subsection.7.9.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.9.9}Number of Spanning Trees}{31}{subsection.7.9.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.9.9}Number of Spanning Trees}{30}{subsection.7.9.9}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.9.10}Tutte Matrix}{31}{subsection.7.9.10}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.9.11}Menger's theorem}{31}{subsection.7.9.11}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {8}Geometry}{31}{chapter.8}\protected@file@percent }
@@ -401,10 +404,10 @@
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {8.7}LineProjectionReflection.h}{31}{lstlisting.8.7}\protected@file@percent }
 \@writefile{ptc}{\contentsline {subsection}{\texttt  {SideOf.h}\hspace  {0.2em}}{31}{lstnumber.8.7.5}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {8.8}SideOf.h}{31}{lstlisting.8.8}\protected@file@percent }
-\@writefile{ptc}{\contentsline {subsection}{\texttt  {OnSegment.h}\hspace  {0.2em}}{32}{lstnumber.8.8.9}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.9}OnSegment.h}{32}{lstlisting.8.9}\protected@file@percent }
-\@writefile{ptc}{\contentsline {subsection}{\texttt  {LinearTransformation.h}\hspace  {0.2em}}{32}{lstnumber.8.9.3}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.10}LinearTransformation.h}{32}{lstlisting.8.10}\protected@file@percent }
+\@writefile{ptc}{\contentsline {subsection}{\texttt  {OnSegment.h}\hspace  {0.2em}}{31}{lstnumber.8.8.9}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.9}OnSegment.h}{31}{lstlisting.8.9}\protected@file@percent }
+\@writefile{ptc}{\contentsline {subsection}{\texttt  {LinearTransformation.h}\hspace  {0.2em}}{31}{lstnumber.8.9.3}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {8.10}LinearTransformation.h}{31}{lstlisting.8.10}\protected@file@percent }
 \@writefile{ptc}{\contentsline {subsection}{\texttt  {Angle.h}\hspace  {0.2em}}{32}{lstnumber.8.10.6}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {8.11}Angle.h}{32}{lstlisting.8.11}\protected@file@percent }
 \@writefile{ptc}{\contentsline {subsection}{\texttt  {AngleCmp.h}\hspace  {0.2em}}{32}{lstnumber.8.11.34}\protected@file@percent }
@@ -496,8 +499,8 @@
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {9.10}suffix-array.h}{38}{lstlisting.9.10}\protected@file@percent }
 \@writefile{ptc}{\contentsline {section}{\texttt  {suffix-tree.h}\hspace  {0.2em}}{38}{lstnumber.9.10.46}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {9.11}suffix-tree.h}{38}{lstlisting.9.11}\protected@file@percent }
-\@writefile{ptc}{\contentsline {section}{\texttt  {suffix-automaton.h}\hspace  {0.2em}}{39}{lstnumber.9.11.46}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {9.12}suffix-automaton.h}{39}{lstlisting.9.12}\protected@file@percent }
+\@writefile{ptc}{\contentsline {section}{\texttt  {suffix-automaton.h}\hspace  {0.2em}}{38}{lstnumber.9.11.46}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {9.12}suffix-automaton.h}{38}{lstlisting.9.12}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {9.1}Suffix Automaton}{39}{section.9.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {9.1.1}Number of different substrings}{39}{subsection.9.1.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {9.1.2}Total lenght of different substrings}{39}{subsection.9.1.2}\protected@file@percent }
@@ -545,8 +548,8 @@
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {10.15}n-queens.h}{41}{lstlisting.10.15}\protected@file@percent }
 \@writefile{ptc}{\contentsline {subsection}{\texttt  {sudoku-solver.h}\hspace  {0.2em}}{41}{lstnumber.10.15.43}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {10.16}sudoku-solver.h}{41}{lstlisting.10.16}\protected@file@percent }
-\@writefile{ptc}{\contentsline {subsection}{\texttt  {floyd-cycle.h}\hspace  {0.2em}}{42}{lstnumber.10.16.41}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {10.17}floyd-cycle.h}{42}{lstlisting.10.17}\protected@file@percent }
+\@writefile{ptc}{\contentsline {subsection}{\texttt  {floyd-cycle.h}\hspace  {0.2em}}{41}{lstnumber.10.16.41}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {10.17}floyd-cycle.h}{41}{lstlisting.10.17}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {10.3}Dynamic programming}{42}{section.10.3}\protected@file@percent }
 \@writefile{ptc}{\contentsline {subsection}{\texttt  {divide-and-conquer-dp.h}\hspace  {0.2em}}{42}{section.10.3}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {10.18}divide-and-conquer-dp.h}{42}{lstlisting.10.18}\protected@file@percent }
@@ -562,10 +565,10 @@
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {10.23}digit-dp.h}{42}{lstlisting.10.23}\protected@file@percent }
 \@writefile{ptc}{\contentsline {subsection}{\texttt  {LCS.h}\hspace  {0.2em}}{42}{lstnumber.10.23.26}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {10.24}LCS.h}{42}{lstlisting.10.24}\protected@file@percent }
-\@writefile{ptc}{\contentsline {subsection}{\texttt  {knapsack-unbounded.h}\hspace  {0.2em}}{43}{lstnumber.10.24.14}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {10.25}knapsack-unbounded.h}{43}{lstlisting.10.25}\protected@file@percent }
-\@writefile{ptc}{\contentsline {subsection}{\texttt  {knapsack-bounded.h}\hspace  {0.2em}}{43}{lstnumber.10.25.10}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {10.26}knapsack-bounded.h}{43}{lstlisting.10.26}\protected@file@percent }
+\@writefile{ptc}{\contentsline {subsection}{\texttt  {knapsack-unbounded.h}\hspace  {0.2em}}{42}{lstnumber.10.24.14}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {10.25}knapsack-unbounded.h}{42}{lstlisting.10.25}\protected@file@percent }
+\@writefile{ptc}{\contentsline {subsection}{\texttt  {knapsack-bounded.h}\hspace  {0.2em}}{42}{lstnumber.10.25.10}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {10.26}knapsack-bounded.h}{42}{lstlisting.10.26}\protected@file@percent }
 \@writefile{ptc}{\contentsline {subsection}{\texttt  {knapsack-bounded-costs.h}\hspace  {0.2em}}{43}{lstnumber.10.26.14}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {10.27}knapsack-bounded-costs.h}{43}{lstlisting.10.27}\protected@file@percent }
 \@writefile{ptc}{\contentsline {subsection}{\texttt  {knapsack-bitset.h}\hspace  {0.2em}}{43}{lstnumber.10.27.14}\protected@file@percent }
@@ -582,8 +585,8 @@
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {10.31}fast-input.h}{43}{lstlisting.10.31}\protected@file@percent }
 \@writefile{ptc}{\contentsline {subsection}{\texttt  {bump-allocator.h}\hspace  {0.2em}}{43}{lstnumber.10.31.18}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {10.32}bump-allocator.h}{43}{lstlisting.10.32}\protected@file@percent }
-\@writefile{ptc}{\contentsline {subsection}{\texttt  {bump-allocator-stl.h}\hspace  {0.2em}}{44}{lstnumber.10.32.8}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {10.33}bump-allocator-stl.h}{44}{lstlisting.10.33}\protected@file@percent }
+\@writefile{ptc}{\contentsline {subsection}{\texttt  {bump-allocator-stl.h}\hspace  {0.2em}}{43}{lstnumber.10.32.8}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {10.33}bump-allocator-stl.h}{43}{lstlisting.10.33}\protected@file@percent }
 \@writefile{ptc}{\contentsline {subsection}{\texttt  {hashmap.h}\hspace  {0.2em}}{44}{lstnumber.10.33.14}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {10.34}hashmap.h}{44}{lstlisting.10.34}\protected@file@percent }
 \@writefile{ptc}{\contentsline {subsection}{\texttt  {unrolling.h}\hspace  {0.2em}}{44}{lstnumber.10.34.17}\protected@file@percent }
