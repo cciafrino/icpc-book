@@ -5,14 +5,12 @@
  * Source: UFMG & https://www.slideshare.net/KuoE0/acmicpc-tree-isomorphism
  * Description: 
  * Time: O(N\log(N))
- * Status: not tested
+ * Status: Tested on CSES Tree Isomorphism II
  */
-map<vector<int>, int> val;
 struct tree_t {
-	int n;
-	pair<int,int> centroid;
-	vector<vector<int>> adj; vector<int> sz;
-	tree_t(vector<vector<int>>& gr) : adj(gr), sz(adj.size()){}
+	vector<int> cent, sz;
+	vector<vector<int>> adj;
+	tree_t(vector<vector<int>>& gr) : cent(2), sz(gr.size()), adj(gr) {}
 	int dfs_sz(int v, int p) {
 		sz[v] = 1;
 		for (int u : adj[v]) if (u != p)
@@ -23,16 +21,16 @@ struct tree_t {
 		for (int u : adj[v]) if (u != p) {
 			if (2*sz[u] <= tsz) continue;
 			return dfs(tsz, u, v);
-		} return centroid.first = v;
+		} return cent[0] = v;
 	}
-	pair<int,int> find_centroid(int v) {
+	void find_centroid(int v) {
 		int tsz = dfs_sz(v, -1);
-		centroid.second = dfs(tsz, v, -1);
-		for (int u : adj[centroid.first]) if (2*sz[u] == tsz)
-			centroid.second = u;
-		return centroid;
+		cent[1] = dfs(tsz, v, -1);
+		for (int u : adj[cent[0]]) if (2*sz[u] == tsz)
+			cent[1] = u;
 	}
-	int hash_it(int v, int p) {
+	int hash_it(int v, int p = -1) {
+        static map<vector<int>, int> val;
 		vector<int> offset;
 		for (int u : adj[v]) if (u != p)
 			offset.push_back(hash_it(u, v));
@@ -41,8 +39,8 @@ struct tree_t {
 		return val[offset];
 	}
 	ll get_hash(int v = 0) {
-		pair<int,int> cent = find_centroid(v);
-		ll x = hash_it(cent.first,-1), y=hash_it(cent.second,-1);
+		find_centroid(v);
+		ll x = hash_it(cent[0]), y=hash_it(cent[1]);
 		if (x > y) swap(x, y);
 		return (x << 30) + y;
 	}
