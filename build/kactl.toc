@@ -88,7 +88,7 @@
 \contentsline {section}{\numberline {7.1}Fundamentals}{21}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Network flow}{22}{section.7.2}%
 \contentsline {section}{\numberline {7.3}Matching}{23}{section.7.3}%
-\contentsline {section}{\numberline {7.4}DFS algorithms}{25}{section.7.4}%
+\contentsline {section}{\numberline {7.4}DFS algorithms}{24}{section.7.4}%
 \contentsline {section}{\numberline {7.5}Heuristics}{26}{section.7.5}%
 \contentsline {section}{\numberline {7.6}Trees}{27}{section.7.6}%
 \contentsline {subsection}{\numberline {7.6.1}Sqrt Decomposition}{29}{subsection.7.6.1}%
@@ -105,8 +105,8 @@
 \contentsline {subsection}{\numberline {7.9.7}Tutte-Berge formula}{30}{subsection.7.9.7}%
 \contentsline {subsection}{\numberline {7.9.8}Tutte's theorem}{30}{subsection.7.9.8}%
 \contentsline {subsection}{\numberline {7.9.9}Number of Spanning Trees}{30}{subsection.7.9.9}%
-\contentsline {subsection}{\numberline {7.9.10}Tutte Matrix}{31}{subsection.7.9.10}%
-\contentsline {subsection}{\numberline {7.9.11}Menger's theorem}{31}{subsection.7.9.11}%
+\contentsline {subsection}{\numberline {7.9.10}Tutte Matrix}{30}{subsection.7.9.10}%
+\contentsline {subsection}{\numberline {7.9.11}Menger's theorem}{30}{subsection.7.9.11}%
 \contentsline {chapter}{\numberline {8}Geometry}{31}{chapter.8}%
 \contentsline {section}{\numberline {8.1}Geometric primitives}{31}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Circles}{32}{section.8.2}%
