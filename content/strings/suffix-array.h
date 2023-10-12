@@ -55,3 +55,23 @@ struct suffix_array_t {
 		return rmq_query(a, b).first;
 	}
 };
+vector<vector<int>> ch(2*N+1); int V = 0;
+vector<array<int, 2>> sa_range(2*N+1);
+vector<int> leaves(N+1), par(2*N+1), depth(2*N+1);
+auto dfs = [&](auto&& self, int lo, int hi, int prv)-> void{
+	int cur = V++; par[cur] = prv;
+	if (prv != -1) ch[prv].push_back(cur);
+	sa_range[cur] = {lo, hi};
+	if (hi - lo == 1) {
+		leaves[us.sa[lo]] = cur;
+		depth[cur] = N-us.sa[lo] + 1;
+	} else {
+		int d = us.get_split(lo, hi).first;
+		depth[cur] = d; int mi = lo;
+		while (hi - mi >= 2) {
+			auto [nd, nmi] = us.get_split(mi, hi);
+			if (nd != d) break;
+			self(self, mi, nmi, cur); mi = nmi;
+		} self(self, mi, hi, cur);
+	}
+}; dfs(dfs, 0, N+1, -1);
