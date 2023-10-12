@@ -11,18 +11,16 @@ template<class flow_t, class cost_t> struct min_cost {
 	static constexpr flow_t FLOW_INF = numeric_limits<flow_t>::max();
 	static constexpr cost_t COST_EPS = 1e-10L;
 	static constexpr cost_t COST_INF = numeric_limits<cost_t>::max();
-	int n, m; vector<int> ptr, nxt, zu;
+	int n, m{}; vector<int> ptr, nxt, zu;
 	vector<flow_t> capa; vector<cost_t> cost;
-	explicit min_cost(int n_) : n(n_), m(0), ptr(n_, -1) {}
+	min_cost(int N) : n(N),ptr(n,-1),dist(n),vis(n),pari(n) {}
 	void add_edge(int u, int v, flow_t w, cost_t c) { // d482f5
-		nxt.push_back(ptr[u]); zu.push_back(v); capa.push_back(w); cost.push_back( c); ptr[u] = m++;
+		nxt.push_back(ptr[u]); zu.push_back(v); capa.push_back(w); cost.push_back(c); ptr[u] = m++;
 		nxt.push_back(ptr[v]); zu.push_back(u); capa.push_back(0); cost.push_back(-c); ptr[v] = m++;
 	}
 	vector<cost_t> pot, dist; vector<bool> vis; vector<int> pari;
-	// cost slopes[j] per flow when flows[j]<=flow<=flows[j+1]
 	vector<flow_t> flows; vector<cost_t> slopes;
-	// The distance to a vertex might not be determined if it
-	// is >= dist[t]. You can pass t = -1 to find a shortest
+	// You can pass t = -1 to find a shortest
 	void shortest(int s, int t) { // path to each vertex.
 		using E = pair<cost_t, int>;
 		priority_queue<E, vector<E>, greater<E>> que;
@@ -40,7 +38,7 @@ template<class flow_t, class cost_t> struct min_cost {
 		}
 	}
 	pair<flow_t, cost_t> run(int s, int t, flow_t limFlow = FLOW_INF) {
-		assert(0 <= limFlow); pot.assign(n, 0);
+		pot.assign(n,0); flows = {0}; slopes.clear();
 		while (true) {
 			bool upd = false;
 			for (int i = 0; i < m; ++i) if (capa[i] > FLOW_EPS) {
@@ -49,8 +47,6 @@ template<class flow_t, class cost_t> struct min_cost {
 				if(pot[v] > cc + COST_EPS) { pot[v] = cc; upd = true; }
 			} if (!upd) break;
 		}
-		dist.resize(n); vis.resize(n); pari.resize(n);
-		flows.clear(); flows.push_back(0); slopes.clear();
 		flow_t flow = 0; cost_t cost = 0;
 		while (flow < limFlow) {
 			shortest(s, t);
