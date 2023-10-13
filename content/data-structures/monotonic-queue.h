@@ -9,18 +9,18 @@
 template<typename T, typename Comp> struct monotonic_queue {
 	int lo, hi; T S;
 	deque<pair<T, T>> q;
-	monotonic_queue() : lo(1), hi(0), S(0) {}
+	monotonic_queue() : lo(0), hi(0), S(0) {}
 	void push(T val) {
 		while(!q.empty() && Comp()(val, q.back().first + S))
 			q.pop_back();
-		q.emplace_back(val - S, ++hi);
+		q.emplace_back(val - S, hi++);
 	}
 	void pop() {
 		if (!q.empty() && q.front().second == lo++) q.pop_front();
 	}
 	void add(T val) { S += val; }
-	T get_val() const { return q.front().first + S; }
-	int size() const { return hi-lo+1; }
+	T get_val() const {  return q.front().first + S; }
+	int size() const { return hi-lo; }
 };
 template<typename T> using min_monotonic_queue = monotonic_queue<T, std::less_equal<T>>;
 template<typename T> using max_monotonic_queue = monotonic_queue<T, std::greater_equal<T>>;

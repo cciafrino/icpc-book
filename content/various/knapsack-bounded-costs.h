@@ -14,7 +14,7 @@ auto solve(vi weight, vi cost, vi cnt, int X) {
 		for (int j = 0; j < min(X+1, weight[i]); ++j) M[j] = max_monotonic_queue<int>();
 		for (int j = 0; j <= X; ++j) {
 			auto& que = M[j % weight[i]];
-			if (cur_que.size() > cnt[i]) que.pop();
+			if (que.size() > cnt[i]) que.pop();
 			que.add(cost[i]);
 			que.push(dp[j]);
 			dp[j] = que.get_val();
