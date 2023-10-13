@@ -35,6 +35,9 @@ int main() {
 			gr[i].push_back(j);
 			flower.add_edge(i, j);
 		}
+		
+		vector<int> color(2*V, -1);
+		
 		auto verify = [&](vi& cover) {
 			for(auto &x: cover) {
 				if (x < N) left[x] = 1;
@@ -48,10 +51,10 @@ int main() {
 					cout << "yields " << sz(cover) << endl;
 					for(auto &x: cover) cout << x << endl;
 					abort();
+		vi cover1 = cover(flower, N, M);
 				} */
 			}
 		};
-		vi cover1 = cover(flower, N, M);
 		vi cover2 = coverHK(gr, N, M);
 		assert(sz(cover1) == sz(cover2));
 		verify(cover1);

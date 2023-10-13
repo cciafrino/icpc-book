@@ -6,8 +6,8 @@
 
 \section{Permutations}
 	\subsection{Factorial}
-		\import{factorial.tex} 
-		\kactlimport{int-perm.h}
+	\import{factorial.tex} 
+	\kactlimport{int-perm.h}
 
 \subsection{Binomials}
 	\begin{itemize}
@@ -28,11 +28,11 @@
 	$2 \sum_{i=L}^R \binom{n}{i} - \binom{n}{L} - \binom{n}{R} = \sum_{i=L+1}^R \binom{n+1}{i}$\\
 	\end{tabular}
 }
-	
 	\kactlimport{lucas.h}
 	\kactlimport{rolling-binomial.h}
 	\kactlimport{multinomial.h}
 	
+
 
 \subsection{The twelvefold way (from Stanley)}
 How many functions $f \colon N \rightarrow X$ are there?
@@ -48,13 +48,19 @@ How many functions $f \colon N \rightarrow X$ are there?
   \end{tabular}
 }
 
-  Where $\binom{a}{b} = \frac{1}{b!}(a)_b $, $p_x(n)$ is the number of ways to partition the integer $n$ using $x$ summand and $\stirlingsecond{n}{x}$ is the number of ways to partition a set of $n$ elements into $x$ subsets (aka Stirling number of the second kind).
+  Where $\binom{a}{b} = \frac{1}{b!}(a)_b $, $p_x(n)$ is the number of ways to partition the integer $n$ using $x$ summand and $\stirlingsecond{n}{x}$ is the number of ways to partition a set of $n$ elements into $x$ subsets (aka Stirling number of the second kind).\\
+
+\subsection{Burnside}
+Given a group $G$ of symmetries and a set $X$, the number of elements of $X$ \emph{up to symmetry} equals
+\[ \smash{{\frac {1}{|G|}}\sum _{{g\in G}}|X^{g}|,} \]
+		 where $X^{g}$ are the elements fixed by $g$ ($g.x = x$).
+
+ If $f(n)$ counts ``configurations'' (of some sort) of length $n$, we can ignore rotational symmetry using $G = \mathbb Z_n$ to get
+\[ \smash{g(n) = \frac 1 n \sum_{k=0}^{n-1}{f(\text{gcd}(n, k))} = \frac 1 n \sum_{k|n}{f(k)\phi(n/k)}} \]
 
 \subsection{Cycles}
-		Let the number of $n$-permutations whose cycle lenghts all belong to the set $S$ be denoted by $g_S (n)$
-		\small
-		$$\sum_{n=0} ^\infty g_S(n) \frac{x^n}{n!} = \exp\left(\sum_{n\in S} \frac{x^n}{n} \right)$$\normalsize
-
+	Let the number of $n$-permutations whose cycle lenghts all belong to the set $S$ be denoted by $g_S (n)$
+	\[\smash{\sum_{n=0} ^\infty g_S(n) \frac{x^n}{n!} = \exp\left(\sum_{n\in S} \frac{x^n}{n} \right)} \]\\
 
 \subsection{Involutions}
     An involution is a permutation with maximum cycle length 2, and it is its own inverse. 
@@ -65,21 +71,12 @@ How many functions $f \colon N \rightarrow X$ are there?
 %	\[ \left| \bigcup^n_{i = 1} A_i \right|  = \sum_{\substack{I \subseteq \{1, 2, ..., n\}\\ I 
 %	\neq \emptyset}}^{} (-1)^{\left| I \right| +1} \left| \bigcap\limits_{i\in I} A_i \right| \]
 
-	
-\subsection{Burnside}
-Given a group $G$ of symmetries and a set $X$, the number of elements of $X$ \emph{up to symmetry} equals
-\[ \smash{{\frac {1}{|G|}}\sum _{{g\in G}}|X^{g}|,} \]
-		 where $X^{g}$ are the elements fixed by $g$ ($g.x = x$).
 
- If $f(n)$ counts ``configurations'' (of some sort) of length $n$, we can ignore rotational symmetry using $G = \mathbb Z_n$ to get
-		 \[ g(n) = \frac 1 n \sum_{k=0}^{n-1}{f(\text{gcd}(n, k))} = \frac 1 n \sum_{k|n}{f(k)\phi(n/k)}. \]
 
 \subsection{Derangements}
-
 Permutations of a set such that none of the elements appear in their original position.
 \small
-\[ \mkern-2mu D(n) = (n-1)(D(n-1)+D(n-2)) = n D(n-1)+(-1)^n = \left\lfloor\frac{n!}{e}\right\rceil \]
-\normalsize
+\[ \smash{\mkern-2mu D(n) = (n-1)(D(n-1)+D(n-2)) = n D(n-1)+(-1)^n = \left\lfloor\frac{n!}{e}\right\rceil} \]\normalsize
 
 
 \section{Partitions and subsets}
