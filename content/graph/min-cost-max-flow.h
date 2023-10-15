@@ -7,14 +7,14 @@
  * Time: O(F(V + E) log V), being F the amount of flow.
  */
 template<class flow_t, class cost_t> struct min_cost {
-	static constexpr flow_t FLOW_EPS = 1e-10L;
+	static constexpr flow_t FLOW_EPS = flow_t(1e-10);
 	static constexpr flow_t FLOW_INF = numeric_limits<flow_t>::max();
-	static constexpr cost_t COST_EPS = 1e-10L;
+	static constexpr cost_t COST_EPS = cost_t(1e-10);
 	static constexpr cost_t COST_INF = numeric_limits<cost_t>::max();
 	int n, m{}; vector<int> ptr, nxt, zu;
 	vector<flow_t> capa; vector<cost_t> cost;
 	min_cost(int N) : n(N),ptr(n,-1),dist(n),vis(n),pari(n) {}
-	void add_edge(int u, int v, flow_t w, cost_t c) { // d482f5
+	void add_edge(int u, int v, flow_t w, cost_t c) {
 		nxt.push_back(ptr[u]); zu.push_back(v); capa.push_back(w); cost.push_back(c); ptr[u] = m++;
 		nxt.push_back(ptr[v]); zu.push_back(u); capa.push_back(0); cost.push_back(-c); ptr[v] = m++;
 	}
@@ -38,7 +38,7 @@ template<class flow_t, class cost_t> struct min_cost {
 		}
 	}
 	pair<flow_t, cost_t> run(int s, int t, flow_t limFlow = FLOW_INF) {
-		pot.assign(n,0); flows = {0}; slopes.clear();
+		pot.assign(n, 0); flows = {0}; slopes.clear();
 		while (true) {
 			bool upd = false;
 			for (int i = 0; i < m; ++i) if (capa[i] > FLOW_EPS) {
@@ -47,20 +47,19 @@ template<class flow_t, class cost_t> struct min_cost {
 				if(pot[v] > cc + COST_EPS) { pot[v] = cc; upd = true; }
 			} if (!upd) break;
 		}
-		flow_t flow = 0; cost_t cost = 0;
+		flow_t flow = 0; cost_t tot_cost = 0;
 		while (flow < limFlow) {
-			shortest(s, t);
+			shortest(s, t); flow_t f = limFlow - flow;
 			if (!vis[t]) break;
 			for(int u = 0; u < n; ++u)pot[u] += min(dist[u],dist[t]);
-			flow_t f = limFlow - flow;
 			for (int v = t; v != s; ) { const int i = pari[v];
 				if (f > capa[i]) { f = capa[i]; } v = zu[i^1];
 			}
 			for (int v = t; v != s; ) { const int i = pari[v];
 				capa[i] -= f; capa[i^1] += f; v = zu[i^1];
 			}
-			flow += f; cost += f * (pot[t] - pot[s]);
+			flow += f; tot_cost += f * (pot[t] - pot[s]);
 			flows.push_back(flow); slopes.push_back(pot[t] - pot[s]);
-		} return {flow, cost};
+		} return {flow, tot_cost};
 	}
-};
+}; 
