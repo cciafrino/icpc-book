@@ -29,7 +29,7 @@ template<unsigned M_> struct modnum {
 	num operator+() const { return *this; }
 	num operator-() const { return num() - *this; }
 	num pow(ll e) const {
-		if (e < 0) return inv().pow(-e); num b = x, xe = 1U;
+		if (e < 0) { return inv().pow(-e); } num b = x, xe = 1U;
 		for (; e; e >>= 1) { if (e & 1) xe *= b; b *= b; }
 		return xe;
 	}
