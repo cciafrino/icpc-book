@@ -82,25 +82,49 @@ def processwithcomments(caption, instream, outstream, listingslang):
         error = "Could not read source."
         lines = []
     nlines = list()
+    cur_hash = None
+    hash_script_part = 'hash'
+    hash_num = 0
     for line in lines:
         if 'exclude-line' in line:
             continue
         if 'include-line' in line:
             line = line.replace('// ', '', 1)
         had_comment = "///" in line
+        if had_comment:
+            line, tail = line.split("///", 1)
+            tail = tail.strip()
         keep_include = 'keep-include' in line
         # Remove /// comments
-        line = line.split("///")[0].rstrip()
+        line = line.rstrip()
         # Remove '#pragma once' lines
         if line == "#pragma once":
             continue
-        if had_comment and not line:
+        if had_comment and not line and tail not in ["start-hash", "end-hash"]:
             continue
         # Check includes
         include = parse_include(line)
         if include is not None and not keep_include:
             includelist.append(include)
             continue
+
+        if had_comment and tail == "start-hash":
+            assert cur_hash is None
+            cur_hash = []
+            hash_num += 1
+            if line: line += ' '
+            line += "// %s-%d" % (hash_script_part, hash_num)
+        if cur_hash is not None:
+            cur_hash.append(line)
+
+        if had_comment and tail == "end-hash":
+            cur_hash = '\n'.join(cur_hash)
+            p = subprocess.Popen(['sh', 'content/contest/%s.sh' % hash_script_part], stdin=subprocess.PIPE, stdout=subprocess.PIPE, encoding="utf-8")
+            hsh, _ = p.communicate(cur_hash)
+            hsh = hsh.split(None, 1)[0]
+            if line: line += ' '
+            line += "// %s-%d = %s" % (hash_script_part, hash_num, hsh)
+            cur_hash = None
         nlines.append(line)
     # Remove and process multiline comments
     source = '\n'.join(nlines)

@@ -276,12 +276,12 @@
 \contentsline {subsection}{\texttt {KdTree.h}\hspace {0.2em}}{35}{lstnumber.8.32.16}%
 \contentsline {subsection}{\texttt {DelaunayTriangulation.h}\hspace {0.2em}}{35}{lstnumber.8.33.63}%
 \contentsline {subsection}{\texttt {FastDelaunay.h}\hspace {0.2em}}{35}{lstnumber.8.34.10}%
-\contentsline {subsection}{\texttt {RectangleUnionArea.h}\hspace {0.2em}}{35}{lstnumber.8.35.89}%
+\contentsline {subsection}{\texttt {RectangleUnionArea.h}\hspace {0.2em}}{35}{lstnumber.8.35.90}%
 \contentsline {section}{\numberline {8.5}3D}{36}{section.8.5}%
 \contentsline {subsection}{\texttt {PolyhedronVolume.h}\hspace {0.2em}}{36}{section.8.5}%
 \contentsline {subsection}{\texttt {Point3D.h}\hspace {0.2em}}{36}{lstnumber.8.37.6}%
-\contentsline {subsection}{\texttt {3dHull.h}\hspace {0.2em}}{36}{lstnumber.8.38.32}%
-\contentsline {subsection}{\texttt {SphericalDistance.h}\hspace {0.2em}}{36}{lstnumber.8.39.48}%
+\contentsline {subsection}{\texttt {3dHull.h}\hspace {0.2em}}{36}{lstnumber.8.38.33}%
+\contentsline {subsection}{\texttt {SphericalDistance.h}\hspace {0.2em}}{36}{lstnumber.8.39.49}%
 \contentsline {chapter}{\numberline {9}Strings}{36}{chapter.9}%
 \ttl@stoptoc {chapters@8}
 \ttl@starttoc {chapters@9}
