@@ -11,7 +11,8 @@ auto solve(vi weight, vi cost, vi cnt, int X) {
 	vector<int> dp(X+1, 0); int N = int(weight.size());
 	vector<max_monotonic_queue<int>> M(X+1);
 	for (int i = 0; i < N; ++i) {
-		for (int j = 0; j < min(X+1, weight[i]); ++j) M[j] = max_monotonic_queue<int>();
+		for (int j = 0; j < min(X+1, weight[i]); ++j)
+			M[j] = max_monotonic_queue<int>();
 		for (int j = 0; j <= X; ++j) {
 			auto& que = M[j % weight[i]];
 			if (que.size() > cnt[i]) que.pop();

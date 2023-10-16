@@ -8,18 +8,18 @@
  * Status: tested on URI1700 and leetcode Tallest Billboard
  * Time: $O(n * S)$
  */
-pair<int, vector<int>> twoMaxEqualSumDS(vector<int> &v){
-	const int n = int(v.size());
-	const int sum = accumulate(v.begin(), v.end(), 0);
-	vector<int> dp(2*sum + 1, INT_MIN/2), newdp(2*sum + 1), s(n);
-	vector<vector<int>> rec(n, vector<int>(2*sum + 1));
-	int i; dp[sum] = 0;
-	for(i = 0; i < n; i++, swap(dp, newdp))
-		for(int a, b, d = v[i]; d <= 2*sum - v[i]; d++){
-			newdp[d] = max({dp[d], a = dp[d - v[i]] + v[i], b = dp[d + v[i]]});
-			rec[i][d] = newdp[d] == a ? 1 : newdp[d] == b ? 2 : 0;
-		}
-	for(int j = i-1, d = sum; j >= 0 ; j--)
-		d += (s[j] = rec[j][d]) ? s[j] == 2 ? v[j] : -v[j] : 0;
-	return {dp[sum], s};
+auto twoMaxEqualSumDS(const vector<int> &v){
+    int sum=accumulate(v.begin(), v.end(), 0), n=int(v.size());
+    vector<int> old(2*sum + 1, INT_MIN/2), dp(2*sum + 1), s(n);
+    vector<vector<int>> rec(n, vector<int>(2*sum + 1));
+    int i; old[sum] = 0;
+    for(i = 0; i < n; ++i, swap(old, dp))
+        for(int a, b, d = v[i]; d <= 2*sum - v[i]; d++){
+            dp[d] = max(old[d], a = old[d - v[i]] + v[i]);
+            dp[d] = max(dp[d], b = old[d + v[i]]);
+            rec[i][d] = dp[d] == a ? 1 : dp[d] == b ? 2 : 0;
+        }
+    for(int j = i-1, d = sum; j >= 0; --j)
+        d+=(s[j] = rec[j][d]) ? s[j] == 2 ? v[j] : - v[j] : 0;
+    return make_pair(old[sum], s);
 }
