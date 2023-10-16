@@ -3,7 +3,8 @@
  * Date: 2023
  * License: CC0
  * Source: https://codeforces.com/blog/entry/53170, KACTL
- * Description: 
+ * Description: Compress Tree: Given a subset S of nodes, computes the compress tree and returns
+ * a list of (par, orig index) representing a tree rooted at 0. The root points to itself.
  * Time: $O((\log N)^2)$
  * Status: Tested on codeforces 101908L and 101807J
  * Details:  Decomposes a tree into vertex disjoint heavy paths and light
@@ -58,7 +59,7 @@ template<bool use_edges> struct hld_t {
 		return (x > K ? climb(a, K) : climb(b, x + y - K));
 	}
 	// bool is true if path should be reversed (only for noncommutative operations)
-	const vector<tuple<bool, int, int>>& get_path(int a, int b) const {
+	const auto& get_path(int a, int b) const {
 		static vector<tuple<bool, int, int>> L, R;
 		L.clear(); R.clear();
 		while (chain[a] != chain[b])
@@ -74,5 +75,19 @@ template<bool use_edges> struct hld_t {
 		else R.push_back({false, in[a] + use_edges, in[b] + 1});
 		L.insert(L.end(), R.rbegin(), R.rend());
 		return L;
+	}
+	auto compressTree(vector<int> s){
+		static vector<int> rev; rev.resize(T);
+		auto cmp = [&](int a, int b){ return in[a] < in[b]; };
+		sort(s.begin(), s.end(), cmp); int m = int(s.size())-1;
+		for (int i = 0; i < m; ++i)
+			s.push_back(lca(s[i], s[i+1]));
+		sort(s.begin(), s.end(), cmp);
+		s.erase(unique(s.begin(), s.end()), s.end());
+		for (int i = 0; i < int(s.size()); ++i) rev[s[i]] = i;
+		vector<pii> ret = { {0, s[0]} };
+		for (int i = 0; i + 1 < int(s.size()); ++i)
+			ret.emplace_back(rev[lca(s[i], s[i+1])], s[i+1]);
+		return ret;
 	}
 };
