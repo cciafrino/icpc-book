@@ -213,13 +213,12 @@
 \contentsline {section}{\numberline {7.6}Trees}{27}{section.7.6}%
 \contentsline {subsection}{\texttt {lca-binary-lifting.h}\hspace {0.2em}}{27}{section.7.6}%
 \contentsline {subsection}{\texttt {lca-euler-tour.h}\hspace {0.2em}}{27}{lstnumber.7.28.53}%
-\contentsline {subsection}{\texttt {compress-tree.h}\hspace {0.2em}}{28}{lstnumber.7.29.164}%
-\contentsline {subsection}{\texttt {heavylight.h}\hspace {0.2em}}{28}{lstnumber.7.30.19}%
-\contentsline {subsection}{\texttt {tree-isomorphism.h}\hspace {0.2em}}{28}{lstnumber.7.31.62}%
+\contentsline {subsection}{\texttt {heavylight.h}\hspace {0.2em}}{28}{lstnumber.7.29.164}%
+\contentsline {subsection}{\texttt {tree-isomorphism.h}\hspace {0.2em}}{28}{lstnumber.7.30.76}%
 \contentsline {subsection}{\numberline {7.6.1}Sqrt Decomposition}{29}{subsection.7.6.1}%
 \contentsline {section}{\numberline {7.7}Functional Graphs}{29}{section.7.7}%
 \contentsline {subsection}{\texttt {functional-graph.h}\hspace {0.2em}}{29}{section.7.7}%
-\contentsline {subsection}{\texttt {functional-digraph.h}\hspace {0.2em}}{29}{lstnumber.7.33.41}%
+\contentsline {subsection}{\texttt {functional-digraph.h}\hspace {0.2em}}{29}{lstnumber.7.32.41}%
 \contentsline {section}{\numberline {7.8}Other}{29}{section.7.8}%
 \contentsline {subsection}{\texttt {directed-mst.h}\hspace {0.2em}}{29}{section.7.8}%
 \contentsline {section}{\numberline {7.9}Theorems}{30}{section.7.9}%
@@ -240,7 +239,7 @@
 \ttl@starttoc {chapters@8}
 \contentsline {section}{\numberline {8.1}Geometric primitives}{30}{section.8.1}%
 \contentsline {subsection}{\texttt {Point.h}\hspace {0.2em}}{30}{section.8.1}%
-\contentsline {subsection}{\texttt {LineDistance.h}\hspace {0.2em}}{31}{lstnumber.8.1.27}%
+\contentsline {subsection}{\texttt {LineDistance.h}\hspace {0.2em}}{30}{lstnumber.8.1.27}%
 \contentsline {subsection}{\texttt {SegmentDistance.h}\hspace {0.2em}}{31}{lstnumber.8.2.4}%
 \contentsline {subsection}{\texttt {SegmentIntersection.h}\hspace {0.2em}}{31}{lstnumber.8.3.5}%
 \contentsline {subsection}{\texttt {SegmentIntersectionQ.h}\hspace {0.2em}}{31}{lstnumber.8.4.13}%
@@ -277,7 +276,7 @@
 \contentsline {subsection}{\texttt {KdTree.h}\hspace {0.2em}}{35}{lstnumber.8.32.16}%
 \contentsline {subsection}{\texttt {DelaunayTriangulation.h}\hspace {0.2em}}{35}{lstnumber.8.33.63}%
 \contentsline {subsection}{\texttt {FastDelaunay.h}\hspace {0.2em}}{35}{lstnumber.8.34.10}%
-\contentsline {subsection}{\texttt {RectangleUnionArea.h}\hspace {0.2em}}{36}{lstnumber.8.35.89}%
+\contentsline {subsection}{\texttt {RectangleUnionArea.h}\hspace {0.2em}}{35}{lstnumber.8.35.89}%
 \contentsline {section}{\numberline {8.5}3D}{36}{section.8.5}%
 \contentsline {subsection}{\texttt {PolyhedronVolume.h}\hspace {0.2em}}{36}{section.8.5}%
 \contentsline {subsection}{\texttt {Point3D.h}\hspace {0.2em}}{36}{lstnumber.8.37.6}%
@@ -287,19 +286,19 @@
 \ttl@stoptoc {chapters@8}
 \ttl@starttoc {chapters@9}
 \contentsline {section}{\texttt {kmp.h}\hspace {0.2em}}{36}{chapter.9}%
-\contentsline {section}{\texttt {duval.h}\hspace {0.2em}}{37}{lstnumber.9.1.9}%
+\contentsline {section}{\texttt {duval.h}\hspace {0.2em}}{36}{lstnumber.9.1.9}%
 \contentsline {section}{\texttt {z-algorithm.h}\hspace {0.2em}}{37}{lstnumber.9.2.24}%
 \contentsline {section}{\texttt {manacher.h}\hspace {0.2em}}{37}{lstnumber.9.3.13}%
 \contentsline {section}{\texttt {min-rotation.h}\hspace {0.2em}}{37}{lstnumber.9.4.12}%
 \contentsline {section}{\texttt {xor-trie.h}\hspace {0.2em}}{37}{lstnumber.9.5.7}%
 \contentsline {section}{\texttt {hashing.h}\hspace {0.2em}}{37}{lstnumber.9.6.28}%
 \contentsline {section}{\texttt {modnum-double-hashing.h}\hspace {0.2em}}{37}{lstnumber.9.7.38}%
-\contentsline {section}{\texttt {aho-corasick.h}\hspace {0.2em}}{38}{lstnumber.9.8.40}%
+\contentsline {section}{\texttt {aho-corasick.h}\hspace {0.2em}}{37}{lstnumber.9.8.40}%
 \contentsline {section}{\texttt {suffix-array.h}\hspace {0.2em}}{38}{lstnumber.9.9.36}%
 \contentsline {section}{\texttt {suffix-tree.h}\hspace {0.2em}}{38}{lstnumber.9.10.66}%
 \contentsline {section}{\texttt {suffix-automaton.h}\hspace {0.2em}}{38}{lstnumber.9.11.46}%
-\contentsline {section}{\numberline {9.1}Suffix Automaton}{39}{section.9.1}%
-\contentsline {subsection}{\numberline {9.1.1}Number of different substrings}{39}{subsection.9.1.1}%
+\contentsline {section}{\numberline {9.1}Suffix Automaton}{38}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Number of different substrings}{38}{subsection.9.1.1}%
 \contentsline {subsection}{\numberline {9.1.2}Total lenght of different substrings}{39}{subsection.9.1.2}%
 \contentsline {subsection}{\numberline {9.1.3}Lexicographically $K$-th substring}{39}{subsection.9.1.3}%
 \contentsline {subsection}{\numberline {9.1.4}Smallest cyclic shift}{39}{subsection.9.1.4}%
@@ -317,7 +316,7 @@
 \contentsline {subsection}{\texttt {floor.h}\hspace {0.2em}}{39}{section.10.2}%
 \contentsline {subsection}{\texttt {basis-manager.h}\hspace {0.2em}}{39}{lstnumber.10.4.7}%
 \contentsline {subsection}{\texttt {ternary-search.h}\hspace {0.2em}}{39}{lstnumber.10.5.34}%
-\contentsline {subsection}{\texttt {merge-sort.h}\hspace {0.2em}}{40}{lstnumber.10.6.11}%
+\contentsline {subsection}{\texttt {merge-sort.h}\hspace {0.2em}}{39}{lstnumber.10.6.11}%
 \contentsline {subsection}{\texttt {radix-sort.h}\hspace {0.2em}}{40}{lstnumber.10.7.25}%
 \contentsline {subsection}{\texttt {postfix-notation-solver.h}\hspace {0.2em}}{40}{lstnumber.10.8.54}%
 \contentsline {subsection}{\texttt {count-triangles.h}\hspace {0.2em}}{40}{lstnumber.10.9.31}%
@@ -339,7 +338,7 @@
 \contentsline {subsection}{\texttt {knapsack-unbounded.h}\hspace {0.2em}}{42}{lstnumber.10.24.14}%
 \contentsline {subsection}{\texttt {knapsack-bounded.h}\hspace {0.2em}}{42}{lstnumber.10.25.10}%
 \contentsline {subsection}{\texttt {knapsack-bounded-costs.h}\hspace {0.2em}}{42}{lstnumber.10.26.11}%
-\contentsline {subsection}{\texttt {knapsack-bitset.h}\hspace {0.2em}}{43}{lstnumber.10.27.14}%
+\contentsline {subsection}{\texttt {knapsack-bitset.h}\hspace {0.2em}}{42}{lstnumber.10.27.14}%
 \contentsline {subsection}{\texttt {two-max-equal-sum.h}\hspace {0.2em}}{43}{lstnumber.10.28.11}%
 \contentsline {subsection}{\texttt {max-zero-submatrix.h}\hspace {0.2em}}{43}{lstnumber.10.29.15}%
 \contentsline {section}{\numberline {10.4}Debugging tricks}{43}{section.10.4}%
