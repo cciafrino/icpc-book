@@ -10,23 +10,18 @@
  * The root points to itself.
  * Time: $O(|S| \log |S|)$
  */
-#include "LCA.h"
-vector<pair<int,int>> compressTree(lca_t &lca, const vector<int>& subset) {
-	static vector<int> rev; rev.resize(lca.time.size());
-	vector<int> li = subset, &T = lca.time;
-	auto cmp = [&](int a, int b) { return T[a] < T[b]; };
-	sort(li.begin(), li.end(), cmp);
-	int m = li.size()-1;
-	for (int i = 0; i < m; ++i) {
-		int a = li[i], b = li[i+1];
-		li.push_back(lca.lca(a, b));
-	}
-	sort(li.begin(), li.end(), cmp);
-	li.erase(unique(li.begin(), li.end()), li.end());
-	for (int i = 0; i < int(li.size()); ++i) rev[li[i]] = i;
-	vector<pair<int,int>> ret = {{0, li[0]}};
-	for (int i = 0; i < li.size()-1; ++i) {
-		int a = li[i], b = li[i+1];
-		ret.emplace_back(rev[lca.lca(a, b)], b);
-	} return ret;
+#include "heavylight.h"
+auto compressTree(hld_t<false> &h, vector<int> sb) {
+	static vector<int> rev; rev.resize(h.T);
+	auto cmp = [&](int a, int b){ return h.in[a] < h.in[b]; };
+	sort(sb.begin(), sb.end(), cmp);
+	for (int i = 0 , m = sb.size() - 1 ; i < m ; ++i)
+		sb.push_back(h.lca(sb[i], sb[i+1]));
+	sort(sb.begin(), sb.end(), cmp);
+	sb.erase(unique(sb.begin(), sb.end()), sb.end());
+	for (int i = 0; i < int(sb.size()); ++i) rev[sb[i]] = i;
+	vector<pii> ret = { {0, sb[0]} };
+	for (int i = 0; i + 1 < int(sb.size()); ++i)
+		ret.emplace_back(rev[h.lca(sb[i], sb[i+1])], sb[i+1]);
+	return ret;
 }
