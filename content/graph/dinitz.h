@@ -31,7 +31,7 @@ template<typename T = int> struct Dinitz {
 	}///end-hash
 	T maxflow(int s, int t) {///start-hash
 		T flow = 0; q[0] = s;
-		for (int L = 0; L < 31; ++L) do { // 'int L=30' maybe faster for random data
+		for (int L = 0; L < 31; ++L) do { // consider L = 30
 			lvl = ptr = vector<int>(q.size());
 			int qi = 0, qe = lvl[s] = 1;
 			while (qi < qe && !lvl[t]) {
@@ -40,7 +40,7 @@ template<typename T = int> struct Dinitz {
 					if (!lvl[e.to] && (e.c - e.f) >> (30 - L))
 						q[qe++] = e.to, lvl[e.to] = lvl[v] + 1;
 			}
-			while (T p = dfs(s, t, numeric_limits<T>::max()/4)) flow += p;
+			while(T p =dfs(s, t, numeric_limits<T>::max()/4))flow+=p;
 		} while (lvl[t]);
 		return flow;
 	}///end-hash 
