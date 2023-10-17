@@ -21,7 +21,7 @@ template<class flow_t, class cost_t> struct min_cost {
 	vector<cost_t> pot, dist; vector<bool> vis; vector<int> pari;
 	vector<flow_t> flows; vector<cost_t> slopes;
 	// You can pass t = -1 to find a shortest
-	void shortest(int s, int t) { // path to each vertex.
+	void shortest(int s, int t) {//path to each vertex. ///start-hash
 		using E = pair<cost_t, int>;
 		priority_queue<E, vector<E>, greater<E>> que;
 		for(int u = 0; u < n; ++u){dist[u]=COST_INF; vis[u]=false;}
@@ -36,8 +36,8 @@ template<class flow_t, class cost_t> struct min_cost {
 				if(dist[v] > cc){que.emplace(dist[v]=cc,v);pari[v]=i;}
 			}
 		}
-	}
-	pair<flow_t, cost_t> run(int s, int t, flow_t limFlow = FLOW_INF) {
+	}///end-hash
+	auto run(int s, int t, flow_t limFlow = FLOW_INF) { ///start-hash
 		pot.assign(n, 0); flows = {0}; slopes.clear();
 		while (true) {
 			bool upd = false;
@@ -60,6 +60,6 @@ template<class flow_t, class cost_t> struct min_cost {
 			}
 			flow += f; tot_cost += f * (pot[t] - pot[s]);
 			flows.push_back(flow); slopes.push_back(pot[t] - pot[s]);
-		} return {flow, tot_cost};
-	}
+		} return make_pair(flow, tot_cost);
+	} ///end-hash
 }; 
