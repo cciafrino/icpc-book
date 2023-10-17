@@ -47,9 +47,9 @@ template<typename T = int> struct Dinitz {
 	bool leftOfMinCut(int v) { return bool(lvl[v] != 0); }
 	auto minCut(int s, int t) {///start-hash
 		T cost = maxflow(s,t); 
-		vector<pair<int,int>> cut;		
+		vector<edge_t> cut;		
 		for (int i = 0; i < int(adj.size()); i++) for(edge_t &e : adj[i])
-			if (lvl[i] && !lvl[e.to]) cut.push_back({i, e.to});
+			if (lvl[i] && !lvl[e.to]) cut.push_back(e);
 		return make_pair(cost, cut);
 	}///end-hash
 };
