@@ -8,8 +8,7 @@
 template<class I> vector<int> lis(const vector<I>& S) {
 	if (S.empty()) return {};
 	vector<int> prev(S.size());
-	typedef pair<I, int> p;
-	vector<p> res;
+	using p = pair<I, int>; vector<p> res;
 	for(int i = 0; i < (int)S.size(); i++) {
 		// change 0 -> i for longest non-decreasing subsequence
 		auto it = lower_bound(res.begin(), res.end(), p {S[i], 0}); 
