@@ -80,7 +80,7 @@ template<typename T> struct FFT {
 				}
 			}
 		}
-		if (inverse) 
+		if (inverse)
 			for (int a = 0; a < N; ++a) xs[a] = xs[a] * inv(T(N));
 	}
 	vector<T> convolve(vector<T> as, vector<T> bs) {
@@ -99,8 +99,8 @@ template<typename T> struct FFT {
 		}
 	}
 }; FFT<M0> FFT0;
-
 // T = {unsigned, unsigned long long, modnum<M>}
+// Remark: need to satisfy |poly| * mod^2 < \prod_{i} M_i
 template<class T, unsigned M0, unsigned M1, unsigned M2, unsigned M3, unsigned M4>
 T garner(modnum<M0> a0, modnum<M1> a1, modnum<M2> a2, modnum<M3> a3, modnum<M4> a4) {
 	static const modnum<M1> INV_M0_M1 = modnum<M1>(M0).inv();
