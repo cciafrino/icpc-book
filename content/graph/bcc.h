@@ -46,7 +46,7 @@ struct bcc_t{
         for(int r = 0; r < n; ++r) if(id[r] == -1) dfs(r,-1,f);
     }
     auto blockcut(const vector<pii> &edges){
-        vector<vector<int>> cc; vector<int> cc_id(n);
+        vector<vector<int>> cc; vector<int> cc_id(n,-1);
         solve( [&](const vector<int> &c) {
             set<int> vc;
             for(int e : c){
