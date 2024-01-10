@@ -76,6 +76,9 @@ template<bool use_edges> struct hld_t {
 		L.insert(L.end(), R.rbegin(), R.rend());
 		return L;
 	}
+	auto get_subtree(int a) const {
+		return make_pair(in[a] + use_edges, in[a] + sz[a]);
+	}
 	auto compressTree(vector<int> s){
 		static vector<int> rev; rev.resize(T);
 		auto cmp = [&](int a, int b){ return in[a] < in[b]; };
