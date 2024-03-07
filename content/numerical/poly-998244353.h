@@ -6,7 +6,6 @@
 #include "finite-field-fft.h"
 #include "../number-theory/mod-sqrt.h"
 #include "../number-theory/preparator.h"
-
 using num = modnum<998244353U>; FFT<num> fft_data;
 template<unsigned M> struct Poly : public vector<modnum<M>> {
 	Poly() {}

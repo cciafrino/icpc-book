@@ -31,9 +31,7 @@ struct Point {
 	P rotate(double a) const {
 		return P(x*cos(a)-y*sin(a),x*sin(a)+y*cos(a)); }
 };
-
 using P = Point<double>;
-
 // signed distance between point p and line (a, b)
 template<class P>
 double lineDist(const P& a, const P& b, const P& p) {

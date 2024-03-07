@@ -34,7 +34,6 @@ void bellmanFord(vector<node_t>& nodes, vector<edge_t>& eds, int s) {
 	for(int i = 0; i < lim; ++i) for(auto &e : eds) 
 		if (nodes[e.a].dist == -inf) nodes[e.b].dist = -inf;
 }
-
 vector<int> negCyc(int n, vector<edge_t>& edges) {
 	vector<int64_t> d(n); vector<int> p(n);
 	int v = -1;

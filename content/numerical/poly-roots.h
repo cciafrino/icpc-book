@@ -6,8 +6,7 @@
  * Usage: poly_roots({{2,-3,1}},-1e9,1e9) // solve x^2-3x+2 = 0
  * Time: O(n^2 \log(1/\epsilon))
  */
-#include "Polynomial.h"
-
+#include "polynomial.h"
 vector<double> poly_roots(Poly p, double xmin, double xmax) {
 	if ((p.a).size() == 2) { return {-p.a[0]/p.a[1]}; }
 	vector<double> ret;

@@ -3,11 +3,6 @@
  * Description: Builds dfs tree. Find cut vertices and bridges.
  * Usage: Call solve right after build the graph
  */
-/**
- * Author: Chris
- * Description: Builds dfs tree. Find cut vertices and bridges.
- * Usage: Call solve right after build the graph
- */
 struct tree_t {
 	int n, timer;
 	vector<vector<int>> edges;

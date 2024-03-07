@@ -14,6 +14,7 @@
  * Rounding is safe if $(\sum a_i^2 + \sum b_i^2)\log_2{N} < 9\cdot10^{14}$
  * (in practice $10^{16}$; higher for random inputs). Otherwise, use NTT/FFTMod.
  */
+#include "../number-theory/modular-arithmetic.h"
 inline int nxt_pow2(int s) { return 1 << (s > 1 ? 32 - __builtin_clz(s-1) : 0); }
 template <typename T> struct root_of_unity {};
 

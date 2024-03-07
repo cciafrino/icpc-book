@@ -53,25 +53,3 @@ template<typename T = int> struct Dinitz {
 		return make_pair(cost, cut);
 	}///end-hash
 };
-struct flow_demand_t {///start-hash
-	int N, src, sink;
-	vector<int> d; Dinitz<int> flower;
-	flow_demand_t(int N_):N(N_), src(N + 1), sink(N + 2), d(N + 3), flower(N + 3){}
-	void add_edge(int a, int b, int demand, int cap) {
-		d[a] -= demand; d[b] += demand;
-		flower.addEdge(a, b, cap - demand);
-	}
-	int get_flow() {
-		int x = 0, y = 0;
-		flower.addEdge(N, N-1, numeric_limits<int>::max());
-		for (int i = 0; i <= N; ++i) {
-			if (d[i] < 0)
-				flower.addEdge(i, sink, -d[i]), x += -d[i];
-			if (d[i] > 0)
-				flower.addEdge(src, i, d[i]), y += d[i];
-		}
-		bool has_circulation=(flower.maxflow(src,sink)==x && x==y);
-		if (!has_circulation) return -1;
-		return flower.maxflow(N-1, N);
-	}
-};///end-hash

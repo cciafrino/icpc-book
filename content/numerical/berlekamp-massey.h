@@ -12,7 +12,7 @@
  * Time: O(N^2)
  * Status: bruteforce-tested mod 5 for n <= 5 and all s
  */
-#include "modular-arithmetic.h"
+#include "../number-theory/modular-arithmetic.h"
 
 template <typename num>
 vector<num> BerlekampMassey(const vector<num>& s) {
