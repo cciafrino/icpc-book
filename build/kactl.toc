@@ -114,7 +114,7 @@
 \contentsline {subsection}{\numberline {9.1.2}Total lenght of different substrings}{37}{subsection.9.1.2}%
 \contentsline {subsection}{\numberline {9.1.3}Lexicographically $K$-th substring}{37}{subsection.9.1.3}%
 \contentsline {subsection}{\numberline {9.1.4}Smallest cyclic shift}{37}{subsection.9.1.4}%
-\contentsline {subsection}{\numberline {9.1.5}Number of occurrences}{38}{subsection.9.1.5}%
+\contentsline {subsection}{\numberline {9.1.5}Number of occurrences}{37}{subsection.9.1.5}%
 \contentsline {subsection}{\numberline {9.1.6}First occurence position}{38}{subsection.9.1.6}%
 \contentsline {subsection}{\numberline {9.1.7}All occurence positions}{38}{subsection.9.1.7}%
 \contentsline {chapter}{\numberline {10}Various}{38}{chapter.10}%
