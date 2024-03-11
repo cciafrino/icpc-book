@@ -420,12 +420,13 @@ array<int, 2> lineHull(Line line, vector<P>& poly) {
 }
 // Halfplace intersection area
 #define eps 1e-8
-typedef Point<double> P;
-struct Line {
+using P = Point<double>;
+
+struct line_t { ///start-hash
 	P P1, P2;
 	// Right hand side of the ray P1 -> P2
-	explicit Line(P a = P(), P b = P()) : P1(a), P2(b) {};
-	P intpo(Line y) {
+	explicit line_t(P a = P(), P b = P()) : P1(a), P2(b) {};
+	P intpo(line_t y) {
 		pair<int, P> r = lineInter(P1, P2, y.P1, y.P2);
 		assert(r.first == 1);
 		return r.second;
@@ -435,9 +436,8 @@ struct Line {
 		return (P2 - P1).cross(x - P1) < eps;
 	}
 	bool out(P x) { return !contains(x); }
-};
-template<class T>
-bool mycmp(Point<T> a, Point<T> b) {
+}; ///end-hash
+bool mycmp(P a, P b) { ///start-hash
 	// return atan2(a.y, a.x) < atan2(b.y, b.x);
 	if (a.x * b.x < 0) return a.x < 0;
 	if (abs(a.x) < eps) {
@@ -450,13 +450,13 @@ bool mycmp(Point<T> a, Point<T> b) {
 		if (a.x > 0) return false;
 	}
 	return a.cross(b) > 0;
-}
-bool cmp(Line a, Line b) { return mycmp(a.dir(), b.dir()); }
-double Intersection_Area(vector <Line> b) {
+}///end-hash
+bool cmp(line_t a, line_t b){return mycmp(a.dir(), b.dir());}
+double intersection_area(vector<line_t> b) { ///start-hash
 	sort(b.begin(), b.end(), cmp);
-	int n = b.size();
+	int n = int(b.size());
 	int q = 1, h = 0, i;
-	vector<Line> c(b.size() + 10);
+	vector<line_t> c(b.size() + 10);
 	for (i = 0; i < n; i++) {
 		while (q < h && b[i].out(c[h].intpo(c[h - 1]))) h--;
 		while (q < h && b[i].out(c[q].intpo(c[q + 1]))) q++;
@@ -466,25 +466,25 @@ double Intersection_Area(vector <Line> b) {
 				h--;
 				if (b[i].out(c[h].P1))	c[h] = b[i];
 			}else {
-				// The area is either 0 or infinite.
-				// If you have a bounding box,
-				return 0; // then the area is definitely 0.
+				// The area is either 0 or infinite. If you have a 
+				// bounding box, then the area is definitely 0. 
+				return 0;
 			}
 		}
 	}
 	while (q < h-1 && c[q].out(c[h].intpo(c[h - 1]))) h--;
 	while (q < h-1 && c[h].out(c[q].intpo(c[q + 1]))) q++;
-	// Intersection is empty. This is sometimes different from
-	// the case when the intersection area is 0.
+	// Intersection is empty. This is sometimes different from 
+	// the case when the intersection area is 0. 
 	if (h - q <= 1) return 0;
 	c[h + 1] = c[q];
 	vector<P> s;
-	for (i = q; i <= h; i++) s.push_back(c[i].intpo(c[i + 1]));
+	for (i = q; i <= h; i++) s.push_back(c[i].intpo(c[i+1]));
 	s.push_back(s[0]);
-	double ans = 0;
-	for (i = 0; i < (int) s.size()-1; i++) ans += s[i].cross(s[i + 1]);
-	return ans / 2;
-}
+	double ans = 0; int m = int(s.size());
+	for (i = 0; i+1 < m; i++) ans += s[i].cross(s[i+1]);
+	return ans/2;
+} ///end-hash
 // Closes pair of points. O(N logN)
 pair<P, P> closest(vector<P> v) {
 	assert(v.size() > 1);
