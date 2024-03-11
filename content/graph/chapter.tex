@@ -201,7 +201,7 @@ where $t_w(G)$ is the number of arborescences (``directed spanning'' tree) roote
 		% I.e. matrix-tree theorem.
 		% Source: https://en.wikipedia.org/wiki/Kirchhoff%27s-theorem
 		% Test: stress-tests/graph/matrix-tree.cpp
-		Define Laplacian Matrix as $L = D - A$, $D$ being a Diagonal Matrix with $D_{i,i} = deg(i)$ and $A$ an Adjacency Matrix.
+		Define Laplacian Matrix as $L = D - A$, $D$ being a Diagonal Matrix with $D_{i,i} = indeg(i)$ and $A$ an Adjacency Matrix.
 		Create an $N\times N$ Laplacian matrix \texttt{mat}, and for each edge $a \rightarrow b \in G$, do
 		\texttt{mat[a][b]--, mat[b][b]++} (and \texttt{mat[b][a]--, mat[a][a]++} if $G$ is undirected).
 		Remove the $i$th row and column and take the determinant; this yields the number of directed spanning trees rooted at $i$
