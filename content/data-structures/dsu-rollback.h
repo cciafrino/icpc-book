@@ -13,12 +13,12 @@ struct RollbackUF {
 	int size(int x) { return -e[find(x)]; }
 	int find(int x) { return e[x] < 0 ? x : find(e[x]); }
 	int time() { return st.size(); }
-	void rollback(int t) {
+	void rollback(int t) { ///start-hash
 		for (int i = time(); i --> t;)
 			e[st[i].first] = st[i].second;
 		st.resize(t);
-	}
-	bool unite(int a, int b) {
+	} /// end-hash
+	bool unite(int a, int b) { ///start-hash
 		a = find(a), b = find(b);
 		if (a == b) return false;
 		if (e[a] > e[b]) swap(a, b);
@@ -26,5 +26,5 @@ struct RollbackUF {
 		st.push_back({b, e[b]});
 		e[a] += e[b]; e[b] = a;
 		return true;
-	}
+	} /// end-hash
 };

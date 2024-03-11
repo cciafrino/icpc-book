@@ -7,7 +7,7 @@
 #include "../number-theory/mod-sqrt.h"
 #include "../number-theory/preparator.h"
 using num = modnum<998244353U>; FFT<num> fft_data;
-template<unsigned M> struct Poly : public vector<modnum<M>> {
+template<unsigned M> struct Poly : public vector<modnum<M>> {///start-hash
 	Poly() {}
 	explicit Poly(int n) : vector<modnum<M>>(n) {}
 	Poly(const vector<modnum<M>> &vec) : vector<modnum<M>>(vec) {}
@@ -21,32 +21,32 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
 		os << "[";
 		for (int i = 0; i < fs.size(); ++i) { if (i > 0) os << ", "; os << fs[i]; }
 		return os << "]";
-	}
-	Poly &operator+=(const Poly &fs) { // d36be
+	}///end-hash
+	Poly &operator+=(const Poly &fs) {///start-hash
 		if (size() < fs.size()) this->resize(fs.size());
 		for (int i = 0; i < fs.size(); ++i) (*this)[i] += fs[i];
 		return *this;
-	}
-	Poly &operator-=(const Poly &fs) { // 1f585
+	}///end-hash
+	Poly &operator-=(const Poly &fs) {///start-hash
 		if (size() < fs.size()) this->resize(fs.size());
 		for (int i = 0; i < fs.size(); ++i) (*this)[i] -= fs[i];
 		return *this;
-	}
-	Poly &operator*=(const Poly &fs) { // 24a99
+	}///end-hash
+	Poly &operator*=(const Poly &fs) {///start-hash
 		if (this->empty() || fs.empty()) return *this = {};
 		*this = fft_data.convolve(*this, fs);
 		return *this;
-	}
-	Poly &operator*=(const num &a) { // ea9fb
+	}///end-hash
+	Poly &operator*=(const num &a) {///start-hash
 		for (int i = 0; i < size(); ++i) (*this)[i] *= a;
 		return *this;
-	}
-	Poly &operator/=(const num &a) { // 71618
+	}///end-hash
+	Poly &operator/=(const num &a) {///start-hash
 		const num b = a.inv();
 		for (int i = 0; i < size(); ++i) (*this)[i] *= b;
 		return *this;
-	}
-	Poly &operator/=(const Poly &fs) { // 291cd
+	}///end-hash
+	Poly &operator/=(const Poly &fs) {///start-hash
 		auto ps = fs;
 		if (size() < ps.size()) return *this = {};
 		int s = int(size()) - int(ps.size()) + 1;
@@ -58,8 +58,8 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
 		*this = *this * ps;
 		this->resize(s); reverse(this->begin(), this->end());
 		return *this;
-	}
-	Poly &operator%=(const Poly& fs) { // d6a38
+	}///end-hash
+	Poly &operator%=(const Poly& fs) {///start-hash
 		if (size() >= fs.size()) {
 			Poly Q = (*this / fs) * fs;
 			this->resize(fs.size() - 1);
@@ -67,8 +67,8 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
 		}
 		while (size() && this->back() == 0) this->pop_back();
 		return *this;
-	}
-	Poly inv() const { // c47df7
+	}///end-hash
+	Poly inv() const {///start-hash
 		if (this->empty()) return {};
 		Poly b({(*this)[0].inv()}), fs;
 		b.reserve(2 * int(this->size()));
@@ -85,25 +85,25 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
 			b.resize(len);
 		}
 		b.resize(this->size()); return b;
-	}
-	Poly differential() const { // 0b718
+	}///end-hash
+	Poly differential() const {///start-hash
 		if (this->empty()) return {};
 		Poly f(max(size() - 1, 1));
 		for (int x = 1; x < size(); ++x) f[x - 1] = x * (*this)[x];
 		return f;
-	}
-	Poly integral() const { // 71d33
+	}///end-hash
+	Poly integral() const {///start-hash
 		if (this->empty()) return {};
 		Poly f(size() + 1);
 		for (int x = 0; x < size(); ++x) f[x + 1] = invs[x + 1] * (*this)[x];
 		return f;
-	}
-	Poly log() const { // 6a365
+	}///end-hash
+	Poly log() const {///start-hash
 		if (this->empty()) return {};
 		Poly f = (differential() * inv()).integral();
 		f.resize(size()); return f;
-	}
-	Poly exp() const { // 25174b
+	}///end-hash
+	Poly exp() const {///start-hash
 		Poly f = {1};
 		if (this->empty()) return f;
 		while (f.size() < size()) {
@@ -117,8 +117,8 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
 			f.resize(len);
 		}
 		return f;
-	}
-	Poly pow(int N) const { // 48fee9
+	}///end-hash
+	Poly pow(int N) const {///start-hash
 		Poly b(size());
 		if (N == 0) { b[0] = 1; return b; }
 		int p = 0;
@@ -136,8 +136,8 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
 			b[x + N*p] = c[x] * mu;
 		}
 		return b;
-	}
-	Poly sqrt(int N) const {  // 262e0
+	}///end-hash
+	Poly sqrt(int N) const {///start-hash
 		if (!size()) return {};
 		if (deg() == -1) return Poly(N);
 		int p = 0;
@@ -152,7 +152,7 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
 		fs = v[0] * (fs.log() / 2).exp();
 		fs.insert(fs.begin(), p/2, 0);
 		return fs;
-	}
+	}///end-hash
 	Poly operator+() const { return *this; }
 	Poly operator-() const {
 		Poly fs(size());
@@ -168,7 +168,7 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
 	Poly operator/(const num &a) const { return (Poly(*this) /= a); }
 	friend Poly operator*(const num &a, const Poly &fs) { return fs * a; }
 	// multipoint evaluation/interpolation
-	friend Poly eval(const Poly& fs, const Poly& qs) { // da119a
+	friend Poly eval(const Poly& fs, const Poly& qs) {///start-hash
 		int N = int(qs.size());
 		if (N == 0) return {};
 		vector<Poly> up(2 * N);
@@ -184,8 +184,8 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
 		for (int x = 0; x < N; ++x)
 			y[x] = (down[x + N].empty() ? 0 : down[x + N][0]);
 		return y;
-	}
-	friend Poly interpolate(const Poly& fs, const Poly& qs) { // 798982
+	}///end-hash
+	friend Poly interpolate(const Poly& fs, const Poly& qs) {///start-hash
 		int N = int(fs.size());
 		vector<Poly> up(2 * N);
 		for (int x = 0; x < N; ++x)
@@ -199,7 +199,7 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
 		for (int x = N-1; x >= 1; --x)
 			down[x] = down[2*x] * up[2*x+1] + down[2*x+1] * up[2*x];
 		return down[1];
-	}
+	}///end-hash
 	friend Poly convolve_all(const vector<Poly>& fs, int l, int r) {
 		if (r - l == 1) return fs[l];
 		else {
@@ -207,7 +207,7 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
 			return convolve_all(fs, l, md) * convolve_all(fs, md, r);
 		}
 	}
-	Poly bernoulli(int N) const { // 145ab7
+	Poly bernoulli(int N) const {///start-hash
 		N += 5; Poly fs(N); fs[1] = 1;
 		fs = fs.exp();
 		copy(fs.begin()+1, fs.end(), fs.begin());
@@ -215,7 +215,7 @@ template<unsigned M> struct Poly : public vector<modnum<M>> {
 		for (int x = 0; x < N; ++x) fs[x] *= fact[x];
 		fs.resize(N - 5);
 		return fs;
-	}
+	}///end-hash
 	// x(x - 1)(x - 2)...(x - N + 1)
 	Poly stirling_first(int N) const {
 		if (N == 0) return {1};

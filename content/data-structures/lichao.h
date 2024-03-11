@@ -10,11 +10,11 @@ struct lichao_t{
 	static const T inf = numeric_limits<T>::max() / 2;
 	bool first_best( T a, T b ){ return a < b; }
 	T get_best( T a, T b ){  return first_best(a, b) ? a : b;  }
-	struct line{ // 785930
+	struct line{
 		T m, b;
 		T operator()( T x ){ return m*x + b; } 
 	};
-	struct node{ // e92ef4
+	struct node{
 		line li;
 		node *left, *right;
 		node( line _li = {0, inf}): li(_li), left(nullptr), right(nullptr){}
@@ -26,7 +26,7 @@ struct lichao_t{
 	node *root;
 	lichao_t( line li = {0, inf} ): root ( new node(li) ) {}
 	~lichao_t(){ delete root; }
-	T query( T x , node *cur , T l, T r){ // e3e758
+	T query( T x , node *cur , T l, T r){
 		if(cur == nullptr) return inf;
 		if(x < l || x > r) return inf;
 		T mid = ( l + r ) >> 1;   
@@ -36,7 +36,7 @@ struct lichao_t{
 		return ans;
 	}
 	T query( T x ){ return query( x, root, L, R ); }
-	void add( line li, node *&cur, T l, T r){ // 0962ab
+	void add( line li, node *&cur, T l, T r){
 		if(cur == nullptr){ 
 			cur = new node(li);
 			return;
@@ -50,7 +50,7 @@ struct lichao_t{
 			add(li, cur->right, mid + 1, r);
 	}
 	void add( T m, T b ){ add( {m, b}, root, L, R ); }
-	void addSegment( line li, node *&cur, T l, T r, T lseg, T rseg){ // d1fcf2
+	void addSegment( line li, node *&cur, T l, T r, T lseg, T rseg){
 		if(r < lseg || l > rseg) return;
 		if(cur == nullptr) cur =  new node;
 		if(lseg <= l && r <= rseg){

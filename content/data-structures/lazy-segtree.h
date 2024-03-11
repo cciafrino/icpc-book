@@ -28,7 +28,6 @@ template<class T> struct segtree_range {
 	void build() { for (int a = N; --a; ) merge(a); }
 	inline void push(int a) { ts[a].push(ts[2 * a], ts[2 * a + 1]); }
 	inline void merge(int a) { ts[a].merge(ts[2*a], ts[2*a+1]); }
-	// f0fcbd
 	void for_parents_down(int a, int b) {
 		for (int h = H; h; --h) {
 			const int l = (a >> h), r = (b >> h);
@@ -40,7 +39,6 @@ template<class T> struct segtree_range {
 			}
 		}
 	}
-	// a25cb
 	void for_parents_up(int a, int b) {
 		for (int h = 1; h <= H; ++h) {
 			const int l = (a >> h), r = (b >> h);
@@ -52,7 +50,6 @@ template<class T> struct segtree_range {
 			}
 		}
 	}
-	// 6014b
 	template<class F, class... Args> void update(int a, int b, F f, Args&&... args) {
 		if (a == b) return;
 		a += N; b += N;
@@ -74,7 +71,6 @@ template<class T> struct segtree_range {
 		}
 		t.merge(lhs, rhs); return t;
 	}
-	// 5a862
 	template<class Op, class E, class F, class... Args> 
 		auto query(int a, int b, Op op, E e, F f, Args&&... args) {
 			if (a == b) return e();
@@ -87,7 +83,6 @@ template<class T> struct segtree_range {
 			}
 			return op(lhs, rhs);
 		}
-	// aab16
 	// find min i s.t. T::f(args...) returns true in [a, i) from left to right
 	template<class F, class... Args> int find_right(int a, F f, Args &&... args) {
 		assert(0 <= a && a <= N);
@@ -107,7 +102,6 @@ template<class T> struct segtree_range {
 			if (!(a & (a - 1))) return N + 1;
 		}
 	} 
-	// a033b
 	// find max i s.t. T::f(args...) returns true in [i, a) from right to left
 	template<class F, class... Args> int find_left(int a, F f, Args &&... args) {
 		assert(0 <= a && a <= N);

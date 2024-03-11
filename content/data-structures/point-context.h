@@ -2,7 +2,7 @@
  * Author: Chris
  * Description: Examples of Segment Tree
  */
-struct seg_node { // bbfc07
+struct seg_node { 
 	int val, int mi, ma;
 	seg_node() : mi(INT_MAX), ma(INT_MIN), val(0) {}
 	seg_node(int x) : mi(x), ma(x), val(x) {}

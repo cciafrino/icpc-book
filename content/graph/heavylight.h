@@ -4,7 +4,7 @@
  * License: CC0
  * Source: https://codeforces.com/blog/entry/53170, KACTL
  * Description: Compress Tree: Given a subset S of nodes, computes the compress tree and returns
- * a list of (par, orig index) representing a tree rooted at 0. The root points to itself.
+ * a list of edges representing a tree rooted at 0.
  * Time: $O((\log N)^2)$
  * Status: Tested on codeforces 101908L and 101807J
  * Details:  Decomposes a tree into vertex disjoint heavy paths and light
@@ -14,7 +14,6 @@
  * values are stored in the edges and are initialized with the adjacency list, otherwise values are
  * stored in the nodes and are initialized to the T defaults value.
  */
-#include "../data-structures/lazy-segtree.h" 
 template<bool use_edges> struct hld_t {
 	int N, T{};
 	vector<vector<int>> adj;
@@ -79,18 +78,16 @@ template<bool use_edges> struct hld_t {
 	auto get_subtree(int a) const {
 		return make_pair(in[a] + use_edges, in[a] + sz[a]);
 	}
-	auto compressTree(vector<int> s){
-		static vector<int> rev; rev.resize(T);
+	auto compress(vector<int> s){
 		auto cmp = [&](int a, int b){ return in[a] < in[b]; };
 		sort(s.begin(), s.end(), cmp); int m = int(s.size())-1;
 		for (int i = 0; i < m; ++i)
 			s.push_back(lca(s[i], s[i+1]));
 		sort(s.begin(), s.end(), cmp);
 		s.erase(unique(s.begin(), s.end()), s.end());
-		for (int i = 0; i < int(s.size()); ++i) rev[s[i]] = i;
 		vector<pii> ret = { {0, s[0]} };
 		for (int i = 0; i + 1 < int(s.size()); ++i)
-			ret.emplace_back(rev[lca(s[i], s[i+1])], s[i+1]);
+			ret.emplace_back(lca(s[i], s[i+1]), s[i+1]);
 		return ret;
 	}
 };

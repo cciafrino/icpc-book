@@ -8,7 +8,7 @@
  * Status: stress-tested
  */
 // det(x I + a)
-template<class T> vector<T> char_poly(const vector<vector<T>>& a) { // ed7ab1
+template<class T> vector<T> char_poly(const vector<vector<T>>& a) {
 	const int N = int(a.size()); auto b = a;
 	for (int j = 0; j < N - 2; ++j) {
 		for (int i = j + 1; i < N; ++i) {
@@ -44,7 +44,7 @@ template<class T> vector<T> char_poly(const vector<vector<T>>& a) { // ed7ab1
 	return fss[N];
 }
 // det(x I + a), division free
-template<class T> vector<T> char_poly_div_free(const vector<vector<T>>& a) { // 693758
+template<class T> vector<T> char_poly_div_free(const vector<vector<T>>& a) {
 	const int N = int(a.size());
 	vector<T> ps(N + 1, 0);
 	ps[N] = 1;

@@ -10,7 +10,7 @@ struct lichao_range{
 	static const T inf = numeric_limits<T>::max() / 2;
 	static bool first_best( T a, T b ){ return a < b; }
 	static T get_best( T a, T b ){  return first_best(a, b) ? a : b;  }
-	struct line{ // 88f949
+	struct line{ 
 		T m, b;
 		T operator()( T x ){ return m*x + b; } 
 		void apply(line other){
@@ -18,7 +18,7 @@ struct lichao_range{
 			b += other.b;
 		}
 	};
-	struct node{ // 419efd
+	struct node{ 
 		line li, lazy;
 		node *left, *right;
 		T answer;
@@ -36,7 +36,7 @@ struct lichao_range{
 	node *root;
 	lichao_range( line li = {0, inf} ): root ( new node(li) ) {}
 	~lichao_range(){ delete root; }
-	void updateAnswer(node *&cur, T l, T r){ // 02ae1f
+	void updateAnswer(node *&cur, T l, T r){ 
 		if(cur == nullptr) return;
 		cur->answer = inf;
 		if(cur->left != nullptr) cur->answer = get_best(cur->answer, cur->left->answer);
@@ -44,7 +44,7 @@ struct lichao_range{
 		cur->answer = get_best(cur->answer, cur->li(l));
 		cur->answer = get_best(cur->answer, cur->li(r));
 	}
-	void propagateLazy(node *&cur, T l, T r){ // 5da08d
+	void propagateLazy(node *&cur, T l, T r){ 
 		if(cur == nullptr) return;
 		if(cur->left == nullptr) cur->left = new node;
 		if(cur->right == nullptr) cur->right = new node;
@@ -53,7 +53,7 @@ struct lichao_range{
 		cur->right->apply( mid+1, r, cur-> lazy);
 		cur->lazy = {0, 0};
 	}
-	T query( node *cur , T l, T r, T lseg, T rseg){ // 72eb4e
+	T query( node *cur , T l, T r, T lseg, T rseg){ 
 		if(r < lseg || l > rseg) return inf;
 		if(cur == nullptr) return inf;
 		if(lseg <= l && r <= rseg) return cur->answer;
@@ -66,7 +66,7 @@ struct lichao_range{
 		return answer;
 	}
 	T query( T l, T r){ return query( root, L, R, l, r); }
-	void add( line li, node *&cur, T l, T r){ // 74c963
+	void add( line li, node *&cur, T l, T r){ 
 		if(cur == nullptr){ 
 			cur = new node(li);
 			return;
@@ -82,14 +82,14 @@ struct lichao_range{
 		updateAnswer(cur, l, r);
 	}
 	void add( T m, T b ){ add( {m, b}, root, L, R ); }
-	void propagateLine(node *&cur, T l, T r){ // 8d3255
+	void propagateLine(node *&cur, T l, T r){ 
 		if(cur == nullptr) return;
 		T mid = ( l + r ) >> 1;
 		add(cur->li, cur->left, l, mid);
 		add(cur->li, cur->right, mid+1, r);
 		cur->li = {0, inf};
 	}
-	void addSegment( line li, node *&cur, T l, T r, T lseg, T rseg){ // 43e625
+	void addSegment( line li, node *&cur, T l, T r, T lseg, T rseg){ 
 		if(r < lseg || l > rseg) return;
 		if(cur == nullptr) cur =  new node;
 		if(lseg <= l && r <= rseg){
@@ -107,7 +107,7 @@ struct lichao_range{
 	void addSegment( T m, T b, T left, T right){
 		addSegment( {m, b}, root, L, R, left, right);
 	}
-	void updateSegment( T b, node *&cur, T l, T r, T lseg, T rseg){ // ff8f3e
+	void updateSegment( T b, node *&cur, T l, T r, T lseg, T rseg){
 		if(r < lseg || l > rseg) return;
 		if(cur == nullptr) cur =  new node;
 		if(lseg <= l && r <= rseg){

@@ -18,7 +18,7 @@
 inline int nxt_pow2(int s) { return 1 << (s > 1 ? 32 - __builtin_clz(s-1) : 0); }
 template <typename T> struct root_of_unity {};
 
-template <typename dbl> struct cplx {
+template <typename dbl> struct cplx { ///start-hash
 	dbl x, y; using P = cplx;
 	cplx(dbl x_ = 0, dbl y_ = 0) : x(x_), y(y_) { }
 	friend P operator+(P a, P b) { return P(a.x+b.x, a.y+b.y); }
@@ -32,10 +32,10 @@ template <typename dbl> struct root_of_unity<cplx<dbl>> {
 		static const dbl PI = acos(-1); dbl a = 2*PI/k;
 		return cplx<dbl>(cos(a),sin(a));
 	}
-};
+}; ///end-hash
 
 //(MOD,3) := (M1:897581057),(M3:985661441),(M5:935329793)
-using M0 = modnum<998244353U>;
+using M0 = modnum<998244353U>;///start-hash
 constexpr unsigned primitive_root(unsigned M) {
 	if (M == 880803841U) return 26U; // (M2)
 	else if (M == 943718401U) return 7U; // (M4)
@@ -47,11 +47,11 @@ template<unsigned MOD> struct root_of_unity<modnum<MOD>> {
 	static modnum<MOD> f(int K) {
 		assert((MOD-1)%K == 0); return g0.pow((MOD-1)/K);
 	}
-};
+};///end-hash
 template<typename T> struct FFT {
 	vector<T> rt; vector<int> rev;
 	FFT() : rt(2, T(1)) {}
-	void init(int N) {
+	void init(int N) {///start-hash
 		N = nxt_pow2(N);
 		if (N > int(rt.size())) {
 			rev.resize(N); rt.reserve(N);
@@ -64,8 +64,8 @@ template<typename T> struct FFT {
 					rt[2*a] = rt[a], rt[2*a+1] = rt[a] * z;
 			}
 		}
-	}
-	void fft(vector<T>& xs, bool inverse) const {
+	}///end-hash
+	void fft(vector<T>& xs, bool inverse) const {///start-hash
 		int N = int(xs.size());
 		int s = __builtin_ctz(int(rev.size())/N);
 		if (inverse) reverse(xs.begin() + 1, xs.end());
@@ -83,8 +83,8 @@ template<typename T> struct FFT {
 		}
 		if (inverse)
 			for (int a = 0; a < N; ++a) xs[a] = xs[a] * inv(T(N));
-	}
-	vector<T> convolve(vector<T> as, vector<T> bs) {
+	}///end-hash
+	vector<T> convolve(vector<T> as, vector<T> bs) {///start-hash
 		int N = int(as.size()), M = int(bs.size());
 		int K = N + M - 1, S = nxt_pow2(K); init(S);
 		if (min(N, M) <= 64) {
@@ -98,12 +98,12 @@ template<typename T> struct FFT {
 			for (int i = 0; i < S; ++i) as[i] = as[i] * bs[i];
 			fft(as, true); as.resize(K); return as;
 		}
-	}
+	}///end-hash
 }; FFT<M0> FFT0;
 // T = {unsigned, unsigned long long, modnum<M>}
 // Remark: need to satisfy |poly| * mod^2 < \prod_{i} M_i
 template<class T, unsigned M0, unsigned M1, unsigned M2, unsigned M3, unsigned M4>
-T garner(modnum<M0> a0, modnum<M1> a1, modnum<M2> a2, modnum<M3> a3, modnum<M4> a4) {
+T garner(modnum<M0> a0, modnum<M1> a1, modnum<M2> a2, modnum<M3> a3, modnum<M4> a4) { ///start-hash
 	static const modnum<M1> INV_M0_M1 = modnum<M1>(M0).inv();
 	static const modnum<M2> INV_M0M1_M2 = (modnum<M2>(M0) * M1).inv();
 	// static const modnum<M3> INV_M0M1M2_M3 = (modnum<M3>(M0) * M1 * M2).inv();
@@ -114,9 +114,9 @@ T garner(modnum<M0> a0, modnum<M1> a1, modnum<M2> a2, modnum<M3> a3, modnum<M4> 
 	// const modnum<M4> b4 = INV_M0M1M2M3_M4 * (a4 - (((modnum<M4>(b3.x) * M2 + b2.x) * M1 + b1.x) * M0 + a0.x));
 	return (T(b2.x) * M1 + b1.x) * M0 + a0.x;
 	// return (((T(b4.x) * M3 + b3.x) * M2 + b2.x) * M1 + b1.x) * M0 + a0.x;
-}
+}///end-hash
 // results must be in [-448002610255888384, 448002611254132736]
-vector<long long> convolve(const vector<long long>& as, const vector<long long>& bs) {
+vector<long long> convolve(const vector<long long>& as, const vector<long long>& bs) {///start-hash
 	static constexpr unsigned M0 = M0::M, M1 = M1::M;
 	static const modnum<M1> INV_M0_M1 = modnum<M1>(M0).inv();
 	if (as.empty() || bs.empty()) return {};
@@ -137,4 +137,4 @@ vector<long long> convolve(const vector<long long>& as, const vector<long long>&
 			: (static_cast<unsigned long long>(d1.x) * M0 + cs0[i].x);
 	}
 	return cs;
-}
+}///end-hash

@@ -6,7 +6,7 @@
  * Description: Segment tree on values instead of indices.
  * Time: $O(\log(n))$
  */
-struct wavelet_t { // b26328
+struct wavelet_t { ///start-hash
 	struct BitVector { // space: 32N bits
 		vector<int> _rank = {0};
 		BitVector(vector<char> v = vector<char>()) {
@@ -15,7 +15,7 @@ struct wavelet_t { // b26328
 		}
 		int rank(bool f, int k) { return f ? _rank[k] : (k - _rank[k]); }
 		int rank(bool f, int l, int r) { return rank(f, r) - rank(f, l); }
-	};
+	}; ///end-hash
 	/*
 	   struct BitVector {  // space: 1.5N bits
 	   vector<ull> v;
@@ -43,7 +43,7 @@ struct wavelet_t { // b26328
 	   int rank(bool f, int l, int r) { return rank(f, r) - rank(f, l); }
 	   };
 	   */
-	int n, lg = 1;
+	int n, lg = 1;///start-hash
 	vector<int> mid;
 	vector<BitVector> data;
 	wavelet_t(vector<int> v = vector<int>()) : n(int(v.size())) {
@@ -66,14 +66,14 @@ struct wavelet_t { // b26328
 			v.insert(v.end(), nx[0].begin(), nx[0].end());
 			v.insert(v.end(), nx[1].begin(), nx[1].end());
 		}
-	}
+	}///end-hash
 	pair<int, int> succ(bool f, int a, int b, int lv) {
 		int na = data[lv].rank(f, a) + (f ? mid[lv] : 0);
 		int nb = data[lv].rank(f, b) + (f ? mid[lv] : 0);
 		return {na, nb};
 	}
 	// count i, s.t. (a <= i < b) && (v[i] < u)
-	int rank(int a, int b, int u) {
+	int rank(int a, int b, int u) {///start-hash
 		if ((1 << lg) <= u) return b - a;
 		int ans = 0;
 		for (int lv = lg - 1; lv >= 0; lv--) {
@@ -82,9 +82,9 @@ struct wavelet_t { // b26328
 			tie(a, b) = succ(f, a, b, lv);
 		}
 		return ans;
-	}
+	}///end-hash
 	// k-th(0-indexed!) number in v[a..b]
-	int select(int a, int b, int k) {
+	int select(int a, int b, int k) {///start-hash
 		int u = 0;
 		for (int lv = lg - 1; lv >= 0; lv--) {
 			int le = data[lv].rank(false, a, b);
@@ -96,7 +96,7 @@ struct wavelet_t { // b26328
 			tie(a, b) = succ(f, a, b, lv);
 		}
 		return u;
-	}
+	}///end-hash
 	// k-th(0-indexed!) largest number in v[a..b]
 	int large_select(int a, int b, int k) { 
 		return select(a, b, b - a - k - 1);
@@ -117,7 +117,7 @@ struct wavelet_t { // b26328
 	}
 };
 
-struct CompressWavelet { // 2447db
+struct CompressWavelet {///start-hash
 	wavelet_t wt;
 	vector<int> v, vidx;
 	int zip(int x) {
@@ -135,4 +135,4 @@ struct CompressWavelet { // 2447db
 	int count(int a, int b, int mi, int ma) { return wt.count(a, b, mi, ma); }
 	int find_max(int a, int b, int x) { return wt.pre_count(a, b, x); }
 	int find_min(int a, int b, int x) { return wt.nxt_count(a, b, x); }
-};
+};///end-hash

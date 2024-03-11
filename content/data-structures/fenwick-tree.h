@@ -8,7 +8,7 @@
  * Time: Both operations are $O(\log N)$.
  * Status: Stress-tested
  */
-template<typename T> struct FT { // 8b7639
+template<typename T> struct FT {
 	vector<T> s;
 	FT(int n) : s(n) {}
 	FT(const vector<T>& A) : s(A) {

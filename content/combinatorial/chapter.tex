@@ -19,14 +19,16 @@
 	\item Every entry in row $2^n - 1$ is odd
 	\end{itemize}
 	
-		\begin{tabular}{c@{\ }c@{\ }c@{\ }}
-		$\binom{n}{k} = \frac{n}{k}\binom{n-1}{k-1}$ & $\binom{n}{k} \binom{n - k}{v} = \binom{n}{v}\binom{n-v}{k}$\\
-		$\sum_{k=0}^{n} \binom{n}{k} k = n 2^{n-1}$ & $\sum_{j=0}^k \binom{m}{j} \binom{n-m}{k-j} = \binom{n}{k}$\\
-		$\sum_{m=0}^n \binom{m}{j} \binom{n-m}{k-j} = \binom{n+1}{k+1}$ & $\sum_{r=0}{m} \binom{n+r}{r} = \binom{n+m+1}{m}$\\
-		$(x + y)^n = \sum_{k=0}^n \binom{n}{k} x^{n-k} y^k$ & $\sum_{m=k}^n \binom{m}{k} = \binom{n+1}{k+1}$\\
-	$\sum_{j=0}^{m} \binom{m}{j}^2 = \binom{2m}{m}$ &\\
-	$2 \sum_{i=L}^R \binom{n}{i} - \binom{n}{L} - \binom{n}{R} = \sum_{i=L+1}^R \binom{n+1}{i}$ &
-		\end{tabular}
+	\resizebox{\columnwidth}{!}{%
+	\begin{tabular}{@{}c c@{}}
+	$\binom{n}{k} = \frac{n}{k}\binom{n-1}{k-1}$ & $(x + y)^n = \sum_{k=0}^n \binom{n}{k} x^{n-k} y^k$\\
+	$\sum_{k=0}^{n} \binom{n}{k} k = n 2^{n-1}$ & $\sum_{j=0}^k \binom{m}{j} \binom{n-m}{k-j} = \binom{n}{k}$\\
+	$\sum_{m=0}^n \binom{m}{j} \binom{n-m}{k-j} = \binom{n+1}{k+1}$ & $\sum_{r=0}{m} \binom{n+r}{r} = \binom{n+m+1}{m}$\\
+	$\binom{n}{k} \binom{n - k}{v} = \binom{n}{v}\binom{n-v}{k}$ & $\sum_{m=k}^n \binom{m}{k} = \binom{n+1}{k+1}$\\
+	$\sum_{j=0}^{m} \binom{m}{j}^2 = \binom{2m}{m}$ &
+	$2 \sum_{i=L}^R \binom{n}{i} - \binom{n}{L} - \binom{n}{R} = \sum_{i=L+1}^R \binom{n+1}{i}$\\
+	\end{tabular}
+}
 
 	\kactlimport{rolling-binomial.h}
 	\kactlimport{lucas.h}
