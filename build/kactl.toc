@@ -30,7 +30,7 @@
 \contentsline {subsection}{\numberline {4.1.4}Generating functions}{14}{subsection.4.1.4}%
 \contentsline {chapter}{\numberline {5}Number theory}{14}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Modular arithmetic}{14}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Primality}{16}{section.5.2}%
+\contentsline {section}{\numberline {5.2}Primality}{15}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Divisibility}{16}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Chinese remainder theorem}{17}{section.5.4}%
 \contentsline {section}{\numberline {5.5}Fractions}{17}{section.5.5}%
@@ -79,10 +79,10 @@
 \contentsline {subsection}{\numberline {6.6.6}Aliquot Game}{20}{subsection.6.6.6}%
 \contentsline {subsection}{\numberline {6.6.7}Nim (at most half)}{20}{subsection.6.6.7}%
 \contentsline {subsection}{\numberline {6.6.8}Lasker's Nim}{20}{subsection.6.6.8}%
-\contentsline {subsection}{\numberline {6.6.9}Hackenbush on Trees}{21}{subsection.6.6.9}%
+\contentsline {subsection}{\numberline {6.6.9}Hackenbush on Trees}{20}{subsection.6.6.9}%
 \contentsline {chapter}{\numberline {7}Graph}{21}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Fundamentals}{21}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Network flow}{22}{section.7.2}%
+\contentsline {section}{\numberline {7.2}Network flow}{21}{section.7.2}%
 \contentsline {section}{\numberline {7.3}Matching}{22}{section.7.3}%
 \contentsline {section}{\numberline {7.4}DFS algorithms}{24}{section.7.4}%
 \contentsline {section}{\numberline {7.5}Heuristics}{25}{section.7.5}%
@@ -91,7 +91,7 @@
 \contentsline {section}{\numberline {7.7}Other}{28}{section.7.7}%
 \contentsline {section}{\numberline {7.8}Theorems}{28}{section.7.8}%
 \contentsline {subsection}{\numberline {7.8.1}Euler's theorem}{28}{subsection.7.8.1}%
-\contentsline {subsection}{\numberline {7.8.2}Konig's theorem}{29}{subsection.7.8.2}%
+\contentsline {subsection}{\numberline {7.8.2}Konig's theorem}{28}{subsection.7.8.2}%
 \contentsline {subsection}{\numberline {7.8.3}Eulerian Cycles}{29}{subsection.7.8.3}%
 \contentsline {subsection}{\numberline {7.8.4}Construct minimum vertex cover from maximum matching on bipartite graph}{29}{subsection.7.8.4}%
 \contentsline {subsection}{\numberline {7.8.5}Minimum weight edge cover}{29}{subsection.7.8.5}%
@@ -115,9 +115,9 @@
 \contentsline {subsection}{\numberline {9.1.3}Lexicographically $K$-th substring}{37}{subsection.9.1.3}%
 \contentsline {subsection}{\numberline {9.1.4}Smallest cyclic shift}{37}{subsection.9.1.4}%
 \contentsline {subsection}{\numberline {9.1.5}Number of occurrences}{37}{subsection.9.1.5}%
-\contentsline {subsection}{\numberline {9.1.6}First occurence position}{38}{subsection.9.1.6}%
-\contentsline {subsection}{\numberline {9.1.7}All occurence positions}{38}{subsection.9.1.7}%
-\contentsline {chapter}{\numberline {10}Various}{38}{chapter.10}%
+\contentsline {subsection}{\numberline {9.1.6}First occurence position}{37}{subsection.9.1.6}%
+\contentsline {subsection}{\numberline {9.1.7}All occurence positions}{37}{subsection.9.1.7}%
+\contentsline {chapter}{\numberline {10}Various}{37}{chapter.10}%
 \contentsline {section}{\numberline {10.1}Intervals}{38}{section.10.1}%
 \contentsline {section}{\numberline {10.2}Misc. algorithms}{38}{section.10.2}%
 \contentsline {section}{\numberline {10.3}Dynamic programming}{40}{section.10.3}%
