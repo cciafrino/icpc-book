@@ -35,7 +35,7 @@
 \contentsline {section}{\numberline {5.4}Chinese remainder theorem}{17}{section.5.4}%
 \contentsline {section}{\numberline {5.5}Fractions}{17}{section.5.5}%
 \contentsline {subsection}{\numberline {5.5.1}Bézout's identity}{17}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}Pythagorean Triples}{18}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.2}Pythagorean Triples}{17}{subsection.5.5.2}%
 \contentsline {subsection}{\numberline {5.5.3}Chicken McNugget theorem}{18}{subsection.5.5.3}%
 \contentsline {section}{\numberline {5.6}Primes}{18}{section.5.6}%
 \contentsline {subsection}{\numberline {5.6.1}Prime counting function ($\pi (x)$)}{18}{subsection.5.6.1}%
@@ -61,7 +61,7 @@
 \contentsline {subsection}{\numberline {6.3.3}Eulerian numbers}{19}{subsection.6.3.3}%
 \contentsline {subsection}{\numberline {6.3.4}Stirling numbers of the second kind}{19}{subsection.6.3.4}%
 \contentsline {subsection}{\numberline {6.3.5}Bell numbers}{19}{subsection.6.3.5}%
-\contentsline {subsection}{\numberline {6.3.6}Labeled unrooted trees}{20}{subsection.6.3.6}%
+\contentsline {subsection}{\numberline {6.3.6}Labeled unrooted trees}{19}{subsection.6.3.6}%
 \contentsline {subsection}{\numberline {6.3.7}Catalan numbers}{20}{subsection.6.3.7}%
 \contentsline {subsection}{\numberline {6.3.8}Super Catalan numbers}{20}{subsection.6.3.8}%
 \contentsline {subsection}{\numberline {6.3.9}Motzkin numbers}{20}{subsection.6.3.9}%
@@ -84,7 +84,7 @@
 \contentsline {section}{\numberline {7.1}Fundamentals}{21}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Network flow}{21}{section.7.2}%
 \contentsline {section}{\numberline {7.3}Matching}{22}{section.7.3}%
-\contentsline {section}{\numberline {7.4}DFS algorithms}{24}{section.7.4}%
+\contentsline {section}{\numberline {7.4}DFS algorithms}{23}{section.7.4}%
 \contentsline {section}{\numberline {7.5}Heuristics}{25}{section.7.5}%
 \contentsline {section}{\numberline {7.6}Trees}{26}{section.7.6}%
 \contentsline {subsection}{\numberline {7.6.1}Sqrt Decomposition}{28}{subsection.7.6.1}%
@@ -92,8 +92,8 @@
 \contentsline {section}{\numberline {7.8}Theorems}{28}{section.7.8}%
 \contentsline {subsection}{\numberline {7.8.1}Euler's theorem}{28}{subsection.7.8.1}%
 \contentsline {subsection}{\numberline {7.8.2}Konig's theorem}{28}{subsection.7.8.2}%
-\contentsline {subsection}{\numberline {7.8.3}Eulerian Cycles}{29}{subsection.7.8.3}%
-\contentsline {subsection}{\numberline {7.8.4}Construct minimum vertex cover from maximum matching on bipartite graph}{29}{subsection.7.8.4}%
+\contentsline {subsection}{\numberline {7.8.3}Eulerian Cycles}{28}{subsection.7.8.3}%
+\contentsline {subsection}{\numberline {7.8.4}Construct minimum vertex cover from maximum matching on bipartite graph}{28}{subsection.7.8.4}%
 \contentsline {subsection}{\numberline {7.8.5}Minimum weight edge cover}{29}{subsection.7.8.5}%
 \contentsline {subsection}{\numberline {7.8.6}Maximum/Minimum flow with lower bound / Circulation problem}{29}{subsection.7.8.6}%
 \contentsline {subsection}{\numberline {7.8.7}Minimum cost cyclic flow}{29}{subsection.7.8.7}%
@@ -107,7 +107,7 @@
 \contentsline {section}{\numberline {8.2}Circles}{30}{section.8.2}%
 \contentsline {section}{\numberline {8.3}Polygons}{32}{section.8.3}%
 \contentsline {section}{\numberline {8.4}Misc. Point Set Problems}{33}{section.8.4}%
-\contentsline {section}{\numberline {8.5}3D}{35}{section.8.5}%
+\contentsline {section}{\numberline {8.5}3D}{34}{section.8.5}%
 \contentsline {chapter}{\numberline {9}Strings}{35}{chapter.9}%
 \contentsline {section}{\numberline {9.1}Suffix Automaton}{37}{section.9.1}%
 \contentsline {subsection}{\numberline {9.1.1}Number of different substrings}{37}{subsection.9.1.1}%
@@ -118,7 +118,7 @@
 \contentsline {subsection}{\numberline {9.1.6}First occurence position}{37}{subsection.9.1.6}%
 \contentsline {subsection}{\numberline {9.1.7}All occurence positions}{37}{subsection.9.1.7}%
 \contentsline {chapter}{\numberline {10}Various}{37}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Intervals}{38}{section.10.1}%
+\contentsline {section}{\numberline {10.1}Intervals}{37}{section.10.1}%
 \contentsline {section}{\numberline {10.2}Misc. algorithms}{38}{section.10.2}%
 \contentsline {section}{\numberline {10.3}Dynamic programming}{40}{section.10.3}%
 \contentsline {section}{\numberline {10.4}Debugging tricks}{42}{section.10.4}%

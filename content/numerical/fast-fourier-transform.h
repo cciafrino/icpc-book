@@ -15,9 +15,6 @@
  * (in practice $10^{16}$; higher for random inputs). Otherwise, use NTT/FFTMod.
  */
 #include "../number-theory/modular-arithmetic.h"
-inline int nxt_pow2(int s) { return 1 << (s > 1 ? 32 - __builtin_clz(s-1) : 0); }
-template <typename T> struct root_of_unity {};
-
 template <typename dbl> struct cplx { ///start-hash
 	dbl x, y; using P = cplx;
 	cplx(dbl x_ = 0, dbl y_ = 0) : x(x_), y(y_) { }
@@ -33,7 +30,8 @@ template <typename dbl> struct root_of_unity<cplx<dbl>> {
 		return cplx<dbl>(cos(a),sin(a));
 	}
 }; ///end-hash
-
+inline int nxt_pow2(int s) { return 1 << (s > 1 ? 32 - __builtin_clz(s-1) : 0); }
+template <typename T> struct root_of_unity {};
 //(MOD,3) := (M1:897581057),(M3:985661441),(M5:935329793)
 using M0 = modnum<998244353U>;///start-hash
 constexpr unsigned primitive_root(unsigned M) {
