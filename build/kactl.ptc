@@ -148,7 +148,7 @@
 \contentsline {subsection}{\numberline {6.3.3}Eulerian numbers}{19}{subsection.6.3.3}%
 \contentsline {subsection}{\numberline {6.3.4}Stirling numbers of the second kind}{19}{subsection.6.3.4}%
 \contentsline {subsection}{\numberline {6.3.5}Bell numbers}{19}{subsection.6.3.5}%
-\contentsline {subsection}{\numberline {6.3.6}Labeled unrooted trees}{19}{subsection.6.3.6}%
+\contentsline {subsection}{\numberline {6.3.6}Labeled unrooted trees}{20}{subsection.6.3.6}%
 \contentsline {subsection}{\numberline {6.3.7}Catalan numbers}{20}{subsection.6.3.7}%
 \contentsline {subsection}{\numberline {6.3.8}Super Catalan numbers}{20}{subsection.6.3.8}%
 \contentsline {subsection}{\numberline {6.3.9}Motzkin numbers}{20}{subsection.6.3.9}%
@@ -167,7 +167,7 @@
 \contentsline {subsection}{\numberline {6.6.7}Nim (at most half)}{20}{subsection.6.6.7}%
 \contentsline {subsection}{\numberline {6.6.8}Lasker's Nim}{20}{subsection.6.6.8}%
 \contentsline {subsection}{\numberline {6.6.9}Hackenbush on Trees}{20}{subsection.6.6.9}%
-\contentsline {subsection}{\texttt {nim-product.cpp}\hspace {0.2em}}{20}{subsection.6.6.9}%
+\contentsline {subsection}{\texttt {nim-product.cpp}\hspace {0.2em}}{21}{subsection.6.6.9}%
 \contentsline {subsection}{\texttt {partitions.h}\hspace {0.2em}}{21}{lstnumber.6.5.24}%
 \contentsline {chapter}{\numberline {7}Graph}{21}{chapter.7}%
 \ttl@stoptoc {chapters@6}
@@ -183,24 +183,24 @@
 \contentsline {subsection}{\texttt {min-cost-max-flow.h}\hspace {0.2em}}{22}{lstnumber.7.6.44}%
 \contentsline {section}{\numberline {7.3}Matching}{22}{section.7.3}%
 \contentsline {subsection}{\texttt {hopcroft-karp.h}\hspace {0.2em}}{22}{section.7.3}%
-\contentsline {subsection}{\texttt {bipartite-matching.h}\hspace {0.2em}}{22}{lstnumber.7.8.35}%
+\contentsline {subsection}{\texttt {bipartite-matching.h}\hspace {0.2em}}{23}{lstnumber.7.8.35}%
 \contentsline {subsection}{\texttt {weighted-matching.h}\hspace {0.2em}}{23}{lstnumber.7.9.31}%
 \contentsline {subsection}{\texttt {general-matching.h}\hspace {0.2em}}{23}{lstnumber.7.10.28}%
 \contentsline {subsection}{\texttt {max-independent-set.h}\hspace {0.2em}}{23}{lstnumber.7.11.47}%
 \contentsline {subsection}{\texttt {min-vertex-cover.h}\hspace {0.2em}}{23}{lstnumber.7.12.1}%
 \contentsline {subsection}{\texttt {min-edge-cover.h}\hspace {0.2em}}{23}{lstnumber.7.13.20}%
 \contentsline {subsection}{\texttt {min-path-cover.h}\hspace {0.2em}}{23}{lstnumber.7.14.13}%
-\contentsline {section}{\numberline {7.4}DFS algorithms}{23}{section.7.4}%
-\contentsline {subsection}{\texttt {dfs-tree.h}\hspace {0.2em}}{23}{section.7.4}%
+\contentsline {section}{\numberline {7.4}DFS algorithms}{24}{section.7.4}%
+\contentsline {subsection}{\texttt {dfs-tree.h}\hspace {0.2em}}{24}{section.7.4}%
 \contentsline {subsection}{\texttt {centroid-decomposition.h}\hspace {0.2em}}{24}{lstnumber.7.16.52}%
 \contentsline {subsection}{\texttt {tarjan.h}\hspace {0.2em}}{24}{lstnumber.7.17.65}%
 \contentsline {subsection}{\texttt {kosaraju.h}\hspace {0.2em}}{24}{lstnumber.7.18.29}%
-\contentsline {subsection}{\texttt {bcc.h}\hspace {0.2em}}{24}{lstnumber.7.19.35}%
+\contentsline {subsection}{\texttt {bcc.h}\hspace {0.2em}}{25}{lstnumber.7.19.35}%
 \contentsline {subsection}{\texttt {2sat.h}\hspace {0.2em}}{25}{lstnumber.7.20.50}%
 \contentsline {section}{\numberline {7.5}Heuristics}{25}{section.7.5}%
 \contentsline {subsection}{\texttt {maximal-cliques.h}\hspace {0.2em}}{25}{section.7.5}%
 \contentsline {subsection}{\texttt {maximum-clique.h}\hspace {0.2em}}{25}{lstnumber.7.22.11}%
-\contentsline {subsection}{\texttt {chromatic-number.h}\hspace {0.2em}}{25}{lstnumber.7.23.49}%
+\contentsline {subsection}{\texttt {chromatic-number.h}\hspace {0.2em}}{26}{lstnumber.7.23.49}%
 \contentsline {subsection}{\texttt {cycle-counting.cpp}\hspace {0.2em}}{26}{lstnumber.7.24.26}%
 \contentsline {subsection}{\texttt {edge-coloring.h}\hspace {0.2em}}{26}{lstnumber.7.25.31}%
 \contentsline {section}{\numberline {7.6}Trees}{26}{section.7.6}%
@@ -215,8 +215,8 @@
 \contentsline {section}{\numberline {7.8}Theorems}{28}{section.7.8}%
 \contentsline {subsection}{\numberline {7.8.1}Euler's theorem}{28}{subsection.7.8.1}%
 \contentsline {subsection}{\numberline {7.8.2}Konig's theorem}{28}{subsection.7.8.2}%
-\contentsline {subsection}{\numberline {7.8.3}Eulerian Cycles}{28}{subsection.7.8.3}%
-\contentsline {subsection}{\numberline {7.8.4}Construct minimum vertex cover from maximum matching on bipartite graph}{28}{subsection.7.8.4}%
+\contentsline {subsection}{\numberline {7.8.3}Eulerian Cycles}{29}{subsection.7.8.3}%
+\contentsline {subsection}{\numberline {7.8.4}Construct minimum vertex cover from maximum matching on bipartite graph}{29}{subsection.7.8.4}%
 \contentsline {subsection}{\numberline {7.8.5}Minimum weight edge cover}{29}{subsection.7.8.5}%
 \contentsline {subsection}{\numberline {7.8.6}Maximum/Minimum flow with lower bound / Circulation problem}{29}{subsection.7.8.6}%
 \contentsline {subsection}{\numberline {7.8.7}Minimum cost cyclic flow}{29}{subsection.7.8.7}%
@@ -249,7 +249,7 @@
 \contentsline {subsection}{\texttt {CircleUnion.h}\hspace {0.2em}}{31}{lstnumber.8.16.19}%
 \contentsline {subsection}{\texttt {CircleLine.h}\hspace {0.2em}}{31}{lstnumber.8.17.86}%
 \contentsline {subsection}{\texttt {CircleCircleArea.h}\hspace {0.2em}}{31}{lstnumber.8.18.8}%
-\contentsline {subsection}{\texttt {CirclePolygonIntersection.h}\hspace {0.2em}}{31}{lstnumber.8.19.12}%
+\contentsline {subsection}{\texttt {CirclePolygonIntersection.h}\hspace {0.2em}}{32}{lstnumber.8.19.12}%
 \contentsline {section}{\numberline {8.3}Polygons}{32}{section.8.3}%
 \contentsline {subsection}{\texttt {InsidePolygon.h}\hspace {0.2em}}{32}{section.8.3}%
 \contentsline {subsection}{\texttt {PolygonArea.h}\hspace {0.2em}}{32}{lstnumber.8.21.12}%
@@ -268,8 +268,8 @@
 \contentsline {subsection}{\texttt {DelaunayTriangulation.h}\hspace {0.2em}}{34}{lstnumber.8.33.63}%
 \contentsline {subsection}{\texttt {FastDelaunay.h}\hspace {0.2em}}{34}{lstnumber.8.34.10}%
 \contentsline {subsection}{\texttt {RectangleUnionArea.h}\hspace {0.2em}}{34}{lstnumber.8.35.90}%
-\contentsline {section}{\numberline {8.5}3D}{34}{section.8.5}%
-\contentsline {subsection}{\texttt {PolyhedronVolume.h}\hspace {0.2em}}{34}{section.8.5}%
+\contentsline {section}{\numberline {8.5}3D}{35}{section.8.5}%
+\contentsline {subsection}{\texttt {PolyhedronVolume.h}\hspace {0.2em}}{35}{section.8.5}%
 \contentsline {subsection}{\texttt {Point3D.h}\hspace {0.2em}}{35}{lstnumber.8.37.6}%
 \contentsline {subsection}{\texttt {3dHull.h}\hspace {0.2em}}{35}{lstnumber.8.38.33}%
 \contentsline {subsection}{\texttt {SphericalDistance.h}\hspace {0.2em}}{35}{lstnumber.8.39.49}%
@@ -280,7 +280,7 @@
 \contentsline {section}{\texttt {duval.h}\hspace {0.2em}}{35}{lstnumber.9.1.9}%
 \contentsline {section}{\texttt {z-algorithm.h}\hspace {0.2em}}{35}{lstnumber.9.2.24}%
 \contentsline {section}{\texttt {manacher.h}\hspace {0.2em}}{35}{lstnumber.9.3.13}%
-\contentsline {section}{\texttt {min-rotation.h}\hspace {0.2em}}{35}{lstnumber.9.4.12}%
+\contentsline {section}{\texttt {min-rotation.h}\hspace {0.2em}}{36}{lstnumber.9.4.12}%
 \contentsline {section}{\texttt {xor-trie.h}\hspace {0.2em}}{36}{lstnumber.9.5.7}%
 \contentsline {section}{\texttt {hashing.h}\hspace {0.2em}}{36}{lstnumber.9.6.28}%
 \contentsline {section}{\texttt {modnum-double-hashing.h}\hspace {0.2em}}{36}{lstnumber.9.7.38}%
@@ -299,8 +299,8 @@
 \contentsline {chapter}{\numberline {10}Various}{37}{chapter.10}%
 \ttl@stoptoc {chapters@9}
 \ttl@starttoc {chapters@10}
-\contentsline {section}{\numberline {10.1}Intervals}{37}{section.10.1}%
-\contentsline {subsection}{\texttt {interval-container.h}\hspace {0.2em}}{37}{section.10.1}%
+\contentsline {section}{\numberline {10.1}Intervals}{38}{section.10.1}%
+\contentsline {subsection}{\texttt {interval-container.h}\hspace {0.2em}}{38}{section.10.1}%
 \contentsline {subsection}{\texttt {interval-cover.h}\hspace {0.2em}}{38}{lstnumber.10.1.20}%
 \contentsline {subsection}{\texttt {constant-intervals.h}\hspace {0.2em}}{38}{lstnumber.10.2.17}%
 \contentsline {section}{\numberline {10.2}Misc. algorithms}{38}{section.10.2}%
