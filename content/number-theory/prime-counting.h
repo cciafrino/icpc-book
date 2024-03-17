@@ -12,6 +12,7 @@ https://blog.csdn.net/bestFy/article/details/80100244
 struct primes_t {
 	vector<ll> dp, w;
 	ll pi(ll N) {
+		dp.clear(), w.clear();
 		const int sqrtN = int(sqrt(N));
 		for (ll a = 1, b; a <= N; a = b+1)
 			b = N / (N / a), w.push_back(N/a);
