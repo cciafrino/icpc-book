@@ -6,7 +6,7 @@
  * Status: somewhat tested
  */
 template <class T> int sgn(T x) { return (x > 0) - (x < 0); }
-template<class T>
+template<class T>///start-hash
 struct Point {
 	typedef Point P;
 	T x, y;
@@ -31,22 +31,23 @@ struct Point {
 	P rotate(double a) const {
 		return P(x*cos(a)-y*sin(a),x*sin(a)+y*cos(a)); }
 };
-using P = Point<double>;
+using P = Point<double>;///end-hash
 // signed distance between point p and line (a, b)
-template<class P>
+template<class P>///start-hash
 double lineDist(const P& a, const P& b, const P& p) {
 	return (double)(b-a).cross(p-a)/(b-a).dist();
-}
+}///end-hash
 // shortest distance between point p and line segment (s, e)
-double segDist(P& s, P& e, P& p) {
+double segDist(P& s, P& e, P& p) {///start-hash
 	if (s==e) return (p-s).dist();
 	auto d = (e-s).dist2(), t = min(d,max(.0,(p-s).dot(e-s)));
 	return ((p-s)*d-(e-s)*t).dist()/d;
-}
+}///end-hash
 // intersection between two segments: Returns either the
 // intersection point or the line segment (s,e)
 // if there is infinitely many. Empty vector if no intersection.
-template<class P> vector<P> segInter(P a, P b, P c, P d) {
+template<class P>///start-hash
+vector<P> segInter(P a, P b, P c, P d) {
 	auto oa = c.cross(d, a), ob = c.cross(d, b),
 		 oc = a.cross(b, c), od = a.cross(b, d);
 	// Checks if intersection is single non-endpoint point.
@@ -58,9 +59,9 @@ template<class P> vector<P> segInter(P a, P b, P c, P d) {
 	if (onSegment(a, b, c)) s.insert(c);
 	if (onSegment(a, b, d)) s.insert(d);
 	return {s.begin(), s.end()};
-}
+}///end-hash
 // Same as above but returns only true or false
-template<class P>
+template<class P>///start-hash
 bool segmentIntersectionQ(P s1, P e1, P s2, P e2) {
 	if (e1 == s1) {
 		if (e2 == s2) return e1 == e2;
@@ -75,45 +76,45 @@ bool segmentIntersectionQ(P s1, P e1, P s2, P e2) {
 	}
 	if (a < 0) { a = -a; a1 = -a1; a2 = -a2; }
 	return (0 <= a1 && a1 <= a && 0 <= a2 && a2 <= a);
-}
+}///end-hash
 // {1, P} if there is a intersection, {-1, (0,0)} if
 // there is infinitely, {0,(0,0)} otherwise.
-template<class P>
+template<class P>///start-hash
 pair<int, P> lineInter(P s1, P e1, P s2, P e2) {
 	auto d = (e1 - s1).cross(e2 - s2);
 	if (d == 0) // if parallel
 		return {-(s1.cross(e1, s2) == 0), P(0, 0)};
 	auto p = s2.cross(e1, e2), q = s2.cross(e2, s1);
 	return {1, (s1 * p + e1 * q) / d};
-}
+}///end-hash
 // Projects point P onto line ab. Refl=true to get reflection 
 // of point P across line ab instead.
-template<class P>
+template<class P>///start-hash
 P lineProj(P a, P b, P p, bool refl=false) {
 	P v = b - a;
 	return p - v.perp()*(1+refl)*v.cross(p-a)/v.dist2();
-}
+}///end-hash
 // 1/0/-1 <=> left/on line/right
-template<class P>
+template<class P>///start-hash
 int sideOf(P s, P e, P p) { return sgn(s.cross(e, p)); }
 template<class P>
 int sideOf(const P& s, const P& e, const P& p, double eps) {
 	auto a = (e-s).cross(p-s);
 	double l = (e-s).dist()*eps;
 	return (a > l) - (a < -l);
-}
+}///end-hash
 // True iff P lies on the line segment (s, e)
-template<class P> bool onSegment(P s, P e, P p) {
+template<class P> bool onSegment(P s, P e, P p) {///start-hash
 	return p.cross(s, e) == 0 && (s - p).dot(e - p) <= 0;
-}
+}///end-hash
 // Linear transformation which takes line p0p1 to q0q1
 P linearTransformation(const P& p0, const P& p1,
-	const P& q0, const P& q1, const P& r) {
+	const P& q0, const P& q1, const P& r) {///start-hash
 	P dp = p1-p0, dq = q1-q0, num(dp.cross(dq), dp.dot(dq));
 	return q0 + P((r-p0).cross(num), (r-p0).dot(num))/dp.dist2();
-}
+}///end-hash
 // Useful utilities for dealing with angles of rays from origin.
-template <class P>
+template <class P>///start-hash
 bool sameDir(P s, P t) {
 	return s.cross(t) == 0 && s.dot(t) > 0;
 }
@@ -132,12 +133,13 @@ bool angleCmp(P base, P s, P t) {
 template <class P>
 int angleBetween(P s, P t, P x) {
 	if (sameDir(x, s) || sameDir(x, t)) return 0;
-	return angleCmp(s, x, t) ? 1 : -1;
-}
+	return angleCmp(s, x, t) ? 1 : -1; }///end-hash
+///start-hash
 int half(P p) { return p.y != 0 ? sgn(p.y) : -sgn(p.x); }
 bool angle_cmp(P a, P b) { int A = half(a), B = half(b);
-	return A == B ? a.cross(b) > 0 : A < B; }
+	return A == B ? a.cross(b) > 0 : A < B; }///end-hash
 // out is the pair of points at which two circles intersect
+///start-hash
 bool circleInter(P a,P b,double r1,double r2,pair<P, P>* out) {
 	if (a == b) { assert(r1 != r2); return false; }
 	P vec = b - a;
@@ -147,11 +149,11 @@ bool circleInter(P a,P b,double r1,double r2,pair<P, P>* out) {
 	P mid = a + vec*p, per = vec.perp() * sqrt(fmax(0, h2) / d2);
 	*out = {mid + per, mid - per};
 	return true;
-}
+}///end-hash
 // Finds the external tangents of two circles, or internal if
 // r2 is negated, .first and .second gives the tangency point 
 // at circle 1 and 2 respec.
-template<class P>
+template<class P>///start-hash
 vector<pair<P, P>> tangents(P c1, double r1, P c2, double r2) {
 	P d = c2 - c1;
 	double dr = r1 - r2, d2 = d.dist2(), h2 = d2 - dr * dr;
@@ -163,9 +165,9 @@ vector<pair<P, P>> tangents(P c1, double r1, P c2, double r2) {
 	}
 	if (h2 == 0) out.pop_back();
 	return out;
-}
+}///end-hash
 // radius of the circle going through points A, B and C
-double ccRadius(const P& A, const P& B, const P& C) {
+double ccRadius(const P& A,const P& B,const P& C){///start-hash
 	return (B-A).dist()*(C-B).dist()*(A-C).dist()/
 		abs((B-A).cross(C-A))/2;
 }
@@ -173,9 +175,9 @@ double ccRadius(const P& A, const P& B, const P& C) {
 P ccCenter(const P& A, const P& B, const P& C) {
 	P b = C-A, c = B-A;
 	return A + (b*c.dist2()-c*b.dist2()).perp()/b.cross(c)/2;
-}
-// min enclosing circle
-pair<P, double> mec(vector<P> ps) { // ~O(N)
+}///end-hash
+// min enclosing circle ~ O(N)
+pair<P, double> mec(vector<P> ps) {///start-hash
 	shuffle(ps.begin(),ps.end(), mt19937(time(0)));
 	P o = ps[0];
 	double r = 0, EPS = 1 + 1e-8;
@@ -193,17 +195,17 @@ pair<P, double> mec(vector<P> ps) { // ~O(N)
 			}
 		}
 	return {o, r};
-}
+}///end-hash
 // Intersection between circle and line ab, returns 0/1/2 intersections
-template<class P>
+template<class P>///start-hash
 vector<P> circleLine(P c, double r, P a, P b) {
 	double h2 = r*r - a.cross(b,c)*a.cross(b,c)/(b-a).dist2();
 	if (h2 < 0) return {};
 	P p = lineProj(a, b, c), h = (b-a).unit() * sqrt(h2);
 	if (h2 == 0) return {p};
 	return {p - h, p + h};
-}
-template<class P> // intersection area of two circles
+}///end-hash
+template<class P>//intersection area of two circles///start-hash
 double circleCircleArea(P c, double cr, P d, double dr) {
 	if (cr < dr) swap(c, d), swap(cr, dr);
 	auto A = [&](double r, double h) {
@@ -214,10 +216,10 @@ double circleCircleArea(P c, double cr, P d, double dr) {
 	if (l - cr + dr <= 0) return M_PI*dr*dr;
 	if (l - cr >= 0) return A(cr, a) + A(dr, l-a);
 	else return A(cr, a) + M_PI*dr*dr - A(dr, a-l);
-}
+}///end-hash
 // area of intersection between a circle and a ccw polygon
-#define arg(p, q) atan2(p.cross(q), p.dot(q)) // (conc or conv)
-double circlePoly(P c, double r, vector<P> ps) {
+#define arg(p, q) atan2(p.cross(q), p.dot(q)) // (conc or conv) 
+double circlePoly(P c, double r, vector<P> ps) { ///start-hash
 	auto tri = [&](P p, P q) {
 		auto r2 = r * r / 2;
 		P d = q - p;
@@ -233,10 +235,10 @@ double circlePoly(P c, double r, vector<P> ps) {
 	for (int i = 0; i < ps.size(); ++i)
 		sum += tri(ps[i] - c, ps[(i + 1) % ps.size()] - c);
 	return sum;
-}
+}///end-hash
 // True if P lies within the polygon. If strict=true returns
 // false for points on the boundary.
-template<class P>
+template<class P>///start-hash
 bool inPolygon(vector<P> &p, P a, bool strict = true) {
 	int cnt = 0, n = p.size();
 	for(int i = 0; i < n; ++i) {
@@ -247,35 +249,35 @@ bool inPolygon(vector<P> &p, P a, bool strict = true) {
 		cnt ^= ((a.y<p[i].y) - (a.y<q.y)) * a.cross(p[i], q) > 0;
 	}
 	return cnt;
-}
-template<class T>
+}///end-hash
+template<class T>///start-hash
 T polygonArea(vector<Point<T>> &v) {
 	T a = v.back().cross(v[0]);
 	for(int i = 0; i < v.size()-1; ++i)
 		a += v[i].cross(v[i+1]);
 	return abs(a)/2.0;
-}
-Point<T> polygonCentroid(vector<Point<T>> &v) { // not tested
-	Point<T> cent(0,0); T area = 0;
+}///end-hash
+Point<T> polygonCentroid(vector<Point<T>> &v){///start-hash
+	Point<T> cent(0,0); T area = 0; 
 	for(int i = 0; i < v.size(); ++i) {
 		int j = (i+1) % (v.size()); T a = cross(v[i], v[j]);
 		cent += a * (v[i] + v[j]);
 		area += a;
 	}
 	return cent/area/(T)3;
-}
+}// not tested!!! ///end-hash
 // Center of mass of a polygon
-P polygonCenter(const vector<P>& v) {
+P polygonCenter(const vector<P>& v) {///start-hash
 	P res(0, 0); double A = 0;
 	for (int i = 0, j = v.size() - 1; i < v.size(); j = ++i) {
 		res = res + (v[i] + v[j]) * v[j].cross(v[i]);
 		A += v[j].cross(v[i]);
 	}
 	return res / A / 3;
-}
+}///end-hash
 // Returns vertices of the polygon to the left of the cut (s,e)
-vector<P> polygonCut(const vector<P>& poly, P s, P e) {
-	vector<P> res;
+vector<P> polygonCut(const vector<P>& poly, P s, P e){
+	vector<P> res; ///start-hash
 	for(int i = 0; i < poly.size(); ++i) {
 		P cur = poly[i], prev = i ? poly[i-1] : poly.back();
 		bool side = s.cross(e, cur) < 0;
@@ -284,9 +286,9 @@ vector<P> polygonCut(const vector<P>& poly, P s, P e) {
 		if (side) res.push_back(cur);
 	}
 	return res;
-}
+}///end-hash
 // no collinear points allowed
-vector<P> convexHull(vector<P> pts) {
+vector<P> convexHull(vector<P> pts) {///start-hash
 	if (pts.size() <= 1) return pts;
 	sort(pts.begin(), pts.end());
 	vector<P> h(pts.size()+1);
@@ -297,10 +299,10 @@ vector<P> convexHull(vector<P> pts) {
 			h[t++] = p;
 		}
 	return {h.begin(), h.begin() + t - (t == 2 && h[0] == h[1])};
-}
+}///end-hash
 // Two points with the max distance on convex hull (ccw, no
-array<P, 2> hullDiameter(vector<P> S) { // duplicate/collinear)
-	int n = S.size(), j = n < 2 ? 0 : 1;
+array<P, 2> hullDiameter(vector<P> S) { // duplicate/collinear) 
+	int n = S.size(), j = n < 2 ? 0 : 1; ///start-hash
 	pair<lint, array<P, 2>> res({0, {S[0], S[0]}});
 	for(int i = 0; i < j; ++i)
 		for (;; j = (j + 1) % n) {
@@ -309,10 +311,10 @@ array<P, 2> hullDiameter(vector<P> S) { // duplicate/collinear)
 				break;
 		}
 	return res.second;
-}
+}///end-hash
 // Checks whether P lies inside a convex hull.
 bool inHull(const vector<P> &l, P p, bool strict = true) {
-	int a = 1, b = l.size() - 1, r = !strict;
+	int a = 1, b = l.size() - 1, r = !strict; ///start-hash
 	if (l.size() < 3) return r && onSegment(l[0], l.back(), p);
 	if (sideOf(l[0], l[a], l[b]) > 0) swap(a, b);
 	if (sideOf(l[0], l[a], p) >= r || sideOf(l[0], l[b], p)<= -r)
@@ -322,8 +324,8 @@ bool inHull(const vector<P> &l, P p, bool strict = true) {
 		(sideOf(l[0], l[c], p) > 0 ? b : a) = c;
 	}
 	return sgn(l[a].cross(l[b], p)) < r;
-}
-// O(N+M)
+}///end-hash
+// O(N+M) ///start-hash
 vector<P> minkowski_sum(vector<P> A, vector<P> B) {
 	if (int(A.size()) > int(B.size())) swap(A, B);
 	if (A.empty()) return {};
@@ -343,12 +345,12 @@ vector<P> minkowski_sum(vector<P> A, vector<P> B) {
 		i += (sgn >= 0); j += (sgn <= 0);
 	}
 	return ans;
-}
+}///end-hash
 // Intersection between a line and a convex polygon (given ccw).
-typedef array<P, 2> Line;
+typedef array<P, 2> Line; ///start-hash
 #define cmp(i,j) sgn(dir.perp().cross(poly[(i)%n]-poly[(j)%n]))
 #define extr(i) cmp(i + 1, i) >= 0 && cmp(i, i - 1 + n) < 0
-int extrVertex(vector<P>& poly, P dir) { ///start-hash
+int extrVertex(vector<P>& poly, P dir) { 
 	int n = poly.size(), left = 0, right = n;
 	if (extr(0)) return 0;
 	while (left + 1 < right) {
@@ -359,8 +361,7 @@ int extrVertex(vector<P>& poly, P dir) { ///start-hash
 	}
 	return left;
 }///end-hash
-
-#define cmpL(i) sgn(line[0].cross(poly[i], line[1]))
+#define cmpL(i) sgn(line[0].cross(poly[i], line[1]))///start-hash
 array<int, 2> lineHull(Line line, vector<P>& poly) {
 	int endA = extrVertex(poly, (line[0] - line[1]).perp());
 	int endB = extrVertex(poly, (line[1] - line[0]).perp());
@@ -383,9 +384,9 @@ array<int, 2> lineHull(Line line, vector<P>& poly) {
 			case 2: return {res[1], res[1]};
 		}
 	return res;
-}
+}///end-hash
 // Halfplane intersection area
-#define eps 1e-8
+#define eps 1e-8 
 using P = Point<double>;
 
 struct line_t { ///start-hash
@@ -452,7 +453,7 @@ double intersection_area(vector<line_t> b) { ///start-hash
 	return ans/2;
 } ///end-hash
 // Closes pair of points. O(N logN)
-pair<P, P> closest(vector<P> v) {
+pair<P, P> closest(vector<P> v) { ///start-hash
 	assert(v.size() > 1);
 	set<P> S;
 	sort(v.begin(), v.end(), [](P a, P b) { return a.y < b.y; });
@@ -467,9 +468,9 @@ pair<P, P> closest(vector<P> v) {
 		S.insert(p);
 	}
 	return ret.second;
-}
+} ///end-hash
 // Rectangle union area
-struct seg_node{
+struct seg_node{ ///start-hash
 	int val, cnt, lz;
 	seg_node(int n = INF, int c = 0): val(n), cnt(c), lz(0) {}
 	void push(seg_node& l, seg_node& r){
@@ -511,4 +512,4 @@ lint solve(const vector<array<int, 4>>&v){
 		last = x; seg.update(y1, y2, &seg_node::add, c);
 	}
 	return ans;
-}
+} ///end-hash
