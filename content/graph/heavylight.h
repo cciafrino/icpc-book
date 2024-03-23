@@ -22,7 +22,7 @@ template<bool use_edges> struct hld_t {
 	hld_t(const vector<vector<int>>& G, int r = 0) : N(int(G.size())),
 	adj(G), sz(N), depth(N), chain(N), par(N), in(N), out(N),
 	preorder(N) { dfs_sz(r); chain[r] = r; dfs_hld(r); }
-	void dfs_sz(int cur) {
+	void dfs_sz(int cur) { ///start-hash
 		sz[cur] = 1;
 		for (auto& nxt : adj[cur]) {
 			par[nxt] = cur; depth[nxt] = 1 + depth[cur];
@@ -30,35 +30,35 @@ template<bool use_edges> struct hld_t {
 			dfs_sz(nxt); sz[cur] += sz[nxt];
 			if (sz[nxt] > sz[adj[cur][0]]) swap(nxt, adj[cur][0]);
 		}
-	}
-	void dfs_hld(int cur) {
+	} ///end-hash
+	void dfs_hld(int cur) { ///start-hash
 		in[cur] = T++; preorder[in[cur]] = cur;
 		for (auto& nxt : adj[cur]) {
 			chain[nxt] = (nxt == adj[cur][0] ? chain[cur] : nxt);
 			dfs_hld(nxt);
 		} out[cur] = T;
-	}
-	int lca(int a, int b) {
+	} ///end-hash
+	int lca(int a, int b) { ///start-hash
 		while (chain[a] != chain[b]) {
 			if (in[a] < in[b]) swap(a, b);
 			a = par[chain[a]];
 		} return (in[a] < in[b] ? a : b);
-	}
+	} ///end-hash
 	bool is_ancestor(int a, int b) { return in[a] <= in[b] && in[b] < out[a]; }
-	int climb(int a, int k) {
+	int climb(int a, int k) { ///start-hash
 		if (depth[a] < k) return -1;
 		int d = depth[a] - k;
 		while (depth[chain[a]] > d) a = par[chain[a]];
 		return preorder[in[a] - depth[a] + d];
-	}
-	int kth_on_path(int a, int b, int K) {
+	} ///end-hash
+	int kth_on_path(int a, int b, int K) { ///start-hash
 		int m = lca(a, b);
 		int x = depth[a] - depth[m], y = depth[b] - depth[m];
 		if (K > x + y) return -1;
 		return (x > K ? climb(a, K) : climb(b, x + y - K));
-	}
+	} ///end-hash
 	// bool is true if path should be reversed (only for noncommutative operations)
-	const auto& get_path(int a, int b) const {
+	const auto& get_path(int a, int b) const { ///start-hash
 		static vector<tuple<bool, int, int>> L, R;
 		L.clear(); R.clear();
 		while (chain[a] != chain[b])
@@ -74,11 +74,11 @@ template<bool use_edges> struct hld_t {
 		else R.push_back({false, in[a] + use_edges, in[b] + 1});
 		L.insert(L.end(), R.rbegin(), R.rend());
 		return L;
-	}
+	} ///end-hash
 	auto get_subtree(int a) const {
 		return make_pair(in[a] + use_edges, in[a] + sz[a]);
 	}
-	auto compress(vector<int> s){
+	auto compress(vector<int> s){ ///start-hash
 		auto cmp = [&](int a, int b){ return in[a] < in[b]; };
 		sort(s.begin(), s.end(), cmp); int m = int(s.size())-1;
 		for (int i = 0; i < m; ++i)
@@ -89,5 +89,5 @@ template<bool use_edges> struct hld_t {
 		for (int i = 0; i + 1 < int(s.size()); ++i)
 			ret.emplace_back(lca(s[i], s[i+1]), s[i+1]);
 		return ret;
-	}
+	} ///end-hash
 };

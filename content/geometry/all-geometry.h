@@ -344,40 +344,6 @@ vector<P> minkowski_sum(vector<P> A, vector<P> B) {
 	}
 	return ans;
 }
-// Union area of polygons, must be given in ccw order
-double rat(P a, P b) { return sgn(b.x) ? a.x/b.x : a.y/b.y; }
-double polyUnion(vector<vector<P>>& poly) { // ~O(N^2)
-	double ret = 0;
-	for(int i = 0; i < poly.size(); ++i) 
-		for(int v = 0; v < poly[i].size(); ++v) {
-			P A = poly[i][v], B = poly[i][(v + 1) % poly[i].size()];
-			vector<pair<double, int>> segs = {{0, 0}, {1, 0}};
-			for(int j = 0; j < poly.size(); ++j) if (i != j) {
-				for(int u = 0; u < poly[j]; ++u) {
-					P C = poly[j][u], D = poly[j][(u + 1) % poly[j].size()];
-					int sc = sideOf(A, B, C), sd = sideOf(A, B, D);
-					if (sc != sd) {
-						double sa = C.cross(D, A), sb = C.cross(D, B);
-						if (min(sc, sd) < 0)
-							segs.emplace_back(sa / (sa - sb), sgn(sc - sd));
-					} else if (!sc && !sd && j<i && sgn((B-A).dot(D-C))>0){
-						segs.emplace_back(rat(C - A, B - A), 1);
-						segs.emplace_back(rat(D - A, B - A), -1);
-					}
-				}
-		}
-		sort(segs.begin(), segs.end());
-		for(auto& s : segs) s.first = min(max(s.first, 0.0), 1.0);
-		double sum = 0;
-		int cnt = segs[0].second;
-		for(int j = 1; j < segs.size(); ++j) {
-			if (!cnt) sum += segs[j].first - segs[j - 1].first;
-			cnt += segs[j].second;
-		}
-		ret += A.cross(B) * sum;
-	}
-	return ret / 2;
-}
 // Intersection between a line and a convex polygon (given ccw).
 typedef array<P, 2> Line;
 #define cmp(i,j) sgn(dir.perp().cross(poly[(i)%n]-poly[(j)%n]))
@@ -418,7 +384,7 @@ array<int, 2> lineHull(Line line, vector<P>& poly) {
 		}
 	return res;
 }
-// Halfplace intersection area
+// Halfplane intersection area
 #define eps 1e-8
 using P = Point<double>;
 
