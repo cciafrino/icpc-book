@@ -388,7 +388,6 @@ array<int, 2> lineHull(Line line, vector<P>& poly) {
 // Halfplane intersection area
 #define eps 1e-8 
 using P = Point<double>;
-
 struct line_t { ///start-hash
 	P P1, P2;
 	// Right hand side of the ray P1 -> P2
@@ -513,3 +512,102 @@ lint solve(const vector<array<int, 4>>&v){
 	}
 	return ans;
 } ///end-hash
+// Delaunay Triangulation. O(N^2).Each circumcircle contains
+// none of the input points. If any three pointsare colinear 
+// or any four are on the same circle, behavior is undefined.
+template<class P, class F> ///start-hash
+void delaunay(vector<P>& ps, F trifun) {
+	if (ps.size() == 3){ int d=(ps[0].cross(ps[1], ps[2]) < 0);
+		trifun(0,1+d,2-d); }
+	vector<P3> p3;
+	for(auto &p : ps) p3.emplace_back(p.x, p.y, p.dist2());
+	if (ps.size()>3) for(auto &t: hull3d(p3)) if((p3[t.b]-p3[t.a]).
+			cross(p3[t.c]-p3[t.a]).dot(P3(0,0,1)) < 0)
+		trifun(t.a, t.c, t.b);
+} ///end-hash
+// GEOMETRY 3D
+template<class T> struct Point3D { ///start-hash
+	typedef Point3D P;
+	typedef const P& R;
+	T x, y, z;
+	explicit Point3D(T x=0, T y=0, T z=0) : x(x), y(y), z(z) {}
+	bool operator<(R p) const {
+		return tie(x, y, z) < tie(p.x, p.y, p.z); }
+	bool operator==(R p) const {
+		return tie(x, y, z) == tie(p.x, p.y, p.z); }
+	P operator+(R p) const { return P(x+p.x, y+p.y, z+p.z); }
+	P operator-(R p) const { return P(x-p.x, y-p.y, z-p.z); }
+	P operator*(T d) const { return P(x*d, y*d, z*d); }
+	P operator/(T d) const { return P(x/d, y/d, z/d); }
+	T dot(R p) const { return x*p.x + y*p.y + z*p.z; }
+	P cross(R p) const {
+		return P(y*p.z - z*p.y, z*p.x - x*p.z, x*p.y - y*p.x);
+	}///end-hash
+	T dist2() const { return x*x + y*y + z*z; }///start-hash
+	double dist() const { return sqrt((double)dist2()); }
+	//Azimuthal angle (longitude) to x-axis in interval [-pi, pi]
+	double phi() const { return atan2(y, x); } 
+	//Zenith angle (latitude) to the z-axis in interval [0, pi]
+	double theta() const { return atan2(sqrt(x*x+y*y),z); }
+	P unit() const { return *this/(T)dist(); } //makes dist()=1
+	//returns unit vector normal to *this and p
+	P normal(P p) const { return cross(p).unit(); }
+	//returns point rotated 'angle' radians ccw around axis
+	P rotate(double angle, P axis) const {
+		double s = sin(angle), c = cos(angle); P u = axis.unit();
+		return u*dot(u)*(1-c) + (*this)*c - cross(u)*s;
+	}
+};///end-hash
+// polyhedron formula. Faces should point outwards.
+template<class V, class L>
+double signed_poly_volume(const V &p, const L &trilist) {
+	double v = 0;
+	for(auto &i : trilist) v += p[i.a].cross(p[i.b]).dot(p[i.c]);
+	return v / 6;
+}
+// ConvexHull3D
+typedef Point3D<double> P3;
+struct PR { ///start-hash
+	void ins(int x) { (a == -1 ? a : b) = x; }
+	void rem(int x) { (a == x ? a : b) = -1; }
+	int cnt() { return (a != -1) + (b != -1); }
+	int a, b;
+};///end-hash
+struct F { P3 q; int a, b, c; };
+vector<F> hull3d(const vector<P3>& A) {///start-hash
+	assert(A.size() >= 4);
+	vector<vector<PR>> E(A.size(), vector<PR>(A.size(), {-1, -1}));
+#define E(x,y) E[f.x][f.y]
+	vector<F> FS;
+	auto mf = [&](int i, int j, int k, int l) {
+		P3 q = (A[j] - A[i]).cross((A[k] - A[i]));
+		if (q.dot(A[l]) > q.dot(A[i]))
+			q = q * -1;
+		F f{q, i, j, k};
+		E(a,b).ins(k); E(a,c).ins(j); E(b,c).ins(i);
+		FS.push_back(f);
+	};
+	for(int i=0;i<4;i++)for(int j=i+1;j<4;j++)for(k=j+1;k<4;k++)
+		mf(i, j, k, 6 - i - j - k);///end-hash
+	for(int i=4; i<A.size();++i) { ///start-hash
+		for(int j=0;j<FS.size();++j) {
+			F f = FS[j];
+			if(f.q.dot(A[i]) > f.q.dot(A[f.a])) {
+				E(a,b).rem(f.c);
+				E(a,c).rem(f.b);
+				E(b,c).rem(f.a);
+				swap(FS[j--], FS.back());
+				FS.pop_back();
+			}
+		}
+		int nw = FS.size();
+		for(int j=0;j<nw;j++) {
+			F f = FS[j];
+#define C(a, b, c) if (E(a,b).cnt() != 2) mf(f.a, f.b, i, f.c);
+			C(a, b, c); C(a, c, b); C(b, c, a);
+		}
+	}
+	for(auto &it: FS) if ((A[it.b] - A[it.a]).cross(
+			A[it.c] - A[it.a]).dot(it.q) <= 0) swap(it.c, it.b);
+	return FS;
+};///end-hash
