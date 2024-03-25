@@ -114,7 +114,7 @@ T garner(modnum<M0> a0, modnum<M1> a1, modnum<M2> a2, modnum<M3> a3, modnum<M4> 
 	// return (((T(b4.x) * M3 + b3.x) * M2 + b2.x) * M1 + b1.x) * M0 + a0.x;
 }///end-hash
 // results must be in [-448002610255888384, 448002611254132736]
-vector<long long> convolve(const vector<long long>& as, const vector<long long>& bs) {///start-hash
+vector<ll> convolve(const vector<ll>& as, const vector<ll>& bs) {///start-hash
 	static constexpr unsigned M0 = M0::M, M1 = M1::M;
 	static const modnum<M1> INV_M0_M1 = modnum<M1>(M0).inv();
 	if (as.empty() || bs.empty()) return {};
@@ -127,12 +127,12 @@ vector<long long> convolve(const vector<long long>& as, const vector<long long>&
 	for (int i = 0; i < len_as; ++i) as1[i] = as[i];
 	for (int i = 0; i < len_bs; ++i) bs1[i] = bs[i];
 	const vector<modnum<M1>> cs1 = FFT1.convolve(as1, bs1);
-	vector<long long> cs(len_as + len_bs - 1);
+	vector<ll> cs(len_as + len_bs - 1);
 	for (int i = 0; i < len_as + len_bs - 1; ++i) {
 		const modnum<M1> d1 = INV_M0_M1 * (cs1[i] - cs0[i].x);
 		cs[i] = (d1.x > M1 - d1.x)
-			? (-1ULL - (static_cast<unsigned long long>(M1 - 1U - d1.x) * M0 + (M0 - 1U - cs0[i].x)))
-			: (static_cast<unsigned long long>(d1.x) * M0 + cs0[i].x);
+			? (-1ULL - (static_cast<unsigned ll>(M1 - 1U - d1.x) * M0 + (M0 - 1U - cs0[i].x)))
+			: (static_cast<unsigned ll>(d1.x) * M0 + cs0[i].x);
 	}
 	return cs;
 }///end-hash
