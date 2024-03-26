@@ -12,4 +12,4 @@ template<class T> struct SafeHash {
 template <typename K, typename V, typename Hash = SafeHash<K>>
 using hash_map = __gnu_pbds::gp_hash_table<K, V, Hash>;
 template <typename K, typename Hash = SafeHash<K>>
-using hash_set = hash_map<K, __gnu_pbds::null_type, Hash>; }
+using hash_set = hash_map<K, __gnu_pbds::null_type, Hash>;

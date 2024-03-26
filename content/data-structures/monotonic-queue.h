@@ -7,7 +7,7 @@
  * Time: $O(1)$
  */
 template<typename T, typename Comp> struct monotonic_queue {
-	int lo, hi; T S;
+	int lo, hi; T S; ///start-hash
 	deque<pair<T, T>> q;
 	monotonic_queue() : lo(0), hi(0), S(0) {}
 	void push(T val) {
@@ -17,10 +17,10 @@ template<typename T, typename Comp> struct monotonic_queue {
 	}
 	void pop() {
 		if (!q.empty() && q.front().second == lo++) q.pop_front();
-	}
+	} ///end-hash
 	void add(T val) { S += val; }
 	T get_val() const {  return q.front().first + S; }
 	int size() const { return hi-lo; }
 };
-template<typename T> using min_monotonic_queue = monotonic_queue<T, std::less_equal<T>>;
-template<typename T> using max_monotonic_queue = monotonic_queue<T, std::greater_equal<T>>;
+template<typename T> using min_queue = monotonic_queue<T, less_equal<T>>;
+template<typename T> using max_queue = monotonic_queue<T, greater_equal<T>>;

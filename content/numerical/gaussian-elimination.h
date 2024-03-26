@@ -13,7 +13,7 @@ template<typename T> struct gaussian_elimination {
 	int N, M; Matrix<T> A, E;
 	vector<int> pivot; int rank, nullity, sgn;
 	gaussian_elimination(const Matrix<T>& A_) : A(A_) {///start-hash
-		N = A.size(), M = A[0].size(), E=Matrix<T>(N, vector<T>(N));
+		N = A.size(), M = A[0].size(),E=Matrix<T>(N,vector<T>(N));
 		for (int i = 0; i < N; ++i) E[i][i] = 1;
 		rank = 0, nullity = M, sgn = 0; pivot.assign(M, -1);
 		for (int col = 0, row = 0; col < M && row < N; ++col) {
@@ -37,7 +37,7 @@ template<typename T> struct gaussian_elimination {
 			pivot[col] = row++; ++rank, --nullity;
 		}
 	}///end-hash
-	pair<bool, vector<T>> solve(vector<T> b, bool reduced = false) const {///start-hash
+	auto solve(vector<T> b, bool reduced=false) const {///start-hash
 		if (reduced == false) b = E * b;
 		vector<T> x(M);
 		for (int j = 0; j < M; ++j) {
@@ -46,10 +46,10 @@ template<typename T> struct gaussian_elimination {
 			b[pivot[j]] = 0;
 		}
 		for (int i = 0; i < N; ++i)
-			if (b[i] != 0) return {false, x};
-		return {true, x};
+			if (b[i] != 0) return make_pair(false, x);
+		return make_pair(true, x);
 	}///end-hash
-	vector<vector<T>> kernel_basis() const {///start-hash
+	auto kernel_basis() const {///start-hash
 		vector<vector<T>> basis; vector<T> e(M);
 		for (int j = 0; j < M; ++j) {
 			if (pivot[j] != -1) continue;
@@ -58,7 +58,7 @@ template<typename T> struct gaussian_elimination {
 		}
 		return basis;
 	}///end-hash
-	Matrix<T> inverse() const {///start-hash
+	auto inverse() const {///start-hash
 		assert(N == M); assert(rank == N);
 		Matrix<T> res(N, vector<T>(N));
 		vector<T> e(N);

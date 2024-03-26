@@ -8,11 +8,11 @@
  * Time: O(\log N)
  * Status: stress-tested
  */
-struct Line {
+struct Line { ///start-hash
 	mutable ll k, m, p;
 	bool operator<(const Line& o) const { return k < o.k; }
 	bool operator<(ll x) const { return p < x; }
-};
+}; ///end-hash
 struct LineContainer : multiset<Line, less<>> {
 	static const ll inf = LLONG_MAX; //for doubles 1/.0
 	ll div(ll a, ll b) { //for doubles a/b

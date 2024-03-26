@@ -25,7 +25,7 @@ struct rmq_t : private Cmp {
 		for (int a = 1; a < int(table.size()); ++a) {
 			table[a].resize(N - (1 << a) + 1);
 			for (int b = 0; b + (1 << a) <= N; ++b) 
-				table[a][b] = min(table[a-1][b], table[a-1][b + (1 << (a-1))]); 
+				table[a][b] = min(table[a-1][b], table[a-1][b+(1<<(a-1))]); 
 		}
 	}
 	T query(int a, int b) const { 

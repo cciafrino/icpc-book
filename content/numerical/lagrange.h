@@ -9,7 +9,7 @@
 template<typename T> struct interpolator_t {
 	vector<T> S;
 	interpolator_t(int N): S(N) {}
-	T interpolate(const vector<T>& y, T x) {
+	T interpolate(const vector<T>& y, T x) { ///start-hash
 		int N = int(y.size()); int sgn = (N & 1 ? 1 : -1);
 		T res = 0, P = 1; S[N - 1] = 1;
 		for (int i = N-1; i > 0; --i) S[i-1] = S[i] * (x-i);
@@ -17,5 +17,5 @@ template<typename T> struct interpolator_t {
 			res += y[i] * sgn * P * S[i] * ifact[i] * ifact[N-1-i];
 		}
 		return res;
-	}
+	} ///end-hash
 };

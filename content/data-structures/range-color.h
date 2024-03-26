@@ -9,7 +9,7 @@
  * Time: $O(\lg(L)*Q)$
  * Status: stress-tested
  */
-template<class T, class C> struct RangeColor {
+template<class T, class C> struct RangeColor { ///start-hash
 	struct Node{
 		T lo, hi; C color;
 		bool operator<(const Node &n) const { return hi < n.hi; }
@@ -18,11 +18,11 @@ template<class T, class C> struct RangeColor {
 	RangeColor(T first, T last, C maxColor, C iniColor = C(0)): minInf(first - T(1)), freq(maxColor + 1) {
 		freq[iniColor] = last - first + T(1);
 		st.insert({first, last, iniColor});
-	}
+	} ///end-hash
 	C query(T i) { //get color in position i
 		return st.upper_bound({T(0), i - T(1), minInf})->color;
 	}
-	void upd(T a, T b, C x) { //set x in [a, b]
+	void upd(T a, T b, C x) { //set x in [a, b] ///start-hash
 		auto p = st.upper_bound({T(0), a - T(1), minInf});
 		assert(p != st.end());
 		T lo = p->lo, hi = p->hi; C old = p->color;
@@ -41,6 +41,6 @@ template<class T, class C> struct RangeColor {
 			} else p = st.erase(p);
 		}
 		freq[x] += (b - a + T(1)); st.insert({a, b, x});
-	}
+	} ///end-hash
 	T countColor(C x){ return freq[x]; }
 };

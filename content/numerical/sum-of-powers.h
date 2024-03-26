@@ -9,7 +9,7 @@
  */
 #include "../number-theory/modular-arithmetic.h"
 #include "/lagrange.h"
-vector<num> get_monomials(int N, long long d) {
+vector<num> get_monomials(int N, long long d) {///start-hash
 	vector<int> pfac(N);
 	for (int i = 2; i < N; ++i) pfac[i] = i;
 	for (int p = 2; p < N; ++p) if (pfac[p] == p)
@@ -19,7 +19,7 @@ vector<num> get_monomials(int N, long long d) {
 		if (i <= 1 || pfac[i] == i) pw[i] = num(i).pow(d);
 		else pw[i] = (pw[pfac[i]] * pw[i / pfac[i]]);
 	return pw;
-}
+}///end-hash
 num sum_of_power_limit(num r, int d, const vector<num>& fs) {
 	interpolator_t<num> M(d + 2); num s = 1; auto gs = fs;
 	for (int x = 0; x <= d; ++x, s *= r) gs[x] *= s;

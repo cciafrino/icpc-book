@@ -9,7 +9,7 @@
  * do 2 phases; 1st check feasibility;
  * 2nd check boundedness and ans
  */
-using dbl = double; using vd = vector<dbl>;
+using dbl = double; using vd = vector<dbl>;///start-hash
 vd simplex(vector<vd> A, vd b, vd c) { const dbl E = 1e-9;
 	int n = A.size(), m = A[0].size() + 1, r = n, s = m-1;
 	auto D = vector<vd>(n+2, vd(m+1));
@@ -19,10 +19,10 @@ vd simplex(vector<vd> A, vd b, vd c) { const dbl E = 1e-9;
 		for (int j = 0; j < m-1; ++j) D[i][j] = -A[i][j];
 		D[i][m - 1] = 1; D[i][m] = b[i];
 		if (D[r][m] > D[i][m]) r = i;
-	}
+	}///end-hash
 	for (int j = 0; j < m-1; ++j) D[n][j] = c[j];
 	D[n + 1][m - 1] = -1; int z = 0;
-	for (dbl d;;) {
+	for (dbl d;;) {///start-hash
 		if (r < n) { swap(ix[s], ix[r + m]);
 			D[r][s] = 1.0/D[r][s];
 			for (int j = 0; j <= m; ++j) if (j != s)
@@ -42,7 +42,7 @@ vd simplex(vector<vd> A, vd b, vd c) { const dbl E = 1e-9;
 				|| d < E && ix[r+m] > ix[i+m]) r = i; 
 		}
 		if (r < 0) return vd(); // unbounded
-	}
+	}///end-hash
 	if (D[n+1][m] < -E) return vd(); // infeasible
 	vd x(m-1);
 	for(int i=m; i < n+m; ++i) if(ix[i]<m-1) x[ix[i]]=D[i-m][m];

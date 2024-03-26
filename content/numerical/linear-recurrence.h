@@ -19,13 +19,13 @@ T linear_rec(const vector<T>& S, const vector<T>& tr, ll K) {
 	vector<T> qs(N + 1); qs[0] = 1;
 	for (int i = 0; i < N; ++i) qs[i + 1] = -tr[i];
 	auto fs = fft.convolve(S, qs); fs.resize(N);
-	for (; K; K /= 2) {
+	for (; K; K /= 2) { ///start-hash
 		auto qneg = qs;
 		for (int i = 1; i <= N; i += 2) qneg[i] = -qneg[i];
 		fs = fft.convolve(fs, qneg), qs = fft.convolve(qs, qneg);
 		for (int i = 0; i < N; ++i)
 			fs[i] = fs[2 * i + (K & 1)], qs[i] = qs[2 * i];
 		qs[N] = qs[2*N]; fs.resize(N), qs.resize(N+1);
-	}
+	} ///end-hash
 	return fs[0];
 }
