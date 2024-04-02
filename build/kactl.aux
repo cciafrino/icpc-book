@@ -2,10 +2,13 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
 \HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
 \global\let\oldnewlabel\newlabel
 \gdef\newlabel#1#2{\newlabelxx{#1}#2}
 \gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
 \AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
 \let\newlabel\oldnewlabel
 \fi}
 \fi}
@@ -72,7 +75,7 @@
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {3.10}segtree-2d.h}{5}{lstlisting.3.10}\protected@file@percent }
 \@writefile{ptc}{\contentsline {section}{\texttt  {persistent-segtree.h}\hspace  {0.2em}}{5}{lstnumber.3.10.25}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {3.11}persistent-segtree.h}{5}{lstlisting.3.11}\protected@file@percent }
-\@writefile{ptc}{\contentsline {section}{\texttt  {rmq.h}\hspace  {0.2em}}{5}{lstnumber.3.11.45}\protected@file@percent }
+\@writefile{ptc}{\contentsline {section}{\texttt  {rmq.h}\hspace  {0.2em}}{5}{lstnumber.3.11.43}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {3.12}rmq.h}{5}{lstlisting.3.12}\protected@file@percent }
 \@writefile{ptc}{\contentsline {section}{\texttt  {fenwick-tree.h}\hspace  {0.2em}}{5}{lstnumber.3.12.19}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {3.13}fenwick-tree.h}{5}{lstlisting.3.13}\protected@file@percent }
