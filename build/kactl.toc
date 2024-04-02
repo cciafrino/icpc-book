@@ -31,7 +31,7 @@
 \contentsline {chapter}{\numberline {5}Number theory}{14}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Modular arithmetic}{14}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Primality}{15}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Divisibility}{15}{section.5.3}%
+\contentsline {section}{\numberline {5.3}Divisibility}{16}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Chinese remainder theorem}{16}{section.5.4}%
 \contentsline {section}{\numberline {5.5}Fractions}{17}{section.5.5}%
 \contentsline {subsection}{\numberline {5.5.1}Bézout's identity}{17}{subsection.5.5.1}%
@@ -41,7 +41,7 @@
 \contentsline {subsection}{\numberline {5.6.1}Prime counting function ($\pi (x)$)}{17}{subsection.5.6.1}%
 \contentsline {subsection}{\numberline {5.6.2}Sum of primes}{17}{subsection.5.6.2}%
 \contentsline {subsection}{\numberline {5.6.3}Moebius Function}{17}{subsection.5.6.3}%
-\contentsline {subsection}{\numberline {5.6.4}Dirichlet Convolution}{17}{subsection.5.6.4}%
+\contentsline {subsection}{\numberline {5.6.4}Dirichlet Convolution}{18}{subsection.5.6.4}%
 \contentsline {subsection}{\numberline {5.6.5}Estimates}{18}{subsection.5.6.5}%
 \contentsline {chapter}{\numberline {6}Combinatorial}{18}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Permutations}{18}{section.6.1}%
@@ -51,7 +51,7 @@
 \contentsline {subsection}{\numberline {6.1.4}Involutions}{18}{subsection.6.1.4}%
 \contentsline {subsection}{\numberline {6.1.5}Inclusion-Exclusion Principle}{18}{subsection.6.1.5}%
 \contentsline {subsection}{\numberline {6.1.6}The twelvefold way (from Stanley)}{18}{subsection.6.1.6}%
-\contentsline {subsection}{\numberline {6.1.7}Burnside}{18}{subsection.6.1.7}%
+\contentsline {subsection}{\numberline {6.1.7}Burnside}{19}{subsection.6.1.7}%
 \contentsline {subsection}{\numberline {6.1.8}Derangements}{19}{subsection.6.1.8}%
 \contentsline {section}{\numberline {6.2}Partitions and subsets}{19}{section.6.2}%
 \contentsline {subsection}{\numberline {6.2.1}Partition function}{19}{subsection.6.2.1}%
@@ -66,7 +66,7 @@
 \contentsline {subsection}{\numberline {6.3.8}Super Catalan numbers}{19}{subsection.6.3.8}%
 \contentsline {subsection}{\numberline {6.3.9}Motzkin numbers}{19}{subsection.6.3.9}%
 \contentsline {subsection}{\numberline {6.3.10}Narayana numbers}{19}{subsection.6.3.10}%
-\contentsline {subsection}{\numberline {6.3.11}Schroder numbers}{19}{subsection.6.3.11}%
+\contentsline {subsection}{\numberline {6.3.11}Schroder numbers}{20}{subsection.6.3.11}%
 \contentsline {subsection}{\numberline {6.3.12}Triangles}{20}{subsection.6.3.12}%
 \contentsline {section}{\numberline {6.4}Fibonacci}{20}{section.6.4}%
 \contentsline {section}{\numberline {6.5}Linear Recurrences}{20}{section.6.5}%

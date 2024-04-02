@@ -39,9 +39,9 @@
 \contentsline {section}{\texttt {sparse-segtree.h}\hspace {0.2em}}{5}{lstnumber.3.8.173}%
 \contentsline {section}{\texttt {segtree-2d.h}\hspace {0.2em}}{5}{lstnumber.3.9.39}%
 \contentsline {section}{\texttt {persistent-segtree.h}\hspace {0.2em}}{5}{lstnumber.3.10.25}%
-\contentsline {section}{\texttt {rmq.h}\hspace {0.2em}}{5}{lstnumber.3.11.31}%
+\contentsline {section}{\texttt {rmq.h}\hspace {0.2em}}{5}{lstnumber.3.11.45}%
 \contentsline {section}{\texttt {fenwick-tree.h}\hspace {0.2em}}{5}{lstnumber.3.12.19}%
-\contentsline {section}{\texttt {fenwick-tree-2d.h}\hspace {0.2em}}{5}{lstnumber.3.13.26}%
+\contentsline {section}{\texttt {fenwick-tree-2d.h}\hspace {0.2em}}{6}{lstnumber.3.13.26}%
 \contentsline {section}{\texttt {mo.h}\hspace {0.2em}}{6}{lstnumber.3.14.25}%
 \contentsline {section}{\texttt {line-container.h}\hspace {0.2em}}{6}{lstnumber.3.15.49}%
 \contentsline {section}{\texttt {lichao.h}\hspace {0.2em}}{6}{lstnumber.3.16.27}%
@@ -57,7 +57,7 @@
 \ttl@starttoc {chapters@4}
 \contentsline {section}{\texttt {polynomial.h}\hspace {0.2em}}{9}{chapter.4}%
 \contentsline {section}{\texttt {poly-roots.h}\hspace {0.2em}}{9}{lstnumber.4.1.17}%
-\contentsline {section}{\texttt {poly-interpolate.h}\hspace {0.2em}}{9}{lstnumber.4.2.20}%
+\contentsline {section}{\texttt {poly-interpolate.h}\hspace {0.2em}}{10}{lstnumber.4.2.20}%
 \contentsline {section}{\texttt {lagrange.h}\hspace {0.2em}}{10}{lstnumber.4.3.12}%
 \contentsline {section}{\texttt {berlekamp-massey.h}\hspace {0.2em}}{10}{lstnumber.4.4.13}%
 \contentsline {section}{\texttt {linear-recurrence.h}\hspace {0.2em}}{10}{lstnumber.4.5.17}%
@@ -85,7 +85,7 @@
 \contentsline {subsection}{\texttt {modular-arithmetic.h}\hspace {0.2em}}{14}{section.5.1}%
 \contentsline {subsection}{\texttt {preparator.h}\hspace {0.2em}}{14}{lstnumber.5.1.27}%
 \contentsline {subsection}{\texttt {mod-inv.h}\hspace {0.2em}}{14}{lstnumber.5.2.11}%
-\contentsline {subsection}{\texttt {mod-sum.h}\hspace {0.2em}}{14}{lstnumber.5.3.4}%
+\contentsline {subsection}{\texttt {mod-sum.h}\hspace {0.2em}}{15}{lstnumber.5.3.4}%
 \contentsline {subsection}{\texttt {mod-mul.h}\hspace {0.2em}}{15}{lstnumber.5.4.16}%
 \contentsline {subsection}{\texttt {mod-sqrt.h}\hspace {0.2em}}{15}{lstnumber.5.5.11}%
 \contentsline {subsection}{\texttt {mul-order.h}\hspace {0.2em}}{15}{lstnumber.5.6.33}%
@@ -95,9 +95,9 @@
 \contentsline {subsection}{\texttt {segmented-sieve.h}\hspace {0.2em}}{15}{lstnumber.5.9.17}%
 \contentsline {subsection}{\texttt {miller-rabin.h}\hspace {0.2em}}{15}{lstnumber.5.10.20}%
 \contentsline {subsection}{\texttt {pollard-rho.h}\hspace {0.2em}}{15}{lstnumber.5.11.12}%
-\contentsline {section}{\numberline {5.3}Divisibility}{15}{section.5.3}%
-\contentsline {subsection}{\texttt {extended-euclid.h}\hspace {0.2em}}{15}{section.5.3}%
-\contentsline {subsection}{\texttt {division-lemma.h}\hspace {0.2em}}{15}{lstnumber.5.13.6}%
+\contentsline {section}{\numberline {5.3}Divisibility}{16}{section.5.3}%
+\contentsline {subsection}{\texttt {extended-euclid.h}\hspace {0.2em}}{16}{section.5.3}%
+\contentsline {subsection}{\texttt {division-lemma.h}\hspace {0.2em}}{16}{lstnumber.5.13.6}%
 \contentsline {subsection}{\texttt {prime-factors.h}\hspace {0.2em}}{16}{lstnumber.5.14.15}%
 \contentsline {subsection}{\texttt {divisors.h}\hspace {0.2em}}{16}{lstnumber.5.15.25}%
 \contentsline {subsection}{\texttt {num-div.h}\hspace {0.2em}}{16}{lstnumber.5.16.14}%
@@ -119,7 +119,7 @@
 \contentsline {subsection}{\numberline {5.6.1}Prime counting function ($\pi (x)$)}{17}{subsection.5.6.1}%
 \contentsline {subsection}{\numberline {5.6.2}Sum of primes}{17}{subsection.5.6.2}%
 \contentsline {subsection}{\numberline {5.6.3}Moebius Function}{17}{subsection.5.6.3}%
-\contentsline {subsection}{\numberline {5.6.4}Dirichlet Convolution}{17}{subsection.5.6.4}%
+\contentsline {subsection}{\numberline {5.6.4}Dirichlet Convolution}{18}{subsection.5.6.4}%
 \contentsline {subsection}{\texttt {dirichlet-convolution.h}\hspace {0.2em}}{18}{Item.6}%
 \contentsline {subsection}{\numberline {5.6.5}Estimates}{18}{subsection.5.6.5}%
 \contentsline {chapter}{\numberline {6}Combinatorial}{18}{chapter.6}%
@@ -136,7 +136,7 @@
 \contentsline {subsection}{\numberline {6.1.4}Involutions}{18}{subsection.6.1.4}%
 \contentsline {subsection}{\numberline {6.1.5}Inclusion-Exclusion Principle}{18}{subsection.6.1.5}%
 \contentsline {subsection}{\numberline {6.1.6}The twelvefold way (from Stanley)}{18}{subsection.6.1.6}%
-\contentsline {subsection}{\numberline {6.1.7}Burnside}{18}{subsection.6.1.7}%
+\contentsline {subsection}{\numberline {6.1.7}Burnside}{19}{subsection.6.1.7}%
 \contentsline {subsection}{\numberline {6.1.8}Derangements}{19}{subsection.6.1.8}%
 \contentsline {section}{\numberline {6.2}Partitions and subsets}{19}{section.6.2}%
 \contentsline {subsection}{\numberline {6.2.1}Partition function}{19}{subsection.6.2.1}%
@@ -151,7 +151,7 @@
 \contentsline {subsection}{\numberline {6.3.8}Super Catalan numbers}{19}{subsection.6.3.8}%
 \contentsline {subsection}{\numberline {6.3.9}Motzkin numbers}{19}{subsection.6.3.9}%
 \contentsline {subsection}{\numberline {6.3.10}Narayana numbers}{19}{subsection.6.3.10}%
-\contentsline {subsection}{\numberline {6.3.11}Schroder numbers}{19}{subsection.6.3.11}%
+\contentsline {subsection}{\numberline {6.3.11}Schroder numbers}{20}{subsection.6.3.11}%
 \contentsline {subsection}{\numberline {6.3.12}Triangles}{20}{subsection.6.3.12}%
 \contentsline {section}{\numberline {6.4}Fibonacci}{20}{section.6.4}%
 \contentsline {section}{\numberline {6.5}Linear Recurrences}{20}{section.6.5}%
@@ -227,7 +227,7 @@
 \ttl@starttoc {chapters@8}
 \contentsline {section}{\numberline {8.1}Geometric primitives}{28}{section.8.1}%
 \contentsline {subsection}{\texttt {Point.h}\hspace {0.2em}}{28}{section.8.1}%
-\contentsline {subsection}{\texttt {LineDistance.h}\hspace {0.2em}}{28}{lstnumber.8.1.27}%
+\contentsline {subsection}{\texttt {LineDistance.h}\hspace {0.2em}}{29}{lstnumber.8.1.27}%
 \contentsline {subsection}{\texttt {SegmentDistance.h}\hspace {0.2em}}{29}{lstnumber.8.2.4}%
 \contentsline {subsection}{\texttt {SegmentIntersection.h}\hspace {0.2em}}{29}{lstnumber.8.3.5}%
 \contentsline {subsection}{\texttt {SegmentIntersectionQ.h}\hspace {0.2em}}{29}{lstnumber.8.4.13}%
