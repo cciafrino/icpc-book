@@ -9,7 +9,7 @@
  */
 #include<../data-structures/rmq.h>
 #include<../various/random-numbers.h>
-struct suffix_array_t {
+struct suffix_array_t { ///start-hash
 	int N, H; vector<int> sa, invsa, lcp;
 	rmq_t<pair<int, int>> rmq;
 	bool cmp(int a, int b) { return invsa[a+H] < invsa[b+H]; }
@@ -25,8 +25,8 @@ struct suffix_array_t {
 		if (hi-lo == 1) sa[lo] = -1;
 		ternary_sort(hi, b);
 	}
-	suffix_array_t() {}
-	template<typename I>
+	suffix_array_t() {} ///end-hash
+	template<typename I> ///start-hash
 	suffix_array_t(I begin, I end): N(int(end-begin)+1), sa(N) {
 		vector<int> v(begin, end); v.push_back(INT_MIN);
 		invsa = v; iota(sa.begin(), sa.end(), 0);
@@ -45,20 +45,20 @@ struct suffix_array_t {
 		vector<pair<int, int>> lcp_index(N-1);
 		for (int i = 0; i < N-1; ++i) lcp_index[i] = {lcp[i], 1+i};
 		rmq = rmq_t<pair<int, int>>(std::move(lcp_index));
-	}
+	} ///end-hash
 	auto rmq_query(int a, int b) const {return rmq.query(a,b);}
 	auto get_split(int a, int b) const {return rmq.query(a,b-1);}
-	int get_lcp(int a, int b) const {
+	int get_lcp(int a, int b) const { ///start-hash
 		if (a == b) return N - a;
 		a = invsa[a], b = invsa[b];
 		if (a > b) swap(a, b);
 		return rmq_query(a, b).first;
-	}
+	} ///end-hash
 };
 vector<vector<int>> ch(2*N+1); int V = 0;
 vector<array<int, 2>> sa_range(2*N+1);
-vector<int> leaves(N+1), par(2*N+1), depth(2*N+1);
-auto dfs = [&](auto&& self, int lo, int hi, int prv)-> void{
+vector<int> leaves(N+1), par(2*N+1), depth(2*N+1); ///start-hash
+auto dfs = [&](auto&& self, int lo, int hi, int prv)-> void{ 
 	int cur = V++; par[cur] = prv;
 	if (prv != -1) ch[prv].push_back(cur);
 	sa_range[cur] = {lo, hi};
@@ -74,4 +74,4 @@ auto dfs = [&](auto&& self, int lo, int hi, int prv)-> void{
 			self(self, mi, nmi, cur); mi = nmi;
 		} self(self, mi, hi, cur);
 	}
-}; dfs(dfs, 0, N+1, -1);
+}; dfs(dfs, 0, N+1, -1); ///end-hash

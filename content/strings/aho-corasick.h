@@ -4,7 +4,7 @@
  * Description:
  * Status: tested
  */
-const int sigma = 26;
+const int sigma = 26; ///start-hash
 array<int, sigma> init;
 for (int i = 0; i < sigma; i++) init[i] = -1;
 vector<array<int, sigma>> trie(1, init);
@@ -21,9 +21,9 @@ for (int i = 0; i < n; i++) {
 	}
 	if (out[cur] == -1) out[cur] = i;
 	ids[i] = out[cur];
-}
+} ///end-hash
 vector<int> bfs,f(trie.size()); bfs.reserve(trie.size());
-for (int c = 0; c < sigma; c++)
+for (int c = 0; c < sigma; c++) ///start-hash
 	if (trie[0][c] == -1) trie[0][c] = 0;
 	else bfs.push_back(trie[0][c]);
 for (int z = 0; z < (int)bfs.size() ; z++) {
@@ -39,4 +39,4 @@ for (int z = 0; z < (int)bfs.size() ; z++) {
 			f[nxt] = fail; bfs.push_back(nxt);
 		}
 	}
-}
+} ///end-hash
