@@ -9,7 +9,7 @@
  * Time: O(N \log N)
  * Status: tested
  */
-void FST(vector<int> &a, bool inv) {///start-hash
+void FST(vector<int> &a, bool inv) {
 	for (int n = a.size(), step = 1; step < n; step *= 2) {
 		for (int i = 0; i < n; i += 2 * step) for(int j = i; j < i+step; ++j) {
 			int &u = a[j], &v = a[j + step]; tie(u, v) =
@@ -19,9 +19,9 @@ void FST(vector<int> &a, bool inv) {///start-hash
 		}
 	}
 	if (inv) for(auto &x : a) x /= a.size(); // XOR only
-}///end-hash
-vector<int> conv(vector<int> a, vector<int> b) {///start-hash
+}
+vector<int> conv(vector<int> a, vector<int> b) {
 	FST(a, 0); FST(b, 0);
 	for(int i = 0; i < a.size(); ++i) a[i] *= b[i];
 	FST(a, 1); return a;
-}///end-hash
+}

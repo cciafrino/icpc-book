@@ -2,7 +2,7 @@
  * Author: Chris
  * Description: Examples of Segment Tree with Lazy update
  */
-template<typename T = int64_t> struct seg_node {
+template<typename T = int64_t> struct seg_node {///start-hash
 	T val, lz_add, lz_set;
 	int sz; bool to_set;
 	seg_node(T n = 0) : val(n), lz_add(0), lz_set(0), sz(1), to_set(0) {}
@@ -26,11 +26,11 @@ template<typename T = int64_t> struct seg_node {
 		lz_set = v; to_set = true; return true;
 	}
 	T get_sum() const { return val; } // sum a[l, r)
-};
+};///end-hash
 // update range a[i] <- a[i] + b * (i - s) + c
 // assuming b and c are non zero, be careful
 // get sum a[l, r)
-template<typename T = int64_t> struct seg_node {
+template<typename T = int64_t> struct seg_node {///start-hash
 	T sum, lzB, lzC;
 	int sz, idx;
 	seg_node(int id = 0, T v = 0, int s = 0, T b = 0, T c = 0) : 
@@ -49,11 +49,10 @@ template<typename T = int64_t> struct seg_node {
 		lzB += b, lzC += c; return true;
 	}
 	T get_sum() const { return sum; }
-};
-
+};///end-hash
 // update range a[i] <- b * a[i] + c
 // get sum a[l, r)
-struct seg_node {
+struct seg_node {///start-hash
 	int sz; i64 sum, lzB, lzC;
 	seg_node() : sz(1), sum(0), lzB(1), lzC(0) {}
 	seg_node(i64 v) : sz(1), sum(v), lzB(1), lzC(0) {}
@@ -69,11 +68,11 @@ struct seg_node {
 		lzC = (lzC * b + c); return true;
 	}
 	i64 get_sum() const { return sum; }
-};
+};///end-hash
 // update range a[i] <- min(a[i], b);
 // update range a[i] <- max(a[i], b);
 // get val a[i]
-struct seg_node {
+struct seg_node {///start-hash
 	int mn, mx;
 	int lz0, lz1;
 	seg_node() : mn(INT_MAX), mx(INT_MIN), lz0(INT_MAX), lz1(INT_MIN) {}
@@ -94,9 +93,9 @@ struct seg_node {
 		mn = lz0 = max(lz0, lz1); return true;
 	}
 	pair<int, int> get() const { return {mx, mn}; }
-};
+};///end-hash
 
-template<typename T> struct lazy_t {
+template<typename T> struct lazy_t {///start-hash
 	T a, b, c;
 	lazy_t() : a(0), b(-INF), c(+INF) {}
 	lazy_t(T a, T b, T c) : a(a), b(b), c(c) {}
@@ -111,8 +110,8 @@ template<typename T> struct lazy_t {
 		if (b < val) b = val;
 		if (c < val) c = val;
 	}
-};
-template<typename T = int64_t> struct seg_node { 
+};///end-hash
+template<typename T = int64_t> struct seg_node {///start-hash
 	T mi, mi2, ma, ma2, sum;
 	T cnt_mi, cnt_ma, sz;
 	lazy_t<T> lz;
@@ -125,8 +124,8 @@ template<typename T = int64_t> struct seg_node {
 	bool can_apply(const lazy_t<T>& f) {
 		if (!add(f.a) || !upd_max(f.b) || !upd_min(f.c)) return false;
 		return true;
-	}
-	void merge(const seg_node& l, const seg_node& r) {
+	} ///end-hash
+	void merge(const seg_node& l, const seg_node& r) {///start-hash
 		mi = min(l.mi, r.mi);
 		mi2 = min((l.mi == mi) ? l.mi2 : l.mi, (r.mi == mi) ? r.mi2 : r.mi);
 		cnt_mi = ((l.mi == mi) ? l.cnt_mi : 0) + ((r.mi == mi) ? r.cnt_mi : 0);
@@ -135,8 +134,8 @@ template<typename T = int64_t> struct seg_node {
 		cnt_ma = ((l.ma == ma) ? l.cnt_ma : 0) + ((r.ma == ma) ? r.cnt_ma : 0);
 		sum = l.sum + r.sum;
 		sz = l.sz + r.sz;
-	}
-	bool add(T v) { // a_i = a_i + v
+	}///end-hash
+	bool add(T v) { // a_i = a_i + v ///start-hash
 		if (v) {
 			mi += v;
 			if (mi2 < INF) mi2 += v;
@@ -146,8 +145,8 @@ template<typename T = int64_t> struct seg_node {
 			lz.add(v);
 		}
 		return true;
-	}
-	bool upd_max(T v) { // a_i = max(a_i, v)
+	}///end-hash
+	bool upd_max(T v) { // a_i = max(a_i, v) ///start-hash   
 		if (v > -INF) {
 			if (v >= mi2) return false;
 			else if (v > mi) {
@@ -159,8 +158,8 @@ template<typename T = int64_t> struct seg_node {
 			}
 		}
 		return true;
-	}
-	bool upd_min(T v) { // a_i = min(a_i, v)
+	}///end-hash
+	bool upd_min(T v) { // a_i = min(a_i, v) ///start-hash
 		if (v < INF) {
 			if (v <= ma2) return false;
 			else if (v < ma) {
@@ -172,6 +171,6 @@ template<typename T = int64_t> struct seg_node {
 			}
 		}
 		return true;
-	}
+	} ///end-hash
 	T get_sum() const { return sum; } // sum a[l, r)
 };
