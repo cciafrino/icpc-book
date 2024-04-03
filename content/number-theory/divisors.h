@@ -8,7 +8,7 @@
 template<typename T> vector<T> get_divisors(T N) {
 	auto factors = prime_factorize(N);
 	vector<T> ans; ans.reserve(int(sqrtl(N) + 1));
-	auto dfs = [&](auto&& self, auto& ans, T val, int d) -> void{
+	auto dfs = [&](auto&& self, auto& ans, T val, int d)->void {
 		auto& [P, E] = factors[d];
 		if (d == int(factors.size())) ans.push_back(val);
 		else {

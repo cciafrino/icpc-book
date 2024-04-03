@@ -13,7 +13,7 @@
  * Time: O(\sqrt{V}E)
  */
 using vi = vector<int>;
-bool dfs(int a, int L, const vector<vi> &g, vi &btoa, vi &A, vi &B) {
+bool dfs(int a, int L, const vector<vi> &g, vi &btoa, vi &A, vi &B) { ///start-hash
 	if (A[a] != L) return 0;
 	A[a] = -1;
 	for(auto &b : g[a]) if (B[b] == L + 1) {
@@ -22,8 +22,8 @@ bool dfs(int a, int L, const vector<vi> &g, vi &btoa, vi &A, vi &B) {
 			return btoa[b] = a, 1;
 	}
 	return 0;
-}
-int hopcroftKarp(const vector<vi> &g, vi &btoa) {
+} ///end-hash
+int hopcroftKarp(const vector<vi> &g, vi &btoa) { ///start-hash
 	int res = 0;
 	vector<int> A(g.size()), B(int(btoa.size())), cur, next;
 	for (;;) {
@@ -46,4 +46,4 @@ int hopcroftKarp(const vector<vi> &g, vi &btoa) {
 		for(int a = 0; a < int(g.size()); ++a)
 			res += dfs(a, 0, g, btoa, A, B);
 	}
-}
+} ///end-hash

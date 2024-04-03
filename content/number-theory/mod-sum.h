@@ -13,7 +13,7 @@
 typedef unsigned long long ull;
 ull sumsq(ull to) { return to / 2 * ((to-1) | 1); }
 /// ^ written in a weird way to deal with overflows correctly
-ull divsum(ull to, ull c, ull k, ull m) {
+ull divsum(ull to, ull c, ull k, ull m) { ///start-hash
 	ull res = k / m * sumsq(to) + c / m * to;
 	k %= m; c %= m;
 	if (k) {
@@ -22,8 +22,8 @@ ull divsum(ull to, ull c, ull k, ull m) {
 		res -= divsum(to2, m-1 - c, m, k) + to2;
 	}
 	return res;
-}
-lint modsum(ull to, lint c, lint k, lint m) {
+} ///end-hash
+lint modsum(ull to, lint c, lint k, lint m) { ///start-hash
 	c = ((c % m) + m) % m; k = ((k % m) + m) % m;
 	return to * c + k * sumsq(to) - m * divsum(to, c, k, m);
-}
+} ///end-hash

@@ -11,7 +11,7 @@
 #include "../data-structures/dsu-rollback.h"
 struct Edge { int a, b; ll w; };
 struct Node { /// lazy skew heap node
-	Edge key;
+	Edge key; ///start-hash
 	Node *l, *r; ll delta;
 	void prop() {
 		key.w += delta;
@@ -27,7 +27,7 @@ Node *merge(Node *a, Node *b) {
 	if (a->key.w > b->key.w) swap(a, b);
 	swap(a->l, (a->r = merge(b, a->r)));
 	return a;
-}
+} ///end-hash
 void pop(Node*& a) { a->prop(); a = merge(a->l, a->r); }
 auto dmst(int n, int r, vector<Edge>& g) { /// start-hash
 	RollbackUF uf(n);

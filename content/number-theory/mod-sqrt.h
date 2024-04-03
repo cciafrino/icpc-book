@@ -7,7 +7,7 @@
  * Time: O(\log^2 p) worst case, O(\log p) for most $p$
  * Status: Tested for all a,p <= 10000
  */
-int jacobi(ll a, ll m) { // Jacobi symbol (a/m)
+int jacobi(ll a, ll m) { ///start-hash
 	int s = 1;
 	if (a < 0) a = a % m + m;
 	for (; m > 1; ) {
@@ -17,8 +17,8 @@ int jacobi(ll a, ll m) { // Jacobi symbol (a/m)
 		a >>= r; if (a & m & 2) s = -s;
 		swap(a, m);
 	} return s;
-}
-vector<ll> mod_sqrt(ll a, ll p) {
+} ///end-hash
+vector<ll> mod_sqrt(ll a, ll p) { ///start-hash
 	if (p == 2) return {a & 1};
 	const int j = jacobi(a, p);
 	if (j == 0) return {0};
@@ -39,4 +39,4 @@ vector<ll> mod_sqrt(ll a, ll p) {
 		f1 = (2 * f0 * f1) % p; f0 = tmp;
 	}
 	return (g0<p-g0) ? vector<ll>{g0,p-g0} : vector<ll>{p-g0,g0};
-}
+} ///end-hash

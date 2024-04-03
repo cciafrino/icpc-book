@@ -40,7 +40,7 @@
 #include "mod-mul.h"
 #include "extended-euclid.h"
 #include "miller-rabin.h"
-ull pollard(ull n) {
+ull pollard(ull n) { ///start-hash
 	auto f = [n](ull x, ull k) { return modmul(x, x, n) + k; };
 	ull x = 0, y = 0, t = 30, prd = 2, i = 1, q;
 	while (t++ % 40 || gcd(prd, n) == 1) {
@@ -49,11 +49,11 @@ ull pollard(ull n) {
 		x = f(x, i), y = f(f(y, i), i);
 	}
 	return gcd(prd, n);
-}
-vector<ull> factor(ull n) {
+} ///end-hash
+vector<ull> factor(ull n) { ///start-hash
 	if (n == 1) return {};
 	if (isPrime(n)) return {n};
 	ull x = pollard(n); auto l = factor(x), r = factor(n/x);
 	l.insert(l.end(), r.begin(), r.end());
 	return l;
-}
+} ///end-hash

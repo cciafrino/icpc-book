@@ -18,7 +18,7 @@ struct bm_t {
 	bm_t(int a, int b) : N(a), M(a+b), T(0), adj(M),
 	match(M, -1), seen(M, -1) {}
 	void add_edge(int a, int b) { adj[a].push_back(b + N); }
-	bool dfs(int cur) {
+	bool dfs(int cur) { ///start-hash
 		if (seen[cur] == T) return false;
 		seen[cur] = T;
 		for (int nxt : adj[cur]) if (match[nxt] == -1) {
@@ -30,8 +30,8 @@ struct bm_t {
 			return true;
 		}
 		return false;
-	}
-	int solve() {
+	} ///end-hash
+	int solve() { ///start-hash
 		int res = 0;
 		for (int cur = 1; cur; ) {
 			cur = 0; ++T;
@@ -40,5 +40,5 @@ struct bm_t {
 			res += cur;
 		}
 		return res;
-	}
+	} ///end-hash
 };

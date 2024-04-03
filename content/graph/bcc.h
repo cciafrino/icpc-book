@@ -16,7 +16,7 @@
  *    g[b].emplace_back(a, e_id++); }
  *  bcc_t b(g); b.solve([\&](const vector<int>\& edges_id) {...});
  */
-struct bcc_t{
+struct bcc_t {
     int n, t;
     vector<vector<pii>> adj;
     vector<int> low, id, stk, is_art;
@@ -26,7 +26,7 @@ struct bcc_t{
         id[cur] = low[cur] = t++;
         stk.push_back(e_par); int c = 0;
         for (auto [nxt, e_id] : adj[cur]) {
-            if (id[nxt] == -1) {
+            if (id[nxt] == -1) { ///start-hash
                 dfs(nxt, e_id, f);
                 low[cur] = min(low[cur], low[nxt]); c++;
                 if (low[nxt] < id[cur]) continue;
@@ -38,7 +38,7 @@ struct bcc_t{
             else if (e_id != e_par) {
                 low[cur] = min(low[cur], id[nxt]);
                 if (id[nxt] < id[cur]) stk.push_back(e_id);
-            }
+            } ///end-hash
         } if(e_par == -1) is_art[cur] = (c > 1) ? true : false;
     }
     template<class F> void solve(F f) {
@@ -47,22 +47,22 @@ struct bcc_t{
     }
     auto blockcut(const vector<pii> &edges){
         vector<vector<int>> cc; vector<int> cc_id(n,-1);
-        solve( [&](const vector<int> &c) {
+        solve( [&](const vector<int> &c) { ///start-hash
             set<int> vc;
             for(int e : c){
                 auto [a, b] = edges[e];
                 cc_id[a] = cc_id[b] = int(cc.size());
                 vc.insert(a); vc.insert(b);
             } cc.emplace_back(vc.begin(), vc.end());
-        } );
+        } ); ///end-hash
         for(int a = 0; a < n; a++) if(is_art[a])
             cc_id[a] = int(cc.size()), cc.push_back({a});
-        int bcc_num = int(cc.size());
+        int bcc_num = int(cc.size()); ///start-hash
         vector<vector<int>> tree(bcc_num);
         for(int c = 0; c < bcc_num && 1<int(cc[c].size()); ++c)
             for(int a : cc[c]) if(is_art[a]) {
                 tree[c].push_back(cc_id[a]);
                 tree[cc_id[a]].push_back(c);
             } return make_tuple(cc_id, cc, tree);
-    }
+    } ///end-hash
 };

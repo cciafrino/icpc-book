@@ -14,7 +14,7 @@ int count_cycles(const vector<vi>& adj, const vi& deg) {
 	vector<vi> gr(N);
 	for (int a = 0; a < N; ++a) for (int b : adj[a])
 		if (loc[a] < loc[b]) gr[a].push_back(b);
-	int cycle3 = 0, cycle4 = 0;
+	int cycle3 = 0, cycle4 = 0; ///start-hash
 	{
 		vector<bool> seen(N, false);
 		for (int a = 0; a < N; ++a) {
@@ -34,5 +34,5 @@ int count_cycles(const vector<vi>& adj, const vi& deg) {
 				}
 			for (int b : adj[a]) for (int c : gr[b]) cnt[c] = 0;
 		}
-	} return cycle3;
+	} return cycle3; ///end-hash
 }

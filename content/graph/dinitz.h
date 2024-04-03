@@ -9,7 +9,7 @@
  * for $u \subset B$, $lvl[u] = 0$.
  * Status: Tested, stress-tested
  */
-template<typename T = int> struct Dinitz {
+template<typename T = int> struct Dinitz { ///start-hash
 	struct edge_t { int to, rev; T c, f; };
 	vector<vector<edge_t>> adj;
 	vector<int> lvl, ptr, q;
@@ -17,7 +17,7 @@ template<typename T = int> struct Dinitz {
 	inline void addEdge(int a, int b, T c, T rcap = 0) {
 		adj[a].push_back({b, (int)adj[b].size(), c, 0});
 		adj[b].push_back({a, (int)adj[a].size() - 1, rcap, 0});
-	}
+	} ///end-hash
 	T dfs(int v, int t, T f) {///start-hash
 		if (v == t || !f) return f;
 		for (int &i = ptr[v]; i < int(adj[v].size()); ++i) {
@@ -40,7 +40,7 @@ template<typename T = int> struct Dinitz {
 					if (!lvl[e.to] && (e.c - e.f) >> (30 - L))
 						q[qe++] = e.to, lvl[e.to] = lvl[v] + 1;
 			}
-			while(T p =dfs(s, t, numeric_limits<T>::max()/4))flow+=p;
+			while(T p =dfs(s,t,numeric_limits<T>::max()/4)) flow+=p;
 		} while (lvl[t]);
 		return flow;
 	}///end-hash 

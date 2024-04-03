@@ -14,13 +14,13 @@
  * Status: fuzz-tested for n <= 300
  */
 typedef double dbl; // for N ~ 1e7; long double for N ~ 1e9
-pair<ll, ll> approximate(dbl x, ll N) { /// start-hash
+pair<ll, ll> approximate(dbl x, ll N) { 
 	ll LP = 0, LQ = 1, P = 1, Q = 0, inf = ll(1e18); dbl y = x;
 	for (;;) {
 		ll lim = min(P ? (N-LP) / P : inf, Q ? (N-LQ) / Q : inf),
 		   a = (ll)floor(y), b = min(a, lim),
 		   NP = b*P + LP, NQ = b*Q + LQ;
-		if (a > b) {
+		if (a > b) { ///start-hash
 			// If b > a/2, we have a semi-convergent that gives us a
 			// better approximation; if b = a/2, we *may* have one.
 			// Return {P, Q} here for a more canonical approximation.
@@ -29,5 +29,5 @@ pair<ll, ll> approximate(dbl x, ll N) { /// start-hash
 		}
 		if (abs(y = 1/(y - (dbl)a)) > 3*N) return {NP, NQ};
 		LP = P; P = NP; LQ = Q; Q = NQ;
-	}
-}/// end-hash
+	} /// end-hash
+}

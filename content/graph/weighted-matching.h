@@ -16,7 +16,7 @@ pair<int, vector<int>> hungarian(const vector<vector<int>> &a){
 	if (a.empty()) return {0, {}};
 	int n = a.size() + 1, m = a[0].size() + 1;
 	vector<int> u(n), v(m), p(m), ans(n - 1);
-	for(int i = 1; i < n; ++i) {
+	for(int i = 1; i < n; ++i) { ///start-hash
 		p[0] = i; int j0 = 0; // add "dummy" worker 0
 		vector<int> dist(m, INT_MAX), pre(m, -1);
 		vector<bool> done(m + 1);
@@ -36,7 +36,7 @@ pair<int, vector<int>> hungarian(const vector<vector<int>> &a){
 		while (j0) { // update alternating path
 			int j1 = pre[j0]; p[j0] = p[j1], j0 = j1;
 		}
-	}
+	} ///end-hash
 	for(int j = 1; j < m; ++j) if (p[j]) ans[p[j]-1] = j-1;
 	return {-v[0], ans}; // min cost
 }

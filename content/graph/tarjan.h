@@ -13,7 +13,7 @@ struct scc_t {
     vector<int> low, id, stk, in_stk, cc_id;
     scc_t(const auto& g) : n(int(g.size())), t(0), scc_num(0),
     adj(g), low(n,-1), id(n,-1), in_stk(n, false), cc_id(n) {}
-    template<class F> void dfs(int cur, F f) {
+    template<class F> void dfs(int cur, F f) { ///start-hash
         id[cur] = low[cur] = t++;
         stk.push_back(cur); in_stk[cur] = true;
         for (int nxt : adj[cur])
@@ -30,7 +30,7 @@ struct scc_t {
                 if (v == cur) break;
             } f(cc); scc_num++;
         }
-    }
+    } ///end-hash
     template<class F> void solve(F f) {
         stk.reserve(n);
         for (int r = 0; r < n; ++r) if (id[r] == -1) dfs(r, f);

@@ -14,7 +14,7 @@
 typedef Point<int> P;
 pair<vector<array<int, 3>>, int> manhattanMST(vector<P> ps) {
 	vector<int> id(ps.size()); iota(id.begin(), id.end(), 0);
-	vector<array<int, 3>> edges;
+	vector<array<int, 3>> edges; ///start-hash
 	for(int k = 0; k < 4; ++k) {
 		sort(id.begin(), id.end(), [&](int i, int j) {
 			return (ps[i]-ps[j]).x < (ps[j]-ps[i]).y;});
@@ -29,7 +29,7 @@ pair<vector<array<int, 3>>, int> manhattanMST(vector<P> ps) {
 		}
 		if (k & 1) for(auto& p : ps) p.x = -p.x;
 		else for(auto& p : ps) swap(p.x, p.y);
-	}
+	} ///end-hash
 	sort(edges.begin(), edges.end());
 	UF uf(ps.size()); int cost = 0;
 	for (auto e: edges) if (uf.unite(e[1], e[2])) cost += e[0];

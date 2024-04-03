@@ -14,7 +14,7 @@
  * Time: O(N+E), where N is the number of boolean variables, and E is the number of clauses.
  */
 #include "tarjan.h"
-struct TwoSat {
+struct TwoSat { ///start-hash
     int N;
     vector<vector<int>> gr;
     vector<int> values; // 0 = false, 1 = true
@@ -22,11 +22,11 @@ struct TwoSat {
     int add_var() { // (optional)
         gr.emplace_back(); gr.emplace_back();
         return N++;
-    }
-    void either(int f, int j) {
+    } ///end-hash
+    void either(int f, int j) { ///start-hash
         f = max(2*f, -1-2*f); j = max(2*j, -1-2*j);
         gr[f].push_back(j^1); gr[j].push_back(f^1);
-    }
+    } ///end-hash
     void implies(int f, int j) { either(~f, j); }
     void set_value(int x) { either(x, x); }
     void at_most_one(const vector<int>& li) { // (optional)
@@ -38,7 +38,7 @@ struct TwoSat {
             either(~li[i], next); cur = ~next;
         } either(cur, ~li[1]);
     }
-    bool solve() {
+    bool solve() { ///start-hash
         scc_t s(gr);
         s.solve([](const vector<int> &v){ return; } );
         values.assign(N, -1);
@@ -48,5 +48,5 @@ struct TwoSat {
             if (s.cc_id[2*i] < s.cc_id[2*i+1]) values[i] = false;
             else values[i] = true;
         return 1;
-    }
+    } ///end-hash
 };

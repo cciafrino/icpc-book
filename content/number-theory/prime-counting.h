@@ -11,7 +11,7 @@ https://blog.csdn.net/bestFy/article/details/80100244
  */
 struct primes_t {
 	vector<ll> dp, w;
-	ll pi(ll N) {
+	ll pi(ll N) { ///start-hash
 		dp.clear(), w.clear();
 		const int sqrtN = int(sqrt(N));
 		for (ll a = 1, b; a <= N; a = b+1)
@@ -19,14 +19,14 @@ struct primes_t {
 		auto get = [&](ll x) {
 			if (x <= sqrtN) return int(x-1);
 			return int(w.size() - N/x);
-		};
-		reverse(w.begin(), w.end()); dp.reserve(w.size());
-		for (auto& x : w) dp.push_back(x-1);
+		}; ///end-hash
+		reverse(w.begin(), w.end()); dp.reserve(w.size()); 
+		for (auto& x : w) dp.push_back(x-1); ///start-hash
 		for (ll i = 2; i*i <= N; ++i) {
 			if (dp[i-1] == dp[i-2]) continue;
 			for (int j = int(w.size())-1; w[j] >= i*i; --j)
 				dp[j] -= dp[get(w[j]/i)] - dp[i-2];
 		}
-		return dp.back();
+		return dp.back(); ///end-hash
 	}
 };

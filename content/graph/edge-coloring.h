@@ -16,7 +16,7 @@ vector<int> misra_gries(int N, vector<pair<int, int>> eds) {
 	vector<int> cc(N + 1), ret(M), fan(N), free(N), loc;
 	for (auto e : eds) ++cc[e.first], ++cc[e.second];
 	int u, v, ncols = *max_element(cc.begin(), cc.end()) + 1;
-	vector<vector<int>> adj(N, vi(ncols, -1));
+	vector<vector<int>> adj(N, vi(ncols, -1)); ///start-hash
 	for (auto e : eds) {
 		tie(u, v) = e; fan[0] = v; loc.assign(ncols, 0);
 		int at = u, end = u, d, c = free[u], ind = 0, i = 0;
@@ -29,7 +29,7 @@ vector<int> misra_gries(int N, vector<pair<int, int>> eds) {
 			int left = fan[i], right = fan[++i], e = cc[i];
 			adj[u][e] = left; adj[left][e] = u;
 			adj[right][e] = -1; free[right] = e;
-		}
+		} ///end-hash
 		adj[u][d] = fan[i]; adj[fan[i]][d] = u;
 		for (int y : {fan[0], u, end})
 			for (int& z = free[y] = 0; adj[y][z] != -1; z++);

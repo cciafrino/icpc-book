@@ -15,7 +15,7 @@ template<class F> Frac fracBS(F f, ll N) {
 	bool dir = 1, A = 1, B = 1;
 	Frac left{0, 1}, right{1, 1};//right{1,0} to search (0,N]
 	assert(!f(left)); assert(f(right));
-	while (A || B) {
+	while (A || B) { ///start-hash
 		ll adv = 0, step = 1; // move right if dir, else left
 		for (int si = 0; step; (step *= 2) >>= si) {
 			adv += step;
@@ -27,6 +27,6 @@ template<class F> Frac fracBS(F f, ll N) {
 		right.p += left.p * adv; right.q += left.q * adv;
 		dir = !dir; swap(left, right);
 		A = B; B = !!adv;
-	}
+	} ///end-hash
 	return dir ? right : left;
 }
