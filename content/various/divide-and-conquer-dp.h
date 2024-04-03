@@ -6,7 +6,7 @@
  * Status: tested on http://codeforces.com/contest/321/problem/E
  * Time: O((N + (hi-lo)) \log N)
  */
-struct DP { // Modify at will:
+struct DP { ///start-hash
 	vector<int>a, freq;
 	vector<ll>old, cur;
 	ll cnt; int lcur, rcur;
@@ -21,8 +21,8 @@ struct DP { // Modify at will:
 		while(lcur < l) del(lcur++, 0);
 		while(rcur > r) del(--rcur, 1);
 		return cnt;
-	}
-	ll f(int ind, int k) { return old[k] + C(k, ind); }
+	} ///end-hash
+	ll f(int ind, int k) { return old[k] + C(k, ind); } ///start-hash
 	void store(int ind, int k, ll v) { cur[ind] = v; }
 	void rec(int L, int R, int LO, int HI) {
 		if (L >= R) return;
@@ -34,4 +34,4 @@ struct DP { // Modify at will:
 		rec(L, mid, LO, best.second);
 		rec(mid+1, R, best.second, HI);
 	}
-};
+}; ///end-hash

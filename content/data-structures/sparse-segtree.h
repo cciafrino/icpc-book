@@ -7,7 +7,7 @@ const int SZ = 1<<19;
 template<class T> struct node_t {
 	T delta = 0; node_t<T>* c[2];
 	node_t() { c[0] = c[1] = nullptr; }
-	void upd(int pos, T v, int L = 0, int R = SZ-1) { // add v
+	void upd(int pos, T v, int L = 0, int R = SZ-1) { // add v ///start-hash
 		if (L == pos && R == pos) { delta += v; return; }
 		int M = (L + R)>>1;
 		if (pos <= M) {
@@ -19,16 +19,16 @@ template<class T> struct node_t {
 		}
 		delta = 0; 
 		for (int i = 0; i < 2; ++i) if (c[i]) delta += c[i]->delta;
-	}
-	T query(int lx, int rx, int L = 0, int R = SZ-1) { // query sum of segment
+	} ///end-hash
+	T query(int lx, int rx, int L = 0, int R = SZ-1) { // query sum of segment ///start-hash
 		if (rx < L || R < lx) return 0;
 		if (lx <= L && R <= rx) return delta;
 		int M = (L + R)>>1; T res = 0;
 		if (c[0]) res += c[0]->query(lx, rx, L, M);
 		if (c[1]) res += c[1]->query(lx, rx, M+1, R);
 		return res;
-	}
-	void upd(int pos, node_t *a, node_t *b, int L = 0, int R = SZ-1) {
+	} ///end-hash
+	void upd(int pos, node_t *a, node_t *b, int L = 0, int R = SZ-1) { ///start-hash
 		if (L != R) {
 			int M = (L + R)>>1;
 			if (pos <= M) {
@@ -40,5 +40,5 @@ template<class T> struct node_t {
 			}
 		} 
 		delta = (a ? a->delta : 0)+(b ? b->delta : 0);
-	}
+	} ///end-hash
 };

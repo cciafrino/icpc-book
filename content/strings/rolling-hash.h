@@ -8,7 +8,7 @@
  */
 // Arithmetic mod 2^64-1. 2x slower than mod 2^64 
 typedef uint64_t ull;
-struct H {
+struct H { ///start-hash
 	ull x; H(ull x=0) : x(x) {}
 	H operator+(H o) { return x + o.x + (x + o.x < x); }
 	H operator-(H o) { return *this + ~o.x; }
@@ -17,9 +17,9 @@ struct H {
 	ull get() const { return x + !~x; }
 	bool operator==(H o) const { return get() == o.get(); }
 	bool operator<(H o) const { return get() < o.get(); }
-};
+}; ///end-hash
 static const H C = (ll)1e11+3; // (order ~ 3e9; random also ok)
-struct HashInterval {
+struct HashInterval { ///start-hash
 	vector<H> ha, pw;
 	HashInterval(string& str) : ha(int(str.size())+1), pw(ha) {
 		pw[0] = 1;
@@ -30,8 +30,8 @@ struct HashInterval {
 	H operator()(int a, int b) { // hash [a, b)
 		return ha[b] - ha[a] * pw[b - a];
 	}
-};
-vector<H> get_hashes(string& str, int length) {
+}; ///end-hash
+vector<H> get_hashes(string& str, int length) { ///start-hash
 	if (int(str.size()) < length) return {};
 	H h = 0, pw = 1;
 	for(int i = 0; i < length; ++i)
@@ -40,5 +40,5 @@ vector<H> get_hashes(string& str, int length) {
 	for(int  i = length; i < int(str.size()); ++i)
 		ret.push_back(h = h * C + str[i] - pw * str[i-length]);
 	return ret;
-}
+} ///end-hash
 H hash_all(string& s){H h{}; for(char c:s) h=h*C+c;return h;}

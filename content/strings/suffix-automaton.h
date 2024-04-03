@@ -4,13 +4,13 @@
  * Description: Suffix automaton
  * Status: stress-tested 
  */
-template<int offset = 'a'> struct array_state {
+template<int offset = 'a'> struct array_state { ///start-hash
 	array<int, 26> as;
 	array_state() { fill(begin(as), end(as), ~0); }
 	int& operator[](char c) { return as[c - offset]; }
 	int count(char c) { return (~as[c - offset] ? 1 : 0); }
-};
-template<typename C, typename state = map<C, int>> struct suffix_automaton {
+}; ///end-hash
+template<typename C, typename state = map<C, int>> struct suffix_automaton { ///start-hash
 	struct node_t {
 		int len, link; int64_t cnt; state next;
 	};
@@ -36,4 +36,4 @@ template<typename C, typename state = map<C, int>> struct suffix_automaton {
 			}
 		}
 	}
-};
+}; ///end-hash

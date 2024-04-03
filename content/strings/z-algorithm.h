@@ -5,7 +5,7 @@
  * Time: O(n)
  * Status: stress-tested
  */
-vector<int> Z(const string& S) {
+vector<int> Z(const string& S) { ///start-hash
 	vector<int> z(S.size()); int l = -1, r = -1;
 	for(int i = 1; i < int(S.size()); ++i) {
 		z[i] = i >= r ? 0 : min(r - i, z[i - l]);
@@ -13,7 +13,7 @@ vector<int> Z(const string& S) {
 			z[i]++;
 		if (i + z[i] > r) l = i, r = i + z[i];
 	} return z;
-}
+} ///end-hash
 vector<int> get_prefix(string a, string b) { 
 	string str = a + '@' + b; vector<int> k = z(str);
 	return vector<int>(k.begin() + int(a.size())+1, k.end());
