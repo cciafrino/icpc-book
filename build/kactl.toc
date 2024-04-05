@@ -114,17 +114,17 @@
 \contentsline {subsection}{\numberline {9.1.2}Total lenght of different substrings}{36}{subsection.9.1.2}%
 \contentsline {subsection}{\numberline {9.1.3}Lexicographically $K$-th substring}{36}{subsection.9.1.3}%
 \contentsline {subsection}{\numberline {9.1.4}Smallest cyclic shift}{36}{subsection.9.1.4}%
-\contentsline {subsection}{\numberline {9.1.5}Number of occurrences}{36}{subsection.9.1.5}%
-\contentsline {subsection}{\numberline {9.1.6}First occurence position}{36}{subsection.9.1.6}%
-\contentsline {subsection}{\numberline {9.1.7}All occurence positions}{36}{subsection.9.1.7}%
-\contentsline {chapter}{\numberline {10}Various}{36}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Intervals}{36}{section.10.1}%
+\contentsline {subsection}{\numberline {9.1.5}Number of occurrences}{37}{subsection.9.1.5}%
+\contentsline {subsection}{\numberline {9.1.6}First occurence position}{37}{subsection.9.1.6}%
+\contentsline {subsection}{\numberline {9.1.7}All occurence positions}{37}{subsection.9.1.7}%
+\contentsline {chapter}{\numberline {10}Various}{37}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Intervals}{37}{section.10.1}%
 \contentsline {section}{\numberline {10.2}Misc. algorithms}{37}{section.10.2}%
 \contentsline {section}{\numberline {10.3}Dynamic programming}{39}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Debugging tricks}{40}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Optimization tricks}{40}{section.10.5}%
-\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{40}{subsection.10.5.1}%
-\contentsline {subsection}{\numberline {10.5.2}Pragmas}{40}{subsection.10.5.2}%
+\contentsline {section}{\numberline {10.4}Debugging tricks}{41}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Optimization tricks}{41}{section.10.5}%
+\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{41}{subsection.10.5.1}%
+\contentsline {subsection}{\numberline {10.5.2}Pragmas}{41}{subsection.10.5.2}%
 \contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{41}{section.10.6}%
-\contentsline {section}{\numberline {10.7}Random Numbers}{41}{section.10.7}%
+\contentsline {section}{\numberline {10.7}Random Numbers}{42}{section.10.7}%
 \contentsfinish 

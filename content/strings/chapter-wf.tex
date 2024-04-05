@@ -6,15 +6,18 @@
 \kactlimport{manacher.h}
 \kactlimport{min-rotation.h}
 \kactlimport{rolling-hash.h}
+\kactlimport{tandem-repeats.h}
 % \kactlimport{xor-trie.h}
 % \kactlimport{hashing.h}
 % \kactlimport{modnum-double-hashing.h}
 \kactlimport{aho-corasick.h}
 \kactlimport{suffix-array.h}
 %\kactlimport{suffix-tree.h}
-\kactlimport{suffix-automaton.h}
-
 \section{Suffix Automaton}
+\subsection{Number of occurrences}
+        For each state not created by cloning, initialize $cnt(v) = 1$. 
+        Then, just do a dfs to calculate $cnt(v)$, with $cnt(link(v)) += cnt(v)$
+
 \subsection{Number of different substrings}
         Is the number of paths in the automaton starting at the root.
         $d(v) = 1 + \sum_{v \rightarrow w} d(w)$
@@ -32,9 +35,6 @@
         Construct for string $S + S$. Greedily search 
         the minimal character.
 
-\subsection{Number of occurrences}
-        For each state not created by cloning, initialize $cnt(v) = 1$. 
-        Then, just do a dfs to calculate $cnt(v)$, with $cnt(link(v)) += cnt(v)$
 \subsection{First occurence position}
         When we create a new state $cur$ do $first(pos) = len(cur) - 1$.
         When we clone $q$ as $clone$ do $first(clone) = first(q)$.
@@ -42,3 +42,5 @@
 
 \subsection{All occurence positions}
         From $first(v)$ do a dfs using suffix link, from $link(u)$ go to $u$.
+
+\kactlimport{suffix-automaton.h}

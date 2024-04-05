@@ -288,6 +288,38 @@ vector<P> polygonCut(const vector<P>& poly, P s, P e){
 	}
 	return res;
 }///end-hash
+// Union of several polygons. O(N^2).
+double rat(P a, P b) { return sgn(b.x) ? a.x/b.x : a.y/b.y; }
+double polyUnion(vector<vector<P>>& poly) {
+	double ret = 0;
+	for(int i = 0; i < poly.size(); ++i) 
+		for(int v = 0; v < poly[i].size(); ++v) {
+			P A = poly[i][v], B = poly[i][(v + 1) % poly[i].size()];
+			vector<pair<double, int>> segs = {{0, 0}, {1, 0}};
+			for(int j = 0; j < poly.size(); ++j) if (i != j) {
+				for(int u = 0; u < poly[j].size(); ++u) {
+					P C = poly[j][u], D = poly[j][(u+1) % poly[j].size()];
+					int sc = sideOf(A, B, C), sd = sideOf(A, B, D);
+					if (sc != sd) {
+						double sa = C.cross(D, A), sb = C.cross(D, B);
+						if (min(sc, sd) < 0)
+							segs.emplace_back(sa / (sa-sb), sgn(sc-sd));
+					} else if (!sc && !sd && j<i && sgn((B-A).dot(D-C))>0){
+						segs.emplace_back(rat(C - A, B - A), 1);
+						segs.emplace_back(rat(D - A, B - A), -1);
+					}
+				}
+		}
+		sort(segs.begin(), segs.end());
+		for(auto& s : segs) s.first = min(max(s.first, 0.0), 1.0);
+		double sum = 0; int cnt = segs[0].second;
+		for(int j = 1; j < segs.size(); ++j) {
+			if (!cnt) sum += segs[j].first - segs[j - 1].first;
+			cnt += segs[j].second;
+		}
+		ret += A.cross(B) * sum;
+	} return ret / 2;
+}
 // no collinear points allowed
 vector<P> convexHull(vector<P> pts) {///start-hash
 	if (pts.size() <= 1) return pts;
@@ -348,31 +380,30 @@ vector<P> minkowski_sum(vector<P> A, vector<P> B) {
 	return ans;
 }///end-hash
 // Intersection between a line and a convex polygon (given ccw).
-typedef array<P, 2> Line; ///start-hash
 #define cmp(i,j) sgn(dir.perp().cross(poly[(i)%n]-poly[(j)%n]))
 #define extr(i) cmp(i + 1, i) >= 0 && cmp(i, i - 1 + n) < 0
-int extrVertex(vector<P>& poly, P dir) { 
+int extrVertex(vector<P>& poly, P dir) { ///start-hash
 	int n = poly.size(), left = 0, right = n;
 	if (extr(0)) return 0;
 	while (left + 1 < right) {
 		int m = (left + right) / 2;
 		if (extr(m)) return m;
 		int ls = cmp(left + 1, left), ms = cmp(m + 1, m);
-		(ls < ms || (ls == ms && ls == cmp(left, m)) ? right : left) = m;
+		(ls<ms || (ls==ms && ls==cmp(left, m)) ? right : left)=m;
 	}
 	return left;
 }///end-hash
-#define cmpL(i) sgn(line[0].cross(poly[i], line[1]))///start-hash
-array<int, 2> lineHull(Line line, vector<P>& poly) {
-	int endA = extrVertex(poly, (line[0] - line[1]).perp());
-	int endB = extrVertex(poly, (line[1] - line[0]).perp());
+#define cmpL(i) sgn(a.cross(poly[i], b))
+array<int, 2> lineHull(P a, P b, vector<P>& poly) { ///start-hash
+	int endA = extrVertex(poly, (a - b).perp());
+	int endB = extrVertex(poly, (b - a).perp());
 	if (cmpL(endA) < 0 || cmpL(endB) > 0)
 		return {-1, -1};
 	array<int, 2> res;
 	for(int i = 0; i < 2; ++i) {
 		int left = endB, right = endA, n = poly.size();
 		while ((left + 1) % n != right) {
-			int m = ((left + right + (left < right ? 0 : n)) / 2) % n;
+			int m = ((left + right + (left < right ? 0 : n))/2)%n;
 			(cmpL(m) == cmpL(endB) ? left : right) = m;
 		}
 		res[i] = (left + !cmpL(right)) % n;
@@ -385,7 +416,7 @@ array<int, 2> lineHull(Line line, vector<P>& poly) {
 			case 2: return {res[1], res[1]};
 		}
 	return res;
-}///end-hash
+} ///end-hash
 // Halfplane intersection area
 #define eps 1e-8 
 using P = Point<double>;
@@ -504,11 +535,11 @@ ll solve(const vector<array<int, 4>>&v){
 	}
 	sort(e.begin(), e.end()); int m = (int)ys.size();
 	segtree_range<seg_node>seg(m-1);
-	for(int i=0;i<m-1;i++) seg.at(i) = seg_node(0, ys[i+1] - ys[i]);
+	for(int i=0;i<m-1;i++)seg.at(i)=seg_node(0, ys[i+1]-ys[i]);
 	seg.build();
 	int last = INT_MIN, total = ys[m-1] - ys[0]; ll ans = 0;
 	for(auto [x, y1, y2, c] : e){
-		ans += (ll)(total - seg.query(0, m-1).get_sum()) * (x - last);
+		ans+=(ll)(total-seg.query(0,m-1).get_sum())*(x-last);
 		last = x; seg.update(y1, y2, &seg_node::add, c);
 	}
 	return ans;
@@ -518,11 +549,11 @@ ll solve(const vector<array<int, 4>>&v){
 // or any four are on the same circle, behavior is undefined.
 template<class P, class F> ///start-hash
 void delaunay(vector<P>& ps, F trifun) {
-	if (ps.size() == 3) { int d = (ps[0].cross(ps[1], ps[2]) < 0);
+	if (ps.size() == 3){ int d = (ps[0].cross(ps[1], ps[2]) < 0);
 		trifun(0,1+d,2-d); }
 	vector<P3> p3;
 	for(auto p : ps) p3.emplace_back(p.x, p.y, p.dist2());
-	if (ps.size() > 3) for(auto t: hull3d(p3)) if ((p3[t.b]-p3[t.a]).
+	if(ps.size()>3) for(auto t: hull3d(p3)) if((p3[t.b]-p3[t.a]).
 			cross(p3[t.c]-p3[t.a]).dot(P3(0,0,1)) < 0)
 		trifun(t.a, t.c, t.b);
 } ///end-hash
