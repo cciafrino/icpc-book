@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/number-theory/ModSum.h"
+#include "../../content/number-theory/mod-sum.h"
 
 ll rmod(ll x, ll m) {
 	x %= m;

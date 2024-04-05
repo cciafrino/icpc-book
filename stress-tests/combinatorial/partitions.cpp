@@ -1,15 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-using i64 = int64_t;
+using ll = int64_t;
 
 const int M = 998244353;
-array<i64, 50010> dp;
+array<ll, 50010> dp;
 
 void prep(int N) {
     dp[0] = 1;
     for (int n = 1; n < N; ++n) {
-        i64 sum = 0;
+        ll sum = 0;
         for (int k = 0, l = 1, m = n - 1; ;) {
             sum += dp[m]; if ((m -= (k += 1)) < 0) break;
             sum += dp[m]; if ((m -= (l += 2)) < 0) break;

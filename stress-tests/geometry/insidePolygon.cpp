@@ -8,7 +8,8 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
-
+#include "../../content/geometry/Point.h"
+using P = Point<double>;
 
 const double EPS =1e-8;
 #include "../utilities/genPolygon.h"

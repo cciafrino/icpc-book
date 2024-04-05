@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/strings/string-hashing.h"
+#include "../../content/strings/rolling-hash.h"
 
 typedef uint64_t ull;
 #include"../utilities/random.h"
@@ -23,9 +23,15 @@ void deterministic() {
 void fuzz() {
 	rep(times, 0, 10000) {
 		int n = randIncl(1, 1000);
-		string t, s = randString('a', 'z', n);
+		string t, s;
+		for (int i = 0; i < n; ++i) {
+			s.push_back(char('a' + randIncl(0, 25)));
+		}
 		do {
-			t = randString('a', 'z', n);
+			t.clear();
+			for (int i = 0; i < n; ++i) {
+				t.push_back(char('a' + randIncl(0, 25)));
+			}
 		} while (s == t);
 		string input = s+t+s;
 		HashInterval H(input);

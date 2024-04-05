@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/number-theory/Factor.h"
+#include "../../content/number-theory/pollard-rho.h"
 
 mt19937_64 uni(time(0));
 void assertValid(ull N, vector<ull> prFac){

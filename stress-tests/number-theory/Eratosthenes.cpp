@@ -100,13 +100,14 @@ void measure_kactl(int NUM_CASES) {
       timerEnd - timerBegin).count() << " msec" << endl;
 }
 int main() {
-	//test(1000);
-	auto pr = run_sieve2(10000);
-	for (int i = 0; i <= 20; ++i) {
-		cout << pr[i] << ' ';
-	}
-	cout << endl;
-	//measure_mine(90000);
+	// test(1000);
+	// auto pr = run_sieve2(10000);
+	// for (int i = 0; i <= 20; ++i) {
+	// 	cout << pr[i] << ' ';
+	// }
+	// cout << endl;
+	measure_mine(90000);
 	//measure_chinese(90000);
 	//measure_kactl(90000);
+	cout << "Tests passed!" << endl;
 }

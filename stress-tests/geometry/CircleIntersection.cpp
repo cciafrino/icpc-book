@@ -1,5 +1,7 @@
 #include "../utilities/template.h"
 
+#include "../../content/geometry/Point.h"
+using P = Point<double>;
 #include "../../content/geometry/CircleIntersection.h"
 
 int main() {

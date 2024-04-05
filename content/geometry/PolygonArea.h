@@ -7,15 +7,16 @@
  *  Clockwise enumeration gives negative area. Watch out for overflow if using int as T!
  * Status: Tested with unitTest, Kattis problems polygonarea and wrapping and UVa Online Judge Problem: 109 - SCUD Busters
  */
+#pragma once
 #include "Point.h"
 template<class T>
-T polygonArea(vector<Point<T>> &v) {
+T polygonArea2(vector<Point<T>> &v) {
 	T a = v.back().cross(v[0]);
 	for(int i = 0; i < v.size()-1; ++i) 
 		a += v[i].cross(v[i+1]);
-	return abs(a)/2.0;
+	return a;
 }
-
+template<class T>
 Point<T> polygonCentroid(vector<Point<T>> &v) { // not tested
 	Point<T> cent(0,0); T area = 0;
 	for(int i = 0; i < v.size(); ++i) {

@@ -7,7 +7,7 @@
  * Time: expected O(n)
  * Status: fuzz-tested
  */
-#include "circumcircle.h"
+#include "Circumcircle.h"
 pair<P, double> mec(vector<P> ps) {
 	shuffle(ps.begin(),ps.end(), mt19937(time(0)));
 	P o = ps[0];

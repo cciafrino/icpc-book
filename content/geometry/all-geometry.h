@@ -2,7 +2,7 @@
  * Author: xyz111
  * Date: 2015-09-01
  * License: CC0
- * Description: Geometry 2D Library
+ * Description: Geometry Library
  * Status: somewhat tested
  */
 template <class T> int sgn(T x) { return (x > 0) - (x < 0); }
@@ -251,12 +251,13 @@ bool inPolygon(vector<P> &p, P a, bool strict = true) {
 	return cnt;
 }///end-hash
 template<class T>///start-hash
-T polygonArea(vector<Point<T>> &v) {
+T polygonArea2(vector<Point<T>> &v) {
 	T a = v.back().cross(v[0]);
 	for(int i = 0; i < v.size()-1; ++i)
 		a += v[i].cross(v[i+1]);
-	return abs(a)/2.0;
+	return a;
 }///end-hash
+template<class T>
 Point<T> polygonCentroid(vector<Point<T>> &v){///start-hash
 	Point<T> cent(0,0); T area = 0; 
 	for(int i = 0; i < v.size(); ++i) {
@@ -303,7 +304,7 @@ vector<P> convexHull(vector<P> pts) {///start-hash
 // Two points with the max distance on convex hull (ccw, no
 array<P, 2> hullDiameter(vector<P> S) { // duplicate/collinear) 
 	int n = S.size(), j = n < 2 ? 0 : 1; ///start-hash
-	pair<lint, array<P, 2>> res({0, {S[0], S[0]}});
+	pair<ll, array<P, 2>> res({0, {S[0], S[0]}});
 	for(int i = 0; i < j; ++i)
 		for (;; j = (j + 1) % n) {
 			res = max(res, {(S[i] - S[j]).dist2(), {S[i], S[j]}});
@@ -456,10 +457,10 @@ pair<P, P> closest(vector<P> v) { ///start-hash
 	assert(v.size() > 1);
 	set<P> S;
 	sort(v.begin(), v.end(), [](P a, P b) { return a.y < b.y; });
-	pair<int64_t, pair<P, P>> ret{LLONG_MAX, {P(), P()}};
+	pair<ll, pair<P, P>> ret{LLONG_MAX, {P(), P()}};
 	int j = 0;
 	for(P &p : v) {
-		P d{1 + (int64_t)sqrt(ret.first), 0};
+		P d{1 + (ll)sqrt(ret.first), 0};
 		while (v[j].y <= p.y - d.x) S.erase(v[j++]);
 		auto lo = S.lower_bound(p - d), hi = S.upper_bound(p + d);
 		for (; lo != hi; ++lo)
@@ -488,7 +489,7 @@ struct seg_node{ ///start-hash
 	int get_sum(){ return (val ? 0 : cnt); }
 };
 // x1 y1 x2 y2
-lint solve(const vector<array<int, 4>>&v){
+ll solve(const vector<array<int, 4>>&v){
 	vector<int>ys;
 	for(auto& [a, b, c, d] : v){
 		ys.push_back(b); ys.push_back(d);
@@ -505,9 +506,9 @@ lint solve(const vector<array<int, 4>>&v){
 	segtree_range<seg_node>seg(m-1);
 	for(int i=0;i<m-1;i++) seg.at(i) = seg_node(0, ys[i+1] - ys[i]);
 	seg.build();
-	int last = INT_MIN, total = ys[m-1] - ys[0]; lint ans = 0;
+	int last = INT_MIN, total = ys[m-1] - ys[0]; ll ans = 0;
 	for(auto [x, y1, y2, c] : e){
-		ans += (lint)(total - seg.query(0, m-1).get_sum()) * (x - last);
+		ans += (ll)(total - seg.query(0, m-1).get_sum()) * (x - last);
 		last = x; seg.update(y1, y2, &seg_node::add, c);
 	}
 	return ans;
@@ -517,11 +518,11 @@ lint solve(const vector<array<int, 4>>&v){
 // or any four are on the same circle, behavior is undefined.
 template<class P, class F> ///start-hash
 void delaunay(vector<P>& ps, F trifun) {
-	if (ps.size() == 3){ int d=(ps[0].cross(ps[1], ps[2]) < 0);
+	if (ps.size() == 3) { int d = (ps[0].cross(ps[1], ps[2]) < 0);
 		trifun(0,1+d,2-d); }
 	vector<P3> p3;
-	for(auto &p : ps) p3.emplace_back(p.x, p.y, p.dist2());
-	if (ps.size()>3) for(auto &t: hull3d(p3)) if((p3[t.b]-p3[t.a]).
+	for(auto p : ps) p3.emplace_back(p.x, p.y, p.dist2());
+	if (ps.size() > 3) for(auto t: hull3d(p3)) if ((p3[t.b]-p3[t.a]).
 			cross(p3[t.c]-p3[t.a]).dot(P3(0,0,1)) < 0)
 		trifun(t.a, t.c, t.b);
 } ///end-hash
@@ -587,7 +588,7 @@ vector<F> hull3d(const vector<P3>& A) {///start-hash
 		E(a,b).ins(k); E(a,c).ins(j); E(b,c).ins(i);
 		FS.push_back(f);
 	};
-	for(int i=0;i<4;i++)for(int j=i+1;j<4;j++)for(k=j+1;k<4;k++)
+	for(int i=0;i<4;i++)for(int j=i+1;j<4;j++)for(int k=j+1;k<4;k++)
 		mf(i, j, k, 6 - i - j - k);///end-hash
 	for(int i=4; i<A.size();++i) { ///start-hash
 		for(int j=0;j<FS.size();++j) {

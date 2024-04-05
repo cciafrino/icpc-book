@@ -11,8 +11,9 @@
  * Time: $O(N^2)$, where $N$ is the total number of points
  * Usage:
  */
+#pragma once
 #include "Point.h"
-#include "sideOf.h"
+#include "SideOf.h"
 double rat(P a, P b) { return sgn(b.x) ? a.x/b.x : a.y/b.y; }
 double polyUnion(vector<vector<P>>& poly) {
 	double ret = 0;
@@ -21,7 +22,7 @@ double polyUnion(vector<vector<P>>& poly) {
 			P A = poly[i][v], B = poly[i][(v + 1) % poly[i].size()];
 			vector<pair<double, int>> segs = {{0, 0}, {1, 0}};
 			for(int j = 0; j < poly.size(); ++j) if (i != j) {
-				for(int u = 0; u < poly[j]; ++u) {
+				for(int u = 0; u < poly[j].size(); ++u) {
 					P C = poly[j][u], D = poly[j][(u + 1) % poly[j].size()];
 					int sc = sideOf(A, B, C), sd = sideOf(A, B, D);
 					if (sc != sd) {

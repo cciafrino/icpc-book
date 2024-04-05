@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/number-theory/ContinuedFractions.h"
+#include "../../content/number-theory/continued-fractions.h"
 
 int main() {
 	rep(n,1,300) {

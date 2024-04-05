@@ -3,7 +3,8 @@
  * Date: 2020
  * License: CC0
  * Source: 
- * Description: 2D Segment Tree. 
+ * Description: 2D Segment Tree. For query with manhattan distance $\leq D$, do 
+ * $nx = x+y$ and $ny = x-y$. Update on $(nx, ny)$ and query on $((nx-d, ny-d), (nx+d, ny+d))$
  * Status: Tested on URI 1511 & 2656
  * Time: $O(N\log^2 N)$ of memory, $O(\log^2 N)$ per query
  */

@@ -12,6 +12,7 @@
  * Time: O(n \log n \log k)
  * Status: bruteforce-tested mod 5 for n <= 5
  */
+#pragma once
 #include "../number-theory/modular-arithmetic.h"
 template<typename T> 
 T linear_rec(const vector<T>& S, const vector<T>& tr, ll K) {

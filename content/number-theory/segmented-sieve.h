@@ -15,11 +15,11 @@
  * The line `for (int i=idx; i<S+L; idx = (i += p))` is done on purpose for performance reasons.
  * Se https://github.com/kth-competitive-programming/kactl/pull/166#discussion_r408354338
  */
-const int S = 1e6;
-bitset<S> isPrime;
+const int LIM = 1e6;
+bitset<LIM> isPrime;
 vector<int> eratosthenes() {
-	const int S = round(sqrt(S)), R = S/2;
-	vector<int> pr = {2}, sieve(S+1); pr.reserve(int(S/log(S)*1.1));
+	const int S = round(sqrt(LIM)), R = LIM/2;
+	vector<int> pr = {2}, sieve(S+1); pr.reserve(int(LIM/log(LIM)*1.1));
 	vector<pair<int,int>> cp;
 	for (int i = 3; i <= S; i += 2) if (!sieve[i]) {
 		cp.push_back({i, i*i/2});

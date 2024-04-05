@@ -15,7 +15,7 @@ int main(){
 		lint maxColor = rand()%MAXN;
 		lint iniColor = maxColor ? rand()%maxColor : 0;
 		
-		auto rangeStr = RangeColor<>(l, r, maxColor, iniColor);
+		auto rangeStr = RangeColor<int, int>(l, r, maxColor, iniColor);
 		
 		vector<int> color(r + 1, iniColor);
 		vector<int> freq(maxColor + 1);
@@ -50,6 +50,7 @@ int main(){
 		
 	}
 	
+	cout << "Tests passed!" << endl;
 	
 	return 0;
 }

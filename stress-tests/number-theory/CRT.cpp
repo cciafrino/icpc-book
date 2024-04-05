@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/number-theory/CRT.h"
+#include "../../content/number-theory/chinese-remainder.h"
 
 ll rmod(ll a, ll b) { return (a % b + b) % b; }
 
@@ -21,7 +21,7 @@ int main(int argc, char** argv) {
 		if (n * (__int128_t)m > LLONG_MAX) continue;
 		if (n * (__int128_t)m > (1LL << 62) && (abs(a) > m || abs(b) > n)) continue;
 		if ((a - b) % g == 0) {
-			ll r = crt(a, m, b, n);
+			auto [r, _] = crt(a, m, b, n);
 			if (rmod(r, m) != rmod(a, m) || rmod(r, n) != rmod(b, n)) {
 				cout << a << endl;
 				cout << b << endl;

@@ -8,6 +8,7 @@
  * Time: O(n^2)
  * Status: tested on SPOJ CH3D
  */
+#pragma once
 #include "Point3D.h"
 
 typedef Point3D<double> P3;
@@ -34,7 +35,7 @@ vector<F> hull3d(const vector<P3>& A) {///start-hash
 		E(a,b).ins(k); E(a,c).ins(j); E(b,c).ins(i);
 		FS.push_back(f);
 	};
-	for(int i=0;i<4;i++) for(int j=i+1;j<4;j++) for(k=j+1;k<4;k++)
+	for(int i=0;i<4;i++) for(int j=i+1;j<4;j++) for(int k=j+1;k<4;k++)
 		mf(i, j, k, 6 - i - j - k);
 	///end-hash
 	for(int i=4; i<A.size();++i) { ///start-hash

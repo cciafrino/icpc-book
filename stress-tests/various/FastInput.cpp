@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/various/FastInput.h"
+#include "../../content/various/fast-input.h"
 #include <unistd.h>
 
 constexpr int BUF_SIZE = sizeof(gc.buf);

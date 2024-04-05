@@ -12,6 +12,7 @@
  * Time: O(N^2)
  * Status: bruteforce-tested mod 5 for n <= 5 and all s
  */
+#pragma once
 #include "../number-theory/modular-arithmetic.h"
 
 template <typename num>

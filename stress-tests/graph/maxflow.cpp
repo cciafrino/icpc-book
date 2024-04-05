@@ -1,8 +1,44 @@
 #include "../utilities/template.h"
 
-#include "../../content/graph/PushRelabel.h"
-#include "../../content/graph/Dinitz.h"
-#include "../../content/graph/EdmondsKarp.h"
+#include "../../content/graph/push-relabel.h"
+#include "../../content/graph/dinitz.h"
+
+template<class T> T edmondsKarp(vector<unordered_map<int, T>>&
+		graph, int source, int sink) {
+	assert(source != sink);
+	T flow = 0;
+	vi par(sz(graph)), q = par;
+
+	for (;;) {
+		fill(all(par), -1);
+		par[source] = 0;
+		int ptr = 1;
+		q[0] = source;
+
+		rep(i,0,ptr) {
+			int x = q[i];
+			for (auto e : graph[x]) {
+				if (par[e.first] == -1 && e.second > 0) {
+					par[e.first] = x;
+					q[ptr++] = e.first;
+					if (e.first == sink) goto out;
+				}
+			}
+		}
+		return flow;
+out:
+		T inc = numeric_limits<T>::max();
+		for (int y = sink; y != source; y = par[y])
+			inc = min(inc, graph[par[y]][y]);
+
+		flow += inc;
+		for (int y = sink; y != source; y = par[y]) {
+			int p = par[y];
+			if ((graph[p][y] -= inc) <= 0) graph[p].erase(y);
+			graph[y][p] += inc;
+		}
+	}
+}
 
 // Bump allocator, to speed the test up and get rid of malloc performance noise
 static char buf[1 << 23];
@@ -12,61 +48,6 @@ void* operator new(size_t s) {
 	return (void*)&buf[bufi -= s];
 }
 void operator delete(void*) {}
-
-using Int = long long;
- 
-template <class T1, class T2> ostream &operator<<(ostream &os, const pair<T1, T2> &a) { return os << "(" << a.first << ", " << a.second << ")"; };
-template <class T> void pv(T a, T b) { for (T i = a; i != b; ++i) cerr << *i << " "; cerr << endl; }
-template <class T> bool chmin(T &t, const T &f) { if (t > f) { t = f; return true; } return false; }
-template <class T> bool chmax(T &t, const T &f) { if (t < f) { t = f; return true; } return false; }
- 
- 
-namespace MF {
-	const int LIM_N = 5001001;
-	const int LIM_M = 5001001;
-	typedef int wint;
-	const wint wEPS = 0;
-	const wint wINF = 1001001001;
-	int n, m, ptr[LIM_N], nxt[LIM_M * 2], zu[LIM_M * 2];
-	wint capa[LIM_M * 2], tof;
-	int lev[LIM_N], see[LIM_N], que[LIM_N], *qb, *qe;
-	void init(int _n) {
-		n = _n; m = 0; fill(ptr, ptr + n, -1);
-	}
-	void ae(int u, int v, wint w0, wint w1 = 0) {
-		nxt[m] = ptr[u]; ptr[u] = m; zu[m] = v; capa[m] = w0; ++m;
-		nxt[m] = ptr[v]; ptr[v] = m; zu[m] = u; capa[m] = w1; ++m;
-	}
-	wint augment(int src, int ink, wint flo) {
-		if (src == ink) return flo;
-		for (int &i = see[src]; ~i; i = nxt[i]) if (capa[i] > wEPS && lev[src] < lev[zu[i]]) {
-			const wint f = augment(zu[i], ink, min(flo, capa[i]));
-			if (f > wEPS) {
-				capa[i] -= f; capa[i ^ 1] += f; return f;
-			}
-		}
-		return 0;
-	}
-	bool solve(int src, int ink, wint flo = wINF) {
-		for (tof = 0; tof + wEPS < flo; ) {
-			qb = qe = que; fill(lev, lev + n, -1);
-			for (lev[*qe++ = src] = 0, see[src] = ptr[src]; qb != qe; ) {
-				const int u = *qb++;
-				for (int i = ptr[u]; ~i; i = nxt[i]) if (capa[i] > wEPS) {
-					const int v = zu[i];
-					if (lev[v] == -1) {
-						lev[*qe++ = v] = lev[u] + 1; see[v] = ptr[v];
-						if (v == ink) goto au;
-					}
-				}
-			}
-			return false;
-		au:	for (wint f; (f = augment(src, ink, flo - tof)) > wEPS; tof += f);
-		}
-		return true;
-	}
-}
-
 
 int main() {
 	rep(it,0,1000000) {
@@ -117,7 +98,7 @@ int main() {
 		vector<ll> dinicFlows(n);
 		rep(i,0,n) for(auto &e: dinic.adj[i]) {
 			assert(e.c >= 0);
-			dinicFlows[i] += e.f;
+			// dinicFlows[i] += e.f;
 			dinicFlows[e.to] -= e.f;
 		}
 		assert(flows == dinicFlows);

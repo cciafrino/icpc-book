@@ -17,8 +17,9 @@
  * 	vector<P> p = ...;
  * 	p = polygonCut(p, P(0,0), P(1,0));
  */
+#pragma once
 #include "Point.h"
-#include "lineIntersection.h"
+#include "LineIntersection.h"
 
 vector<P> polygonCut(const vector<P>& poly, P s, P e) {
 	vector<P> res;

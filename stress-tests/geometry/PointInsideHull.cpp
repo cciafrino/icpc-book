@@ -1,5 +1,7 @@
 #include "../utilities/template.h"
 
+#include "../../content/geometry/Point.h"
+using P = Point<double>;
 #include "../../content/geometry/ConvexHull.h"
 namespace ignore {
 	#include "../../content/geometry/SegmentDistance.h"

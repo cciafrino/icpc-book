@@ -16,8 +16,8 @@ Points on the edge of the hull between two other points are not considered part 
  * Status: tested with Kattis problems convexhull
  * Time: O(n \log n)
 */
+#pragma once
 #include "Point.h"
-
 vector<P> convexHull(vector<P> pts) {
 	if (pts.size() <= 1) return pts;
 	sort(pts.begin(), pts.end());

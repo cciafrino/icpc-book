@@ -5,5 +5,5 @@
  */
 template<typename T> T minv(T a, T m) {
 	a %= m; assert(a);
-	return a == 1 ? 1 : T(m - i64(minv(m, a)) * m / a);
+	return a == 1 ? 1 : T(m - ll(minv(m, a)) * m / a);
 }

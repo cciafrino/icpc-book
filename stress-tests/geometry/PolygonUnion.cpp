@@ -4,6 +4,7 @@
 typedef long long ll;
 using namespace std;
 
+
 #define rep(i, a, b) for (int i = a; i < (b); ++i)
 #define all(x) begin(x), end(x)
 #define sz(x) (int)(x).size()
@@ -12,9 +13,14 @@ typedef pair<int, int> pii;
 typedef vector<int> vi;
 
 #include "../../content/geometry/Point.h"
-#include "../../content/geometry/sideOf.h"
+using P = Point<double>;
+
+ostream& operator<<(ostream& os, P p) {
+		return os << "(" << p.x << "," << p.y << ")"; }
+
+#include "../../content/geometry/SideOf.h"
 #include "../../content/geometry/PolygonArea.h"
-#include "../../content/geometry/PolygonUnion.h"
+#include "../../content/geometry/PolyUnion.h"
 #include "../utilities/genPolygon.h"
 #include "../utilities/random.h"
 
@@ -48,7 +54,7 @@ db polygon_union(vector<pt> poly[], int n) {
             segs.emplace_back(0, 0), segs.emplace_back(1, 0);
             for (int j = 0; j < n; ++j)
                 if (i != j) {
-                    for (size_t u = 0; u < poly[j].size(); ++u) {
+                for (size_t u = 0; u < poly[j].size(); ++u) {
                         pt C = poly[j][u], D = poly[j][(u + 1) % poly[j].size()];
                         int sc = sgn(vect(B - A, C - A)), sd = sgn(vect(B - A, D - A));
                         if (!sc && !sd) {

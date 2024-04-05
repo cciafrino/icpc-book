@@ -56,26 +56,27 @@ int main() {
 						adj[i].push_back(j);
 				}
 			}
+			scc_t tarjan(adj);
 			vi comp2 = old::scc(adj);
-			scc(adj, [&](vi& v) {
-				compsize[ncomps] = sz(v);
+			tarjan.solve([&](vi& v) {
+				compsize[tarjan.scc_num] = sz(v);
 			});
-			if (comp != comp2) {
-				for(auto &x: comp) cout << x << ' ';
+			if (tarjan.cc_id != comp2) {
+				for(auto &x: tarjan.cc_id) cout << x << ' ';
 				cout << endl;
 				for(auto &x: comp2) cout << x << ' ';
 				cout << endl;
 			}
-			rep(i,0,N) assert(comp[i] >= 0 && comp[i] < ncomps);
-			rep(i,0,N) for(auto &j: adj[i]) assert(comp[j] <= comp[i]);
+			rep(i,0,N) assert(tarjan.cc_id[i] >= 0 && tarjan.cc_id[i] < tarjan.scc_num);
+			rep(i,0,N) for(auto &j: adj[i]) assert(tarjan.cc_id[j] <= tarjan.cc_id[i]);
 			rep(i,0,N) {
 				seen.assign(N, 0); seen[i] = 1;
 				rep(it,0,N) {
 					rep(j,0,N) if (seen[j]) for(auto &k: adj[j]) seen[k] = 1;
 				}
 				rep(j,0,N) {
-					if (seen[j]) assert(comp[j] <= comp[i]);
-					else assert(comp[j] != comp[i]);
+					if (seen[j]) assert(tarjan.cc_id[j] <= tarjan.cc_id[i]);
+					else assert(tarjan.cc_id[j] != tarjan.cc_id[i]);
 				}
 			}
 

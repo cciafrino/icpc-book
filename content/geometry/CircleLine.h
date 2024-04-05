@@ -8,8 +8,9 @@
  * Point<double>
  * Status: unit tested
  */
+#pragma once
 #include "Point.h"
-#include "lineDistance.h"
+#include "LineDistance.h"
 #include "LineProjectionReflection.h"
 template<class P>
 vector<P> circleLine(P c, double r, P a, P b) {

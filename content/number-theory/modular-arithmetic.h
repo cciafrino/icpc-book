@@ -7,6 +7,7 @@
  * Time:
  * Status: extensively used.
  */
+#pragma once
 #include"mod-inv.h"
 template<unsigned M_> struct modnum {
 	static constexpr unsigned M = M_; using num = modnum;

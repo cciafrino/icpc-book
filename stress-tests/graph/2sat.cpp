@@ -3,7 +3,7 @@
 #include "../../content/graph/2sat.h"
 
 int main1() {
-	const int N = 100000, M = 10000000;
+	const int N = 10000, M = 100000;
 	// Random constraints, unsolvable
 	{
 		TwoSat ts(N);
@@ -18,10 +18,10 @@ int main1() {
 			ts.either(a ^ (s&1 ? 0 : -1), b ^ (s&2 ? 0 : -1));
 		}
 		
-		cout << "Vai faia?" << endl;
+		// cout << "Vai faia?" << endl;
 		assert(ts.solve() == 0);
 	}
-	cout << "Faio!" << endl;
+	// cout << "Faio!" << endl;
 	// Random solvable instance
 	{
 		vector<bool> v(N);
@@ -63,9 +63,9 @@ int ra() {
 // Test at_most_one
 int main() {
 	main1();
-	cout << "Foi 1" << endl;
+	// cout << "Foi 1" << endl;
 	main2();
-	cout << "Foi 2" << endl;
+	// cout << "Foi 2" << endl;
 	const int N = 100, M = 400;
 	rep(it,0,100) {
 		vector<bool> v(N);

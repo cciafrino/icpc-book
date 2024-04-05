@@ -1,5 +1,5 @@
  /**
- * Author: chilli, SJTU, pajenegod
+* Author: chilli, SJTU, pajenegod
  * Date: 2020-03-04
  * License: CC0
  * Source: own
@@ -37,6 +37,7 @@
  *   t starts off as 30 to make the first gcd check come earlier, as an
  *   optimization for small numbers.
  */
+#pragma once
 #include "mod-mul.h"
 #include "extended-euclid.h"
 #include "miller-rabin.h"

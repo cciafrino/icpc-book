@@ -5,10 +5,12 @@
 int main() {
 	srand(2);
 	rep(N,0,100) {
-		vi v(N); 
+		vector<int> v(N+1); 
 		rep(i,0,N) v[i] = i;
 		random_shuffle(all(v));
+		
 		rmq_t<int> rmq(v);
+		// cout << "WHAT" << endl;
 		rep(i,0,N) rep(j,i+1,N+1) {
 			int m = rmq.query(i,j);
 			int n = 1 << 29;

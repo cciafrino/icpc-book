@@ -194,5 +194,7 @@ int main() {
     unittest_inv(); cerr << "PASSED unittest_inv" << endl;
     measurement();
     measurement_pow();
+
+    cout << "Tests passed!" << endl;
     return 0;
 }

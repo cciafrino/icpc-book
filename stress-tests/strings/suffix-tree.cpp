@@ -120,7 +120,8 @@ void dfs(suffix_array_t& us, string& s, int h, int l, int r) {
 int main() {
     cin.tie(nullptr)->sync_with_stdio(false);
     cin.exceptions(cin.failbit | cin.eofbit | cin.badbit);
-    string S = "cattcat";
-    suffix_array_t us(begin(S), end(S));
-    dfs(us, S, 0, 1, size(S));
+    // string S = "cattcat";
+    // suffix_array_t us(begin(S), end(S));
+    // dfs(us, S, 0, 1, size(S));
+    cout << "Skipped: still need to be implemented!" << endl;
 }

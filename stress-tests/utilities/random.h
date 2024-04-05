@@ -121,6 +121,8 @@ template<class T>
 void shuffle_vec(T& vec) {
     random_shuffle(begin(vec), end(vec), [](int lim) { return rand() % lim; });
 }
+
+/*
 // Random integer between l and r (inclusive).
 template<typename T>
 std::enable_if_t<std::is_integral_v<T>, T> randRange(T l, T r) {
@@ -287,4 +289,4 @@ CollectionT randDistinct(const CollectionT& values, int k) {
         samples.push_back(values[i]);
     }
     return samples;
-}
+} */

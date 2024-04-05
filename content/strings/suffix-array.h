@@ -7,8 +7,9 @@
  * Time: $O(N \log N)$ where $N$ is the length of the string
  * for creation of the SA. $O(N)$ for longest common prefixes.
  */
-#include<../data-structures/rmq.h>
-#include<../various/random-numbers.h>
+#pragma once
+#include"../data-structures/rmq.h"
+// #include"../various/random-numbers.h"
 struct suffix_array_t { ///start-hash
 	int N, H; vector<int> sa, invsa, lcp;
 	rmq_t<pair<int, int>> rmq;

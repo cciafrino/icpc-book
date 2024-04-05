@@ -1,12 +1,14 @@
 #include "../utilities/template.h"
 
 // #define TEST_PERF
-
+#include "../../content/geometry/Point.h"
+using P = Point<ll>;
 #include "../../content/geometry/ConvexHull.h"
 #include "../../content/geometry/PolygonArea.h"
 
+using P2 = Point<double>;
 #define P P2
-#include "../../content/geometry/circumcircle.h"
+#include "../../content/geometry/Circumcircle.h"
 #undef P
 
 P2 top(P x) { return P2((double)x.x, (double)x.y); }

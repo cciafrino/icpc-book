@@ -11,7 +11,7 @@
  * Time: O(\log N)
  */
 #include "Point.h"
-#include "sideOf.h"
+#include "SideOf.h"
 #include "OnSegment.h"
 
 bool inHull(const vector<P> &l, P p, bool strict = true) {

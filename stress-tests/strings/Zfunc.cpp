@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/strings/Zfunc.h"
+#include "../../content/strings/z-algorithm.h"
 
 template <class F> void gen(string &s, int at, int alpha, F f) {
     if (at == sz(s))

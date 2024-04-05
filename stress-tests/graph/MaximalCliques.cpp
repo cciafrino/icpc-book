@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/graph/MaximalCliques.h"
+#include "../../content/graph/maximal-cliques.h"
 
 template<class F>
 void fastCliques(vector<B>& eds, F f) {

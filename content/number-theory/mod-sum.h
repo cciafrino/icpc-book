@@ -23,7 +23,7 @@ ull divsum(ull to, ull c, ull k, ull m) { ///start-hash
 	}
 	return res;
 } ///end-hash
-lint modsum(ull to, lint c, lint k, lint m) { ///start-hash
+ll modsum(ull to, ll c, ll k, ll m) { ///start-hash
 	c = ((c % m) + m) % m; k = ((k % m) + m) % m;
 	return to * c + k * sumsq(to) - m * divsum(to, c, k, m);
 } ///end-hash

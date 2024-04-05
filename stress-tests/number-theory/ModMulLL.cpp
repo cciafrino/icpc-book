@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/number-theory/ModMulLL.h"
+#include "../../content/number-theory/mod-mul.h"
 
 const int ITERS = 5'000'000; // (not really enough to say much, need >1e10 for any kind of certainty)
 

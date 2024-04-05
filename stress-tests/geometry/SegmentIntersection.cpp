@@ -1,6 +1,11 @@
 #include "../utilities/template.h"
 
+#include "../../content/geometry/Point.h"
+using P = Point<double>;
 #include "../../content/geometry/SegmentIntersection.h"
+
+ostream& operator<<(ostream& os, P p) {
+		return os << "(" << p.x << "," << p.y << ")"; }
 
 namespace oldImpl {
 template<class P>

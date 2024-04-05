@@ -22,7 +22,7 @@ template<typename T> T phi(T N){
 	return s;
 }
 
-pair<vector<int>, vector<int>> run_sieve(int N) {
+pair<vector<int>, vector<int>> run_sieve2(int N) {
 	vector<int> pfac(N + 1);
 	vector<int> primes; primes.reserve(N+1);
 	vector<int> mu(N + 1, -1); mu[1] = 1;
@@ -47,7 +47,7 @@ pair<vector<int>, vector<int>> run_sieve(int N) {
 	return {primes, pfac};
 }
 
-auto [primes, pfac] = run_sieve(10000);
+auto [primes, pfac] = run_sieve2(10000);
 
 #include "../../content/number-theory/prime-factors.h"
 

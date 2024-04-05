@@ -15,6 +15,6 @@ vector<int> Z(const string& S) { ///start-hash
 	} return z;
 } ///end-hash
 vector<int> get_prefix(string a, string b) { 
-	string str = a + '@' + b; vector<int> k = z(str);
+	string str = a + '@' + b; vector<int> k = Z(str);
 	return vector<int>(k.begin() + int(a.size())+1, k.end());
 }

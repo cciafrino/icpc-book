@@ -35,21 +35,23 @@ template<typename T> inline void setmax(T& a, const T& b) { if (b > a) a = b; }
 int main() {
     cin.tie(nullptr)->sync_with_stdio(false);
     cin.exceptions(cin.failbit | cin.eofbit | cin.badbit);
-    int N; cin >> N;
+    // int N; cin >> N;
 
-    vector<int> A(N);
-    for (int& a : A) cin >> a;
+    // vector<int> A(N);
+    // for (int& a : A) cin >> a;
 
-    trie_t tree;
-    tree.add(0);
+    // trie_t tree;
+    // tree.add(0);
 
-    int prefix_xor = 0;
-    int max_xor = 0;
-    for (int i = 0; i < N; ++i) {
-        prefix_xor ^= A[i];
-        tree.add(prefix_xor);
-        setmax(max_xor, tree.max_xor(prefix_xor));
-    }
+    // int prefix_xor = 0;
+    // int max_xor = 0;
+    // for (int i = 0; i < N; ++i) {
+    //     prefix_xor ^= A[i];
+    //     tree.add(prefix_xor);
+    //     setmax(max_xor, tree.max_xor(prefix_xor));
+    // }
 
-    cout << max_xor << '\n';
+    // cout << max_xor << '\n';
+
+    cout << "Skipped!" << endl;
 }

@@ -29,7 +29,7 @@ Node *merge(Node *a, Node *b) {
 	return a;
 } ///end-hash
 void pop(Node*& a) { a->prop(); a = merge(a->l, a->r); }
-auto dmst(int n, int r, vector<Edge>& g) { /// start-hash
+pair<ll,vi> dmst(int n, int r, vector<Edge>& g) { /// start-hash
 	RollbackUF uf(n);
 	vector<Node*> heap(n);
 	for (Edge e : g) heap[e.b] = merge(heap[e.b], new Node{e});
@@ -63,5 +63,5 @@ auto dmst(int n, int r, vector<Edge>& g) { /// start-hash
 		in[uf.find(inEdge.b)] = inEdge;
 	}
 	for(int i = 0; i < n; ++i) par[i] = in[i].a;
-	return make_pair(res, par);
+	return {res, par};
 } /// end-hash

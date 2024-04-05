@@ -53,9 +53,9 @@ template<typename T = int64_t> struct seg_node {///start-hash
 // update range a[i] <- b * a[i] + c
 // get sum a[l, r)
 struct seg_node {///start-hash
-	int sz; i64 sum, lzB, lzC;
+	int sz; ll sum, lzB, lzC;
 	seg_node() : sz(1), sum(0), lzB(1), lzC(0) {}
-	seg_node(i64 v) : sz(1), sum(v), lzB(1), lzC(0) {}
+	seg_node(ll v) : sz(1), sum(v), lzB(1), lzC(0) {}
 	void push(seg_node& l, seg_node& r) {
 		l.add(lzB, lzC), r.add(lzB, lzC);
 		lzB = 1, lzC = 0;
@@ -63,11 +63,11 @@ struct seg_node {///start-hash
 	void merge(const seg_node& l, const seg_node& r) {
 		sz = l.sz + r.sz, sum = l.sum + r.sum;
 	}
-	bool add(i64 b, i64 c) {
+	bool add(ll b, ll c) {
 		sum = (b * sum + c * sz), lzB = (lzB * b);
 		lzC = (lzC * b + c); return true;
 	}
-	i64 get_sum() const { return sum; }
+	ll get_sum() const { return sum; }
 };///end-hash
 // update range a[i] <- min(a[i], b);
 // update range a[i] <- max(a[i], b);

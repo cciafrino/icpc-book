@@ -11,10 +11,11 @@
  * A proof of correctness is in doc/modmul-proof.tex. An earlier version of the proof,
  * from when the code used a * b / (long double)M, is in doc/modmul-proof.md.
  */
+#pragma once
 typedef unsigned long long ull;
 ull modmul(ull a, ull b, ull M) { ///start-hash
-	lint ret = a * b - M * ull(1.L / M * a * b);
-	return ret + M * (ret < 0) - M * (ret >= (lint)M);
+	ll ret = a * b - M * ull(1.L / M * a * b);
+	return ret + M * (ret < 0) - M * (ret >= (ll)M);
 } ///end-hash
 ull modpow(ull b, ull e, ull mod) { ///start-hash
 	ull ans = 1;

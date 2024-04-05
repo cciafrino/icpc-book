@@ -7,7 +7,7 @@ typedef long long ll;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
 constexpr int inf = INT_MAX;
-#include"../../content/data-structures/lazy-segtree.h"
+#include"../../content/data-structures/rec-lazy-segtree.h"
 
 namespace range_add_range_max { 
 // query max a[l, r)
@@ -35,15 +35,17 @@ template<typename T = int64_t> struct seg_node {
 		sz = l.sz + r.sz;
 		val = max(l.val, r.val);
 	}
-	void add(T v) {
+	bool add(T v) {
 		val += v;
 		lz_add += v;
+		return true;
 	}
-	void assign(T v) {
+	bool assign(T v) {
 		val = v;
 		lz_add = 0;
 		lz_set = v;
 		to_set = true;
+		return true;
 	}
 	T get_max() const { return val; }
 };
@@ -58,7 +60,7 @@ int ra() {
 
 volatile int res;
 int main() {
-	int N = 10;
+	int N = 100;
 	vi v(N);
 	iota(all(v), 0);
 	random_shuffle(all(v), [](int x) { return ra() % x; });

@@ -150,10 +150,10 @@ template<class T> T calc_det(Matrix<T> a) {
 int main() {
     cin.tie(nullptr)->sync_with_stdio(false);
     cin.exceptions(cin.failbit | cin.eofbit | cin.badbit);
-    using num = modnum<998244353>;
+    // using num = modnum<998244353>;
 
-    Matrix<num> A = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    auto res = calc_det(A);
+    // Matrix<num> A = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    // auto res = calc_det(A);
     //auto res2 = inverse(A);
     //for (int i = 0; i < 3; ++i) {
         //for (int j = 0; j < 3; ++j) {
@@ -162,5 +162,6 @@ int main() {
         //cout << endl;
     //}
     //
-    cout << res << endl;
+    // cout << res << endl;
+    cout << "Skipped: still need to be implemented!" << endl;
 }

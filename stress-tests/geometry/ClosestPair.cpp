@@ -1,5 +1,7 @@
 #include "../utilities/template.h"
 
+#include "../../content/geometry/Point.h"
+using P = Point<ll>;
 #include "../../content/geometry/ClosestPair.h"
 
 namespace old {
@@ -114,7 +116,7 @@ int main() {
 		}
 		ll minDist = LLONG_MAX;
 		rep(i,0,n) rep(j,i+1,n) {
-			minDist = min(minDist, (ps[i] - ps[j]).dist2());
+			minDist = min<ll>(minDist, (ps[i] - ps[j]).dist2());
 		}
 		auto pa = closest(ps);
 		ll foundDist = (pa.first - pa.second).dist2();

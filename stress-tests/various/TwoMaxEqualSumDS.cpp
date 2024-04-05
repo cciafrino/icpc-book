@@ -2,7 +2,7 @@
 
 using namespace std;
 
-#include "../../content/various/TwoMaxEqualSumDS.h"
+#include "../../content/various/two-max-equal-sum.h"
 
 
 #define MAX 15
@@ -54,5 +54,6 @@ int main(){
 		
 	
 	}
-	return 0;
+
+	cout << "Tests passed!" << endl;
 }

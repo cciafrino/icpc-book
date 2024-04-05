@@ -1,8 +1,8 @@
 #include "../utilities/template.h"
 
-#include "../../content/number-theory/MillerRabin.h"
+#include "../../content/number-theory/miller-rabin.h"
 namespace sieve {
-#include "../../content/number-theory/FastEratosthenes.h"
+#include "../../content/number-theory/segmented-sieve.h"
 }
 
 ull A[] = {2, 325, 9375, 28178, 450775, 9780504, 1795265022};

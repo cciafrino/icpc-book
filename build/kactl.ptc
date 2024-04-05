@@ -257,7 +257,7 @@
 \contentsline {subsection}{\texttt {PointInsideHull.h}\hspace {0.2em}}{31}{lstnumber.8.26.11}%
 \contentsline {subsection}{\texttt {minkowski-sum.h}\hspace {0.2em}}{31}{lstnumber.8.27.12}%
 \contentsline {subsection}{\texttt {LineHullIntersection.h}\hspace {0.2em}}{32}{lstnumber.8.28.20}%
-\contentsline {subsection}{\texttt {HalfPlane.h}\hspace {0.2em}}{32}{lstnumber.8.29.39}%
+\contentsline {subsection}{\texttt {HalfPlane.h}\hspace {0.2em}}{32}{lstnumber.8.29.37}%
 \contentsline {section}{\numberline {8.4}Misc. Point Set Problems}{32}{section.8.4}%
 \contentsline {subsection}{\texttt {ClosestPair.h}\hspace {0.2em}}{32}{section.8.4}%
 \contentsline {subsection}{\texttt {KdTree.h}\hspace {0.2em}}{32}{lstnumber.8.31.16}%
@@ -281,7 +281,7 @@
 \contentsline {section}{\texttt {rolling-hash.h}\hspace {0.2em}}{35}{lstnumber.9.6.28}%
 \contentsline {section}{\texttt {aho-corasick.h}\hspace {0.2em}}{35}{lstnumber.9.7.36}%
 \contentsline {section}{\texttt {suffix-array.h}\hspace {0.2em}}{35}{lstnumber.9.8.36}%
-\contentsline {section}{\texttt {suffix-tree.h}\hspace {0.2em}}{36}{lstnumber.9.9.66}%
+\contentsline {section}{\texttt {suffix-tree.h}\hspace {0.2em}}{36}{lstnumber.9.9.67}%
 \contentsline {section}{\texttt {suffix-automaton.h}\hspace {0.2em}}{36}{lstnumber.9.10.46}%
 \contentsline {section}{\numberline {9.1}Suffix Automaton}{36}{section.9.1}%
 \contentsline {subsection}{\numberline {9.1.1}Number of different substrings}{36}{subsection.9.1.1}%
@@ -336,7 +336,7 @@
 \contentsline {subsection}{\texttt {bump-allocator-stl.h}\hspace {0.2em}}{41}{lstnumber.10.32.8}%
 \contentsline {subsection}{\texttt {unrolling.h}\hspace {0.2em}}{41}{lstnumber.10.33.14}%
 \contentsline {subsection}{\texttt {fast-mod.h}\hspace {0.2em}}{41}{lstnumber.10.34.5}%
-\contentsline {subsection}{\texttt {custom-comparator.h}\hspace {0.2em}}{41}{lstnumber.10.35.10}%
+\contentsline {subsection}{\texttt {custom-comparator.h}\hspace {0.2em}}{41}{lstnumber.10.35.9}%
 \contentsline {section}{\numberline {10.6}Bit Twiddling Hack}{41}{section.10.6}%
 \contentsline {subsection}{\texttt {hacks.h}\hspace {0.2em}}{41}{section.10.6}%
 \contentsline {subsection}{\texttt {bitset.h}\hspace {0.2em}}{41}{lstnumber.10.37.21}%

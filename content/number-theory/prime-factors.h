@@ -4,6 +4,7 @@
  * Time: $O(log(n))$
  * Status: stress tested
  */
+#pragma once
 #include "sieve.h"
 template<typename T>
 vector<pair<T, int>> prime_factorize(T n) {

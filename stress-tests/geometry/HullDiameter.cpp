@@ -1,6 +1,9 @@
 #include "../utilities/template.h"
 
+#include "../../content/geometry/Point.h"
+using P = Point<ll>;
 #include "../../content/geometry/ConvexHull.h"
+
 #include "../../content/geometry/HullDiameter.h"
 
 int main() {

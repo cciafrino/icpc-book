@@ -1,6 +1,6 @@
 #include "../utilities/template.h"
 
-#include "../../content/strings/MinRotation.h"
+#include "../../content/strings/min-rotation.h"
 
 int min_rotation2(string& v) {
 	int n = sz(v);
@@ -17,7 +17,7 @@ void testPerf() {
 	string s;
 	rep(i,0,10000000)
 		s += (char)(rand()%400000 < 2);
-	cout << minRotation(s) << endl;
+	cout << min_rotation(s) << endl;
 }
 
 int main() {
@@ -25,11 +25,11 @@ int main() {
 		int n = rand() % 10;
 		string v;
 		rep(i,0,n) v += (char)(rand() % 3);
-		int r = minRotation(v);
+		int r = min_rotation(v);
 		int r2 = min_rotation2(v);
 		assert(r == r2);
 		rotate(v.begin(), v.begin() + r, v.end());
-		assert(minRotation(v) == 0);
+		assert(min_rotation(v) == 0);
 		assert(min_rotation2(v) == 0);
 	}
 	cout<<"Tests passed!"<<endl;
