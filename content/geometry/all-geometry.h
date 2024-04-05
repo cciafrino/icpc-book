@@ -113,7 +113,7 @@ P linearTransformation(const P& p0, const P& p1,
 	P dp = p1-p0, dq = q1-q0, num(dp.cross(dq), dp.dot(dq));
 	return q0 + P((r-p0).cross(num), (r-p0).dot(num))/dp.dist2();
 }///end-hash
-// Useful utilities for dealing with angles of rays from origin.
+// Useful utilities for dealing with angles of rays from origin
 template <class P>///start-hash
 bool sameDir(P s, P t) {
 	return s.cross(t) == 0 && s.dot(t) > 0;
@@ -326,7 +326,7 @@ vector<P> convexHull(vector<P> pts) {///start-hash
 	sort(pts.begin(), pts.end());
 	vector<P> h(pts.size()+1);
 	int s = 0, t = 0;
-	for (int it = 2; it--; s = --t, reverse(pts.begin(), pts.end()))
+	for (int it = 2;it--;s = --t,reverse(pts.begin(),pts.end()))
 		for (P p : pts) {
 			while (t >= s + 2 && h[t-2].cross(h[t-1], p) <= 0) t--;
 			h[t++] = p;
