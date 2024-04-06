@@ -608,7 +608,7 @@ struct PR { ///start-hash
 struct F { P3 q; int a, b, c; };
 vector<F> hull3d(const vector<P3>& A) {///start-hash
 	assert(A.size() >= 4);
-	vector<vector<PR>> E(A.size(), vector<PR>(A.size(), {-1, -1}));
+	vector<vector<PR>> E(A.size(),vector<PR>(A.size(),{-1, -1}));
 #define E(x,y) E[f.x][f.y]
 	vector<F> FS;
 	auto mf = [&](int i, int j, int k, int l) {

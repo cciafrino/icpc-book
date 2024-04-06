@@ -283,7 +283,7 @@
 \contentsline {section}{\texttt {tandem-repeats.h}\hspace {0.2em}}{35}{lstnumber.9.7.36}%
 \contentsline {section}{\texttt {aho-corasick.h}\hspace {0.2em}}{35}{lstnumber.9.8.13}%
 \contentsline {section}{\texttt {suffix-array.h}\hspace {0.2em}}{36}{lstnumber.9.9.36}%
-\contentsline {section}{\texttt {suffix-tree.h}\hspace {0.2em}}{36}{lstnumber.9.10.67}%
+\contentsline {section}{\texttt {suffix-tree.h}\hspace {0.2em}}{36}{lstnumber.9.10.66}%
 \contentsline {section}{\texttt {suffix-automaton.h}\hspace {0.2em}}{36}{lstnumber.9.11.46}%
 \contentsline {section}{\numberline {9.1}Suffix Automaton}{36}{section.9.1}%
 \contentsline {subsection}{\numberline {9.1.1}Number of different substrings}{36}{subsection.9.1.1}%
