@@ -3,7 +3,7 @@ name: verify
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
 
 jobs:
@@ -11,17 +11,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
 
     - name: Install dependencies
-      run: pip3 install -U git+https://github.com/${{ github.repository }}.git@master
+      run: pip3 install -U online-judge-verify-helper
+
+    - name: git pull
+      run: git pull
 
     - name: Run tests
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         YUKICODER_TOKEN: ${{ secrets.YUKICODER_TOKEN }}
+        DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
         GH_PAT: ${{ secrets.GH_PAT }}
       run: oj-verify all
