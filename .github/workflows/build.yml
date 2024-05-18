@@ -15,8 +15,8 @@ jobs:
       run: sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra -y --fix-missing
     - name: git pull
       run: git pull
-        #- name: Tests
-      # run: make test
+    - name: Tests
+      run: make test
     - name: Build
       run: make kactl
     - name: Commit and push
