@@ -95,13 +95,14 @@ int main() {
 		}
 	}
 
+	auto rec = [&](auto&& self, int l, int r) -> vector<num> {
+		if (r - l == 1) return poly[l];
+		int md = (l + r) / 2;
+		return fft.convolve(self(self, l, md), self(self, md, r));
+	};
 
-	for (int i = N-1; i > 0; --i) {
-		int j = i - (i&-i);
-		poly[j] = fft.convolve(poly[j], poly[i]);
-	}
-
-	for (auto v : poly[0]) {
+	auto ans = rec(rec, 0, N);
+	for (auto v : ans) {
 		cout << v.x << ' ';
 	}
 	cout << '\n';
