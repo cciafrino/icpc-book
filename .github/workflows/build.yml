@@ -1,4 +1,4 @@
-name: Build notebook
+name: Build and verify notebook
 
 on:
   push:
@@ -6,30 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
-    steps:
-    - uses: actions/checkout@v3
-    - name: Update packages
-      run: sudo apt-get update -y
-    - name: Install latex
-      run: sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra -y --fix-missing
-    - name: git pull
-      run: git pull
-    - name: Tests
-      run: make test
-    - name: Build
-      run: make ufrj
-    - name: Commit and push
-      run: |
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git add .
-        git commit -m "build from pipeline"
-        git push 
-
-  verify:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
 
@@ -38,9 +15,6 @@ jobs:
 
     - name: Install dependencies
       run: pip3 install -U online-judge-verify-helper
-
-    - name: git pull
-      run: git pull
   
     - name: Run tests
       env:
@@ -49,3 +23,23 @@ jobs:
         DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
         GH_PAT: ${{ secrets.GH_PAT }}
       run: oj-verify all
+      
+    - name: Update packages
+      run: sudo apt-get update -y
+
+    - name: Install latex
+      run: sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra -y --fix-missing
+
+    - name: Tests
+      run: make test
+
+    - name: Build
+      run: make ufrj
+      
+    - name: Commit and push
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add .
+        git commit -m "build from pipeline"
+        git push 
