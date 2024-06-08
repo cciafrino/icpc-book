@@ -8,10 +8,10 @@ order to spare lines of code (to shorten the number of pages).
 Most of the code is written and tested (oj-test, stress, and some old unit-tests) 
 using C++ (as of now we are using C++20 as the standard).
 
-See [ufrj.pdf](https://github.com/cciafrino/icpc-book/tree/main/) for the final version used during the last regional qualifier (no number of pages limit),
-and [ufrj-wf.pdf/](https://github.com/kth-competitive-programming/kactl/tree/master/content) for the one used last ICPC World Finals (maximum of 26 pages).
+See [ufrj.pdf](https://github.com/cciafrino/icpc-book/tree/main/ufrj.pdf) for the final version used during the last regional qualifier (no number of pages limit),
+and [ufrj-wf.pdf/](https://github.com/cciafrino/icpc-book/tree/main/ufrj-wf.pdf) for the one used last ICPC World Finals (maximum of 26 pages).
 You can find the source code at [content/](https://github.com/cciafrino/icpc-book/tree/main/content).
-
+a
 ## Aspirations
 
 This work is heavily inspired by [KACTL](https://github.com/kth-competitive-programming/kactl), and by many other libraries out there.
