@@ -19,7 +19,7 @@ This work is heavily inspired by [KACTL](https://github.com/kth-competitive-prog
 
 ## Building PDF
 
-To build, type `make ufrj` (or `make fast`) on a \*nix machine -- this will update `kactl.pdf`. This process is executed by the CI on every commit so you can grab the latest version on `build`.
+To build, type `make ufrj` (or `make fast`) on a \*nix machine -- this will update `ufrj.pdf` and `ufrj-wf.pdf`. This process is executed by the CI on every commit so you can grab the latest version on `build`.
 
 ## Hashes to check correctness
 
