@@ -14,38 +14,7 @@
  * Rounding is safe if $(\sum a_i^2 + \sum b_i^2)\log_2{N} < 9\cdot10^{14}$
  * (in practice $10^{16}$; higher for random inputs). Otherwise, use NTT/FFTMod.
  */
-#include "../number-theory/modular-arithmetic.h"
-template <typename dbl> struct cplx { ///start-hash
-	dbl x, y; using P = cplx;
-	cplx(dbl x_ = 0, dbl y_ = 0) : x(x_), y(y_) { }
-	friend P operator+(P a, P b) { return P(a.x+b.x, a.y+b.y); }
-	friend P operator-(P a, P b) { return P(a.x-b.x, a.y-b.y); }
-	friend P operator*(P a, P b) { return P(a.x*b.x - a.y*b.y, a.x*b.y + a.y*b.x); }
-	friend P conj(P a) { return P(a.x, -a.y); }
-	friend P inv(P a) { dbl n = (a.x*a.x+a.y*a.y); return P(a.x/n,-a.y/n); }
-};
-template <typename dbl> struct root_of_unity<cplx<dbl>> {
-	static cplx<dbl> f(int k) {
-		static const dbl PI = acos(-1); dbl a = 2*PI/k;
-		return cplx<dbl>(cos(a),sin(a));
-	}
-}; ///end-hash
 inline int nxt_pow2(int s) { return 1 << (s > 1 ? 32 - __builtin_clz(s-1) : 0); }
-template <typename T> struct root_of_unity {};
-//(MOD,3) := (M1:897581057),(M3:985661441),(M5:935329793)
-using M0 = modnum<998244353U>;///start-hash
-constexpr unsigned primitive_root(unsigned M) {
-	if (M == 880803841U) return 26U; // (M2)
-	else if (M == 943718401U) return 7U; // (M4)
-	else if (M == 918552577U) return 5U; // (M6)
-	else return 3U;
-}
-template<unsigned MOD> struct root_of_unity<modnum<MOD>> {
-	static constexpr modnum<MOD> g0 = primitive_root(MOD);
-	static modnum<MOD> f(int K) {
-		assert((MOD-1)%K == 0); return g0.pow((MOD-1)/K);
-	}
-};///end-hash
 template<typename T> struct FFT {
 	vector<T> rt; vector<int> rev;
 	FFT() : rt(2, T(1)) {}
@@ -97,42 +66,4 @@ template<typename T> struct FFT {
 			fft(as, true); as.resize(K); return as;
 		}
 	}///end-hash
-}; FFT<M0> FFT0;
-// T = {unsigned, unsigned long long, modnum<M>}
-// Remark: need to satisfy |poly| * mod^2 < \prod_{i} M_i
-template<class T, unsigned M0, unsigned M1, unsigned M2, unsigned M3, unsigned M4>
-T garner(modnum<M0> a0, modnum<M1> a1, modnum<M2> a2, modnum<M3> a3, modnum<M4> a4) { ///start-hash
-	static const modnum<M1> INV_M0_M1 = modnum<M1>(M0).inv();
-	static const modnum<M2> INV_M0M1_M2 = (modnum<M2>(M0) * M1).inv();
-	// static const modnum<M3> INV_M0M1M2_M3 = (modnum<M3>(M0) * M1 * M2).inv();
-	// static const modnum<M4> INV_M0M1M2M3_M4 = (modnum<M4>(M0) * M1 * M2 * M3).inv();
-	const modnum<M1> b1 = INV_M0_M1 * (a1 - a0.x);
-	const modnum<M2> b2 = INV_M0M1_M2 * (a2 - (modnum<M2>(b1.x) * M0 + a0.x));
-	// const modnum<M3> b3 = INV_M0M1M2_M3 * (a3 - ((modnum<M3>(b2.x) * M1 + b1.x) * M0 + a0.x));
-	// const modnum<M4> b4 = INV_M0M1M2M3_M4 * (a4 - (((modnum<M4>(b3.x) * M2 + b2.x) * M1 + b1.x) * M0 + a0.x));
-	return (T(b2.x) * M1 + b1.x) * M0 + a0.x;
-	// return (((T(b4.x) * M3 + b3.x) * M2 + b2.x) * M1 + b1.x) * M0 + a0.x;
-}///end-hash
-// results must be in [-448002610255888384, 448002611254132736]
-vector<ll> convolve(const vector<ll>& as, const vector<ll>& bs) {///start-hash
-	static constexpr unsigned M0 = M0::M, M1 = M1::M;
-	static const modnum<M1> INV_M0_M1 = modnum<M1>(M0).inv();
-	if (as.empty() || bs.empty()) return {};
-	const int len_as = int(as.size()), len_bs = int(bs.size());
-	vector<modnum<M0>> as0(len_as), bs0(len_bs);
-	for (int i = 0; i < len_as; ++i) as0[i] = as[i];
-	for (int i = 0; i < len_bs; ++i) bs0[i] = bs[i];
-	const vector<modnum<M0>> cs0 = FFT0.convolve(as0, bs0);
-	vector<modnum<M1>> as1(len_as), bs1(len_bs);
-	for (int i = 0; i < len_as; ++i) as1[i] = as[i];
-	for (int i = 0; i < len_bs; ++i) bs1[i] = bs[i];
-	const vector<modnum<M1>> cs1 = FFT1.convolve(as1, bs1);
-	vector<ll> cs(len_as + len_bs - 1);
-	for (int i = 0; i < len_as + len_bs - 1; ++i) {
-		const modnum<M1> d1 = INV_M0_M1 * (cs1[i] - cs0[i].x);
-		cs[i] = (d1.x > M1 - d1.x)
-			? (-1ULL - (static_cast<unsigned ll>(M1 - 1U - d1.x) * M0 + (M0 - 1U - cs0[i].x)))
-			: (static_cast<unsigned ll>(d1.x) * M0 + cs0[i].x);
-	}
-	return cs;
-}///end-hash
+};

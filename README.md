@@ -9,12 +9,12 @@ Most of the code is written and tested (oj-test, stress, and some old unit-tests
 using C++ (as of now we are using C++20 as the standard).
 
 See [ufrj.pdf](https://github.com/cciafrino/icpc-book/tree/main/ufrj.pdf) for the final version used during the last regional qualifier (no number of pages limit),
-and [ufrj-wf.pdf/](https://github.com/cciafrino/icpc-book/tree/main/ufrj-wf.pdf) for the one used last ICPC World Finals (maximum of 26 pages).
+and [ufrj-wf.pdf](https://github.com/cciafrino/icpc-book/tree/main/ufrj-wf.pdf) for the one used last ICPC World Finals (maximum of 26 pages).
 You can find the source code at [content/](https://github.com/cciafrino/icpc-book/tree/main/content).
-a
+
 ## Aspirations
 
-This work is heavily inspired by [KACTL](https://github.com/kth-competitive-programming/kactl), and by many other libraries out there.
+This library is heavily inspired and build upon [KACTL](https://github.com/kth-competitive-programming/kactl).
 
 
 ## Building PDF
@@ -35,8 +35,6 @@ Line width is 63 chars, with tabs for indentation (tab = 2 spaces in the pdf).
 Each algorithm contains a header with the author of the code, the date it
 was added, a description of the algorithm, its testing status, and preferably also
 source, license and time complexity.
-
-ufrj-wf.pdf is to be kept to 25 pages + cover page, while ufrj.pdf doesn't have a mandatory limit.
 
 ## Testing
 
