@@ -4,8 +4,6 @@ using namespace std;
 
 using ll = long long;
 
-#include "../../content/number-theory/modular-arithmetic.h"
-
 #include "../../content/numerical/root-of-unity-zp.h"
 #include "../../content/numerical/fast-fourier-transform.h"
 
@@ -58,7 +56,6 @@ vector<num> convolve(const vector<num>& as, const vector<num>& bs) {///start-has
 	return cs;
 }///end-hash
 
-FFT<num> fft;
 
 int main() {
 	cin.tie(nullptr)->sync_with_stdio(false);
