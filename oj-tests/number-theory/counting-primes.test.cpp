@@ -1,10 +1,8 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/suffixarray"
+#define PROBLEM "https://judge.yosupo.jp/problem/counting_primes"
 #include<bits/stdc++.h>
 using namespace std;
 
 using ll = long long;
-
-mt19937 rng(time(0));
 
 #include "../../content/number-theory/prime-counting.h"
 

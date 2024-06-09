@@ -9,13 +9,13 @@ using ll = long long;
 #include "../../content/numerical/root-of-unity-zp.h"
 #include "../../content/numerical/fast-fourier-transform.h"
 
-using M0 = modnum<998244353U>;
-using M1 = modnum<897581057U>;
-using M2 = modnum<935329793U>;
-using M3 = modnum<880803841U>;
-using M4 = modnum<985661441U>;
-using M5 = modnum<943718401U>;
-using M6 = modnum<918552577U>;
+using M0 = modnum<998244353U>; 
+using M1 = modnum<897581057U>; 
+using M2 = modnum<880803841U>;
+using M3 = modnum<985661441U>; 
+using M4 = modnum<943718401U>; 
+using M5 = modnum<935329793U>; 
+using M6 = modnum<918552577U>; 
 
 // M0 M1 M2 = 789204840662082423367925761 (> 7.892 * 10^26, > 2^89)
 // M0 M3 M4 M5 M6 = 797766583174034668024539679147517452591562753 (> 7.977 * 10^44, > 2^149)
