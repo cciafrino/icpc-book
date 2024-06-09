@@ -4,8 +4,6 @@ using namespace std;
 
 using ll = long long;
 
-#include "../../content/number-theory/modular-arithmetic.h"
-
 #include "../../content/numerical/root-of-unity-zp.h"
 #include "../../content/numerical/fast-fourier-transform.h"
 
@@ -23,7 +21,7 @@ using M6 = modnum<918552577U>;
 // T = {unsigned, unsigned long long, modnum<M>}
 // Remark: need to satisfy |poly| * mod^2 < \prod_{i} M_i
 template<class T, unsigned M0, unsigned M1, unsigned M2, unsigned M3, unsigned M4>
-T garner(modnum<M0> a0, modnum<M1> a1, modnum<M2> a2, modnum<M3> a3, modnum<M4> a4) { ///start-hash
+T garner(modnum<M0> a0, modnum<M1> a1, modnum<M2> a2, modnum<M3> a3, modnum<M4> a4) {
 	static const modnum<M1> INV_M0_M1 = modnum<M1>(M0).inv();
 	static const modnum<M2> INV_M0M1_M2 = (modnum<M2>(M0) * M1).inv();
 	static const modnum<M3> INV_M0M1M2_M3 = (modnum<M3>(M0) * M1 * M2).inv();
@@ -32,9 +30,8 @@ T garner(modnum<M0> a0, modnum<M1> a1, modnum<M2> a2, modnum<M3> a3, modnum<M4> 
 	const modnum<M2> b2 = INV_M0M1_M2 * (a2 - (modnum<M2>(b1.x) * M0 + a0.x));
 	const modnum<M3> b3 = INV_M0M1M2_M3 * (a3 - ((modnum<M3>(b2.x) * M1 + b1.x) * M0 + a0.x));
 	const modnum<M4> b4 = INV_M0M1M2M3_M4 * (a4 - (((modnum<M4>(b3.x) * M2 + b2.x) * M1 + b1.x) * M0 + a0.x));
-	// return (T(b2.x) * M1 + b1.x) * M0 + a0.x;
 	return (((T(b4.x) * M3 + b3.x) * M2 + b2.x) * M1 + b1.x) * M0 + a0.x;
-}///end-hash
+}
 
 FFT<M0> FFT0;
 FFT<M1> FFT1;

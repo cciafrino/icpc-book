@@ -12,12 +12,12 @@
 template<unsigned M_> struct modnum {
 	static constexpr unsigned M = M_; using num = modnum;
 	using ll = int64_t; using ull = uint64_t; unsigned x;
-	num& norm(unsigned a){x = a<M ? a : a-M;return *this;}
+	num& norm(unsigned a){x = a<M ? a < 0 ? a+M : a : a-M;return *this;}
 	constexpr modnum(ll a = 0) : x(unsigned((a %= ll(M))<0 ? a+M : a)) {}
 	explicit operator int() const { return x; }
 	num& operator+=(const num& a){ return norm(x+a.x); }
 	num& operator-=(const num& a){ return norm(x-a.x+M); }
-	num& operator*=(const num& a){ return norm(unsigned(ull(x)*a.x % M)); }
+	num& operator*=(const num& a){ return norm(unsigned((ull(x)*a.x) % M)); }
 	num& operator/=(const num& a){ return (*this *= a.inv());}
 	template<typename T> friend num operator+(T a, const num& b){ return (num(a) += b); }
 	template<typename T> friend num operator-(T a, const num& b){ return (num(a) -= b); }
