@@ -11,9 +11,13 @@
 #include"mod-inv.h"
 template<unsigned M_> struct modnum {
 	static constexpr unsigned M = M_; using num = modnum;
-	using ll = int64_t; using ull = uint64_t; unsigned x;
+	using ll = long long; using ull = unsigned long long; unsigned x;
 	num& norm(unsigned a){x = a<M ? a:a-M;return *this;}
-	constexpr modnum(ull a = 0) : x(unsigned((a %= ll(M))<0 ? a+M : a)) {}
+	constexpr modnum() : x(0U) {}
+	constexpr modnum(unsigned a) : x(a % M) {}
+	constexpr modnum(ull a) : x(a % M) {}
+	constexpr modnum(int a) : x(((a %= int(M)) < 0) ? (a + int(M)) : a) {}
+	constexpr modnum(ll a) : x(((a %= ll(M)) < 0) ? (a + ll(M)) : a) {}
 	explicit operator int() const { return x; }
 	num& operator+=(const num& a){ return norm(x+a.x); }
 	num& operator-=(const num& a){ return norm(x-a.x+M); }
