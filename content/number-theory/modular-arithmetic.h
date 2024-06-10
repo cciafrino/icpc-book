@@ -16,8 +16,8 @@ template<unsigned M_> struct modnum {
 	constexpr modnum() : x(0U) {}
 	constexpr modnum(unsigned a) : x(a % M) {}
 	constexpr modnum(ull a) : x(a % M) {}
-	constexpr modnum(int a) : x(((a %= int(M)) < 0) ? (a + int(M)) : a) {}
-	constexpr modnum(ll a) : x(((a %= ll(M)) < 0) ? (a + ll(M)) : a) {}
+	constexpr modnum(int a) : x(((a %= int(M))<0) ? (a+int(M)):a) {}
+	constexpr modnum(ll a) : x(((a %= ll(M))<0) ? (a+ll(M)):a) {}
 	explicit operator int() const { return x; }
 	num& operator+=(const num& a){ return norm(x+a.x); }
 	num& operator-=(const num& a){ return norm(x-a.x+M); }
