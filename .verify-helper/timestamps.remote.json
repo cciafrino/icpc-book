@@ -1,5 +1,8 @@
 {
+"oj-tests/graph/bipartite-matching.test.cpp": "2024-06-10 10:15:01 -0300",
+"oj-tests/graph/chromatic-number.test.cpp": "2024-06-10 10:15:01 -0300",
 "oj-tests/graph/general-matching.test.cpp": "2024-05-18 11:16:14 -0300",
+"oj-tests/graph/hld-lca.test.cpp": "2024-06-10 10:15:01 -0300",
 "oj-tests/graph/scc.test.cpp": "2024-06-07 21:01:47 -0300",
 "oj-tests/number-theory/counting-primes.test.cpp": "2024-06-09 16:07:49 -0300",
 "oj-tests/numerical/convolution-1000000007.test.cpp": "2024-06-09 21:13:54 -0300",
