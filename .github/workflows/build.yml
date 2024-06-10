@@ -21,7 +21,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         YUKICODER_TOKEN: ${{ secrets.YUKICODER_TOKEN }}
         DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
-        # GH_PAT: ${{ secrets.GH_PAT }}
+        GH_PAT: ${{ secrets.GH_PAT }}
       run: oj-verify all --jobs 2 --tle 20 --timeout 3600
       
     - name: Update packages
