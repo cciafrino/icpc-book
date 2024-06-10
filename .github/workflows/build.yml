@@ -24,7 +24,7 @@ jobs:
         pip install -r requirements.txt
   
     - name: Run tests
-      working-directory: oj-tests
+      # working-directory: oj-tests
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         YUKICODER_TOKEN: ${{ secrets.YUKICODER_TOKEN }}
