@@ -30,11 +30,6 @@
 	\kactlimport{kosaraju.h}
 	\kactlimport{bcc.h}
 	
-	
-	
-	
-	
-
 \section{Heuristics}
 	\kactlimport{maximal-cliques.h}
 	\kactlimport{maximum-clique.h}
@@ -77,21 +72,38 @@
 
 \section{Theorems}
 \subsection{Euler's theorem}
-Let $V$, $A$ and $F$ be the number of vertices, edges and faces of connected planar graph, $V - A + F = 2$.\\
+Let $V$, $A$ and $F$ be the number of vertices, edges and faces of connected planar graph, $V - A + F = 2$.
 
-\subsection{Konig's theorem}
-In any bipartite graph the following holds: Maximum matching and minimum vertex cover have the same cardinality.
-Minimum edge cover, minimum path cover and maximum independent set have the same cardinality $N - |M|$.\\
+\subsection{Number of Spanning Trees}
+	% I.e. matrix-tree theorem.
+	% Source: https://en.wikipedia.org/wiki/Kirchhoff%27s-theorem
+	% Test: stress-tests/graph/matrix-tree.cpp
+	Define Laplacian Matrix as $L = D - A$, $D$ being a Diagonal Matrix with $D_{i,i} = indeg(i)$ and $A$ an Adjacency Matrix.
+	Create an $N\times N$ Laplacian matrix \texttt{mat}, and for each edge $a \rightarrow b \in G$, do
+	\texttt{mat[a][b]--, mat[b][b]++} (and \texttt{mat[b][a]--, mat[a][a]++} if $G$ is undirected).
+	Remove the $i$th row and column and take the determinant; this yields the number of directed spanning trees rooted at $i$
+	(if $G$ is undirected, remove any row/column).
+
+\subsection{Tutte Matrix}
+	\begin{itemize}
+	\item A graph has a perfect matching iff the $Tutte$ matrix has a non-zero determinant.
+	\item The rank of the $Tutte$ matrix is equal to twice the size of the maximum matching. The maximum cost matching can be found by polynomial interpolation.
+	\end{itemize}
 
 \subsection{Eulerian Cycles}
 The number of Eulerian cycles in a \emph{directed} graph $G$ is: $t_w(G) \prod_{v \in G} (\deg v - 1)!$,
 where $t_w(G)$ is the number of arborescences (``directed spanning'' tree) rooted at $w$
-(Check Number of Spanning Trees)\\
+(Check Number of Spanning Trees)
+
+
+\subsection{Konig's theorem}
+In any bipartite graph the following holds: Maximum matching and minimum vertex cover have the same cardinality.
+Minimum edge cover, minimum path cover and maximum independent set have the same cardinality $N - |M|$.
 
 % \subsection{Dilworth's theorem}
 % For any partially ordered set, the sizes of the max antichain and of the min chain decomposition are equal. Equivalent to Konig's theorem on the bipartite graph $(U,V,E)$ where $U=V=S$ and $(u,v)$ is an edge when $u<v$. Those vertices outside the min vertex cover in both $U$ and $V$ form a max antichain
 
-\subsection{Construct minimum vertex cover from maximum matching on bipartite graph}
+\subsection{Minimum vertex cover from maximum matching on bipartite graph}
 \vspace{-0.2em}
 \begin{enumerate}
 	\itemsep-0.8em
@@ -105,9 +117,8 @@ where $t_w(G)$ is the number of arborescences (``directed spanning'' tree) roote
 \vspace{-0.2em}
     \begin{enumerate}
 	  \itemsep-0.8em
-      \item For each $v \in V$ create a copy $v^\prime$, and connect $u^\prime \to v^\prime$ with weight $w(u, v)$.
-      \item Connect $v \to v^\prime$ with weight $2\mu(v)$, where $\mu(v)$ is the cost of the cheapest edge incident to $v$.
-      \item Find the minimum weight perfect matching on $G^\prime$.
+      \item Change the weight of each edge to $\mu(u) + \mu(v) - w(u, v)$, where $\mu(v)$ is the cost of the cheapest edge incident to $v$.
+      \item Let the maximum weight matching of the graph be $x$, the answer will be $\sum \mu(v) - x$.
     \end{enumerate}
 
 \subsection{Maximum/Minimum flow with lower bound / Circulation problem}
@@ -137,8 +148,6 @@ where $t_w(G)$ is the number of arborescences (``directed spanning'' tree) roote
 	\item For each vertex $v$ with $d(v) < 0$, connect $v \rightarrow T$ with $(cost, cap) = (0, -d(v))$
 	\item Flow from $S$ to $T$, the answer is the cost of the flow $C + K$
 \end{enumerate}
-
-\
 
 \subsection{Maximum density induced subgraph}
 \vspace{-0.2em}
@@ -200,21 +209,6 @@ where $t_w(G)$ is the number of arborescences (``directed spanning'' tree) roote
 %A simple graph with node degrees $d-1 \ge \dots \ge d-n$ exists iff $d-1 + \dots + d-n$ is even and for every $k = 1\dots n$,
 %\[ \sum -{i=1}^{k}d-{i}\leq k(k-1)+\sum -{i=k+1}^{n}\min(d-{i},k). \]
 
-\subsection{Number of Spanning Trees}
-		% I.e. matrix-tree theorem.
-		% Source: https://en.wikipedia.org/wiki/Kirchhoff%27s-theorem
-		% Test: stress-tests/graph/matrix-tree.cpp
-		Define Laplacian Matrix as $L = D - A$, $D$ being a Diagonal Matrix with $D_{i,i} = indeg(i)$ and $A$ an Adjacency Matrix.
-		Create an $N\times N$ Laplacian matrix \texttt{mat}, and for each edge $a \rightarrow b \in G$, do
-		\texttt{mat[a][b]--, mat[b][b]++} (and \texttt{mat[b][a]--, mat[a][a]++} if $G$ is undirected).
-		Remove the $i$th row and column and take the determinant; this yields the number of directed spanning trees rooted at $i$
-		(if $G$ is undirected, remove any row/column).
-
-\subsection{Tutte Matrix}
-	\begin{itemize}
-	\item A graph has a perfect matching iff the $Tutte$ matrix has a non-zero determinant.
-	\item The rank of the $Tutte$ matrix is equal to twice the size of the maximum matching. The maximum cost matching can be found by polynomial interpolation.
-	\end{itemize}
 % \subsection{Matroid Intersection theorem}
 % Let~$M-1 = (E, I-1)$ e~$M-2 = (E, I-2)$ be matroids. Then
 % $ \max\limits-{S \in I-1 \cap I-2}{|S|} = \min\limits-{U \subseteq E}{r-1(U) + r-2(E \setminus U)}.$
